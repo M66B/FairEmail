@@ -297,7 +297,7 @@ public class FragmentRule extends FragmentBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentColor fragment = new FragmentColor();
+                FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.initialize(R.string.title_flag_color, color, new Bundle(), getContext());
                 fragment.setTargetFragment(FragmentRule.this, REQUEST_COLOR);
                 fragment.show(getFragmentManager(), "rule:color");

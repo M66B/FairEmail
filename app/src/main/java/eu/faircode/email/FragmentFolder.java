@@ -322,7 +322,7 @@ public class FragmentFolder extends FragmentBase {
         Bundle aargs = new Bundle();
         aargs.putString("question", getString(R.string.title_folder_delete));
 
-        FragmentAsk ask = new FragmentAsk();
+        FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);
         ask.setTargetFragment(FragmentFolder.this, REQUEST_DELETE_FOLDER);
         ask.show(getFragmentManager(), "folder:delete");
@@ -497,7 +497,7 @@ public class FragmentFolder extends FragmentBase {
                     Bundle aargs = new Bundle();
                     aargs.putString("question", getString(R.string.title_ask_save));
 
-                    FragmentAsk ask = new FragmentAsk();
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
                     ask.setArguments(aargs);
                     ask.setTargetFragment(FragmentFolder.this, REQUEST_SAVE_CHANGES);
                     ask.show(getFragmentManager(), "folder:save");

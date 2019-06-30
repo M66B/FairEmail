@@ -583,7 +583,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void checkFirst() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("first", true))
-            new FragmentFirst().show(getSupportFragmentManager(), "first");
+            new FragmentDialogFirst().show(getSupportFragmentManager(), "first");
     }
 
     private void checkCrash() {
@@ -862,7 +862,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (faq.resolveActivity(getPackageManager()) == null)
             Helper.view(this, this, getIntentRate(this));
         else
-            new FragmentRate().show(getSupportFragmentManager(), "rate");
+            new FragmentDialogRate().show(getSupportFragmentManager(), "rate");
     }
 
     private void onMenuOtherApps() {
@@ -1178,7 +1178,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return intent;
     }
 
-    public static class FragmentFirst extends DialogFragment {
+    public static class FragmentDialogFirst extends DialogFragment {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -1195,7 +1195,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
     }
 
-    public static class FragmentRate extends DialogFragment {
+    public static class FragmentDialogRate extends DialogFragment {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

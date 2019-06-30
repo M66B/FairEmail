@@ -41,7 +41,7 @@ import java.util.List;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentSelectFolder extends DialogFragment {
+public class FragmentDialogFolder extends DialogFragment {
     private TwoStateOwner owner = new TwoStateOwner("folder:select");
 
     @NonNull

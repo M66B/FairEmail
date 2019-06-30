@@ -2488,7 +2488,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", message.id);
 
-            FragmentColor fragment = new FragmentColor();
+            FragmentDialogColor fragment = new FragmentDialogColor();
             fragment.initialize(R.string.title_flag_color, color, args, context);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_COLOR);
             fragment.show(parentFragment.getFragmentManager(), "message:color");
@@ -3090,7 +3090,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("message", message.id);
             args.putBoolean("copy", copy);
 
-            FragmentSelectFolder fragment = new FragmentSelectFolder();
+            FragmentDialogFolder fragment = new FragmentDialogFolder();
             fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
             fragment.show(parentFragment.getFragmentManager(), "message:move");

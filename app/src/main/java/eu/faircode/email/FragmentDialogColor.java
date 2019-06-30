@@ -29,7 +29,7 @@ import com.android.colorpicker.ColorPickerDialog;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentColor extends ColorPickerDialog {
+public class FragmentDialogColor extends ColorPickerDialog {
     private Bundle args;
 
     public void initialize(int title, int color, Bundle args, Context context) {

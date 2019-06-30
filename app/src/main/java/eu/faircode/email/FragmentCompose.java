@@ -1083,7 +1083,7 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putString("title", getString(R.string.title_send_at));
 
-        FragmentDuration fragment = new FragmentDuration();
+        FragmentDialogDuration fragment = new FragmentDialogDuration();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_SEND_AFTER);
         fragment.show(getFragmentManager(), "send:after");
@@ -3258,7 +3258,7 @@ public class FragmentCompose extends FragmentBase {
                     ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
                     int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
 
-                    FragmentColor fragment = new FragmentColor();
+                    FragmentDialogColor fragment = new FragmentDialogColor();
                     fragment.initialize(R.string.title_style_color, color, args, getContext());
                     fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
                     fragment.show(getFragmentManager(), "account:color");

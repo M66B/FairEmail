@@ -226,8 +226,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_DECRYPT = 4;
     private static final int REQUEST_DELETE = 5;
     private static final int REQUEST_JUNK = 6;
-    private static final int REQUEST_MOVE = 7;
-    private static final int REQUEST_MOVE_ACROSS = 8;
+    private static final int REQUEST_ASKED_MOVE = 7;
+    private static final int REQUEST_ASKED_MOVE_ACROSS = 8;
     static final int REQUEST_MESSAGE_COLOR = 9;
     private static final int REQUEST_MESSAGES_COLOR = 10;
     private static final int REQUEST_MESSAGE_SNOOZE = 11;
@@ -631,7 +631,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 args.putLong("id", id);
                 args.putBoolean("finish", true);
 
-                FragmentDuration fragment = new FragmentDuration();
+                FragmentDialogDuration fragment = new FragmentDialogDuration();
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
                 fragment.show(getFragmentManager(), "message:snooze");
@@ -724,7 +724,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     args.putLongArray("disabled", new long[]{});
                                     args.putString("query", query);
 
-                                    FragmentSelectFolder fragment = new FragmentSelectFolder();
+                                    FragmentDialogFolder fragment = new FragmentDialogFolder();
                                     fragment.setArguments(args);
                                     fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_SEARCH);
                                     fragment.show(getFragmentManager(), "messages:search");
@@ -1328,7 +1328,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         args.putLong("id", message.id);
                         args.putBoolean("finish", false);
 
-                        FragmentDuration fragment = new FragmentDuration();
+                        FragmentDialogDuration fragment = new FragmentDialogDuration();
                         fragment.setArguments(args);
                         fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
                         fragment.show(getFragmentManager(), "message:snooze");
@@ -1340,7 +1340,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
 
-                        FragmentColor fragment = new FragmentColor();
+                        FragmentDialogColor fragment = new FragmentDialogColor();
                         fragment.initialize(R.string.title_flag_color, color, args, getContext());
                         fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_COLOR);
                         fragment.show(getFragmentManager(), "message:color");
@@ -1354,7 +1354,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         args.putLong("message", message.id);
                         args.putBoolean("copy", false);
 
-                        FragmentSelectFolder fragment = new FragmentSelectFolder();
+                        FragmentDialogFolder fragment = new FragmentDialogFolder();
                         fragment.setArguments(args);
                         fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_MOVE);
                         fragment.show(getFragmentManager(), "message:move");
@@ -1662,7 +1662,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Bundle args = new Bundle();
         args.putString("title", getString(R.string.title_snooze));
 
-        FragmentDuration fragment = new FragmentDuration();
+        FragmentDialogDuration fragment = new FragmentDialogDuration();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_MESSAGES_SNOOZE);
         fragment.show(getFragmentManager(), "messages:snooze");
@@ -1714,7 +1714,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onActionFlagColorSelection() {
-        FragmentColor fragment = new FragmentColor();
+        FragmentDialogColor fragment = new FragmentDialogColor();
         fragment.initialize(R.string.title_flag_color, Color.TRANSPARENT, new Bundle(), getContext());
         fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_COLOR);
         fragment.show(getFragmentManager(), "messages:color");
@@ -1759,7 +1759,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         .getQuantityString(R.plurals.title_deleting_messages, ids.size(), ids.size()));
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
 
-                FragmentAsk ask = new FragmentAsk();
+                FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
                 ask.setTargetFragment(FragmentMessages.this, REQUEST_DELETE);
                 ask.show(getFragmentManager(), "messages:delete");
@@ -1779,7 +1779,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         aargs.putString("question", getResources()
                 .getQuantityString(R.plurals.title_ask_spam, count, count));
 
-        FragmentAsk ask = new FragmentAsk();
+        FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);
         ask.setTargetFragment(FragmentMessages.this, REQUEST_JUNK);
         ask.show(getFragmentManager(), "messages:junk");
@@ -1844,7 +1844,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLong("account", account);
         args.putLongArray("disabled", Helper.toLongArray(disabled));
 
-        FragmentSelectFolder fragment = new FragmentSelectFolder();
+        FragmentDialogFolder fragment = new FragmentDialogFolder();
         fragment.setArguments(args);
         fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGES_MOVE);
         fragment.show(getFragmentManager(), "messages:move");
@@ -3058,31 +3058,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         aargs.putString("notagain", "automove");
         aargs.putParcelableArrayList("result", result);
 
-        FragmentAsk ask = new FragmentAsk();
+        FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);
-        ask.setTargetFragment(FragmentMessages.this, REQUEST_MOVE);
+        ask.setTargetFragment(FragmentMessages.this, REQUEST_ASKED_MOVE);
         ask.show(getFragmentManager(), "messages:move");
-    }
-
-    private void moveAskAcross(final ArrayList<MessageTarget> result) {
-        boolean across = false;
-        for (MessageTarget target : result)
-            if (target.across) {
-                across = true;
-                break;
-            }
-
-        if (across) {
-            Bundle aargs = new Bundle();
-            aargs.putString("question", getString(R.string.title_accross_remark));
-            aargs.putParcelableArrayList("result", result);
-
-            FragmentAsk ask = new FragmentAsk();
-            ask.setArguments(aargs);
-            ask.setTargetFragment(FragmentMessages.this, REQUEST_MOVE_ACROSS);
-            ask.show(getFragmentManager(), "messages:move:across");
-        } else
-            moveAskConfirmed(result);
     }
 
     private void moveAskConfirmed(ArrayList<MessageTarget> result) {
@@ -3333,12 +3312,316 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Intent data = new Intent();
             data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
 
-            decrypt(data, intent.getLongExtra("id", -1));
+            onDecrypt(data, intent.getLongExtra("id", -1));
         } else
             Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG).show();
     }
 
-    private void decrypt(Intent data, long id) {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_RAW:
+                if (resultCode == RESULT_OK && data != null)
+                    onSaveRaw(data);
+                break;
+            case REQUEST_ATTACHMENT:
+                if (resultCode == RESULT_OK && data != null)
+                    onSaveAttachment(data);
+                break;
+            case REQUEST_ATTACHMENTS:
+                if (resultCode == RESULT_OK && data != null)
+                    onSaveAttachments(data);
+                break;
+            case REQUEST_DECRYPT:
+                if (resultCode == RESULT_OK && data != null)
+                    onDecrypt(data, message);
+                break;
+            case REQUEST_DELETE:
+                if (resultCode == RESULT_OK && data != null)
+                    onDelete(data.getBundleExtra("args").getLongArray("ids"));
+                break;
+            case REQUEST_JUNK:
+                if (resultCode == RESULT_OK)
+                    onActionMoveSelection(EntityFolder.JUNK);
+                break;
+            case REQUEST_ASKED_MOVE:
+                if (resultCode == RESULT_OK && data != null)
+                    onMoveAskAcross(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
+                break;
+            case REQUEST_ASKED_MOVE_ACROSS:
+                if (resultCode == RESULT_OK && data != null)
+                    moveAskConfirmed(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
+                break;
+            case REQUEST_MESSAGE_COLOR:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onColor(args.getLong("id"), args.getInt("color"));
+                }
+                break;
+            case REQUEST_MESSAGES_COLOR:
+                if (resultCode == RESULT_OK && data != null) {
+                    if (!Helper.isPro(getContext())) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                        return;
+                    }
+
+                    Bundle args = data.getBundleExtra("args");
+                    onActionFlagSelection(true, args.getInt("color"));
+                }
+                break;
+            case REQUEST_MESSAGE_SNOOZE:
+                if (resultCode == RESULT_OK && data != null)
+                    onSnooze(data.getBundleExtra("args"));
+                break;
+            case REQUEST_MESSAGES_SNOOZE:
+                if (resultCode == RESULT_OK && data != null)
+                    onSnoozeSelection(data.getBundleExtra("args"));
+                break;
+            case REQUEST_MESSAGE_MOVE:
+                if (resultCode == RESULT_OK && data != null)
+                    onMove(data.getBundleExtra("args"));
+                break;
+            case REQUEST_MESSAGES_MOVE:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onActionMoveSelection(args.getLong("folder"));
+                }
+                break;
+            case REQUEST_SEARCH:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    search(
+                            getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                            args.getLong("folder"), true, args.getString("query"));
+                }
+                break;
+        }
+    }
+
+    private void onSaveRaw(Intent data) {
+        Bundle args = new Bundle();
+        args.putLong("id", message);
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+
+                if ("file".equals(uri.getScheme())) {
+                    Log.w("Save raw uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    throw new FileNotFoundException();
+                File file = message.getRawFile(context);
+                Log.i("Raw file=" + file);
+
+                ParcelFileDescriptor pfd = null;
+                OutputStream os = null;
+                InputStream is = null;
+                try {
+                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
+                    os = new FileOutputStream(pfd.getFileDescriptor());
+                    is = new BufferedInputStream(new FileInputStream(file));
+
+                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
+                    int read;
+                    while ((read = is.read(buffer)) != -1)
+                        os.write(buffer, 0, read);
+                } finally {
+                    try {
+                        if (pfd != null)
+                            pfd.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                    try {
+                        if (os != null)
+                            os.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                    try {
+                        if (is != null)
+                            is.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Snackbar.make(view, R.string.title_raw_saved, Snackbar.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "raw:save");
+    }
+
+    private void onSaveAttachment(Intent data) {
+        Bundle args = new Bundle();
+        args.putLong("id", attachment);
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+
+                if ("file".equals(uri.getScheme())) {
+                    Log.w("Save attachment uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
+
+                DB db = DB.getInstance(context);
+                EntityAttachment attachment = db.attachment().getAttachment(id);
+                if (attachment == null)
+                    return null;
+                File file = attachment.getFile(context);
+
+                ParcelFileDescriptor pfd = null;
+                OutputStream os = null;
+                InputStream is = null;
+                try {
+                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
+                    os = new FileOutputStream(pfd.getFileDescriptor());
+                    is = new BufferedInputStream(new FileInputStream(file));
+
+                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
+                    int read;
+                    while ((read = is.read(buffer)) != -1)
+                        os.write(buffer, 0, read);
+                } finally {
+                    try {
+                        if (pfd != null)
+                            pfd.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                    try {
+                        if (os != null)
+                            os.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                    try {
+                        if (is != null)
+                            is.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Snackbar.make(view, R.string.title_attachment_saved, Snackbar.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "attachment:save");
+    }
+
+    private void onSaveAttachments(Intent data) {
+        Bundle args = new Bundle();
+        args.putLong("id", message);
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+
+                DB db = DB.getInstance(context);
+                DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : attachments) {
+                    File file = attachment.getFile(context);
+
+                    String name = Helper.sanitizeFilename(attachment.name);
+                    if (TextUtils.isEmpty(name))
+                        name = Long.toString(attachment.id);
+                    DocumentFile document = tree.createFile(attachment.type, name);
+                    if (document == null)
+                        throw new FileNotFoundException(uri + ":" + name);
+
+                    ParcelFileDescriptor pfd = null;
+                    OutputStream os = null;
+                    InputStream is = null;
+                    try {
+                        pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
+                        os = new FileOutputStream(pfd.getFileDescriptor());
+                        is = new BufferedInputStream(new FileInputStream(file));
+
+                        byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
+                        int read;
+                        while ((read = is.read(buffer)) != -1)
+                            os.write(buffer, 0, read);
+                    } finally {
+                        try {
+                            if (pfd != null)
+                                pfd.close();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                        try {
+                            if (os != null)
+                                os.close();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                        try {
+                            if (is != null)
+                                is.close();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Snackbar.make(view, R.string.title_attachments_saved, Snackbar.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "attachments:save");
+    }
+
+    private void onDecrypt(Intent data, long id) {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putParcelable("data", data);
@@ -3519,94 +3802,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(FragmentMessages.this, args, "decrypt");
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        switch (requestCode) {
-            case REQUEST_RAW:
-                if (resultCode == RESULT_OK && data != null)
-                    saveRaw(data);
-                break;
-            case REQUEST_ATTACHMENT:
-                if (resultCode == RESULT_OK && data != null)
-                    saveAttachment(data);
-                break;
-            case REQUEST_ATTACHMENTS:
-                if (resultCode == RESULT_OK && data != null)
-                    saveAttachments(data);
-                break;
-            case REQUEST_DECRYPT:
-                if (resultCode == RESULT_OK && data != null)
-                    decrypt(data, message);
-                break;
-            case REQUEST_DELETE:
-                if (resultCode == RESULT_OK && data != null)
-                    onDelete(data.getBundleExtra("args").getLongArray("ids"));
-                break;
-            case REQUEST_JUNK:
-                if (resultCode == RESULT_OK)
-                    onActionMoveSelection(EntityFolder.JUNK);
-                break;
-            case REQUEST_MOVE:
-                if (resultCode == RESULT_OK && data != null)
-                    moveAskAcross(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
-                break;
-            case REQUEST_MOVE_ACROSS:
-                if (resultCode == RESULT_OK && data != null)
-                    moveAskConfirmed(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
-                break;
-            case REQUEST_MESSAGE_COLOR:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    long id = args.getLong("id");
-                    int color = args.getInt("color");
-                    onColorSelected(id, color);
-                }
-                break;
-            case REQUEST_MESSAGES_COLOR:
-                if (resultCode == RESULT_OK && data != null) {
-                    if (!Helper.isPro(getContext())) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                        return;
-                    }
-
-                    Bundle args = data.getBundleExtra("args");
-                    int color = args.getInt("color");
-
-                    onActionFlagSelection(true, color);
-                }
-                break;
-            case REQUEST_MESSAGE_SNOOZE:
-                if (resultCode == RESULT_OK && data != null)
-                    onSnooze(data.getBundleExtra("args"));
-                break;
-            case REQUEST_MESSAGES_SNOOZE:
-                if (resultCode == RESULT_OK && data != null)
-                    onSnoozeSelection(data.getBundleExtra("args"));
-                break;
-            case REQUEST_MESSAGE_MOVE:
-                if (resultCode == RESULT_OK && data != null)
-                    onMove(data.getBundleExtra("args"));
-                break;
-            case REQUEST_MESSAGES_MOVE:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onActionMoveSelection(args.getLong("folder"));
-                }
-                break;
-            case REQUEST_SEARCH:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    search(
-                            getContext(), getViewLifecycleOwner(), getFragmentManager(),
-                            args.getLong("folder"), true, args.getString("query"));
-                }
-                break;
-        }
-    }
-
     private void onDelete(long[] ids) {
         Bundle args = new Bundle();
         args.putLongArray("ids", ids);
@@ -3641,6 +3836,65 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:delete:execute");
+    }
+
+    private void onMoveAskAcross(final ArrayList<MessageTarget> result) {
+        boolean across = false;
+        for (MessageTarget target : result)
+            if (target.across) {
+                across = true;
+                break;
+            }
+
+        if (across) {
+            Bundle aargs = new Bundle();
+            aargs.putString("question", getString(R.string.title_accross_remark));
+            aargs.putParcelableArrayList("result", result);
+
+            FragmentDialogAsk ask = new FragmentDialogAsk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(FragmentMessages.this, REQUEST_ASKED_MOVE_ACROSS);
+            ask.show(getFragmentManager(), "messages:move:across");
+        } else
+            moveAskConfirmed(result);
+    }
+
+    private void onColor(long id, int color) {
+        if (!Helper.isPro(getContext())) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+            return;
+        }
+
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putInt("color", color);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(final Context context, Bundle args) {
+                final long id = args.getLong("id");
+                final int color = args.getInt("color");
+
+                final DB db = DB.getInstance(context);
+                db.runInTransaction(new Runnable() {
+                    @Override
+                    public void run() {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return;
+
+                        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
+                    }
+                });
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "message:color");
     }
 
     private void onSnooze(Bundle args) {
@@ -3785,264 +4039,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(getContext(), getViewLifecycleOwner(), args, "message:copy");
-    }
-
-    private void saveRaw(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", message);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                if ("file".equals(uri.getScheme())) {
-                    Log.w("Save raw uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                DB db = DB.getInstance(context);
-                EntityMessage message = db.message().getMessage(id);
-                if (message == null)
-                    throw new FileNotFoundException();
-                File file = message.getRawFile(context);
-                Log.i("Raw file=" + file);
-
-                ParcelFileDescriptor pfd = null;
-                OutputStream os = null;
-                InputStream is = null;
-                try {
-                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    os = new FileOutputStream(pfd.getFileDescriptor());
-                    is = new BufferedInputStream(new FileInputStream(file));
-
-                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
-                    int read;
-                    while ((read = is.read(buffer)) != -1)
-                        os.write(buffer, 0, read);
-                } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (os != null)
-                            os.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (is != null)
-                            is.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_raw_saved, Snackbar.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "raw:save");
-    }
-
-    private void saveAttachment(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", attachment);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                if ("file".equals(uri.getScheme())) {
-                    Log.w("Save attachment uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                DB db = DB.getInstance(context);
-                EntityAttachment attachment = db.attachment().getAttachment(id);
-                if (attachment == null)
-                    return null;
-                File file = attachment.getFile(context);
-
-                ParcelFileDescriptor pfd = null;
-                OutputStream os = null;
-                InputStream is = null;
-                try {
-                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    os = new FileOutputStream(pfd.getFileDescriptor());
-                    is = new BufferedInputStream(new FileInputStream(file));
-
-                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
-                    int read;
-                    while ((read = is.read(buffer)) != -1)
-                        os.write(buffer, 0, read);
-                } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (os != null)
-                            os.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (is != null)
-                            is.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_attachment_saved, Snackbar.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "attachment:save");
-    }
-
-    private void saveAttachments(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", message);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                DB db = DB.getInstance(context);
-                DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments) {
-                    File file = attachment.getFile(context);
-
-                    String name = Helper.sanitizeFilename(attachment.name);
-                    if (TextUtils.isEmpty(name))
-                        name = Long.toString(attachment.id);
-                    DocumentFile document = tree.createFile(attachment.type, name);
-                    if (document == null)
-                        throw new FileNotFoundException(uri + ":" + name);
-
-                    ParcelFileDescriptor pfd = null;
-                    OutputStream os = null;
-                    InputStream is = null;
-                    try {
-                        pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
-                        os = new FileOutputStream(pfd.getFileDescriptor());
-                        is = new BufferedInputStream(new FileInputStream(file));
-
-                        byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
-                        int read;
-                        while ((read = is.read(buffer)) != -1)
-                            os.write(buffer, 0, read);
-                    } finally {
-                        try {
-                            if (pfd != null)
-                                pfd.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        try {
-                            if (os != null)
-                                os.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        try {
-                            if (is != null)
-                                is.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_attachments_saved, Snackbar.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "attachments:save");
-    }
-
-    public void onColorSelected(long id, int color) {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-            return;
-        }
-
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-        args.putInt("color", color);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(final Context context, Bundle args) {
-                final long id = args.getLong("id");
-                final int color = args.getInt("color");
-
-                final DB db = DB.getInstance(context);
-                db.runInTransaction(new Runnable() {
-                    @Override
-                    public void run() {
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null)
-                            return;
-
-                        EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
-                    }
-                });
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "message:color");
     }
 
     static void search(

@@ -291,7 +291,7 @@ public class FragmentAccount extends FragmentBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentColor fragment = new FragmentColor();
+                FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.initialize(R.string.title_account_color, color, new Bundle(), getContext());
                 fragment.setTargetFragment(FragmentAccount.this, REQUEST_COLOR);
                 fragment.show(getFragmentManager(), "account:color");

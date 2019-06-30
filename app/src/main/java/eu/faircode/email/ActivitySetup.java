@@ -394,7 +394,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         Bundle args = new Bundle();
         args.putBoolean("export", export);
 
-        FragmentPassword fragment = new FragmentPassword();
+        FragmentDialogPassword fragment = new FragmentDialogPassword();
         fragment.setArguments(args);
         fragment.show(getSupportFragmentManager(), "password");
     }
@@ -1019,7 +1019,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         return intent;
     }
 
-    public static class FragmentPassword extends DialogFragment {
+    public static class FragmentDialogPassword extends DialogFragment {
         private TextInputLayout etPassword1;
         private TextInputLayout etPassword2;
 
