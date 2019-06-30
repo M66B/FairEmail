@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -34,7 +35,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -80,20 +83,7 @@ public class FragmentAnswer extends FragmentBase {
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Spanned spanned = HtmlHelper.fromHtml("<p>" +
-                        getString(R.string.title_answer_template_name) +
-                        "<br>" +
-                        getString(R.string.title_answer_template_email) +
-                        "</p>");
-
-                View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
-                TextView tvMessage = dview.findViewById(R.id.tvMessage);
-
-                tvMessage.setText(spanned);
-
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setView(dview)
-                        .show();
+                new FragmentInfo().show(getFragmentManager(), "rule:info");
             }
         });
 
@@ -248,5 +238,26 @@ public class FragmentAnswer extends FragmentBase {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(this, args, "answer:save");
+    }
+
+    public static class FragmentInfo extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Spanned spanned = HtmlHelper.fromHtml("<p>" +
+                    getString(R.string.title_answer_template_name) +
+                    "<br>" +
+                    getString(R.string.title_answer_template_email) +
+                    "</p>");
+
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
+            TextView tvMessage = dview.findViewById(R.id.tvMessage);
+
+            tvMessage.setText(spanned);
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .create();
+        }
     }
 }
