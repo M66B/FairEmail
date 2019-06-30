@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -48,11 +49,14 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.app.NotificationCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -324,7 +328,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        if ((getIntentInvite().resolveActivity(pm) != null))
+        if ((getIntentInvite(this).resolveActivity(pm) != null))
             extra.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
                 @Override
                 public void run() {
@@ -333,7 +337,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        if (getIntentRate().resolveActivity(pm) != null)
+        if (getIntentRate(this).resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
                 public void run() {
@@ -585,18 +589,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkFirst() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean("first", true)) {
-            new DialogBuilderLifecycle(this, this)
-                    .setMessage(getString(R.string.title_hint_sync))
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            prefs.edit().putBoolean("first", false).apply();
-                        }
-                    })
-                    .show();
-        }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if (prefs.getBoolean("first", true))
+            new FragmentFirst().show(getSupportFragmentManager(), "first");
     }
 
     private void checkCrash() {
@@ -636,11 +631,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 Toast.makeText(ActivityView.this, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         }.execute(this, new Bundle(), "crash:log");
-    }
-
-    private class UpdateInfo {
-        String tag_name; // version
-        String html_url;
     }
 
     private void checkUpdate(boolean always) {
@@ -768,25 +758,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }.execute(this, args, "update:check");
     }
 
-    private Intent getIntentInvite() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getString(R.string.title_try)).append("\n\n");
-        sb.append(BuildConfig.INVITE_URI).append("\n\n");
-
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
-        return intent;
-    }
-
-    private Intent getIntentRate() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
-        if (intent.resolveActivity(getPackageManager()) == null)
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
-        return intent;
-    }
-
     private Intent getIntentOtherApps() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id=8420080860664580239"));
@@ -891,30 +862,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuInvite() {
-        startActivity(getIntentInvite());
+        startActivity(getIntentInvite(this));
     }
 
     private void onMenuRate() {
         Intent faq = Helper.getIntentFAQ();
         if (faq.resolveActivity(getPackageManager()) == null)
-            Helper.view(this, this, getIntentRate());
-        else {
-            new DialogBuilderLifecycle(this, this)
-                    .setMessage(R.string.title_issue)
-                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(ActivityView.this, ActivityView.this, Helper.getIntentFAQ());
-                        }
-                    })
-                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(ActivityView.this, ActivityView.this, getIntentRate());
-                        }
-                    })
-                    .show();
-        }
+            Helper.view(this, this, getIntentRate(this));
+        else
+            new FragmentRate().show(getSupportFragmentManager(), "rate");
     }
 
     private void onMenuOtherApps() {
@@ -1253,5 +1209,68 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
         fragmentTransaction.commit();
+    }
+
+    private class UpdateInfo {
+        String tag_name; // version
+        String html_url;
+    }
+
+    private static Intent getIntentInvite(Context context) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(context.getString(R.string.title_try)).append("\n\n");
+        sb.append(BuildConfig.INVITE_URI).append("\n\n");
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
+        intent.putExtra(Intent.EXTRA_TEXT, sb.toString());
+        return intent;
+    }
+
+    private static Intent getIntentRate(Context context) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+        if (intent.resolveActivity(context.getPackageManager()) == null)
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID));
+        return intent;
+    }
+
+    public static class FragmentFirst extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            return new AlertDialog.Builder(getContext())
+                    .setMessage(getString(R.string.title_hint_sync))
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            prefs.edit().putBoolean("first", false).apply();
+                        }
+                    })
+                    .create();
+        }
+    }
+
+    public static class FragmentRate extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            return new AlertDialog.Builder(getContext())
+                    .setMessage(R.string.title_issue)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Helper.view(getContext(), getActivity(), Helper.getIntentFAQ());
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Helper.view(getContext(), getActivity(), getIntentRate(getContext()));
+                        }
+                    })
+                    .create();
+        }
     }
 }
