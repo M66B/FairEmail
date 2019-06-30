@@ -214,6 +214,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_RECORD_AUDIO = 7;
     private static final int REQUEST_ENCRYPT = 8;
     private static final int REQUEST_COLOR = 9;
+    private static final int REQUEST_SEND_AFTER = 10;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1079,44 +1080,13 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuSendAfter() {
-        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_send_at,
-                new DialogDuration.IDialogDuration() {
-                    @Override
-                    public void onDurationSelected(long duration, long time) {
-                        if (!Helper.isPro(getContext())) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
-                            return;
-                        }
+        Bundle args = new Bundle();
+        args.putString("title", getString(R.string.title_send_at));
 
-                        Bundle args = new Bundle();
-                        args.putLong("id", working);
-                        args.putLong("wakeup", time);
-
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                long id = args.getLong("id");
-                                Long wakeup = args.getLong("wakeup");
-
-                                DB db = DB.getInstance(context);
-                                db.message().setMessageSnoozed(id, wakeup);
-
-                                return null;
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, Void data) {
-                                onAction(R.id.action_send);
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(FragmentCompose.this, args, "compose:send:after");
-                    }
-                });
+        FragmentDuration fragment = new FragmentDuration();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_SEND_AFTER);
+        fragment.show(getFragmentManager(), "send:after");
     }
 
     private void onActionRecordAudio() {
@@ -1602,10 +1572,50 @@ public class FragmentCompose extends FragmentBase {
                     etBody.setSelection(end);
                 }
                 break;
+            case REQUEST_SEND_AFTER:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onSendAfter(args.getLong("time"));
+                }
             default:
                 if (resultCode == RESULT_OK && data != null)
                     handlePickContact(requestCode, data);
         }
+    }
+
+    private void onSendAfter(long time) {
+        if (!Helper.isPro(getContext())) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
+            return;
+        }
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putLong("wakeup", time);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                Long wakeup = args.getLong("wakeup");
+
+                DB db = DB.getInstance(context);
+                db.message().setMessageSnoozed(id, wakeup);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                onAction(R.id.action_send);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentCompose.this, args, "compose:send:after");
     }
 
     private void handlePickContact(int requestCode, Intent data) {

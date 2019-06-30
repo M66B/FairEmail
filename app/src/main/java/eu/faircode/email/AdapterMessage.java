@@ -3079,55 +3079,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         .setNegativeButton(android.R.string.cancel, null)
                         .show();
             } else
-                properties.move(data.message.id, EntityFolder.TRASH, true);
+                properties.move(data.message.id, EntityFolder.TRASH);
         }
 
         private void onActionMove(final TupleMessageEx message, final boolean copy) {
-            DialogFolder.show(
-                    context, owner, parentFragment.getView(),
-                    copy ? R.string.title_copy_to : R.string.title_move_to_folder,
-                    message.account, Arrays.asList(message.folder),
-                    new DialogFolder.IDialogFolder() {
-                        @Override
-                        public void onFolderSelected(TupleFolderEx folder) {
-                            if (copy) {
-                                Bundle args = new Bundle();
-                                args.putLong("id", message.id);
-                                args.putLong("target", folder.id);
+            Bundle args = new Bundle();
+            args.putString("title", context.getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
+            args.putLong("account", message.account);
+            args.putLongArray("disabled", new long[]{message.folder});
+            args.putLong("message", message.id);
+            args.putBoolean("copy", copy);
 
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected Void onExecute(Context context, Bundle args) {
-                                        long id = args.getLong("id");
-                                        long target = args.getLong("target");
-
-                                        DB db = DB.getInstance(context);
-                                        try {
-                                            db.beginTransaction();
-
-                                            EntityMessage message = db.message().getMessage(id);
-                                            if (message == null)
-                                                return null;
-
-                                            EntityOperation.queue(context, message, EntityOperation.COPY, target);
-
-                                            db.setTransactionSuccessful();
-                                        } finally {
-                                            db.endTransaction();
-                                        }
-
-                                        return null;
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(context, owner, ex);
-                                    }
-                                }.execute(context, owner, args, "message:copy");
-                            } else
-                                properties.move(message.id, folder.name, false);
-                        }
-                    });
+            FragmentSelectFolder fragment = new FragmentSelectFolder();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
+            fragment.show(parentFragment.getFragmentManager(), "message:move");
         }
 
         private void onActionMoveOutbox(ActionData data) {
@@ -3195,11 +3161,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionArchive(ActionData data) {
-            properties.move(data.message.id, EntityFolder.ARCHIVE, true);
+            properties.move(data.message.id, EntityFolder.ARCHIVE);
         }
 
         private void onActionMoveJunk(ActionData data) {
-            properties.move(data.message.id, EntityFolder.INBOX, true);
+            properties.move(data.message.id, EntityFolder.INBOX);
         }
 
         private void onActionReplyMenu(final ActionData data) {
@@ -3837,7 +3803,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         void scrollBy(int dx, int dy);
 
-        void move(long id, String target, boolean type);
+        void move(long id, String type);
 
         void finish();
     }

@@ -69,6 +69,10 @@ public class TwoStateOwner implements LifecycleOwner {
         registry.setCurrentState(Lifecycle.State.STARTED);
     }
 
+    void resume() {
+        registry.setCurrentState(Lifecycle.State.RESUMED);
+    }
+
     void stop() {
         registry.setCurrentState(Lifecycle.State.CREATED);
     }

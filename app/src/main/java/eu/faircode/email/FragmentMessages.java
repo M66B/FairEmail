@@ -230,6 +230,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_MOVE_ACROSS = 8;
     static final int REQUEST_MESSAGE_COLOR = 9;
     private static final int REQUEST_MESSAGES_COLOR = 10;
+    private static final int REQUEST_MESSAGE_SNOOZE = 11;
+    private static final int REQUEST_MESSAGES_SNOOZE = 12;
+    static final int REQUEST_MESSAGE_MOVE = 13;
+    private static final int REQUEST_MESSAGES_MOVE = 14;
+    private static final int REQUEST_SEARCH = 15;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -559,6 +564,78 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return false;
                 }
             }
+
+            private void onActionMove(String folderType) {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+                args.putString("thread", thread);
+                args.putLong("id", id);
+                args.putString("type", folderType);
+
+                new SimpleTask<ArrayList<MessageTarget>>() {
+                    @Override
+                    protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
+                        long aid = args.getLong("account");
+                        String thread = args.getString("thread");
+                        long id = args.getLong("id");
+                        String type = args.getString("type");
+
+                        ArrayList<MessageTarget> result = new ArrayList<>();
+
+                        DB db = DB.getInstance(context);
+                        try {
+                            db.beginTransaction();
+
+                            EntityFolder target = db.folder().getFolderByType(aid, type);
+                            if (target != null) {
+                                EntityAccount account = db.account().getAccount(target.account);
+                                List<EntityMessage> messages = db.message().getMessageByThread(
+                                        aid, thread, threading ? null : id, null);
+                                for (EntityMessage threaded : messages) {
+                                    EntityFolder folder = db.folder().getFolder(threaded.folder);
+                                    if (!target.id.equals(threaded.folder) &&
+                                            !EntityFolder.DRAFTS.equals(folder.type) &&
+                                            !EntityFolder.OUTBOX.equals(folder.type) &&
+                                            (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
+                                            !EntityFolder.TRASH.equals(folder.type) &&
+                                            !EntityFolder.JUNK.equals(folder.type))
+                                        result.add(new MessageTarget(threaded, account, target));
+                                }
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+
+                        return result;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
+                        moveAsk(result);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    }
+                }.execute(FragmentMessages.this, args, "messages:move");
+            }
+
+            private void onActionSnooze() {
+                Bundle args = new Bundle();
+                args.putString("title", getString(R.string.title_snooze));
+                args.putLong("account", account);
+                args.putString("thread", thread);
+                args.putLong("id", id);
+                args.putBoolean("finish", true);
+
+                FragmentDuration fragment = new FragmentDuration();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
+                fragment.show(getFragmentManager(), "message:snooze");
+            }
         });
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -641,21 +718,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     if (intent == null)
                                         return false;
 
-                                    long account = intent.getLongExtra("account", -1);
-                                    DialogFolder.show(
-                                            getContext(), getViewLifecycleOwner(), view,
-                                            R.string.title_search_in,
-                                            account,
-                                            new ArrayList<Long>(),
-                                            new DialogFolder.IDialogFolder() {
-                                                @Override
-                                                public void onFolderSelected(TupleFolderEx folder) {
-                                                    search(
-                                                            getContext(), getViewLifecycleOwner(), getFragmentManager(),
-                                                            folder.id, true, query);
-                                                }
-                                            }
-                                    );
+                                    Bundle args = new Bundle();
+                                    args.putString("title", getString(R.string.title_move_to_folder));
+                                    args.putLong("account", intent.getLongExtra("account", -1));
+                                    args.putLongArray("disabled", new long[]{});
+                                    args.putString("query", query);
+
+                                    FragmentSelectFolder fragment = new FragmentSelectFolder();
+                                    fragment.setArguments(args);
+                                    fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_SEARCH);
+                                    fragment.show(getFragmentManager(), "messages:search");
 
                                     return true;
                                 }
@@ -1035,18 +1107,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void move(long id, String name, boolean type) {
+        public void move(long id, String type) {
             Bundle args = new Bundle();
             args.putLong("id", id);
-            args.putString("name", name);
-            args.putBoolean("type", type);
+            args.putString("type", type);
 
             new SimpleTask<ArrayList<MessageTarget>>() {
                 @Override
                 protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    String name = args.getString("name");
-                    boolean type = args.getBoolean("type");
+                    String type = args.getString("type");
 
                     ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -1058,10 +1128,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         EntityFolder target = null;
                         if (message != null)
-                            if (type)
-                                target = db.folder().getFolderByType(message.account, name);
-                            else
-                                target = db.folder().getFolderByName(message.account, name);
+                            target = db.folder().getFolderByType(message.account, type);
 
                         if (target != null) {
                             EntityAccount account = db.account().getAccount(target.account);
@@ -1078,10 +1145,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                    if (args.getBoolean("type"))
-                        moveAsk(result);
-                    else
-                        moveAskConfirmed(result);
+                    moveAsk(result);
                 }
 
                 @Override
@@ -1243,7 +1307,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 onActionSeenSelection(false, message.id);
                                 return true;
                             case R.string.title_snooze:
-                                onActionSnoozeSelection(message.id);
+                                onMenuSnooze();
                                 return true;
                             case R.string.title_flag_color:
                                 onMenuColor();
@@ -1254,6 +1318,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             default:
                                 return false;
                         }
+                    }
+
+                    private void onMenuSnooze() {
+                        Bundle args = new Bundle();
+                        args.putString("title", getString(R.string.title_snooze));
+                        args.putLong("account", message.account);
+                        args.putString("thread", message.thread);
+                        args.putLong("id", message.id);
+                        args.putBoolean("finish", false);
+
+                        FragmentDuration fragment = new FragmentDuration();
+                        fragment.setArguments(args);
+                        fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
+                        fragment.show(getFragmentManager(), "message:snooze");
                     }
 
                     private void onMenuColor() {
@@ -1270,31 +1348,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     private void onMenuMove() {
                         Bundle args = new Bundle();
+                        args.putString("title", getString(R.string.title_move_to_folder));
                         args.putLong("account", message.account);
+                        args.putLongArray("disabled", new long[]{message.folder});
+                        args.putLong("message", message.id);
+                        args.putBoolean("copy", false);
 
-                        new SimpleTask<List<TupleFolderEx>>() {
-                            @Override
-                            protected List<TupleFolderEx> onExecute(Context context, Bundle args) {
-                                long account = args.getLong("account");
-
-                                DB db = DB.getInstance(context);
-                                return db.folder().getFoldersEx(account);
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, List<TupleFolderEx> folders) {
-                                onActionMoveSelectionAccount(
-                                        message.account,
-                                        folders,
-                                        Arrays.asList(new Long[]{message.folder}),
-                                        message.id);
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(getContext(), getViewLifecycleOwner(), args, "message:move");
+                        FragmentSelectFolder fragment = new FragmentSelectFolder();
+                        fragment.setArguments(args);
+                        fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_MOVE);
+                        fragment.show(getFragmentManager(), "message:move");
                     }
                 });
 
@@ -1384,126 +1447,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     };
 
-    private void onActionMove(String folderType) {
-        Bundle args = new Bundle();
-        args.putLong("account", account);
-        args.putString("thread", thread);
-        args.putLong("id", id);
-        args.putString("type", folderType);
-
-        new SimpleTask<ArrayList<MessageTarget>>() {
-            @Override
-            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
-                long aid = args.getLong("account");
-                String thread = args.getString("thread");
-                long id = args.getLong("id");
-                String type = args.getString("type");
-
-                ArrayList<MessageTarget> result = new ArrayList<>();
-
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    EntityFolder target = db.folder().getFolderByType(aid, type);
-                    if (target != null) {
-                        EntityAccount account = db.account().getAccount(target.account);
-                        List<EntityMessage> messages = db.message().getMessageByThread(
-                                aid, thread, threading ? null : id, null);
-                        for (EntityMessage threaded : messages) {
-                            EntityFolder folder = db.folder().getFolder(threaded.folder);
-                            if (!target.id.equals(threaded.folder) &&
-                                    !EntityFolder.DRAFTS.equals(folder.type) &&
-                                    !EntityFolder.OUTBOX.equals(folder.type) &&
-                                    (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
-                                    !EntityFolder.TRASH.equals(folder.type) &&
-                                    !EntityFolder.JUNK.equals(folder.type))
-                                result.add(new MessageTarget(threaded, account, target));
-                        }
-                    }
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                return result;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                moveAsk(result);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(FragmentMessages.this, args, "messages:move");
-    }
-
-    private void onActionSnooze() {
-        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
-                new DialogDuration.IDialogDuration() {
-                    @Override
-                    public void onDurationSelected(long duration, long time) {
-                        if (!Helper.isPro(getContext())) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                            return;
-                        }
-
-                        Bundle args = new Bundle();
-                        args.putLong("account", account);
-                        args.putString("thread", thread);
-                        args.putLong("id", id);
-                        args.putLong("wakeup", duration == 0 ? -1 : time);
-
-                        new SimpleTask<Long>() {
-                            @Override
-                            protected Long onExecute(Context context, Bundle args) {
-                                long account = args.getLong("account");
-                                String thread = args.getString("thread");
-                                long id = args.getLong("id");
-                                Long wakeup = args.getLong("wakeup");
-                                if (wakeup < 0)
-                                    wakeup = null;
-
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
-
-                                    List<EntityMessage> messages = db.message().getMessageByThread(
-                                            account, thread, threading ? null : id, null);
-                                    for (EntityMessage threaded : messages) {
-                                        db.message().setMessageSnoozed(threaded.id, wakeup);
-                                        EntityMessage.snooze(context, threaded.id, wakeup);
-                                        EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
-                                    }
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                return wakeup;
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, Long wakeup) {
-                                if (wakeup != null)
-                                    finish();
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(getContext(), getViewLifecycleOwner(), args, "message:snooze");
-                    }
-                });
-    }
-
     private void onMore() {
         Bundle args = new Bundle();
         args.putLongArray("ids", getSelection());
@@ -1567,9 +1510,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 result.accounts = db.account().getSynchronizingAccounts();
 
-                for (EntityAccount account : result.accounts)
-                    result.targets.put(account.id, db.folder().getFoldersEx(account.id));
-
                 return result;
             }
 
@@ -1622,7 +1562,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 onActionSeenSelection(false, null);
                                 return true;
                             case R.string.title_snooze:
-                                onActionSnoozeSelection(null);
+                                onActionSnoozeSelection();
                                 return true;
                             case R.string.title_flag:
                                 onActionFlagSelection(true, null);
@@ -1647,7 +1587,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 return true;
                             case R.string.title_move_to_account:
                                 long account = target.getIntent().getLongExtra("account", -1);
-                                onActionMoveSelectionAccount(account, result.targets.get(account), result.folders, null);
+                                onActionMoveSelectionAccount(account, result.folders);
                                 return true;
                             default:
                                 return false;
@@ -1718,63 +1658,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(FragmentMessages.this, args, "messages:seen");
     }
 
-    private void onActionSnoozeSelection(final Long id) {
-        DialogDuration.show(getContext(), getViewLifecycleOwner(), R.string.title_snooze,
-                new DialogDuration.IDialogDuration() {
-                    @Override
-                    public void onDurationSelected(long duration, long time) {
-                        if (!Helper.isPro(getContext())) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                            return;
-                        }
+    private void onActionSnoozeSelection() {
+        Bundle args = new Bundle();
+        args.putString("title", getString(R.string.title_snooze));
 
-                        Bundle args = new Bundle();
-                        args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
-                        args.putLong("wakeup", duration == 0 ? -1 : time);
-
-                        selectionTracker.clearSelection();
-
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                long[] ids = args.getLongArray("ids");
-                                Long wakeup = args.getLong("wakeup");
-                                if (wakeup < 0)
-                                    wakeup = null;
-
-                                DB db = DB.getInstance(context);
-                                try {
-                                    db.beginTransaction();
-
-                                    for (long id : ids) {
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message != null) {
-                                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                                    message.account, message.thread, threading ? null : id, message.folder);
-                                            for (EntityMessage threaded : messages) {
-                                                db.message().setMessageSnoozed(threaded.id, wakeup);
-                                                EntityMessage.snooze(context, threaded.id, wakeup);
-                                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
-                                            }
-                                        }
-                                    }
-
-                                    db.setTransactionSuccessful();
-                                } finally {
-                                    db.endTransaction();
-                                }
-
-                                return null;
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                            }
-                        }.execute(FragmentMessages.this, args, "messages:snooze");
-                    }
-                });
+        FragmentDuration fragment = new FragmentDuration();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_MESSAGES_SNOOZE);
+        fragment.show(getFragmentManager(), "messages:snooze");
     }
 
     private void onActionFlagSelection(boolean flagged, Integer color) {
@@ -1947,22 +1838,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(FragmentMessages.this, args, "messages:move");
     }
 
-    private void onActionMoveSelectionAccount(long account, List<TupleFolderEx> folders, List<Long> disabled, final Long id) {
-        DialogFolder.show(
-                getContext(), getViewLifecycleOwner(), view,
-                R.string.title_move_to_folder,
-                account, disabled,
-                new DialogFolder.IDialogFolder() {
-                    @Override
-                    public void onFolderSelected(TupleFolderEx folder) {
-                        onActionMoveSelection(folder.id, id);
-                    }
-                });
+    private void onActionMoveSelectionAccount(long account, List<Long> disabled) {
+        Bundle args = new Bundle();
+        args.putString("title", getString(R.string.title_move_to_folder));
+        args.putLong("account", account);
+        args.putLongArray("disabled", Helper.toLongArray(disabled));
+
+        FragmentSelectFolder fragment = new FragmentSelectFolder();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGES_MOVE);
+        fragment.show(getFragmentManager(), "messages:move");
     }
 
-    private void onActionMoveSelection(long target, Long id) {
+    private void onActionMoveSelection(long target) {
         Bundle args = new Bundle();
-        args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
+        args.putLongArray("ids", getSelection());
         args.putLong("target", target);
 
         new SimpleTask<ArrayList<MessageTarget>>() {
@@ -3688,6 +3578,32 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     onActionFlagSelection(true, color);
                 }
                 break;
+            case REQUEST_MESSAGE_SNOOZE:
+                if (resultCode == RESULT_OK && data != null)
+                    onSnooze(data.getBundleExtra("args"));
+                break;
+            case REQUEST_MESSAGES_SNOOZE:
+                if (resultCode == RESULT_OK && data != null)
+                    onSnoozeSelection(data.getBundleExtra("args"));
+                break;
+            case REQUEST_MESSAGE_MOVE:
+                if (resultCode == RESULT_OK && data != null)
+                    onMove(data.getBundleExtra("args"));
+                break;
+            case REQUEST_MESSAGES_MOVE:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onActionMoveSelection(args.getLong("folder"));
+                }
+                break;
+            case REQUEST_SEARCH:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    search(
+                            getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                            args.getLong("folder"), true, args.getString("query"));
+                }
+                break;
         }
     }
 
@@ -3725,6 +3641,150 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
         }.execute(FragmentMessages.this, args, "messages:delete:execute");
+    }
+
+    private void onSnooze(Bundle args) {
+        if (!Helper.isPro(getContext())) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+            return;
+        }
+
+        long duration = args.getLong("duration");
+        long time = args.getLong("time");
+        args.putLong("wakeup", duration == 0 ? -1 : time);
+
+        new SimpleTask<Long>() {
+            @Override
+            protected Long onExecute(Context context, Bundle args) {
+                long account = args.getLong("account");
+                String thread = args.getString("thread");
+                long id = args.getLong("id");
+                Long wakeup = args.getLong("wakeup");
+                if (wakeup < 0)
+                    wakeup = null;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    List<EntityMessage> messages = db.message().getMessageByThread(
+                            account, thread, threading ? null : id, null);
+                    for (EntityMessage threaded : messages) {
+                        db.message().setMessageSnoozed(threaded.id, wakeup);
+                        EntityMessage.snooze(context, threaded.id, wakeup);
+                        EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return wakeup;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Long wakeup) {
+                if (wakeup != null && args.getBoolean("finish"))
+                    finish();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "message:snooze");
+    }
+
+    private void onSnoozeSelection(Bundle args) {
+        if (!Helper.isPro(getContext())) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+            return;
+        }
+
+        long duration = args.getLong("duration");
+        long time = args.getLong("time");
+        args.putLong("wakeup", duration == 0 ? -1 : time);
+        args.putLongArray("ids", getSelection());
+
+        selectionTracker.clearSelection();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long[] ids = args.getLongArray("ids");
+                Long wakeup = args.getLong("wakeup");
+                if (wakeup < 0)
+                    wakeup = null;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null) {
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading ? null : id, message.folder);
+                            for (EntityMessage threaded : messages) {
+                                db.message().setMessageSnoozed(threaded.id, wakeup);
+                                EntityMessage.snooze(context, threaded.id, wakeup);
+                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
+                            }
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(FragmentMessages.this, args, "messages:snooze");
+    }
+
+    private void onMove(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("message");
+                boolean copy = args.getBoolean("copy");
+                long target = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    if (copy)
+                        EntityOperation.queue(context, message, EntityOperation.COPY, target);
+                    else
+                        EntityOperation.queue(context, message, EntityOperation.MOVE, target);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "message:copy");
     }
 
     private void saveRaw(Intent data) {
@@ -4024,7 +4084,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Boolean isDrafts;
         List<Long> folders;
         List<EntityAccount> accounts;
-        Map<Long, List<TupleFolderEx>> targets = new HashMap<>();
     }
 
     private static class MessageTarget implements Parcelable {
