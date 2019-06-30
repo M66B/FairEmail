@@ -188,6 +188,17 @@ public class HtmlHelper {
         document.select("ul").tagName("div");
 
         // Tables
+        for (Element div : document.select("div")) {
+            Element parent = div.parent();
+            while (parent != null) {
+                if ("td".equals(parent.tagName())) {
+                    div.tagName("span"); // Prevent white space
+                    break;
+                }
+                parent = parent.parent();
+            }
+        }
+
         for (Element col : document.select("th,td")) {
             // separate columns by a space
             if (col.nextElementSibling() == null) {
@@ -209,7 +220,7 @@ public class HtmlHelper {
 
         for (Element table : document.select("table"))
             if (table.parent() != null && "a".equals(table.parent().tagName()))
-                table.tagName("span"); // // Links cannot contain tables
+                table.tagName("span"); // Links cannot contain tables
             else
                 table.tagName("div");
 
