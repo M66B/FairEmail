@@ -82,9 +82,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -2230,155 +2232,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if ("cid".equals(uri.getScheme()))
                     return;
 
-                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean paranoid = prefs.getBoolean("paranoid", true);
+                Bundle args = new Bundle();
+                args.putParcelable("uri", uri);
+                args.putString("title", title);
 
-                final Uri sanitized;
-                if (uri.isOpaque())
-                    sanitized = uri;
-                else {
-                    // https://en.wikipedia.org/wiki/UTM_parameters
-                    Uri.Builder builder = uri.buildUpon();
-
-                    builder.clearQuery();
-                    for (String key : uri.getQueryParameterNames())
-                        if (!PARANOID_QUERY.contains(key.toLowerCase()))
-                            for (String value : uri.getQueryParameters(key))
-                                if (!TextUtils.isEmpty(key)) {
-                                    Log.i("Query " + key + "=" + value);
-                                    builder.appendQueryParameter(key, value);
-                                }
-
-                    sanitized = builder.build();
-                }
-
-                View view = LayoutInflater.from(context).inflate(R.layout.dialog_open_link, null);
-                TextView tvTitle = view.findViewById(R.id.tvTitle);
-                final EditText etLink = view.findViewById(R.id.etLink);
-                final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
-                CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
-                final TextView tvOwner = view.findViewById(R.id.tvOwner);
-                final Group grpOwner = view.findViewById(R.id.grpOwner);
-
-                tvTitle.setText(title);
-                tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
-
-                cbSecure.setVisibility(View.GONE);
-                etLink.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence text, int i, int i1, int i2) {
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable text) {
-                        Uri uri = Uri.parse(text.toString());
-                        cbSecure.setVisibility(!uri.isOpaque() &&
-                                ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
-                                ? View.VISIBLE : View.GONE);
-                    }
-                });
-                etLink.setText(uri.toString());
-
-                boolean secure = "https".equals(uri.getScheme());
-                cbSecure.setChecked(secure);
-                cbSecure.setText(
-                        secure ? R.string.title_link_secured : R.string.title_secure_link);
-                cbSecure.setTextColor(Helper.resolveColor(context,
-                        secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
-                cbSecure.setTypeface(
-                        secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
-                cbSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                        Uri uri = Uri.parse(etLink.getText().toString());
-                        Uri.Builder builder = uri.buildUpon();
-
-                        builder.scheme(checked ? "https" : "http");
-
-                        String authority = uri.getEncodedAuthority();
-                        if (authority != null) {
-                            authority = authority.replace(checked ? ":80" : ":443", checked ? ":443" : ":80");
-                            builder.encodedAuthority(authority);
-                        }
-
-                        etLink.setText(builder.build().toString());
-
-                        cbSecure.setText(
-                                checked ? R.string.title_link_secured : R.string.title_secure_link);
-                        cbSecure.setTextColor(Helper.resolveColor(context,
-                                checked ? android.R.attr.textColorSecondary : R.attr.colorWarning));
-                        cbSecure.setTypeface(
-                                checked ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
-                    }
-                });
-
-                cbSanitize.setVisibility(uri.equals(sanitized) ? View.GONE : View.VISIBLE);
-                cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                        if (checked)
-                            etLink.setText(sanitized.toString());
-                        else
-                            etLink.setText(uri.toString());
-                    }
-                });
-
-                grpOwner.setVisibility(View.GONE);
-
-                if (paranoid) {
-                    Bundle args = new Bundle();
-                    args.putParcelable("uri", uri);
-
-                    new SimpleTask<String>() {
-                        @Override
-                        protected void onPreExecute(Bundle args) {
-                            tvOwner.setText("…");
-                            grpOwner.setVisibility(View.VISIBLE);
-                        }
-
-                        @Override
-                        protected String onExecute(Context context, Bundle args) throws Throwable {
-                            Uri uri = args.getParcelable("uri");
-                            return IPInfo.getOrganization(uri);
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, String organization) {
-                            tvOwner.setText(organization == null ? "?" : organization);
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            if (ex instanceof UnknownHostException)
-                                grpOwner.setVisibility(View.GONE);
-                            else
-                                tvOwner.setText(ex.getMessage());
-                        }
-                    }.execute(context, owner, args, "link:domain");
-                }
-
-                new DialogBuilderLifecycle(context, owner)
-                        .setView(view)
-                        .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Uri uri = Uri.parse(etLink.getText().toString());
-                                Helper.view(context, owner, uri, false);
-                            }
-                        })
-                        .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Uri uri = Uri.parse(etLink.getText().toString());
-                                Helper.view(context, owner, uri, true);
-                            }
-                        })
-                        .setNegativeButton(R.string.title_no, null)
-                        .show();
+                FragmentDialogLink fragment = new FragmentDialogLink();
+                fragment.setArguments(args);
+                fragment.show(parentFragment.getFragmentManager(), "open:link");
             }
         }
 
@@ -3806,5 +3666,178 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void move(long id, String type);
 
         void finish();
+    }
+
+    public static class FragmentDialogLink extends DialogFragment {
+        private TwoStateOwner owner = new TwoStateOwner("link:open");
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean paranoid = prefs.getBoolean("paranoid", true);
+
+            final Uri uri = getArguments().getParcelable("uri");
+            String title = getArguments().getString("title");
+
+            final Uri sanitized;
+            if (uri.isOpaque())
+                sanitized = uri;
+            else {
+                // https://en.wikipedia.org/wiki/UTM_parameters
+                Uri.Builder builder = uri.buildUpon();
+
+                builder.clearQuery();
+                for (String key : uri.getQueryParameterNames())
+                    if (!PARANOID_QUERY.contains(key.toLowerCase()))
+                        for (String value : uri.getQueryParameters(key))
+                            if (!TextUtils.isEmpty(key)) {
+                                Log.i("Query " + key + "=" + value);
+                                builder.appendQueryParameter(key, value);
+                            }
+
+                sanitized = builder.build();
+            }
+
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
+            TextView tvTitle = view.findViewById(R.id.tvTitle);
+            final EditText etLink = view.findViewById(R.id.etLink);
+            final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
+            CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
+            final TextView tvOwner = view.findViewById(R.id.tvOwner);
+            final Group grpOwner = view.findViewById(R.id.grpOwner);
+
+            tvTitle.setText(title);
+            tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
+
+            cbSecure.setVisibility(View.GONE);
+            etLink.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence text, int i, int i1, int i2) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable text) {
+                    Uri uri = Uri.parse(text.toString());
+                    cbSecure.setVisibility(!uri.isOpaque() &&
+                            ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
+                            ? View.VISIBLE : View.GONE);
+                }
+            });
+            etLink.setText(uri.toString());
+
+            boolean secure = "https".equals(uri.getScheme());
+            cbSecure.setChecked(secure);
+            cbSecure.setText(
+                    secure ? R.string.title_link_secured : R.string.title_secure_link);
+            cbSecure.setTextColor(Helper.resolveColor(getContext(),
+                    secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
+            cbSecure.setTypeface(
+                    secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+            cbSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    Uri uri = Uri.parse(etLink.getText().toString());
+                    Uri.Builder builder = uri.buildUpon();
+
+                    builder.scheme(checked ? "https" : "http");
+
+                    String authority = uri.getEncodedAuthority();
+                    if (authority != null) {
+                        authority = authority.replace(checked ? ":80" : ":443", checked ? ":443" : ":80");
+                        builder.encodedAuthority(authority);
+                    }
+
+                    etLink.setText(builder.build().toString());
+
+                    cbSecure.setText(
+                            checked ? R.string.title_link_secured : R.string.title_secure_link);
+                    cbSecure.setTextColor(Helper.resolveColor(getContext(),
+                            checked ? android.R.attr.textColorSecondary : R.attr.colorWarning));
+                    cbSecure.setTypeface(
+                            checked ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+                }
+            });
+
+            cbSanitize.setVisibility(uri.equals(sanitized) ? View.GONE : View.VISIBLE);
+            cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    if (checked)
+                        etLink.setText(sanitized.toString());
+                    else
+                        etLink.setText(uri.toString());
+                }
+            });
+
+            grpOwner.setVisibility(View.GONE);
+
+            if (paranoid) {
+                Bundle args = new Bundle();
+                args.putParcelable("uri", uri);
+
+                new SimpleTask<String>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        tvOwner.setText("…");
+                        grpOwner.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                        Uri uri = args.getParcelable("uri");
+                        return IPInfo.getOrganization(uri);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, String organization) {
+                        tvOwner.setText(organization == null ? "?" : organization);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        if (ex instanceof UnknownHostException)
+                            grpOwner.setVisibility(View.GONE);
+                        else
+                            tvOwner.setText(ex.getMessage());
+                    }
+                }.execute(getContext(), owner, args, "link:domain");
+            }
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Uri uri = Uri.parse(etLink.getText().toString());
+                            Helper.view(getContext(), owner, uri, false);
+                        }
+                    })
+                    .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Uri uri = Uri.parse(etLink.getText().toString());
+                            Helper.view(getContext(), owner, uri, true);
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, null)
+                    .show();
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+            owner.resume();
+        }
+
+        @Override
+        public void onDestroyView() {
+            owner.destroy();
+            super.onDestroyView();
+        }
     }
 }
