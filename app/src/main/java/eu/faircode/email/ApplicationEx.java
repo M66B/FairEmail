@@ -143,12 +143,17 @@ public class ApplicationEx extends Application {
         com.bugsnag.android.Configuration config =
                 new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
 
-        if (BuildConfig.DEBUG || !Helper.hasValidFingerprint(this))
-            config.setReleaseStage("development");
-        else if (BuildConfig.BETA_RELEASE)
-            config.setReleaseStage(BuildConfig.PLAY_STORE_RELEASE ? "beta/play" : "beta");
-        else
-            config.setReleaseStage(BuildConfig.PLAY_STORE_RELEASE ? "stable/play" : "stable");
+        if (BuildConfig.DEBUG)
+            config.setReleaseStage("debug");
+        else {
+            String type = "other";
+            if (Helper.hasValidFingerprint(this))
+                if (BuildConfig.PLAY_STORE_RELEASE)
+                    type = "play";
+                else
+                    type = "full";
+            config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
+        }
 
         config.setAutoCaptureSessions(false);
 
