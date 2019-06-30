@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -45,12 +46,17 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -385,38 +391,12 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     }
 
     private void askPassword(final boolean export) {
-        View dview = LayoutInflater.from(this).inflate(R.layout.dialog_password, null);
-        final TextInputLayout etPassword1 = dview.findViewById(R.id.tilPassword1);
-        final TextInputLayout etPassword2 = dview.findViewById(R.id.tilPassword2);
-        TextView tvImportHint = dview.findViewById(R.id.tvImporthint);
+        Bundle args = new Bundle();
+        args.putBoolean("export", export);
 
-        etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
-        tvImportHint.setVisibility(export ? View.GONE : View.VISIBLE);
-
-        new DialogBuilderLifecycle(this, this)
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String password1 = etPassword1.getEditText().getText().toString();
-                        String password2 = etPassword2.getEditText().getText().toString();
-
-                        if (!BuildConfig.DEBUG && TextUtils.isEmpty(password1))
-                            Snackbar.make(view, R.string.title_setup_password_missing, Snackbar.LENGTH_LONG).show();
-                        else {
-                            if (!export || password1.equals(password2)) {
-                                ActivitySetup.this.password = password1;
-                                startActivityForResult(
-                                        Helper.getChooser(
-                                                ActivitySetup.this,
-                                                export ? getIntentExport() : getIntentImport()),
-                                        export ? REQUEST_EXPORT : REQUEST_IMPORT);
-                            } else
-                                Snackbar.make(view, R.string.title_setup_password_different, Snackbar.LENGTH_LONG).show();
-                        }
-                    }
-                })
-                .show();
+        FragmentPassword fragment = new FragmentPassword();
+        fragment.setArguments(args);
+        fragment.show(getSupportFragmentManager(), "password");
     }
 
     private void onMenuOrder(int title, Class clazz) {
@@ -483,22 +463,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentAbout()).addToBackStack("about");
         fragmentTransaction.commit();
-    }
-
-    private static Intent getIntentExport() {
-        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
-                new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".backup");
-        return intent;
-    }
-
-    private static Intent getIntentImport() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        return intent;
     }
 
     private void handleExport(Intent data, String password) {
@@ -1037,6 +1001,77 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
         fragmentTransaction.commit();
+    }
+
+    private static Intent getIntentExport() {
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
+                new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".backup");
+        return intent;
+    }
+
+    private static Intent getIntentImport() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        return intent;
+    }
+
+    public static class FragmentPassword extends DialogFragment {
+        private TextInputLayout etPassword1;
+        private TextInputLayout etPassword2;
+
+        @Override
+        public void onSaveInstanceState(@NonNull Bundle outState) {
+            outState.putString("fair:password1", etPassword1.getEditText().getText().toString());
+            outState.putString("fair:password2", etPassword2.getEditText().getText().toString());
+            super.onSaveInstanceState(outState);
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final boolean export = getArguments().getBoolean("export");
+
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_password, null);
+            etPassword1 = dview.findViewById(R.id.tilPassword1);
+            etPassword2 = dview.findViewById(R.id.tilPassword2);
+            TextView tvImportHint = dview.findViewById(R.id.tvImporthint);
+
+            if (savedInstanceState != null) {
+                etPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
+                etPassword2.getEditText().setText(savedInstanceState.getString("fair:password2"));
+            }
+
+            etPassword2.setVisibility(export ? View.VISIBLE : View.GONE);
+            tvImportHint.setVisibility(export ? View.GONE : View.VISIBLE);
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String password1 = etPassword1.getEditText().getText().toString();
+                            String password2 = etPassword2.getEditText().getText().toString();
+
+                            if (!BuildConfig.DEBUG && TextUtils.isEmpty(password1))
+                                Toast.makeText(getContext(), R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
+                            else {
+                                if (!export || password1.equals(password2)) {
+                                    ((ActivitySetup) getActivity()).password = password1;
+                                    getActivity().startActivityForResult(
+                                            Helper.getChooser(getContext(),
+                                                    export ? getIntentExport() : getIntentImport()),
+                                            export ? REQUEST_EXPORT : REQUEST_IMPORT);
+                                } else
+                                    Toast.makeText(getContext(), R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    })
+                    .create();
+        }
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
