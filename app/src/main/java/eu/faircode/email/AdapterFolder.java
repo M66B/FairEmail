@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -44,14 +43,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.text.Collator;
 import java.text.NumberFormat;
@@ -62,11 +60,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import static android.app.Activity.RESULT_OK;
+
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
-    private View parentView;
+    private Fragment parentFragment;
     private boolean show_hidden;
 
     private long account;
@@ -400,7 +400,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
                         case R.string.title_synchronize_now:
-                            onActionSynchronizeNow(false);
+                            Bundle args = new Bundle();
+                            args.putLong("folder", folder.id);
+                            args.putBoolean("all", false);
+                            Intent data = new Intent();
+                            data.putExtra("args", args);
+                            parentFragment.onActivityResult(FragmentFolders.REQUEST_SYNC, RESULT_OK, data);
                             return true;
 
                         case R.string.title_synchronize_all:
@@ -458,92 +463,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }
                 }
 
-                private void onActionSynchronizeNow(boolean all) {
-                    Bundle args = new Bundle();
-                    args.putBoolean("all", all);
-                    args.putLong("folder", folder.id);
-
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onExecute(Context context, Bundle args) {
-                            boolean all = args.getBoolean("all");
-                            long fid = args.getLong("folder");
-
-                            if (!ConnectionHelper.getNetworkState(context).isSuitable())
-                                throw new IllegalStateException(context.getString(R.string.title_no_internet));
-
-                            boolean now = true;
-
-                            DB db = DB.getInstance(context);
-                            try {
-                                db.beginTransaction();
-
-                                EntityFolder folder = db.folder().getFolder(fid);
-                                if (folder == null)
-                                    return null;
-
-                                if (all) {
-                                    db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
-                                    db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
-                                }
-
-                                EntityOperation.sync(context, folder.id, true);
-
-                                if (folder.account != null) {
-                                    EntityAccount account = db.account().getAccount(folder.account);
-                                    if (account != null && !"connected".equals(account.state))
-                                        now = false;
-                                }
-
-                                db.setTransactionSuccessful();
-
-                            } finally {
-                                db.endTransaction();
-                            }
-
-                            if (!now)
-                                throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
-
-                            return null;
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            if (ex instanceof IllegalStateException) {
-                                Snackbar snackbar = Snackbar.make(parentView, ex.getMessage(), Snackbar.LENGTH_LONG);
-                                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        context.startActivity(
-                                                new Intent(context, ActivitySetup.class)
-                                                        .putExtra("tab", "connection"));
-                                    }
-                                });
-                                snackbar.show();
-                            } else if (ex instanceof IllegalArgumentException)
-                                Snackbar.make(parentView, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                            else
-                                Helper.unexpectedError(context, owner, ex);
-                        }
-                    }.execute(context, owner, args, "folder:sync");
-                }
-
                 private void onActionSynchronizeAll() {
-                    View dview = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
-                    TextView tvMessage = dview.findViewById(R.id.tvMessage);
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question",
+                            context.getString(R.string.title_ask_sync_all, folder.getDisplayName(context)));
+                    aargs.putLong("folder", folder.id);
+                    aargs.putBoolean("all", true);
 
-                    tvMessage.setText(context.getString(R.string.title_ask_sync_all, folder.getDisplayName(context)));
-
-                    new DialogBuilderLifecycle(context, owner)
-                            .setView(dview)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    onActionSynchronizeNow(true);
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show();
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(aargs);
+                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_SYNC);
+                    ask.show(parentFragment.getFragmentManager(), "folder:sync");
                 }
 
                 private void onActionProperty(int property, boolean enabled) {
@@ -592,87 +522,26 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
 
                 private void OnActionDeleteLocal(final boolean browsed) {
-                    View dview = LayoutInflater.from(context).inflate(R.layout.dialog_message, null);
-                    TextView tvMessage = dview.findViewById(R.id.tvMessage);
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question", context.getString(R.string.title_ask_delete_local));
+                    aargs.putLong("folder", folder.id);
+                    aargs.putBoolean("browsed", browsed);
 
-                    tvMessage.setText(context.getText(R.string.title_ask_delete_local));
-
-                    new DialogBuilderLifecycle(context, owner)
-                            .setView(dview)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Bundle args = new Bundle();
-                                    args.putLong("id", folder.id);
-                                    args.putBoolean("browsed", browsed);
-
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) {
-                                            long id = args.getLong("id");
-                                            boolean browsed = args.getBoolean("browsed");
-                                            Log.i("Delete local messages browsed=" + browsed);
-                                            if (browsed)
-                                                DB.getInstance(context).message().deleteBrowsedMessages(id);
-                                            else
-                                                DB.getInstance(context).message().deleteLocalMessages(id);
-                                            return null;
-                                        }
-
-                                        @Override
-                                        public void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(context, owner, ex);
-                                        }
-                                    }.execute(context, owner, args, "folder:delete:local");
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show();
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(aargs);
+                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_DELETE_LOCAL);
+                    ask.show(parentFragment.getFragmentManager(), "folder:delete_local");
                 }
 
                 private void onActionEmptyTrash() {
-                    new DialogBuilderLifecycle(context, owner)
-                            .setMessage(R.string.title_empty_trash_ask)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question", context.getString(R.string.title_empty_trash_ask));
+                    aargs.putLong("folder", folder.id);
 
-                                    Bundle args = new Bundle();
-                                    args.putLong("folder", folder.id);
-
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) {
-                                            long folder = args.getLong("folder");
-
-                                            DB db = DB.getInstance(context);
-                                            try {
-                                                db.beginTransaction();
-
-                                                List<Long> ids = db.message().getMessageByFolder(folder);
-                                                for (Long id : ids) {
-                                                    EntityMessage message = db.message().getMessage(id);
-                                                    if (message.msgid != null || message.uid != null)
-                                                        EntityOperation.queue(context, message, EntityOperation.DELETE);
-                                                }
-
-                                                db.setTransactionSuccessful();
-                                            } finally {
-                                                db.endTransaction();
-                                            }
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(context, owner, ex);
-                                        }
-                                    }.execute(context, owner, args, "folder:delete");
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show();
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(aargs);
+                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EMPTY_TRASH);
+                    ask.show(parentFragment.getFragmentManager(), "folder:empty_trash");
                 }
 
                 private void onActionEditRules() {
@@ -730,12 +599,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, View parentView,
+    AdapterFolder(Context context, LifecycleOwner owner, Fragment parentFragment,
                   long account, boolean show_hidden, IFolderSelectedListener listener) {
         this.context = context;
         this.inflater = LayoutInflater.from(context);
         this.owner = owner;
-        this.parentView = parentView;
+        this.parentFragment = parentFragment;
         this.show_hidden = show_hidden;
         this.account = account;
         this.listener = listener;

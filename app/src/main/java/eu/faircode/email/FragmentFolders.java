@@ -52,6 +52,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
+import static android.app.Activity.RESULT_OK;
+
 public class FragmentFolders extends FragmentBase {
     private ViewGroup view;
     private SwipeRefreshLayout swipeRefresh;
@@ -69,6 +71,10 @@ public class FragmentFolders extends FragmentBase {
     private boolean show_hidden = false;
     private String searching = null;
     private AdapterFolder adapter;
+
+    static final int REQUEST_SYNC = 1;
+    static final int REQUEST_DELETE_LOCAL = 2;
+    static final int REQUEST_EMPTY_TRASH = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -144,7 +150,9 @@ public class FragmentFolders extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvFolder.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(), view, account, show_hidden, null);
+        adapter = new AdapterFolder(
+                getContext(), getViewLifecycleOwner(), this,
+                account, show_hidden, null);
         rvFolder.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -417,5 +425,161 @@ public class FragmentFolders extends FragmentBase {
         show_hidden = !show_hidden;
         getActivity().invalidateOptionsMenu();
         adapter.setShowHidden(show_hidden);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_SYNC:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onSync(args.getLong("folder"), args.getBoolean("all"));
+                }
+                break;
+            case REQUEST_DELETE_LOCAL:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onDeleteLocal(args.getLong("folder"), args.getBoolean("browsed"));
+                }
+                break;
+            case REQUEST_EMPTY_TRASH:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onEmptyTrash(args.getLong("folder"));
+                }
+                break;
+        }
+    }
+
+    private void onSync(long folder, boolean all) {
+        Bundle args = new Bundle();
+        args.putBoolean("all", all);
+        args.putLong("folder", folder);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                boolean all = args.getBoolean("all");
+                long fid = args.getLong("folder");
+
+                if (!ConnectionHelper.getNetworkState(context).isSuitable())
+                    throw new IllegalStateException(context.getString(R.string.title_no_internet));
+
+                boolean now = true;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    EntityFolder folder = db.folder().getFolder(fid);
+                    if (folder == null)
+                        return null;
+
+                    if (all) {
+                        db.folder().setFolderInitialize(folder.id, Integer.MAX_VALUE);
+                        db.folder().setFolderKeep(folder.id, Integer.MAX_VALUE);
+                    }
+
+                    EntityOperation.sync(context, folder.id, true);
+
+                    if (folder.account != null) {
+                        EntityAccount account = db.account().getAccount(folder.account);
+                        if (account != null && !"connected".equals(account.state))
+                            now = false;
+                    }
+
+                    db.setTransactionSuccessful();
+
+                } finally {
+                    db.endTransaction();
+                }
+
+                if (!now)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalStateException) {
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(
+                                    new Intent(getContext(), ActivitySetup.class)
+                                            .putExtra("tab", "connection"));
+                        }
+                    });
+                    snackbar.show();
+                } else if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "folder:sync");
+    }
+
+    private void onDeleteLocal(long folder, boolean browsed) {
+        Bundle args = new Bundle();
+        args.putLong("id", folder);
+        args.putBoolean("browsed", browsed);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                boolean browsed = args.getBoolean("browsed");
+                Log.i("Delete local messages browsed=" + browsed);
+                if (browsed)
+                    DB.getInstance(context).message().deleteBrowsedMessages(id);
+                else
+                    DB.getInstance(context).message().deleteLocalMessages(id);
+                return null;
+            }
+
+            @Override
+            public void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "folder:delete:local");
+    }
+
+    private void onEmptyTrash(long folder) {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long folder = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    List<Long> ids = db.message().getMessageByFolder(folder);
+                    for (Long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message.msgid != null || message.uid != null)
+                            EntityOperation.queue(context, message, EntityOperation.DELETE);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(getContext(), getViewLifecycleOwner(), args, "folder:delete");
     }
 }

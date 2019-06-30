@@ -78,14 +78,15 @@ public class FragmentDialogFolder extends DialogFragment {
                     folders = new ArrayList<>();
 
                 long account = args.getLong("account");
-                AdapterFolder adapter = new AdapterFolder(getContext(), owner, getView(), account, false,
-                        new AdapterFolder.IFolderSelectedListener() {
-                            @Override
-                            public void onFolderSelected(TupleFolderEx folder) {
-                                dismiss();
-                                sendResult(RESULT_OK, folder.id);
-                            }
-                        });
+                AdapterFolder adapter = new AdapterFolder(
+                        getContext(), owner, FragmentDialogFolder.this,
+                        account, false, new AdapterFolder.IFolderSelectedListener() {
+                    @Override
+                    public void onFolderSelected(TupleFolderEx folder) {
+                        dismiss();
+                        sendResult(RESULT_OK, folder.id);
+                    }
+                });
 
                 rvFolder.setAdapter(adapter);
 
