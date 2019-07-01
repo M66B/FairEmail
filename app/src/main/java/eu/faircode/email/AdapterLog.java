@@ -26,6 +26,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,7 +41,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
+    private Fragment parentFragment;
     private Context context;
+    private LifecycleOwner owner;
     private LayoutInflater inflater;
 
     private List<EntityLog> items = new ArrayList<>();
@@ -61,10 +68,23 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
     }
 
 
-    AdapterLog(Context context) {
-        this.context = context;
-        this.inflater = LayoutInflater.from(context);
+    AdapterLog(Fragment parentFragment) {
+        this.parentFragment = parentFragment;
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
+        this.inflater = LayoutInflater.from(parentFragment.getContext());
+
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterLog.this + " parent destroyed");
+                AdapterLog.this.parentFragment = null;
+                AdapterLog.this.context = null;
+                AdapterLog.this.owner = null;
+            }
+        });
     }
 
     public void set(@NonNull List<EntityLog> logs) {

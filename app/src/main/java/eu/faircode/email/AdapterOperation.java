@@ -30,7 +30,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
@@ -44,9 +48,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.ViewHolder> {
+    private Fragment parentFragment;
     private Context context;
-    private LayoutInflater inflater;
     private LifecycleOwner owner;
+    private LayoutInflater inflater;
 
     private boolean debug;
 
@@ -207,15 +212,26 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         }
     }
 
-    AdapterOperation(Context context, LifecycleOwner owner) {
-        this.context = context;
+    AdapterOperation(Fragment parentFragment) {
+        this.parentFragment = parentFragment;
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
-        this.owner = owner;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
 
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterOperation.this + " parent destroyed");
+                AdapterOperation.this.parentFragment = null;
+                AdapterOperation.this.context = null;
+                AdapterOperation.this.owner = null;
+            }
+        });
     }
 
     public void set(@NonNull List<TupleOperationEx> operations) {

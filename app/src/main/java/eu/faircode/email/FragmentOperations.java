@@ -74,7 +74,7 @@ public class FragmentOperations extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvOperation.setLayoutManager(llm);
 
-        adapter = new AdapterOperation(getContext(), getViewLifecycleOwner());
+        adapter = new AdapterOperation(this);
         rvOperation.setAdapter(adapter);
 
         // Initialize

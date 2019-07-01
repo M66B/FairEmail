@@ -65,7 +65,7 @@ public class FragmentLogs extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvLog.setLayoutManager(llm);
 
-        adapter = new AdapterLog(getContext());
+        adapter = new AdapterLog(this);
         rvLog.setAdapter(adapter);
 
         // Initialize

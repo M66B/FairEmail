@@ -35,7 +35,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,10 +53,10 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> {
+    private Fragment parentFragment;
     private Context context;
     private LayoutInflater inflater;
     private LifecycleOwner owner;
-    private View parentView;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
@@ -132,7 +136,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                 // Check if viewer available
                 if (ris.size() == 0) {
                     Snackbar.make(
-                            parentView,
+                            parentFragment.getView(),
                             context.getString(R.string.title_no_viewer, attachment.type),
                             Snackbar.LENGTH_LONG).show();
                     return;
@@ -178,12 +182,23 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         }
     }
 
-    AdapterImage(Context context, LifecycleOwner owner, View parentView) {
-        this.context = context;
+    AdapterImage(Fragment parentFragment) {
+        this.parentFragment = parentFragment;
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
-        this.owner = owner;
-        this.parentView = parentView;
+
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterImage.this + " parent destroyed");
+                AdapterImage.this.parentFragment = null;
+                AdapterImage.this.context = null;
+                AdapterImage.this.owner = null;
+            }
+        });
     }
 
     public void set(@NonNull List<EntityAttachment> attachments) {

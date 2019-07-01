@@ -38,7 +38,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
@@ -55,9 +59,11 @@ import java.util.Comparator;
 import java.util.List;
 
 public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.ViewHolder> {
+    private Fragment parentFragment;
+
     private Context context;
-    private LayoutInflater inflater;
     private LifecycleOwner owner;
+    private LayoutInflater inflater;
 
     private boolean readonly;
     private boolean debug;
@@ -277,14 +283,28 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
     }
 
-    AdapterAttachment(Context context, LifecycleOwner owner, boolean readonly) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.context = context;
-        this.inflater = LayoutInflater.from(context);
-        this.owner = owner;
+    AdapterAttachment(Fragment parentFragment, boolean readonly) {
+        this.parentFragment = parentFragment;
         this.readonly = readonly;
+
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
+        this.inflater = LayoutInflater.from(context);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.debug = prefs.getBoolean("debug", false);
+
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterAttachment.this + " parent destroyed");
+                AdapterAttachment.this.parentFragment = null;
+                AdapterAttachment.this.context = null;
+                AdapterAttachment.this.owner = null;
+            }
+        });
     }
 
     public void set(@NonNull List<EntityAttachment> attachments) {

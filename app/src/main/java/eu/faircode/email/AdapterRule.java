@@ -33,7 +33,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -51,10 +55,10 @@ import java.util.List;
 import javax.mail.MessagingException;
 
 public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
+    private Fragment parentFragment;
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
-    private View parentView;
 
     private List<TupleRuleEx> items = new ArrayList<>();
 
@@ -262,7 +266,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                         @Override
                         protected void onExecuted(Bundle args, Integer applied) {
                             Snackbar.make(
-                                    parentView,
+                                    parentFragment.getView(),
                                     context.getString(R.string.title_rule_applied, applied),
                                     Snackbar.LENGTH_LONG).show();
                         }
@@ -281,12 +285,23 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         }
     }
 
-    AdapterRule(Context context, LifecycleOwner owner, View parentView) {
-        this.context = context;
-        this.owner = owner;
+    AdapterRule(Fragment parentFragment) {
+        this.parentFragment = parentFragment;
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
-        this.parentView = parentView;
+
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterRule.this + " parent destroyed");
+                AdapterRule.this.parentFragment = null;
+                AdapterRule.this.context = null;
+                AdapterRule.this.owner = null;
+            }
+        });
     }
 
     public void set(@NonNull List<TupleRuleEx> rules) {

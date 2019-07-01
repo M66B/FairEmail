@@ -31,7 +31,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -41,6 +45,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder> {
+    private Fragment parentFragment;
+
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
@@ -160,11 +166,24 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
         }
     }
 
-    AdapterAnswer(Context context, LifecycleOwner owner) {
-        this.context = context;
-        this.owner = owner;
+    AdapterAnswer(Fragment parentFragment) {
+        this.parentFragment = parentFragment;
+
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterAnswer.this + " parent destroyed");
+                AdapterAnswer.this.parentFragment = null;
+                AdapterAnswer.this.context = null;
+                AdapterAnswer.this.owner = null;
+            }
+        });
 
         new SimpleTask<Boolean>() {
             @Override

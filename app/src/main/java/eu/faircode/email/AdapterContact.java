@@ -33,7 +33,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +47,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHolder> {
+    private Fragment parentFragment;
+
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
@@ -225,14 +231,28 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         }
     }
 
-    AdapterContact(Context context, LifecycleOwner owner) {
-        this.context = context;
-        this.owner = owner;
+    AdapterContact(Fragment parentFragment) {
+        this.parentFragment = parentFragment;
+
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterContact.this + " parent destroyed");
+                AdapterContact.this.parentFragment = null;
+                AdapterContact.this.context = null;
+                AdapterContact.this.owner = null;
+            }
+        });
     }
 
     public void set(@NonNull List<TupleContactEx> contacts) {

@@ -70,7 +70,7 @@ public class FragmentAnswers extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvAnswer.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterAnswer(getContext(), getViewLifecycleOwner());
+        adapter = new AdapterAnswer(this);
         rvAnswer.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {

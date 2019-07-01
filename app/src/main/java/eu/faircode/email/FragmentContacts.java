@@ -75,7 +75,7 @@ public class FragmentContacts extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvContacts.setLayoutManager(llm);
 
-        adapter = new AdapterContact(getContext(), getViewLifecycleOwner());
+        adapter = new AdapterContact(this);
         rvContacts.setAdapter(adapter);
 
         // Initialize

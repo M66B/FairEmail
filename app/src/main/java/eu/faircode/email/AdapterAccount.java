@@ -40,7 +40,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
@@ -53,9 +57,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHolder> {
+    private Fragment parentFragment;
+    private boolean settings;
+
     private Context context;
     private LifecycleOwner owner;
-    private boolean settings;
     private LayoutInflater inflater;
 
     private int colorUnread;
@@ -270,16 +276,28 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         }
     }
 
-    AdapterAccount(Context context, LifecycleOwner owner, boolean settings) {
-        this.context = context;
-        this.owner = owner;
+    AdapterAccount(final Fragment parentFragment, boolean settings) {
+        this.parentFragment = parentFragment;
         this.settings = settings;
+
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
 
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterAccount.this + " parent destroyed");
+                AdapterAccount.this.parentFragment = null;
+                AdapterAccount.this.context = null;
+                AdapterAccount.this.owner = null;
+            }
+        });
     }
 
     public void set(@NonNull List<TupleAccountEx> accounts) {

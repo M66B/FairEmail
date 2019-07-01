@@ -529,9 +529,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         String sort = prefs.getString("sort", "time");
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
 
-        adapter = new AdapterMessage(
-                getContext(), getViewLifecycleOwner(), this,
-                viewType, compact, zoom, sort, filter_duplicates, iProperties);
+        adapter = new AdapterMessage(this, viewType, compact, zoom, sort, filter_duplicates, iProperties);
         rvMessage.setAdapter(adapter);
 
         seekBar.setOnTouchListener(new View.OnTouchListener() {

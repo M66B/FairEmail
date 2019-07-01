@@ -92,7 +92,7 @@ public class FragmentAccounts extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvAccount.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterAccount(getContext(), getViewLifecycleOwner(), settings);
+        adapter = new AdapterAccount(this, settings);
         rvAccount.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {

@@ -145,18 +145,18 @@ import biweekly.util.ICalDate;
 import static android.app.Activity.RESULT_OK;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
-    private Context context;
-    private LayoutInflater inflater;
-    private LifecycleOwner owner;
     private Fragment parentFragment;
     private ViewType viewType;
     private boolean compact;
     private int zoom;
     private String sort;
     private boolean filter_duplicates;
-    private boolean suitable;
-    private int answers = -1;
     private IProperties properties;
+
+    private Context context;
+    private LifecycleOwner owner;
+    private LayoutInflater inflater;
+    private boolean suitable;
 
     private int dp36;
     private int colorPrimary;
@@ -182,6 +182,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication;
     private static boolean debug;
 
+    private int answers = -1;
     private boolean gotoTop = false;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
     private SelectionTracker<Long> selectionTracker = null;
@@ -389,7 +390,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvAttachment.setLayoutManager(llm);
             rvAttachment.setItemAnimator(null);
 
-            adapterAttachment = new AdapterAttachment(context, owner, true);
+            adapterAttachment = new AdapterAttachment(parentFragment, true);
             rvAttachment.setAdapter(adapterAttachment);
 
             cbInline = attachments.findViewById(R.id.cbInline);
@@ -416,7 +417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             StaggeredGridLayoutManager sglm =
                     new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             rvImage.setLayoutManager(sglm);
-            adapterImage = new AdapterImage(context, owner, parentFragment.getView());
+            adapterImage = new AdapterImage(parentFragment);
             rvImage.setAdapter(adapterImage);
 
             grpAddresses = vsBody.findViewById(R.id.grpAddresses);
@@ -2998,23 +2999,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    AdapterMessage(Context context, LifecycleOwner owner, Fragment parentFragment,
-                   ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates, final IProperties properties) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
-
-        this.context = context;
-        this.owner = owner;
-        this.inflater = LayoutInflater.from(context);
+    AdapterMessage(Fragment parentFragment,
+                   ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates,
+                   final IProperties properties) {
         this.parentFragment = parentFragment;
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;
         this.sort = sort;
         this.filter_duplicates = filter_duplicates;
-        this.suitable = ConnectionHelper.getNetworkState(context).isSuitable();
         this.properties = properties;
+
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
+        this.suitable = ConnectionHelper.getNetworkState(context).isSuitable();
+        this.inflater = LayoutInflater.from(context);
+        this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 
         this.dp36 = Helper.dp2pixels(context, 36);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
@@ -3027,6 +3027,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
         this.textSize = Helper.getTextSize(context, zoom);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
         this.avatars = (prefs.getBoolean("avatars", true) ||
@@ -3051,6 +3052,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     gotoTop = false;
                     properties.scrollTo(0);
                 }
+            }
+        });
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterMessage.this + " parent destroyed");
+                AdapterMessage.this.parentFragment = null;
+                AdapterMessage.this.context = null;
+                AdapterMessage.this.owner = null;
             }
         });
     }

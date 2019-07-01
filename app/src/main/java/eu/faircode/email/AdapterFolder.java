@@ -44,7 +44,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
@@ -63,14 +66,14 @@ import java.util.Map;
 import static android.app.Activity.RESULT_OK;
 
 public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder> {
-    private Context context;
-    private LayoutInflater inflater;
-    private LifecycleOwner owner;
     private Fragment parentFragment;
-    private boolean show_hidden;
-
     private long account;
+    private boolean show_hidden;
     private IFolderSelectedListener listener;
+
+    private Context context;
+    private LifecycleOwner owner;
+    private LayoutInflater inflater;
 
     private boolean subscriptions;
     private boolean debug;
@@ -599,15 +602,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
     }
 
-    AdapterFolder(Context context, LifecycleOwner owner, Fragment parentFragment,
-                  long account, boolean show_hidden, IFolderSelectedListener listener) {
-        this.context = context;
-        this.inflater = LayoutInflater.from(context);
-        this.owner = owner;
+    AdapterFolder(Fragment parentFragment, long account, boolean show_hidden, IFolderSelectedListener listener) {
         this.parentFragment = parentFragment;
-        this.show_hidden = show_hidden;
         this.account = account;
+        this.show_hidden = show_hidden;
         this.listener = listener;
+
+        this.context = parentFragment.getContext();
+        this.owner = parentFragment.getViewLifecycleOwner();
+        this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean compact = prefs.getBoolean("compact", false);
@@ -624,6 +627,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroyed() {
+                Log.i(AdapterFolder.this + " parent destroyed");
+                AdapterFolder.this.parentFragment = null;
+                AdapterFolder.this.context = null;
+                AdapterFolder.this.owner = null;
+            }
+        });
     }
 
     void setShowHidden(boolean show_hidden) {

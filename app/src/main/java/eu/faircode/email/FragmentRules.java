@@ -78,7 +78,7 @@ public class FragmentRules extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvRule.setLayoutManager(llm);
 
-        adapter = new AdapterRule(getContext(), getViewLifecycleOwner(), view);
+        adapter = new AdapterRule(this);
         rvRule.setAdapter(adapter);
 
         DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());

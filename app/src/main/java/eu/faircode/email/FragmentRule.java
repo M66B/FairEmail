@@ -638,7 +638,7 @@ public class FragmentRule extends FragmentBase {
             LinearLayoutManager llm = new LinearLayoutManager(getContext());
             rvMessage.setLayoutManager(llm);
 
-            final AdapterRuleMatch adapter = new AdapterRuleMatch(getContext(), getViewLifecycleOwner());
+            final AdapterRuleMatch adapter = new AdapterRuleMatch(this);
             rvMessage.setAdapter(adapter);
 
             tvNoMessages.setVisibility(View.GONE);

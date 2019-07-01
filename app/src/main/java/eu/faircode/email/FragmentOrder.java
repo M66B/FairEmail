@@ -78,7 +78,7 @@ public class FragmentOrder extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvOrder.setLayoutManager(llm);
 
-        adapter = new AdapterOrder(getContext(), getViewLifecycleOwner());
+        adapter = new AdapterOrder(this);
         rvOrder.setAdapter(adapter);
         new ItemTouchHelper(touchHelper).attachToRecyclerView(rvOrder);
 
