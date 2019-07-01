@@ -1816,6 +1816,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvMessage.setText(context.getText(R.string.title_ask_show_image));
 
+            // TODO: dialog fragment
             final Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -3507,7 +3508,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     })
                     .setNegativeButton(R.string.title_no, null)
-                    .show();
+                    .create();
         }
     }
 

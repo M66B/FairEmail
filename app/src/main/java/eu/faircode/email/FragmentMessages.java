@@ -4357,6 +4357,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             final ArrayAdapter<EntityAccount> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1);
 
+            // TODO: spinner
             new SimpleTask<List<EntityAccount>>() {
                 @Override
                 protected List<EntityAccount> onExecute(Context context, Bundle args) {
