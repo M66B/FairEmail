@@ -82,7 +82,11 @@ public class FragmentDialogFolder extends DialogFragment {
                     @Override
                     public void onFolderSelected(TupleFolderEx folder) {
                         dismiss();
-                        sendResult(RESULT_OK, folder.id);
+
+                        Bundle args = getArguments();
+                        args.putLong("folder", folder.id);
+
+                        sendResult(RESULT_OK);
                     }
                 });
 
@@ -107,20 +111,17 @@ public class FragmentDialogFolder extends DialogFragment {
                 .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
-                        sendResult(RESULT_CANCELED, -1);
+                        sendResult(RESULT_CANCELED);
                     }
                 })
                 .create();
     }
 
-    private void sendResult(int result, long folder) {
-        Bundle args = getArguments();
-        args.putLong("folder", folder);
-
+    private void sendResult(int result) {
         Fragment target = getTargetFragment();
         if (target != null) {
             Intent data = new Intent();
-            data.putExtra("args", args);
+            data.putExtra("args", getArguments());
             target.onActivityResult(getTargetRequestCode(), result, data);
         }
     }

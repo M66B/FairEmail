@@ -120,27 +120,28 @@ public class FragmentDialogDuration extends DialogFragment {
                         if (duration < 0)
                             duration = 0;
                         Log.i("Set duration=" + duration + " time=" + new Date(cal.getTimeInMillis()));
-                        sendResult(RESULT_OK, duration, cal.getTimeInMillis());
+
+                        Bundle args = getArguments();
+                        args.putLong("duration", duration);
+                        args.putLong("time", cal.getTimeInMillis());
+
+                        sendResult(RESULT_OK);
                     }
                 })
                 .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
-                        sendResult(RESULT_CANCELED, 0, 0);
+                        sendResult(RESULT_CANCELED);
                     }
                 })
                 .create();
     }
 
-    private void sendResult(int result, long duration, long time) {
-        Bundle args = getArguments();
-        args.putLong("duration", duration);
-        args.putLong("time", time);
-
+    private void sendResult(int result) {
         Fragment target = getTargetFragment();
         if (target != null) {
             Intent data = new Intent();
-            data.putExtra("args", args);
+            data.putExtra("args", getArguments());
             target.onActivityResult(getTargetRequestCode(), result, data);
         }
     }
