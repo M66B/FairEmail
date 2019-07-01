@@ -232,7 +232,7 @@ public class FragmentFolder extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "folder:get");
     }
@@ -313,7 +313,7 @@ public class FragmentFolder extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "folder:subscribe");
     }
@@ -510,7 +510,7 @@ public class FragmentFolder extends FragmentBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentFolder.this, args, "folder:save");
     }
@@ -553,7 +553,7 @@ public class FragmentFolder extends FragmentBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentFolder.this, args, "folder:delete");
     }

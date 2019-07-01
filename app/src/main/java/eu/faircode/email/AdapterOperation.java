@@ -144,7 +144,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, owner, ex);
+                        Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "operation:open:folder");
             } else {
@@ -171,7 +171,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, owner, ex);
+                        Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "operation:open:message");
             }
@@ -204,7 +204,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "operation:delete");
 

@@ -169,7 +169,7 @@ public class FragmentOperations extends FragmentBase {
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                    Helper.unexpectedError(getFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getActivity(), new Bundle(), "operations:delete");
                         }

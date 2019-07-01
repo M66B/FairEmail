@@ -468,7 +468,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentIdentity.this, args, "identity:config");
     }
@@ -890,7 +890,7 @@ public class FragmentIdentity extends FragmentBase {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                Helper.unexpectedError(getFragmentManager(), ex);
                             }
                         }.execute(FragmentIdentity.this, new Bundle(), "identity:count");
                 } else {
@@ -973,14 +973,14 @@ public class FragmentIdentity extends FragmentBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        Helper.unexpectedError(getFragmentManager(), ex);
                     }
                 }.execute(FragmentIdentity.this, args, "identity:accounts:get");
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "identity:get");
     }
@@ -1043,7 +1043,7 @@ public class FragmentIdentity extends FragmentBase {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                Helper.unexpectedError(getFragmentManager(), ex);
                             }
                         }.execute(FragmentIdentity.this, args, "identity:delete");
                     }

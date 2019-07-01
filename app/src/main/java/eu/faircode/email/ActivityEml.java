@@ -157,7 +157,7 @@ public class ActivityEml extends ActivityBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(ActivityEml.this, ActivityEml.this, ex);
+                    Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "eml:decode");
     }

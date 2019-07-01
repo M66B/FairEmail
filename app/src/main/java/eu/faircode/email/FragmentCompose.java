@@ -626,7 +626,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentCompose.this, args, "compose:refedit");
     }
@@ -1079,7 +1079,7 @@ public class FragmentCompose extends FragmentBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
             }
         else {
             Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
@@ -1248,7 +1248,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "compose:picked");
     }
@@ -1291,7 +1291,7 @@ public class FragmentCompose extends FragmentBase {
                 if (ex instanceof SecurityException)
                     handleFileShare();
                 else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "compose:attachment:add");
     }
@@ -1487,7 +1487,7 @@ public class FragmentCompose extends FragmentBase {
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
                         Log.e(ex);
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        Helper.unexpectedError(getFragmentManager(), ex);
                     }
             }
 
@@ -1496,7 +1496,7 @@ public class FragmentCompose extends FragmentBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "compose:encrypt");
     }
@@ -1544,7 +1544,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentCompose.this, args, "compose:send:after");
     }
@@ -1640,7 +1640,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(getContext(), getViewLifecycleOwner(), args, "compose:picked");
     }
@@ -2254,7 +2254,7 @@ public class FragmentCompose extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
                 }
             }.execute(FragmentCompose.this, new Bundle(), "compose:identities");
 
@@ -2324,7 +2324,7 @@ public class FragmentCompose extends FragmentBase {
             else if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
         }
     };
 
@@ -2719,7 +2719,7 @@ public class FragmentCompose extends FragmentBase {
             else if (ex instanceof IllegalArgumentException || ex instanceof AddressException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
         }
 
         String getActionName(int id) {
@@ -2773,7 +2773,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "compose:check");
     }
@@ -2796,7 +2796,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentCompose.this, args, "compose:show");
     }
@@ -2925,7 +2925,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentCompose.this, args, "compose:show");
     }
@@ -2997,7 +2997,7 @@ public class FragmentCompose extends FragmentBase {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                Helper.unexpectedError(getFragmentManager(), ex);
                             }
                         }.execute(FragmentCompose.this, args, "compose:cid:" + source);
                     }
@@ -3332,7 +3332,7 @@ public class FragmentCompose extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), getActivity(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
                 }
             }.execute(getContext(), getActivity(), new Bundle(), "compose:answer");
 
@@ -3340,7 +3340,7 @@ public class FragmentCompose extends FragmentBase {
                     .setAdapter(adapter, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                            dismiss();
 
                             EntityAnswer answer = adapter.getItem(which);
                             String text = EntityAnswer.replacePlaceholders(

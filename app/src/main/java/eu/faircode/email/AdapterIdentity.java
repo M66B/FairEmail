@@ -199,7 +199,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, owner, ex);
+                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "identitty:enable");
                 }

@@ -97,7 +97,7 @@ public class FragmentDialogFolder extends DialogFragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getActivity(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(getContext(), getActivity(), args, "folder:select");
 

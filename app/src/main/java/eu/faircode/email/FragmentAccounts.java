@@ -138,7 +138,7 @@ public class FragmentAccounts extends FragmentBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        Helper.unexpectedError(getFragmentManager(), ex);
                     }
                 }.execute(FragmentAccounts.this, args, "account:drafts");
 

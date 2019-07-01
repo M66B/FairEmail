@@ -205,7 +205,7 @@ public class FragmentContacts extends FragmentBase {
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), getActivity(), ex);
+                                    Helper.unexpectedError(getFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getActivity(), new Bundle(), "contacts:delete");
                         }

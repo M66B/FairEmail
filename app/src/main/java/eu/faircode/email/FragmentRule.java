@@ -406,7 +406,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "rule:accounts");
     }
@@ -454,7 +454,7 @@ public class FragmentRule extends FragmentBase {
                     etRecipient.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
-            Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            Helper.unexpectedError(getFragmentManager(), ex);
         }
     }
 
@@ -571,7 +571,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentRule.this, rargs, "rule:get");
     }
@@ -610,7 +610,7 @@ public class FragmentRule extends FragmentBase {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                                Helper.unexpectedError(getFragmentManager(), ex);
                             }
                         }.execute(FragmentRule.this, args, "rule:delete");
                     }
@@ -691,7 +691,7 @@ public class FragmentRule extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                    Helper.unexpectedError(getFragmentManager(), ex);
                 }
             }.execute(this, args, "rule:check");
         } catch (JSONException ex) {
@@ -792,7 +792,7 @@ public class FragmentRule extends FragmentBase {
                     if (ex instanceof IllegalArgumentException)
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+                        Helper.unexpectedError(getFragmentManager(), ex);
                 }
             }.execute(this, args, "rule:save");
         } catch (JSONException ex) {

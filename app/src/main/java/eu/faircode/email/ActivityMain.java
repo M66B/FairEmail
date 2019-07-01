@@ -89,7 +89,7 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(ActivityMain.this, ActivityMain.this, ex);
+                    Helper.unexpectedError(getSupportFragmentManager(), ex);
                 }
             }.execute(this, new Bundle(), "main:accounts");
         } else {

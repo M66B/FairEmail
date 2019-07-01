@@ -378,7 +378,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         try {
             askPassword(true);
         } catch (Throwable ex) {
-            Helper.unexpectedError(this, this, ex);
+            Helper.unexpectedError(getSupportFragmentManager(), ex);
         }
     }
 
@@ -386,7 +386,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         try {
             askPassword(false);
         } catch (Throwable ex) {
-            Helper.unexpectedError(this, this, ex);
+            Helper.unexpectedError(getSupportFragmentManager(), ex);
         }
     }
 
@@ -451,7 +451,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(ActivitySetup.this, ActivitySetup.this, ex);
+                Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "cleanup:run");
     }
@@ -620,7 +620,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(ActivitySetup.this, ActivitySetup.this, ex);
+                    Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "setup:export");
     }
@@ -898,7 +898,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                 else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(ActivitySetup.this, ActivitySetup.this, ex);
+                    Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "setup:import");
     }
@@ -1061,7 +1061,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                             else {
                                 if (!export || password1.equals(password2)) {
                                     ((ActivitySetup) getActivity()).password = password1;
-                                    getActivity().startActivityForResult(
+                                    startActivityForResult(
                                             Helper.getChooser(getContext(),
                                                     export ? getIntentExport() : getIntentImport()),
                                             export ? REQUEST_EXPORT : REQUEST_IMPORT);

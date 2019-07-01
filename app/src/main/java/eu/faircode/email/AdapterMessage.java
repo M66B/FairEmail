@@ -750,7 +750,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, owner, ex);
+                        Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                     }
                 }.execute(context, owner, aargs, "message:avatar");
             } else
@@ -1086,7 +1086,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, sargs, "message:actions");
 
@@ -1222,7 +1222,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, owner, ex);
+                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "message:calendar");
                 }
@@ -1349,7 +1349,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:participation");
         }
@@ -1470,7 +1470,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(context, owner, ex);
+                                Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                             }
                         }.execute(context, owner, args, "message:seen");
                     }
@@ -1546,7 +1546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:flag");
         }
@@ -1591,7 +1591,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:search");
         }
@@ -1771,7 +1771,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:attachment:download");
         }
@@ -1893,7 +1893,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:full");
         }
@@ -2018,7 +2018,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "show:images");
         }
@@ -2149,7 +2149,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(context, owner, ex);
+                Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
             }
         };
 
@@ -2340,7 +2340,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:unseen");
         }
@@ -2373,7 +2373,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:delete");
         }
@@ -2428,7 +2428,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:share");
         }
@@ -2480,7 +2480,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:keywords");
         }
@@ -2537,7 +2537,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:share");
         }
@@ -2601,7 +2601,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, owner, ex);
+                        Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "message:headers");
             } else
@@ -2639,7 +2639,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(context, owner, ex);
+                        Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "message:raw");
             } else {
@@ -2830,7 +2830,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:move:draft");
         }
@@ -2914,7 +2914,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:reply");
         }
@@ -2979,7 +2979,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(context, owner, ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, new Bundle(), "message:answer");
         }
@@ -3727,7 +3727,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getContext(), getActivity(), ex);
+                                    Helper.unexpectedError(getFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getActivity(), args, "message:keywords:manage");
                         }
@@ -3791,7 +3791,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getContext(), getActivity(), ex);
+                                        Helper.unexpectedError(getFragmentManager(), ex);
                                     }
                                 }.execute(getContext(), getActivity(), args, "message:keyword:add");
                             }

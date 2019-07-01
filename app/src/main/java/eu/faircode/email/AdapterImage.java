@@ -174,7 +174,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(context, owner, ex);
+                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "image:fetch");
                 }

@@ -33,6 +33,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import androidx.lifecycle.LifecycleOwner;
 
@@ -99,7 +100,7 @@ public class Shortcuts {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(context, owner, ex);
+                Toast.makeText(context, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         }.execute(context, owner, new Bundle(), "shortcuts:update");
     }

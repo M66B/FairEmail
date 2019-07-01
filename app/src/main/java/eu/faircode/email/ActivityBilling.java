@@ -195,7 +195,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             }
         } catch (NoSuchAlgorithmException ex) {
             Log.e(ex);
-            Helper.unexpectedError(this, this, ex);
+            Helper.unexpectedError(getSupportFragmentManager(), ex);
         }
     }
 
