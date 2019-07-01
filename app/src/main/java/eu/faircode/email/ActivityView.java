@@ -817,7 +817,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuFAQ() {
-        Helper.view(this, this, Helper.getIntentFAQ());
+        Helper.view(this, Helper.getIntentFAQ());
     }
 
     private void onMenuIssue() {
@@ -825,7 +825,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuPrivacy() {
-        Helper.view(this, this, Helper.getIntentPrivacy());
+        Helper.view(this, Helper.getIntentPrivacy());
     }
 
     private void onMenuAbout() {
@@ -844,13 +844,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onMenuRate() {
         Intent faq = Helper.getIntentFAQ();
         if (faq.resolveActivity(getPackageManager()) == null)
-            Helper.view(this, this, getIntentRate(this));
+            Helper.view(this, getIntentRate(this));
         else
             new FragmentDialogRate().show(getSupportFragmentManager(), "rate");
     }
 
     private void onMenuOtherApps() {
-        Helper.view(this, this, getIntentOtherApps());
+        Helper.view(this, getIntentOtherApps());
     }
 
     private void onReset() {
@@ -1076,13 +1076,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(getContext(), getActivity(), Helper.getIntentFAQ());
+                            Helper.view(getContext(), Helper.getIntentFAQ());
                         }
                     })
                     .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(getContext(), getActivity(), getIntentRate(getContext()));
+                            Helper.view(getContext(), getIntentRate(getContext()));
                         }
                     })
                     .create();

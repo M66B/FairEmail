@@ -435,11 +435,11 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     }
 
     private void onMenuFAQ() {
-        Helper.view(this, this, Helper.getIntentFAQ());
+        Helper.view(this, Helper.getIntentFAQ());
     }
 
     private void onMenuPrivacy() {
-        Helper.view(this, this, Helper.getIntentPrivacy());
+        Helper.view(this, Helper.getIntentPrivacy());
     }
 
     private void onCleanup() {

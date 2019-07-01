@@ -170,7 +170,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
                 Toast.makeText(this, text, Toast.LENGTH_LONG).show();
         } else
-            Helper.view(this, this, getIntentPro());
+            Helper.view(this, getIntentPro());
     }
 
     private void onActivatePro(Intent intent) {

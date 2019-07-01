@@ -59,7 +59,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
@@ -180,15 +179,15 @@ public class Helper {
             return Intent.createChooser(intent, context.getString(R.string.title_select_app));
     }
 
-    static void view(Context context, LifecycleOwner owner, Intent intent) {
+    static void view(Context context, Intent intent) {
         Uri uri = intent.getData();
         if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
-            view(context, owner, intent.getData(), false);
+            view(context, intent.getData(), false);
         else
             context.startActivity(intent);
     }
 
-    static void view(Context context, LifecycleOwner owner, Uri uri, boolean browse) {
+    static void view(Context context, Uri uri, boolean browse) {
         Log.i("View=" + uri);
 
         if (!hasCustomTabs(context, uri))

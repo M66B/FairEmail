@@ -3497,14 +3497,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
-                            Helper.view(getContext(), getActivity(), uri, false);
+                            Helper.view(getContext(), uri, false);
                         }
                     })
                     .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
-                            Helper.view(getContext(), getActivity(), uri, true);
+                            Helper.view(getContext(), uri, true);
                         }
                     })
                     .setNegativeButton(R.string.title_no, null)
@@ -3647,7 +3647,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                         return;
 
-                    Helper.view(getContext(), getActivity(), uri, true);
+                    Helper.view(getContext(), uri, true);
                 }
             });
 
@@ -3663,7 +3663,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                             return false;
 
-                        Helper.view(getContext(), getActivity(), uri, true);
+                        Helper.view(getContext(), uri, true);
 
                         return true;
                     }
