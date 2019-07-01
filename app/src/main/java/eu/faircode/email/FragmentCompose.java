@@ -1078,8 +1078,10 @@ public class FragmentCompose extends FragmentBase {
             } catch (Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
+                else {
+                    Log.e(ex);
                     Helper.unexpectedError(getFragmentManager(), ex);
+                }
             }
         else {
             Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);

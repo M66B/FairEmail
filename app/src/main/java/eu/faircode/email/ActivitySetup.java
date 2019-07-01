@@ -378,6 +378,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         try {
             askPassword(true);
         } catch (Throwable ex) {
+            Log.e(ex);
             Helper.unexpectedError(getSupportFragmentManager(), ex);
         }
     }
@@ -386,6 +387,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         try {
             askPassword(false);
         } catch (Throwable ex) {
+            Log.e(ex);
             Helper.unexpectedError(getSupportFragmentManager(), ex);
         }
     }

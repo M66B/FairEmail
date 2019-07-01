@@ -604,7 +604,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Toast.makeText(ActivityView.this, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityView.this,
+                        Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         }.execute(this, new Bundle(), "crash:log");
     }

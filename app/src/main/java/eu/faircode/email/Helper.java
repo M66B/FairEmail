@@ -478,7 +478,6 @@ public class Helper {
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Log.e(ex);
                                     if (ex instanceof IllegalArgumentException)
                                         Toast.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
                                     else
