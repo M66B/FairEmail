@@ -33,6 +33,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,7 +41,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -184,10 +184,12 @@ public class FragmentContacts extends FragmentBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
             final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             tvMessage.setText(getText(R.string.title_delete_contacts));
+            cbNotAgain.setVisibility(View.GONE);
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)

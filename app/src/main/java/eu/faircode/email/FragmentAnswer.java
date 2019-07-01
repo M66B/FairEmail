@@ -37,7 +37,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -267,10 +266,12 @@ public class FragmentAnswer extends FragmentBase {
                     getString(R.string.title_answer_template_email) +
                     "</p>");
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_message, null);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
             TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             tvMessage.setText(spanned);
+            cbNotAgain.setVisibility(View.GONE);
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)

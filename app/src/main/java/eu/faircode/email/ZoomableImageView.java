@@ -102,7 +102,7 @@ public class ZoomableImageView extends ImageView {
         float width = getMeasuredWidth();
         float height = getMeasuredHeight();
         //Fit to screen.
-        float scale = width > height ? height / bmHeight :  width / bmWidth;
+        float scale = width > height ? height / bmHeight : width / bmWidth;
 
         matrix.setScale(scale, scale);
         saveScale = 1f;
@@ -162,8 +162,7 @@ public class ZoomableImageView extends ImageView {
                     //limit left and right movement
                     if (scaleWidth < getWidth() && scaleHeight < getHeight()) {
                         // don't do anything
-                    }
-                    else if (scaleWidth < getWidth()) {
+                    } else if (scaleWidth < getWidth()) {
                         deltaX = 0;
                         limitY = true;
                     }
@@ -184,7 +183,7 @@ public class ZoomableImageView extends ImageView {
                     if (limitY) {
                         if (y + deltaY > 0) {
                             deltaY = -y;
-                        } else  if (y + deltaY < -bottom) {
+                        } else if (y + deltaY < -bottom) {
                             deltaY = -(y + bottom);
                         }
 
