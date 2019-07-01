@@ -868,7 +868,7 @@ public class FragmentRule extends FragmentBase {
         }
     }
 
-    public static class FragmentDialogCheck extends DialogFragment {
+    public static class FragmentDialogCheck extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

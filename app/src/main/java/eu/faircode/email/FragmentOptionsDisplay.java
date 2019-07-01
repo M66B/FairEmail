@@ -288,7 +288,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
     }
 
-    public static class FragmentDialogTheme extends DialogFragment {
+    public static class FragmentDialogTheme extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

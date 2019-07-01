@@ -257,7 +257,7 @@ public class FragmentAnswer extends FragmentBase {
         }.execute(FragmentAnswer.this, args, "answer:delete");
     }
 
-    public static class FragmentInfo extends DialogFragment {
+    public static class FragmentInfo extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

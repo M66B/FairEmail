@@ -98,8 +98,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -145,7 +143,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentCompose extends FragmentBase {
@@ -3243,7 +3240,7 @@ public class FragmentCompose extends FragmentBase {
         }
     };
 
-    public static class FragmentDialogContactGroup extends DialogFragment {
+    public static class FragmentDialogContactGroup extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3274,12 +3271,6 @@ public class FragmentCompose extends FragmentBase {
 
             final AlertDialog dialog = new AlertDialog.Builder(getContext())
                     .setView(dview)
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialogInterface) {
-                            sendResult(Activity.RESULT_CANCELED);
-                        }
-                    })
                     .create();
 
             lvGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -3302,18 +3293,9 @@ public class FragmentCompose extends FragmentBase {
 
             return dialog;
         }
-
-        private void sendResult(int result) {
-            Fragment target = getTargetFragment();
-            if (target != null) {
-                Intent data = new Intent();
-                data.putExtra("args", getArguments());
-                target.onActivityResult(getTargetRequestCode(), result, data);
-            }
-        }
     }
 
-    public static class FragmentDialogAnswer extends DialogFragment {
+    public static class FragmentDialogAnswer extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3352,26 +3334,11 @@ public class FragmentCompose extends FragmentBase {
                             sendResult(RESULT_OK);
                         }
                     })
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialogInterface) {
-                            sendResult(RESULT_CANCELED);
-                        }
-                    })
                     .show();
-        }
-
-        private void sendResult(int result) {
-            Fragment target = getTargetFragment();
-            if (target != null) {
-                Intent data = new Intent();
-                data.putExtra("args", getArguments());
-                target.onActivityResult(getTargetRequestCode(), result, data);
-            }
         }
     }
 
-    public static class FragmentDialogLink extends DialogFragment {
+    public static class FragmentDialogLink extends DialogFragmentEx {
         private EditText etLink;
 
         @Override
@@ -3419,22 +3386,7 @@ public class FragmentCompose extends FragmentBase {
                             sendResult(RESULT_OK);
                         }
                     })
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialogInterface) {
-                            sendResult(RESULT_CANCELED);
-                        }
-                    })
                     .create();
-        }
-
-        private void sendResult(int result) {
-            Fragment target = getTargetFragment();
-            if (target != null) {
-                Intent data = new Intent();
-                data.putExtra("args", getArguments());
-                target.onActivityResult(getTargetRequestCode(), result, data);
-            }
         }
     }
 }

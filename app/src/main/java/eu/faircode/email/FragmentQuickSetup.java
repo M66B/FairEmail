@@ -19,8 +19,10 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -40,6 +42,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -57,6 +60,8 @@ import javax.mail.Folder;
 import javax.mail.Session;
 import javax.mail.Transport;
 
+import static android.app.Activity.RESULT_OK;
+
 public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
 
@@ -72,6 +77,8 @@ public class FragmentQuickSetup extends FragmentBase {
     private TextView tvSmtp;
     private Button btnSave;
     private Group grpSetup;
+
+    private static final int REQUEST_DONE = 1;
 
     @Override
     @Nullable
@@ -362,18 +369,11 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvSmtp.setText(result == null ? null
                             : result.smtp_host + ":" + result.smtp_port + (result.smtp_starttls ? " starttls" : " ssl"));
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
-                } else
-                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(R.string.title_setup_quick_success)
-                            .setPositiveButton(android.R.string.ok, null)
-                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                                @Override
-                                public void onDismiss(DialogInterface dialog) {
-                                    finish();
-                                }
-                            })
-                            .create()
-                            .show();
+                } else {
+                    FragmentDialogDone fragment = new FragmentDialogDone();
+                    fragment.setTargetFragment(FragmentQuickSetup.this, REQUEST_DONE);
+                    fragment.show(getFragmentManager(), "quick:done");
+                }
             }
 
             @Override
@@ -391,5 +391,32 @@ public class FragmentQuickSetup extends FragmentBase {
                 }
             }
         }.execute(FragmentQuickSetup.this, args, "setup:quick");
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_DONE:
+                finish();
+                break;
+        }
+    }
+
+    public static class FragmentDialogDone extends DialogFragmentEx {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            return new AlertDialog.Builder(getContext())
+                    .setMessage(R.string.title_setup_quick_success)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            sendResult(RESULT_OK);
+                        }
+                    })
+                    .create();
+        }
     }
 }

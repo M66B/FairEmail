@@ -56,8 +56,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -75,7 +73,6 @@ import java.util.Properties;
 import javax.mail.Session;
 import javax.mail.Transport;
 
-import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
@@ -1086,7 +1083,7 @@ public class FragmentIdentity extends FragmentBase {
         etSignature.setTag(html);
     }
 
-    public static class FragmentDialogHtml extends DialogFragment {
+    public static class FragmentDialogHtml extends DialogFragmentEx {
         private EditText etHtml;
 
         @Override
@@ -1119,22 +1116,7 @@ public class FragmentIdentity extends FragmentBase {
                             sendResult(RESULT_OK);
                         }
                     })
-                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialogInterface) {
-                            sendResult(RESULT_CANCELED);
-                        }
-                    })
                     .create();
-        }
-
-        private void sendResult(int result) {
-            Fragment target = getTargetFragment();
-            if (target != null) {
-                Intent data = new Intent();
-                data.putExtra("args", getArguments());
-                target.onActivityResult(getTargetRequestCode(), result, data);
-            }
         }
     }
 }

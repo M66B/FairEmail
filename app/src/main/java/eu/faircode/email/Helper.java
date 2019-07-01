@@ -447,7 +447,7 @@ public class Helper {
         fragment.show(manager, "error:unexpected");
     }
 
-    public static class FragmentDialogUnexpected extends DialogFragment {
+    public static class FragmentDialogUnexpected extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

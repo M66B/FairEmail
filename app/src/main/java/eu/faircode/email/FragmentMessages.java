@@ -4314,7 +4314,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         };
     }
 
-    public static class FragmentDialogReporting extends DialogFragment {
+    public static class FragmentDialogReporting extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -4361,7 +4361,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
     }
 
-    public static class FragmentDialogError extends DialogFragment {
+    public static class FragmentDialogError extends DialogFragmentEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,11 +32,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
-public class FragmentDialogAsk extends DialogFragment {
+public class FragmentDialogAsk extends DialogFragmentEx {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -69,21 +66,6 @@ public class FragmentDialogAsk extends DialogFragment {
                         sendResult(Activity.RESULT_CANCELED);
                     }
                 })
-                .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialogInterface) {
-                        sendResult(Activity.RESULT_CANCELED);
-                    }
-                })
                 .create();
-    }
-
-    private void sendResult(int result) {
-        Fragment target = getTargetFragment();
-        if (target != null) {
-            Intent data = new Intent();
-            data.putExtra("args", getArguments());
-            target.onActivityResult(getTargetRequestCode(), result, data);
-        }
     }
 }

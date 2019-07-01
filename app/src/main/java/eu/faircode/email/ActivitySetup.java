@@ -1021,7 +1021,7 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         return intent;
     }
 
-    public static class FragmentDialogPassword extends DialogFragment {
+    public static class FragmentDialogPassword extends DialogFragmentEx {
         private TextInputLayout etPassword1;
         private TextInputLayout etPassword2;
 

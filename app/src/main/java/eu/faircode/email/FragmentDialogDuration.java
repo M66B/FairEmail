@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,18 +32,15 @@ import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentDialogDuration extends DialogFragment {
+public class FragmentDialogDuration extends DialogFragmentEx {
     private Calendar cal = Calendar.getInstance();
 
     @Override
@@ -128,21 +124,6 @@ public class FragmentDialogDuration extends DialogFragment {
                         sendResult(RESULT_OK);
                     }
                 })
-                .setOnDismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialogInterface) {
-                        sendResult(RESULT_CANCELED);
-                    }
-                })
                 .create();
-    }
-
-    private void sendResult(int result) {
-        Fragment target = getTargetFragment();
-        if (target != null) {
-            Intent data = new Intent();
-            data.putExtra("args", getArguments());
-            target.onActivityResult(getTargetRequestCode(), result, data);
-        }
     }
 }
