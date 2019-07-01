@@ -101,41 +101,45 @@ public class ConnectionHelper {
         boolean rlah = prefs.getBoolean("rlah", true);
 
         NetworkState state = new NetworkState();
-        Boolean isMetered = isMetered(context);
-        state.connected = (isMetered != null);
-        state.unmetered = (isMetered != null && !isMetered);
-        state.suitable = (isMetered != null && (metered || !isMetered));
+        try {
+            Boolean isMetered = isMetered(context);
+            state.connected = (isMetered != null);
+            state.unmetered = (isMetered != null && !isMetered);
+            state.suitable = (isMetered != null && (metered || !isMetered));
 
-        if (state.connected && !roaming) {
-            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-                NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
-                if (ani != null)
-                    state.roaming = ani.isRoaming();
-            } else {
-                Network active = (cm == null ? null : cm.getActiveNetwork());
-                if (active != null) {
-                    NetworkCapabilities caps = cm.getNetworkCapabilities(active);
-                    if (caps != null)
-                        state.roaming = !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING);
-                }
-            }
-
-            if (state.roaming != null && state.roaming && rlah)
-                try {
-                    TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-                    if (tm != null) {
-                        String sim = tm.getSimCountryIso();
-                        String network = tm.getNetworkCountryIso();
-                        Log.i("Country SIM=" + sim + " network=" + network);
-                        if (sim != null && network != null &&
-                                RLAH_COUNTRY_CODES.contains(sim) &&
-                                RLAH_COUNTRY_CODES.contains(network))
-                            state.roaming = false;
+            if (state.connected && !roaming) {
+                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+                    NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+                    if (ani != null)
+                        state.roaming = ani.isRoaming();
+                } else {
+                    Network active = (cm == null ? null : cm.getActiveNetwork());
+                    if (active != null) {
+                        NetworkCapabilities caps = cm.getNetworkCapabilities(active);
+                        if (caps != null)
+                            state.roaming = !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING);
                     }
-                } catch (Throwable ex) {
-                    Log.w(ex);
                 }
+
+                if (state.roaming != null && state.roaming && rlah)
+                    try {
+                        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+                        if (tm != null) {
+                            String sim = tm.getSimCountryIso();
+                            String network = tm.getNetworkCountryIso();
+                            Log.i("Country SIM=" + sim + " network=" + network);
+                            if (sim != null && network != null &&
+                                    RLAH_COUNTRY_CODES.contains(sim) &&
+                                    RLAH_COUNTRY_CODES.contains(network))
+                                state.roaming = false;
+                        }
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
 
         return state;
