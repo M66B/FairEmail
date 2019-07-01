@@ -24,5 +24,8 @@
         android:text="Keyword"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvKeyword" />
+        app:layout_constraintTop_toBottomOf="@id/tvKeyword">
+
+        <requestFocus />
+    </EditText>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,10 @@
                 android:inputType="textPersonName|textCapWords"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <requestFocus />
+            </EditText>
 
             <EditText
                 android:id="@+id/etEmail"

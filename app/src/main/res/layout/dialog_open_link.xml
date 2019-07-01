@@ -37,7 +37,10 @@
         android:text="https://email.faircode.eu/"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+        <requestFocus />
+    </EditText>
 
     <CheckBox
         android:id="@+id/cbSecure"

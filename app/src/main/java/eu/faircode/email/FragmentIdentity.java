@@ -853,8 +853,6 @@ public class FragmentIdentity extends FragmentBase {
 
                     color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 
-                    etName.requestFocus();
-
                     if (identity == null)
                         new SimpleTask<Integer>() {
                             @Override
@@ -1109,13 +1107,6 @@ public class FragmentIdentity extends FragmentBase {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_signature, null);
             etHtml = dview.findViewById(R.id.etHtml);
             etHtml.setText(html);
-
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    etHtml.requestFocus();
-                }
-            });
 
             return new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_edit_html)

@@ -3409,13 +3409,6 @@ public class FragmentCompose extends FragmentBase {
             else
                 etLink.setText(savedInstanceState.getString("fair:link"));
 
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    etLink.requestFocus();
-                }
-            });
-
             return new AlertDialog.Builder(getContext())
                     .setView(view)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
