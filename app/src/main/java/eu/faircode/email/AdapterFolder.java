@@ -357,29 +357,27 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.account != null) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
 
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
+
+                if (EntityFolder.TRASH.equals(folder.type))
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
+
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String startup = prefs.getString("startup", "unified");
                 if (!"accounts".equals(startup))
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 3, R.string.title_unified_folder)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 6, R.string.title_unified_folder)
                             .setCheckable(true).setChecked(folder.unified);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 4, R.string.title_navigation_folder)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 7, R.string.title_navigation_folder)
                         .setCheckable(true).setChecked(folder.navigation);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 5, R.string.title_notify_folder)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 8, R.string.title_notify_folder)
                         .setCheckable(true).setChecked(folder.notify);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 6, R.string.title_synchronize_enabled)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 9, R.string.title_synchronize_enabled)
                         .setCheckable(true).setChecked(folder.synchronize);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 7, R.string.title_delete_local);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 8, R.string.title_delete_browsed);
-            }
-
-            if (EntityFolder.TRASH.equals(folder.type))
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 9, R.string.title_empty_trash);
-
-            if (folder.account != null) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 10, R.string.title_edit_rules);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 11, R.string.title_edit_properties);
 
