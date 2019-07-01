@@ -19,8 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -48,8 +48,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.DialogFragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -137,6 +139,7 @@ public class FragmentRule extends FragmentBase {
     private static final int REQUEST_SENDER = 1;
     private static final int REQUEST_RECIPIENT = 2;
     private static final int REQUEST_COLOR = 3;
+    private final static int REQUEST_DELETE = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -293,7 +296,7 @@ public class FragmentRule extends FragmentBase {
 
         tvActionRemark.setVisibility(View.GONE);
 
-        setColor(color);
+        onSelectColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -307,7 +310,7 @@ public class FragmentRule extends FragmentBase {
         ibColorDefault.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setColor(Color.TRANSPARENT);
+                onSelectColor(Color.TRANSPARENT);
             }
         });
 
@@ -323,7 +326,7 @@ public class FragmentRule extends FragmentBase {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
-                        onActionTrash();
+                        onActionDelete();
                         return true;
                     case R.id.action_check:
                         onActionCheck();
@@ -418,11 +421,11 @@ public class FragmentRule extends FragmentBase {
         switch (requestCode) {
             case REQUEST_SENDER:
                 if (resultCode == RESULT_OK && data != null)
-                    handlePickContact(data, true);
+                    onPickContact(data, true);
                 break;
             case REQUEST_RECIPIENT:
                 if (resultCode == RESULT_OK && data != null)
-                    handlePickContact(data, true);
+                    onPickContact(data, true);
                 break;
             case REQUEST_COLOR:
                 if (resultCode == RESULT_OK && data != null) {
@@ -433,13 +436,17 @@ public class FragmentRule extends FragmentBase {
                     }
 
                     Bundle args = data.getBundleExtra("args");
-                    setColor(args.getInt("color"));
+                    onSelectColor(args.getInt("color"));
                 }
+                break;
+            case REQUEST_DELETE:
+                if (resultCode == RESULT_OK)
+                    onDelete();
                 break;
         }
     }
 
-    private void handlePickContact(Intent data, boolean sender) {
+    private void onPickContact(Intent data, boolean sender) {
         Uri uri = data.getData();
         if (uri == null) return;
         try (Cursor cursor = getContext().getContentResolver().query(uri,
@@ -456,6 +463,49 @@ public class FragmentRule extends FragmentBase {
             Log.e(ex);
             Helper.unexpectedError(getFragmentManager(), ex);
         }
+    }
+
+    private void onSelectColor(int color) {
+        this.color = color;
+
+        GradientDrawable border = new GradientDrawable();
+        border.setColor(color);
+        border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
+        vwColor.setBackground(border);
+    }
+
+    private void onDelete() {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                Helper.setViewsEnabled(view, false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                Helper.setViewsEnabled(view, true);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                DB.getInstance(context).rule().deleteRule(id);
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                finish();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(FragmentRule.this, args, "rule:delete");
     }
 
     private void loadRule() {
@@ -514,7 +564,7 @@ public class FragmentRule extends FragmentBase {
                                 break;
 
                             case EntityRule.TYPE_FLAG:
-                                setColor(jaction.isNull("color") ? Color.TRANSPARENT : jaction.getInt("color"));
+                                onSelectColor(jaction.isNull("color") ? Color.TRANSPARENT : jaction.getInt("color"));
                                 break;
 
                             case EntityRule.TYPE_MOVE:
@@ -576,47 +626,23 @@ public class FragmentRule extends FragmentBase {
         }.execute(FragmentRule.this, rargs, "rule:get");
     }
 
-    private void onActionTrash() {
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_ask_delete_rule)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Bundle args = new Bundle();
-                        args.putLong("id", id);
+    private void showActionParameters(int type) {
+        grpSnooze.setVisibility(type == EntityRule.TYPE_SNOOZE ? View.VISIBLE : View.GONE);
+        grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
+        grpMove.setVisibility(type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ? View.VISIBLE : View.GONE);
+        grpMoveProp.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
+        grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
+        grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
+    }
 
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected void onPreExecute(Bundle args) {
-                                Helper.setViewsEnabled(view, false);
-                            }
+    private void onActionDelete() {
+        Bundle args = new Bundle();
+        args.putString("question", getString(R.string.title_ask_delete_rule));
 
-                            @Override
-                            protected void onPostExecute(Bundle args) {
-                                Helper.setViewsEnabled(view, true);
-                            }
-
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                long id = args.getLong("id");
-                                DB.getInstance(context).rule().deleteRule(id);
-                                return null;
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, Void data) {
-                                finish();
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getFragmentManager(), ex);
-                            }
-                        }.execute(FragmentRule.this, args, "rule:delete");
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+        FragmentDialogAsk fragment = new FragmentDialogAsk();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(FragmentRule.this, REQUEST_DELETE);
+        fragment.show(getFragmentManager(), "answer:delete");
     }
 
     private void onActionCheck() {
@@ -629,71 +655,14 @@ public class FragmentRule extends FragmentBase {
                 return;
             }
 
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_rule_match, null);
-            final TextView tvNoMessages = dview.findViewById(R.id.tvNoMessages);
-            final RecyclerView rvMessage = dview.findViewById(R.id.rvMessage);
-            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
-
-            rvMessage.setHasFixedSize(false);
-            LinearLayoutManager llm = new LinearLayoutManager(getContext());
-            rvMessage.setLayoutManager(llm);
-
-            final AdapterRuleMatch adapter = new AdapterRuleMatch(this);
-            rvMessage.setAdapter(adapter);
-
-            tvNoMessages.setVisibility(View.GONE);
-            rvMessage.setVisibility(View.GONE);
-            pbWait.setVisibility(View.VISIBLE);
-
-            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setTitle(R.string.title_rule_matched)
-                    .setView(dview)
-                    .show();
-
             Bundle args = new Bundle();
             args.putLong("folder", folder);
             args.putString("condition", jcondition.toString());
 
-            new SimpleTask<List<EntityMessage>>() {
-                @Override
-                protected List<EntityMessage> onExecute(Context context, Bundle args) throws Throwable {
-                    long fid = args.getLong("folder");
-                    EntityRule rule = new EntityRule();
-                    rule.condition = args.getString("condition");
+            FragmentDialogCheck fragment = new FragmentDialogCheck();
+            fragment.setArguments(args);
+            fragment.show(getFragmentManager(), "rule:check");
 
-                    List<EntityMessage> matching = new ArrayList<>();
-
-                    DB db = DB.getInstance(context);
-                    List<Long> ids = db.message().getMessageIdsByFolder(fid);
-                    for (long id : ids) {
-                        EntityMessage message = db.message().getMessage(id);
-
-                        if (rule.matches(context, message, null))
-                            matching.add(message);
-
-                        if (matching.size() >= MAX_CHECK)
-                            break;
-                    }
-
-                    return matching;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<EntityMessage> messages) {
-                    adapter.set(messages);
-
-                    pbWait.setVisibility(View.GONE);
-                    if (messages.size() > 0)
-                        rvMessage.setVisibility(View.VISIBLE);
-                    else
-                        tvNoMessages.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getFragmentManager(), ex);
-                }
-            }.execute(this, args, "rule:check");
         } catch (JSONException ex) {
             Log.e(ex);
         }
@@ -800,24 +769,6 @@ public class FragmentRule extends FragmentBase {
         }
     }
 
-    private void showActionParameters(int type) {
-        grpSnooze.setVisibility(type == EntityRule.TYPE_SNOOZE ? View.VISIBLE : View.GONE);
-        grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
-        grpMove.setVisibility(type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ? View.VISIBLE : View.GONE);
-        grpMoveProp.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
-        grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
-        grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
-    }
-
-    private void setColor(int color) {
-        this.color = color;
-
-        GradientDrawable border = new GradientDrawable();
-        border.setColor(color);
-        border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
-        vwColor.setBackground(border);
-    }
-
     private JSONObject getCondition() throws JSONException {
         JSONObject jcondition = new JSONObject();
 
@@ -914,6 +865,81 @@ public class FragmentRule extends FragmentBase {
         @Override
         public String toString() {
             return name;
+        }
+    }
+
+    public static class FragmentDialogCheck extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            long folder = getArguments().getLong("folder");
+            String condition = getArguments().getString("condition");
+
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_rule_match, null);
+            final TextView tvNoMessages = dview.findViewById(R.id.tvNoMessages);
+            final RecyclerView rvMessage = dview.findViewById(R.id.rvMessage);
+            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+
+            rvMessage.setHasFixedSize(false);
+            LinearLayoutManager llm = new LinearLayoutManager(getContext());
+            rvMessage.setLayoutManager(llm);
+
+            final AdapterRuleMatch adapter = new AdapterRuleMatch(getContext(), getActivity());
+            rvMessage.setAdapter(adapter);
+
+            tvNoMessages.setVisibility(View.GONE);
+            rvMessage.setVisibility(View.GONE);
+            pbWait.setVisibility(View.VISIBLE);
+
+            Bundle args = new Bundle();
+            args.putLong("folder", folder);
+            args.putString("condition", condition);
+
+            new SimpleTask<List<EntityMessage>>() {
+                @Override
+                protected List<EntityMessage> onExecute(Context context, Bundle args) throws Throwable {
+                    long fid = args.getLong("folder");
+                    EntityRule rule = new EntityRule();
+                    rule.condition = args.getString("condition");
+
+                    List<EntityMessage> matching = new ArrayList<>();
+
+                    DB db = DB.getInstance(context);
+                    List<Long> ids = db.message().getMessageIdsByFolder(fid);
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+
+                        if (rule.matches(context, message, null))
+                            matching.add(message);
+
+                        if (matching.size() >= MAX_CHECK)
+                            break;
+                    }
+
+                    return matching;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityMessage> messages) {
+                    adapter.set(messages);
+
+                    pbWait.setVisibility(View.GONE);
+                    if (messages.size() > 0)
+                        rvMessage.setVisibility(View.VISIBLE);
+                    else
+                        tvNoMessages.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getFragmentManager(), ex);
+                }
+            }.execute(getContext(), getActivity(), args, "rule:check");
+
+            return new AlertDialog.Builder(getContext())
+                    .setTitle(R.string.title_rule_matched)
+                    .setView(dview)
+                    .create();
         }
     }
 }

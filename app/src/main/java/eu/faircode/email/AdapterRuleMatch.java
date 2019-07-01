@@ -26,7 +26,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -41,7 +40,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.ViewHolder> {
-    private Fragment parentFragment;
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
@@ -75,10 +73,9 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
         }
     }
 
-    AdapterRuleMatch(Fragment parentFragment) {
-        this.parentFragment = parentFragment;
-        this.context = parentFragment.getContext();
-        this.owner = parentFragment.getViewLifecycleOwner();
+    AdapterRuleMatch(Context context, LifecycleOwner owner) {
+        this.context = context;
+        this.owner = owner;
         this.inflater = LayoutInflater.from(context);
 
         setHasStableIds(true);
@@ -87,7 +84,6 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
                 Log.i(AdapterRuleMatch.this + " parent destroyed");
-                AdapterRuleMatch.this.parentFragment = null;
                 AdapterRuleMatch.this.context = null;
                 AdapterRuleMatch.this.owner = null;
             }
