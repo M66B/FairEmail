@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -53,7 +54,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -71,6 +75,7 @@ import java.util.Properties;
 import javax.mail.Session;
 import javax.mail.Transport;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
@@ -134,6 +139,7 @@ public class FragmentIdentity extends FragmentBase {
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_SAVE = 2;
     private static final int REQUEST_DELETE = 3;
+    private static final int REQUEST_HTML = 4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -300,29 +306,13 @@ public class FragmentIdentity extends FragmentBase {
         btnHtml.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_signature, null);
-                final EditText etHtml = dview.findViewById(R.id.etHtml);
-                etHtml.setText((String) etSignature.getTag());
+                Bundle args = new Bundle();
+                args.putString("html", (String) etSignature.getTag());
 
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setTitle(R.string.title_edit_html)
-                        .setView(dview)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String html = etHtml.getText().toString();
-                                etSignature.setText(HtmlHelper.fromHtml(html));
-                                etSignature.setTag(html);
-                            }
-                        })
-                        .show();
-
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        etHtml.requestFocus();
-                    }
-                });
+                FragmentDialogHtml fragment = new FragmentDialogHtml();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentIdentity.this, REQUEST_HTML);
+                fragment.show(getFragmentManager(), "identity:html");
             }
         });
 
@@ -812,6 +802,7 @@ public class FragmentIdentity extends FragmentBase {
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:color", color);
+        outState.putString("fair:html", (String) etSignature.getTag());
         super.onSaveInstanceState(outState);
     }
 
@@ -885,6 +876,7 @@ public class FragmentIdentity extends FragmentBase {
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     color = savedInstanceState.getInt("fair:color");
+                    etSignature.setTag(savedInstanceState.getString("fair:html"));
                 }
 
                 Helper.setViewsEnabled(view, true);
@@ -1039,6 +1031,10 @@ public class FragmentIdentity extends FragmentBase {
                 if (resultCode == RESULT_OK)
                     onDelete();
                 break;
+            case REQUEST_HTML:
+                if (resultCode == RESULT_OK && data != null)
+                    onHtml(data.getBundleExtra("args"));
+                break;
         }
     }
 
@@ -1084,5 +1080,70 @@ public class FragmentIdentity extends FragmentBase {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(FragmentIdentity.this, args, "identity:delete");
+    }
+
+    private void onHtml(Bundle args) {
+        String html = args.getString("html");
+        etSignature.setText(HtmlHelper.fromHtml(html));
+        etSignature.setTag(html);
+    }
+
+    public static class FragmentDialogHtml extends DialogFragment {
+        private EditText etHtml;
+
+        @Override
+        public void onSaveInstanceState(@NonNull Bundle outState) {
+            outState.putString("fair:html", etHtml.getText().toString());
+            super.onSaveInstanceState(outState);
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            String html;
+            if (savedInstanceState == null)
+                html = getArguments().getString("html");
+            else
+                html = savedInstanceState.getString("fair:html");
+
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_signature, null);
+            etHtml = dview.findViewById(R.id.etHtml);
+            etHtml.setText(html);
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etHtml.requestFocus();
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setTitle(R.string.title_edit_html)
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String html = etHtml.getText().toString();
+                            getArguments().putString("html", html);
+                            sendResult(RESULT_OK);
+                        }
+                    })
+                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialogInterface) {
+                            sendResult(RESULT_CANCELED);
+                        }
+                    })
+                    .create();
+        }
+
+        private void sendResult(int result) {
+            Fragment target = getTargetFragment();
+            if (target != null) {
+                Intent data = new Intent();
+                data.putExtra("args", getArguments());
+                target.onActivityResult(getTargetRequestCode(), result, data);
+            }
+        }
     }
 }
