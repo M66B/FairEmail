@@ -81,7 +81,6 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.documentfile.provider.DocumentFile;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -254,6 +253,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_MESSAGES_MOVE = 16;
     static final int REQUEST_PRINT = 17;
     private static final int REQUEST_SEARCH = 18;
+    private static final int REQUEST_ACCOUNT = 19;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -2274,37 +2274,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ib.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Bundle args = new Bundle();
-
-                new SimpleTask<List<EntityAccount>>() {
-                    @Override
-                    protected List<EntityAccount> onExecute(Context context, Bundle args) {
-                        DB db = DB.getInstance(context);
-                        return db.account().getSynchronizingAccounts();
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
-                        final ArrayAdapter<EntityAccount> adapter =
-                                new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, accounts);
-
-                        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                                .setAdapter(adapter, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                        EntityAccount account = adapter.getItem(which);
-                                        onMenuFolders(account.id);
-                                    }
-                                })
-                                .show();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getFragmentManager(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:accounts");
+                FragmentDialogAccount fragment = new FragmentDialogAccount();
+                fragment.setArguments(new Bundle());
+                fragment.setTargetFragment(FragmentMessages.this, REQUEST_ACCOUNT);
+                fragment.show(getFragmentManager(), "messages:accounts");
                 return true;
             }
         });
@@ -3376,10 +3349,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
                 break;
             case REQUEST_PRINT:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onPrint(args.getLong("id"));
-                }
+                if (resultCode == RESULT_OK && data != null)
+                    onPrint(data.getBundleExtra("args"));
                 break;
             case REQUEST_SEARCH:
                 if (resultCode == RESULT_OK && data != null) {
@@ -3387,6 +3358,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     search(
                             getContext(), getViewLifecycleOwner(), getFragmentManager(),
                             args.getLong("folder"), true, args.getString("query"));
+                }
+                break;
+            case REQUEST_ACCOUNT:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onMenuFolders(args.getLong("account"));
                 }
                 break;
         }
@@ -4118,9 +4095,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private WebView printWebView = null;
 
-    private void onPrint(long id) {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
+    private void onPrint(Bundle args) {
+        Bundle pargs = new Bundle();
+        pargs.putLong("id", args.getLong("id"));
 
         new SimpleTask<String[]>() {
             @Override
@@ -4224,7 +4201,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(this, args, "message:print");
+        }.execute(this, pargs, "message:print");
     }
 
     static void search(
@@ -4355,6 +4332,43 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                                 prefs.edit().putBoolean("crash_reports_asked", true).apply();
                             }
+                        }
+                    })
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogAccount extends DialogFragmentEx {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final ArrayAdapter<EntityAccount> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1);
+
+            new SimpleTask<List<EntityAccount>>() {
+                @Override
+                protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(context);
+                    return db.account().getSynchronizingAccounts();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                    adapter.addAll(accounts);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getFragmentManager(), ex);
+                }
+            }.execute(getContext(), getActivity(), new Bundle(), "messages:accounts");
+
+            return new AlertDialog.Builder(getContext())
+                    .setAdapter(adapter, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            EntityAccount account = adapter.getItem(which);
+                            getArguments().putLong("account", account.id);
+                            sendResult(RESULT_OK);
                         }
                     })
                     .create();
