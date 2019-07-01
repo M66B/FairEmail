@@ -1816,7 +1816,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvMessage.setText(context.getText(R.string.title_ask_show_image));
 
-            new DialogBuilderLifecycle(context, owner)
+            final Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -1827,7 +1827,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+                    .create();
+
+            owner.getLifecycle().addObserver(new LifecycleObserver() {
+                @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+                public void onCreate() {
+                    dialog.show();
+                }
+
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroyed() {
+                    dialog.dismiss();
+                }
+            });
         }
 
         private void onShowImagesConfirmed(final TupleMessageEx message) {
