@@ -66,7 +66,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
@@ -613,13 +612,13 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_setup_exported, Snackbar.LENGTH_LONG).show();
+                Toast.makeText(ActivitySetup.this, R.string.title_setup_exported, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
@@ -889,15 +888,15 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_setup_imported, Snackbar.LENGTH_LONG).show();
+                Toast.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex.getCause() instanceof BadPaddingException)
-                    Snackbar.make(view, R.string.title_setup_password_invalid, Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(ActivitySetup.this, R.string.title_setup_password_invalid, Toast.LENGTH_LONG).show();
                 else if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
