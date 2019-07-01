@@ -254,6 +254,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final int REQUEST_PRINT = 17;
     private static final int REQUEST_SEARCH = 18;
     private static final int REQUEST_ACCOUNT = 19;
+    static final int REQUEST_MESSAGE_PROPERTY = 20;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -3366,6 +3367,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     onMenuFolders(args.getLong("account"));
                 }
                 break;
+            case REQUEST_MESSAGE_PROPERTY:
+                if (resultCode == RESULT_OK)
+                    onPropertySet(data.getBundleExtra("args"));
+                break;
         }
     }
 
@@ -4202,6 +4207,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, pargs, "message:print");
+    }
+
+    private void onPropertySet(Bundle args) {
+        long id = args.getLong("id");
+        String name = args.getString("name");
+        boolean value = args.getBoolean("value");
+        Log.i("Set property " + name + "=" + value + " id=" + id);
+        iProperties.setValue(name, id, value);
     }
 
     static void search(

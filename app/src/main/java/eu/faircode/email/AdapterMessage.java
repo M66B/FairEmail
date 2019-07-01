@@ -86,7 +86,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -1784,176 +1783,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowFull(final TupleMessageEx message) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            if (properties.getValue("confirmed", message.id) ||
-                    prefs.getBoolean("show_html_confirmed", false)) {
-                onShowFullConfirmed(message);
-                return;
-            }
+            boolean show_images = properties.getValue("images", message.id);
 
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
-            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
-            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
-            tvMessage.setText(context.getText(R.string.title_ask_show_html));
-
-            new DialogBuilderLifecycle(context, owner)
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            properties.setValue("confirmed", message.id, true);
-                            if (cbNotAgain.isChecked())
-                                prefs.edit().putBoolean("show_html_confirmed", true).apply();
-                            onShowFullConfirmed(message);
-                        }
-                    })
-                    .show();
-        }
-
-        private void onShowFullConfirmed(TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
+            args.putBoolean("show_images", show_images);
+            args.putFloat("text_size", textSize);
 
-            new SimpleTask<String>() {
-                @Override
-                protected String onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null || !message.content)
-                        return null;
-
-                    File file = message.getFile(context);
-                    if (!file.exists())
-                        return null;
-
-                    String html = HtmlHelper.getHtmlEmbedded(context, id, Helper.readText(file));
-
-                    // Remove viewport limitations
-                    Document doc = Jsoup.parse(html);
-                    for (Element meta : doc.select("meta").select("[name=viewport]")) {
-                        String content = meta.attr("content");
-                        String[] params = content.split(";");
-                        if (params.length > 0) {
-                            List<String> viewport = new ArrayList<>();
-                            for (String param : params)
-                                if (!param.toLowerCase().contains("maximum-scale") &&
-                                        !param.toLowerCase().contains("user-scalable"))
-                                    viewport.add(param.trim());
-
-                            if (viewport.size() == 0)
-                                meta.attr("content", "");
-                            else
-                                meta.attr("content", TextUtils.join(" ;", viewport) + ";");
-                        }
-                    }
-
-                    return doc.html();
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, String html) {
-                    long id = args.getLong("id");
-
-                    TupleMessageEx amessage = getMessage();
-                    if (amessage == null || !amessage.id.equals(id))
-                        return;
-
-                    WebView webView = new WebView(context);
-                    setupWebView(webView);
-
-                    boolean show_images = properties.getValue("images", id);
-
-                    WebSettings settings = webView.getSettings();
-                    settings.setDefaultFontSize(Math.round(textSize));
-                    settings.setDefaultFixedFontSize(Math.round(textSize));
-                    settings.setLoadsImagesAutomatically(show_images);
-                    settings.setBuiltInZoomControls(true);
-                    settings.setDisplayZoomControls(false);
-
-                    webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
-
-                    final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-                    dialog.setContentView(webView);
-
-                    owner.getLifecycle().addObserver(new LifecycleObserver() {
-                        @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-                        public void onCreate() {
-                            dialog.show();
-                        }
-
-                        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                        public void onDestroyed() {
-                            dialog.dismiss();
-                        }
-                    });
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:full");
-        }
-
-        private void setupWebView(WebView webView) {
-            webView.setWebViewClient(new WebViewClient() {
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    Log.i("Open url=" + url);
-
-                    Uri uri = Uri.parse(url);
-                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                        return false;
-
-                    onOpenLink(uri, null);
-                    return true;
-                }
-            });
-
-            webView.setDownloadListener(new DownloadListener() {
-                public void onDownloadStart(
-                        String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                    Log.i("Download url=" + url + " mime type=" + mimetype);
-
-                    Uri uri = Uri.parse(url);
-                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                        return;
-
-                    Helper.view(context, owner, uri, true);
-                }
-            });
-
-            webView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    WebView.HitTestResult result = ((WebView) view).getHitTestResult();
-                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
-                            result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-                        Log.i("Long press url=" + result.getExtra());
-
-                        Uri uri = Uri.parse(result.getExtra());
-                        if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                            return false;
-
-                        Helper.view(context, owner, uri, true);
-
-                        return true;
-                    }
-                    return false;
-                }
-            });
-
-            WebSettings settings = webView.getSettings();
-            settings.setUseWideViewPort(true);
-            settings.setLoadWithOverviewMode(true);
-            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-            settings.setAllowFileAccess(false);
-
-            if (monospaced)
-                settings.setStandardFontFamily("monospace");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            if (properties.getValue("confirmed", message.id) ||
+                    prefs.getBoolean("show_html_confirmed", false)) {
+                FragmentDialogWebView fragment = new FragmentDialogWebView();
+                fragment.setArguments(args);
+                fragment.show(parentFragment.getFragmentManager(), "message:full");
+            } else {
+                FragmentDialogFull fragment = new FragmentDialogFull();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_PROPERTY);
+                fragment.show(parentFragment.getFragmentManager(), "message:full:confirm");
+            }
         }
 
         private void onShowImages(final TupleMessageEx message) {
@@ -3649,6 +3497,179 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .setNegativeButton(R.string.title_no, null)
                     .show();
+        }
+    }
+
+    public static class FragmentDialogFull extends DialogFragmentEx {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            tvMessage.setText(getText(R.string.title_ask_show_html));
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getArguments().putString("name", "confirmed");
+                            getArguments().putBoolean("value", true);
+
+                            if (cbNotAgain.isChecked()) {
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                                prefs.edit().putBoolean("show_html_confirmed", true).apply();
+                            }
+
+                            FragmentDialogWebView fragment = new FragmentDialogWebView();
+                            fragment.setArguments(getArguments());
+                            fragment.show(getFragmentManager(), "message:full");
+
+                            sendResult(RESULT_OK);
+                        }
+                    })
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogWebView extends DialogFragmentEx {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            boolean show_images = getArguments().getBoolean("show_images");
+            float textSize = getArguments().getFloat("text_size");
+
+            final WebView webView = new WebView(getContext());
+            setupWebView(webView);
+
+            WebSettings settings = webView.getSettings();
+            settings.setDefaultFontSize(Math.round(textSize));
+            settings.setDefaultFixedFontSize(Math.round(textSize));
+            settings.setLoadsImagesAutomatically(show_images);
+            settings.setBuiltInZoomControls(true);
+            settings.setDisplayZoomControls(false);
+
+            new SimpleTask<String>() {
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content)
+                        return null;
+
+                    File file = message.getFile(context);
+                    if (!file.exists())
+                        return null;
+
+                    String html = HtmlHelper.getHtmlEmbedded(context, id, Helper.readText(file));
+
+                    // Remove viewport limitations
+                    Document doc = Jsoup.parse(html);
+                    for (Element meta : doc.select("meta").select("[name=viewport]")) {
+                        String content = meta.attr("content");
+                        String[] params = content.split(";");
+                        if (params.length > 0) {
+                            List<String> viewport = new ArrayList<>();
+                            for (String param : params)
+                                if (!param.toLowerCase().contains("maximum-scale") &&
+                                        !param.toLowerCase().contains("user-scalable"))
+                                    viewport.add(param.trim());
+
+                            if (viewport.size() == 0)
+                                meta.attr("content", "");
+                            else
+                                meta.attr("content", TextUtils.join(" ;", viewport) + ";");
+                        }
+                    }
+
+                    return doc.html();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getFragmentManager(), ex);
+                }
+            }.execute(getContext(), getActivity(), getArguments(), "message:full");
+
+            Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+            dialog.setContentView(webView);
+            return dialog;
+        }
+
+        private void setupWebView(WebView webView) {
+            webView.setWebViewClient(new WebViewClient() {
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    Log.i("Open url=" + url);
+
+                    Uri uri = Uri.parse(url);
+                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                        return false;
+
+                    Bundle args = new Bundle();
+                    args.putParcelable("uri", uri);
+                    args.putString("title", null);
+
+                    FragmentDialogLink fragment = new FragmentDialogLink();
+                    fragment.setArguments(args);
+                    fragment.show(getFragmentManager(), "open:link");
+
+                    return true;
+                }
+            });
+
+            webView.setDownloadListener(new DownloadListener() {
+                public void onDownloadStart(
+                        String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                    Log.i("Download url=" + url + " mime type=" + mimetype);
+
+                    Uri uri = Uri.parse(url);
+                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                        return;
+
+                    Helper.view(getContext(), getActivity(), uri, true);
+                }
+            });
+
+            webView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    WebView.HitTestResult result = ((WebView) view).getHitTestResult();
+                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
+                            result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                        Log.i("Long press url=" + result.getExtra());
+
+                        Uri uri = Uri.parse(result.getExtra());
+                        if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                            return false;
+
+                        Helper.view(getContext(), getActivity(), uri, true);
+
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+            WebSettings settings = webView.getSettings();
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+            settings.setAllowFileAccess(false);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean monospaced = prefs.getBoolean("monospaced", false);
+            if (monospaced)
+                settings.setStandardFontFamily("monospace");
         }
     }
 
