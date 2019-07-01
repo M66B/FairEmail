@@ -696,8 +696,10 @@ for example to set a specific notification sound or to show notifications on the
 
 FairEmail has the following notification channels:
 
-* Service: used for the foreground service notification, see also [this FAQ](#user-content-faq2)
+* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
+* Send: used for the notification of the send service
 * Notifications: used for new message notifications
+* Warning: used for warning notifications
 * Error: used for error notifications
 
 See [here](https://developer.android.com/guide/topics/ui/notifiers/notifications#ManageChannels) for details on notification channels.
