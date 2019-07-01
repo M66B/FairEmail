@@ -132,6 +132,8 @@ public class FragmentIdentity extends FragmentBase {
     private int color = Color.TRANSPARENT;
 
     private static final int REQUEST_COLOR = 1;
+    private static final int REQUEST_SAVE = 2;
+    private static final int REQUEST_DELETE = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -759,29 +761,15 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean dirty) {
-                if (dirty)
-                    new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                            .setMessage(R.string.title_ask_save)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    new Handler().post(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            scroll.smoothScrollTo(0, btnSave.getBottom());
-                                        }
-                                    });
-                                    onSave(false);
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    getFragmentManager().popBackStack();
-                                }
-                            })
-                            .show();
-                else
+                if (dirty) {
+                    Bundle aargs = new Bundle();
+                    aargs.putString("question", getString(R.string.title_ask_save));
+
+                    FragmentDialogAsk fragment = new FragmentDialogAsk();
+                    fragment.setArguments(aargs);
+                    fragment.setTargetFragment(FragmentIdentity.this, REQUEST_SAVE);
+                    fragment.show(getFragmentManager(), "identity:save");
+                } else
                     getFragmentManager().popBackStack();
             }
 
@@ -1009,47 +997,13 @@ public class FragmentIdentity extends FragmentBase {
     }
 
     private void onMenuDelete() {
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_identity_delete)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Bundle args = new Bundle();
-                        args.putLong("id", id);
+        Bundle aargs = new Bundle();
+        aargs.putString("question", getString(R.string.title_identity_delete));
 
-                        new SimpleTask<Void>() {
-                            @Override
-                            protected void onPostExecute(Bundle args) {
-                                Helper.setViewsEnabled(view, false);
-                                pbWait.setVisibility(View.VISIBLE);
-                            }
-
-                            @Override
-                            protected Void onExecute(Context context, Bundle args) {
-                                long id = args.getLong("id");
-
-                                DB db = DB.getInstance(context);
-                                db.identity().setIdentityTbd(id);
-
-                                ServiceSynchronize.reload(context, "delete identity");
-
-                                return null;
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, Void data) {
-                                getFragmentManager().popBackStack();
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getFragmentManager(), ex);
-                            }
-                        }.execute(FragmentIdentity.this, args, "identity:delete");
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+        FragmentDialogAsk fragment = new FragmentDialogAsk();
+        fragment.setArguments(aargs);
+        fragment.setTargetFragment(FragmentIdentity.this, REQUEST_DELETE);
+        fragment.show(getFragmentManager(), "identity:delete");
     }
 
     @Override
@@ -1069,6 +1023,22 @@ public class FragmentIdentity extends FragmentBase {
                     setColor(args.getInt("color"));
                 }
                 break;
+            case REQUEST_SAVE:
+                if (resultCode == RESULT_OK) {
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            scroll.smoothScrollTo(0, btnSave.getBottom());
+                        }
+                    });
+                    onSave(false);
+                } else
+                    getFragmentManager().popBackStack();
+                break;
+            case REQUEST_DELETE:
+                if (resultCode == RESULT_OK)
+                    onDelete();
+                break;
         }
     }
 
@@ -1079,5 +1049,40 @@ public class FragmentIdentity extends FragmentBase {
         border.setColor(color);
         border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
         vwColor.setBackground(border);
+    }
+
+    private void onDelete() {
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPostExecute(Bundle args) {
+                Helper.setViewsEnabled(view, false);
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                db.identity().setIdentityTbd(id);
+
+                ServiceSynchronize.reload(context, "delete identity");
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                getFragmentManager().popBackStack();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(FragmentIdentity.this, args, "identity:delete");
     }
 }
