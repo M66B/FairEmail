@@ -75,12 +75,11 @@ public class FragmentDialogFolder extends DialogFragmentEx {
                         account, false, new AdapterFolder.IFolderSelectedListener() {
                     @Override
                     public void onFolderSelected(TupleFolderEx folder) {
-                        dismiss();
-
                         Bundle args = getArguments();
                         args.putLong("folder", folder.id);
 
                         sendResult(RESULT_OK);
+                        dismiss();
                     }
                 });
 

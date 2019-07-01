@@ -3276,8 +3276,6 @@ public class FragmentCompose extends FragmentBase {
             lvGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    dismiss();
-
                     int target = spTarget.getSelectedItemPosition();
                     Cursor cursor = (Cursor) adapter.getItem(position);
                     long group = cursor.getLong(0);
@@ -3288,6 +3286,7 @@ public class FragmentCompose extends FragmentBase {
                     args.putLong("group", group);
 
                     sendResult(Activity.RESULT_OK);
+                    dismiss();
                 }
             });
 
@@ -3325,13 +3324,12 @@ public class FragmentCompose extends FragmentBase {
                     .setAdapter(adapter, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            dismiss();
-
                             EntityAnswer answer = adapter.getItem(which);
                             String text = EntityAnswer.replacePlaceholders(
                                     answer.text, null, null, null, null);
 
                             getArguments().putString("answer", text);
+
                             sendResult(RESULT_OK);
                         }
                     })

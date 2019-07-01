@@ -14,8 +14,8 @@ public class DialogFragmentEx extends DialogFragment {
 
     @Override
     public void onDismiss(@NonNull DialogInterface dialog) {
-        super.onDismiss(dialog);
         sendResult(RESULT_CANCELED);
+        super.onDismiss(dialog);
     }
 
     protected void sendResult(int result) {
