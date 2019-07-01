@@ -144,8 +144,9 @@
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
-    <string name="title_advanced_section_synchronize">Odbierz</string>
-    <string name="title_advanced_section_send">Wyślij</string>
+    <string name="title_advanced_section_main">Głowne</string>
+    <string name="title_advanced_section_synchronize">Odbieranie</string>
+    <string name="title_advanced_section_send">Wysyłanie</string>
     <string name="title_advanced_section_connection">Połączenie</string>
     <string name="title_advanced_section_display">Wyświetlanie</string>
     <string name="title_advanced_section_behavior">Zachowanie</string>
@@ -187,6 +188,7 @@
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
+    <string name="title_advanced_double_tap">Kliknij podwójnie, aby oznaczyć odczytane/nieodczytane</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_collapse">Zwiń wiadomości w konwersacji przy \'cofnij\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
@@ -228,6 +230,7 @@
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
+    <string name="title_advanced_autocollapse_hint">Rozwinięte wiadomości zostaną zawsze zamknięte przy \'cofnij\'</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
@@ -608,6 +611,7 @@
     <string name="title_open_link">Otwórz link</string>
     <string name="title_secure_link">Utwórz bezpieczny link</string>
     <string name="title_link_secured">Link jest bezpieczny</string>
+    <string name="title_sanitize_link">Usuń parametry śledzenia</string>
     <string name="title_insecure_link">Ten link nie jest bezpieczny</string>
     <string name="title_ip_owner">Adres IP właściciela</string>
     <string name="title_select_app">Wybierz aplikację</string>

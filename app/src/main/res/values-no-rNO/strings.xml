@@ -608,6 +608,9 @@
     <string name="title_hint_tracking_image">Sporer bilde %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Langt trykk på en kontakt for å aldri betrakte den som favoritt</string>
     <string name="title_open_link">Åpne link</string>
+    <string name="title_secure_link">Gjør koblingen sikker</string>
+    <string name="title_link_secured">Koblingen er sikker</string>
+    <string name="title_sanitize_link">Fjern sporingsparametere</string>
     <string name="title_insecure_link">Denne linken er usikker</string>
     <string name="title_ip_owner">Eierens IP-adresse</string>
     <string name="title_select_app">Velg app</string>
@@ -623,6 +626,7 @@
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
     <string name="title_enable">Aktiver</string>
+    <string name="title_ask_what">Spør hva du skal gjøre</string>
     <string name="title_no_ask_again">Ikke spør dette igjen</string>
     <string name="title_no_body">Ingen meldingstekst funnet</string>
     <string name="title_no_charset">Koding støttes ikke: %1$s</string>

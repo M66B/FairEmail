@@ -616,6 +616,9 @@
     <string name="title_hint_tracking_image">Slika za praćenje %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Dugo pritisnite kontakt da ga nikada ne biste smatrali favoritom</string>
     <string name="title_open_link">Otvori link</string>
+    <string name="title_secure_link">Osiguraj vezu</string>
+    <string name="title_link_secured">Veza je sigurna</string>
+    <string name="title_sanitize_link">Ukloni parametre praćenja</string>
     <string name="title_insecure_link">Ova veza je nesigurna</string>
     <string name="title_ip_owner">IP adresa vlasnika</string>
     <string name="title_select_app">Odaberi Aplikaciju</string>

@@ -50,7 +50,7 @@
         <item quantity="one">Behandel één bericht als spam?</item>
         <item quantity="other">Behandel %1$d berichten als spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Rapport bericht van %1$s als spam?</string>
+    <string name="title_ask_spam_who">Rapporteer bericht van %1$s als spam?</string>
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>

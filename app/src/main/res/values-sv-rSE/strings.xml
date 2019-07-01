@@ -601,6 +601,9 @@
     <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Långt tryck på en kontakt för att aldrig betrakta den som en favorit</string>
     <string name="title_open_link">Öppna länken</string>
+    <string name="title_secure_link">Gör länken säker</string>
+    <string name="title_link_secured">Länken är säker</string>
+    <string name="title_sanitize_link">Ta bort spårningsparametrar</string>
     <string name="title_insecure_link">Denna länk är osäker</string>
     <string name="title_ip_owner">Ägarens IP-adress</string>
     <string name="title_select_app">Välj app</string>
@@ -616,6 +619,7 @@
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
     <string name="title_enable">Aktivera</string>
+    <string name="title_ask_what">Fråga vad du ska göra</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_body">Ingen meddelandetext hittades</string>
     <string name="title_no_charset">Kodningen stöds inte: %1$s</string>
