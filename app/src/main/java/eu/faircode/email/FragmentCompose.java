@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -80,7 +81,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
@@ -98,6 +98,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -143,6 +145,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentCompose extends FragmentBase {
@@ -215,6 +218,12 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_ENCRYPT = 8;
     private static final int REQUEST_COLOR = 9;
     private static final int REQUEST_SEND_AFTER = 10;
+    private static final int REQUEST_REF_EDIT = 11;
+    private static final int REQUEST_CONTACT_GROUP = 12;
+    private static final int REQUEST_ANSWER = 13;
+    private static final int REQUEST_LINK = 14;
+    private static final int REQUEST_DISCARD = 15;
+    private static final int REQUEST_SEND = 16;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -324,7 +333,7 @@ public class FragmentCompose extends FragmentBase {
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
             public void onInputContent(Uri uri) {
-                handleAddAttachment(uri, true);
+                onAddAttachment(uri, true);
             }
         });
 
@@ -384,7 +393,7 @@ public class FragmentCompose extends FragmentBase {
                 final int action = item.getItemId();
                 switch (action) {
                     case R.id.action_delete:
-                        onActionDelete();
+                        onActionDiscard();
                         break;
                     case R.id.action_send:
                         onActionSend();
@@ -547,24 +556,14 @@ public class FragmentCompose extends FragmentBase {
             return;
         }
 
-        final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
-        final TextView tvMessage = dview.findViewById(R.id.tvMessage);
-        final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        Bundle args = new Bundle();
+        args.putString("question", getString(R.string.title_ask_edit_ref));
+        args.putString("notagain", "edit_ref_confirmed");
 
-        tvMessage.setText(getText(R.string.title_ask_edit_ref));
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (cbNotAgain.isChecked())
-                            prefs.edit().putBoolean("edit_ref_confirmed", true).apply();
-                        onReferenceEditConfirmed();
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+        FragmentDialogAsk fragment = new FragmentDialogAsk();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_REF_EDIT);
+        fragment.show(getFragmentManager(), "compose:refedit");
     }
 
     private void onReferenceEditConfirmed() {
@@ -804,7 +803,7 @@ public class FragmentCompose extends FragmentBase {
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                    handleExit();
+                    onExit();
                 return true;
             case R.id.menu_zoom:
                 onMenuZoom();
@@ -886,144 +885,13 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuContactGroup() {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_contact_group, null);
-        final ListView lvGroup = dview.findViewById(R.id.lvGroup);
-        final Spinner spTarget = dview.findViewById(R.id.spTarget);
+        Bundle args = new Bundle();
+        args.putLong("working", working);
 
-        Cursor groups = resolver.query(
-                ContactsContract.Groups.CONTENT_URI,
-                new String[]{
-                        ContactsContract.Groups._ID,
-                        ContactsContract.Groups.TITLE
-                },
-                null, null, ContactsContract.Groups.TITLE
-        );
-
-        final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                getContext(),
-                R.layout.spinner_item1_dropdown,
-                groups,
-                new String[]{ContactsContract.Groups.TITLE},
-                new int[]{android.R.id.text1},
-                0);
-
-        lvGroup.setAdapter(adapter);
-
-        final AlertDialog dialog = new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(dview)
-                .create();
-
-        lvGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                dialog.dismiss();
-
-                int target = spTarget.getSelectedItemPosition();
-                Cursor cursor = (Cursor) adapter.getItem(position);
-                long group = cursor.getLong(0);
-
-                if (target > 0)
-                    grpAddresses.setVisibility(View.VISIBLE);
-
-                Bundle args = new Bundle();
-                args.putLong("id", working);
-                args.putInt("target", target);
-                args.putLong("group", group);
-
-                new SimpleTask<EntityMessage>() {
-                    @Override
-                    protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
-                        long id = args.getLong("id");
-                        int target = args.getInt("target");
-                        long group = args.getLong("group");
-
-                        List<Address> selected = new ArrayList<>();
-
-                        try (Cursor cursor = context.getContentResolver().query(
-                                ContactsContract.Data.CONTENT_URI,
-                                new String[]{ContactsContract.Data.CONTACT_ID},
-                                ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID + "= ?" + " AND "
-                                        + ContactsContract.CommonDataKinds.GroupMembership.MIMETYPE + "='"
-                                        + ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE + "'",
-                                new String[]{String.valueOf(group)}, null)) {
-                            while (cursor != null && cursor.moveToNext()) {
-                                try (Cursor contact = resolver.query(
-                                        ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                                        new String[]{
-                                                ContactsContract.Contacts.DISPLAY_NAME,
-                                                ContactsContract.CommonDataKinds.Email.DATA
-                                        },
-                                        ContactsContract.Data.CONTACT_ID + " = ?",
-                                        new String[]{cursor.getString(0)},
-                                        null)) {
-                                    if (contact != null && contact.moveToNext()) {
-                                        String name = contact.getString(0);
-                                        String email = contact.getString(1);
-                                        selected.add(new InternetAddress(email, name));
-                                    }
-                                }
-                            }
-                        }
-
-                        EntityMessage draft;
-                        DB db = DB.getInstance(context);
-
-                        try {
-                            db.beginTransaction();
-
-                            draft = db.message().getMessage(id);
-                            if (draft == null)
-                                return null;
-
-                            Address[] address = null;
-                            if (target == 0)
-                                address = draft.to;
-                            else if (target == 1)
-                                address = draft.cc;
-                            else if (target == 2)
-                                address = draft.bcc;
-
-                            List<Address> list = new ArrayList<>();
-                            if (address != null)
-                                list.addAll(Arrays.asList(address));
-
-                            list.addAll(selected);
-
-                            if (target == 0)
-                                draft.to = list.toArray(new Address[0]);
-                            else if (target == 1)
-                                draft.cc = list.toArray(new Address[0]);
-                            else if (target == 2)
-                                draft.bcc = list.toArray(new Address[0]);
-
-                            db.message().updateMessage(draft);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return draft;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, EntityMessage draft) {
-                        if (draft != null) {
-                            etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
-                            etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
-                            etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
-                        }
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-                    }
-                }.execute(getContext(), getViewLifecycleOwner(), args, "compose:picked");
-            }
-        });
-
-        dialog.show();
+        FragmentDialogContactGroup fragment = new FragmentDialogContactGroup();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_CONTACT_GROUP);
+        fragment.show(getFragmentManager(), "compose:groups");
     }
 
     private void onMenuAnswer() {
@@ -1033,39 +901,10 @@ public class FragmentCompose extends FragmentBase {
             return;
         }
 
-        new SimpleTask<List<EntityAnswer>>() {
-            @Override
-            protected List<EntityAnswer> onExecute(Context context, Bundle args) {
-                DB db = DB.getInstance(getContext());
-                return db.answer().getAnswers(false);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
-                final ArrayAdapter<EntityAnswer> adapter =
-                        new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, answers);
-
-                new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                        .setAdapter(adapter, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                                EntityAnswer answer = adapter.getItem(which);
-
-                                String text = EntityAnswer.replacePlaceholders(answer.text, null, null, null, null);
-                                Spanned spanned = HtmlHelper.fromHtml(text);
-
-                                etBody.getText().insert(etBody.getSelectionStart(), spanned);
-                            }
-                        })
-                        .show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, new Bundle(), "compose:answer");
+        FragmentDialogAnswer fragment = new FragmentDialogAnswer();
+        fragment.setArguments(new Bundle());
+        fragment.setTargetFragment(this, REQUEST_ANSWER);
+        fragment.show(getFragmentManager(), "compose:answer");
     }
 
     private void onMenuPlainOnly() {
@@ -1140,83 +979,23 @@ public class FragmentCompose extends FragmentBase {
                 uri = null;
         }
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
-        final EditText etLink = view.findViewById(R.id.etLink);
-        final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
 
-        etLink.setText(uri == null ? "https://" : uri.toString());
-        tvInsecure.setVisibility(View.GONE);
-
-        etLink.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setView(view)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        int start = etBody.getSelectionStart();
-                        int end = etBody.getSelectionEnd();
-
-                        if (start < 0)
-                            start = 0;
-                        if (end < 0)
-                            end = 0;
-
-                        if (start > end) {
-                            int tmp = start;
-                            start = end;
-                            end = tmp;
-                        }
-
-                        String link = etLink.getText().toString();
-                        if (start == end) {
-                            etBody.setText(etBody.getText().insert(start, link));
-                            end = start + link.length();
-                        }
-
-                        SpannableString ss = new SpannableString(etBody.getText());
-
-                        for (URLSpan span : ss.getSpans(start, end, URLSpan.class))
-                            ss.removeSpan(span);
-
-                        ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        etBody.setText(ss);
-                        etBody.setSelection(end);
-                    }
-                })
-                .show();
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                etLink.requestFocus();
-            }
-        });
+        FragmentDialogLink fragment = new FragmentDialogLink();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_LINK);
+        fragment.show(getFragmentManager(), "compose:link");
     }
 
-    private void onActionDelete() {
-        new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                .setMessage(R.string.title_ask_discard)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        onAction(R.id.action_delete);
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null)
-                .show();
+    private void onActionDiscard() {
+        Bundle args = new Bundle();
+        args.putString("question", getString(R.string.title_ask_discard));
+
+        FragmentDialogAsk fragment = new FragmentDialogAsk();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_DISCARD);
+        fragment.show(getFragmentManager(), "compose:discard");
     }
 
     private void onActionSend() {
@@ -1252,27 +1031,17 @@ public class FragmentCompose extends FragmentBase {
             if (ato.length == 0)
                 throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
-            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
-            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-
             int plus = acc.length + abcc.length;
 
-            tvMessage.setText(getString(R.string.title_ask_send_via,
+            Bundle args = new Bundle();
+            args.putString("question", getString(R.string.title_ask_send_via,
                     MessageHelper.formatAddressesShort(ato) + (plus > 0 ? " +" + plus : ""), ident.email));
+            args.putString("notagain", "autosend");
 
-            new DialogBuilderLifecycle(getContext(), getViewLifecycleOwner())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (cbNotAgain.isChecked())
-                                prefs.edit().putBoolean("autosend", true).apply();
-                            onActionSendConfirmed();
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
+            FragmentDialogAsk fragment = new FragmentDialogAsk();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(this, REQUEST_SEND);
+            fragment.show(getFragmentManager(), "compose:send");
         } catch (Throwable ex) {
             onActionSendConfirmed();
         }
@@ -1305,7 +1074,7 @@ public class FragmentCompose extends FragmentBase {
 
                 Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                 intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
-                doPgp(intent);
+                onPgp(intent);
             } catch (Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -1325,7 +1094,225 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void doPgp(Intent data) {
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_CONTACT_TO:
+            case REQUEST_CONTACT_CC:
+            case REQUEST_CONTACT_BCC:
+                if (resultCode == RESULT_OK && data != null)
+                    onPickContact(requestCode, data);
+                break;
+            case REQUEST_IMAGE:
+                if (resultCode == RESULT_OK && data != null) {
+                    Uri uri = data.getData();
+                    if (uri != null)
+                        onAddAttachment(uri, true);
+                }
+                break;
+            case REQUEST_ATTACHMENT:
+            case REQUEST_RECORD_AUDIO:
+            case REQUEST_TAKE_PHOTO:
+                if (resultCode == RESULT_OK)
+                    if (requestCode == REQUEST_TAKE_PHOTO)
+                        onAddMedia(new Intent().setData(photoURI));
+                    else if (data != null)
+                        onAddMedia(data);
+                break;
+            case REQUEST_ENCRYPT:
+                if (resultCode == RESULT_OK && data != null) {
+                    if (BuildConfig.DEBUG || BuildConfig.BETA_RELEASE)
+                        Log.logExtras(data);
+                    onPgp(data);
+                }
+                break;
+            case REQUEST_COLOR:
+                if (resultCode == RESULT_OK && data != null)
+                    onColorSelected(data.getBundleExtra("args"));
+                break;
+            case REQUEST_SEND_AFTER:
+                if (resultCode == RESULT_OK && data != null) {
+                    Bundle args = data.getBundleExtra("args");
+                    onSendAfter(args.getLong("time"));
+                }
+            case REQUEST_REF_EDIT:
+                if (resultCode == RESULT_OK)
+                    onReferenceEditConfirmed();
+                break;
+            case REQUEST_CONTACT_GROUP:
+                if (resultCode == RESULT_OK && data != null)
+                    onContactGroupSelected(data.getBundleExtra("args"));
+                break;
+            case REQUEST_ANSWER:
+                if (resultCode == RESULT_OK && data != null)
+                    onAnswerSelected(data.getBundleExtra("args"));
+                break;
+            case REQUEST_LINK:
+                if (resultCode == RESULT_OK && data != null)
+                    onLinkSelected(data.getBundleExtra("args"));
+                break;
+            case REQUEST_DISCARD:
+                if (resultCode == RESULT_OK)
+                    onAction(R.id.action_delete);
+                break;
+            case REQUEST_SEND:
+                if (resultCode == RESULT_OK)
+                    onActionSendConfirmed();
+                break;
+        }
+    }
+
+    private void onPickContact(int requestCode, Intent data) {
+        Uri uri = data.getData();
+        if (uri == null)
+            return;
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putInt("requestCode", requestCode);
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                int requestCode = args.getInt("requestCode");
+                Uri uri = args.getParcelable("uri");
+
+                EntityMessage draft = null;
+                DB db = DB.getInstance(context);
+
+                try (Cursor cursor = context.getContentResolver().query(
+                        uri,
+                        new String[]{
+                                ContactsContract.CommonDataKinds.Email.ADDRESS,
+                                ContactsContract.Contacts.DISPLAY_NAME
+                        },
+                        null, null, null)) {
+                    if (cursor != null && cursor.moveToFirst()) {
+                        int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
+                        int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                        String email = cursor.getString(colEmail);
+                        String name = cursor.getString(colName);
+
+                        try {
+                            db.beginTransaction();
+
+                            draft = db.message().getMessage(id);
+                            if (draft == null)
+                                return null;
+
+                            Address[] address = null;
+                            if (requestCode == REQUEST_CONTACT_TO)
+                                address = draft.to;
+                            else if (requestCode == REQUEST_CONTACT_CC)
+                                address = draft.cc;
+                            else if (requestCode == REQUEST_CONTACT_BCC)
+                                address = draft.bcc;
+
+                            List<Address> list = new ArrayList<>();
+                            if (address != null)
+                                list.addAll(Arrays.asList(address));
+
+                            list.add(new InternetAddress(email, name));
+
+                            if (requestCode == REQUEST_CONTACT_TO)
+                                draft.to = list.toArray(new Address[0]);
+                            else if (requestCode == REQUEST_CONTACT_CC)
+                                draft.cc = list.toArray(new Address[0]);
+                            else if (requestCode == REQUEST_CONTACT_BCC)
+                                draft.bcc = list.toArray(new Address[0]);
+
+                            db.message().updateMessage(draft);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
+                    }
+                }
+
+                return draft;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (draft != null) {
+                    etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
+                    etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
+                    etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "compose:picked");
+    }
+
+    private void onAddAttachment(Uri uri, final boolean image) {
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<EntityAttachment>() {
+            @Override
+            protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
+                Long id = args.getLong("id");
+                Uri uri = args.getParcelable("uri");
+                return addAttachment(context, id, uri, image);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, final EntityAttachment attachment) {
+                if (image) {
+                    File file = attachment.getFile(getContext());
+                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+
+                    int start = etBody.getSelectionStart();
+                    etBody.getText().insert(start, " ");
+                    SpannableString s = new SpannableString(etBody.getText());
+                    ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id), ImageSpan.ALIGN_BASELINE);
+                    s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    String html = HtmlHelper.toHtml(s);
+                    etBody.setText(HtmlHelper.fromHtml(html, cidGetter, null));
+                }
+
+                onAction(R.id.action_save);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                // External app sending absolute file
+                if (ex instanceof SecurityException)
+                    handleFileShare();
+                else
+                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
+            }
+        }.execute(this, args, "compose:attachment:add");
+    }
+
+    private void onAddMedia(Intent data) {
+        ClipData clipData = data.getClipData();
+        if (clipData == null) {
+            Uri uri = data.getData();
+            if (uri != null)
+                onAddAttachment(uri, false);
+        } else {
+            for (int i = 0; i < clipData.getItemCount(); i++) {
+                ClipData.Item item = clipData.getItemAt(i);
+                Uri uri = item.getUri();
+                if (uri != null)
+                    onAddAttachment(uri, false);
+            }
+        }
+    }
+
+    private void onPgp(Intent data) {
         final Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelable("data", data);
@@ -1490,7 +1477,7 @@ public class FragmentCompose extends FragmentBase {
                     onAction(R.id.action_send);
                 else if (result instanceof Intent) {
                     Intent intent = (Intent) result;
-                    doPgp(intent);
+                    onPgp(intent);
                 } else if (result instanceof PendingIntent)
                     try {
                         PendingIntent pi = (PendingIntent) result;
@@ -1514,73 +1501,17 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:encrypt");
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private void onColorSelected(Bundle args) {
+        int color = args.getInt("color");
+        int start = args.getInt("start");
+        int end = args.getInt("end");
 
-        switch (requestCode) {
-            case REQUEST_IMAGE:
-                if (resultCode == RESULT_OK && data != null) {
-                    Uri uri = data.getData();
-                    if (uri != null)
-                        handleAddAttachment(uri, true);
-                }
-                break;
-            case REQUEST_ATTACHMENT:
-            case REQUEST_RECORD_AUDIO:
-            case REQUEST_TAKE_PHOTO:
-                if (resultCode == RESULT_OK) {
-                    if (requestCode == REQUEST_TAKE_PHOTO)
-                        data = new Intent().setData(photoURI);
-
-                    if (data != null) {
-                        ClipData clipData = data.getClipData();
-                        if (clipData == null) {
-                            Uri uri = data.getData();
-                            if (uri != null)
-                                handleAddAttachment(uri, false);
-                        } else {
-                            for (int i = 0; i < clipData.getItemCount(); i++) {
-                                ClipData.Item item = clipData.getItemAt(i);
-                                Uri uri = item.getUri();
-                                if (uri != null)
-                                    handleAddAttachment(uri, false);
-                            }
-                        }
-                    }
-                }
-                break;
-            case REQUEST_ENCRYPT:
-                if (resultCode == RESULT_OK && data != null) {
-                    if (BuildConfig.DEBUG || BuildConfig.BETA_RELEASE)
-                        Log.logExtras(data);
-                    doPgp(data);
-                }
-                break;
-            case REQUEST_COLOR:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    int color = args.getInt("color");
-                    int start = args.getInt("start");
-                    int end = args.getInt("end");
-
-                    SpannableString ss = new SpannableString(etBody.getText());
-                    for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
-                        ss.removeSpan(span);
-                    ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    etBody.setText(ss);
-                    etBody.setSelection(end);
-                }
-                break;
-            case REQUEST_SEND_AFTER:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onSendAfter(args.getLong("time"));
-                }
-            default:
-                if (resultCode == RESULT_OK && data != null)
-                    handlePickContact(requestCode, data);
-        }
+        SpannableString ss = new SpannableString(etBody.getText());
+        for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
+            ss.removeSpan(span);
+        ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        etBody.setText(ss);
+        etBody.setSelection(end);
     }
 
     private void onSendAfter(long time) {
@@ -1618,74 +1549,81 @@ public class FragmentCompose extends FragmentBase {
         }.execute(FragmentCompose.this, args, "compose:send:after");
     }
 
-    private void handlePickContact(int requestCode, Intent data) {
-        Uri uri = data.getData();
-        if (uri == null)
-            return;
-
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-        args.putInt("requestCode", requestCode);
-        args.putParcelable("uri", uri);
+    private void onContactGroupSelected(Bundle args) {
+        if (args.getInt("target") > 0)
+            grpAddresses.setVisibility(View.VISIBLE);
 
         new SimpleTask<EntityMessage>() {
             @Override
             protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
-                int requestCode = args.getInt("requestCode");
-                Uri uri = args.getParcelable("uri");
+                int target = args.getInt("target");
+                long group = args.getLong("group");
 
-                EntityMessage draft = null;
-                DB db = DB.getInstance(context);
+                List<Address> selected = new ArrayList<>();
 
                 try (Cursor cursor = context.getContentResolver().query(
-                        uri,
-                        new String[]{
-                                ContactsContract.CommonDataKinds.Email.ADDRESS,
-                                ContactsContract.Contacts.DISPLAY_NAME
-                        },
-                        null, null, null)) {
-                    if (cursor != null && cursor.moveToFirst()) {
-                        int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
-                        int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-                        String email = cursor.getString(colEmail);
-                        String name = cursor.getString(colName);
-
-                        try {
-                            db.beginTransaction();
-
-                            draft = db.message().getMessage(id);
-                            if (draft == null)
-                                return null;
-
-                            Address[] address = null;
-                            if (requestCode == REQUEST_CONTACT_TO)
-                                address = draft.to;
-                            else if (requestCode == REQUEST_CONTACT_CC)
-                                address = draft.cc;
-                            else if (requestCode == REQUEST_CONTACT_BCC)
-                                address = draft.bcc;
-
-                            List<Address> list = new ArrayList<>();
-                            if (address != null)
-                                list.addAll(Arrays.asList(address));
-
-                            list.add(new InternetAddress(email, name));
-
-                            if (requestCode == REQUEST_CONTACT_TO)
-                                draft.to = list.toArray(new Address[0]);
-                            else if (requestCode == REQUEST_CONTACT_CC)
-                                draft.cc = list.toArray(new Address[0]);
-                            else if (requestCode == REQUEST_CONTACT_BCC)
-                                draft.bcc = list.toArray(new Address[0]);
-
-                            db.message().updateMessage(draft);
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
+                        ContactsContract.Data.CONTENT_URI,
+                        new String[]{ContactsContract.Data.CONTACT_ID},
+                        ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID + "= ?" + " AND "
+                                + ContactsContract.CommonDataKinds.GroupMembership.MIMETYPE + "='"
+                                + ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE + "'",
+                        new String[]{String.valueOf(group)}, null)) {
+                    while (cursor != null && cursor.moveToNext()) {
+                        try (Cursor contact = getContext().getContentResolver().query(
+                                ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                new String[]{
+                                        ContactsContract.Contacts.DISPLAY_NAME,
+                                        ContactsContract.CommonDataKinds.Email.DATA
+                                },
+                                ContactsContract.Data.CONTACT_ID + " = ?",
+                                new String[]{cursor.getString(0)},
+                                null)) {
+                            if (contact != null && contact.moveToNext()) {
+                                String name = contact.getString(0);
+                                String email = contact.getString(1);
+                                selected.add(new InternetAddress(email, name));
+                            }
                         }
                     }
+                }
+
+                EntityMessage draft;
+                DB db = DB.getInstance(context);
+
+                try {
+                    db.beginTransaction();
+
+                    draft = db.message().getMessage(id);
+                    if (draft == null)
+                        return null;
+
+                    Address[] address = null;
+                    if (target == 0)
+                        address = draft.to;
+                    else if (target == 1)
+                        address = draft.cc;
+                    else if (target == 2)
+                        address = draft.bcc;
+
+                    List<Address> list = new ArrayList<>();
+                    if (address != null)
+                        list.addAll(Arrays.asList(address));
+
+                    list.addAll(selected);
+
+                    if (target == 0)
+                        draft.to = list.toArray(new Address[0]);
+                    else if (target == 1)
+                        draft.cc = list.toArray(new Address[0]);
+                    else if (target == 2)
+                        draft.bcc = list.toArray(new Address[0]);
+
+                    db.message().updateMessage(draft);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
 
                 return draft;
@@ -1704,53 +1642,48 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
             }
-        }.execute(this, args, "compose:picked");
+        }.execute(getContext(), getViewLifecycleOwner(), args, "compose:picked");
     }
 
-    private void handleAddAttachment(Uri uri, final boolean image) {
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-        args.putParcelable("uri", uri);
-
-        new SimpleTask<EntityAttachment>() {
-            @Override
-            protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
-                Long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-                return addAttachment(context, id, uri, image);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, final EntityAttachment attachment) {
-                if (image) {
-                    File file = attachment.getFile(getContext());
-                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-
-                    int start = etBody.getSelectionStart();
-                    etBody.getText().insert(start, " ");
-                    SpannableString s = new SpannableString(etBody.getText());
-                    ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id), ImageSpan.ALIGN_BASELINE);
-                    s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    String html = HtmlHelper.toHtml(s);
-                    etBody.setText(HtmlHelper.fromHtml(html, cidGetter, null));
-                }
-
-                onAction(R.id.action_save);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                // External app sending absolute file
-                if (ex instanceof SecurityException)
-                    handleFileShare();
-                else
-                    Helper.unexpectedError(getContext(), getViewLifecycleOwner(), ex);
-            }
-        }.execute(this, args, "compose:attachment:add");
+    private void onAnswerSelected(Bundle args) {
+        String text = args.getString("answer");
+        Spanned spanned = HtmlHelper.fromHtml(text);
+        etBody.getText().insert(etBody.getSelectionStart(), spanned);
     }
 
-    private void handleExit() {
+    private void onLinkSelected(Bundle args) {
+        String link = args.getString("link");
+
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+
+        if (start < 0)
+            start = 0;
+        if (end < 0)
+            end = 0;
+
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+
+        if (start == end) {
+            etBody.setText(etBody.getText().insert(start, link));
+            end = start + link.length();
+        }
+
+        SpannableString ss = new SpannableString(etBody.getText());
+
+        for (URLSpan span : ss.getSpans(start, end, URLSpan.class))
+            ss.removeSpan(span);
+
+        ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        etBody.setText(ss);
+        etBody.setSelection(end);
+    }
+
+    private void onExit() {
         if (state != State.LOADED)
             finish();
         else if (isEmpty())
@@ -3303,8 +3236,210 @@ public class FragmentCompose extends FragmentBase {
         @Override
         public boolean onBackPressed() {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                handleExit();
+                onExit();
             return true;
         }
     };
+
+    public static class FragmentDialogContactGroup extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final long working = getArguments().getLong("working");
+
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_contact_group, null);
+            final ListView lvGroup = dview.findViewById(R.id.lvGroup);
+            final Spinner spTarget = dview.findViewById(R.id.spTarget);
+
+            Cursor groups = getContext().getContentResolver().query(
+                    ContactsContract.Groups.CONTENT_URI,
+                    new String[]{
+                            ContactsContract.Groups._ID,
+                            ContactsContract.Groups.TITLE
+                    },
+                    null, null, ContactsContract.Groups.TITLE
+            );
+
+            final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                    getContext(),
+                    R.layout.spinner_item1_dropdown,
+                    groups,
+                    new String[]{ContactsContract.Groups.TITLE},
+                    new int[]{android.R.id.text1},
+                    0);
+
+            lvGroup.setAdapter(adapter);
+
+            final AlertDialog dialog = new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialogInterface) {
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .create();
+
+            lvGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    dismiss();
+
+                    int target = spTarget.getSelectedItemPosition();
+                    Cursor cursor = (Cursor) adapter.getItem(position);
+                    long group = cursor.getLong(0);
+
+                    Bundle args = getArguments();
+                    args.putLong("id", working);
+                    args.putInt("target", target);
+                    args.putLong("group", group);
+
+                    sendResult(Activity.RESULT_OK);
+                }
+            });
+
+            return dialog;
+        }
+
+        private void sendResult(int result) {
+            Fragment target = getTargetFragment();
+            if (target != null) {
+                Intent data = new Intent();
+                data.putExtra("args", getArguments());
+                target.onActivityResult(getTargetRequestCode(), result, data);
+            }
+        }
+    }
+
+    public static class FragmentDialogAnswer extends DialogFragment {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final ArrayAdapter<EntityAnswer> adapter =
+                    new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1);
+
+            new SimpleTask<List<EntityAnswer>>() {
+                @Override
+                protected List<EntityAnswer> onExecute(Context context, Bundle args) {
+                    DB db = DB.getInstance(getContext());
+                    return db.answer().getAnswers(false);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
+                    adapter.addAll(answers);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getContext(), getActivity(), ex);
+                }
+            }.execute(getContext(), getActivity(), new Bundle(), "compose:answer");
+
+            return new AlertDialog.Builder(getContext())
+                    .setAdapter(adapter, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+
+                            EntityAnswer answer = adapter.getItem(which);
+                            String text = EntityAnswer.replacePlaceholders(
+                                    answer.text, null, null, null, null);
+
+                            getArguments().putString("answer", text);
+                            sendResult(RESULT_OK);
+                        }
+                    })
+                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialogInterface) {
+                            sendResult(RESULT_CANCELED);
+                        }
+                    })
+                    .show();
+        }
+
+        private void sendResult(int result) {
+            Fragment target = getTargetFragment();
+            if (target != null) {
+                Intent data = new Intent();
+                data.putExtra("args", getArguments());
+                target.onActivityResult(getTargetRequestCode(), result, data);
+            }
+        }
+    }
+
+    public static class FragmentDialogLink extends DialogFragment {
+        private EditText etLink;
+
+        @Override
+        public void onSaveInstanceState(@NonNull Bundle outState) {
+            outState.putString("fair:link", etLink.getText().toString());
+            super.onSaveInstanceState(outState);
+        }
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            Uri uri = getArguments().getParcelable("uri");
+
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_insert_link, null);
+            etLink = view.findViewById(R.id.etLink);
+            final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
+
+            etLink.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                }
+            });
+
+            if (savedInstanceState == null)
+                etLink.setText(uri == null ? "https://" : uri.toString());
+            else
+                etLink.setText(savedInstanceState.getString("fair:link"));
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etLink.requestFocus();
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String link = etLink.getText().toString();
+                            getArguments().putString("link", link);
+                            sendResult(RESULT_OK);
+                        }
+                    })
+                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialogInterface) {
+                            sendResult(RESULT_CANCELED);
+                        }
+                    })
+                    .create();
+        }
+
+        private void sendResult(int result) {
+            Fragment target = getTargetFragment();
+            if (target != null) {
+                Intent data = new Intent();
+                data.putExtra("args", getArguments());
+                target.onActivityResult(getTargetRequestCode(), result, data);
+            }
+        }
+    }
 }

@@ -77,7 +77,7 @@ public class FragmentDialogFolder extends DialogFragment {
 
                 long account = args.getLong("account");
                 AdapterFolder adapter = new AdapterFolder(
-                        FragmentDialogFolder.this,
+                        getContext(), getActivity(),
                         account, false, new AdapterFolder.IFolderSelectedListener() {
                     @Override
                     public void onFolderSelected(TupleFolderEx folder) {

@@ -603,13 +603,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     AdapterFolder(Fragment parentFragment, long account, boolean show_hidden, IFolderSelectedListener listener) {
+        this(parentFragment.getContext(), parentFragment.getViewLifecycleOwner(), account, show_hidden, listener);
         this.parentFragment = parentFragment;
+    }
+
+    AdapterFolder(Context context, LifecycleOwner owner, long account, boolean show_hidden, IFolderSelectedListener listener) {
         this.account = account;
         this.show_hidden = show_hidden;
         this.listener = listener;
 
-        this.context = parentFragment.getContext();
-        this.owner = parentFragment.getViewLifecycleOwner();
+        this.context = context;
+        this.owner = owner;
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

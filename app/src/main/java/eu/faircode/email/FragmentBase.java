@@ -119,7 +119,8 @@ public class FragmentBase extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         Log.i("Result class=" + this.getClass().getSimpleName() +
-                " request=" + requestCode + " result=" + resultCode + " data=" + data);
+                " request=" + requestCode + " result=" + resultCode);
+        Log.logExtras(data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
