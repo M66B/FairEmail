@@ -2109,6 +2109,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ImageView pv = new ZoomableImageView(context);
             pv.setImageDrawable(drawable);
 
+            // TODO: dialog fragment
             final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             dialog.setContentView(pv);
 
@@ -3460,6 +3461,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpOwner.setVisibility(View.GONE);
 
             if (paranoid) {
+                // TODO: spinner
                 Bundle args = new Bundle();
                 args.putParcelable("uri", uri);
 
@@ -3553,7 +3555,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_images = getArguments().getBoolean("show_images");
             float textSize = getArguments().getFloat("text_size");
 
-            final WebView webView = new WebView(getContext());
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_webview, null);
+            final WebView webView = dview.findViewById(R.id.webView);
+            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+
             setupWebView(webView);
 
             WebSettings settings = webView.getSettings();
@@ -3563,7 +3568,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);
 
+            Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+            dialog.setContentView(dview);
+
             new SimpleTask<String>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    webView.setVisibility(View.GONE);
+                    pbWait.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    pbWait.setVisibility(View.GONE);
+                }
+
                 @Override
                 protected String onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
@@ -3604,6 +3623,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, String html) {
                     webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
+                    webView.setVisibility(View.VISIBLE);
                 }
 
                 @Override
@@ -3612,8 +3632,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }.execute(getContext(), getActivity(), getArguments(), "message:full");
 
-            Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            dialog.setContentView(webView);
             return dialog;
         }
 
