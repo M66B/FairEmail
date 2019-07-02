@@ -817,11 +817,11 @@ public class MessageHelper {
                 String charset = ct.getParameter("charset");
                 if (TextUtils.isEmpty(charset)) {
                     if (BuildConfig.DEBUG)
-                        warnings.add(context.getString(R.string.title_no_charset, ct.toString()));
+                        warnings.add(context.getString(R.string.title_no_charset, ct));
                     // The first 127 characters are the same as in US-ASCII
                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                 } else {
-                    if ("US-ASCII".equals(charset.toUpperCase()))
+                    if ("US-ASCII".equals(charset.toUpperCase()) || "ISO-8859-1".equals(charset.toUpperCase()))
                         result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                     else {
                         if ("US-ASCII".equals(Charset.forName(charset).name()))
