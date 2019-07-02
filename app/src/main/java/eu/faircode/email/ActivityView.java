@@ -91,6 +91,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private RecyclerView rvMenuExtra;
 
     private boolean exit = false;
+    private boolean searching = false;
 
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_WHY = 2;
@@ -110,11 +111,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
+    private static final long EXIT_DELAY = 2500L; // milliseconds
     static final long UPDATE_INTERVAL = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null)
+            searching = savedInstanceState.getBoolean("fair:searching");
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         startup = prefs.getString("startup", "unified");
@@ -445,6 +450,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
 
             if (intent.hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
+                searching = true;
                 String search = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT).toString();
 
                 intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
@@ -460,6 +466,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
+        outState.putBoolean("fair:searching", searching);
         super.onSaveInstanceState(outState);
     }
 
@@ -519,14 +526,18 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (exit || count > 1)
                 super.onBackPressed();
             else if (!backHandled()) {
-                exit = true;
-                Toast.makeText(this, R.string.app_exit, Toast.LENGTH_SHORT).show();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        exit = false;
-                    }
-                }, 2500);
+                if (searching)
+                    super.onBackPressed();
+                else {
+                    exit = true;
+                    Toast.makeText(this, R.string.app_exit, Toast.LENGTH_SHORT).show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            exit = false;
+                        }
+                    }, EXIT_DELAY);
+                }
             }
         }
     }
