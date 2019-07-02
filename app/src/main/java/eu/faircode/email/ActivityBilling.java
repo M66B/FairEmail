@@ -168,7 +168,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             String text = getBillingResponseText(result);
             Log.i("IAB launch billing flow response=" + text);
             if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
-                Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+                notifyError(text);
         } else
             Helper.view(this, getIntentPro());
     }
@@ -178,8 +178,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             Uri data = intent.getParcelableExtra("uri");
             String challenge = getChallenge();
             String response = data.getQueryParameter("response");
-            Log.i("Challenge=" + challenge);
-            Log.i("Response=" + response);
+            Log.i("IAB challenge=" + challenge);
+            Log.i("IAB response=" + response);
             String expected = getResponse();
             if (expected.equals(response)) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -187,10 +187,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                         .putBoolean("pro", true)
                         .putBoolean("play_store", false)
                         .apply();
-                Log.i("Response valid");
+                Log.i("IAB response valid");
                 Toast.makeText(this, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
             } else {
-                Log.i("Response invalid");
+                Log.i("IAB response invalid");
                 Toast.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
             }
         } catch (NoSuchAlgorithmException ex) {
@@ -211,7 +211,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 backoff = 4;
                 queryPurchases();
             } else
-                Toast.makeText(ActivityBilling.this, text, Toast.LENGTH_LONG).show();
+                notifyError(text);
         }
 
         @Override
@@ -236,7 +236,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(purchases);
         else
-            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+            notifyError(text);
     }
 
     private void queryPurchases() {
@@ -247,7 +247,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(result.getPurchasesList());
         else
-            Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+            notifyError(text);
     }
 
     interface IBillingListener {
@@ -256,19 +256,24 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         void onPurchasePending(String sku);
 
         void onPurchased(String sku);
+
+        void onError(String message);
     }
 
     void addBillingListener(final IBillingListener listener, LifecycleOwner owner) {
-        Log.i("Adding billing listener=" + listener);
+        Log.i("IAB adding billing listener=" + listener);
         listeners.add(listener);
 
-        if (billingClient != null && billingClient.isReady())
-            queryPurchases();
+        if (billingClient != null)
+            if (billingClient.isReady())
+                queryPurchases();
+            else
+                billingClient.startConnection(billingClientStateListener);
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                Log.i("Removing billing listener=" + listener);
+                Log.i("IAB removing billing listener=" + listener);
                 listeners.remove(listener);
             }
         });
@@ -314,19 +319,20 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
                         if (getSkuPro().equals(purchase.getSku())) {
                             if (purchase.isAcknowledged()) {
+                                Log.i("IAB valid signature");
                                 editor.putBoolean("pro", true);
-                                Log.i("IAB pro features activated");
                             } else
                                 acknowledgePurchase(purchase);
                         }
 
                     } else {
-                        Log.w("Invalid signature");
-                        Toast.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                        Log.w("IAB invalid signature");
+                        editor.putBoolean("pro", false);
+                        notifyError("Invalid purchase");
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
-                    Toast.makeText(this, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+                    notifyError(Helper.formatThrowable(ex, false));
                 }
 
             editor.apply();
@@ -393,6 +399,11 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 }
             }
         });
+    }
+
+    private void notifyError(String message) {
+        for (IBillingListener listener : listeners)
+            listener.onError(message);
     }
 
     private static String getBillingResponseText(BillingResult result) {

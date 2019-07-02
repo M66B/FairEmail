@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_pro_pending"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:textColorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_pro_activated"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:textColorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPending" />
 

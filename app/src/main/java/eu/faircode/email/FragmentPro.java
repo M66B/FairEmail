@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
@@ -34,6 +35,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class FragmentPro extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TextView tvPending;
@@ -106,6 +109,22 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                     btnPurchase.setEnabled(false);
                     tvPending.setVisibility(View.GONE);
                 }
+            }
+
+            @Override
+            public void onError(String message) {
+                final Intent support = new Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://contact.faircode.eu/?product=fairemailsupport"));
+                Snackbar snackbar = Snackbar.make(getView(), message, Snackbar.LENGTH_LONG);
+                if (support.resolveActivity(getContext().getPackageManager()) != null)
+                    snackbar.setAction(R.string.title_setup_help, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(support);
+                        }
+                    });
+                snackbar.show();
             }
         });
     }
