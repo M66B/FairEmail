@@ -39,11 +39,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -53,6 +55,8 @@ import java.util.List;
 
 public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
+
+    private ImageButton ibWelcome;
 
     private Button btnHelp;
     private Button btnQuick;
@@ -75,6 +79,8 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnInbox;
 
+    private Group grpWelcome;
+
     private int textColorPrimary;
     private int colorWarning;
     private Drawable check;
@@ -95,6 +101,8 @@ public class FragmentSetup extends FragmentBase {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
+        ibWelcome = view.findViewById(R.id.ibWelcome);
+
         btnHelp = view.findViewById(R.id.btnHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
 
@@ -116,7 +124,19 @@ public class FragmentSetup extends FragmentBase {
 
         btnInbox = view.findViewById(R.id.btnInbox);
 
+        grpWelcome = view.findViewById(R.id.grpWelcome);
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         // Wire controls
+
+        ibWelcome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                prefs.edit().putBoolean("welcome", false).apply();
+                grpWelcome.setVisibility(View.GONE);
+            }
+        });
 
         btnHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,6 +227,9 @@ public class FragmentSetup extends FragmentBase {
         btnData.setVisibility(View.GONE);
 
         btnInbox.setEnabled(false);
+
+        boolean welcome = prefs.getBoolean("welcome", true);
+        grpWelcome.setVisibility(welcome || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)

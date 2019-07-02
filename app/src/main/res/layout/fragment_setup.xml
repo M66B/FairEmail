@@ -18,14 +18,47 @@
             android:layout_height="wrap_content"
             android:padding="12dp">
 
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="33dp"
+                android:text="@string/title_setup_welcome"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toStartOf="@+id/ibWelcome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/title_legend_close_hint"
+                android:src="@drawable/baseline_close_24"
+                app:layout_constraintBottom_toBottomOf="@id/tvWelcome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvWelcome" />
+
+            <View
+                android:id="@+id/vSeparatorWelcome"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
             <ImageView
                 android:id="@+id/fast"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginTop="12dp"
                 android:contentDescription="@string/title_setup_quick"
                 android:src="@drawable/baseline_fast_forward_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorWelcome" />
 
             <TextView
                 android:layout_width="0dp"
@@ -435,6 +468,13 @@
                 android:text="@string/title_setup_go"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/five" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpWelcome"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="
+                tvWelcome,ibWelcome,vSeparatorWelcome" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
