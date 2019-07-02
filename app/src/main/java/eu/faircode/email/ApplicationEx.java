@@ -275,6 +275,17 @@ public class ApplicationEx extends Application {
             editor.putInt("version", BuildConfig.VERSION_CODE);
             editor.apply();
         }
+
+        if (BuildConfig.DEBUG && false) {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.remove("app_support");
+            editor.remove("notify_archive");
+            editor.remove("message_swipe");
+            editor.remove("message_select");
+            editor.remove("folder_actions");
+            editor.remove("folder_sync");
+            editor.apply();
+        }
     }
 
     static Context getLocalizedContext(Context context) {
