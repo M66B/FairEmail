@@ -41,6 +41,13 @@ This app starts a foreground service with a low priority status bar notification
 * Material design (including dark theme)
 * Maintained and supported
 
+## Privacy features
+
+* Reformat messages to always safely view messages
+* Confirm showing images to prevent tracking
+* Confirm opening links to prevent tracking and phishing
+* Automatically recognize and disable tracking images
+
 ## Pro features
 
 All pro features are convenience or advanced features.
