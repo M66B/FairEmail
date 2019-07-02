@@ -318,6 +318,7 @@ public class HtmlHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        boolean inline = prefs.getBoolean("inline_images", false);
 
         final int px = Helper.dp2pixels(view.getContext(), (zoom + 1) * 24);
 
@@ -334,9 +335,10 @@ public class HtmlHelper {
         boolean data = source.startsWith("data:");
 
         if (BuildConfig.DEBUG)
-            Log.i("Image show=" + show + " embedded=" + embedded + " data=" + data + " source=" + source);
+            Log.i("Image show=" + show + " inline=" + inline +
+                    " embedded=" + embedded + " data=" + data + " source=" + source);
 
-        if (!show) {
+        if (!(show || (inline && (embedded || data)))) {
             // Show placeholder icon
             int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
             Drawable d = res.getDrawable(resid, theme);

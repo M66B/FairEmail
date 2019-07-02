@@ -103,7 +103,7 @@
 
     <string name="title_setup">Settings</string>
     <string name="title_setup_help">Help</string>
-    <string name="title_setup_welcome">
+    <string name="title_setup_welcome" translatable="false">
         To receive and send messages you\'ll need to setup an account and identity.
         This is not easier or not more difficult than in any other email app,
         although some providers make this not very easy.
@@ -207,6 +207,7 @@
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
+    <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_images">Automatically show images for known contacts</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
 
@@ -263,6 +264,7 @@
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
+    <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autocollapse_hint">Multiple expanded messages will always be closed on \'back\'</string>
