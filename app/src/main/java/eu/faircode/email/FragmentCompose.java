@@ -547,7 +547,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onReferenceEdit() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean("edit_ref_confirmed", false)) {
             onReferenceEditConfirmed();
             return;
@@ -996,7 +996,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionSend() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean autosend = prefs.getBoolean("autosend", false);
         if (autosend) {
             onActionSendConfirmed();

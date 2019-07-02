@@ -3002,6 +3002,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (result.size() == 0)
             return;
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("automove", false)) {
+            moveAskConfirmed(result);
+            return;
+        }
+
         Bundle aargs = new Bundle();
         aargs.putString("question", getResources()
                 .getQuantityString(R.plurals.title_moving_messages,
