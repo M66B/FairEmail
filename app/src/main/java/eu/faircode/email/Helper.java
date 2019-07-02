@@ -59,7 +59,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.FragmentManager;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -677,15 +676,18 @@ public class Helper {
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
     }
 
-    static void linkPro(TextView tv) {
-        tv.getPaint().setUnderlineText(true);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(view.getContext());
-                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
-            }
-        });
+    static void linkPro(final TextView tv) {
+        final Intent pro = new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.PRO_FEATURES_URI));
+        PackageManager pm = tv.getContext().getPackageManager();
+        if (pro.resolveActivity(pm) != null) {
+            tv.getPaint().setUnderlineText(true);
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    tv.getContext().startActivity(pro);
+                }
+            });
+        }
     }
 
     public static <T> List<List<T>> chunkList(List<T> list, int size) {

@@ -430,7 +430,7 @@ public class FragmentRule extends FragmentBase {
                 if (resultCode == RESULT_OK && data != null) {
                     if (!Helper.isPro(getContext())) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
+                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
                         return;
                     }
 

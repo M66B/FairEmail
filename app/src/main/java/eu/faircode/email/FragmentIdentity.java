@@ -51,12 +51,12 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -1000,14 +1000,11 @@ public class FragmentIdentity extends FragmentBase {
         switch (requestCode) {
             case REQUEST_COLOR:
                 if (resultCode == RESULT_OK && data != null) {
-                    if (!Helper.isPro(getContext())) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_SHOW_PRO));
-                        return;
-                    }
-
-                    Bundle args = data.getBundleExtra("args");
-                    setColor(args.getInt("color"));
+                    if (Helper.isPro(getContext())) {
+                        Bundle args = data.getBundleExtra("args");
+                        setColor(args.getInt("color"));
+                    } else
+                        Toast.makeText(getContext(), R.string.title_pro_feature, Toast.LENGTH_LONG).show();
                 }
                 break;
             case REQUEST_SAVE:

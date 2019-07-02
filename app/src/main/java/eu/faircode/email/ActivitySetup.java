@@ -98,7 +98,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 
-public class ActivitySetup extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
+public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     private View view;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
@@ -121,7 +121,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     static final String ACTION_VIEW_IDENTITIES = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_IDENTITIES";
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
-    static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -304,7 +303,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         iff.addAction(ACTION_VIEW_IDENTITIES);
         iff.addAction(ACTION_EDIT_ACCOUNT);
         iff.addAction(ACTION_EDIT_IDENTITY);
-        iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
     }
 
@@ -368,17 +366,15 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
     }
 
     private void onMenuExport() {
-        if (!Helper.isPro(this)) {
-            onShowPro(null);
-            return;
-        }
-
-        try {
-            askPassword(true);
-        } catch (Throwable ex) {
-            Log.e(ex);
-            Helper.unexpectedError(getSupportFragmentManager(), ex);
-        }
+        if (Helper.isPro(this)) {
+            try {
+                askPassword(true);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                Helper.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        } else
+            Toast.makeText(this, R.string.title_pro_feature, Toast.LENGTH_LONG).show();
     }
 
     private void onMenuImport() {
@@ -994,15 +990,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
         fragmentTransaction.commit();
     }
 
-    private void onShowPro(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-            getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
-        fragmentTransaction.commit();
-    }
-
     private static Intent getIntentExport() {
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -1089,8 +1076,6 @@ public class ActivitySetup extends ActivityBilling implements FragmentManager.On
                     onEditAccount(intent);
                 else if (ACTION_EDIT_IDENTITY.equals(action))
                     onEditIdentity(intent);
-                else if (ACTION_SHOW_PRO.equals(action))
-                    onShowPro(intent);
             }
         }
     };
