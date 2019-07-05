@@ -815,13 +815,23 @@ public class MessageHelper {
             try {
                 ContentType ct = new ContentType(part.getContentType());
                 String charset = ct.getParameter("charset");
+                String encoding = null;
+                try {
+                    String[] enc = part.getHeader("Content-Transfer-Encoding");
+                    if (enc != null && enc.length > 0)
+                        encoding = enc[0];
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                }
                 if (TextUtils.isEmpty(charset)) {
                     if (BuildConfig.DEBUG)
                         warnings.add(context.getString(R.string.title_no_charset, ct));
                     // The first 127 characters are the same as in US-ASCII
                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                 } else {
-                    if ("US-ASCII".equals(charset.toUpperCase()) || "ISO-8859-1".equals(charset.toUpperCase()))
+                    if ("US-ASCII".equals(charset.toUpperCase()) ||
+                            (encoding != null && "8bit".equals(encoding.toLowerCase()) &&
+                                    "ISO-8859-1".equals(charset.toUpperCase())))
                         result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                     else {
                         if ("US-ASCII".equals(Charset.forName(charset).name()))
