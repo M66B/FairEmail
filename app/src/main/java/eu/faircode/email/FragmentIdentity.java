@@ -650,8 +650,8 @@ public class FragmentIdentity extends FragmentBase {
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||
-                        use_ip != identity.use_ip) ||
-                        identity.error != null);
+                        use_ip != identity.use_ip ||
+                        identity.error != null));
 
                 Long last_connected = null;
                 if (identity != null && synchronize == identity.synchronize)
