@@ -659,20 +659,27 @@ public class FragmentCompose extends FragmentBase {
 
         if (savedInstanceState == null) {
             if (working < 0) {
+                Bundle a = getArguments();
+                if (a == null) {
+                    a = new Bundle();
+                    a.putString("action", "new");
+                }
+
                 Bundle args = new Bundle();
-                args.putString("action", getArguments().getString("action"));
-                args.putLong("id", getArguments().getLong("id", -1));
-                args.putLong("account", getArguments().getLong("account", -1));
-                args.putLong("reference", getArguments().getLong("reference", -1));
-                args.putSerializable("ics", getArguments().getSerializable("ics"));
-                args.putBoolean("raw", getArguments().getBoolean("raw", false));
-                args.putLong("answer", getArguments().getLong("answer", -1));
-                args.putString("to", getArguments().getString("to"));
-                args.putString("cc", getArguments().getString("cc"));
-                args.putString("bcc", getArguments().getString("bcc"));
-                args.putString("subject", getArguments().getString("subject"));
-                args.putString("body", getArguments().getString("body"));
-                args.putParcelableArrayList("attachments", getArguments().getParcelableArrayList("attachments"));
+
+                args.putString("action", a.getString("action"));
+                args.putLong("id", a.getLong("id", -1));
+                args.putLong("account", a.getLong("account", -1));
+                args.putLong("reference", a.getLong("reference", -1));
+                args.putSerializable("ics", a.getSerializable("ics"));
+                args.putBoolean("raw", a.getBoolean("raw", false));
+                args.putLong("answer", a.getLong("answer", -1));
+                args.putString("to", a.getString("to"));
+                args.putString("cc", a.getString("cc"));
+                args.putString("bcc", a.getString("bcc"));
+                args.putString("subject", a.getString("subject"));
+                args.putString("body", a.getString("body"));
+                args.putParcelableArrayList("attachments", a.getParcelableArrayList("attachments"));
                 draftLoader.execute(this, args, "compose:new");
             } else {
                 Bundle args = new Bundle();
