@@ -13,6 +13,15 @@ public class DialogFragmentEx extends DialogFragment {
     private boolean once = false;
 
     @Override
+    public void onStart() {
+        try {
+            super.onStart();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    @Override
     public void onDismiss(@NonNull DialogInterface dialog) {
         sendResult(RESULT_CANCELED);
         super.onDismiss(dialog);

@@ -280,10 +280,10 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             cal.set(Calendar.SECOND, 0);
             cal.set(Calendar.MILLISECOND, 0);
 
-            return new TimePickerDialog(getActivity(), this,
+            return new TimePickerDialog(getContext(), this,
                     cal.get(Calendar.HOUR_OF_DAY),
                     cal.get(Calendar.MINUTE),
-                    DateFormat.is24HourFormat(getActivity()));
+                    DateFormat.is24HourFormat(getContext()));
         }
 
         public void onTimeSet(TimePicker view, int hour, int minute) {
