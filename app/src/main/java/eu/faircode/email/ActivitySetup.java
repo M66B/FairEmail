@@ -1048,7 +1048,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             else {
                                 if (!export || password1.equals(password2)) {
                                     ((ActivitySetup) getActivity()).password = password1;
-                                    startActivityForResult(
+                                    getActivity().startActivityForResult(
                                             Helper.getChooser(getContext(),
                                                     export ? getIntentExport() : getIntentImport()),
                                             export ? REQUEST_EXPORT : REQUEST_IMPORT);
