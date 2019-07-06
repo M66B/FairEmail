@@ -1434,6 +1434,10 @@ public class FragmentCompose extends FragmentBase {
                             if (BuildConfig.DEBUG || BuildConfig.BETA_RELEASE)
                                 Log.i("Keys=" + pgpKeyIds.length);
 
+                            // Send without encryption
+                            if (pgpKeyIds.length == 0)
+                                return null;
+
                             // Get encrypt key
                             Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
                             intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpKeyIds[0]);
