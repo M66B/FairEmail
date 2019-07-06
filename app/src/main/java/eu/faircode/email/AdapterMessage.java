@@ -264,6 +264,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvAttachment;
         private CheckBox cbInline;
+        private ImageButton ibDecrypt;
         private Button btnDownloadAttachments;
         private Button btnSaveAttachments;
         private TextView tvNoInternetAttachments;
@@ -405,6 +406,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 bnvActions.setLayoutParams(lparam);
             }
 
+            ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibFull = vsBody.findViewById(R.id.ibFull);
             tvBody = vsBody.findViewById(R.id.tvBody);
@@ -464,6 +466,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
 
+                ibDecrypt.setOnClickListener(this);
                 btnDownloadAttachments.setOnClickListener(this);
                 btnSaveAttachments.setOnClickListener(this);
 
@@ -496,6 +499,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
 
+                ibDecrypt.setOnClickListener(null);
                 btnDownloadAttachments.setOnClickListener(null);
                 btnSaveAttachments.setOnClickListener(null);
 
@@ -827,6 +831,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbCalendarWait.setVisibility(View.GONE);
 
             cbInline.setVisibility(View.GONE);
+            ibDecrypt.setVisibility(View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
@@ -1110,6 +1115,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Show inline=" + show_inline);
 
             boolean has_inline = false;
+            boolean is_encrypted = false;
             boolean download = false;
             boolean save = (attachments.size() > 1);
             boolean downloading = false;
@@ -1119,6 +1125,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean inline = (attachment.isInline() || TextUtils.isEmpty(attachment.name));
                 if (inline)
                     has_inline = true;
+                if (Objects.equals(attachment.encryption, EntityAttachment.PGP_MESSAGE))
+                    is_encrypted = true;
                 if (attachment.progress == null && !attachment.available)
                     download = true;
                 if (!attachment.available)
@@ -1241,6 +1249,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
+            ibDecrypt.setVisibility(is_encrypted ? View.VISIBLE : View.GONE);
             btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
@@ -1369,7 +1378,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null)
                 return;
 
-            if (view.getId() == R.id.ivSnoozed)
+            if (view.getId() == R.id.ibDecrypt)
+                onMenuDecrypt(message);
+            else if (view.getId() == R.id.ivSnoozed)
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ivFlagged)
                 onToggleFlag(message);
