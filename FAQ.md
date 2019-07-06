@@ -855,6 +855,7 @@ First of all, update to [the latest version](https://github.com/M66B/open-source
 It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
 
 Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
+In this case you might want to synchronize periodically, for example each hour, instead of continuously.
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
 Confusingly, *app usage* is not the same as *battery usage*.
