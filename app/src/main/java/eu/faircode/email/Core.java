@@ -742,7 +742,8 @@ class Core {
                 HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
 
-        fixAttachments(context, message.id, body);
+        if (!TextUtils.isEmpty(body))
+            fixAttachments(context, message.id, body);
     }
 
     private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
@@ -1708,7 +1709,9 @@ class Core {
                             parts.getWarnings(message.warning));
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
-                    fixAttachments(context, message.id, body);
+
+                    if (!TextUtils.isEmpty(body))
+                        fixAttachments(context, message.id, body);
                 }
             }
 
