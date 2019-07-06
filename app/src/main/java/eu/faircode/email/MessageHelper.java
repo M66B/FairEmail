@@ -29,7 +29,6 @@ import com.sun.mail.util.MessageRemovedIOException;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -801,7 +800,7 @@ public class MessageHelper {
                     result = (String) content;
                 else if (content instanceof InputStream)
                     // Typically com.sun.mail.util.QPDecoderStream
-                    result = readStream((InputStream) content, "UTF-8");
+                    result = Helper.readStream((InputStream) content, "UTF-8");
                 else
                     result = content.toString();
             } catch (IOException | FolderClosedException | MessageRemovedException ex) {
@@ -1110,14 +1109,6 @@ public class MessageHelper {
             Log.w(ex);
             parts.warnings.add(Helper.formatThrowable(ex, false));
         }
-    }
-
-    private static String readStream(InputStream is, String charset) throws IOException {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        byte[] buffer = new byte[4096];
-        for (int len = is.read(buffer); len != -1; len = is.read(buffer))
-            os.write(buffer, 0, len);
-        return new String(os.toByteArray(), charset);
     }
 
     static boolean equal(Address[] a1, Address[] a2) {

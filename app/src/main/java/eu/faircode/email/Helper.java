@@ -67,7 +67,7 @@ import com.sun.mail.iap.ConnectionException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -510,12 +510,17 @@ public class Helper {
         }
     }
 
+    static String readStream(InputStream is, String charset) throws IOException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        byte[] buffer = new byte[16384];
+        for (int len = is.read(buffer); len != -1; len = is.read(buffer))
+            os.write(buffer, 0, len);
+        return new String(os.toByteArray(), charset);
+    }
+
     static String readText(File file) throws IOException {
         try (FileInputStream in = new FileInputStream(file)) {
-            byte[] buffer = new byte[(int) file.length()];
-            DataInputStream dis = new DataInputStream(in);
-            dis.readFully(buffer);
-            return new String(buffer);
+            return readStream(in, "UTF-8");
         }
     }
 
