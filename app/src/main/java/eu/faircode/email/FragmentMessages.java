@@ -3704,7 +3704,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment local : attachments)
-                                    if (local.encryption == null)
+                                    if (local.encryption == null && !"application/pgp-encrypted".equals(local.type))
                                         db.attachment().deleteAttachment(local.id);
 
                                 int sequence = db.attachment().getAttachmentSequence(id);
