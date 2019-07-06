@@ -380,21 +380,7 @@ public class HtmlHelper {
         // Data URI
         if (data)
             try {
-                // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
-                // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
-                // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
-                // "5ErkJggg==\" alt=\"Red dot\" />";
-
-                String base64 = source.substring(source.indexOf(',') + 1);
-                byte[] bytes = Base64.decode(base64.getBytes(), 0);
-
-                Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                if (bm == null)
-                    throw new IllegalArgumentException("decode byte array failed");
-
-                Drawable d = new BitmapDrawable(res, bm);
-                d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
-                return d;
+                return getDataDrawable(source, res);
             } catch (IllegalArgumentException ex) {
                 Log.w(ex);
                 Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
@@ -505,6 +491,24 @@ public class HtmlHelper {
         });
 
         return lld;
+    }
+
+    private static Drawable getDataDrawable(String source, Resources res) {
+        // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
+        // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
+        // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
+        // "5ErkJggg==\" alt=\"Red dot\" />";
+
+        String base64 = source.substring(source.indexOf(',') + 1);
+        byte[] bytes = Base64.decode(base64.getBytes(), 0);
+
+        Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+        if (bm == null)
+            throw new IllegalArgumentException("decode byte array failed");
+
+        Drawable d = new BitmapDrawable(res, bm);
+        d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+        return d;
     }
 
     static private Drawable getCachedImage(Context context, File file) {
