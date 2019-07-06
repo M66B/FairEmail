@@ -999,7 +999,8 @@ class Core {
             Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
 
             // Delete old local messages
-            if (auto_delete && EntityFolder.TRASH.equals(folder.type)) {
+            if (auto_delete &&
+                    (EntityFolder.JUNK.equals(folder.type) || EntityFolder.TRASH.equals(folder.type))) {
                 List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, delete_unseen);
                 Log.i(folder.name + " local tbd=" + tbds.size());
                 for (Long tbd : tbds) {
