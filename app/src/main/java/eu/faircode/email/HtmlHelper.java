@@ -414,8 +414,9 @@ public class HtmlHelper {
 
         final LevelListDrawable lld = new LevelListDrawable();
         Drawable wait = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
-        lld.addLevel(0, 0, wait);
+        lld.addLevel(1, 1, wait);
         lld.setBounds(0, 0, px, px);
+        lld.setLevel(1);
 
         final Context context = view.getContext().getApplicationContext();
         executor.submit(new Runnable() {
@@ -466,7 +467,7 @@ public class HtmlHelper {
                     d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
                     post(d, source);
                 } catch (Throwable ex) {
-                    // Show warning icon
+                    // Show broken icon
                     Log.w(ex);
                     int resid = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
                             ? R.drawable.baseline_cloud_off_24
@@ -493,9 +494,9 @@ public class HtmlHelper {
                             d.setBounds(0, 0, w, h);
                         }
 
-                        lld.addLevel(1, 1, d);
+                        lld.addLevel(0, 0, d);
                         lld.setBounds(0, 0, w, h);
-                        lld.setLevel(1);
+                        lld.setLevel(0);
 
                         view.setText(view.getText());
                     }

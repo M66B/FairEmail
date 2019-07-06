@@ -2109,6 +2109,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onOpenImage(Drawable drawable) {
             ImageView pv = new ZoomableImageView(context);
+            pv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             pv.setImageDrawable(drawable);
 
             // TODO: dialog fragment
