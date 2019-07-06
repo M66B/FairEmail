@@ -2854,7 +2854,7 @@ public class FragmentCompose extends FragmentBase {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    Drawable image = HtmlHelper.decodeImage(source, id, show_images, tvReference);
+                                    Drawable image = HtmlHelper.decodeImage(context, id, source, show_images, tvReference);
 
                                     ConstraintLayout.LayoutParams params =
                                             (ConstraintLayout.LayoutParams) tvReference.getLayoutParams();

@@ -105,6 +105,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
@@ -1930,7 +1931,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        Drawable image = HtmlHelper.decodeImage(source, message.id, show_images, tvBody);
+                        Drawable image = HtmlHelper.decodeImage(context, message.id, source, show_images, tvBody);
 
                         ConstraintLayout.LayoutParams params =
                                 (ConstraintLayout.LayoutParams) tvBody.getLayoutParams();
@@ -2069,9 +2070,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
-                    if (image.length > 0 && image[0].getSource() != null) {
-                        onOpenImage(image[0].getDrawable());
-                        return true;
+                    if (image.length > 0) {
+                        String source = image[0].getSource();
+                        if (source != null) {
+                            onOpenImage(message.id, source);
+                            return true;
+                        }
                     }
 
                     DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
@@ -2107,26 +2111,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onOpenImage(Drawable drawable) {
-            ImageView pv = new ZoomableImageView(context);
-            pv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            pv.setImageDrawable(drawable);
+        private void onOpenImage(long id, String source) {
+            Log.i("Viewing image source=" + source);
 
-            // TODO: dialog fragment
-            final Dialog dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
-            dialog.setContentView(pv);
+            Bundle args = new Bundle();
+            args.putLong("id", id);
+            args.putString("source", source);
 
-            owner.getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-                public void onCreate() {
-                    dialog.show();
-                }
-
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                public void onDestroyed() {
-                    dialog.dismiss();
-                }
-            });
+            FragmentDialogImage fragment = new FragmentDialogImage();
+            fragment.setArguments(args);
+            fragment.show(parentFragment.getFragmentManager(), "view:image");
         }
 
         @Override
@@ -3515,6 +3509,39 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     })
                     .setNegativeButton(R.string.title_no, null)
                     .create();
+        }
+    }
+
+    public static class FragmentDialogImage extends DialogFragmentEx {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final PhotoView pv = new PhotoView(getContext());
+
+            new SimpleTask<Drawable>() {
+                @Override
+                protected Drawable onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+                    String source = args.getString("source");
+                    return HtmlHelper.decodeImage(context, id, source, true, null);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Drawable drawable) {
+                    pv.setImageDrawable(drawable);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getFragmentManager(), ex);
+                }
+            }.execute(getContext(), getActivity(), getArguments(), "view:image");
+
+            // TODO: dialog fragment
+            final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
+            dialog.setContentView(pv);
+
+            return dialog;
         }
     }
 

@@ -314,16 +314,16 @@ public class HtmlHelper {
         return (body == null ? "" : body.html());
     }
 
-    static Drawable decodeImage(final String source, final long id, boolean show, final TextView view) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+    static Drawable decodeImage(final Context context, final long id, final String source, boolean show, final TextView view) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         boolean inline = prefs.getBoolean("inline_images", false);
 
-        final int px = Helper.dp2pixels(view.getContext(), (zoom + 1) * 24);
+        final int px = Helper.dp2pixels(context, (zoom + 1) * 24);
 
-        final Resources.Theme theme = view.getContext().getTheme();
-        final Resources res = view.getContext().getResources();
+        final Resources.Theme theme = context.getTheme();
+        final Resources res = context.getResources();
 
         if (TextUtils.isEmpty(source)) {
             Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
@@ -348,7 +348,7 @@ public class HtmlHelper {
 
         // Embedded images
         if (embedded) {
-            DB db = DB.getInstance(view.getContext());
+            DB db = DB.getInstance(context);
             String cid = "<" + source.substring(4) + ">";
             EntityAttachment attachment = db.attachment().getAttachment(id, cid);
             if (attachment == null) {
@@ -362,7 +362,7 @@ public class HtmlHelper {
                 d.setBounds(0, 0, px, px);
                 return d;
             } else {
-                Bitmap bm = Helper.decodeImage(attachment.getFile(view.getContext()),
+                Bitmap bm = Helper.decodeImage(attachment.getFile(context),
                         res.getDisplayMetrics().widthPixels);
                 if (bm == null) {
                     Log.i("Image not decodable CID=" + cid);
@@ -380,7 +380,7 @@ public class HtmlHelper {
         // Data URI
         if (data)
             try {
-                return getDataDrawable(source, res);
+                return getDataDrawable(res, source);
             } catch (IllegalArgumentException ex) {
                 Log.w(ex);
                 Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
@@ -389,13 +389,13 @@ public class HtmlHelper {
             }
 
         // Get cache file name
-        File dir = new File(view.getContext().getCacheDir(), "images");
+        File dir = new File(context.getCacheDir(), "images");
         if (!dir.exists())
             dir.mkdir();
         final File file = new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
 
-        Drawable cached = getCachedImage(view.getContext(), file);
-        if (cached != null)
+        Drawable cached = getCachedImage(context, file);
+        if (cached != null || view == null)
             return cached;
 
         final LevelListDrawable lld = new LevelListDrawable();
@@ -404,7 +404,6 @@ public class HtmlHelper {
         lld.setBounds(0, 0, px, px);
         lld.setLevel(1);
 
-        final Context context = view.getContext().getApplicationContext();
         executor.submit(new Runnable() {
             @Override
             public void run() {
@@ -493,7 +492,7 @@ public class HtmlHelper {
         return lld;
     }
 
-    private static Drawable getDataDrawable(String source, Resources res) {
+    private static Drawable getDataDrawable(Resources res, String source) {
         // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
         // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
         // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
