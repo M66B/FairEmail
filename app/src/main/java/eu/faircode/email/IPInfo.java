@@ -37,7 +37,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class IPInfo {
     private static Map<String, String> hostOrganization = new HashMap<>();
 
-    static String getOrganization(Uri uri) throws IOException, ParseException {
+    static String[] getOrganization(Uri uri) throws IOException, ParseException {
         if ("mailto".equals(uri.getScheme())) {
             MailTo email = MailTo.parse(uri.toString());
             String to = email.getTo();
@@ -53,10 +53,10 @@ public class IPInfo {
         }
     }
 
-    private static String getOrganization(String host) throws IOException {
+    private static String[] getOrganization(String host) throws IOException {
         synchronized (hostOrganization) {
             if (hostOrganization.containsKey(host))
-                return hostOrganization.get(host);
+                return new String[]{host, hostOrganization.get(host)};
         }
         InetAddress address = InetAddress.getByName(host);
         URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
@@ -72,7 +72,7 @@ public class IPInfo {
             synchronized (hostOrganization) {
                 hostOrganization.put(host, organization);
             }
-            return organization;
+            return new String[]{host, organization};
         }
     }
 }

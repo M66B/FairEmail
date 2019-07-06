@@ -3387,6 +3387,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
             CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
             final TextView tvOwner = view.findViewById(R.id.tvOwner);
+            final TextView tvHost = view.findViewById(R.id.tvHost);
             final Group grpOwner = view.findViewById(R.id.grpOwner);
 
             tvTitle.setText(title);
@@ -3463,7 +3464,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle args = new Bundle();
                 args.putParcelable("uri", uri);
 
-                new SimpleTask<String>() {
+                new SimpleTask<String[]>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         tvOwner.setText("…");
@@ -3471,13 +3472,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     @Override
-                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                    protected String[] onExecute(Context context, Bundle args) throws Throwable {
                         Uri uri = args.getParcelable("uri");
                         return IPInfo.getOrganization(uri);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, String organization) {
+                    protected void onExecuted(Bundle args, String[] data) {
+                        String host = data[0];
+                        String organization = data[1];
+                        tvHost.setText(host);
                         tvOwner.setText(organization == null ? "?" : organization);
                     }
 

@@ -74,18 +74,29 @@
         app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
 
     <TextView
+        android:id="@+id/tvHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="example.org"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvOwnerTitle" />
+
+    <TextView
         android:id="@+id/tvOwner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@+id/etLink"
         android:text="Cloudflare"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?android:textColorPrimary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvOwnerTitle" />
+        app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpOwner"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tvOwnerTitle,tvOwner" />
+        app:constraint_referenced_ids="tvOwnerTitle,tvHost,tvOwner" />
 </androidx.constraintlayout.widget.ConstraintLayout>
