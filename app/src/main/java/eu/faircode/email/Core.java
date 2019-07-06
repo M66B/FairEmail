@@ -964,9 +964,11 @@ class Core {
             boolean sync_unseen = prefs.getBoolean("sync_unseen", false);
             boolean sync_flagged = prefs.getBoolean("sync_flagged", true);
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
+            boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
 
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
-                    " sync unseen=" + sync_unseen + " flagged=" + sync_flagged + " kept=" + sync_kept);
+                    " sync unseen=" + sync_unseen + " flagged=" + sync_flagged +
+                    " delete unseen=" + delete_unseen + " kept=" + sync_kept);
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
@@ -997,7 +999,7 @@ class Core {
 
             // Delete old local messages
             if (auto_delete && EntityFolder.TRASH.equals(folder.type)) {
-                List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, false);
+                List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, delete_unseen);
                 Log.i(folder.name + " local tbd=" + tbds.size());
                 for (Long tbd : tbds) {
                     EntityMessage message = db.message().getMessage(tbd);
@@ -1005,7 +1007,7 @@ class Core {
                         EntityOperation.queue(context, message, EntityOperation.DELETE);
                 }
             } else {
-                int old = db.message().deleteMessagesBefore(folder.id, keep_time, false);
+                int old = db.message().deleteMessagesBefore(folder.id, keep_time, delete_unseen);
                 Log.i(folder.name + " local old=" + old);
             }
 

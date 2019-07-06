@@ -170,6 +170,7 @@
     <string name="title_advanced_schedule">Schedule</string>
     <string name="title_advanced_unseen">All unread messages</string>
     <string name="title_advanced_flagged">All starred messages</string>
+    <string name="title_advanced_delete_unseen">Delete old unread messages</string>
     <string name="title_advanced_kept_removed">Check if old messages were removed from the server</string>
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
 

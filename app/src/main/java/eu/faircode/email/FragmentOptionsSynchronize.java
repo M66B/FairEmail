@@ -55,11 +55,13 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private TextView tvSchedulePro;
     private SwitchCompat swUnseen;
     private SwitchCompat swFlagged;
+    private SwitchCompat swDeleteUnseen;
     private SwitchCompat swSyncKept;
     private SwitchCompat swSyncFolders;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end", "sync_unseen", "sync_flagged", "sync_kept", "sync_folders"
+            "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
+            "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders"
     };
 
     @Override
@@ -80,6 +82,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         tvSchedulePro = view.findViewById(R.id.tvSchedulePro);
         swUnseen = view.findViewById(R.id.swUnseen);
         swFlagged = view.findViewById(R.id.swFlagged);
+        swDeleteUnseen = view.findViewById(R.id.swDeleteUnseen);
         swSyncKept = view.findViewById(R.id.swSyncKept);
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
 
@@ -172,6 +175,14 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swDeleteUnseen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("delete_unseen", checked).apply();
+                ServiceSynchronize.reload(getContext(), false, "delete_unseen=" + checked);
+            }
+        });
+
         swSyncKept.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -251,6 +262,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
         swFlagged.setChecked(prefs.getBoolean("sync_flagged", true));
+        swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
         swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
     }

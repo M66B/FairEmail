@@ -176,6 +176,17 @@
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swDeleteUnseen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:checked="false"
+                android:text="@string/title_advanced_delete_unseen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swFlagged"
+                app:switchPadding="12dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swSyncKept"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -183,7 +194,7 @@
                 android:checked="false"
                 android:text="@string/title_advanced_kept_removed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swFlagged"
+                app:layout_constraintTop_toBottomOf="@id/swDeleteUnseen"
                 app:switchPadding="12dp" />
 
             <TextView
