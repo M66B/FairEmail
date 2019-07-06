@@ -142,6 +142,7 @@
     <string name="title_advanced_schedule">Aikataulu</string>
     <string name="title_advanced_unseen">Kaikki lukemattomat viestit</string>
     <string name="title_advanced_flagged">Kaikki tähdelliset viestit</string>
+    <string name="title_advanced_delete_unseen">Poista vanhat lukemattomat viestit</string>
     <string name="title_advanced_kept_removed">Tarkista onko vanhoja viestejä poistettu palvelimelta</string>
     <string name="title_advanced_sync_folders">Synkronoi kansiolista</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>

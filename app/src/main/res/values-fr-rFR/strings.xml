@@ -80,7 +80,7 @@
     <string name="title_edit_folder">Modifier le dossier</string>
     <string name="title_setup">Configuration</string>
     <string name="title_setup_help">Aide</string>
-    <string name="title_setup_welcome">La réception et l\'envoi de messages nécessitent la création d\'un compte et d\'une identité comme dans toute autre application de courriel.</string>
+    <string name="title_setup_welcome">La réception et l\'envoi de messages nécessitent la création d\'un compte et d\'une identité comme dans toute autre application de messagerie.</string>
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs</string>
     <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>
@@ -142,6 +142,7 @@
     <string name="title_advanced_schedule">Planification</string>
     <string name="title_advanced_unseen">Tous les messages non lus</string>
     <string name="title_advanced_flagged">Tous les messages suivis</string>
+    <string name="title_advanced_delete_unseen">Supprimer les anciens messages non lus</string>
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>

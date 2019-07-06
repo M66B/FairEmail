@@ -142,6 +142,7 @@
     <string name="title_advanced_schedule">Schema</string>
     <string name="title_advanced_unseen">Alle ongelezen berichten</string>
     <string name="title_advanced_flagged">Alle berichten met een ster</string>
+    <string name="title_advanced_delete_unseen">Verwijder oude, ongelezen berichten</string>
     <string name="title_advanced_kept_removed">Controleer of oude berichten van de server werden verwijderd</string>
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>

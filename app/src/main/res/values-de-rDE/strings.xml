@@ -80,7 +80,7 @@
     <string name="title_edit_folder">Ordner bearbeiten</string>
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_help">Hilfe</string>
-    <string name="title_setup_welcome">Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer E-Mail-Adresse, wie in jeder anderen E-Mail-Anwendung.</string>
+    <string name="title_setup_welcome">Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer Identität, wie in jeder anderen E-Mail-Anwendung.</string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
     <string name="title_setup_quick_remark">Um schnell ein Konto und eine Identität für die meisten Anbieter einzurichten</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>
@@ -142,6 +142,7 @@
     <string name="title_advanced_schedule">Zeitplan</string>
     <string name="title_advanced_unseen">Alle ungelesenen Nachrichten</string>
     <string name="title_advanced_flagged">Alle gekennzeichneten Nachrichten</string>
+    <string name="title_advanced_delete_unseen">Alte ungelesene Nachrichten löschen</string>
     <string name="title_advanced_kept_removed">Überprüfen, ob alte Nachrichten vom Server entfernt wurden</string>
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
     <string name="title_advanced_keyboard">Tastatur immer anzeigen</string>

@@ -142,6 +142,7 @@
     <string name="title_advanced_schedule">Pianificazione</string>
     <string name="title_advanced_unseen">Tutti i messaggi non letti</string>
     <string name="title_advanced_flagged">Tutti i messaggi preferiti</string>
+    <string name="title_advanced_delete_unseen">Elimina i vecchi messaggi non letti</string>
     <string name="title_advanced_kept_removed">Controlla se i vecchi messaggi sono stati rimossi dal server</string>
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_keyboard">Mostra tastiera di default</string>
