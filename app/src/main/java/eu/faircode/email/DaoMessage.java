@@ -471,6 +471,6 @@ public interface DaoMessage {
             " AND NOT uid IS NULL" +
             " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
-            " AND NOT ui_browsed")
+            " AND (NOT ui_browsed OR stored < :received)")
     int deleteMessagesBefore(long folder, long received, boolean unseen);
 }
