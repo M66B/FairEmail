@@ -1839,6 +1839,8 @@ public class FragmentCompose extends FragmentBase {
                 }
             }
 
+            db.attachment().setDownloaded(attachment.id, size);
+
             if ("eu.faircode.email".equals(uri.getAuthority())) {
                 // content://eu.faircode.email/temporary/nnn.jpg
                 File tmp = new File(context.getFilesDir(), uri.getPath());
@@ -1848,54 +1850,7 @@ public class FragmentCompose extends FragmentBase {
             } else
                 Log.i("Authority=" + uri.getAuthority());
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean autoresize = prefs.getBoolean("autoresize", true);
-
-            if (autoresize && file.exists() /* upload cancelled */ &&
-                    ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-
-                int resize = prefs.getInt("resize", REDUCED_IMAGE_SIZE);
-
-                int factor = 1;
-                while (options.outWidth / factor > resize ||
-                        options.outHeight / factor > resize)
-                    factor *= 2;
-
-                Matrix rotation = ("image/jpeg".equals(attachment.type) ? Helper.getImageRotation(file) : null);
-                Log.i("Image type=" + attachment.type + " rotation=" + rotation);
-
-                if (factor > 1 || rotation != null) {
-                    options.inJustDecodeBounds = false;
-                    options.inSampleSize = factor;
-
-                    Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-                    if (scaled != null) {
-                        Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight() + " rotation=" + rotation);
-
-                        if (rotation != null) {
-                            Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
-                            scaled.recycle();
-                            scaled = rotated;
-                        }
-
-                        try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
-                            scaled.compress("image/jpeg".equals(attachment.type)
-                                            ? Bitmap.CompressFormat.JPEG
-                                            : Bitmap.CompressFormat.PNG,
-                                    REDUCED_IMAGE_QUALITY, out);
-                        } finally {
-                            scaled.recycle();
-                        }
-
-                        size = file.length();
-                    }
-                }
-            }
-
-            db.attachment().setDownloaded(attachment.id, size);
+            resizeAttachment(context, attachment);
 
         } catch (IOException ex) {
             // Reset progress on failure
@@ -1905,6 +1860,58 @@ public class FragmentCompose extends FragmentBase {
         }
 
         return attachment;
+    }
+
+    private static void resizeAttachment(Context context, EntityAttachment attachment) throws IOException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean autoresize = prefs.getBoolean("autoresize", true);
+
+        File file = attachment.getFile(context);
+
+        if (autoresize && file.exists() /* upload cancelled */ &&
+                ("image/jpeg".equals(attachment.type) || "image/png".equals(attachment.type))) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+            int resize = prefs.getInt("resize", REDUCED_IMAGE_SIZE);
+
+            int factor = 1;
+            while (options.outWidth / factor > resize ||
+                    options.outHeight / factor > resize)
+                factor *= 2;
+
+            Matrix rotation = ("image/jpeg".equals(attachment.type) ? Helper.getImageRotation(file) : null);
+            Log.i("Image type=" + attachment.type + " rotation=" + rotation);
+
+            if (factor > 1 || rotation != null) {
+                options.inJustDecodeBounds = false;
+                options.inSampleSize = factor;
+
+                Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+                if (scaled != null) {
+                    Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight() + " rotation=" + rotation);
+
+                    if (rotation != null) {
+                        Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
+                        scaled.recycle();
+                        scaled = rotated;
+                    }
+
+                    try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
+                        scaled.compress("image/jpeg".equals(attachment.type)
+                                        ? Bitmap.CompressFormat.JPEG
+                                        : Bitmap.CompressFormat.PNG,
+                                REDUCED_IMAGE_QUALITY, out);
+                    } finally {
+                        scaled.recycle();
+                    }
+
+                    DB db = DB.getInstance(context);
+                    db.attachment().setDownloaded(attachment.id, file.length());
+                }
+            }
+        }
     }
 
     private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
@@ -2177,6 +2184,9 @@ public class FragmentCompose extends FragmentBase {
 
                                     File target = attachment.getFile(context);
                                     Helper.copy(source, target);
+
+                                    if (!"forward".equals(action))
+                                        resizeAttachment(context, attachment);
                                 } else
                                     args.putBoolean("incomplete", true);
                             }
