@@ -89,14 +89,22 @@ public abstract class ComputableLiveData<T> {
         @Override
         public void run() {
             boolean computed;
+            long last;
             do {
                 computed = false;
                 // compute can happen only in 1 thread but no reason to lock others.
                 if (mComputing.compareAndSet(false, true)) {
                     // as long as it is invalid, keep computing.
                     try {
+                        last = android.os.SystemClock.elapsedRealtime();
                         T value = null;
                         while (mInvalid.compareAndSet(true, false)) {
+                            long now = android.os.SystemClock.elapsedRealtime();
+                            if (last + 1500 < now && value != null) {
+                                eu.faircode.email.Log.i(mLiveData + " post age=" + (now - last));
+                                last = now;
+                                mLiveData.postValue(value);
+                            }
                             computed = true;
                             value = compute();
                         }
