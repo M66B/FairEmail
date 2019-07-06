@@ -169,6 +169,7 @@
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
+    <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
@@ -216,6 +217,7 @@
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
+    <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre se cerrarán con \'atrás\'</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>

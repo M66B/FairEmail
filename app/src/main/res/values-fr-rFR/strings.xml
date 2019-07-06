@@ -169,6 +169,7 @@
     <string name="title_advanced_addresses">Afficher les détails de l\'adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
+    <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_images">Afficher automatiquement les images pour les contacts connus</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
@@ -216,6 +217,7 @@
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
+    <string name="title_advanced_inline_hint">Les images en ligne sont des images incluses dans le message</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autocollapse_hint">Les messages multiples étendus seront toujours fermés par « Retour »</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>

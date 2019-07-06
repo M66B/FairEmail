@@ -185,6 +185,7 @@
     <string name="title_advanced_addresses">Ve výchozím nastavení zobrazit detaily adresy</string>
     <string name="title_advanced_attachments_alt">Přemístit zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_monospaced">Použít neproporcionální písmo pro text zprávy</string>
+    <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_images">Automaticky zobrazit obrázky pro známé kontakty</string>
     <string name="title_advanced_actionbar">Panel akcí konverzací</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
@@ -232,6 +233,7 @@
     <string name="title_advanced_threading_hint">Seskupit zprávy které spolu souvisí</string>
     <string name="title_advanced_name_email_hint">Při deaktivaci se zobrazí pouze jména, pokud budou k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
+    <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky které jsou součástí zprávy</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu pokud je v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_autocollapse_hint">Vícero rozbalených zpráv bude vždy sbaleno při pohybu zpět</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace když jsou všechny zprávy archivovány, odeslány nebo v koši</string>

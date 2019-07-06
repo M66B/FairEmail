@@ -177,6 +177,7 @@
     <string name="title_advanced_addresses">Prema zadanim postavkama prikazuje pojedinosti adrese</string>
     <string name="title_advanced_attachments_alt">Prikažite privitke nakon teksta poruke</string>
     <string name="title_advanced_monospaced">Upotrijebiti font u jednolikim razmjerima za tekst poruke</string>
+    <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_images">Automatski prikaz slika za poznate kontakte</string>
     <string name="title_advanced_actionbar">Traka s akcijama razgovora</string>
     <string name="title_advanced_pull_refresh">Povucite prema dolje za osvježavanje</string>
@@ -224,6 +225,7 @@
     <string name="title_advanced_threading_hint">Grupiranje međusobno povezane poruke</string>
     <string name="title_advanced_name_email_hint">Kada onemogućeno, samo će imena biti prikazana ako su dostupna</string>
     <string name="title_advanced_preview_hint">Dostupno samo kada je preuzet tekst poruke</string>
+    <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku ako postoji samo jedna poruka ili samo jedna nepročitana poruka u razgovoru</string>
     <string name="title_advanced_autocollapse_hint">Višestruke proširene poruke uvijek će biti zatvorene na \'natrag\'</string>
     <string name="title_advanced_autoclose_hint">Automatski zatvori razgovore kada su sve poruke arhivirane, poslane ili stavljene u otpad</string>

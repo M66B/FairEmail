@@ -169,6 +169,7 @@
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
+    <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_images">Mostrar automaticamente imagens para contatos conhecidos</string>
     <string name="title_advanced_actionbar">Barra de ação de conversa</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
@@ -216,6 +217,7 @@
     <string name="title_advanced_threading_hint">Agrupe as mensagens relacionadas entre si</string>
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
+    <string name="title_advanced_inline_hint">Imagens em linha são incluídas na mensagem</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_autocollapse_hint">Várias mensagens expandidas serão sempre fechadas ao \'voltar\'</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
@@ -608,6 +610,9 @@
     <string name="title_hint_tracking_image">Imagem de rastreamento %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Pressione e segure um contato para nunca considerá-lo como favorito</string>
     <string name="title_open_link">Abrir link</string>
+    <string name="title_secure_link">Tornar o link seguro</string>
+    <string name="title_link_secured">Link seguro</string>
+    <string name="title_sanitize_link">Remover parâmetros de rastreamento</string>
     <string name="title_insecure_link">Este link é inseguro</string>
     <string name="title_ip_owner">Endereço IP do proprietário</string>
     <string name="title_select_app">Selecionar app</string>
@@ -623,6 +628,7 @@
     <string name="title_report">Reportar</string>
     <string name="title_fix">Corrigir</string>
     <string name="title_enable">Habilitar</string>
+    <string name="title_ask_what">Perguntar o que fazer</string>
     <string name="title_no_ask_again">Não perguntar novamente</string>
     <string name="title_no_body">Texto da mensagem não encontrado</string>
     <string name="title_no_charset">Codificação não suportada: %1$s</string>

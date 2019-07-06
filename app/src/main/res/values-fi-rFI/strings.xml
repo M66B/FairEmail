@@ -169,6 +169,7 @@
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
+    <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_images">Näytä tunnettujen yhteystietojen viestien kuvat automaattisesti</string>
     <string name="title_advanced_actionbar">Keskustelujen toimintopalkki</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
@@ -216,6 +217,7 @@
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
+    <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
     <string name="title_advanced_autocollapse_hint">Monta laajennettua viestiä suljetaan aina takaisin-painikkeella</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>

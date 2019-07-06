@@ -147,6 +147,7 @@
     <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
+    <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
@@ -166,11 +167,13 @@
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
+    <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
+    <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
@@ -185,6 +188,7 @@
     <string name="title_advanced_notify_action_flag">Yıldız</string>
     <string name="title_advanced_notify_action_seen">Oku</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
+    <string name="title_advanced_notify_manage_hint">Öntanımlı bildirim sesi vs. ayarlamak için \'Bildirimler\' yazan yere dokunun</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
@@ -215,6 +219,7 @@
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
+    <string name="title_advanced_subscribed_only_hint">Bunu etkinleştirmek aboneliği olmayan tüm yerel klasörleri siler</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
     <string name="title_advanced_paranoid_hint">Ayrıntılı bilgi için SSS bölümüne bakın</string>
     <string name="title_select">Seçin &#8230;</string>
@@ -291,6 +296,7 @@
     <string name="title_create_channel">Bildirim kanalı oluştur</string>
     <string name="title_edit_channel">Bildirim kanalını düzenle</string>
     <string name="title_delete_channel">Bildirim kanalını sil</string>
+    <string name="title_create_sub_folder">Alt dizin oluştur</string>
     <string name="title_empty_trash_ask">Çöpe atılmış tüm iletiler kalıcı olarak silinsin mi?</string>
     <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
     <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
@@ -494,6 +500,7 @@
     <string name="title_rule_action_remark">Bu işlem %1$s klasörüne gelen yeni iletilere uygulanacaktır</string>
     <string name="title_rule_hours">Saatler</string>
     <string name="title_rule_folder">Klasör</string>
+    <string name="title_rule_thread">Aynı sohbet ve klasördeki tüm iletiler</string>
     <string name="title_rule_identity">Kimlik</string>
     <string name="title_rule_template">Yanıt kalıbı</string>
     <string name="title_rule_cc">CC adreslerini yanıtlayın</string>
@@ -594,6 +601,8 @@
     <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
     <string name="title_hint_ignore_contact">Bir kişiyi sık kullanılanlarda istemiyorsanız uzun basın</string>
     <string name="title_open_link">Bağlantıyı aç</string>
+    <string name="title_secure_link">Bağlantıyı güvenli hale getir</string>
+    <string name="title_link_secured">Bağlantı güvenli</string>
     <string name="title_insecure_link">Bu bağlantı güvensiz</string>
     <string name="title_select_app">Uygulama seçin</string>
     <string name="title_updated">Sürüm %1$s için bir güncelleme mevcut</string>
@@ -608,6 +617,7 @@
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_enable">Etkin</string>
+    <string name="title_ask_what">Ne yapılacağını sor</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>
