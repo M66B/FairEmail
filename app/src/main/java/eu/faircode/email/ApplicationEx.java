@@ -372,6 +372,9 @@ public class ApplicationEx extends Application {
         if (ex instanceof NoSuchMethodError)
             return false;
 
+        if (ex.getMessage() != null && ex.getMessage().startsWith("Bad notification posted"))
+            return false;
+
         if (ex instanceof TimeoutException &&
                 ex.getMessage() != null &&
                 ex.getMessage().startsWith("com.sun.mail.imap.IMAPStore.finalize"))
