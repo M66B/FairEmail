@@ -126,18 +126,18 @@ configurations.all {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def appcompat_version = "1.1.0-beta01"
-    def recyclerview_version = "1.1.0-alpha06"
+    def appcompat_version = "1.1.0-rc01"
+    def recyclerview_version = "1.1.0-beta01"
     def coordinatorlayout_version = "1.1.0-beta01"
     def constraintlayout_version = "2.0.0-beta1"
     def material_version = "1.1.0-alpha07"
     def browser_version = "1.0.0"
-    def lifecycle_version = "2.1.0-beta01"
+    def lifecycle_version = "2.1.0-rc01"
     def room_version = "2.1.0"
     def paging_version = "2.1.0"
-    def preference_version = "1.1.0-beta01"
+    def preference_version = "1.1.0-rc01"
     def work_version = "2.1.0-rc01"
-    def exif_version = "1.1.0-alpha01"
+    def exif_version = "1.1.0-beta01"
     def billingclient_version = "2.0.1"
     def javamail_version = "1.6.3"
     def jsoup_version = "1.12.1"
@@ -172,6 +172,8 @@ dependencies {
     implementation "androidx.browser:browser:$browser_version"
 
     // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-livedata
+    // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-livedata-core
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
