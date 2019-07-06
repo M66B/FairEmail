@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -127,6 +128,7 @@ public class FragmentAccount extends FragmentBase {
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
+    private Button btnHelp;
     private TextView tvInstructions;
 
     private ContentLoadingProgressBar pbWait;
@@ -207,7 +209,9 @@ public class FragmentAccount extends FragmentBase {
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
+
         tvError = view.findViewById(R.id.tvError);
+        btnHelp = view.findViewById(R.id.btnHelp);
         tvInstructions = view.findViewById(R.id.tvInstructions);
 
         pbWait = view.findViewById(R.id.pbWait);
@@ -351,6 +355,22 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        addBackPressedListener(new ActivityBase.IBackPressedListener() {
+            @Override
+            public boolean onBackPressed() {
+                onSave(true);
+                return true;
+            }
+        });
+
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, (Uri) btnHelp.getTag());
+                Helper.view(getContext(), intent);
+            }
+        });
+
         adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
         adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
 
@@ -365,14 +385,6 @@ public class FragmentAccount extends FragmentBase {
 
         spLeft.setAdapter(adapterSwipe);
         spRight.setAdapter(adapterSwipe);
-
-        addBackPressedListener(new ActivityBase.IBackPressedListener() {
-            @Override
-            public boolean onBackPressed() {
-                onSave(true);
-                return true;
-            }
-        });
 
         // Initialize
         Helper.setViewsEnabled(view, false);
@@ -393,7 +405,9 @@ public class FragmentAccount extends FragmentBase {
 
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+
         tvError.setVisibility(View.GONE);
+        btnHelp.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -467,6 +481,7 @@ public class FragmentAccount extends FragmentBase {
                 tvUtf8.setVisibility(View.GONE);
                 grpFolders.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
+                btnHelp.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
             }
 
@@ -701,6 +716,8 @@ public class FragmentAccount extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbSave.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.GONE);
+                btnHelp.setVisibility(View.GONE);
+                tvInstructions.setVisibility(View.GONE);
             }
 
             @Override
@@ -838,17 +855,17 @@ public class FragmentAccount extends FragmentBase {
                 String accountRealm = (account == null ? null : account.realm);
 
                 boolean check = (synchronize && (account == null ||
-                        !account.synchronize ||
-                        account.insecure != insecure ||
+                        !account.synchronize || account.error != null ||
+                        !account.insecure.equals(insecure) ||
                         !host.equals(account.host) || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
-                        !Objects.equals(realm, accountRealm) ||
-                        account.error != null));
+                        !Objects.equals(realm, accountRealm)));
                 boolean reload = (check || account == null ||
                         account.synchronize != synchronize ||
                         account.notify != notify ||
                         !account.poll_interval.equals(Integer.parseInt(interval)) ||
                         account.partial_fetch != partial_fetch);
+                Log.i("Account check=" + check + " reload=" + reload);
 
                 Long last_connected = null;
                 if (account != null && synchronize == account.synchronize)
@@ -1053,20 +1070,27 @@ public class FragmentAccount extends FragmentBase {
         tvError.setText(Helper.formatThrowable(ex, false));
         tvError.setVisibility(View.VISIBLE);
 
-        final View target;
+        final EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
+        if (provider != null && provider.helpUrl != null) {
+            Uri uri = Uri.parse(provider.helpUrl);
+            btnHelp.setTag(uri);
+            btnHelp.setVisibility(View.VISIBLE);
+        }
 
-        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
         if (provider != null && provider.documentation != null) {
             tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
             tvInstructions.setVisibility(View.VISIBLE);
-            target = tvInstructions;
-        } else
-            target = tvError;
+        }
 
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                scroll.smoothScrollTo(0, target.getBottom());
+                if (provider != null && provider.documentation != null)
+                    scroll.smoothScrollTo(0, tvInstructions.getBottom());
+                else if (provider != null && provider.helpUrl != null)
+                    scroll.smoothScrollTo(0, btnHelp.getBottom());
+                else
+                    scroll.smoothScrollTo(0, tvError.getBottom());
             }
         });
     }

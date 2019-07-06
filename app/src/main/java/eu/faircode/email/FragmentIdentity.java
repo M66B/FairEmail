@@ -26,6 +26,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -122,6 +123,7 @@ public class FragmentIdentity extends FragmentBase {
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
+    private Button btnHelp;
     private TextView tvInstructions;
 
     private ContentLoadingProgressBar pbWait;
@@ -198,6 +200,7 @@ public class FragmentIdentity extends FragmentBase {
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
         tvError = view.findViewById(R.id.tvError);
+        btnHelp = view.findViewById(R.id.btnHelp);
         tvInstructions = view.findViewById(R.id.tvInstructions);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -214,6 +217,7 @@ public class FragmentIdentity extends FragmentBase {
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 if (position == 0) {
                     tvError.setVisibility(View.GONE);
+                    btnHelp.setVisibility(View.GONE);
                     tvInstructions.setVisibility(View.GONE);
                     grpAdvanced.setVisibility(View.GONE);
                 }
@@ -400,6 +404,14 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, (Uri) btnHelp.getTag());
+                Helper.view(getContext(), intent);
+            }
+        });
+
         // Initialize
         Helper.setViewsEnabled(view, false);
         btnAutoConfig.setEnabled(false);
@@ -411,6 +423,7 @@ public class FragmentIdentity extends FragmentBase {
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
+        btnHelp.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
 
         grpAuthorize.setVisibility(View.GONE);
@@ -508,6 +521,7 @@ public class FragmentIdentity extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbSave.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.GONE);
+                btnHelp.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
             }
 
@@ -645,13 +659,13 @@ public class FragmentIdentity extends FragmentBase {
                 String identityRealm = (identity == null ? null : identity.realm);
 
                 boolean check = (synchronize && (identity == null ||
-                        !identity.synchronize ||
-                        identity.insecure != insecure ||
+                        !identity.synchronize || identity.error != null ||
+                        !identity.insecure.equals(insecure) ||
                         !host.equals(identity.host) || Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) || !password.equals(identity.password) ||
                         !Objects.equals(realm, identityRealm) ||
-                        use_ip != identity.use_ip ||
-                        identity.error != null));
+                        use_ip != identity.use_ip));
+                Log.i("Identity check=" + check);
 
                 Long last_connected = null;
                 if (identity != null && synchronize == identity.synchronize)
@@ -774,20 +788,27 @@ public class FragmentIdentity extends FragmentBase {
         tvError.setText(Helper.formatThrowable(ex, false));
         tvError.setVisibility(View.VISIBLE);
 
-        final View target;
+        final EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
+        if (provider != null && provider.helpUrl != null) {
+            Uri uri = Uri.parse(provider.helpUrl);
+            btnHelp.setTag(uri);
+            btnHelp.setVisibility(View.VISIBLE);
+        }
 
-        EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
         if (provider != null && provider.documentation != null) {
             tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
             tvInstructions.setVisibility(View.VISIBLE);
-            target = tvInstructions;
-        } else
-            target = tvError;
+        }
 
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                scroll.smoothScrollTo(0, target.getBottom());
+                if (provider != null && provider.documentation != null)
+                    scroll.smoothScrollTo(0, tvInstructions.getBottom());
+                else if (provider != null && provider.helpUrl != null)
+                    scroll.smoothScrollTo(0, btnHelp.getBottom());
+                else
+                    scroll.smoothScrollTo(0, tvError.getBottom());
             }
         });
     }

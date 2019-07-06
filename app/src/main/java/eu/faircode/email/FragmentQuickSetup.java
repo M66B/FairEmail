@@ -24,7 +24,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
@@ -38,6 +40,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -64,6 +67,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
+    private ScrollView scroll;
 
     private EditText etName;
     private EditText etEmail;
@@ -71,6 +75,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private Button btnCheck;
 
     private TextView tvError;
+    private Button btnHelp;
     private TextView tvInstructions;
 
     private TextView tvImap;
@@ -87,6 +92,7 @@ public class FragmentQuickSetup extends FragmentBase {
         setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_quick_setup, container, false);
+        scroll = view.findViewById(R.id.scroll);
 
         // Get controls
         etName = view.findViewById(R.id.etName);
@@ -95,6 +101,7 @@ public class FragmentQuickSetup extends FragmentBase {
         btnCheck = view.findViewById(R.id.btnCheck);
 
         tvError = view.findViewById(R.id.tvError);
+        btnHelp = view.findViewById(R.id.btnHelp);
         tvInstructions = view.findViewById(R.id.tvInstructions);
 
         tvImap = view.findViewById(R.id.tvImap);
@@ -130,8 +137,17 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         });
 
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, (Uri) btnHelp.getTag());
+                Helper.view(getContext(), intent);
+            }
+        });
+
         // Initialize
         tvError.setVisibility(View.GONE);
+        btnHelp.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
         grpSetup.setVisibility(View.GONE);
@@ -181,6 +197,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                 Helper.setViewsEnabled(view, false);
                 tvError.setVisibility(View.GONE);
+                btnHelp.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
                 grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
             }
@@ -207,6 +224,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 String[] dparts = email.split("@");
                 EmailProvider provider = EmailProvider.fromDomain(context, dparts[1]);
 
+                if (provider.helpUrl != null)
+                    args.putString("help", provider.helpUrl);
                 if (provider.documentation != null)
                     args.putString("documentation", provider.documentation.toString());
 
@@ -377,18 +396,37 @@ public class FragmentQuickSetup extends FragmentBase {
             }
 
             @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (args.containsKey("documentation")) {
-                    tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation")));
-                    tvInstructions.setVisibility(View.VISIBLE);
-                }
-
+            protected void onException(final Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else {
                     tvError.setText(Helper.formatThrowable(ex, false));
                     tvError.setVisibility(View.VISIBLE);
                 }
+
+                if (args.containsKey("help")) {
+                    Uri uri = Uri.parse(args.getString("help"));
+                    btnHelp.setTag(uri);
+                    btnHelp.setVisibility(View.VISIBLE);
+                }
+
+                if (args.containsKey("documentation")) {
+                    tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation")));
+                    tvInstructions.setVisibility(View.VISIBLE);
+                }
+
+                new Handler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (args.containsKey("documentation"))
+                            scroll.smoothScrollTo(0, tvInstructions.getBottom());
+                        else if (args.containsKey("help"))
+                            scroll.smoothScrollTo(0, btnHelp.getBottom());
+                        else if (tvError.getVisibility() == View.VISIBLE)
+                            scroll.smoothScrollTo(0, tvError.getBottom());
+                    }
+                });
+
             }
         }.execute(FragmentQuickSetup.this, args, "setup:quick");
     }

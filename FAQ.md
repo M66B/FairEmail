@@ -337,27 +337,36 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-To use a Gmail/G suite account, you'll need to enable access for "less secure" apps,
-see [here](https://support.google.com/accounts/answer/6010255) for Google's instructions
+To use a Gmail/G suite account,
+you can either enable access for "less secure apps" and use your account password
+or enable two factor authentication and use an app specific password.
+
+Note that an app specific password is required when two factor authentication is enabled.
+
+**Enable "Less secure apps"**
+
+See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps"
 or go [directy to the setting](https://www.google.com/settings/security/lesssecureapps).
-When "less secure" apps is not enabled,
+
+If you use multiple Gmail accounts, make sure you change the "less secure apps" setting of the right account(s).
+
+Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
+
+When "less secure apps" is not enabled,
 you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)
 and *Username and Password not accepted* for identities (SMTP).
 
-If you use multiple Gmail accounts, make sure you change the "less secure" setting of the right account(s).
+**App specific password**
 
-Be aware that you need to leave the "less secure" settings screen by using the back arrow to apply the setting.
-
-See [this FAQ](#user-content-faq111) for more information.
+See [here](https://support.google.com/accounts/answer/185833) about how to generate an app specific password.
 
 You might get the alert "*Please log in via your web browser*".
-This security measure can for example be triggered when too many IP addresses were used in a too short time or when you are using a VPN.
-You can prevent this by using an app specific password.
+This happens when Google considers the network that connects you to the internet (this could be a VPN) to to be unsafe.
+This can be prevented by using an app specific password.
 
-To login to Gmail / G suite you'll sometimes need an app specific password, for example when two factor authentication is enabled.
-See here for instructions: [https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833).
+See [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
-If this doesn't work, see here for more solutions: [https://support.google.com/mail/accounts/answer/78754](https://support.google.com/mail/accounts/answer/78754)
+See [this FAQ](#user-content-faq111) about why OAuth is not being used.
 
 <br />
 
@@ -378,7 +387,7 @@ which happens when reconnecting or if you synchronize manually.
 **(8) Can I use a Microsoft Exchange account?**
 
 You can use a Microsoft Exchange account if it is accessible via IMAP.
-See here for more information: [https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793)
+See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
 Please see [here](#frequently-requested-features) about ActiveSync support.
 
@@ -1569,7 +1578,7 @@ You will likely need to save the associated identity again as well.
 For the correct settings, see [here](https://help.yahoo.com/kb/SLN4075.html).
 
 You might need to enable "*less secure sign in*" for "*outdated*" apps,
-see [here](https://help.yahoo.com/kb/grant-temporary-access-outdated-apps-account-settings-sln27791.html).
+see [here](https://help.yahoo.com/kb/grant-temporary-access-outdated-apps-account-settings-sln27791.html) for more information.
 You can directly access this setting [here](https://login.yahoo.com/account/security#less-secure-apps).
 
 Note that FairEmail is using the standard [IMAP protocol](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol), which is really not outdated.

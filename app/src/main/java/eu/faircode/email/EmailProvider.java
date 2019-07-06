@@ -59,6 +59,7 @@ public class EmailProvider {
     public int smtp_port;
     public boolean smtp_starttls;
     public UserType user = UserType.EMAIL;
+    public String helpUrl = null;
     public StringBuilder documentation = null; // html
 
     enum UserType {LOCAL, EMAIL}
@@ -410,14 +411,14 @@ public class EmailProvider {
 
     private static EmailProvider addSpecials(Context context, EmailProvider provider) {
         if ("imap.gmail.com".equals(provider.imap_host))
-            addDocumentation(provider,
-                    "https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq6",
-                    context.getString(R.string.title_setup_instructions));
+            provider.helpUrl = Helper.FAQ_URI + "#user-content-faq6";
+
+        if (provider.imap_host.endsWith("office365.com") ||
+                provider.imap_host.endsWith("live.com"))
+            provider.helpUrl = Helper.FAQ_URI + "#user-content-faq14";
 
         if (provider.imap_host.endsWith("yahoo.com"))
-            addDocumentation(provider,
-                    "https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq88",
-                    context.getString(R.string.title_setup_instructions));
+            provider.helpUrl = Helper.FAQ_URI + "#user-content-faq88";
 
         return provider;
     }
