@@ -1371,10 +1371,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         args.putLongArray("disabled", new long[]{message.folder});
                         args.putLong("message", message.id);
                         args.putBoolean("copy", false);
+                        args.putBoolean("similar", true);
 
                         FragmentDialogFolder fragment = new FragmentDialogFolder();
                         fragment.setArguments(args);
-                        fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_MOVE);
+                        fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
                         fragment.show(getFragmentManager(), "message:move");
                     }
                 });
@@ -4073,8 +4074,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("message");
-                boolean copy = args.getBoolean("copy");
                 long target = args.getLong("folder");
+                boolean copy = args.getBoolean("copy");
+                boolean similar = args.getBoolean("similar");
 
                 DB db = DB.getInstance(context);
                 try {
@@ -4084,10 +4086,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null)
                         return null;
 
-                    if (copy)
-                        EntityOperation.queue(context, message, EntityOperation.COPY, target);
-                    else
-                        EntityOperation.queue(context, message, EntityOperation.MOVE, target);
+                    if (similar) {
+                        if (copy)
+                            throw new IllegalArgumentException();
+                        else {
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading ? null : id, message.folder);
+                            for (EntityMessage threaded : messages)
+                                EntityOperation.queue(context, threaded, EntityOperation.MOVE, target);
+                        }
+                    } else {
+                        if (copy)
+                            EntityOperation.queue(context, message, EntityOperation.COPY, target);
+                        else
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, target);
+                    }
 
                     db.setTransactionSuccessful();
                 } finally {

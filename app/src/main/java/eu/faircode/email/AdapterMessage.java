@@ -1471,6 +1471,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                             }
                         }.execute(context, owner, args, "message:seen");
+
+
                     }
                 }
             }
@@ -2625,6 +2627,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLongArray("disabled", new long[]{message.folder});
             args.putLong("message", message.id);
             args.putBoolean("copy", copy);
+            args.putBoolean("similar", false);
 
             FragmentDialogFolder fragment = new FragmentDialogFolder();
             fragment.setArguments(args);
