@@ -278,9 +278,7 @@ public interface DaoMessage {
             " WHERE account.`synchronize`" +
             " AND folder.notify" +
             " AND (account.created IS NULL OR message.received > account.created)" +
-            " AND NOT message.ui_seen" +
-            " AND NOT message.ui_ignored" +
-            " AND message.ui_hide = 0" +
+            " AND (notifying <> 0 OR NOT (message.ui_seen OR message.ui_ignored OR message.ui_hide <> 0))" +
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
@@ -334,6 +332,9 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET msgid = :msgid WHERE id = :id")
     int setMessageMsgId(long id, String msgid);
+
+    @Query("UPDATE message SET notifying = :notifying WHERE id = :id")
+    int setMessageNotifying(long id, int notifying);
 
     @Query("UPDATE message SET seen = :seen WHERE id = :id")
     int setMessageSeen(long id, boolean seen);

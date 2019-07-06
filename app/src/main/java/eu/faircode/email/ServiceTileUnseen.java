@@ -29,6 +29,7 @@ import android.service.quicksettings.TileService;
 
 import androidx.lifecycle.Observer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.N)
@@ -42,15 +43,23 @@ public class ServiceTileUnseen extends TileService {
         DB.getInstance(this).message().liveUnseenNotify().observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
-                Log.i("Update tile unseen=" + messages.size());
+                if (messages == null)
+                    messages = new ArrayList<>();
+
+                int unseen = 0;
+                for (TupleMessageEx message : messages)
+                    if (!message.ui_seen && !message.ui_ignored && message.ui_hide == 0)
+                        unseen++;
+
+                Log.i("Update tile unseen=" + unseen);
 
                 Tile tile = getQsTile();
                 if (tile != null) {
-                    tile.setState(messages.size() > 0 ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+                    tile.setState(unseen > 0 ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
                     tile.setIcon(Icon.createWithResource(ServiceTileUnseen.this,
-                            messages.size() > 0 ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24));
+                            unseen > 0 ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24));
                     tile.setLabel(getResources().getQuantityString(
-                            R.plurals.title_tile_unseen, messages.size(), messages.size()));
+                            R.plurals.title_tile_unseen, unseen, unseen));
                     tile.updateTile();
                 }
             }

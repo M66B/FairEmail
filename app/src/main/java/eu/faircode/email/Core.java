@@ -75,6 +75,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
@@ -112,6 +114,8 @@ class Core {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long MIN_HIDE = 60 * 1000L; // milliseconds
+
+    private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static void processOperations(
             Context context,
@@ -1724,7 +1728,7 @@ class Core {
         }
     }
 
-    static void notifyMessages(Context context, Map<String, List<Long>> groupNotifying, List<TupleMessageEx> messages) {
+    static void notifyMessages(Context context, List<TupleMessageEx> messages) {
         Log.i("Notify messages=" + messages.size());
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1735,23 +1739,17 @@ class Core {
         boolean badge = prefs.getBoolean("badge", true);
         boolean pro = Helper.isPro(context);
 
-        // Update widget/badge count
-        if (lastUnseen < 0 || messages.size() != lastUnseen) {
-            lastUnseen = messages.size();
-            Widget.update(context, messages.size());
-            try {
-                ShortcutBadger.applyCount(context, badge ? messages.size() : 0);
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
-        }
-
         // Current
+        int unseen = 0;
+        final Map<String, List<Long>> groupNotifying = new HashMap<>();
         Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
         for (TupleMessageEx message : messages) {
+            if (!(message.ui_seen || message.ui_ignored || message.ui_hide != 0))
+                unseen++;
+
             // Check if notification channel enabled
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O &&
-                    message.from != null && message.from.length > 0) {
+                    message.notifying == 0 && message.from != null && message.from.length > 0) {
                 InternetAddress from = (InternetAddress) message.from[0];
                 NotificationChannel channel = nm.getNotificationChannel("notification." + from.getAddress().toLowerCase());
                 if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE)
@@ -1760,27 +1758,41 @@ class Core {
 
             String group = Long.toString(pro && message.accountNotify ? message.account : 0);
             if (!groupMessages.containsKey(group)) {
+                groupNotifying.put(group, new ArrayList<Long>());
                 groupMessages.put(group, new ArrayList<TupleMessageEx>());
-                if (!groupNotifying.containsKey(group))
-                    groupNotifying.put(group, new ArrayList<Long>());
             }
 
-            // This assumes the messages are properly ordered
-            if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
-                groupMessages.get(group).add(message);
+            if (message.notifying != 0)
+                groupNotifying.get(group).add(message.id * message.notifying);
+
+            if (!(message.ui_seen || message.ui_ignored || message.ui_hide != 0)) {
+                // This assumes the messages are properly ordered
+                if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
+                    groupMessages.get(group).add(message);
+            }
+        }
+
+        // Update widget/badge count
+        if (lastUnseen < 0 || unseen != lastUnseen) {
+            lastUnseen = unseen;
+            Widget.update(context, unseen);
+            try {
+                ShortcutBadger.applyCount(context, badge ? unseen : 0);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
         }
 
         // Difference
-        for (String group : groupNotifying.keySet()) {
+        for (String group : groupMessages.keySet()) {
             List<Notification> notifications = getNotificationUnseen(context, group, groupMessages.get(group));
 
-            List<Long> all = new ArrayList<>();
-            List<Long> add = new ArrayList<>();
-            List<Long> remove = groupNotifying.get(group);
+            final List<Long> add = new ArrayList<>();
+            final List<Long> remove = groupNotifying.get(group);
+
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
-                if (id != 0) {
-                    all.add(id);
+                if (id != 0)
                     if (remove.contains(id)) {
                         remove.remove(id);
                         Log.i("Notify existing=" + id);
@@ -1789,7 +1801,6 @@ class Core {
                         add.add(id);
                         Log.i("Notify adding=" + id);
                     }
-                }
             }
 
             int headers = 0;
@@ -1803,13 +1814,13 @@ class Core {
             if (notifications.size() == 0 ||
                     (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0)) {
                 String tag = "unseen.0";
-                Log.i("Cancelling tag=" + tag);
+                Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
             }
 
             for (Long id : remove) {
                 String tag = "unseen." + Math.abs(id);
-                Log.i("Cancelling tag=" + tag);
+                Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
             }
 
@@ -1823,7 +1834,29 @@ class Core {
                 }
             }
 
-            groupNotifying.put(group, all);
+            if (remove.size() + add.size() > 0) {
+                final DB db = DB.getInstance(context);
+
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            db.beginTransaction();
+
+                            for (long id : remove)
+                                db.message().setMessageNotifying(Math.abs(id), 0);
+                            for (long id : add)
+                                db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
+
+                            db.setTransactionSuccessful();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        } finally {
+                            db.endTransaction();
+                        }
+                    }
+                });
+            }
         }
     }
 

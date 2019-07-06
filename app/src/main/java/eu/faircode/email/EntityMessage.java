@@ -129,6 +129,8 @@ public class EntityMessage implements Serializable {
     public String flags; // system flags
     public String[] keywords; // user flags
     @NonNull
+    public Integer notifying = 0;
+    @NonNull
     public Boolean ui_seen = false;
     @NonNull
     public Boolean ui_answered = false;
@@ -272,6 +274,7 @@ public class EntityMessage implements Serializable {
                     this.flagged.equals(other.flagged) &&
                     Objects.equals(this.flags, other.flags) &&
                     Helper.equal(this.keywords, other.keywords) &&
+                    this.notifying.equals(other.notifying) &&
                     this.ui_seen.equals(other.ui_seen) &&
                     this.ui_answered.equals(other.ui_answered) &&
                     this.ui_flagged.equals(other.ui_flagged) &&

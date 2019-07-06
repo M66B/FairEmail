@@ -165,12 +165,12 @@ public class ServiceSynchronize extends LifecycleService {
         });
 
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
-            private Map<String, List<Long>> notifying = new HashMap<>();
-
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
                 try {
-                    Core.notifyMessages(ServiceSynchronize.this, notifying, messages);
+                    if (messages == null)
+                        messages = new ArrayList<>();
+                    Core.notifyMessages(ServiceSynchronize.this, messages);
                 } catch (SecurityException ex) {
                     Log.w(ex);
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
