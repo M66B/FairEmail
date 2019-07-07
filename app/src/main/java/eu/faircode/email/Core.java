@@ -783,7 +783,7 @@ class Core {
 
         // Get folder names
         Map<String, EntityFolder> local = new HashMap<>();
-        for (EntityFolder folder : db.folder().getFolders(account.id, true))
+        for (EntityFolder folder : db.folder().getFolders(account.id, false, false))
             if (folder.tbc != null) {
                 Log.i(folder.name + " creating");
                 Folder ifolder = istore.getFolder(folder.name);

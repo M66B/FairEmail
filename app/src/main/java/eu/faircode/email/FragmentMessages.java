@@ -1196,6 +1196,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return 0;
 
+            if (message.folderReadOnly)
+                return 0;
+
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return 0;
 
@@ -2846,7 +2849,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean archivable = false;
                     for (EntityMessage message : messages) {
                         EntityFolder folder = db.folder().getFolder(message.folder);
-                        if (!EntityFolder.DRAFTS.equals(folder.type) &&
+
+                        if (!folder.read_only &&
+                                !EntityFolder.DRAFTS.equals(folder.type) &&
                                 !EntityFolder.OUTBOX.equals(folder.type) &&
                                 // allow sent
                                 !EntityFolder.TRASH.equals(folder.type) &&
@@ -2856,7 +2861,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (!EntityFolder.OUTBOX.equals(folder.type))
                             snoozable = true;
 
-                        if (!EntityFolder.isOutgoing(folder.type) &&
+                        if (!folder.read_only &&
+                                !EntityFolder.isOutgoing(folder.type) &&
                                 !EntityFolder.TRASH.equals(folder.type) &&
                                 !EntityFolder.JUNK.equals(folder.type) &&
                                 !EntityFolder.ARCHIVE.equals(folder.type))
@@ -2912,10 +2918,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null)
                         return null;
 
+                    EntityFolder folder = db.folder().getFolder(message.folder);
+                    if (folder == null)
+                        return null;
+
                     if (message.uid != null) {
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
-                        if (!message.ui_seen)
+                        if (!message.ui_seen && !folder.read_only)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
 

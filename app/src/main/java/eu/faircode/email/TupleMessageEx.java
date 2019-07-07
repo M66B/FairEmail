@@ -30,6 +30,7 @@ public class TupleMessageEx extends EntityMessage {
     public String folderName;
     public String folderDisplay;
     public String folderType;
+    public boolean folderReadOnly;
     public String identityName;
     public String identityEmail;
     public Boolean identitySynchronize;
@@ -40,6 +41,7 @@ public class TupleMessageEx extends EntityMessage {
     public int drafts;
     public int visible;
     public Long totalSize;
+
     @Ignore
     public boolean duplicate;
 
@@ -54,6 +56,7 @@ public class TupleMessageEx extends EntityMessage {
                     this.folderName.equals(other.folderName) &&
                     Objects.equals(this.folderDisplay, other.folderDisplay) &&
                     this.folderType.equals(other.folderType) &&
+                    this.folderReadOnly == other.folderReadOnly &&
                     Objects.equals(this.identityName, other.identityName) &&
                     Objects.equals(this.identityEmail, other.identityEmail) &&
                     Objects.equals(this.identitySynchronize, other.identitySynchronize) &&

@@ -851,7 +851,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
                     ? message.color == null || !Helper.isPro(context)
                     ? colorAccent : message.color : textColorSecondary));
-            ivFlagged.setVisibility(flags ? (message.uid == null ? View.INVISIBLE : View.VISIBLE) : View.GONE);
+            ivFlagged.setVisibility(flags && !message.folderReadOnly
+                    ? message.uid == null ? View.INVISIBLE : View.VISIBLE
+                    : View.GONE);
         }
 
         private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
@@ -1064,25 +1066,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     bnvActions.getMenu().findItem(R.id.action_more).setVisible(!inOutbox);
 
-                    bnvActions.getMenu().findItem(R.id.action_delete).setVisible(debug ||
-                            (inTrash && (message.uid != null || message.msgid != null)) ||
-                            (!inTrash && hasTrash && message.uid != null));
-                    bnvActions.getMenu().findItem(R.id.action_delete).setTitle(
-                            data.delete ? R.string.title_delete : R.string.title_trash);
+                    if (!message.folderReadOnly) {
+                        bnvActions.getMenu().findItem(R.id.action_delete).setVisible(debug ||
+                                (inTrash && (message.uid != null || message.msgid != null)) ||
+                                (!inTrash && hasTrash && message.uid != null));
+                        bnvActions.getMenu().findItem(R.id.action_delete).setTitle(
+                                data.delete ? R.string.title_delete : R.string.title_trash);
 
-                    bnvActions.getMenu().findItem(R.id.action_move).setVisible(
-                            message.uid != null || inOutbox);
-                    bnvActions.getMenu().findItem(R.id.action_move).setTitle(
-                            inOutbox ? R.string.title_folder_drafts : R.string.title_move);
-                    bnvActions.getMenu().findItem(R.id.action_move).setIcon(
-                            inOutbox ? R.drawable.baseline_drafts_24 : R.drawable.baseline_folder_24);
+                        bnvActions.getMenu().findItem(R.id.action_move).setVisible(
+                                message.uid != null || inOutbox);
+                        bnvActions.getMenu().findItem(R.id.action_move).setTitle(
+                                inOutbox ? R.string.title_folder_drafts : R.string.title_move);
+                        bnvActions.getMenu().findItem(R.id.action_move).setIcon(
+                                inOutbox ? R.drawable.baseline_drafts_24 : R.drawable.baseline_folder_24);
 
-                    bnvActions.getMenu().findItem(R.id.action_archive).setVisible(
-                            message.uid != null && (inJunk || (!inArchive && hasArchive)));
-                    bnvActions.getMenu().findItem(R.id.action_archive).setTitle(
-                            inJunk ? R.string.title_folder_inbox : R.string.title_archive);
-                    bnvActions.getMenu().findItem(R.id.action_archive).setIcon(
-                            inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
+                        bnvActions.getMenu().findItem(R.id.action_archive).setVisible(
+                                message.uid != null && (inJunk || (!inArchive && hasArchive)));
+                        bnvActions.getMenu().findItem(R.id.action_archive).setTitle(
+                                inJunk ? R.string.title_folder_inbox : R.string.title_archive);
+                        bnvActions.getMenu().findItem(R.id.action_archive).setIcon(
+                                inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
+                    }
 
                     bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
                     bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
@@ -1435,7 +1439,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean doubletap = prefs.getBoolean("doubletap", false);
 
-                    if (!doubletap || EntityFolder.OUTBOX.equals(message.folderType)) {
+                    if (!doubletap || message.folderReadOnly || EntityFolder.OUTBOX.equals(message.folderType)) {
                         lbm.sendBroadcast(viewThread);
                         return;
                     }
@@ -1493,7 +1497,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @Override
         public boolean onLongClick(View view) {
             final TupleMessageEx message = getMessage();
-            if (message == null)
+            if (message == null || message.folderReadOnly)
                 return false;
 
             if (view.getId() == R.id.ivFlagged) {
@@ -2528,13 +2532,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
 
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
 
-            popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
 
-            popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(
                     data.hasJunk && !EntityFolder.JUNK.equals(data.message.folderType));
 
@@ -2550,7 +2554,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_raw).setTitle(
                     data.message.raw == null || !data.message.raw ? R.string.title_raw_download : R.string.title_raw_save);
 
-            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(data.message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
 
             popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(
                     data.message.content && data.message.to != null && data.message.to.length > 0);

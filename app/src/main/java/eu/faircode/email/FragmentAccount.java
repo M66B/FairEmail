@@ -1215,7 +1215,7 @@ public class FragmentAccount extends FragmentBase {
                         long account = args.getLong("account");
 
                         DB db = DB.getInstance(context);
-                        List<EntityFolder> folders = db.folder().getFolders(account, true);
+                        List<EntityFolder> folders = db.folder().getFolders(account, false, true);
 
                         if (folders != null && folders.size() > 0)
                             Collections.sort(folders, folders.get(0).getComparator(null));

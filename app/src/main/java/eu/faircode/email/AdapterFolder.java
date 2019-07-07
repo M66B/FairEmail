@@ -380,7 +380,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 9, R.string.title_synchronize_enabled)
                         .setCheckable(true).setChecked(folder.synchronize);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 10, R.string.title_edit_rules);
+                if (!folder.read_only)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 10, R.string.title_edit_rules);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 11, R.string.title_edit_properties);
 
                 if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

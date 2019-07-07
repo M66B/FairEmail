@@ -739,7 +739,7 @@ public class ServiceSynchronize extends LifecycleService {
                     // Open synchronizing folders
                     final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-                    List<EntityFolder> folders = db.folder().getFolders(account.id, true);
+                    List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
                     Collections.sort(folders, new Comparator<EntityFolder>() {
                         @Override
                         public int compare(EntityFolder f1, EntityFolder f2) {
@@ -761,13 +761,12 @@ public class ServiceSynchronize extends LifecycleService {
 
                             final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
                             try {
-                                //if ("Postausgang".equals(folder.name))
-                                //    throw new ReadOnlyFolderException(ifolder);
+                                if (BuildConfig.DEBUG && "Postausgang".equals(folder.name))
+                                    throw new ReadOnlyFolderException(ifolder);
                                 ifolder.open(Folder.READ_WRITE);
                                 db.folder().setFolderReadOnly(folder.id, false);
                             } catch (ReadOnlyFolderException ex) {
                                 Log.w(folder.name + " read only");
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 try {
                                     ifolder.open(Folder.READ_ONLY);
                                     db.folder().setFolderReadOnly(folder.id, true);

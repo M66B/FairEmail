@@ -46,7 +46,7 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message == null) // happens when restoring state
             return true;
 
-        if (message.uid != null)
+        if (message.uid != null && !message.folderReadOnly)
             return true;
 
         return false;
@@ -62,7 +62,7 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message == null) // happens when restoring state
             return true;
 
-        if (message.uid != null)
+        if (message.uid != null && !message.folderReadOnly)
             return true;
 
         return false;
