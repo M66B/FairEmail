@@ -195,6 +195,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("sync_folders", checked).apply();
+                ServiceSynchronize.reload(getContext(), false, "sync_folders=" + checked);
             }
         });
 
