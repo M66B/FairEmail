@@ -3620,12 +3620,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final WebView webView = dview.findViewById(R.id.webView);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean inline = prefs.getBoolean("inline_images", false);
+
             setupWebView(webView);
 
             WebSettings settings = webView.getSettings();
             settings.setDefaultFontSize(Math.round(textSize));
             settings.setDefaultFixedFontSize(Math.round(textSize));
-            settings.setLoadsImagesAutomatically(show_images);
+            settings.setLoadsImagesAutomatically(show_images || inline);
+            settings.setBlockNetworkImage(!show_images);
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);
 
