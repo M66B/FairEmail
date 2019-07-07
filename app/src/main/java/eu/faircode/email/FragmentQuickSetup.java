@@ -246,7 +246,7 @@ public class FragmentQuickSetup extends FragmentBase {
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                            String type = EntityFolder.getType(attrs, fullName);
+                            String type = EntityFolder.getType(attrs, fullName, true);
 
                             Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
 

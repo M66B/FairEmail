@@ -158,8 +158,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
+            view.setEnabled(folder.selectable);
             view.setActivated(folder.tbc != null || folder.tbd != null);
-            view.setAlpha(folder.hide || disabledIds.contains(folder.id) ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(folder.hide || !folder.selectable || disabledIds.contains(folder.id)
+                    ? Helper.LOW_LIGHT : 1.0f);
 
             if (textSize != 0)
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -293,7 +295,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (view.getId() == R.id.ivExpander)
                 onCollapse(folder);
-            else {
+            else if (folder.selectable) {
                 if (listener == null) {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
@@ -345,7 +347,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return false;
 
             final TupleFolderEx folder = items.get(pos);
-            if (folder.tbd != null)
+            if (!folder.selectable || folder.tbd != null)
                 return false;
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);

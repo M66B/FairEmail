@@ -548,7 +548,7 @@ public class FragmentAccount extends FragmentBase {
                         String fullName = ifolder.getFullName();
                         String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                         Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
-                        String type = EntityFolder.getType(attrs, fullName);
+                        String type = EntityFolder.getType(attrs, fullName, true);
 
                         if (type != null) {
                             // Create entry
@@ -886,7 +886,7 @@ public class FragmentAccount extends FragmentBase {
                             String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                             Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs));
-                            String type = EntityFolder.getType(attrs, fullName);
+                            String type = EntityFolder.getType(attrs, fullName, true);
 
                             if (EntityFolder.INBOX.equals(type)) {
                                 inbox = new EntityFolder();
@@ -1215,7 +1215,7 @@ public class FragmentAccount extends FragmentBase {
                         long account = args.getLong("account");
 
                         DB db = DB.getInstance(context);
-                        List<EntityFolder> folders = db.folder().getFolders(account);
+                        List<EntityFolder> folders = db.folder().getFolders(account, true);
 
                         if (folders != null && folders.size() > 0)
                             Collections.sort(folders, folders.get(0).getComparator(null));

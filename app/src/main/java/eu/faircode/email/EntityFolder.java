@@ -106,6 +106,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public String sync_state;
     @NonNull
     public Boolean read_only = false;
+    @NonNull
+    public Boolean selectable = true;
     public String error;
     public Long last_sync;
 
@@ -244,10 +246,10 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return DRAFTS.equals(type) || OUTBOX.equals(type) || SENT.equals(type);
     }
 
-    static String getType(String[] attrs, String fullName) {
+    static String getType(String[] attrs, String fullName, boolean selectable) {
         // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
         for (String attr : attrs) {
-            if ("\\Noselect".equals(attr) || "\\NonExistent".equals(attr))
+            if ((selectable && "\\Noselect".equals(attr)) || "\\NonExistent".equals(attr))
                 return null;
 
             if (attr.startsWith("\\")) {

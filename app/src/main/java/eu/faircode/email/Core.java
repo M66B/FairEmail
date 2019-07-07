@@ -783,7 +783,7 @@ class Core {
 
         // Get folder names
         Map<String, EntityFolder> local = new HashMap<>();
-        for (EntityFolder folder : db.folder().getFolders(account.id))
+        for (EntityFolder folder : db.folder().getFolders(account.id, true))
             if (folder.tbc != null) {
                 Log.i(folder.name + " creating");
                 Folder ifolder = istore.getFolder(folder.name);
@@ -852,7 +852,8 @@ class Core {
             String childName = name[name.length - 1];
             boolean subscribed = subscription.contains(fullName);
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
-            String type = EntityFolder.getType(attr, fullName);
+            String type = EntityFolder.getType(attr, fullName, false);
+            boolean selectable = !Arrays.asList(attr).contains("\\Noselect");
 
             if (EntityFolder.INBOX.equals(type))
                 childName = null;
@@ -879,6 +880,7 @@ class Core {
                         folder.poll = ("imap.gmail.com".equals(account.host));
                         folder.sync_days = EntityFolder.DEFAULT_SYNC;
                         folder.keep_days = EntityFolder.DEFAULT_KEEP;
+                        folder.selectable = selectable;
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type);
                     } else {

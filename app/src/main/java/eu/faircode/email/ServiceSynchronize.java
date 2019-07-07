@@ -739,7 +739,7 @@ public class ServiceSynchronize extends LifecycleService {
                     // Open synchronizing folders
                     final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-                    List<EntityFolder> folders = db.folder().getFolders(account.id);
+                    List<EntityFolder> folders = db.folder().getFolders(account.id, true);
                     Collections.sort(folders, new Comparator<EntityFolder>() {
                         @Override
                         public int compare(EntityFolder f1, EntityFolder f2) {

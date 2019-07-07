@@ -28,8 +28,10 @@ import java.util.List;
 
 @Dao
 public interface DaoFolder {
-    @Query("SELECT * FROM folder WHERE account = :account")
-    List<EntityFolder> getFolders(long account);
+    @Query("SELECT * FROM folder" +
+            " WHERE account = :account" +
+            " AND (NOT :selectable OR selectable)")
+    List<EntityFolder> getFolders(long account, boolean selectable);
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor, account.state AS accountState" +

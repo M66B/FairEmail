@@ -507,7 +507,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                     // Folders
                     JSONArray jfolders = new JSONArray();
-                    for (EntityFolder folder : db.folder().getFolders(account.id)) {
+                    for (EntityFolder folder : db.folder().getFolders(account.id, true)) {
                         JSONObject jfolder = folder.toJSON();
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

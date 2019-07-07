@@ -372,7 +372,7 @@ public class FragmentRule extends FragmentBase {
 
                 DB db = DB.getInstance(context);
                 data.folder = db.folder().getFolder(fid);
-                data.folders = db.folder().getFolders(aid);
+                data.folders = db.folder().getFolders(aid, true);
 
                 if (data.folders == null)
                     data.folders = new ArrayList<>();
