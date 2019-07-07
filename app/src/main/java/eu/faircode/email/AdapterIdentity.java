@@ -192,6 +192,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                             boolean sync = args.getBoolean("sync");
 
                             DB db = DB.getInstance(context);
+                            if (!sync)
+                                db.identity().setIdentityError(id, null);
                             db.identity().setIdentitySynchronize(id, sync);
 
                             return sync;
