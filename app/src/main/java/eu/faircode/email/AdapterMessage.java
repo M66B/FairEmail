@@ -53,6 +53,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
+import android.text.method.LinkMovementMethod;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
@@ -3398,6 +3399,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
             CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
             final Button btnOwner = view.findViewById(R.id.btnOwner);
+            TextView tvOwnerRemark = view.findViewById(R.id.tvOwnerRemark);
             final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
             final TextView tvOwner = view.findViewById(R.id.tvOwner);
             final TextView tvHost = view.findViewById(R.id.tvHost);
@@ -3434,6 +3436,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
             cbSecure.setTypeface(
                     secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+
             cbSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -3460,6 +3463,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
 
             cbSanitize.setVisibility(uri.equals(sanitized) ? View.GONE : View.VISIBLE);
+
             cbSanitize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -3470,8 +3474,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
+            tvOwnerRemark.setMovementMethod(LinkMovementMethod.getInstance());
             pbWait.setVisibility(View.GONE);
             grpOwner.setVisibility(View.GONE);
+
             btnOwner.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

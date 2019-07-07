@@ -86,6 +86,16 @@
         app:layout_constraintTop_toTopOf="@id/btnOwner" />
 
     <TextView
+        android:id="@+id/tvOwnerRemark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_remark_owner"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOwner" />
+
+    <TextView
         android:id="@+id/tvOwnerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,7 +104,7 @@
         android:text="@string/title_ip_owner"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnOwner" />
+        app:layout_constraintTop_toBottomOf="@id/tvOwnerRemark" />
 
     <TextView
         android:id="@+id/tvHost"
