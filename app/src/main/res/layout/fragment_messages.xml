@@ -198,7 +198,7 @@
                 android:padding="12dp"
                 android:src="@drawable/baseline_vertical_align_top_24"
                 app:layout_constraintBottom_toTopOf="@id/seekBar"
-                app:layout_constraintEnd_toEndOf="@id/seekBar" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation"
