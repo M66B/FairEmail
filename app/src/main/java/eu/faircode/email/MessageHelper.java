@@ -1038,10 +1038,13 @@ public class MessageHelper {
                         TextUtils.isEmpty(filename) &&
                         ((parts.plain == null && part.isMimeType("text/plain")) ||
                                 (parts.html == null && part.isMimeType("text/html")))) {
-                    if (part.isMimeType("text/plain"))
-                        parts.plain = part;
-                    else
-                        parts.html = part;
+                    if (part.isMimeType("text/plain")) {
+                        if (parts.plain == null)
+                            parts.plain = part;
+                    } else {
+                        if (parts.html == null)
+                            parts.html = part;
+                    }
                 } else {
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
