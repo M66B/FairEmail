@@ -80,7 +80,6 @@
     <string name="title_edit_folder">Ordner bearbeiten</string>
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_help">Hilfe</string>
-    <string name="title_setup_welcome">Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer Identität, wie in jeder anderen E-Mail-Anwendung.</string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
     <string name="title_setup_quick_remark">Um schnell ein Konto und eine Identität für die meisten Anbieter einzurichten</string>
     <string name="title_setup_quick_hint">Die Schnelleinrichtung wird Konfigurationsinformationen von autoconfig.thunderbird.net laden</string>

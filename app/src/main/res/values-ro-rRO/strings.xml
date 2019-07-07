@@ -149,6 +149,7 @@
     <string name="title_advanced_schedule">Programat</string>
     <string name="title_advanced_unseen">Toate mesajele necitite</string>
     <string name="title_advanced_flagged">Toate mesajele marcate</string>
+    <string name="title_advanced_delete_unseen">Șterge mesajele vechi necitite</string>
     <string name="title_advanced_kept_removed">Verifică dacă mesajele vechi au fost înlăturate de pe server</string>
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>

@@ -80,7 +80,6 @@
     <string name="title_edit_folder">Modifier le dossier</string>
     <string name="title_setup">Configuration</string>
     <string name="title_setup_help">Aide</string>
-    <string name="title_setup_welcome">La réception et l\'envoi de messages nécessitent la création d\'un compte et d\'une identité comme dans toute autre application de messagerie.</string>
     <string name="title_setup_quick">Configuration rapide</string>
     <string name="title_setup_quick_remark">Pour configurer rapidement un compte et une identité pour la plupart des fournisseurs</string>
     <string name="title_setup_quick_hint">La configuration rapide récupérera les informations de configuration de autoconfig.thunderbird.net</string>

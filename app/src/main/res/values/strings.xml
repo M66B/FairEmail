@@ -103,7 +103,11 @@
 
     <string name="title_setup">Settings</string>
     <string name="title_setup_help">Help</string>
-    <string name="title_setup_welcome">Receiving and sending messages requires setting up an account and an identity like in any other email app.</string>
+    <string name="title_setup_welcome">
+        Receiving and sending messages requires setting up an account and an identity like in any other email app.
+        The quick setup will create both an account and identity by just asking for your name, email address and password.
+        Accounts and identities (aliases) can be setup manually too if needed.
+    </string>
     <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_quick_remark">To quickly setup an account and an identity for most providers</string>
     <string name="title_setup_quick_hint">The quick setup will fetch configuration information from autoconfig.thunderbird.net</string>
