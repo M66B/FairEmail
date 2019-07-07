@@ -85,9 +85,6 @@ public class HtmlHelper {
     private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static String sanitize(Context context, String html, boolean show_images) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean paranoid = prefs.getBoolean("paranoid", true);
-
         Document parsed = Jsoup.parse(html);
 
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
@@ -225,9 +222,11 @@ public class HtmlHelper {
                 table.tagName("div");
 
         // Images
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
         for (Element img : document.select("img")) {
             // Remove link tracking pixels
-            if (paranoid && isTrackingPixel(img)) {
+            if (disable_tracking && isTrackingPixel(img)) {
                 String src = img.attr("src");
                 img.removeAttr("src");
                 img.tagName("a");

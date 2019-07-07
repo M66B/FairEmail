@@ -45,10 +45,11 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swCollapse;
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoMove;
+    private SwitchCompat swDisableTracking;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "pull", "autoscroll", "swipenav", "doubletap", "autoexpand", "autoclose", "autonext",
-            "collapse", "autoread", "automove"
+            "collapse", "autoread", "automove", "disable_tracking"
     };
 
     @Override
@@ -71,6 +72,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapse = view.findViewById(R.id.swCollapse);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoMove = view.findViewById(R.id.swAutoMove);
+        swDisableTracking = view.findViewById(R.id.swDisableTracking);
 
         setOptions();
 
@@ -149,6 +151,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swDisableTracking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("disable_tracking", checked).apply();
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -204,5 +213,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapse.setChecked(prefs.getBoolean("collapse", false));
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
+        swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
     }
 }

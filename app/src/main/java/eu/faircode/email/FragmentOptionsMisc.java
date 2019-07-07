@@ -24,7 +24,6 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -52,8 +51,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSubscribedOnly;
     private SwitchCompat swEnglish;
     private SwitchCompat swAuthentication;
-    private SwitchCompat swParanoid;
-    private TextView tvParanoidHint;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swCrashReports;
@@ -67,7 +64,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "subscribed_only", "english", "authentication", "paranoid", "watchdog", "updates", "crash_reports", "debug"
+            "badge", "subscriptions", "subscribed_only", "english", "authentication", "watchdog", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -90,8 +87,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
         swEnglish = view.findViewById(R.id.swEnglish);
         swAuthentication = view.findViewById(R.id.swAuthentication);
-        swParanoid = view.findViewById(R.id.swParanoid);
-        tvParanoidHint = view.findViewById(R.id.tvParanoidHint);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swCrashReports = view.findViewById(R.id.swCrashReports);
@@ -149,26 +144,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 prefs.edit().putBoolean("authentication", checked).apply();
             }
         });
-
-        swParanoid.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("paranoid", checked).apply();
-            }
-        });
-
-        final Intent faq = new Intent(Intent.ACTION_VIEW);
-        faq.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq86"));
-        faq.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (faq.resolveActivity(getContext().getPackageManager()) != null) {
-            tvParanoidHint.getPaint().setUnderlineText(true);
-            tvParanoidHint.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(faq);
-                }
-            });
-        }
 
         swWatchdog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -269,7 +244,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", false));
-        swParanoid.setChecked(prefs.getBoolean("paranoid", true));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);

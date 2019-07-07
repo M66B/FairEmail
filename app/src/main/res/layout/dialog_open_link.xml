@@ -62,6 +62,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cbSecure" />
 
+    <Button
+        android:id="@+id/btnOwner"
+        style="@style/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/title_check_owner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
+
+    <eu.faircode.email.ContentLoadingProgressBar
+        android:id="@+id/pbWait"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@id/btnOwner"
+        app:layout_constraintStart_toEndOf="@id/btnOwner"
+        app:layout_constraintTop_toTopOf="@id/btnOwner" />
+
     <TextView
         android:id="@+id/tvOwnerTitle"
         android:layout_width="wrap_content"
@@ -71,7 +94,7 @@
         android:text="@string/title_ip_owner"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cbSanitize" />
+        app:layout_constraintTop_toBottomOf="@id/btnOwner" />
 
     <TextView
         android:id="@+id/tvHost"

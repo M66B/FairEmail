@@ -117,7 +117,6 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -3371,9 +3370,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean paranoid = prefs.getBoolean("paranoid", true);
-
             final Uri uri = getArguments().getParcelable("uri");
             String title = getArguments().getString("title");
 
@@ -3401,6 +3397,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final EditText etLink = view.findViewById(R.id.etLink);
             final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
             CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
+            final Button btnOwner = view.findViewById(R.id.btnOwner);
+            final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
             final TextView tvOwner = view.findViewById(R.id.tvOwner);
             final TextView tvHost = view.findViewById(R.id.tvHost);
             final Group grpOwner = view.findViewById(R.id.grpOwner);
@@ -3472,43 +3470,50 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
+            pbWait.setVisibility(View.GONE);
             grpOwner.setVisibility(View.GONE);
+            btnOwner.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putParcelable("uri", uri);
 
-            if (paranoid) {
-                // TODO: spinner
-                Bundle args = new Bundle();
-                args.putParcelable("uri", uri);
-
-                new SimpleTask<String[]>() {
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        tvOwner.setText("…");
-                        grpOwner.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    protected String[] onExecute(Context context, Bundle args) throws Throwable {
-                        Uri uri = args.getParcelable("uri");
-                        return IPInfo.getOrganization(uri);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, String[] data) {
-                        String host = data[0];
-                        String organization = data[1];
-                        tvHost.setText(host);
-                        tvOwner.setText(organization == null ? "?" : organization);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof UnknownHostException)
+                    new SimpleTask<String[]>() {
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            btnOwner.setEnabled(false);
+                            pbWait.setVisibility(View.VISIBLE);
                             grpOwner.setVisibility(View.GONE);
-                        else
+                        }
+
+                        @Override
+                        protected void onPostExecute(Bundle args) {
+                            btnOwner.setEnabled(true);
+                            pbWait.setVisibility(View.GONE);
+                            grpOwner.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        protected String[] onExecute(Context context, Bundle args) throws Throwable {
+                            Uri uri = args.getParcelable("uri");
+                            return IPInfo.getOrganization(uri);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, String[] data) {
+                            String host = data[0];
+                            String organization = data[1];
+                            tvHost.setText(host);
+                            tvOwner.setText(organization == null ? "?" : organization);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
                             tvOwner.setText(ex.getMessage());
-                    }
-                }.execute(getContext(), getActivity(), args, "link:domain");
-            }
+                        }
+                    }.execute(getContext(), getActivity(), args, "link:owner");
+                }
+            });
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)

@@ -160,7 +160,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(83) What does 'User is authenticated but not connected' mean?](#user-content-faq83)
 * [(84) What are local contacts for?](#user-content-faq84)
 * [(85) Why is an identity not available?](#user-content-faq85)
-* [(86) What are 'extra privacy features'?](#user-content-faq86)
+* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
 * [(87) What does 'invalid credentials' mean?](#user-content-faq87)
 * [(88) How can I use a Yahoo! account?](#user-content-faq88)
 * [(89) How can I send plain text only messages?](#user-content-faq89)
@@ -1550,12 +1550,12 @@ FairEmail will try to select the best identity based on the *to* address of the 
 <br />
 
 <a name="faq86"></a>
-**(86) What are 'extra privacy features'?**
+**~~(86) What are 'extra privacy features'?~~**
 
-The advanced option *extra privacy features* enables:
+~~The advanced option *extra privacy features* enables:~~
 
-* Looking up the owner of the IP address of a link
-* Detection and removal of [tracking images](#user-content-faq82)
+* ~~Looking up the owner of the IP address of a link~~
+* ~~Detection and removal of [tracking images](#user-content-faq82)~~
 
 <br />
 
