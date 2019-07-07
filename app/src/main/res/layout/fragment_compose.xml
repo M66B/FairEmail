@@ -71,11 +71,11 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etTo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etTo"
-                app:layout_constraintTop_toTopOf="@+id/etTo" />
+                app:layout_constraintTop_toTopOf="@+id/etTo"
+                app:srcCompat="@drawable/baseline_person_24" />
 
             <MultiAutoCompleteTextView
                 android:id="@+id/etCc"
@@ -97,11 +97,11 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etCc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etCc"
-                app:layout_constraintTop_toTopOf="@+id/etCc" />
+                app:layout_constraintTop_toTopOf="@+id/etCc"
+                app:srcCompat="@drawable/baseline_person_24" />
 
             <MultiAutoCompleteTextView
                 android:id="@+id/etBcc"
@@ -123,11 +123,11 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_pick"
-                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintBottom_toBottomOf="@id/etBcc"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etBcc"
-                app:layout_constraintTop_toTopOf="@+id/etBcc" />
+                app:layout_constraintTop_toTopOf="@+id/etBcc"
+                app:srcCompat="@drawable/baseline_person_24" />
 
             <EditText
                 android:id="@+id/etSubject"
@@ -149,11 +149,11 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_show_addresses"
-                app:srcCompat="@drawable/baseline_people_24"
                 app:layout_constraintBottom_toBottomOf="@id/etSubject"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etSubject"
-                app:layout_constraintTop_toTopOf="@+id/etSubject" />
+                app:layout_constraintTop_toTopOf="@+id/etSubject"
+                app:srcCompat="@drawable/baseline_people_24" />
 
             <View
                 android:id="@+id/vSeparatorAttachments"
@@ -187,16 +187,17 @@
 
             <View
                 android:id="@+id/vSeparator"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="6dp"
                 android:background="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNoInternetAttachments" />
 
             <eu.faircode.email.EditTextCompose
                 android:id="@+id/etBody"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="6dp"
@@ -208,6 +209,7 @@
                 android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
                 android:minHeight="120dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
@@ -224,16 +226,17 @@
 
             <View
                 android:id="@+id/vSeparatorBody"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="6dp"
                 android:background="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etBody" />
 
             <TextView
                 android:id="@+id/tvSignature"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="6dp"
@@ -241,15 +244,17 @@
                 android:fontFamily="monospace"
                 android:text="Signature"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
 
             <View
                 android:id="@+id/vSeparatorSignature"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="6dp"
                 android:background="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSignature" />
 
@@ -269,7 +274,7 @@
 
             <TextView
                 android:id="@+id/tvReference"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="6dp"
@@ -277,6 +282,7 @@
                 android:fontFamily="monospace"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvReferenceHint" />
 
@@ -286,9 +292,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_edit"
-                app:srcCompat="@drawable/baseline_edit_24"
                 app:layout_constraintEnd_toStartOf="@+id/ibReferenceImages"
-                app:layout_constraintTop_toTopOf="@id/tvReferenceHint" />
+                app:layout_constraintTop_toTopOf="@id/tvReferenceHint"
+                app:srcCompat="@drawable/baseline_edit_24" />
 
             <ImageButton
                 android:id="@+id/ibReferenceImages"
@@ -296,9 +302,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_show_images"
-                app:srcCompat="@drawable/baseline_image_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvReferenceHint" />
+                app:layout_constraintTop_toTopOf="@id/tvReferenceHint"
+                app:srcCompat="@drawable/baseline_image_24" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpHeader"
