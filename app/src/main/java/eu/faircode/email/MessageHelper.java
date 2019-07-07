@@ -1035,6 +1035,7 @@ public class MessageHelper {
                 //        " content type=" + part.getContentType());
 
                 if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
+                        TextUtils.isEmpty(filename) &&
                         ((parts.plain == null && part.isMimeType("text/plain")) ||
                                 (parts.html == null && part.isMimeType("text/html")))) {
                     if (part.isMimeType("text/plain"))
