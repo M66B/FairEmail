@@ -88,6 +88,10 @@
     <string name="title_edit_folder">Editare dosar</string>
     <string name="title_setup">Setări</string>
     <string name="title_setup_help">Ajutor</string>
+    <string name="title_setup_welcome">        Primirea și trimiterea de mesaje necesită configurarea unui cont și a unei identități ca în orice altă aplicație de e-mail.
+        Configurarea rapidă v-a crea atât un cont cât și o identitate folosindu-vă doar numele, adresa de e-mail și parola.
+        Conturile și identitățile (alias) pot fi setate și manual dacă se dorește.
+    </string>
     <string name="title_setup_quick">Configurare rapidă</string>
     <string name="title_setup_quick_remark">Permite setarea rapidă a unui cont și a unei identități pentru majoritatea furnizorilor</string>
     <string name="title_setup_quick_hint">Se vor descărca informațiile necesare de pe autoconfig.thunderbird.net</string>
@@ -137,8 +141,8 @@
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
     <string name="title_advanced_section_main">Principal</string>
-    <string name="title_advanced_section_synchronize">Primește</string>
-    <string name="title_advanced_section_send">Trimite</string>
+    <string name="title_advanced_section_synchronize">Primire</string>
+    <string name="title_advanced_section_send">Trimitere</string>
     <string name="title_advanced_section_connection">Conexiune</string>
     <string name="title_advanced_section_display">Afișare</string>
     <string name="title_advanced_section_behavior">Comportament</string>
@@ -191,6 +195,7 @@
     <string name="title_advanced_autonext">Se trece la următoarea conversație când este închisă cea curentă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
+    <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
@@ -328,6 +333,8 @@
     <string name="title_sync_days_remark">Mărind această valoare va duce la o creștere a consumului bateriei și a datelor</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
     <string name="title_keep_all">Păstrează toate mesajele</string>
+    <string name="title_auto_trash">Mută automat mesajele vechi la gunoi</string>
+    <string name="title_auto_delete">Ștergerea permanentă automată a mesajelor vechi</string>
     <string name="title_folder_name_missing">Lipsește numele dosarului</string>
     <string name="title_folder_exists">Dosarul %1$s există</string>
     <string name="title_folder_delete">Ştergeţi definitiv acest dosar şi mesajele pe care le conţine?</string>
@@ -620,6 +627,8 @@
     <string name="title_link_secured">Adresa este sigură</string>
     <string name="title_sanitize_link">Elimină parametrii de urmărire</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>
+    <string name="title_check_owner">Verificare proprietar</string>
+    <string name="title_remark_owner">Informația va fi preluată de la <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Adresă IP proprietar</string>
     <string name="title_select_app">Selectează aplicația</string>
     <string name="title_updated">Este disponibilă o actualizare la versiunea %1$s</string>
