@@ -3629,6 +3629,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setDefaultFontSize(Math.round(textSize));
             settings.setDefaultFixedFontSize(Math.round(textSize));
             settings.setLoadsImagesAutomatically(show_images || inline);
+            settings.setBlockNetworkLoads(!show_images);
             settings.setBlockNetworkImage(!show_images);
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);

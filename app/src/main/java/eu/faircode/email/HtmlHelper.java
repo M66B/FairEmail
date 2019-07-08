@@ -337,16 +337,8 @@ public class HtmlHelper {
             Log.i("Image show=" + show + " inline=" + inline +
                     " embedded=" + embedded + " data=" + data + " source=" + source);
 
-        if (!(show || (inline && (embedded || data)))) {
-            // Show placeholder icon
-            int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
-            Drawable d = res.getDrawable(resid, theme);
-            d.setBounds(0, 0, px, px);
-            return d;
-        }
-
         // Embedded images
-        if (embedded) {
+        if (embedded && (show || inline)) {
             DB db = DB.getInstance(context);
             String cid = "<" + source.substring(4) + ">";
             EntityAttachment attachment = db.attachment().getAttachment(id, cid);
@@ -377,7 +369,7 @@ public class HtmlHelper {
         }
 
         // Data URI
-        if (data)
+        if (data && (show || inline))
             try {
                 return getDataDrawable(res, source);
             } catch (IllegalArgumentException ex) {
@@ -386,6 +378,14 @@ public class HtmlHelper {
                 d.setBounds(0, 0, px, px);
                 return d;
             }
+
+        if (!show) {
+            // Show placeholder icon
+            int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
+            Drawable d = res.getDrawable(resid, theme);
+            d.setBounds(0, 0, px, px);
+            return d;
+        }
 
         // Get cache file name
         File dir = new File(context.getCacheDir(), "images");
