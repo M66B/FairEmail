@@ -22,24 +22,24 @@
         <ImageView
             android:id="@+id/ivExpander"
             android:layout_width="36dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center_vertical|center_horizontal"
             android:contentDescription="@string/title_legend_expander"
             android:padding="6dp"
-            app:srcCompat="@drawable/expander"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@+id/vwLevel"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/expander" />
 
         <ImageView
             android:id="@+id/ivType"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_folder_type"
-            app:srcCompat="@drawable/baseline_inbox_24"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@+id/ivExpander"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
+            app:layout_constraintBottom_toBottomOf="@id/ivExpander"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintTop_toTopOf="@id/ivExpander"
+            app:srcCompat="@drawable/baseline_inbox_24" />
 
         <TextView
             android:id="@+id/tvName"
@@ -52,8 +52,9 @@
             android:singleLine="true"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivExpander"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivType"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/ivExpander" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/vwColor"
+            android:layout_width="6dp"
+            android:layout_height="0dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivState"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="6dp"
+            android:contentDescription="@string/title_legend_connection_state"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintStart_toEndOf="@id/vwColor"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            app:srcCompat="@drawable/baseline_cloud_off_24" />
+
+        <View
+            android:id="@+id/vwLevel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvKeywords"
+            app:layout_constraintStart_toEndOf="@id/ivState"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivExpander"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_legend_expander"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
+            app:layout_constraintStart_toEndOf="@+id/vwLevel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/expander" />
+
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:minHeight="24dp"
+            android:singleLine="true"
+            android:text="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivExpander"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/paddingBottom"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -158,7 +158,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
-            view.setEnabled(folder.selectable);
             view.setActivated(folder.tbc != null || folder.tbd != null);
             view.setAlpha(folder.hide || !folder.selectable || disabledIds.contains(folder.id)
                     ? Helper.LOW_LIGHT : 1.0f);
@@ -197,7 +196,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         folder.synchronize || folder.state != null || folder.sync_state != null
                                 ? View.VISIBLE : View.INVISIBLE);
 
-                ivReadOnly.setVisibility(folder.read_only ? View.VISIBLE : View.GONE);
+                if (folder.selectable)
+                    ivReadOnly.setVisibility(folder.read_only ? View.VISIBLE : View.GONE);
             }
 
             ViewGroup.LayoutParams lp = vwLevel.getLayoutParams();
@@ -210,7 +210,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     : folder.child_refs != null && folder.child_refs.size() > 0
                     ? View.VISIBLE : View.INVISIBLE);
 
-            if (listener == null) {
+            if (listener == null && folder.selectable) {
                 ivUnified.setVisibility(account > 0 && folder.unified ? View.VISIBLE : View.GONE);
                 ivSubscribed.setVisibility(subscriptions && folder.subscribed != null && folder.subscribed ? View.VISIBLE : View.GONE);
                 ivRule.setVisibility(folder.rules > 0 ? View.VISIBLE : View.GONE);
@@ -227,7 +227,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             tvName.setTypeface(folder.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
-            if (listener == null) {
+            if (listener == null && folder.selectable) {
                 StringBuilder sb = new StringBuilder();
                 if (folder.account == null)
                     sb.append(nf.format(folder.messages));
@@ -242,9 +242,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24);
             }
 
-            ivType.setImageResource(EntityFolder.getIcon(folder.type));
+            if (folder.selectable)
+                ivType.setImageResource(EntityFolder.getIcon(folder.type));
 
-            if (listener == null) {
+            if (listener == null && folder.selectable) {
                 if (account < 0)
                     tvType.setText(folder.accountName);
                 else {
@@ -814,11 +815,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if (listener == null) {
+            return (items.get(position).selectable ? R.layout.item_folder : R.layout.item_folder_unselectable);
+        } else
+            return R.layout.item_folder_select;
+    }
+
+    @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(
-                listener == null ? R.layout.item_folder : R.layout.item_folder_select,
-                parent, false));
+        return new ViewHolder(inflater.inflate(viewType, parent, false));
     }
 
     @Override
