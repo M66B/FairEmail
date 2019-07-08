@@ -48,7 +48,8 @@ import java.util.Objects;
 public class EntityAccount extends EntityOrder implements Serializable {
     static final String TABLE_NAME = "account";
 
-    static final int DEFAULT_KEEP_ALIVE_INTERVAL = 19; // minutes
+    // https://tools.ietf.org/html/rfc2177
+    static final int DEFAULT_KEEP_ALIVE_INTERVAL = 24; // minutes
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
