@@ -293,14 +293,12 @@ public class HtmlHelper {
             }
         }, document);
 
-        // Prevent too many line breaks
-        for (Element div : document.select("div"))
-            if (div.children().size() == div.select("br").size())
-                div.tagName("span");
-
         // Remove block elements displaying nothing
         for (Element e : document.select("*"))
-            if (e.isBlock() && !e.hasText() && e.select("img").size() == 0)
+            if (e.isBlock() &&
+                    !e.hasText() &&
+                    e.select("br").size() == 0 &&
+                    e.select("img").size() == 0)
                 e.remove();
 
         // Prevent too many line breaks
