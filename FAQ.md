@@ -895,6 +895,9 @@ You could disable this option for example for the sent folder and the archive.
 Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night.
 In the settings you can select a schedule for message synchronization (this is a pro feature). See also [this FAQ](#user-content-faq78).
 
+Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often.
+You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 minutes.
+
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
 

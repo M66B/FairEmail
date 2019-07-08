@@ -253,6 +253,7 @@ public class FragmentAccount extends FragmentBase {
                 etRealm.setText(null);
 
                 etName.setText(position > 1 ? provider.name : null);
+                etInterval.setText(provider.keepalive > 0 ? Integer.toString(provider.keepalive) : null);
 
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);

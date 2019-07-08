@@ -50,6 +50,7 @@ import java.util.Locale;
 public class EmailProvider {
     public String name;
     public int order;
+    public int keepalive;
     public String link;
     public String type;
     public String imap_host;
@@ -106,6 +107,7 @@ public class EmailProvider {
                         provider = new EmailProvider();
                         provider.name = xml.getAttributeValue(null, "name");
                         provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
+                        provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
                     } else if ("imap".equals(name)) {

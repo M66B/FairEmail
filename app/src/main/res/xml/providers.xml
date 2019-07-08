@@ -115,6 +115,7 @@
     </provider>
     <provider
         name="gmx.com"
+        keepalive="9"
         link="https://support.gmx.com/pop-imap/imap/index.html#breadcrumb_help_pop-imap_imap_server">
         <imap
             host="imap.gmx.com"
