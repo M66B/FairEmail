@@ -372,7 +372,9 @@ public class ApplicationEx extends Application {
         if (ex instanceof NoSuchMethodError)
             return false;
 
-        if (ex.getMessage() != null && ex.getMessage().startsWith("Bad notification posted"))
+        if (ex.getMessage() != null &&
+                (ex.getMessage().startsWith("Bad notification posted") ||
+                        ex.getMessage().startsWith("Unable to create layer")))
             return false;
 
         if (ex instanceof TimeoutException &&
