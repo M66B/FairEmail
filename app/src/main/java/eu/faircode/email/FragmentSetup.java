@@ -74,6 +74,7 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvDozeDone;
     private Button btnDoze;
+    private Button btnBattery;
 
     private Button btnData;
 
@@ -119,6 +120,7 @@ public class FragmentSetup extends FragmentBase {
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
+        btnBattery = view.findViewById(R.id.btnBattery);
 
         btnData = view.findViewById(R.id.btnData);
 
@@ -126,6 +128,7 @@ public class FragmentSetup extends FragmentBase {
 
         grpWelcome = view.findViewById(R.id.grpWelcome);
 
+        PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Wire controls
@@ -138,15 +141,13 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        btnHelp.setVisibility(Helper.getIntentSetupHelp().resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
         btnHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(Helper.getIntentSetupHelp());
             }
         });
-
-        PackageManager pm = getContext().getPackageManager();
-        btnHelp.setVisibility(Helper.getIntentSetupHelp().resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
 
         btnQuick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,6 +185,15 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 new FragmentDialogDoze().show(getFragmentManager(), "setup:doze");
+            }
+        });
+
+        final Intent faq = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.FAQ_URI + "#user-content-faq39"));
+        btnBattery.setVisibility(faq.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
+        btnBattery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(faq);
             }
         });
 
@@ -330,22 +340,29 @@ public class FragmentSetup extends FragmentBase {
     public void onResume() {
         super.onResume();
 
+        // Doze
         boolean ignoring = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
             if (intent.resolveActivity(getContext().getPackageManager()) != null) {
                 PowerManager pm = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
-                ignoring = pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+                ignoring = (pm != null && pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID));
             }
         }
+
         btnDoze.setEnabled(!ignoring);
+
+        // https://issuetracker.google.com/issues/37070074
+        ignoring = (ignoring || Build.VERSION.SDK_INT != Build.VERSION_CODES.M);
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
 
+        // Power saving
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-            boolean saving = (cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
+            boolean saving = (cm != null &&
+                    cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
             btnData.setVisibility(saving || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         }
     }
