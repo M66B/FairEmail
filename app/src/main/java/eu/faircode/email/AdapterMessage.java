@@ -3622,6 +3622,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean inline = prefs.getBoolean("inline_images", false);
+            boolean autocontent = prefs.getBoolean("autocontent", false);
 
             setupWebView(webView);
 
@@ -3629,8 +3630,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             settings.setDefaultFontSize(Math.round(textSize));
             settings.setDefaultFixedFontSize(Math.round(textSize));
             settings.setLoadsImagesAutomatically(show_images || inline);
-            settings.setBlockNetworkLoads(!show_images);
-            settings.setBlockNetworkImage(!show_images);
+            settings.setBlockNetworkLoads(!show_images && !autocontent);
+            settings.setBlockNetworkImage(!show_images && !autocontent);
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);
 

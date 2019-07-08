@@ -57,11 +57,12 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swMonospaced;
     private SwitchCompat swInline;
     private SwitchCompat swImages;
+    private SwitchCompat swRemoteContent;
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
-            "flags", "preview", "addresses", "attachments_alt", "monospaced", "inline_images", "autoimages", "actionbar",
+            "flags", "preview", "addresses", "attachments_alt", "monospaced", "inline_images", "autoimages", "autocontent", "actionbar",
     };
 
     @Override
@@ -90,6 +91,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swInline = view.findViewById(R.id.swInline);
         swImages = view.findViewById(R.id.swImages);
+        swRemoteContent = view.findViewById(R.id.swRemoteContent);
         swActionbar = view.findViewById(R.id.swActionbar);
 
         setOptions();
@@ -219,6 +221,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swRemoteContent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autocontent", checked).apply();
+            }
+        });
+
         swActionbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -294,6 +303,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swInline.setChecked(prefs.getBoolean("inline_images", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
+        swRemoteContent.setChecked(prefs.getBoolean("autocontent", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
     }
 
