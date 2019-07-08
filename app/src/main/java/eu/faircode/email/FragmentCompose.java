@@ -1143,6 +1143,7 @@ public class FragmentCompose extends FragmentBase {
                     Bundle args = data.getBundleExtra("args");
                     onSendAfter(args.getLong("time"));
                 }
+                break;
             case REQUEST_REF_EDIT:
                 if (resultCode == RESULT_OK)
                     onReferenceEditConfirmed();
