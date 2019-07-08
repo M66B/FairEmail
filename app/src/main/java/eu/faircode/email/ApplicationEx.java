@@ -304,6 +304,7 @@ public class ApplicationEx extends Application {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
+            // Sync
             NotificationChannel service = new NotificationChannel(
                     "service", getString(R.string.channel_service),
                     NotificationManager.IMPORTANCE_MIN);
@@ -312,6 +313,7 @@ public class ApplicationEx extends Application {
             service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
             nm.createNotificationChannel(service);
 
+            // Send
             NotificationChannel send = new NotificationChannel(
                     "send", getString(R.string.channel_send),
                     NotificationManager.IMPORTANCE_DEFAULT);
@@ -319,6 +321,7 @@ public class ApplicationEx extends Application {
             send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(send);
 
+            // Notify
             NotificationChannel notification = new NotificationChannel(
                     "notification", getString(R.string.channel_notification),
                     NotificationManager.IMPORTANCE_HIGH);
@@ -326,20 +329,24 @@ public class ApplicationEx extends Application {
             notification.enableLights(true);
             nm.createNotificationChannel(notification);
 
+            // Update
             if (!Helper.isPlayStoreInstall(this)) {
                 NotificationChannel update = new NotificationChannel(
                         "update", getString(R.string.channel_update),
                         NotificationManager.IMPORTANCE_HIGH);
+                update.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
                 update.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
                 nm.createNotificationChannel(update);
             }
 
+            // Warn
             NotificationChannel warning = new NotificationChannel(
                     "warning", getString(R.string.channel_warning),
                     NotificationManager.IMPORTANCE_HIGH);
             warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(warning);
 
+            // Error
             NotificationChannel error = new NotificationChannel(
                     "error",
                     getString(R.string.channel_error),
@@ -347,6 +354,7 @@ public class ApplicationEx extends Application {
             error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(error);
 
+            // Contacts grouping
             NotificationChannelGroup group = new NotificationChannelGroup(
                     "contacts",
                     getString(R.string.channel_group_contacts));
