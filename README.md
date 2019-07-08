@@ -43,7 +43,7 @@ This app starts a foreground service with a low priority status bar notification
 
 ## Privacy features
 
-* Reformat messages to always safely view messages
+* Reformat messages to prevent [phishing](https://en.wikipedia.org/wiki/Phishing)
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
 * Automatically recognize and disable tracking images
