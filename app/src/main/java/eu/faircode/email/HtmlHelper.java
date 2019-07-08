@@ -295,7 +295,10 @@ public class HtmlHelper {
 
         // Remove block elements displaying nothing
         for (Element e : document.select("*"))
-            if (e.isBlock() && !e.hasText() && e.select("img").size() == 0)
+            if (e.isBlock() &&
+                    !e.hasText() &&
+                    e.select("br").size() == 0 &&
+                    e.select("img").size() == 0)
                 e.remove();
 
         // Prevent too many line breaks
