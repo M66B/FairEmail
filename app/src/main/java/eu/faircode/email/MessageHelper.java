@@ -617,12 +617,11 @@ public class MessageHelper {
         subject = MimeUtility.unfold(subject);
         subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
 
-        if (subject.startsWith("=?"))
-            try {
-                subject = MimeUtility.decodeText(subject);
-            } catch (UnsupportedEncodingException ex) {
-                Log.w(ex);
-            }
+        try {
+            subject = MimeUtility.decodeText(subject);
+        } catch (UnsupportedEncodingException ex) {
+            Log.w(ex);
+        }
 
         subject = decodeMime(subject);
 
