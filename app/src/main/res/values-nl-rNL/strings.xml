@@ -175,7 +175,7 @@
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
-    <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
+    <string name="title_advanced_remote_content">Externe inhoud automatisch weergeven bij het bekijken van originele berichten</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>

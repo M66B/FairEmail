@@ -168,7 +168,6 @@
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
-    <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>

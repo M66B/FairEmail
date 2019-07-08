@@ -157,7 +157,6 @@
     <string name="title_advanced_addresses">Vis adresseinformationer som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter meddelelsesteksten</string>
     <string name="title_advanced_monospaced">Brug monospatieret skrifttype til meddelelser</string>
-    <string name="title_advanced_images">Vis automatisk billeder for kendte kontakter</string>
     <string name="title_advanced_actionbar">Samtale action-bar</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opdatere</string>
     <string name="title_advanced_autoscroll">Scroll til toppen, når ny meddelelse modtages</string>

@@ -183,7 +183,7 @@
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
-    <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
+    <string name="title_advanced_remote_content">Arată automat conținutul găzduit pe servere la vizualizarea mesajului original</string>
     <string name="title_advanced_actionbar">Bara de acțiuni conversație</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>

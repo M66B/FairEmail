@@ -189,7 +189,6 @@
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
-    <string name="title_advanced_images">Automatycznie pokaż obrazki dla znanych kontaktów</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>

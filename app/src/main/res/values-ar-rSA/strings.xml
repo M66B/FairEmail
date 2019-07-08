@@ -103,7 +103,6 @@
     <string name="title_advanced_name_email">إظهار الأسماء وعناوين البريد الإلكترونية</string>
     <string name="title_advanced_preview">عرض معاينة الرسالة</string>
     <string name="title_advanced_addresses">عرض تفاصيل العناوين بشكل افتراضي</string>
-    <string name="title_advanced_images">أظهر تلقائيا صور المُراسِلين المعروفين</string>
     <string name="title_advanced_actionbar">شريط إجراءات المحادثة</string>
     <string name="title_advanced_pull_refresh">اسحب لأسفل للتحديث</string>
     <string name="title_advanced_autoexpand">توسيع محتوى الرسائل تلقائيًا</string>

@@ -175,7 +175,6 @@
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst</string>
     <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
-    <string name="title_advanced_images">Vis automatisk bilder for kjente kontakter</string>
     <string name="title_advanced_actionbar">Konversasjons handlingslinje</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>

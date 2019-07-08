@@ -175,7 +175,6 @@
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
-    <string name="title_advanced_images">Näytä tunnettujen yhteystietojen viestien kuvat automaattisesti</string>
     <string name="title_advanced_actionbar">Keskustelujen toimintopalkki</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>

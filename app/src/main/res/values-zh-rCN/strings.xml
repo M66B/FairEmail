@@ -166,7 +166,7 @@
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
-    <string name="title_advanced_images">自动显示来自已知联系人邮件中的图片</string>
+    <string name="title_advanced_remote_content">查看原始消息时自动显示远程内容</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>

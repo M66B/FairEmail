@@ -175,7 +175,7 @@
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
-    <string name="title_advanced_images">Mostrar imágenes automáticamente para contactos conocidos</string>
+    <string name="title_advanced_remote_content">Mostrar contenido remoto automáticamente al visualizar mensajes originales</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>

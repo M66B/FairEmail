@@ -89,7 +89,6 @@
     <string name="title_advanced_identicons">نمایش identicons</string>
     <string name="title_advanced_preview">نمایش دادن پیش‌نمایش پیام</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
-    <string name="title_advanced_images">نمایش خودکار تصاویر برای مخاطبین شناخته شده</string>
     <string name="title_advanced_actionbar">نوار اکشن بار مکالمه</string>
     <string name="title_advanced_pull_refresh">برای بروزرسانی به پایین بکشید</string>
     <string name="title_advanced_swipenav">کشیدن به چپ/راست برای رفتن به مکالمه بعدی/قبلی</string>

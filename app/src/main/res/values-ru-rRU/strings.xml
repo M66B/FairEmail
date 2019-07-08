@@ -183,7 +183,6 @@
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
-    <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>

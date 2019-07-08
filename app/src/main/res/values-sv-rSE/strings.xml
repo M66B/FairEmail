@@ -168,7 +168,6 @@
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_monospaced">Använd monospace-typsnitt för meddelandetexten</string>
-    <string name="title_advanced_images">Visa bilder automatiskt för kända kontakter</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
