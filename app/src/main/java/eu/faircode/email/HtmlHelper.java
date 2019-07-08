@@ -185,17 +185,6 @@ public class HtmlHelper {
         document.select("ul").tagName("div");
 
         // Tables
-        for (Element div : document.select("div")) {
-            Element parent = div.parent();
-            while (parent != null) {
-                if ("td".equals(parent.tagName())) {
-                    div.tagName("span"); // Prevent white space
-                    break;
-                }
-                parent = parent.parent();
-            }
-        }
-
         for (Element col : document.select("th,td")) {
             // separate columns by a space
             if (col.nextElementSibling() == null) {
@@ -308,6 +297,13 @@ public class HtmlHelper {
         for (Element e : document.select("*"))
             if (e.isBlock() && !e.hasText() && e.select("img").size() == 0)
                 e.remove();
+
+        // Prevent too many line breaks
+        for (Element div : document.select("div")) {
+            div.tagName("span");
+            if (div.parent() != null)
+                div.after(document.createElement("br"));
+        }
 
         Element body = document.body();
         return (body == null ? "" : body.html());
