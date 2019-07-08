@@ -557,6 +557,8 @@ public class ServiceSynchronize extends LifecycleService {
             final DB db = DB.getInstance(this);
 
             int backoff = CONNECT_BACKOFF_START;
+            int poll_count = 0;
+            int poll_interval = account.poll_interval;
             while (state.running()) {
                 state.reset();
                 Log.i(account.name + " run");
@@ -708,7 +710,7 @@ public class ServiceSynchronize extends LifecycleService {
                             EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
 
                             long now = new Date().getTime();
-                            long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
+                            long delayed = now - account.last_connected - poll_interval * 60 * 1000L;
                             if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L && backoff > BACKOFF_ERROR_AFTER) {
                                 Log.i("Reporting sync error after=" + delayed);
                                 Throwable warning = new Throwable(
@@ -1098,13 +1100,32 @@ public class ServiceSynchronize extends LifecycleService {
                         while (state.running()) {
                             if (!state.recoverable())
                                 throw new StoreClosedException(istore, "Unrecoverable");
-                            if (!istore.isConnected()) // Sends store NOOP
+                            // Sends store NOOP
+                            if (istore.isConnected()) {
+                                poll_count++;
+                                EntityLog.log(this, account.name + " poll count=" + poll_count);
+                                if (capIdle && poll_count >= 3 && poll_interval != account.poll_interval) {
+                                    Log.w(account.host + " keep alive " + account.poll_interval + " > " + poll_interval);
+                                    EntityLog.log(this, account.name + " adjusting keep alive interval" +
+                                            " from " + account.poll_interval + " to " + poll_interval);
+                                    db.account().setAccountPollInterval(account.id, poll_interval);
+                                    account.poll_interval = poll_interval;
+                                }
+                            } else {
+                                poll_count = 0;
+                                if (capIdle && poll_interval > 9) {
+                                    poll_interval -= Math.ceil(poll_interval * 0.1f);
+                                    EntityLog.log(this, account.name + " decreased keep alive interval" +
+                                            " to " + poll_interval);
+                                }
                                 throw new StoreClosedException(istore, "NOOP");
+                            }
 
                             for (EntityFolder folder : mapFolders.keySet())
                                 if (folder.synchronize)
                                     if (!folder.poll && capIdle) {
-                                        if (!mapFolders.get(folder).isOpen()) // Sends folder NOOP
+                                        // Sends folder NOOP
+                                        if (!mapFolders.get(folder).isOpen())
                                             throw new StoreClosedException(istore, folder.name);
                                     } else
                                         EntityOperation.sync(this, folder.id, false);
@@ -1122,16 +1143,16 @@ public class ServiceSynchronize extends LifecycleService {
                             nm.cancel("receive:" + account.id, 1);
 
                             // Schedule keep alive alarm
-                            EntityLog.log(this, account.name + " wait=" + account.poll_interval);
+                            EntityLog.log(this, account.name + " wait=" + poll_interval);
                             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
                                 am.set(
                                         AlarmManager.RTC_WAKEUP,
-                                        System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
+                                        System.currentTimeMillis() + poll_interval * 60 * 1000L,
                                         pi);
                             else
                                 am.setAndAllowWhileIdle(
                                         AlarmManager.RTC_WAKEUP,
-                                        System.currentTimeMillis() + account.poll_interval * 60 * 1000L,
+                                        System.currentTimeMillis() + poll_interval * 60 * 1000L,
                                         pi);
 
                             try {

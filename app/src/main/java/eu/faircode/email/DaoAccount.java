@@ -126,6 +126,9 @@ public interface DaoAccount {
     @Query("UPDATE account SET error = :error WHERE id = :id")
     int setAccountError(long id, String error);
 
+    @Query("UPDATE account SET poll_interval = :poll_interval WHERE id = :id")
+    int setAccountPollInterval(long id, int poll_interval);
+
     @Query("UPDATE account SET `primary` = 0")
     void resetPrimary();
 
