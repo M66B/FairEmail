@@ -80,6 +80,10 @@
     <string name="title_edit_folder">Muokkaa kansiota</string>
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
+    <string name="title_setup_welcome">        Viestien vastaanottaminen ja lähettäminen vaatii tilin ja identiteetin asettamisen, kuten missä tahansa sähköpostisovelluksessa.
+        Pika-asetukset luo sekä tilin että identiteetin nimesi, sähköpostiosoitteesi, ja salasanasi perusteella.
+        Tilit ja identiteetit (aliakset) voi asettaa tarvittaessa myös erikseen.
+    </string>
     <string name="title_setup_quick">Pika-asetukset</string>
     <string name="title_setup_quick_remark">Tilin ja identiteetin nopeaan asettamiseen useimmille palveluntarjoajille</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
@@ -183,6 +187,7 @@
     <string name="title_advanced_autonext">Siirry seuraavaan keskusteluun, kun keskustelu suljetaan</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
+    <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
     <string name="title_advanced_notify_actions">Ilmoituksen toiminnot</string>
     <string name="title_advanced_notify_action_trash">Roskakoriin</string>
@@ -199,7 +204,6 @@
     <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
-    <string name="title_advanced_paranoid">Ylimääräiset yksityisyysominaisuudet</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
@@ -226,7 +230,6 @@
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
-    <string name="title_advanced_paranoid_hint">Katso lisätietoja usein kysytyistä kysymyksistä</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
@@ -322,6 +325,7 @@
     <string name="title_sync_days_remark">Tämän arvon suurentaminen lisää akun ja datan käyttöä</string>
     <string name="title_keep_days">Viestien säilyttäminen (päivää)</string>
     <string name="title_keep_all">Säilytä kaikki viestit</string>
+    <string name="title_auto_trash">Siirrä vanhat viestit automaattisesti roskakoriin</string>
     <string name="title_auto_delete">Poista vanhat viestit automaattisesti</string>
     <string name="title_folder_name_missing">Kansion nimi puuttuu</string>
     <string name="title_folder_exists">Kansio %1$s on olemassa</string>
@@ -615,6 +619,8 @@
     <string name="title_link_secured">Linkki on turvallinen</string>
     <string name="title_sanitize_link">Poista seurantaparametrit</string>
     <string name="title_insecure_link">Tämä linkki ei ole turvallinen</string>
+    <string name="title_check_owner">Tarkista omistaja</string>
+    <string name="title_remark_owner">Tiedot haetaan osoitteesta <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Omistajan IP-osoite</string>
     <string name="title_select_app">Valitse sovellus</string>
     <string name="title_updated">Päivitys versioon %1$s on saatavilla</string>

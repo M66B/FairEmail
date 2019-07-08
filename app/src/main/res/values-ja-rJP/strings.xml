@@ -63,4 +63,37 @@
     <string name="title_account_name">アカウント名</string>
     <string name="title_domain">ドメイン名</string>
     <string name="title_host">ホスト名</string>
+    <string name="title_user">ユーザー名</string>
+    <string name="title_password">パスワード</string>
+    <string name="title_check">確認</string>
+    <string name="title_edit_properties">プロパティを編集</string>
+    <string name="title_edit_rules">ルールを編集</string>
+    <string name="title_folder_inbox">受信トレイ</string>
+    <string name="title_folder_outbox">送信トレイ</string>
+    <string name="title_folder_all">アーカイブ</string>
+    <string name="title_folder_drafts">下書き</string>
+    <string name="title_folder_trash">ゴミ箱</string>
+    <string name="title_folder_junk">スパム</string>
+    <string name="title_folder_system">システム</string>
+    <string name="title_folder_user">ユーザー</string>
+    <string name="title_print">印刷</string>
+    <string name="title_show_headers">ヘッダーを表示</string>
+    <string name="title_download_all">すべてダウンロード</string>
+    <string name="title_save_all">すべて保存</string>
+    <string name="title_trash">ゴミ箱</string>
+    <string name="title_delete">削除</string>
+    <string name="title_spam">スパム</string>
+    <string name="title_reply_to_all">すべて</string>
+    <string name="title_reply_template">テンプレート</string>
+    <string-array name="downloadNames">
+        <item>16 KB</item>
+        <item>32 KB</item>
+        <item>64 KB</item>
+        <item>128 KB</item>
+        <item>256 KB</item>
+        <item>512 KB</item>
+        <item>1 MB</item>
+        <item>2 MB</item>
+        <item>&#8734;</item>
+    </string-array>
 </resources>

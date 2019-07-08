@@ -88,6 +88,9 @@
     <string name="title_edit_folder">Uredi mapu</string>
     <string name="title_setup">Postavke</string>
     <string name="title_setup_help">Pomoć</string>
+    <string name="title_setup_welcome">Za primanje i slanje poruka potrebno je postaviti račun i identitet kao u bilo kojoj drugoj aplikaciji e-pošte. 
+Brzo postavljanje stvorit će i račun i identitet samo pitanjem za vaše ime, adresu e-pošte i zaporku.
+Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </string>
     <string name="title_setup_quick">Brzo postavljanje</string>
     <string name="title_setup_quick_remark">Za brzo postavljanje računa i identiteta za većinu pružatelja usluga</string>
     <string name="title_setup_quick_hint">Brzo postavljanje preuzet će informacije o konfiguraciji od autoconfig.thunderbird.net</string>
@@ -149,6 +152,7 @@
     <string name="title_advanced_schedule">Raspored</string>
     <string name="title_advanced_unseen">Sve nepročitane poruke</string>
     <string name="title_advanced_flagged">Sve poruke označene zvjezdicom</string>
+    <string name="title_advanced_delete_unseen">Izbriši stare nepročitane poruke</string>
     <string name="title_advanced_kept_removed">Provjerite jesu li stare poruke uklonjene sa servera</string>
     <string name="title_advanced_sync_folders">Sinkroniziraj popis mapa</string>
     <string name="title_advanced_keyboard">Standardno pokaži tastaturu</string>
@@ -190,6 +194,7 @@
     <string name="title_advanced_autonext">Automatski prelazak na sljedeći kad zatrvorite razgovor</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
+    <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavijestima</string>
     <string name="title_advanced_notify_actions">Akcije za Obavijesti</string>
     <string name="title_advanced_notify_action_trash">Otpad</string>
@@ -206,7 +211,6 @@
     <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
-    <string name="title_advanced_paranoid">Dodatne značajke privatnosti</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>
     <string name="title_advanced_crash_reports">Pošalji izvješća o pogrešci</string>
@@ -233,7 +237,6 @@
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
     <string name="title_advanced_subscribed_only_hint">Ako to omogućite, izbrisat ćete sve lokalne mape bez pretplate</string>
     <string name="title_advanced_english_hint">To će ponovno pokrenuti aplikaciju</string>
-    <string name="title_advanced_paranoid_hint">Za detalje pogledajte FAQ</string>
     <string name="title_advanced_debug_hint">Omogućite dodatno bilježenje i prikaz informacija za uklanjanje pogrešaka na različitim mjestima</string>
     <string name="title_select">Odaberi &#8230;</string>
     <string name="title_identity_name">Vaše ime</string>
@@ -329,7 +332,6 @@
     <string name="title_sync_days_remark">Povećanjem ove vrijednosti povećat će se potrošnja baterije i podataka</string>
     <string name="title_keep_days">Zadrži poruke (dana)</string>
     <string name="title_keep_all">Zadrži sve poruke</string>
-    <string name="title_auto_delete">Automatski izbriši stare poruke</string>
     <string name="title_folder_name_missing">Nedostaje naziv mape</string>
     <string name="title_folder_exists">Postoji mapa %1$s</string>
     <string name="title_folder_delete">Trajno izbrisati ovu mapu i sve poruke koje sadrži?</string>
@@ -622,6 +624,8 @@
     <string name="title_link_secured">Veza je sigurna</string>
     <string name="title_sanitize_link">Ukloni parametre praćenja</string>
     <string name="title_insecure_link">Ova veza je nesigurna</string>
+    <string name="title_check_owner">Provjeri vlasnika</string>
+    <string name="title_remark_owner">Informacije će se preuzeti iz <a href="https://ipinfo.io/"> ipinfo.io </a></string>
     <string name="title_ip_owner">IP adresa vlasnika</string>
     <string name="title_select_app">Odaberi Aplikaciju</string>
     <string name="title_updated">Dostupno je ažuriranje na verziju %1$s</string>

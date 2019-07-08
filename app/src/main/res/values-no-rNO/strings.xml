@@ -80,6 +80,10 @@
     <string name="title_edit_folder">Rediger mappe</string>
     <string name="title_setup">Innstillinger</string>
     <string name="title_setup_help">Hjelp</string>
+    <string name="title_setup_welcome">Motta og sende meldinger krever at du oppretter en konto og en identitet som i en annen e-postprogram.
+        Det raske oppsettet vil skape både en konto og en identitet ved bare å be om navn, e-postadresse og passord.
+         Kontoer og identiteter (aliaser) kan også konfigureres manuelt hvis det er nødvendig.
+    </string>
     <string name="title_setup_quick">Hurtig oppsett</string>
     <string name="title_setup_quick_remark">For å raskt sette opp en konto og en identitet for de fleste tilbydere</string>
     <string name="title_setup_quick_hint">Hurtig oppsettet henter konfigurasjons informasjon fra autoconfig.thunderbird.net</string>
@@ -141,6 +145,7 @@
     <string name="title_advanced_schedule">Tidsplan</string>
     <string name="title_advanced_unseen">Alle uleste meldinger</string>
     <string name="title_advanced_flagged">Alle stjernemerkede meldinger</string>
+    <string name="title_advanced_delete_unseen">Slett gamle uleste meldinger</string>
     <string name="title_advanced_kept_removed">Sjekk om gamle meldinger ble fjernet fra serveren</string>
     <string name="title_advanced_sync_folders">Synkroniser mappeliste</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
@@ -182,6 +187,7 @@
     <string name="title_advanced_autonext">Gå automatisk til neste samtale ved lukking av samtale</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
+    <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
     <string name="title_advanced_notify_action_trash">Søppel</string>
@@ -198,7 +204,6 @@
     <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
-    <string name="title_advanced_paranoid">Ekstra personvernfunksjoner</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
     <string name="title_advanced_crash_reports">Send feilrapporter</string>
@@ -225,7 +230,6 @@
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
-    <string name="title_advanced_paranoid_hint">Se FAQ for detaljer</string>
     <string name="title_advanced_debug_hint">Aktivere ekstra logging og vis feilsøkingsinformasjon på forskjellige steder</string>
     <string name="title_select">Velg &#8230;</string>
     <string name="title_identity_name">Ditt navn</string>
@@ -321,7 +325,6 @@
     <string name="title_sync_days_remark">Ved å øke denne verdien øker batteriet og dataforbruket</string>
     <string name="title_keep_days">Beholde meldinger (dager)</string>
     <string name="title_keep_all">Beholde alle meldinger</string>
-    <string name="title_auto_delete">Slett gamle meldinger automatisk</string>
     <string name="title_folder_name_missing">Mappenavn mangler</string>
     <string name="title_folder_exists">Mappen %1$s finnes</string>
     <string name="title_folder_delete">Slett denne mappen permanent og alle meldinger den inneholder?</string>
@@ -614,6 +617,8 @@
     <string name="title_link_secured">Koblingen er sikker</string>
     <string name="title_sanitize_link">Fjern sporingsparametere</string>
     <string name="title_insecure_link">Denne linken er usikker</string>
+    <string name="title_check_owner">Sjekk eier</string>
+    <string name="title_remark_owner">Informasjon vil bli hentet fra <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Eierens IP-adresse</string>
     <string name="title_select_app">Velg app</string>
     <string name="title_updated">Det er en oppdatering til versjon %1$s tilgjengelig</string>

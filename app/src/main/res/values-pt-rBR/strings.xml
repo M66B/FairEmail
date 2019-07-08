@@ -80,6 +80,10 @@
     <string name="title_edit_folder">Editar pasta</string>
     <string name="title_setup">Configurações</string>
     <string name="title_setup_help">Ajuda</string>
+    <string name="title_setup_welcome">        Receber e enviar mensagens requer a criação de uma conta e uma identidade como em qualquer outro aplicativo de e-mail.
+        A instalação rápida criará uma conta e identidade apenas pedindo seu nome, endereço de e-mail e senha.
+        Contas e identidades (aliases) podem ser configuradas manualmente também, se necessário.
+    </string>
     <string name="title_setup_quick">Configuração rápida</string>
     <string name="title_setup_quick_remark">Para configurar rapidamente uma conta e uma identidade para a maioria dos provedores</string>
     <string name="title_setup_quick_hint">A configuração rápida irá buscar informações de configuração a partir de autoconfig.thunderbird.net</string>
@@ -141,6 +145,7 @@
     <string name="title_advanced_schedule">Programar</string>
     <string name="title_advanced_unseen">Todas as mensagens não lidas</string>
     <string name="title_advanced_flagged">Todas as mensagens com estrela</string>
+    <string name="title_advanced_delete_unseen">Excluir mensagens não lidas antigas</string>
     <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
@@ -182,6 +187,7 @@
     <string name="title_advanced_autonext">Ir para a próxima conversa automaticamente ao fechar a conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
+    <string name="title_advanced_tracking">Reconhecer e desativar automaticamente as imagens de rastreamento</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixeira</string>
@@ -198,7 +204,6 @@
     <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
-    <string name="title_advanced_paranoid">Recursos extra de privacidade</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
@@ -225,7 +230,6 @@
     <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
     <string name="title_advanced_subscribed_only_hint">Habilitando isto irá apagar todas as pastas locais sem assinatura</string>
     <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
-    <string name="title_advanced_paranoid_hint">Veja o FAQ para mais detalhes</string>
     <string name="title_advanced_debug_hint">Habilitar o log extra e mostrar informações de depuração em vários lugares</string>
     <string name="title_select">Selecionar &#8230;</string>
     <string name="title_identity_name">Seu nome</string>
@@ -321,7 +325,6 @@
     <string name="title_sync_days_remark">O aumento deste valor aumentará o uso da bateria e o uso de dados</string>
     <string name="title_keep_days">Manter mensagens (dias)</string>
     <string name="title_keep_all">Manter todas as mensagens</string>
-    <string name="title_auto_delete">Excluir mensagens antigas automaticamente</string>
     <string name="title_folder_name_missing">Nome da pasta faltando</string>
     <string name="title_folder_exists">A pasta %1$s já existe</string>
     <string name="title_folder_delete">Excluir permanentemente esta pasta e quaisquer mensagens que ela contenha?</string>
@@ -614,6 +617,8 @@
     <string name="title_link_secured">Link seguro</string>
     <string name="title_sanitize_link">Remover parâmetros de rastreamento</string>
     <string name="title_insecure_link">Este link é inseguro</string>
+    <string name="title_check_owner">Verificar proprietário</string>
+    <string name="title_remark_owner">As informações serão recuperadas de <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Endereço IP do proprietário</string>
     <string name="title_select_app">Selecionar app</string>
     <string name="title_updated">Há uma atualização para a versão %1$s disponível</string>

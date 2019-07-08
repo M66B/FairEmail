@@ -183,7 +183,6 @@
     <string name="title_advanced_sync_subscribed">Synkronisér kun abonnerede mapper</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kan bekræfte meddelelsen</string>
-    <string name="title_advanced_paranoid">Yderligere privatlivsfunktioner</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
@@ -205,7 +204,6 @@
     <string name="title_advanced_badge_hint">Kun tilgængelig på understøttede launchers</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering af dette vil slette alle lokale mapper, der ikke abonneres på</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
-    <string name="title_advanced_paranoid_hint">Se FAQ\'en for yderligere informationer</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logs og vis fejlretningsoplysninger diverse steder</string>
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
@@ -294,7 +292,6 @@
     <string name="title_sync_days_remark">En større værdi vil øge batteri- og dataforbruget</string>
     <string name="title_keep_days">Behold meddelelser (dage)</string>
     <string name="title_keep_all">Behold alle meddelelser</string>
-    <string name="title_auto_delete">Slet automatisk gamle meddelelser</string>
     <string name="title_folder_name_missing">Manglende mappenavn</string>
     <string name="title_folder_exists">Mappe %1$s eksisterer</string>
     <string name="title_folder_delete">Slet denne mappe samt eventuelt indhold permanent?</string>

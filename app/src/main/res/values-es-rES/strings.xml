@@ -80,6 +80,10 @@
     <string name="title_edit_folder">Editar carpeta</string>
     <string name="title_setup">Ajustes</string>
     <string name="title_setup_help">Ayuda</string>
+    <string name="title_setup_welcome">        Recibir y enviar mensajes requiere configurar una cuenta y una identidad como en cualquier otra aplicación de correo electrónico.
+        La configuración rápida creará una cuenta e identidad simplemente pidiendo su nombre, dirección de correo electrónico y contraseña.
+        Las cuentas y identidades (alias) también se pueden configurar manualmente si es necesario.
+    </string>
     <string name="title_setup_quick">Configuración rápida</string>
     <string name="title_setup_quick_remark">Para configurar rápidamente una cuenta y una identidad para la mayoría de los proveedores</string>
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
@@ -183,6 +187,7 @@
     <string name="title_advanced_autonext">Al cerrar una conversación, ir automáticamente a la siguiente</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
+    <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
     <string name="title_advanced_notify_action_trash">Papelera</string>
@@ -199,7 +204,6 @@
     <string name="title_advanced_sync_subscribed">Sincronizar solo carpetas suscritas</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
-    <string name="title_advanced_paranoid">Características de privacidad adicionales</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
@@ -226,7 +230,6 @@
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_subscribed_only_hint">Activar esto eliminará todas las carpetas locales sin suscripción</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
-    <string name="title_advanced_paranoid_hint">Vea las preguntas frecuentes para más detalles</string>
     <string name="title_advanced_debug_hint">Habilitar registro adicional y mostrar información de depuración en varios lugares</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
@@ -322,7 +325,8 @@
     <string name="title_sync_days_remark">Incrementar este valor hará que aumente el consumo de datos y batería</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
     <string name="title_keep_all">Mantener todos los mensajes</string>
-    <string name="title_auto_delete">Eliminar automáticamente mensajes antiguos</string>
+    <string name="title_auto_trash">Mover mensajes antiguos a la papelera de manera automática</string>
+    <string name="title_auto_delete">Eliminar mensajes antiguos permanentemente de manera automática</string>
     <string name="title_folder_name_missing">Falta nombre de carpeta</string>
     <string name="title_folder_exists">La carpeta %1$s ya existe</string>
     <string name="title_folder_delete">¿Eliminar permanentemente esta carpeta y los mensajes que contenga?</string>
@@ -615,6 +619,8 @@
     <string name="title_link_secured">El enlace es seguro</string>
     <string name="title_sanitize_link">Eliminar parámetros de rastreo</string>
     <string name="title_insecure_link">Este enlace es inseguro</string>
+    <string name="title_check_owner">Comprobar propietario</string>
+    <string name="title_remark_owner">La información se obtendrá de <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Dirección IP del propietario</string>
     <string name="title_select_app">Seleccionar app</string>
     <string name="title_updated">Hay una actualización a la version %1$s disponible</string>

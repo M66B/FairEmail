@@ -214,7 +214,6 @@
     <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
-    <string name="title_advanced_paranoid">Doplňující funkce ochrany soukromí</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
@@ -241,7 +240,6 @@
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny místní složky bez přihlášeného odběru</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
-    <string name="title_advanced_paranoid_hint">Pro více informací si přečtěte časté dotazy</string>
     <string name="title_advanced_debug_hint">Zapnout rozšířený záznam a zobrazit ladící informace na různých místech</string>
     <string name="title_select">Vybrat &#8230;</string>
     <string name="title_identity_name">Vaše jméno</string>
@@ -337,7 +335,6 @@
     <string name="title_sync_days_remark">Navýšení této hodnoty zvýší využití baterie a spotřebu dat</string>
     <string name="title_keep_days">Uchovávat zprávy (dny)</string>
     <string name="title_keep_all">Uchovávat všechny zprávy</string>
-    <string name="title_auto_delete">Automaticky mazat staré zprávy</string>
     <string name="title_folder_name_missing">Chybí název složky</string>
     <string name="title_folder_exists">Složka %1$s již existuje</string>
     <string name="title_folder_delete">Trvale odstranit tuto složku a všechny její zprávy?</string>

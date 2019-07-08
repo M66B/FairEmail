@@ -81,7 +81,7 @@
     <string name="title_setup">Instellingen</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_welcome">        Ontvangen en verzenden van berichten vereist een account en een identiteit zoals in elke andere e-mail app.
-        De snelle setup zal zowel een account als identiteit maken door alleen om uw naam, e-mailadres en wachtwoord te vragen.
+        De snelle instelling zal zowel een account als identiteit maken door alleen om uw naam, e-mailadres en wachtwoord te vragen.
         Accounts en identiteiten (aliassen) kunnen ook handmatig worden ingesteld indien nodig.
     </string>
     <string name="title_setup_quick">Snel instellen</string>
@@ -187,6 +187,7 @@
     <string name="title_advanced_autonext">Automatisch naar het volgende gesprek gaan bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
+    <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking afbeeldingen</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
     <string name="title_advanced_notify_action_trash">Weggooien</string>
@@ -203,7 +204,6 @@
     <string name="title_advanced_sync_subscribed">Alleen geabonneerde mappen synchroniseren</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
-    <string name="title_advanced_paranoid">Extra privacy functies</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
@@ -230,7 +230,6 @@
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_subscribed_only_hint">Dit inschakelen zal alle lokale mappen zonder abonnement verwijderen</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
-    <string name="title_advanced_paranoid_hint">Zie de FAQ voor details</string>
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
@@ -326,7 +325,8 @@
     <string name="title_sync_days_remark">Een hogere waarde verhoogt het batterij- en dataverbruik</string>
     <string name="title_keep_days">Bewaren van berichten (dagen)</string>
     <string name="title_keep_all">Bewaar alle berichten</string>
-    <string name="title_auto_delete">Automatisch oude berichten verwijderen</string>
+    <string name="title_auto_trash">Automatisch oude berichten verplaatsen naar de prullenbak</string>
+    <string name="title_auto_delete">Automatisch oude berichten permanent verwijderen</string>
     <string name="title_folder_name_missing">Mapnaam ontbreekt</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
     <string name="title_folder_delete">Deze map en de berichten die het bevat permanent verwijderen?</string>
@@ -619,6 +619,8 @@
     <string name="title_link_secured">Link is veilig</string>
     <string name="title_sanitize_link">Verwijder tracking parameters</string>
     <string name="title_insecure_link">Deze koppeling is onveilig</string>
+    <string name="title_check_owner">Controleer eigenaar</string>
+    <string name="title_remark_owner">Informatie wordt opgehaald van <a href="https://ipinfo.io/">ipinfo.io</a></string>
     <string name="title_ip_owner">Eigenaar IP-adres</string>
     <string name="title_select_app">Selecteer app</string>
     <string name="title_updated">Er is een update naar versie %1$s beschikbaar</string>
