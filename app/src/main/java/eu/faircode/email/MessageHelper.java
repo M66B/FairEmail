@@ -85,7 +85,7 @@ public class MessageHelper {
     private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
-    static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 65536; // bytes
+    static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 262144; // bytes
 
     static void setSystemProperties() {
         System.setProperty("mail.mime.decodetext.strict", "false");
