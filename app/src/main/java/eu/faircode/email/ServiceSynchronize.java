@@ -1105,7 +1105,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 if (folder.synchronize)
                                     if (!folder.poll && capIdle) {
                                         if (!mapFolders.get(folder).isOpen()) // Sends folder NOOP
-                                            throw new FolderClosedException(mapFolders.get(folder));
+                                            throw new StoreClosedException(istore, folder.name);
                                     } else
                                         EntityOperation.sync(this, folder.id, false);
 
