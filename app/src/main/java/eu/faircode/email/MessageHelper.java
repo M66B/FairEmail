@@ -780,7 +780,6 @@ public class MessageHelper {
         String getHtml(Context context) throws MessagingException, IOException {
             if (plain == null && html == null) {
                 Log.i("No body part");
-                warnings.add(context.getString(R.string.title_no_body));
                 return null;
             }
 
@@ -814,6 +813,7 @@ public class MessageHelper {
             try {
                 ContentType ct = new ContentType(part.getContentType());
                 String charset = ct.getParameter("charset");
+
                 String encoding = null;
                 try {
                     String[] enc = part.getHeader("Content-Transfer-Encoding");
@@ -822,26 +822,24 @@ public class MessageHelper {
                 } catch (MessagingException ex) {
                     Log.w(ex);
                 }
-                if (TextUtils.isEmpty(charset)) {
-                    if (BuildConfig.DEBUG)
-                        warnings.add(context.getString(R.string.title_no_charset, ct));
+
+                if (TextUtils.isEmpty(charset) || "US-ASCII".equals(charset.toUpperCase())) {
                     // The first 127 characters are the same as in US-ASCII
                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
+                } else if (encoding != null && "8bit".equals(encoding.toLowerCase()) &&
+                        "ISO-8859-1".equals(charset.toUpperCase())) {
+                    // Workaround JavaMail bug
+                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                 } else {
-                    if ("US-ASCII".equals(charset.toUpperCase()) ||
-                            (encoding != null && "8bit".equals(encoding.toLowerCase()) &&
-                                    "ISO-8859-1".equals(charset.toUpperCase())))
-                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
-                    else {
-                        if ("US-ASCII".equals(Charset.forName(charset).name()))
-                            warnings.add(context.getString(R.string.title_no_charset, charset));
-                    }
+                    if ("US-ASCII".equals(Charset.forName(charset).name()))
+                        warnings.add(context.getString(R.string.title_no_charset, charset));
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
                 warnings.add(Helper.formatThrowable(ex, false));
             }
 
+            // Prevent Jsoup throwing an exception
             result = result.replace("\0", "");
 
             if (part.isMimeType("text/plain")) {
@@ -997,10 +995,11 @@ public class MessageHelper {
                 for (int i = 0; i < multipart.getCount(); i++)
                     try {
                         Part cpart = multipart.getBodyPart(i);
-                        getMessageParts(cpart, parts, pgp);
                         ContentType ct = new ContentType(cpart.getContentType());
                         if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase()))
                             pgp = true;
+                        else
+                            getMessageParts(cpart, parts, pgp);
                     } catch (ParseException ex) {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
@@ -1028,11 +1027,6 @@ public class MessageHelper {
                     parts.warnings.add(Helper.formatThrowable(ex, false));
                     filename = null;
                 }
-
-                //Log.i("Part" +
-                //        " disposition=" + disposition +
-                //        " filename=" + filename +
-                //        " content type=" + part.getContentType());
 
                 if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
                         TextUtils.isEmpty(filename) &&
@@ -1081,7 +1075,7 @@ public class MessageHelper {
                         apart.attachment.name = "invite.ics";
 
                     // Try to guess a better content type
-                    // Sometimes PDF files are sent using the wrong type
+                    // For example, sometimes PDF files are sent as application/octet-stream
                     if ("application/octet-stream".equalsIgnoreCase(apart.attachment.type)) {
                         String extension = Helper.getExtension(apart.attachment.name);
                         if (extension != null) {
