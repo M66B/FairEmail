@@ -191,11 +191,8 @@ public class EntityRule {
             } else
                 matched = haystack.toLowerCase().contains(needle.trim().toLowerCase());
 
-        EntityLog.log(context, "Rule=" + name +
-                " matched=" + matched +
-                " needle=" + needle +
-                " haystack=" + haystack +
-                " regex=" + regex);
+        Log.i("Rule=" + name + " matched=" + matched +
+                " needle=" + needle + " haystack=" + haystack + " regex=" + regex);
         return matched;
     }
 
