@@ -1001,13 +1001,17 @@ class Core {
             Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
 
             // Delete old local messages
-            if (auto_delete && EntityFolder.TRASH.equals(folder.type)) {
+            if (auto_delete) {
                 List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, delete_unseen);
                 Log.i(folder.name + " local tbd=" + tbds.size());
+                EntityFolder trash = db.folder().getFolderByType(folder.account, EntityFolder.TRASH);
                 for (Long tbd : tbds) {
                     EntityMessage message = db.message().getMessage(tbd);
-                    if (message != null)
-                        EntityOperation.queue(context, message, EntityOperation.DELETE);
+                    if (message != null && trash != null)
+                        if (EntityFolder.TRASH.equals(folder.type))
+                            EntityOperation.queue(context, message, EntityOperation.DELETE);
+                        else
+                            EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
                 }
             } else {
                 int old = db.message().deleteMessagesBefore(folder.id, keep_time, delete_unseen);

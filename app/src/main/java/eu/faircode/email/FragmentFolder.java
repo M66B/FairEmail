@@ -209,8 +209,15 @@ public class FragmentFolder extends FragmentBase {
                         cbKeepAll.setChecked(true);
                     else
                         etKeepDays.setText(Integer.toString(folder == null ? EntityFolder.DEFAULT_KEEP : folder.keep_days));
-                    cbAutoDelete.setChecked(folder == null ? false : folder.auto_delete);
-                    cbAutoDelete.setVisibility(folder != null && EntityFolder.TRASH.equals(folder.type) ? View.VISIBLE : View.GONE);
+
+                    if (folder == null || folder.read_only)
+                        cbAutoDelete.setVisibility(View.GONE);
+                    else {
+                        cbAutoDelete.setText(EntityFolder.TRASH.equals(folder.type)
+                                ? R.string.title_auto_delete : R.string.title_auto_trash);
+                        cbAutoDelete.setChecked(folder.auto_delete);
+                        cbAutoDelete.setVisibility(View.VISIBLE);
+                    }
                 }
 
                 // Consider previous save as cancelled
