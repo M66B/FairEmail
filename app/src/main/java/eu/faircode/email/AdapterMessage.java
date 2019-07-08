@@ -1126,7 +1126,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean calendar = false;
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
-                boolean inline = (attachment.isInline() || TextUtils.isEmpty(attachment.name));
+                boolean inline = (attachment.isInline() && attachment.isImage());
                 if (inline)
                     has_inline = true;
                 if (Objects.equals(attachment.encryption, EntityAttachment.PGP_MESSAGE))

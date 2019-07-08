@@ -78,7 +78,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private ImageView ivStatus;
         private ImageButton ibSave;
         private TextView tvType;
-        private TextView tvDebug;
+        private TextView tvError;
         private ProgressBar progressbar;
 
         ViewHolder(View itemView) {
@@ -91,7 +91,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             ivStatus = itemView.findViewById(R.id.ivStatus);
             ibSave = itemView.findViewById(R.id.ibSave);
             tvType = itemView.findViewById(R.id.tvType);
-            tvDebug = itemView.findViewById(R.id.tvDebug);
+            tvError = itemView.findViewById(R.id.tvError);
             progressbar = itemView.findViewById(R.id.progressbar);
         }
 
@@ -108,7 +108,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void bindTo(EntityAttachment attachment) {
-            view.setAlpha(attachment.isInline() || TextUtils.isEmpty(attachment.name) ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(attachment.isInline() && attachment.isImage() ? Helper.LOW_LIGHT : 1.0f);
 
             ibDelete.setVisibility(readonly ? View.GONE : attachment.isInline() ? View.INVISIBLE : View.VISIBLE);
             tvName.setText(attachment.name);
@@ -135,11 +135,20 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             progressbar.setVisibility(
                     attachment.progress == null || attachment.available ? View.GONE : View.VISIBLE);
 
-            tvType.setText(attachment.type + " " + attachment.disposition + " " + attachment.cid + "/" + attachment.encryption);
-            tvType.setVisibility(debug || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+            StringBuilder sb = new StringBuilder();
+            sb.append(attachment.type);
+            if (attachment.disposition != null)
+                sb.append(' ').append(attachment.disposition);
+            if (debug || BuildConfig.DEBUG) {
+                if (attachment.cid != null)
+                    sb.append(' ').append(attachment.cid);
+                if (attachment.encryption != null)
+                    sb.append(' ').append(attachment.encryption);
+            }
+            tvType.setText(sb.toString());
 
-            tvDebug.setText(attachment.error);
-            tvDebug.setVisibility(attachment.error == null ? View.GONE : View.VISIBLE);
+            tvError.setText(attachment.error);
+            tvError.setVisibility(attachment.error == null ? View.GONE : View.VISIBLE);
         }
 
         @Override

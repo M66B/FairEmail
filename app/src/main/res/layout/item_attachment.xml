@@ -20,57 +20,46 @@
             android:background="@null"
             android:contentDescription="@string/title_legend_delete"
             android:paddingEnd="12dp"
-            app:srcCompat="@drawable/baseline_delete_24"
             android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_delete_24" />
 
         <ImageView
             android:id="@+id/ivAttachments"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/title_legend_attachment"
-            app:srcCompat="@drawable/baseline_attachment_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintStart_toEndOf="@id/ibDelete"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_attachment_24" />
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
             android:ellipsize="middle"
             android:singleLine="true"
             android:text="Name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
             app:layout_constraintEnd_toStartOf="@+id/tvSize"
             app:layout_constraintHorizontal_weight="4"
             app:layout_constraintStart_toEndOf="@id/ivAttachments"
-            app:layout_constraintTop_toTopOf="@id/ivAttachments" />
-
-        <TextView
-            android:id="@+id/tvSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="10 kB"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@id/ivAttachments"
-            app:layout_constraintEnd_toStartOf="@+id/ivStatus"
-            app:layout_constraintStart_toEndOf="@id/tvName"
-            app:layout_constraintTop_toTopOf="@id/ivAttachments" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ivStatus"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="6dp"
             android:contentDescription="@string/title_legend_download_state"
-            app:srcCompat="@drawable/baseline_cloud_download_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toStartOf="@+id/ibSave"
-            app:layout_constraintStart_toEndOf="@id/tvSize"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_cloud_download_24" />
 
         <ImageButton
             android:id="@+id/ibSave"
@@ -79,10 +68,10 @@
             android:background="@null"
             android:contentDescription="@string/title_legend_save"
             android:paddingStart="12dp"
-            app:srcCompat="@drawable/baseline_save_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivStatus"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_save_24" />
 
         <TextView
             android:id="@+id/tvType"
@@ -92,20 +81,34 @@
             android:singleLine="true"
             android:text="text/plain"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintEnd_toEndOf="@id/ivStatus"
+            app:layout_constraintEnd_toStartOf="@+id/tvSize"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/ivAttachments" />
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <TextView
-            android:id="@+id/tvDebug"
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="10 kB"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/tvType"
+            app:layout_constraintEnd_toStartOf="@id/ivStatus"
+            app:layout_constraintStart_toEndOf="@id/tvType"
+            app:layout_constraintTop_toTopOf="@id/tvName" />
+
+        <TextView
+            android:id="@+id/tvError"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:text="debug"
+            android:layout_marginEnd="6dp"
+            android:text="Error"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
-            app:layout_constraintEnd_toEndOf="@id/ivStatus"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivAttachments"
             app:layout_constraintTop_toBottomOf="@id/tvType" />
 
@@ -117,6 +120,6 @@
             android:progress="50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDebug" />
+            app:layout_constraintTop_toBottomOf="@id/tvError" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
