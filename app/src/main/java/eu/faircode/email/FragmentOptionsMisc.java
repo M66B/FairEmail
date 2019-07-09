@@ -243,7 +243,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));
 
         swEnglish.setChecked(prefs.getBoolean("english", false));
-        swAuthentication.setChecked(prefs.getBoolean("authentication", false));
+        swAuthentication.setChecked(prefs.getBoolean("authentication", true));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);

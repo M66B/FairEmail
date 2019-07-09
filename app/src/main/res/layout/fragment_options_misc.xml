@@ -107,13 +107,26 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swEnglish" />
 
+            <ImageView
+                android:id="@+id/ivAuth"
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:contentDescription="@string/title_legend_auth"
+                android:src="@drawable/baseline_flag_24"
+                android:tint="?colorError"
+                app:layout_constraintBottom_toBottomOf="@+id/swAuthentication"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/swAuthentication" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swAuthentication"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_authentication"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivAuth"
                 app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
                 app:switchPadding="12dp" />
 

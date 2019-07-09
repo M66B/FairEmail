@@ -1624,9 +1624,9 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
-However, FairEmail can show a small vertical warning stripe at the end of the message header
-if DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
-You can enable this in the settings.
+However, FairEmail will show a small warning flag
+when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
+You can enable/disable this in the miscellaneous settings.
 
 <br />
 

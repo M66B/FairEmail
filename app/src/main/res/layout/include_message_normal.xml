@@ -141,6 +141,18 @@
         app:layout_constraintTop_toTopOf="@+id/tvFolder" />
 
     <ImageView
+        android:id="@+id/ivAuth"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_auth"
+        android:src="@drawable/baseline_flag_24"
+        android:tint="?colorError"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
+        app:layout_constraintStart_toEndOf="@id/ivType"
+        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+
+    <ImageView
         android:id="@+id/ivSnoozed"
         android:layout_width="21dp"
         android:layout_height="21dp"
@@ -148,7 +160,7 @@
         android:contentDescription="@string/title_legend_snoozed"
         android:src="@drawable/baseline_timelapse_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivType"
+        app:layout_constraintStart_toEndOf="@id/ivAuth"
         app:layout_constraintTop_toTopOf="@+id/tvFolder" />
 
     <ImageView
@@ -281,15 +293,6 @@
         android:id="@+id/paddingEnd"
         android:layout_width="6dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
-        app:layout_constraintEnd_toStartOf="@+id/vwStatus"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/vwStatus"
-        android:layout_width="6dp"
-        android:layout_height="0dp"
-        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

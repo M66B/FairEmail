@@ -47,6 +47,7 @@ This app starts a foreground service with a low priority status bar notification
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
 * Automatically recognize and disable tracking images
+* Warn when a message could not be [authenticated](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq92)
 
 ## Pro features
 
