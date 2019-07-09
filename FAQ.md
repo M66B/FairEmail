@@ -859,13 +859,6 @@ If you cannot solve the problem with the purchase, you will have to contact Goog
 <a name="faq39"></a>
 **(39) How can I reduce the battery usage of FairEmail?**
 
-First of all, update to [the latest version](https://github.com/M66B/open-source-email/releases/).
-
-It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
-
-Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
-In this case you might want to synchronize periodically, for example each hour, instead of continuously.
-
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
 Confusingly, *app usage* is not the same as *battery usage*.
 The app usage will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android.
@@ -874,10 +867,15 @@ The real battery usage can be seen by using the three dot overflow menu *Show fu
 As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*.
 If this isn't the case, please let me know.
 
+It is inevitable that synchronizing messages will use battery power because it requires network access and accessing the messages database.
+
+Reconnecting to an email server will use extra battery power, so an unstable internet connection will result in extra battery usage.
+In this case you might want to synchronize periodically, for example each hour, instead of continuously.
+
 Most of the battery usage, not considering viewing messages, is due to synchronization (receiving and sending) of messages.
 So, to reduce the battery usage, set the number of days to synchronize message for to a lower value,
 especially if there are a lot of recent messages in a folder.
-Long press a folder name in the folders list to access this setting.
+Long press a folder name in the folders list and select *Edit properties* to access this setting.
 
 If you have at least once a day internet connectivity, it is sufficient to synchronize messages just for one day.
 
@@ -885,7 +883,7 @@ Note that you can set the number of days to *keep* messages for to a higher numb
 You could for example initially synchronize messages for a large number of days and after this has been completed
 reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
 
-Starred messages will always be synchronized,
+Starred messages will by default always be synchronized (this can be turned off in the sync settings),
 which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
 Disabling the folder option *Automatically download message texts and attachments*
@@ -903,6 +901,8 @@ consider switching to a modern provider which supports push messages (IMAP IDLE)
 
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
 you can save battery usage while viewing messages by switching to the black theme.
+
+Finally, make sure you are using [the latest version](https://github.com/M66B/open-source-email/releases/).
 
 <br />
 
@@ -1626,7 +1626,11 @@ and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization i
 
 However, FairEmail will show a small warning flag
 when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
-You can enable/disable this in the behavior settings.
+You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the behavior settings.
+
+If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder.
+Moreover, without proper authentication there is a risk the sender will be impersonated.
+The sender might use [this tool](https://www.mail-tester.com/) to check authentication and other things.
 
 <br />
 
