@@ -592,7 +592,7 @@ public class ServiceSynchronize extends LifecycleService {
                         @Override
                         public void notification(StoreEvent e) {
                             if (e.getMessageType() == StoreEvent.NOTICE)
-                                Log.i(account.name + " notice: " + e.getMessage());
+                                EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + e.getMessage());
                             else
                                 try {
                                     wlFolder.acquire();
