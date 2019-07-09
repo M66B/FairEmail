@@ -689,6 +689,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bindFlagged(message);
 
             // Message text preview
+            tvPreview.setTextColor(contrast ? textColorPrimary : textColorSecondary);
             tvPreview.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT, Typeface.ITALIC);
             tvPreview.setText(message.preview);
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
