@@ -256,7 +256,7 @@ public class ConnectionHelper {
                     Map<String, String> crumb = new HashMap<>();
                     for (String key : sid.keySet()) {
                         crumb.put(key, sid.get(key));
-                        Log.i("Server " + key + "=" + sid.get(key));
+                        EntityLog.log(context, "Server " + key + "=" + sid.get(key));
                     }
                     Bugsnag.leaveBreadcrumb("server", BreadcrumbType.LOG, crumb);
                 }
