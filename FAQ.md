@@ -893,13 +893,22 @@ You could disable this option for example for the sent folder and the archive.
 Synchronizing messages at night is mostly not useful, so you can save on battery usage by not synchronizing at night.
 In the settings you can select a schedule for message synchronization (this is a pro feature). See also [this FAQ](#user-content-faq78).
 
-Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often.
+FairEmail will by default synchronize the folder list on each connection.
+Since folders are mostly not created, renamed and deleted very often, you can save some network and battery usage by disabling this in the receive settings.
+
+FairEmail will by default check if old messages were deleted from the server on each connection.
+If you don't mind that old messages that were delete from the server are still visible in FairEmail, you can save some network and battery usage by disabling this in the receive settings.
+
+Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage.
+You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects.
 You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 minutes.
 
-Some providers send every two minutes something like *Still there* resulting in network traffic and your device to wake up, causing unnecessary extra battery usage.
+Some providers send every two minutes something like '*Still there*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage.
 You can inspect the *Log* via the main navigation menu to check if your provider is doing this.
-If your provider is using [Dovecot](https://www.dovecot.org/),
-you chould ask your provider to change [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this.
+If your provider is using [Dovecot](https://www.dovecot.org/) as IMAP server,
+you could ask your provider to change the [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this.
+If your provider is not able or willing to change/disable this, you should consider to switch to periodically instead of continuous synchronization.
+You can change this in the receive settings.
 
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
