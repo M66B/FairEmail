@@ -1866,16 +1866,10 @@ class Core {
                     }
             }
 
-            int headers = 0;
-            for (Long id : add)
-                if (id < 0)
-                    headers++;
-
             Log.i("Notify group=" + group + " count=" + notifications.size() +
-                    " added=" + add.size() + " removed=" + remove.size() + " headers=" + headers);
+                    " added=" + add.size() + " removed=" + remove.size());
 
-            if (notifications.size() == 0 ||
-                    (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && headers > 0)) {
+            if (notifications.size() == 0) {
                 String tag = "unseen.0";
                 Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
@@ -1941,6 +1935,8 @@ class Core {
         boolean notify_reply = (prefs.getBoolean("notify_reply", false) && pro);
         boolean notify_flag = (prefs.getBoolean("notify_flag", false) && pro);
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
+        boolean light = prefs.getBoolean("light", false);
+        String sound = prefs.getString("sound", null);
 
         // Get contact info
         Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
@@ -1971,18 +1967,13 @@ class Core {
                         .setCategory(NotificationCompat.CATEGORY_STATUS)
                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                         .setGroup(group)
-                        .setGroupSummary(true);
+                        .setGroupSummary(true)
+                        .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
         Notification pub = builder.build();
         builder
                 .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                 .setPublicVersion(pub);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            setNotificationSoundAndLight(context, builder);
-            builder.setOnlyAlertOnce(true);
-        } else
-            builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
         DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
         StringBuilder sb = new StringBuilder();
@@ -2059,6 +2050,7 @@ class Core {
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                             .setGroup(group)
                             .setGroupSummary(false)
+                            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN)
                             .setOnlyAlertOnce(true);
 
             if (notify_trash) {
@@ -2158,29 +2150,20 @@ class Core {
                 mbuilder.setColorized(true);
             }
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                mbuilder.setSound(null);
-            else
-                mbuilder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                if (light)
+                    mbuilder.setLights(Color.WHITE, 1000, 1000);
+
+                Uri uri = (sound == null ? null : Uri.parse(sound));
+                if (uri == null || "file".equals(uri.getScheme()))
+                    uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                mbuilder.setSound(uri);
+            }
 
             notifications.add(mbuilder.build());
         }
 
         return notifications;
-    }
-
-    private static void setNotificationSoundAndLight(Context context, NotificationCompat.Builder builder) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean light = prefs.getBoolean("light", false);
-        String sound = prefs.getString("sound", null);
-
-        if (light)
-            builder.setLights(Color.GREEN, 1000, 1000);
-
-        Uri uri = (sound == null ? null : Uri.parse(sound));
-        if (uri == null || "file".equals(uri.getScheme()))
-            uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        builder.setSound(uri);
     }
 
     // FolderClosedException: can happen when no connectivity
