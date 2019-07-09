@@ -80,6 +80,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.FetchProfile;
@@ -848,7 +849,7 @@ class Core {
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {
             String fullName = ifolder.getFullName();
-            String[] name = fullName.split("[" + separator + "]");
+            String[] name = fullName.split(Pattern.quote(Character.toString(separator)));
             String childName = name[name.length - 1];
             boolean subscribed = subscription.contains(fullName);
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
