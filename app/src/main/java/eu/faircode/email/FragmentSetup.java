@@ -353,7 +353,8 @@ public class FragmentSetup extends FragmentBase {
         btnDoze.setEnabled(!ignoring);
 
         // https://issuetracker.google.com/issues/37070074
-        ignoring = (ignoring || Build.VERSION.SDK_INT != Build.VERSION_CODES.M);
+        //ignoring = (ignoring || Build.VERSION.SDK_INT != Build.VERSION_CODES.M);
+
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
