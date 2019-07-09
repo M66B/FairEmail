@@ -209,15 +209,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuOperations();
             }
-        }, new Runnable() {
+        });
+
+        menus.add(navOperations);
+
+        menus.add(new NavMenuItem(R.drawable.baseline_list_24, R.string.title_log, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
                 onShowLog();
             }
-        });
-
-        menus.add(navOperations);
+        }));
 
         menus.add(new NavMenuItem(R.drawable.baseline_reply_24, R.string.menu_answers, new Runnable() {
             @Override
