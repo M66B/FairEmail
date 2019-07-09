@@ -554,6 +554,7 @@
     <string name="title_legend_thread">对话</string>
     <string name="title_legend_zoom">改变文字大小</string>
     <string name="title_legend_draft">有草稿</string>
+    <string name="title_legend_auth">认证失败</string>
     <string name="title_legend_snoozed">已暂停</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
     <string name="title_legend_answered">已回复</string>

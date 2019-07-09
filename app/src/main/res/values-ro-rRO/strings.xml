@@ -182,6 +182,7 @@
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
+    <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
@@ -570,6 +571,7 @@
     <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_zoom">Modificare dimensiune text</string>
     <string name="title_legend_draft">Are ciornă</string>
+    <string name="title_legend_auth">Autentificare eșuată</string>
     <string name="title_legend_snoozed">Este amânat</string>
     <string name="title_legend_browsed">Este răsfoit sau căutat</string>
     <string name="title_legend_answered">A primit un răspuns</string>

@@ -173,7 +173,7 @@
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
-    <string name="title_advanced_contrast">Usa il contrasto elevato per il messaggio di testo</string>
+    <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa il carattere monospaziale per il testo del messaggio</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti noti</string>
@@ -562,6 +562,7 @@
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_zoom">Cambia dimensione testo</string>
     <string name="title_legend_draft">Ha bozza</string>
+    <string name="title_legend_auth">Autenticazione fallita</string>
     <string name="title_legend_snoozed">È posticipato</string>
     <string name="title_legend_browsed">È browser o ricercato</string>
     <string name="title_legend_answered">Ha ricevuto risposta</string>

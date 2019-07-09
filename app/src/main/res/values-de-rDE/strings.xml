@@ -562,6 +562,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_zoom">Textgröße ändern</string>
     <string name="title_legend_draft">Entwurf vorhanden</string>
+    <string name="title_legend_auth">Authentifizierung fehlgeschlagen</string>
     <string name="title_legend_snoozed">Wurde zurückgestellt</string>
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>
