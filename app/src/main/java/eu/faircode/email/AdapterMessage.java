@@ -161,6 +161,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int colorPrimary;
     private int colorAccent;
     private int colorWarning;
+    private int textColorPrimary;
     private int textColorSecondary;
     private int colorUnread;
 
@@ -176,6 +177,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean flags;
     private boolean preview;
     private boolean attachments_alt;
+    private boolean contrast;
     private boolean monospaced;
     private boolean autoimages;
     private boolean authentication;
@@ -912,6 +914,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (textSize != 0)
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
+            tvBody.setTextColor(contrast ? textColorPrimary : textColorSecondary);
             tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
             tvBody.setVisibility(View.INVISIBLE);
 
@@ -2894,6 +2897,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+        this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
 
@@ -2911,6 +2915,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
+        this.contrast = prefs.getBoolean("contrast", false);
         this.monospaced = prefs.getBoolean("monospaced", false);
         this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
         this.authentication = prefs.getBoolean("authentication", false);

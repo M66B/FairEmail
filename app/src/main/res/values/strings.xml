@@ -207,6 +207,7 @@
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
+    <string name="title_advanced_contrast">Use high contrast for message text</string>
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
     <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_images">Automatically show images for known contacts</string>
