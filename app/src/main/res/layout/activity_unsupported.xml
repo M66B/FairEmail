@@ -11,7 +11,7 @@
         android:layout_marginTop="12dp"
         android:text="@string/app_crash"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="?colorWarning"
+        android:textColor="?attr/colorWarning"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

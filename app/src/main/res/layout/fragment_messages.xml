@@ -288,5 +288,5 @@
         android:src="@drawable/baseline_warning_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_compose"
-        app:backgroundTint="@color/lightColorWarning" />
+        app:backgroundTint="@color/colorError" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

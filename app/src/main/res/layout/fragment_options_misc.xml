@@ -113,7 +113,7 @@
                 android:layout_height="21dp"
                 android:contentDescription="@string/title_legend_auth"
                 android:src="@drawable/baseline_flag_24"
-                android:tint="?colorError"
+                android:tint="@color/colorError"
                 app:layout_constraintBottom_toBottomOf="@+id/swAuthentication"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/swAuthentication" />

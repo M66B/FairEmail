@@ -122,7 +122,7 @@
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_auth"
         android:src="@drawable/baseline_flag_24"
-        android:tint="?colorError"
+        android:tint="@color/colorError"
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintStart_toEndOf="@id/ivType"
         app:layout_constraintTop_toTopOf="@+id/tvSubject" />

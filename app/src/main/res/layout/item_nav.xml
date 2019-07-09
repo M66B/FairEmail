@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:src="@drawable/baseline_warning_24"
-            android:tint="@color/lightColorWarning"
+            android:tint="@color/colorError"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
