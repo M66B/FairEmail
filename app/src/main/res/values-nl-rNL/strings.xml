@@ -105,6 +105,7 @@
     <string name="title_setup_doze">Accuoptimalisaties instellen</string>
     <string name="title_setup_doze_remark">Om voortdurend e-mail te ontvangen (optioneel)</string>
     <string name="title_setup_doze_instructions">In het volgende dialoogvenster, selecteer \"Alle apps\" bovenin, selecteer deze app en bevestig met \"Niet optimaliseren\"</string>
+    <string name="title_setup_doze_battery">Hoog accugebruik?</string>
     <string name="title_setup_data">Databesparing uitschakelen</string>
     <string name="title_setup_inbox">Ga naar berichten</string>
     <string name="title_setup_to_do">Te doen</string>
@@ -173,8 +174,10 @@
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
+    <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
+    <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
     <string name="title_advanced_remote_content">Externe inhoud automatisch weergeven bij het bekijken van originele berichten</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>

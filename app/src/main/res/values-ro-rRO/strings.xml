@@ -113,6 +113,7 @@
     <string name="title_setup_doze">Configurare optimizare baterie</string>
     <string name="title_setup_doze_remark">Pentru a primi în mod continuu e-mail (opțional)</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
+    <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
     <string name="title_setup_data">Dezactivează salvarea datelor</string>
     <string name="title_setup_inbox">Mergi la mesaje</string>
     <string name="title_setup_to_do">De făcut</string>
@@ -183,6 +184,7 @@
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
+    <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
     <string name="title_advanced_remote_content">Arată automat conținutul găzduit pe servere la vizualizarea mesajului original</string>
     <string name="title_advanced_actionbar">Bara de acțiuni conversație</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>

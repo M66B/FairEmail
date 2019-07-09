@@ -105,6 +105,7 @@
     <string name="title_setup_doze">Configurar optimizaciones de batería</string>
     <string name="title_setup_doze_remark">Para recibir correo electrónico continuamente (opcional)</string>
     <string name="title_setup_doze_instructions">En el siguiente diálogo, seleccione \"Todas las apps\" en el menú superior, seleccione esta app y finalmente seleccione y confirme la opción \"No optimizar\"</string>
+    <string name="title_setup_doze_battery">¿Consumo de batería elevado?</string>
     <string name="title_setup_data">Desactivar ahorro de datos</string>
     <string name="title_setup_inbox">Ir a mensajes</string>
     <string name="title_setup_to_do">Pendiente</string>
@@ -175,6 +176,7 @@
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
+    <string name="title_advanced_images">Mostrar automáticamente imágenes de contactos conocidos</string>
     <string name="title_advanced_remote_content">Mostrar contenido remoto automáticamente al visualizar mensajes originales</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
