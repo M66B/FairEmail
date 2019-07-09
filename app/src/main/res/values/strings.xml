@@ -224,6 +224,7 @@
     <string name="title_advanced_autonext">Automatically go to next conversation on close conversation</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
+    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
 
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
@@ -242,7 +243,6 @@
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
     <string name="title_advanced_sync_subscribed">Synchronize subscribed folders only</string>
     <string name="title_advanced_english">Force English language</string>
-    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_crash_reports">Send error reports</string>

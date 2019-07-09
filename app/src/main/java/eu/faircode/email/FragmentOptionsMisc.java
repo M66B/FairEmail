@@ -50,7 +50,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvSubscriptionPro;
     private SwitchCompat swSubscribedOnly;
     private SwitchCompat swEnglish;
-    private SwitchCompat swAuthentication;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swCrashReports;
@@ -64,7 +63,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "subscribed_only", "english", "authentication", "watchdog", "updates", "crash_reports", "debug"
+            "badge", "subscriptions", "subscribed_only", "english", "watchdog", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -86,7 +85,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
         swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
         swEnglish = view.findViewById(R.id.swEnglish);
-        swAuthentication = view.findViewById(R.id.swAuthentication);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swCrashReports = view.findViewById(R.id.swCrashReports);
@@ -135,13 +133,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("english", checked).commit(); // apply won't work here
                 restart();
-            }
-        });
-
-        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("authentication", checked).apply();
             }
         });
 
@@ -243,7 +234,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));
 
         swEnglish.setChecked(prefs.getBoolean("english", false));
-        swAuthentication.setChecked(prefs.getBoolean("authentication", true));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);

@@ -1626,7 +1626,7 @@ and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization i
 
 However, FairEmail will show a small warning flag
 when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
-You can enable/disable this in the miscellaneous settings.
+You can enable/disable this in the behavior settings.
 
 <br />
 

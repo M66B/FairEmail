@@ -45,11 +45,12 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swCollapse;
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoMove;
+    private SwitchCompat swAuthentication;
     private SwitchCompat swDisableTracking;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "pull", "autoscroll", "swipenav", "doubletap", "autoexpand", "autoclose", "autonext",
-            "collapse", "autoread", "automove", "disable_tracking"
+            "collapse", "autoread", "automove", "authentication", "disable_tracking"
     };
 
     @Override
@@ -72,6 +73,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapse = view.findViewById(R.id.swCollapse);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoMove = view.findViewById(R.id.swAutoMove);
+        swAuthentication = view.findViewById(R.id.swAuthentication);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
 
         setOptions();
@@ -151,6 +153,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swAuthentication.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("authentication", checked).apply();
+            }
+        });
+
         swDisableTracking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -213,6 +222,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapse.setChecked(prefs.getBoolean("collapse", false));
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
+        swAuthentication.setChecked(prefs.getBoolean("authentication", true));
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
     }
 }
