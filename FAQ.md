@@ -896,8 +896,10 @@ In the settings you can select a schedule for message synchronization (this is a
 Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often.
 You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 minutes.
 
-Some providers send every two minutes something like *Still there* causing network traffic and FairEmail to wake up and thus extra battery usage.
-You can long press *Operations* in the main navigation menu to check if your provider is doing this.
+Some providers send every two minutes something like *Still there* resulting in network traffic and your device to wake up, causing unnecessary extra battery usage.
+You can inspect the *Log* via the main navigation menu to check if your provider is doing this.
+If your provider is using [Dovecot](https://www.dovecot.org/),
+you chould ask your provider to change [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) setting to a higher value or better yet, to disable this.
 
 If you got the message *This provider does not support push messages* while configuring an account,
 consider switching to a modern provider which supports push messages (IMAP IDLE) to reduce battery usage.
