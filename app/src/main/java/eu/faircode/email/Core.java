@@ -33,6 +33,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -112,7 +113,7 @@ class Core {
     private static int lastUnseen = -1;
 
     private static final int MAX_NOTIFICATION_COUNT = 10; // per group
-    private static final int SYNC_CHUNCK_SIZE = 500;
+    private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
@@ -1074,15 +1075,45 @@ class Core {
                 }
 
             if (uids.size() > 0) {
+                // This is done outside of JavaMail to prevent changed notifications
                 MessagingException ex = (MessagingException) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                     @Override
                     public Object doCommand(IMAPProtocol protocol) {
-                        Log.i(folder.name + " executing uid fetch count=" + uids.size());
-                        List<List<Long>> chunked = Helper.chunkList(new ArrayList<>(uids), SYNC_CHUNCK_SIZE);
-                        for (int c = 0; c < chunked.size(); c++) {
-                            Log.i(folder.name + " chunk #" + c + " size=" + chunked.get(c).size());
-                            Response[] responses = protocol.command(
-                                    "UID FETCH " + TextUtils.join(",", chunked.get(c)) + " (UID)", null);
+                        // Build ranges
+                        List<Pair<Long, Long>> ranges = new ArrayList<>();
+                        long first = -1;
+                        long last = -1;
+                        for (long uid : uids)
+                            if (first < 0)
+                                first = uid;
+                            else if ((last < 0 ? first : last) + 1 == uid)
+                                last = uid;
+                            else {
+                                ranges.add(new Pair<>(first, last < 0 ? first : last));
+                                first = uid;
+                                last = -1;
+                            }
+                        if (first > 0)
+                            ranges.add(new Pair<>(first, last < 0 ? first : last));
+
+                        List<List<Pair<Long, Long>>> chunks = Helper.chunkList(ranges, SYNC_CHUNCK_SIZE);
+
+                        Log.i(folder.name + " executing uid fetch count=" + uids.size() +
+                                " ranges=" + ranges.size() + " chunks=" + chunks.size());
+                        for (int c = 0; c < chunks.size(); c++) {
+                            List<Pair<Long, Long>> chunk = chunks.get(c);
+                            Log.i(folder.name + " chunk #" + c + " size=" + chunk.size());
+
+                            StringBuilder sb = new StringBuilder();
+                            for (Pair<Long, Long> range : chunk) {
+                                if (sb.length() > 0)
+                                    sb.append(',');
+                                if (range.first.equals(range.second))
+                                    sb.append(range.first);
+                                else
+                                    sb.append(range.first).append(':').append(range.second);
+                            }
+                            Response[] responses = protocol.command("UID FETCH " + sb + " (UID)", null);
 
                             if (responses.length > 0 && responses[responses.length - 1].isOK()) {
                                 for (Response response : responses)
@@ -1101,6 +1132,7 @@ class Core {
                                 return new MessagingException("UID FETCH failed");
                             }
                         }
+
                         return null;
                     }
                 });
