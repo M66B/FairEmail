@@ -2057,9 +2057,9 @@ class Core {
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+                            .setGroup(group)
+                            .setGroupSummary(false)
                             .setOnlyAlertOnce(true);
-
-            mbuilder.setGroup(group).setGroupSummary(false);
 
             if (notify_trash) {
                 Intent trash = new Intent(context, ServiceUI.class)
