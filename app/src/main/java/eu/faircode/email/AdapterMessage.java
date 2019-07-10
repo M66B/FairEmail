@@ -180,6 +180,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean contrast;
     private boolean monospaced;
     private boolean autoimages;
+    private boolean collapse_quotes;
     private boolean authentication;
     private static boolean debug;
 
@@ -1922,7 +1923,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void loadText(TupleMessageEx message) {
             if (message.content) {
                 boolean show_images = properties.getValue("images", message.id);
-                boolean show_quotes = properties.getValue("quotes", message.id);
+                boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
 
                 Bundle args = new Bundle();
                 args.putSerializable("message", message);
@@ -2032,7 +2033,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 boolean has_quotes = args.getBoolean("has_quotes");
                 boolean has_images = args.getBoolean("has_images");
-                boolean show_quotes = properties.getValue("quotes", message.id);
+                boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
                 boolean show_images = properties.getValue("images", message.id);
 
                 ibFull.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
@@ -2937,6 +2938,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.contrast = prefs.getBoolean("contrast", false);
         this.monospaced = prefs.getBoolean("monospaced", false);
         this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
+        this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
         this.debug = prefs.getBoolean("debug", false);
 

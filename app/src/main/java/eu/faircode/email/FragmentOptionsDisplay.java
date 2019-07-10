@@ -54,16 +54,19 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swPreview;
     private SwitchCompat swAddresses;
     private SwitchCompat swAttachmentsAlt;
+
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
     private SwitchCompat swInline;
     private SwitchCompat swImages;
+    private SwitchCompat swCollapseQuotes;
     private SwitchCompat swRemoteContent;
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
-            "flags", "preview", "addresses", "attachments_alt", "contrast", "monospaced", "inline_images", "autoimages", "autocontent", "actionbar",
+            "flags", "preview", "addresses", "attachments_alt",
+            "contrast", "monospaced", "inline_images", "autoimages", "collapse_quotes", "autocontent", "actionbar",
     };
 
     @Override
@@ -93,6 +96,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swMonospaced = view.findViewById(R.id.swMonospaced);
         swInline = view.findViewById(R.id.swInline);
         swImages = view.findViewById(R.id.swImages);
+        swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swRemoteContent = view.findViewById(R.id.swRemoteContent);
         swActionbar = view.findViewById(R.id.swActionbar);
 
@@ -230,6 +234,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swCollapseQuotes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("collapse_quotes", checked).apply();
+            }
+        });
+
         swRemoteContent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -313,6 +324,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swInline.setChecked(prefs.getBoolean("inline_images", false));
         swImages.setChecked(prefs.getBoolean("autoimages", false));
+        swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swRemoteContent.setChecked(prefs.getBoolean("autocontent", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
     }
