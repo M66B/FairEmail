@@ -124,6 +124,9 @@
     <string name="title_setup_reorder_accounts">Volgorde accounts</string>
     <string name="title_setup_reorder_folders">Volgorde mappen</string>
     <string name="title_reset_order">Reset volgorde</string>
+    <string name="title_setup_biometrics">Biometrische verificatie</string>
+    <string name="title_setup_biometrics_enable">Inschakelen</string>
+    <string name="title_setup_biometrics_disable">Uitschakelen</string>
     <string name="title_setup_theme">Selecteer thema</string>
     <string name="title_setup_light_theme">Licht thema</string>
     <string name="title_setup_dark_theme">Donker thema</string>

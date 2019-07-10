@@ -115,6 +115,9 @@
     <string name="title_setup_reorder_accounts">账户顺序</string>
     <string name="title_setup_reorder_folders">文件夹顺序</string>
     <string name="title_reset_order">重置顺序</string>
+    <string name="title_setup_biometrics">生物认证</string>
+    <string name="title_setup_biometrics_enable">启用</string>
+    <string name="title_setup_biometrics_disable">禁用</string>
     <string name="title_setup_theme">选择主题</string>
     <string name="title_setup_light_theme">亮色主题</string>
     <string name="title_setup_dark_theme">暗色主题</string>
@@ -169,6 +172,7 @@
     <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_images">自动显示已知联系人的图片</string>
+    <string name="title_advanced_collapse_quotes">折叠引用的文本</string>
     <string name="title_advanced_remote_content">查看原始消息时自动显示远程内容</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>

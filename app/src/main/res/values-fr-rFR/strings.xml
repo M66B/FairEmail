@@ -124,6 +124,9 @@
     <string name="title_setup_reorder_accounts">Ordonner les comptes</string>
     <string name="title_setup_reorder_folders">Ordonner les dossiers</string>
     <string name="title_reset_order">Réinitialiser l’ordre</string>
+    <string name="title_setup_biometrics">Authentification biométrique</string>
+    <string name="title_setup_biometrics_enable">Activer</string>
+    <string name="title_setup_biometrics_disable">Désactiver</string>
     <string name="title_setup_theme">Choisir le thème</string>
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
@@ -178,6 +181,7 @@
     <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_images">Afficher automatiquement les images pour les contacts connus</string>
+    <string name="title_advanced_collapse_quotes">Réduire le texte cité</string>
     <string name="title_advanced_remote_content">Afficher automatiquement le contenu distant lors de la visualisation des messages originaux</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
