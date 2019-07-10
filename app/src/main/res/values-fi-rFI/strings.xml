@@ -563,6 +563,7 @@
     <string name="title_legend_thread">Keskustelu</string>
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>
     <string name="title_legend_draft">Sisältää luonnoksen</string>
+    <string name="title_legend_auth">Tunnistautuminen epäonnistui</string>
     <string name="title_legend_snoozed">Torkutettu</string>
     <string name="title_legend_browsed">Selattu tai haettu</string>
     <string name="title_legend_answered">Vastattu</string>

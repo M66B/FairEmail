@@ -112,6 +112,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_doze">Postavljanje optimizacije baterije</string>
     <string name="title_setup_doze_remark">Kontinuirano primanje e-pošte (izborno)</string>
     <string name="title_setup_doze_instructions">U sljedećem dijalogu odaberite \"sve aplikacije\" pri vrhu, odaberite ovu aplikaciju i odaberite i potvrdite \"ne optimiraj\"</string>
+    <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
     <string name="title_setup_data">Onemogući spremanje podataka</string>
     <string name="title_setup_inbox">Idi na poruke</string>
     <string name="title_setup_to_do">Za napraviti</string>
@@ -180,8 +181,11 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_preview">Prikaži pregled poruke</string>
     <string name="title_advanced_addresses">Prema zadanim postavkama prikazuje pojedinosti adrese</string>
     <string name="title_advanced_attachments_alt">Prikažite privitke nakon teksta poruke</string>
+    <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
     <string name="title_advanced_monospaced">Upotrijebiti font u jednolikim razmjerima za tekst poruke</string>
     <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
+    <string name="title_advanced_images">Automatski prikaz slika za poznate kontakte</string>
+    <string name="title_advanced_remote_content">Automatsko prikazivanje udaljenog sadržaja pri pregledavanju izvornih poruka</string>
     <string name="title_advanced_actionbar">Traka s akcijama razgovora</string>
     <string name="title_advanced_pull_refresh">Povucite prema dolje za osvježavanje</string>
     <string name="title_advanced_autoscroll">Pomakniti se na vrh po prijemu novih poruka</string>
@@ -331,6 +335,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_sync_days_remark">Povećanjem ove vrijednosti povećat će se potrošnja baterije i podataka</string>
     <string name="title_keep_days">Zadrži poruke (dana)</string>
     <string name="title_keep_all">Zadrži sve poruke</string>
+    <string name="title_auto_trash">Automatski premjesti stare poruke u otpad</string>
+    <string name="title_auto_delete">Automatski trajno izbrisati stare poruke</string>
     <string name="title_folder_name_missing">Nedostaje naziv mape</string>
     <string name="title_folder_exists">Postoji mapa %1$s</string>
     <string name="title_folder_delete">Trajno izbrisati ovu mapu i sve poruke koje sadrži?</string>
@@ -564,6 +570,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_thread">Konverzacija</string>
     <string name="title_legend_zoom">Promjeni veličinu teksta</string>
     <string name="title_legend_draft">Ima skicu</string>
+    <string name="title_legend_auth">Autentifikacija neuspješna</string>
     <string name="title_legend_snoozed">Odgođeno je</string>
     <string name="title_legend_browsed">Pogledano je ili pretraženo</string>
     <string name="title_legend_answered">Odgovoreno je</string>
