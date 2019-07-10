@@ -38,11 +38,6 @@ public interface DaoAttachment {
             " WHERE message = :message")
     int getAttachmentSequence(long message);
 
-    @Query("SELECT COUNT(id)" +
-            " FROM attachment" +
-            " WHERE id = :id")
-    int countAttachment(long id);
-
     @Query("SELECT * FROM attachment" +
             " WHERE message = :message" +
             " ORDER BY sequence")
@@ -83,9 +78,9 @@ public interface DaoAttachment {
     void setDownloaded(long id, Long size);
 
     @Query("UPDATE attachment" +
-            " SET size = NULL, progress = NULL, available = 0" +
+            " SET size = NULL, progress = NULL, available = :available" +
             " WHERE id = :id")
-    void setUnavailable(long id);
+    void setAvailable(long id, boolean available);
 
     @Query("UPDATE attachment" +
             " SET error = :error, progress = NULL, available = 0" +

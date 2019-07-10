@@ -82,59 +82,6 @@ public class WorkerCleanup extends Worker {
                             " before=" + new Date(keep_time) + " deleted=" + messages);
             }
 
-            long now = new Date().getTime();
-
-            List<File> files = new ArrayList<>();
-            File[] messages = new File(context.getFilesDir(), "messages").listFiles();
-            File[] revision = new File(context.getFilesDir(), "revision").listFiles();
-            File[] references = new File(context.getFilesDir(), "references").listFiles();
-            File[] raws = new File(context.getFilesDir(), "raw").listFiles();
-
-            if (messages != null)
-                files.addAll(Arrays.asList(messages));
-            if (revision != null)
-                files.addAll(Arrays.asList(revision));
-            if (references != null)
-                files.addAll(Arrays.asList(references));
-            if (raws != null)
-                files.addAll(Arrays.asList(raws));
-
-            // Cleanup message files
-            Log.i("Cleanup message files");
-            for (File file : files) {
-                long id = Long.parseLong(file.getName().split("\\.")[0]);
-                if (db.message().countMessage(id) == 0) {
-                    Log.i("Deleting " + file);
-                    if (!file.delete())
-                        Log.w("Error deleting " + file);
-                }
-            }
-
-            // Cleanup attachment files
-            Log.i("Cleanup attachment files");
-            File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
-            if (attachments != null)
-                for (File file : attachments) {
-                    long id = Long.parseLong(file.getName().split("\\.")[0]);
-                    if (db.attachment().countAttachment(id) == 0) {
-                        Log.i("Deleting " + file);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
-                    }
-                }
-
-            // Cleanup cached images
-            Log.i("Cleanup cached image files");
-            File[] images = new File(context.getCacheDir(), "images").listFiles();
-            if (images != null)
-                for (File file : images)
-                    if (file.isFile())
-                        if (manual || now - file.lastModified() > CACHE_IMAGE_DURATION) {
-                            Log.i("Deleting " + file);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
-                        }
-
             if (manual) {
                 // Check message files
                 Log.i("Checking message files");
@@ -156,10 +103,65 @@ public class WorkerCleanup extends Worker {
                     File file = attachment.getFile(context);
                     if (!file.exists()) {
                         Log.w("Attachment file missing id=" + aid);
-                        db.attachment().setUnavailable(aid);
+                        db.attachment().setAvailable(aid, false);
                     }
                 }
             }
+
+            long now = new Date().getTime();
+
+            List<File> files = new ArrayList<>();
+            File[] messages = new File(context.getFilesDir(), "messages").listFiles();
+            File[] revision = new File(context.getFilesDir(), "revision").listFiles();
+            File[] references = new File(context.getFilesDir(), "references").listFiles();
+            File[] raws = new File(context.getFilesDir(), "raw").listFiles();
+
+            if (messages != null)
+                files.addAll(Arrays.asList(messages));
+            if (revision != null)
+                files.addAll(Arrays.asList(revision));
+            if (references != null)
+                files.addAll(Arrays.asList(references));
+            if (raws != null)
+                files.addAll(Arrays.asList(raws));
+
+            // Cleanup message files
+            Log.i("Cleanup message files");
+            for (File file : files) {
+                long id = Long.parseLong(file.getName().split("\\.")[0]);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null || !message.content) {
+                    Log.i("Deleting " + file);
+                    if (!file.delete())
+                        Log.w("Error deleting " + file);
+                }
+            }
+
+            // Cleanup attachment files
+            Log.i("Cleanup attachment files");
+            File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
+            if (attachments != null)
+                for (File file : attachments) {
+                    long id = Long.parseLong(file.getName().split("\\.")[0]);
+                    EntityAttachment attachment = db.attachment().getAttachment(id);
+                    if (attachment == null || !attachment.available) {
+                        Log.i("Deleting " + file);
+                        if (!file.delete())
+                            Log.w("Error deleting " + file);
+                    }
+                }
+
+            // Cleanup cached images
+            Log.i("Cleanup cached image files");
+            File[] images = new File(context.getCacheDir(), "images").listFiles();
+            if (images != null)
+                for (File file : images)
+                    if (file.isFile())
+                        if (manual || now - file.lastModified() > CACHE_IMAGE_DURATION) {
+                            Log.i("Deleting " + file);
+                            if (!file.delete())
+                                Log.w("Error deleting " + file);
+                        }
 
             Log.i("Cleanup contacts");
             int contacts = db.contact().deleteContacts(now - KEEP_CONTACTS_DURATION);

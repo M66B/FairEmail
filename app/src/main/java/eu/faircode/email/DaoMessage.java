@@ -177,11 +177,6 @@ public interface DaoMessage {
             " AND ui_hide <> 0")
     LiveData<List<Long>> liveHidden(long account, String thread);
 
-    @Query("SELECT COUNT(id)" +
-            " FROM message" +
-            " WHERE id = :id")
-    int countMessage(long id);
-
     @Query("SELECT *" +
             " FROM message" +
             " WHERE id = :id")
