@@ -66,8 +66,6 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
                     Intent.ACTION_SENDTO.equals(action) ||
                     Intent.ACTION_SEND.equals(action) ||
                     Intent.ACTION_SEND_MULTIPLE.equals(action)) {
-                Log.i(intent.toString());
-                Log.logExtras(intent);
 
                 args = new Bundle();
                 args.putString("action", "new");
