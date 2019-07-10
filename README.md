@@ -65,7 +65,7 @@ All pro features are convenience or advanced features.
 * Filter rules ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq71))
 * Search on device or server ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq13))
 * Keyword management
-* Biometric authentication
+* Biometric authentication ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq113))
 * Encryption/decryption ([OpenPGP](https://www.openpgp.org/)) ([instructions](https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq12))
 * Export settings
 
