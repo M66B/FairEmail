@@ -1870,13 +1870,13 @@ class Core {
                     " added=" + add.size() + " removed=" + remove.size());
 
             if (notifications.size() == 0) {
-                String tag = "unseen.0";
+                String tag = "unseen." + group + "." + 0;
                 Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
             }
 
             for (Long id : remove) {
-                String tag = "unseen." + Math.abs(id);
+                String tag = "unseen." + group + "." + Math.abs(id);
                 Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
             }
@@ -1884,7 +1884,7 @@ class Core {
             for (Notification notification : notifications) {
                 long id = notification.extras.getLong("id", 0);
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
-                    String tag = "unseen." + Math.abs(id);
+                    String tag = "unseen." + group + "." + Math.abs(id);
                     Log.i("Notifying tag=" + tag +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
                     nm.notify(tag, 1, notification);
