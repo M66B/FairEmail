@@ -1799,6 +1799,7 @@ class Core {
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean biometrics = prefs.getBoolean("biometrics", false);
         boolean badge = prefs.getBoolean("badge", true);
         boolean pro = Helper.isPro(context);
 
@@ -1883,7 +1884,7 @@ class Core {
 
             for (Notification notification : notifications) {
                 long id = notification.extras.getLong("id", 0);
-                if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
+                if ((id == 0 && add.size() + remove.size() > 0) || (add.contains(id) && !biometrics)) {
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Log.i("Notifying tag=" + tag +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
@@ -1928,6 +1929,7 @@ class Core {
         boolean pro = Helper.isPro(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean biometrics = prefs.getBoolean("biometrics", false);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
@@ -1965,29 +1967,32 @@ class Core {
                         .setDeleteIntent(piClear)
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .setCategory(NotificationCompat.CATEGORY_STATUS)
-                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                        .setGroup(group)
-                        .setGroupSummary(true)
-                        .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
+                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
         Notification pub = builder.build();
         builder
                 .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                 .setPublicVersion(pub);
 
-        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-        StringBuilder sb = new StringBuilder();
-        for (EntityMessage message : messages) {
-            sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
-            if (!TextUtils.isEmpty(message.subject))
-                sb.append(": ").append(message.subject);
-            sb.append(" ").append(df.format(message.received));
-            sb.append("<br>");
-        }
+        if (!biometrics) {
+            builder.setGroup(group)
+                    .setGroupSummary(true)
+                    .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
-        builder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText(HtmlHelper.fromHtml(sb.toString()))
-                .setSummaryText(title));
+            DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+            StringBuilder sb = new StringBuilder();
+            for (EntityMessage message : messages) {
+                sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
+                if (!TextUtils.isEmpty(message.subject))
+                    sb.append(": ").append(message.subject);
+                sb.append(" ").append(df.format(message.received));
+                sb.append("<br>");
+            }
+
+            builder.setStyle(new NotificationCompat.BigTextStyle()
+                    .bigText(HtmlHelper.fromHtml(sb.toString()))
+                    .setSummaryText(title));
+        }
 
         notifications.add(builder.build());
 
