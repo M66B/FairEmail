@@ -1886,7 +1886,8 @@ See also [this FAQ](#user-content-faq6).
 **(112) Which email provider do you recommend?**
 
 Which email provider is best for you depends on your wishes/requirements.
-Please see [this website](https://restoreprivacy.com/secure-email/) for a list of privacy friendly email providers with advantages and disadvantages.
+Please see [this website](https://restoreprivacy.com/secure-email/) or [this website](https://www.privacytools.io/providers/email/)
+for a list of privacy friendly email providers with advantages and disadvantages.
 
 <br />
 
