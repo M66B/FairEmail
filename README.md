@@ -102,7 +102,8 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)
 
 The GitHub version is being updated more often than the Play store version.
-The GitHub version will automatically notify you of any updates.
+The GitHub release will automatically check for updates on GitHub.
+You can turn this off in the miscellaneous settings.
 
 Certificate fingerprints:
 
@@ -120,8 +121,7 @@ One line command to display certificate fingerprints:
 
 Note that F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
 To get updates in a timely fashion you are advised to use the GitHub release.
-The GitHub release will automatically check for updates on GitHub.
-You can turn this off in the advanced options.
+
 
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
