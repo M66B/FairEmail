@@ -883,7 +883,7 @@ Note that you can set the number of days to *keep* messages for to a higher numb
 You could for example initially synchronize messages for a large number of days and after this has been completed
 reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
 
-Starred messages will by default always be synchronized (this can be turned off in the sync settings),
+Starred messages will by default always be synchronized (this can be turned off in the receive settings),
 which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
 Disabling the folder option *Automatically download message texts and attachments*
@@ -925,8 +925,7 @@ Finally, make sure you are using [the latest version](https://github.com/M66B/op
 
 You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
-Additionally, you can let FairEmail download small messages and attachments on a metered (mobile, paid) connection only
-or let FairEmail connect via unmetered connections only in the settings.
+Additionally, you can let FairEmail download small messages and attachments only on a metered (mobile, paid) connection only.
 
 <br />
 
