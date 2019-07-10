@@ -47,19 +47,24 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean eula = prefs.getBoolean("eula", false);
+
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        if (prefs.getBoolean("eula", false)) {
+        if (eula) {
             super.onCreate(savedInstanceState);
 
-            new Handler().postDelayed(new Runnable() {
+            final SimpleTask start = new SimpleTask<Boolean>() {
                 @Override
-                public void run() {
-                    getWindow().setBackgroundDrawableResource(R.drawable.splash);
+                protected void onPreExecute(Bundle args) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            getWindow().setBackgroundDrawableResource(R.drawable.splash);
+                        }
+                    }, 1500);
                 }
-            }, 1500);
 
-            new SimpleTask<Boolean>() {
                 @Override
                 protected Boolean onExecute(Context context, Bundle args) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -83,7 +88,6 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
                         ServiceSend.boot(ActivityMain.this);
                     } else
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
-
                     finish();
                 }
 
@@ -91,7 +95,24 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getSupportFragmentManager(), ex);
                 }
-            }.execute(this, new Bundle(), "main:accounts");
+            };
+
+            if (Helper.shouldAuthenticate(this))
+                Helper.authenticate(ActivityMain.this, null,
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                start.execute(ActivityMain.this, new Bundle(), "main:accounts");
+                            }
+                        },
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                finish();
+                            }
+                        });
+            else
+                start.execute(this, new Bundle(), "main:accounts");
         } else {
             // Enable compact view on small screens
             if (!getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL))

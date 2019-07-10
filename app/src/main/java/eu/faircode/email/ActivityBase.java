@@ -113,6 +113,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.i("Contacts permission=" + contacts);
             finish();
             startActivity(getIntent());
+        } else if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
+            finish();
+            startActivity(new Intent(this, ActivityMain.class));
         }
 
         super.onResume();
@@ -122,6 +125,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     protected void onPause() {
         Log.i("Pause " + this.getClass().getName());
         super.onPause();
+
+        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this))
+            finish();
     }
 
     @Override

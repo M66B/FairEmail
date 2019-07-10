@@ -201,6 +201,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
+        menus.add(new NavMenuItem(R.drawable.baseline_fingerprint_24, R.string.title_setup_biometrics, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuBiometrics();
+            }
+        }));
+
         menus.add(new NavMenuItem(R.drawable.baseline_person_24, R.string.menu_contacts, new Runnable() {
             @Override
             public void run() {
@@ -403,6 +411,29 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("order");
         fragmentTransaction.commit();
+    }
+
+    private void onMenuBiometrics() {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivitySetup.this);
+        final boolean biometrics = prefs.getBoolean("biometrics", false);
+        final boolean pro = Helper.isPro(this);
+
+        Helper.authenticate(this, biometrics, new Runnable() {
+            @Override
+            public void run() {
+                if (pro)
+                    prefs.edit().putBoolean("biometrics", !biometrics).apply();
+
+                Toast.makeText(ActivitySetup.this,
+                        pro ? R.string.title_setup_done : R.string.title_pro_feature,
+                        Toast.LENGTH_LONG).show();
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                // Do nothing
+            }
+        });
     }
 
     private void onMenuContacts() {

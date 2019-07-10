@@ -203,6 +203,7 @@ The following Android permissions are needed:
 * *in-app billing* (BILLING): to allow in-app purchases
 * Optional: *read your contacts* (READ_CONTACTS): to autocomplete addresses and to show photos
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 

@@ -21,9 +21,11 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -33,7 +35,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcel;
+import android.provider.Settings;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.format.DateUtils;
@@ -54,10 +58,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.biometric.BiometricPrompt;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
@@ -82,10 +88,13 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -128,6 +137,8 @@ public class Helper {
             return thread;
         }
     };
+
+    final static ExecutorService executor = Executors.newSingleThreadExecutor();
 
     // Features
 
@@ -642,6 +653,92 @@ public class Helper {
         String signed = getFingerprint(context);
         String expected = context.getString(R.string.fingerprint);
         return Objects.equals(signed, expected);
+    }
+
+    static boolean shouldAuthenticate(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean biometrics = prefs.getBoolean("biometrics", false);
+        if (!biometrics)
+            return false;
+
+        ContentResolver resolver = context.getContentResolver();
+        int screen_timeout = Settings.System.getInt(resolver, Settings.System.SCREEN_OFF_TIMEOUT, -1);
+        Log.i("Screen timeout=" + screen_timeout);
+
+        long now = new Date().getTime();
+        long last_authentication = prefs.getLong("last_authentication", 0);
+        prefs.edit().putLong("last_authentication", now).apply();
+
+        return (last_authentication + screen_timeout < now);
+    }
+
+    static void authenticate(final FragmentActivity activity,
+                             Boolean enabled, final
+                             Runnable authenticated, final Runnable cancelled) {
+        final Handler handler = new Handler();
+
+        BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics))
+                .setNegativeButtonText(activity.getString(android.R.string.cancel));
+
+        if (enabled != null)
+            info.setSubtitle(activity.getString(enabled
+                    ? R.string.title_setup_biometrics_disable
+                    : R.string.title_setup_biometrics_enable));
+
+        BiometricPrompt prompt = new BiometricPrompt(activity, executor,
+                new BiometricPrompt.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
+                        Log.w("Biometric error " + errorCode + ": " + errString);
+
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
+                                        errorCode == BiometricPrompt.ERROR_CANCELED ||
+                                        errorCode == BiometricPrompt.ERROR_USER_CANCELED)
+                                    cancelled.run();
+                                else
+                                    Toast.makeText(activity,
+                                            errString + " (" + errorCode + ")",
+                                            Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                        Log.i("Biometric succeeded");
+
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+                        prefs.edit().putLong("last_authentication", new Date().getTime()).apply();
+
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                authenticated.run();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onAuthenticationFailed() {
+                        Log.w("Biometric failed");
+
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(activity,
+                                        R.string.title_unexpected_error,
+                                        Toast.LENGTH_LONG).show();
+                                cancelled.run();
+                            }
+                        });
+                    }
+                });
+
+        prompt.authenticate(info.build());
     }
 
     // Miscellaneous
