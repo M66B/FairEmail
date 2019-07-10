@@ -88,6 +88,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -3719,13 +3720,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                         return false;
 
+                    FragmentManager manager = getFragmentManager();
+                    if (manager == null)
+                        return false;
+
                     Bundle args = new Bundle();
                     args.putParcelable("uri", uri);
                     args.putString("title", null);
 
                     FragmentDialogLink fragment = new FragmentDialogLink();
                     fragment.setArguments(args);
-                    fragment.show(getFragmentManager(), "open:link");
+                    fragment.show(manager, "open:link");
 
                     return true;
                 }
