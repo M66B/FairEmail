@@ -382,6 +382,7 @@ public class ApplicationEx extends Application {
 
         if (ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Bad notification posted") ||
+                        ex.getMessage().contains("ActivityRecord not found") ||
                         ex.getMessage().startsWith("Unable to create layer")))
             return false;
 
