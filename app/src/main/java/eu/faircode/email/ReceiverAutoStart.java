@@ -22,9 +22,8 @@ package eu.faircode.email;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
-import androidx.preference.PreferenceManager;
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ReceiverAutoStart extends BroadcastReceiver {
     @Override
@@ -32,15 +31,22 @@ public class ReceiverAutoStart extends BroadcastReceiver {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) ||
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             Log.i("Received " + intent);
+
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            SharedPreferences.Editor editor = prefs.edit();
-            if (!prefs.getBoolean("unified", true))
-                editor.putString("startup", "folders");
-            editor.remove("unified");
-            editor.apply();
+            Thread cleanup = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        WorkerCleanup.cleanup(context, true);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+            cleanup.setPriority(THREAD_PRIORITY_BACKGROUND);
+            cleanup.start();
         }
     }
 }
