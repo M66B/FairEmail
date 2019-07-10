@@ -186,6 +186,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
 * [(111) Can you add OAuth authentication?](#user-content-faq111)
+* [(112) Which email provider do you recommend?](#user-content-faq112)
 
 [I have another question.](#support)
 
@@ -1878,6 +1879,14 @@ Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections.
 and requires embedding a client secret in the app, which is not a good idea for an open source app.
 
 See also [this FAQ](#user-content-faq6).
+
+<br />
+
+<a name="faq112"></a>
+**(112) Which email provider do you recommend?**
+
+Which email provider is best for you depends on your wishes/requirements.
+Please see [this website](https://restoreprivacy.com/secure-email/) for a list of privacy friendly email providers with advantages and disadvantages.
 
 <br />
 
