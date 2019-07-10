@@ -1928,7 +1928,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle args = new Bundle();
                 args.putSerializable("message", message);
                 args.putBoolean("show_images", show_images);
-                args.putBoolean("show_quotes", show_quotes);
+                args.putBoolean("show_quotes", show_quotes || !threading);
                 args.putInt("zoom", zoom);
                 bodyTask.setCount(false).execute(context, owner, args, "message:body");
             }
@@ -2037,7 +2037,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean show_images = properties.getValue("images", message.id);
 
                 ibFull.setVisibility(hasWebView ? View.VISIBLE : View.GONE);
-                ibQuotes.setVisibility(has_quotes && !show_quotes ? View.VISIBLE : View.GONE);
+                ibQuotes.setVisibility(has_quotes && threading && !show_quotes ? View.VISIBLE : View.GONE);
                 ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
 
                 tvBody.setText(body);
