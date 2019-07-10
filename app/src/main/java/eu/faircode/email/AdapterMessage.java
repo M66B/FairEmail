@@ -268,13 +268,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvAttachment;
         private CheckBox cbInline;
-        private ImageButton ibDecrypt;
         private Button btnDownloadAttachments;
         private Button btnSaveAttachments;
         private TextView tvNoInternetAttachments;
 
         private BottomNavigationView bnvActions;
 
+        private ImageButton ibDecrypt;
         private ImageButton ibImages;
         private ImageButton ibFull;
         private TextView tvBody;
@@ -836,13 +836,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbCalendarWait.setVisibility(View.GONE);
 
             cbInline.setVisibility(View.GONE);
-            ibDecrypt.setVisibility(View.GONE);
             btnDownloadAttachments.setVisibility(View.GONE);
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
             bnvActions.setVisibility(View.GONE);
 
+            ibDecrypt.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             tvBody.setVisibility(View.GONE);
@@ -1388,9 +1388,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null)
                 return;
 
-            if (view.getId() == R.id.ibDecrypt)
-                onMenuDecrypt(message);
-            else if (view.getId() == R.id.ivSnoozed)
+            if (view.getId() == R.id.ivSnoozed)
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ivFlagged)
                 onToggleFlag(message);
@@ -1410,6 +1408,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
                     case R.id.btnSaveAttachments:
                         onSaveAttachments(message);
+                        break;
+                    case R.id.ibDecrypt:
+                        onMenuDecrypt(message);
                         break;
                     case R.id.ibImages:
                         onShowImages(message);
