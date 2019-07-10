@@ -202,6 +202,7 @@
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
+    <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_enabled_hint">全球禁用或启用接收消息</string>
     <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在一定时间内同步消息和执行操作。</string>
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是一个昂贵的操作，可能导致额外的电池使用，特别是在有很多消息要同步的时候。始终同步将通过持续比较变化以避免发生上述情形。</string>
@@ -225,6 +226,7 @@
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
+    <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
