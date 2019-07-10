@@ -16,10 +16,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:gravity="center_vertical"
-            app:srcCompat="@drawable/baseline_mail_outline_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_mail_outline_24" />
 
         <TextView
             android:id="@+id/tvItem"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:ellipsize="start"
+            android:ellipsize="middle"
             android:gravity="center_vertical"
             android:minHeight="48dp"
             android:singleLine="true"
