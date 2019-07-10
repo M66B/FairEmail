@@ -1933,7 +1933,7 @@ class Core {
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
         boolean notify_archive = (prefs.getBoolean("notify_archive", true) || !pro);
         boolean notify_reply = (prefs.getBoolean("notify_reply", false) && pro);
-        boolean notify_flag = (prefs.getBoolean("notify_flag", false) && pro);
+        boolean notify_flag = (prefs.getBoolean("notify_flag", false) && flags && pro);
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
         boolean light = prefs.getBoolean("light", false);
         String sound = prefs.getString("sound", null);
@@ -2090,7 +2090,7 @@ class Core {
                 mbuilder.addAction(actionReply.build());
             }
 
-            if (notify_flag && flags) {
+            if (notify_flag) {
                 Intent flag = new Intent(context, ServiceUI.class)
                         .setAction("flag:" + message.id)
                         .putExtra("group", group);
