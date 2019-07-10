@@ -31,8 +31,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,6 +56,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swUpdates;
     private SwitchCompat swCrashReports;
     private SwitchCompat swDebug;
+    private Button btnCleanup;
 
     private TextView tvProcessors;
     private TextView tvMemoryClass;
@@ -89,6 +92,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swUpdates = view.findViewById(R.id.swUpdates);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         swDebug = view.findViewById(R.id.swDebug);
+        btnCleanup = view.findViewById(R.id.btnCleanup);
 
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
@@ -175,6 +179,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        btnCleanup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCleanup();
+            }
+        });
+
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
@@ -221,6 +232,36 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         for (String option : options)
             editor.remove(option);
         editor.apply();
+    }
+
+    private void onCleanup() {
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                btnCleanup.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                btnCleanup.setEnabled(true);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                WorkerCleanup.cleanup(context, true);
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Toast.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(this, new Bundle(), "cleanup:run");
     }
 
     private void setOptions() {

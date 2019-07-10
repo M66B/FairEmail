@@ -161,6 +161,30 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
+            <Button
+                android:id="@+id/btnCleanup"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/title_advanced_cleanup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+
+            <TextView
+                android:id="@+id/tvCleanupHint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_cleanup_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnCleanup" />
+
             <TextView
                 android:id="@+id/tvProcessors"
                 android:layout_width="0dp"
@@ -172,7 +196,7 @@
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+                app:layout_constraintTop_toBottomOf="@id/tvCleanupHint" />
 
             <TextView
                 android:id="@+id/tvMemoryClass"

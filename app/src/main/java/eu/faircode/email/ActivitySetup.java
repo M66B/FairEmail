@@ -233,12 +233,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuPrivacy();
                 }
-            }, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onCleanup();
-                }
             }));
 
         menus.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
@@ -435,21 +429,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
     private void onMenuPrivacy() {
         Helper.view(this, Helper.getIntentPrivacy());
-    }
-
-    private void onCleanup() {
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                WorkerCleanup.cleanup(context, true);
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getSupportFragmentManager(), ex);
-            }
-        }.execute(this, new Bundle(), "cleanup:run");
     }
 
     private void onMenuAbout() {
