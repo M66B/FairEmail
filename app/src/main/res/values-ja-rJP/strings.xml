@@ -68,6 +68,8 @@
     <string name="title_user">ユーザー名</string>
     <string name="title_password">パスワード</string>
     <string name="title_check">確認</string>
+    <string name="title_edit_html">HTMLとして編集</string>
+    <string name="title_empty_trash">ゴミ箱を空にする</string>
     <string name="title_edit_properties">プロパティを編集</string>
     <string name="title_edit_rules">ルールを編集</string>
     <string name="title_folder_inbox">受信トレイ</string>
@@ -87,6 +89,13 @@
     <string name="title_spam">スパム</string>
     <string name="title_reply_to_all">すべて</string>
     <string name="title_reply_template">テンプレート</string>
+    <string name="title_search">検索</string>
+    <string name="title_select_all">すべて選択</string>
+    <string name="title_previous">前へ</string>
+    <string name="title_next">次へ</string>
+    <string name="title_answer_caption">テンプレートを編集</string>
+    <string name="title_rule_answer">返信</string>
+    <string name="title_rule_check">確認</string>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>

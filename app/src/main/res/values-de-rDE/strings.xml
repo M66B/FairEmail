@@ -123,9 +123,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_reorder_accounts">Konten sortieren</string>
     <string name="title_setup_reorder_folders">Ordner sortieren</string>
     <string name="title_reset_order">Standard-Reihenfolge</string>
+    <string name="title_setup_authentication">Authentifizierung</string>
     <string name="title_setup_biometrics">Biometrische Authentifizierung</string>
     <string name="title_setup_biometrics_enable">Aktivieren</string>
     <string name="title_setup_biometrics_disable">Deaktivieren</string>
+    <string name="title_setup_biometrics_unlock">Entsperren</string>
     <string name="title_setup_theme">Design auswählen</string>
     <string name="title_setup_light_theme">Helles Design</string>
     <string name="title_setup_dark_theme">Dunkles Design</string>

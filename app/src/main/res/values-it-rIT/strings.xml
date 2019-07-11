@@ -123,9 +123,11 @@
     <string name="title_setup_reorder_accounts">Ordine account</string>
     <string name="title_setup_reorder_folders">Ordina cartelle</string>
     <string name="title_reset_order">Resetta ordine</string>
+    <string name="title_setup_authentication">Autenticazione</string>
     <string name="title_setup_biometrics">Autenticazione biometrica</string>
     <string name="title_setup_biometrics_enable">Abilita</string>
     <string name="title_setup_biometrics_disable">Disabilita</string>
+    <string name="title_setup_biometrics_unlock">Sblocca</string>
     <string name="title_setup_theme">Seleziona tema</string>
     <string name="title_setup_light_theme">Tema chiaro</string>
     <string name="title_setup_dark_theme">Tema scuro</string>

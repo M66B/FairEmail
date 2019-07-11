@@ -124,9 +124,11 @@
     <string name="title_setup_reorder_accounts">Sortere kontoer</string>
     <string name="title_setup_reorder_folders">Sortere mapper</string>
     <string name="title_reset_order">Tilbakestill rekkefølge</string>
+    <string name="title_setup_authentication">Autentisering</string>
     <string name="title_setup_biometrics">Biometrisk autentisering</string>
     <string name="title_setup_biometrics_enable">Aktiver</string>
     <string name="title_setup_biometrics_disable">Deaktiver</string>
+    <string name="title_setup_biometrics_unlock">Låse opp</string>
     <string name="title_setup_theme">Velg tema</string>
     <string name="title_setup_light_theme">Lyst tema</string>
     <string name="title_setup_dark_theme">Mørkt tema</string>
