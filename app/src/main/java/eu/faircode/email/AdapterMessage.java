@@ -3290,7 +3290,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         holder.unwire();
 
         TupleMessageEx message = differ.getItem(position);
-        if (message == null)
+        if (message == null || context == null)
             holder.clear();
         else {
             holder.bindTo(message);
