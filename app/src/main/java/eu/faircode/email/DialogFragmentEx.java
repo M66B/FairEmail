@@ -39,4 +39,18 @@ public class DialogFragmentEx extends DialogFragment {
             }
         }
     }
+
+    @Override
+    public void startActivity(Intent intent) {
+        if (Helper.hasAuthentication(getContext()))
+            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        super.startActivity(intent);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        if (Helper.hasAuthentication(getContext()))
+            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        super.startActivityForResult(intent, requestCode);
+    }
 }

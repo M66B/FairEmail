@@ -53,6 +53,20 @@ public class FragmentBase extends Fragment {
         updateSubtitle();
     }
 
+    @Override
+    public void startActivity(Intent intent) {
+        if (Helper.hasAuthentication(getContext()))
+            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        super.startActivity(intent);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        if (Helper.hasAuthentication(getContext()))
+            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        super.startActivityForResult(intent, requestCode);
+    }
+
     protected void finish() {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
             getFragmentManager().popBackStack();

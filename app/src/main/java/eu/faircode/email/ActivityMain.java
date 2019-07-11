@@ -27,14 +27,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 
 import java.util.List;
 
-public class ActivityMain extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
+public class ActivityMain extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportFragmentManager().addOnBackStackChangedListener(this);

@@ -655,6 +655,11 @@ public class Helper {
         return Objects.equals(signed, expected);
     }
 
+    static boolean hasAuthentication(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("biometrics", false);
+    }
+
     static boolean shouldAuthenticate(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);

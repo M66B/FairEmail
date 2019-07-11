@@ -157,6 +157,20 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
+    public void startActivity(Intent intent) {
+        if (Helper.hasAuthentication(this))
+            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        super.startActivity(intent);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        if (Helper.hasAuthentication(this))
+            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+        super.startActivityForResult(intent, requestCode);
+    }
+
+    @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         Log.i("Preference " + key + "=" + prefs.getAll().get(key));
         if ("theme".equals(key)) {
