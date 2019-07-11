@@ -138,7 +138,7 @@ public class Helper {
         }
     };
 
-    final static ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final static ExecutorService executor = Executors.newSingleThreadExecutor();
 
     // Features
 
@@ -631,7 +631,7 @@ public class Helper {
         return sb.toString();
     }
 
-    public static String getFingerprint(Context context) {
+    static String getFingerprint(Context context) {
         try {
             PackageManager pm = context.getPackageManager();
             String pkg = context.getPackageName();
@@ -649,7 +649,7 @@ public class Helper {
         }
     }
 
-    public static boolean hasValidFingerprint(Context context) {
+    static boolean hasValidFingerprint(Context context) {
         String signed = getFingerprint(context);
         String expected = context.getString(R.string.fingerprint);
         return Objects.equals(signed, expected);
@@ -802,7 +802,7 @@ public class Helper {
         }
     }
 
-    public static <T> List<List<T>> chunkList(List<T> list, int size) {
+    static <T> List<List<T>> chunkList(List<T> list, int size) {
         List<List<T>> result = new ArrayList<>(list.size() / size);
         for (int i = 0; i < list.size(); i += size)
             result.add(list.subList(i, i + size < list.size() ? i + size : list.size()));
