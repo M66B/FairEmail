@@ -108,7 +108,35 @@ public class ActivityMain extends AppCompatActivity implements FragmentManager.O
                         new Runnable() {
                             @Override
                             public void run() {
-                                finish();
+                                try {
+                                    finish();
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                    /*
+                                    java.lang.NullPointerException: Attempt to invoke virtual method 'int com.android.server.fingerprint.ClientMonitor.stop(boolean)' on a null object reference
+                                        at android.os.Parcel.createException(Parcel.java:1956)
+                                        at android.os.Parcel.readException(Parcel.java:1918)
+                                        at android.os.Parcel.readException(Parcel.java:1868)
+                                        at android.app.IActivityManager$Stub$Proxy.finishActivity(IActivityManager.java:3797)
+                                        at android.app.Activity.finish(Activity.java:5608)
+                                        at android.app.Activity.finish(Activity.java:5632)
+                                        at eu.faircode.email.ActivityMain$3.run(SourceFile:111)
+                                        at eu.faircode.email.Helper$3$1.run(SourceFile:706)
+                                        at android.os.Handler.handleCallback(Handler.java:873)
+                                        at android.os.Handler.dispatchMessage(Handler.java:99)
+                                        at android.os.Looper.loop(Looper.java:193)
+                                        at android.app.ActivityThread.main(ActivityThread.java:6718)
+                                        at java.lang.reflect.Method.invoke(Method.java:-2)
+                                        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:493)
+                                        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:858)
+                                    Caused by: android.os.RemoteException: Remote stack trace:
+                                        at com.android.server.fingerprint.FingerprintService$5.onTaskStackChanged(FingerprintService.java:239)
+                                        at com.android.server.am.TaskChangeNotificationController.lambda$new$0(TaskChangeNotificationController.java:70)
+                                        at com.android.server.am.-$$Lambda$TaskChangeNotificationController$kftD881t3KfWCASQEbeTkieVI2M.accept(Unknown Source:0)
+                                        at com.android.server.am.TaskChangeNotificationController.forAllLocalListeners(TaskChangeNotificationController.java:263)
+                                        at com.android.server.am.TaskChangeNotificationController.notifyTaskStackChanged(TaskChangeNotificationController.java:276)
+                                    */
+                                }
                             }
                         });
             else
