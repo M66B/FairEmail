@@ -191,7 +191,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
 
         JSONArray jargs = new JSONArray();
-        jargs.put(initialize == 0 ? days : Math.max(keep_days, initialize));
+        jargs.put(initialize == 0 ? days : Math.min(keep_days, initialize));
         jargs.put(keep_days);
         jargs.put(download);
         jargs.put(auto_delete);
