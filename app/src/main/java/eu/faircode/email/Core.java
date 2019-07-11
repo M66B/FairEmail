@@ -1799,7 +1799,6 @@ class Core {
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean biometrics = prefs.getBoolean("biometrics", false);
         boolean badge = prefs.getBoolean("badge", true);
         boolean pro = Helper.isPro(context);
 
@@ -1854,7 +1853,6 @@ class Core {
             final List<Long> add = new ArrayList<>();
             final List<Long> remove = groupNotifying.get(group);
 
-            int updates = 0;
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0)
@@ -1864,8 +1862,6 @@ class Core {
                     } else {
                         remove.remove(-id);
                         add.add(id);
-                        if (biometrics && groupNotifying.get(group).contains(-id))
-                            updates++;
                         Log.i("Notify adding=" + id);
                     }
             }
@@ -1887,7 +1883,7 @@ class Core {
 
             for (Notification notification : notifications) {
                 long id = notification.extras.getLong("id", 0);
-                if ((id == 0 && add.size() + remove.size() - updates > 0) || (add.contains(id) && !biometrics)) {
+                if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Log.i("Notifying tag=" + tag +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
@@ -1970,7 +1966,10 @@ class Core {
                         .setDeleteIntent(piClear)
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                         .setCategory(NotificationCompat.CATEGORY_STATUS)
-                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                        .setGroup(group)
+                        .setGroupSummary(true)
+                        .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
         Notification pub = builder.build();
         builder
@@ -1978,10 +1977,6 @@ class Core {
                 .setPublicVersion(pub);
 
         if (!biometrics) {
-            builder.setGroup(group)
-                    .setGroupSummary(true)
-                    .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
-
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
             StringBuilder sb = new StringBuilder();
             for (EntityMessage message : messages) {
@@ -2039,17 +2034,10 @@ class Core {
                 channelName = EntityAccount.getNotificationChannelId(
                         pro && message.accountNotify ? message.account : 0);
 
-            // Get folder name
-            String folderName = message.folderDisplay == null
-                    ? Helper.localizeFolderName(context, message.folderName)
-                    : message.folderDisplay;
-
             NotificationCompat.Builder mbuilder =
                     new NotificationCompat.Builder(context, channelName)
                             .addExtras(args)
                             .setSmallIcon(R.drawable.baseline_email_white_24)
-                            .setContentTitle(info.getDisplayName(true))
-                            .setSubText(message.accountName + " · " + folderName)
                             .setContentIntent(piContent)
                             .setWhen(message.received)
                             .setDeleteIntent(piIgnore)
@@ -2060,6 +2048,18 @@ class Core {
                             .setGroupSummary(false)
                             .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN)
                             .setOnlyAlertOnce(true);
+
+            if (biometrics)
+                mbuilder.setContentTitle(context.getResources().getQuantityString(
+                        R.plurals.title_notification_unseen, 1, 1));
+            else {
+                String folderName = message.folderDisplay == null
+                        ? Helper.localizeFolderName(context, message.folderName)
+                        : message.folderDisplay;
+
+                mbuilder.setContentTitle(info.getDisplayName(true))
+                        .setSubText(message.accountName + " · " + folderName);
+            }
 
             if (notify_trash) {
                 Intent trash = new Intent(context, ServiceUI.class)
@@ -2122,40 +2122,42 @@ class Core {
                 mbuilder.addAction(actionSeen.build());
             }
 
-            if (!TextUtils.isEmpty(message.subject))
-                mbuilder.setContentText(message.subject);
+            if (!biometrics) {
+                if (!TextUtils.isEmpty(message.subject))
+                    mbuilder.setContentText(message.subject);
 
-            if (message.content && notify_preview)
-                try {
-                    String body = Helper.readText(message.getFile(context));
-                    StringBuilder sbm = new StringBuilder();
-                    if (!TextUtils.isEmpty(message.subject))
-                        sbm.append(message.subject).append("<br>");
-                    String text = Jsoup.parse(body).text();
-                    if (!TextUtils.isEmpty(text)) {
-                        sbm.append("<em>");
-                        if (text.length() > HtmlHelper.PREVIEW_SIZE) {
-                            sbm.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
-                            sbm.append("…");
-                        } else
-                            sbm.append(text);
-                        sbm.append("</em>");
+                if (message.content && notify_preview)
+                    try {
+                        String body = Helper.readText(message.getFile(context));
+                        StringBuilder sbm = new StringBuilder();
+                        if (!TextUtils.isEmpty(message.subject))
+                            sbm.append(message.subject).append("<br>");
+                        String text = Jsoup.parse(body).text();
+                        if (!TextUtils.isEmpty(text)) {
+                            sbm.append("<em>");
+                            if (text.length() > HtmlHelper.PREVIEW_SIZE) {
+                                sbm.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
+                                sbm.append("…");
+                            } else
+                                sbm.append(text);
+                            sbm.append("</em>");
+                        }
+                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sbm.toString())));
+                    } catch (IOException ex) {
+                        Log.e(ex);
+                        mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
                     }
-                    mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sbm.toString())));
-                } catch (IOException ex) {
-                    Log.e(ex);
-                    mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
+
+                if (info.hasPhoto())
+                    mbuilder.setLargeIcon(info.getPhotoBitmap());
+
+                if (info.hasLookupUri())
+                    mbuilder.addPerson(info.getLookupUri().toString());
+
+                if (pro && message.accountColor != null) {
+                    mbuilder.setColor(message.accountColor);
+                    mbuilder.setColorized(true);
                 }
-
-            if (info.hasPhoto())
-                mbuilder.setLargeIcon(info.getPhotoBitmap());
-
-            if (info.hasLookupUri())
-                mbuilder.addPerson(info.getLookupUri().toString());
-
-            if (pro && message.accountColor != null) {
-                mbuilder.setColor(message.accountColor);
-                mbuilder.setColorized(true);
             }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
