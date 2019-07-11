@@ -20,10 +20,11 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swBadge"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="@string/title_advanced_badge"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:switchPadding="12dp" />
@@ -42,10 +43,11 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swSubscriptions"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_subscriptions"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvBadgeHint"
                 app:switchPadding="12dp" />
@@ -65,10 +67,11 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swSubscribedOnly"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_sync_subscribed"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSubscriptionPro"
                 app:switchPadding="12dp" />
@@ -109,10 +112,11 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swEnglish"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_english"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout"
                 app:switchPadding="12dp" />
@@ -131,42 +135,46 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swWatchdog"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_watchdog"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swUpdates"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_updates"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swWatchdog"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swCrashReports"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_crash_reports"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swUpdates"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swDebug"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_debug"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swCrashReports"
                 app:switchPadding="12dp" />

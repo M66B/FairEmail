@@ -20,10 +20,11 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swEnabled"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="@string/title_advanced_enabled"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:switchPadding="12dp" />
@@ -90,10 +91,11 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swSchedule"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_schedule"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPollHint"
                 app:switchPadding="12dp" />
@@ -155,44 +157,48 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swUnseen"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="false"
                 android:text="@string/title_advanced_unseen"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSchedulePro"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swFlagged"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_flagged"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swUnseen"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swDeleteUnseen"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="false"
                 android:text="@string/title_advanced_delete_unseen"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swFlagged"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swSyncKept"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="false"
                 android:text="@string/title_advanced_kept_removed"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swDeleteUnseen"
                 app:switchPadding="12dp" />

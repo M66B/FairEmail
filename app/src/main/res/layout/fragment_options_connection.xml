@@ -20,10 +20,11 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swMetered"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="@string/title_advanced_metered"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvConnectionRoaming"
                 app:layout_constraintTop_toTopOf="parent"
@@ -78,11 +79,12 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swRoaming"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_roaming"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spDownload"
                 app:switchPadding="12dp" />
@@ -101,11 +103,12 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swRlah"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_rlah"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvRoamingHint"
                 app:switchPadding="12dp" />

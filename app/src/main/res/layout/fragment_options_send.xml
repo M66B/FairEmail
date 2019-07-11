@@ -20,42 +20,46 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swKeyboard"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_keyboard"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swPrefixOnce"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_prefix_once"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swKeyboard"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swPlainOnly"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_plain_only"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swPrefixOnce"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swAutoResize"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_autoresize"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swPlainOnly"
                 app:switchPadding="12dp" />
@@ -80,11 +84,12 @@
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swAutoSend"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:checked="true"
                 android:text="@string/title_advanced_autosend"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spAutoResize"
                 app:switchPadding="12dp" />
