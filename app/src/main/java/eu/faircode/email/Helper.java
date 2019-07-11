@@ -686,10 +686,10 @@ public class Helper {
                 .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics))
                 .setNegativeButtonText(activity.getString(android.R.string.cancel));
 
-        if (enabled != null)
-            info.setSubtitle(activity.getString(enabled
-                    ? R.string.title_setup_biometrics_disable
-                    : R.string.title_setup_biometrics_enable));
+        info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
+                : enabled
+                ? R.string.title_setup_biometrics_disable
+                : R.string.title_setup_biometrics_enable));
 
         BiometricPrompt prompt = new BiometricPrompt(activity, executor,
                 new BiometricPrompt.AuthenticationCallback() {

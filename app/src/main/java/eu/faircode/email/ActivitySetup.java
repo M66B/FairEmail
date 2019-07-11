@@ -201,7 +201,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_fingerprint_24, R.string.title_setup_biometrics, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.baseline_fingerprint_24, R.string.title_setup_authentication, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
