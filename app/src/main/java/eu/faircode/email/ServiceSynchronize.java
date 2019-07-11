@@ -127,7 +127,9 @@ public class ServiceSynchronize extends LifecycleService {
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         // Removed because of Android VPN service
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
-        cm.registerNetworkCallback(builder.build(), networkCallback);
+        cm.registerNetworkCallback(builder.build(), onNetworkCallback);
+
+        registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
         DB db = DB.getInstance(this);
 
@@ -183,6 +185,8 @@ public class ServiceSynchronize extends LifecycleService {
         });
 
         WorkerCleanup.queue(this);
+
+
     }
 
     @Override
@@ -190,8 +194,10 @@ public class ServiceSynchronize extends LifecycleService {
         Log.i("Service destroy");
         EntityLog.log(this, "Service destroy");
 
+        unregisterReceiver(onScreenOff);
+
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        cm.unregisterNetworkCallback(networkCallback);
+        cm.unregisterNetworkCallback(onNetworkCallback);
 
         Core.notifyReset(this);
 
@@ -1265,7 +1271,7 @@ public class ServiceSynchronize extends LifecycleService {
         }
     }
 
-    ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+    private ConnectivityManager.NetworkCallback onNetworkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
         public void onAvailable(Network network) {
             networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
@@ -1354,6 +1360,15 @@ public class ServiceSynchronize extends LifecycleService {
                     Log.e(ex);
                 }
             }
+        }
+    };
+
+    private BroadcastReceiver onScreenOff = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i("Received " + intent);
+            Log.logExtras(intent);
+            Helper.clearAuthentication(ServiceSynchronize.this);
         }
     };
 
