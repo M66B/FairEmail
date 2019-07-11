@@ -248,6 +248,7 @@
     <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
     <string name="title_advanced_sync_subscribed">Synchronize subscribed folders only</string>
+    <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
@@ -849,6 +850,22 @@
         <item>To</item>
         <item>Cc</item>
         <item>Bcc</item>
+    </string-array>
+
+    <integer-array name="biometricsTimeoutValues" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+    </integer-array>
+
+    <string-array name="biometricsTimeoutNames">
+        <item>One minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>20 minutes</item>
     </string-array>
 
     <array name="colorPicker">

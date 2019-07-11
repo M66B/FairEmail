@@ -31,8 +31,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +53,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSubscriptions;
     private TextView tvSubscriptionPro;
     private SwitchCompat swSubscribedOnly;
+    private Spinner spBiometricsTimeout;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
@@ -66,7 +69,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "subscribed_only", "english", "watchdog", "updates", "crash_reports", "debug"
+            "badge", "subscriptions", "subscribed_only", "biometrics_timeout", "english", "watchdog", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -87,6 +90,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
         tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
         swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
+        spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -129,6 +133,19 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subscribed_only", checked).apply();
                 ServiceSynchronize.reload(getContext(), "subscribed_only");
+            }
+        });
+
+        spBiometricsTimeout.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                int[] values = getResources().getIntArray(R.array.biometricsTimeoutValues);
+                prefs.edit().putInt("biometrics_timeout", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("biometrics_timeout").apply();
             }
         });
 
@@ -273,6 +290,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false) && pro);
         swSubscriptions.setEnabled(pro);
         swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));
+
+        int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);
+        int[] biometricTimeoutValues = getResources().getIntArray(R.array.biometricsTimeoutValues);
+        for (int pos = 0; pos < biometricTimeoutValues.length; pos++)
+            if (biometricTimeoutValues[pos] == biometrics_timeout) {
+                spBiometricsTimeout.setSelection(pos);
+                break;
+            }
 
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));

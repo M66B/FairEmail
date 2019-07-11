@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,7 +36,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
-import android.provider.Settings;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.format.DateUtils;
@@ -663,17 +661,14 @@ public class Helper {
     static boolean shouldAuthenticate(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);
+        long biometrics_timeout = prefs.getInt("biometrics_timeout", 2) * 60 * 1000L;
 
         if (biometrics) {
-            ContentResolver resolver = context.getContentResolver();
-            int screen_timeout = Settings.System.getInt(resolver, Settings.System.SCREEN_OFF_TIMEOUT, -1);
-            Log.i("Screen timeout=" + screen_timeout);
-
             long now = new Date().getTime();
             long last_authentication = prefs.getLong("last_authentication", 0);
-            Log.i("Authentication valid until=" + new Date(last_authentication + screen_timeout));
+            Log.i("Authentication valid until=" + new Date(last_authentication + biometrics_timeout));
 
-            if (last_authentication + screen_timeout < now)
+            if (last_authentication + biometrics_timeout < now)
                 return true;
 
             prefs.edit().putLong("last_authentication", now).apply();
