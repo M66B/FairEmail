@@ -751,6 +751,11 @@ public class Helper {
         prompt.authenticate(info.build());
     }
 
+    static void clearAuthentication(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().remove("last_authentication").apply();
+    }
+
     // Miscellaneous
 
     static String sanitizeKeyword(String keyword) {
