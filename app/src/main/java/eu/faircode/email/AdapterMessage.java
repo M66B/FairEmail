@@ -2924,7 +2924,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
-        this.debug = prefs.getBoolean("debug", false);
+
+        debug = prefs.getBoolean("debug", false);
 
         AsyncDifferConfig<TupleMessageEx> config = new AsyncDifferConfig.Builder<>(DIFF_CALLBACK)
                 .build();
