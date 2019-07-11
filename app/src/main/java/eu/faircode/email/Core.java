@@ -1854,6 +1854,7 @@ class Core {
             final List<Long> add = new ArrayList<>();
             final List<Long> remove = groupNotifying.get(group);
 
+            int updates = 0;
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0)
@@ -1863,6 +1864,8 @@ class Core {
                     } else {
                         remove.remove(-id);
                         add.add(id);
+                        if (biometrics && groupNotifying.get(group).contains(-id))
+                            updates++;
                         Log.i("Notify adding=" + id);
                     }
             }
@@ -1884,7 +1887,7 @@ class Core {
 
             for (Notification notification : notifications) {
                 long id = notification.extras.getLong("id", 0);
-                if ((id == 0 && add.size() + remove.size() > 0) || (add.contains(id) && !biometrics)) {
+                if ((id == 0 && add.size() + remove.size() - updates > 0) || (add.contains(id) && !biometrics)) {
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Log.i("Notifying tag=" + tag +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
