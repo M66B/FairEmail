@@ -131,6 +131,11 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_reorder_accounts">Sortiranje računa</string>
     <string name="title_setup_reorder_folders">Sortiranje mapa</string>
     <string name="title_reset_order">Poništite redoslijed</string>
+    <string name="title_setup_authentication">Autentifikacija</string>
+    <string name="title_setup_biometrics">Biometrijska autentifikacija</string>
+    <string name="title_setup_biometrics_enable">Omogući</string>
+    <string name="title_setup_biometrics_disable">Onemogući</string>
+    <string name="title_setup_biometrics_unlock">Otključaj</string>
     <string name="title_setup_theme">Odaberi temu</string>
     <string name="title_setup_light_theme">Svijetla tema</string>
     <string name="title_setup_dark_theme">Tamna tema</string>
@@ -185,6 +190,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_monospaced">Upotrijebiti font u jednolikim razmjerima za tekst poruke</string>
     <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_images">Automatski prikaz slika za poznate kontakte</string>
+    <string name="title_advanced_collapse_quotes">Sažmi citirani tekst</string>
     <string name="title_advanced_remote_content">Automatsko prikazivanje udaljenog sadržaja pri pregledavanju izvornih poruka</string>
     <string name="title_advanced_actionbar">Traka s akcijama razgovora</string>
     <string name="title_advanced_pull_refresh">Povucite prema dolje za osvježavanje</string>
