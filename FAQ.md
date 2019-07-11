@@ -1294,6 +1294,8 @@ Select the time the conversation(s) should snooze and confirm by tapping OK.
 The conversations will be hidden for the selected time and shown again afterwards.
 You will receive a new message notification as reminder.
 
+It is also possible to snooze messages with [a rule](#user-content-faq71).
+
 You can show snoozed messages by using the *Snoozed* item in the three dot overflow menu.
 
 You can tap on the small snooze icon to see until when a conversation is snoozed.
@@ -1362,6 +1364,7 @@ You can select one of these actions to apply to matching messages:
 
 * Mark as read
 * Mark as unread
+* Snooze
 * Add star
 * Move
 * Copy
@@ -1816,8 +1819,8 @@ Note that this needs to be enabled in the advance options (default enabled).
 <a name="faq107"></a>
 **(107) How do I use colored stars?**
 
-You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message)
-or automatically by using [rules](#user-content-faq71).
+You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message),
+by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
 
 You need to know that colored stars are not supported by the IMAP protocol and can therefore not be synchronized to an email server.
 This means that colored stars will not be visible in other email clients and will be lost on downloading messages again.
@@ -1898,8 +1901,8 @@ for a list of privacy friendly email providers with advantages and disadvantages
 
 If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the setup screen.
 When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running.
-Activity is navigation within FairEmail, for example opening a conversation thread.
-When biometric authentication is enabled new message notifications will not show any content.
+Activity is navigation within FairEmail, for example opening a conversation thread. The inactivity period length is the same as the screen timeout.
+When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
 
 Biometric authentication is meant to prevent others from seeing your messages only.
 FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
