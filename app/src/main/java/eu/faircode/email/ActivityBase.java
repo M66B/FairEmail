@@ -147,7 +147,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         if (pm != null && !pm.isInteractive()) {
             Log.i("Stop with screen off");
-            Helper.clearAuthentication(this);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean biometrics = prefs.getBoolean("biometrics", false);
+            if (biometrics) {
+                Helper.clearAuthentication(this);
+                finish();
+            }
         }
     }
 
