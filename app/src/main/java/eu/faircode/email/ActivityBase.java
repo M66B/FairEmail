@@ -20,13 +20,12 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.PowerManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -89,8 +88,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
-
         super.onCreate(savedInstanceState);
     }
 
@@ -144,9 +141,20 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+
+        if (pm != null && !pm.isInteractive()) {
+            Log.i("Stop with screen off");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBase.this);
+            prefs.edit().remove("last_authentication").apply();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         Log.i("Destroy " + this.getClass().getName());
-        unregisterReceiver(onScreenOff);
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroy();
     }
@@ -184,17 +192,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 Arrays.asList(FragmentOptions.OPTIONS_RESTART).contains(key))
             finish();
     }
-
-    private BroadcastReceiver onScreenOff = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.i(intent.toString());
-            Log.logExtras(intent);
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBase.this);
-            prefs.edit().remove("last_authentication").apply();
-        }
-    };
 
     public boolean hasPermission(String name) {
         return Helper.hasPermission(this, name);
