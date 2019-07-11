@@ -1899,7 +1899,7 @@ for a list of privacy friendly email providers with advantages and disadvantages
 If your device has a biometric sensor, for example a fingerprint sensor, you can enable/disable biometric authentication in the navigation (hamburger) menu of the setup screen.
 When enabled FairEmail will require biometric authentication after a period of inactivity or after the screen has been turned off while FairEmail was running.
 Activity is navigation within FairEmail, for example opening a conversation thread.
-When biometric authentication is enabled only a summary notification with the number of new messages will be shown, so all message content is hidden.
+When biometric authentication is enabled new message notifications will not show any content.
 
 Biometric authentication is meant to prevent others from seeing your messages only.
 FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
