@@ -41,9 +41,9 @@ For authorizing:
 * ~~Notification settings per folder~~
 * ~~Select local images for signatures~~ (this will not be added because it requires image file management and because images are not shown by default in most email clients anyway)
 * ~~Show messages matched by a rule~~
-* [ManageSieve](https://tools.ietf.org/html/rfc5804)
+* ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
-* Search for a folder
+* ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 
 Anything on this list is in random order and *might* be added in the near future.
 
