@@ -27,6 +27,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
@@ -348,7 +349,12 @@ public class FragmentQuickSetup extends FragmentBase {
 
                     identity.display = null;
                     identity.color = null;
-                    identity.signature = null;
+
+                    CharSequence promote = getText(R.string.app_promote);
+                    if (promote instanceof Spanned)
+                        identity.signature = HtmlHelper.toHtml((Spanned) promote);
+                    else
+                        identity.signature = null;
 
                     identity.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     identity.host = provider.smtp_host;

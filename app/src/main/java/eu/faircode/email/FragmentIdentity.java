@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
@@ -848,6 +849,11 @@ public class FragmentIdentity extends FragmentBase {
                     etDisplay.setText(identity == null ? null : identity.display);
 
                     String signature = (identity == null ? null : identity.signature);
+                    if (TextUtils.isEmpty(signature)) {
+                        CharSequence promote = getText(R.string.app_promote);
+                        if (promote instanceof Spanned)
+                            signature = HtmlHelper.toHtml((Spanned) promote);
+                    }
                     etSignature.setText(TextUtils.isEmpty(signature) ? null : HtmlHelper.fromHtml(signature));
                     etSignature.setTag(signature);
 
