@@ -54,6 +54,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -1301,7 +1302,7 @@ public class FragmentAccount extends FragmentBase {
                         }
                     });
                     onSave(false);
-                } else
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     getFragmentManager().popBackStack();
                 break;
             case REQUEST_DELETE:
