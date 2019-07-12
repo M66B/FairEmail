@@ -153,7 +153,7 @@ are preferred in the form of [pull requests](https://help.github.com/articles/cr
 
 *Translations*
 
-* You can translate the in-app texts of FairEmail [on Crowdin](https://crowdin.com/project/FairEmail)
+* You can translate the in-app texts of FairEmail [on Crowdin](https://crowdin.com/project/open-source-email)
 * If your language is not listed, please send a message through [this contact form](https://contact.faircode.eu/?product=other)
 
 *Source code*

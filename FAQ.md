@@ -926,7 +926,7 @@ consider switching to a modern provider which supports push messages (IMAP IDLE)
 If your device has an [AMOLED](https://en.wikipedia.org/wiki/AMOLED) screen,
 you can save battery usage while viewing messages by switching to the black theme.
 
-Finally, make sure you are using [the latest version](https://github.com/M66B/open-source-email/releases/).
+Finally, make sure you are using [the latest version](https://github.com/M66B/FairEmail/releases/).
 
 <br />
 
@@ -1854,7 +1854,7 @@ Permanently delete messages from other folders would defeat the purpose of the t
 
 ~~You can solve this in two ways:~~
 
-* ~~Switch to the official version of FairEmail, see [here](https://github.com/M66B/open-source-email/blob/master/README.md#downloads) for the options~~
+* ~~Switch to the official version of FairEmail, see [here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for the options~~
 * ~~Use app specific passwords, see [this FAQ](#user-content-faq6)~~
 
 ~~Using *select account* in third party builds is not possible in recent versions anymore.~~

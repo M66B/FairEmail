@@ -30,7 +30,7 @@ If your provider is not in the list of providers, select *Custom*.
 Enter the domain name, for example *gmail.com* and tap *Get settings*.
 If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number,
 else check the setup instructions of your provider for the right IMAP host name and port number.
-For more about this, please see [here](https://github.com/M66B/open-source-email/blob/master/FAQ.md#authorizing-accounts).
+For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 
 ## Setup identity - to send email
@@ -39,7 +39,7 @@ Similarly, to add an identity, tap on *Manage identity* and tap on the orange *a
 Enter the name you want to appear in de from address of the emails you send and select a linked account.
 Tap *Save* to add the identity.
 
-See [this FAQ](https://github.com/M66B/open-source-email/blob/master/FAQ.md#FAQ9) about using aliases.
+See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
 
 
 ## Grant permissions - to access contact information
@@ -57,4 +57,4 @@ Tap *Disable battery optimizations* and follow the instructions.
 
 ## Questions
 
-If you have a question or problem, please [see here](https://github.com/M66B/open-source-email/blob/master/FAQ.md).
+If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md).
