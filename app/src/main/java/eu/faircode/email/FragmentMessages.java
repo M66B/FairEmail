@@ -2274,7 +2274,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Log.i("Suggestions=" + cursor.getCount());
                         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                                 getContext(),
-                                android.R.layout.simple_list_item_1,
+                                R.layout.search_suggestion,
                                 cursor,
                                 new String[]{"suggestion"},
                                 new int[]{android.R.id.text1},
