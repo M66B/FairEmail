@@ -1931,7 +1931,9 @@ class Core {
 
     private static List<Notification> getNotificationUnseen(Context context, String group, List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
-        // https://developer.android.com/training/notify-user/group
+
+        // Android 7+ https://developer.android.com/training/notify-user/group
+        // Android 8+ https://developer.android.com/training/notify-user/channels
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (messages == null || messages.size() == 0 || nm == null)
