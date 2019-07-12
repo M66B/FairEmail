@@ -32,6 +32,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
     signingConfigs {
         release {
             storeFile file(keystoreProperties['storeFile'])
@@ -130,7 +135,7 @@ dependencies {
     def recyclerview_version = "1.1.0-beta01"
     def coordinatorlayout_version = "1.1.0-beta01"
     def constraintlayout_version = "2.0.0-beta2"
-    def material_version = "1.1.0-alpha07"
+    def material_version = "1.1.0-alpha08"
     def browser_version = "1.0.0"
     def lifecycle_version = "2.1.0-rc01"
     def room_version = "2.1.0"
