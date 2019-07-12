@@ -41,8 +41,8 @@ public class FragmentOptions extends FragmentBase {
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
             "addresses", "attachments_alt", "contrast", "monospaced", "autohtml", "autoimages", "actionbar",
             "pull", "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext",
-            "subscriptions",
-            "authentication", "debug"
+            "subscriptions", "debug",
+            "biometrics"
     };
 
     @Override
