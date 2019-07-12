@@ -42,6 +42,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -258,7 +259,7 @@ public class FragmentFolder extends FragmentBase {
                         }
                     });
                     onSave(false);
-                } else
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     getFragmentManager().popBackStack();
                 break;
 
@@ -508,7 +509,7 @@ public class FragmentFolder extends FragmentBase {
                     ask.setArguments(aargs);
                     ask.setTargetFragment(FragmentFolder.this, REQUEST_SAVE_CHANGES);
                     ask.show(getFragmentManager(), "folder:save");
-                } else
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     getFragmentManager().popBackStack();
             }
 
@@ -549,7 +550,8 @@ public class FragmentFolder extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                getFragmentManager().popBackStack();
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    getFragmentManager().popBackStack();
             }
 
             @Override

@@ -58,6 +58,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -770,7 +771,7 @@ public class FragmentIdentity extends FragmentBase {
                     fragment.setArguments(aargs);
                     fragment.setTargetFragment(FragmentIdentity.this, REQUEST_SAVE);
                     fragment.show(getFragmentManager(), "identity:save");
-                } else
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     getFragmentManager().popBackStack();
             }
 
@@ -1037,7 +1038,7 @@ public class FragmentIdentity extends FragmentBase {
                         }
                     });
                     onSave(false);
-                } else
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     getFragmentManager().popBackStack();
                 break;
             case REQUEST_DELETE:
@@ -1085,7 +1086,8 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                getFragmentManager().popBackStack();
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    getFragmentManager().popBackStack();
             }
 
             @Override

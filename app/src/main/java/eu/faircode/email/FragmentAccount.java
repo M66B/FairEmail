@@ -1054,7 +1054,7 @@ public class FragmentAccount extends FragmentBase {
                     fragment.setArguments(aargs);
                     fragment.setTargetFragment(FragmentAccount.this, REQUEST_SAVE);
                     fragment.show(getFragmentManager(), "account:save");
-                } else
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
                     getFragmentManager().popBackStack();
             }
 
@@ -1346,7 +1346,8 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                getFragmentManager().popBackStack();
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    getFragmentManager().popBackStack();
             }
 
             @Override
