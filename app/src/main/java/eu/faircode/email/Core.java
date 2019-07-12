@@ -26,7 +26,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -108,6 +107,7 @@ import javax.mail.search.SearchTerm;
 import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
 
 class Core {
     private static int lastUnseen = -1;
@@ -2016,7 +2016,8 @@ class Core {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             if (light) {
-                builder.setLights(Color.WHITE, 1000, 1000);
+                builder.setDefaults(DEFAULT_LIGHTS);
+                //builder.setLights(Color.WHITE, 1000, 1000);
                 Log.i("Notify light enabled");
             }
 
