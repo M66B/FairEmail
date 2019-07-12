@@ -1865,6 +1865,7 @@ class Core {
             final List<Long> add = new ArrayList<>();
             final List<Long> remove = groupNotifying.get(group);
 
+            int updates = 0;
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0)
@@ -1872,16 +1873,20 @@ class Core {
                         remove.remove(id);
                         Log.i("Notify existing=" + id);
                     } else {
-                        remove.remove(-id);
+                        if (remove.contains(-id)) {
+                            updates++;
+                            remove.remove(-id);
+                        }
                         add.add(id);
                         Log.i("Notify adding=" + id);
                     }
             }
 
             Log.i("Notify group=" + group + " count=" + notifications.size() +
-                    " added=" + add.size() + " removed=" + remove.size());
+                    " added=" + add.size() + " removed=" + remove.size() + " updates=" + updates);
 
-            if (notifications.size() == 0) {
+            if (notifications.size() == 0 ||
+                    (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && add.size() - updates > 0)) {
                 String tag = "unseen." + group + "." + 0;
                 Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
@@ -1983,7 +1988,10 @@ class Core {
                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                         .setGroup(group)
                         .setGroupSummary(true)
-                        .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
+                        .setGroupAlertBehavior(Build.VERSION.SDK_INT < Build.VERSION_CODES.O
+                                ? NotificationCompat.GROUP_ALERT_SUMMARY
+                                : NotificationCompat.GROUP_ALERT_CHILDREN)
+                        .setOnlyAlertOnce(true);
 
         Notification pub = builder.build();
         builder
@@ -2004,6 +2012,19 @@ class Core {
             builder.setStyle(new NotificationCompat.BigTextStyle()
                     .bigText(HtmlHelper.fromHtml(sb.toString()))
                     .setSummaryText(title));
+        }
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            if (light) {
+                builder.setLights(Color.WHITE, 1000, 1000);
+                Log.i("Notify light enabled");
+            }
+
+            Uri uri = (sound == null ? null : Uri.parse(sound));
+            if (uri == null || "file".equals(uri.getScheme()))
+                uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            builder.setSound(uri);
+            Log.i("Notify sound=" + uri);
         }
 
         notifications.add(builder.build());
@@ -2060,7 +2081,9 @@ class Core {
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                             .setGroup(group)
                             .setGroupSummary(false)
-                            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN)
+                            .setGroupAlertBehavior(Build.VERSION.SDK_INT < Build.VERSION_CODES.O
+                                    ? NotificationCompat.GROUP_ALERT_SUMMARY
+                                    : NotificationCompat.GROUP_ALERT_CHILDREN)
                             .setOnlyAlertOnce(true);
 
             if (biometrics)
@@ -2174,15 +2197,8 @@ class Core {
                 }
             }
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-                if (light)
-                    mbuilder.setLights(Color.WHITE, 1000, 1000);
-
-                Uri uri = (sound == null ? null : Uri.parse(sound));
-                if (uri == null || "file".equals(uri.getScheme()))
-                    uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                mbuilder.setSound(uri);
-            }
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                mbuilder.setSound(null);
 
             notifications.add(mbuilder.build());
         }
