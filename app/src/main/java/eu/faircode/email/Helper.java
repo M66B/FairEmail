@@ -110,7 +110,7 @@ public class Helper {
 
     static final float LOW_LIGHT = 0.6f;
 
-    static final String FAQ_URI = "https://github.com/M66B/open-source-email/blob/master/FAQ.md";
+    static final String FAQ_URI = "https://github.com/M66B/FairEmail/blob/master/FAQ.md";
     static final String XDA_URI = "https://forum.xda-developers.com/android/apps-games/source-email-t3824168";
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
@@ -224,7 +224,7 @@ public class Helper {
 
     static Intent getIntentSetupHelp() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/SETUP.md#setup-help"));
+        intent.setData(Uri.parse("https://github.com/M66B/FairEmail/blob/master/SETUP.md#setup-help"));
         return intent;
     }
 
@@ -236,7 +236,7 @@ public class Helper {
 
     static Intent getIntentPrivacy() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/PRIVACY.md#fairemail"));
+        intent.setData(Uri.parse("https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail"));
         return intent;
     }
 

@@ -176,7 +176,7 @@ public class FragmentContacts extends FragmentBase {
 
     private static Intent getIntentHelp() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq84"));
+        intent.setData(Uri.parse("https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq84"));
         return intent;
     }
 
