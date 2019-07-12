@@ -57,6 +57,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionSeen;
     private TextView tvNotifyActionsPro;
     private Button btnManage;
+    private TextView tvManageHint;
     private ImageButton ibManage;
     private SwitchCompat swLight;
     private Button btnSound;
@@ -85,6 +86,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
         tvNotifyActionsPro = view.findViewById(R.id.tvNotifyActionsPro);
         btnManage = view.findViewById(R.id.btnManage);
+        tvManageHint = view.findViewById(R.id.tvManageHint);
         ibManage = view.findViewById(R.id.ibManage);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
@@ -154,6 +156,9 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         final Intent channel = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                 .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
                 .putExtra(Settings.EXTRA_CHANNEL_ID, "notification");
+
+        tvManageHint.setVisibility(channel.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
+
         ibManage.setVisibility(channel.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
         ibManage.setOnClickListener(new View.OnClickListener() {
             @Override
