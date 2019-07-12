@@ -44,6 +44,7 @@ For authorizing:
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
+* Seach history
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -597,6 +598,8 @@ Before Android 8 Oreo: there is an advanced option in the setup for this.
 Android 8 Oreo and later: see [here](https://developer.android.com/training/notify-user/channels) about how to configure notification channels.
 You can use the button *Manage notifications* in the setup to directly go to the Android notification settings.
 Note that apps cannot change notification settings, including the notification light setting, on Android 8 Oreo and later anymore.
+Apps designed and targeting older Android versions might still be able to control the contents of notifications,
+but such apps cannot be updated anymore and recent Android versions will show a warning such apps are outdated.
 
 <br />
 
