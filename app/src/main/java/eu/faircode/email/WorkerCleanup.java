@@ -88,10 +88,12 @@ public class WorkerCleanup extends Worker {
                 List<Long> mids = db.message().getMessageWithContent();
                 for (Long mid : mids) {
                     EntityMessage message = db.message().getMessage(mid);
-                    File file = message.getFile(context);
-                    if (!file.exists()) {
-                        Log.w("Message file missing id=" + mid);
-                        db.message().setMessageContent(mid, false);
+                    if (message != null) {
+                        File file = message.getFile(context);
+                        if (!file.exists()) {
+                            Log.w("Message file missing id=" + mid);
+                            db.message().setMessageContent(mid, false);
+                        }
                     }
                 }
 
@@ -100,10 +102,12 @@ public class WorkerCleanup extends Worker {
                 List<Long> aids = db.attachment().getAttachmentAvailable();
                 for (Long aid : aids) {
                     EntityAttachment attachment = db.attachment().getAttachment(aid);
-                    File file = attachment.getFile(context);
-                    if (!file.exists()) {
-                        Log.w("Attachment file missing id=" + aid);
-                        db.attachment().setAvailable(aid, false);
+                    if (attachment != null) {
+                        File file = attachment.getFile(context);
+                        if (!file.exists()) {
+                            Log.w("Attachment file missing id=" + aid);
+                            db.attachment().setAvailable(aid, false);
+                        }
                     }
                 }
             }
