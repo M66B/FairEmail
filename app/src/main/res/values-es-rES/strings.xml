@@ -212,6 +212,7 @@
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
     <string name="title_advanced_sync_subscribed">Sincronizar solo carpetas suscritas</string>
+    <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
@@ -712,5 +713,12 @@
         <item>A</item>
         <item>CC</item>
         <item>CCO</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>20 minutos</item>
     </string-array>
 </resources>

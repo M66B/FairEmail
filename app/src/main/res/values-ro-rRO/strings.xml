@@ -132,9 +132,11 @@
     <string name="title_setup_reorder_accounts">Ordine conturi</string>
     <string name="title_setup_reorder_folders">Ordine dosare</string>
     <string name="title_reset_order">Resetare ordine</string>
+    <string name="title_setup_authentication">Autentificare</string>
     <string name="title_setup_biometrics">Autentificarea biometrică</string>
     <string name="title_setup_biometrics_enable">Activează</string>
     <string name="title_setup_biometrics_disable">Dezactivează</string>
+    <string name="title_setup_biometrics_unlock">Deblocați</string>
     <string name="title_setup_theme">Selectare temă</string>
     <string name="title_setup_light_theme">Temă luminoasă</string>
     <string name="title_setup_dark_theme">Temă întunecată</string>
@@ -218,6 +220,7 @@
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
+    <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
@@ -718,5 +721,12 @@
         <item>Către</item>
         <item>Cc</item>
         <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>1 minut</item>
+        <item>2 minute</item>
+        <item>5 minute</item>
+        <item>10 minute</item>
+        <item>20 de minute</item>
     </string-array>
 </resources>

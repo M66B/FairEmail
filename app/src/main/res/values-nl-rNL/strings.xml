@@ -212,6 +212,7 @@
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
     <string name="title_advanced_sync_subscribed">Alleen geabonneerde mappen synchroniseren</string>
+    <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
@@ -712,5 +713,12 @@
         <item>Aan</item>
         <item>Cc</item>
         <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Eén minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>10 minuten</item>
+        <item>20 minuten</item>
     </string-array>
 </resources>

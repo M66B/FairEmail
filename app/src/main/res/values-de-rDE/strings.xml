@@ -211,6 +211,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_subscriptions">Ihre Abonnements verwalten</string>
     <string name="title_advanced_sync_subscribed">Nur abonnierte Ordner synchronisieren</string>
+    <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -711,5 +712,12 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>An</item>
         <item>Zusätzliche Empfänger (CC)</item>
         <item>Verdeckte Empfänger (BCC)</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Eine Minute</item>
+        <item>2 Minuten</item>
+        <item>5 Minuten</item>
+        <item>10 Minuten</item>
+        <item>20 Minuten</item>
     </string-array>
 </resources>

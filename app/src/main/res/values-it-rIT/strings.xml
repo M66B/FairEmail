@@ -211,6 +211,7 @@
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_sync_subscribed">Sincronizza solo le cartelle sottoscritte</string>
+    <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -711,5 +712,12 @@
         <item>A</item>
         <item>Cc</item>
         <item>Ccn</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Un minuto</item>
+        <item>2 minuti</item>
+        <item>5 minuti</item>
+        <item>10 minuti</item>
+        <item>20 minuti</item>
     </string-array>
 </resources>

@@ -212,6 +212,7 @@
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
     <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
     <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
+    <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
@@ -712,5 +713,12 @@
         <item>A</item>
         <item>Cc</item>
         <item>Cci</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>20 minutes</item>
     </string-array>
 </resources>

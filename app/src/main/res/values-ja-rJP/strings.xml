@@ -96,6 +96,12 @@
     <string name="title_answer_caption">テンプレートを編集</string>
     <string name="title_rule_answer">返信</string>
     <string name="title_rule_check">確認</string>
+    <string name="title_select_app">アプリを選択</string>
+    <string name="title_undo">元に戻す</string>
+    <string name="title_redo">やり直し</string>
+    <string name="title_add">追加</string>
+    <string name="title_unexpected_error">予期しないエラー</string>
+    <string name="title_log">ログ</string>
     <string-array name="downloadNames">
         <item>16 KB</item>
         <item>32 KB</item>
@@ -106,5 +112,12 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>1分</item>
+        <item>2分</item>
+        <item>5分</item>
+        <item>10分</item>
+        <item>20分</item>
     </string-array>
 </resources>
