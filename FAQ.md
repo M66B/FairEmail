@@ -44,7 +44,7 @@ For authorizing:
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (there are no maintained Java libraries with a suitable license and without dependencies and besides that, FairEmail has its own filter rules)
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
-* Seach history
+* ~~Search suggestions~~
 
 Anything on this list is in random order and *might* be added in the near future.
 

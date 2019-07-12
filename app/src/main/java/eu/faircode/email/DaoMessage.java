@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.database.Cursor;
+
 import androidx.lifecycle.LiveData;
 import androidx.paging.DataSource;
 import androidx.room.Dao;
@@ -305,10 +307,15 @@ public interface DaoMessage {
     @Query("SELECT * FROM message WHERE NOT ui_snoozed IS NULL")
     List<EntityMessage> getSnoozed();
 
-    @Query("SELECT id, `from`, avatar FROM message" +
-            " WHERE folder = :folder" +
-            " AND received >= :before")
-    List<TupleMessageLookup> getAvatars(long folder, long before);
+    @Query("SELECT id AS _id, subject AS suggestion FROM message" +
+            " WHERE subject LIKE :query" +
+            " GROUP BY subject" +
+            " UNION" +
+            " SELECT id AS _id, sender AS suggestion FROM message" +
+            " WHERE sender LIKE :query" +
+            " GROUP BY sender" +
+            " ORDER BY sender, subject")
+    Cursor getSuggestions(String query);
 
     @Insert
     long insertMessage(EntityMessage message);

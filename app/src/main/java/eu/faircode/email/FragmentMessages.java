@@ -30,6 +30,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -80,6 +81,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
+import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -2242,7 +2244,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         inflater.inflate(R.menu.menu_messages, menu);
 
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        SearchView searchView = (SearchView) menuSearch.getActionView();
+        final SearchView searchView = (SearchView) menuSearch.getActionView();
         searchView.setQueryHint(getString(R.string.title_search));
 
         if (!TextUtils.isEmpty(searching)) {
@@ -2254,6 +2256,39 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public boolean onQueryTextChange(String newText) {
                 searching = newText;
+
+                Bundle args = new Bundle();
+                args.putString("query", newText);
+
+                new SimpleTask<Cursor>() {
+                    @Override
+                    protected Cursor onExecute(Context context, Bundle args) {
+                        String query = args.getString("query");
+
+                        DB db = DB.getInstance(context);
+                        return db.message().getSuggestions("%" + query + "%");
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Cursor cursor) {
+                        Log.i("Suggestions=" + cursor.getCount());
+                        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                                getContext(),
+                                android.R.layout.simple_list_item_1,
+                                cursor,
+                                new String[]{"suggestion"},
+                                new int[]{android.R.id.text1},
+                                0);
+                        searchView.setSuggestionsAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getFragmentManager(), ex);
+                    }
+                }.execute(FragmentMessages.this, args, "messages:suggestions");
+
                 return true;
             }
 
@@ -2265,6 +2300,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         getContext(), getViewLifecycleOwner(), getFragmentManager(),
                         folder, false, query);
                 return true;
+            }
+        });
+
+        searchView.setOnSuggestionListener(new SearchView.OnSuggestionListener() {
+            @Override
+            public boolean onSuggestionSelect(int position) {
+                return false;
+            }
+
+            @Override
+            public boolean onSuggestionClick(int position) {
+                Cursor cursor = (Cursor) searchView.getSuggestionsAdapter().getItem(position);
+                searchView.setQuery(cursor.getString(1), true);
+                return false;
             }
         });
 
