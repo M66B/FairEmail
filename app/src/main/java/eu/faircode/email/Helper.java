@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -32,7 +33,10 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.hardware.biometrics.BiometricManager;
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
@@ -651,6 +655,19 @@ public class Helper {
         String signed = getFingerprint(context);
         String expected = context.getString(R.string.fingerprint);
         return Objects.equals(signed, expected);
+    }
+
+    static boolean canAuthenticate(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            return false;
+        else if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) {
+            FingerprintManager fpm = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
+            return (fpm != null && fpm.isHardwareDetected() && fpm.hasEnrolledFingerprints());
+        } else {
+            @SuppressLint("WrongConstant")
+            BiometricManager bm = (BiometricManager) context.getSystemService(Context.BIOMETRIC_SERVICE);
+            return (bm != null && bm.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS);
+        }
     }
 
     static boolean hasAuthentication(Context context) {
