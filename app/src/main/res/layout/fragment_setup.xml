@@ -163,6 +163,16 @@
                 app:layout_constraintTop_toBottomOf="@id/one" />
 
             <TextView
+                android:id="@+id/tvAccountHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_setup_account_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+
+            <TextView
                 android:id="@+id/tvAccountDone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -173,7 +183,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="?android:attr/textColorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+                app:layout_constraintTop_toBottomOf="@id/tvAccountHint" />
 
             <Button
                 android:id="@+id/btnAccount"
@@ -251,6 +261,16 @@
                 app:layout_constraintTop_toBottomOf="@id/two" />
 
             <TextView
+                android:id="@+id/tvIdentityHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_setup_identity_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
+
+            <TextView
                 android:id="@+id/tvIdentityDone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -261,7 +281,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="?android:attr/textColorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
+                app:layout_constraintTop_toBottomOf="@id/tvIdentityHint" />
 
             <Button
                 android:id="@+id/btnIdentity"
