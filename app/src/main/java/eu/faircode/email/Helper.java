@@ -218,10 +218,10 @@ public class Helper {
                 customTabsIntent.launchUrl(context, uri);
             } catch (ActivityNotFoundException ex) {
                 Log.w(ex);
-                Toast.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, context.getString(R.string.title_no_viewer, uri.toString()), Toast.LENGTH_LONG).show();
             } catch (Throwable ex) {
                 Log.e(ex);
-                Toast.makeText(context, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -489,9 +489,9 @@ public class Helper {
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
                                     if (ex instanceof IllegalArgumentException)
-                                        Toast.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
+                                        ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
                                     else
-                                        Toast.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                        ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                                 }
                             }.execute(context, getActivity(), new Bundle(), "error:unexpected");
                         }
@@ -722,7 +722,7 @@ public class Helper {
                                         errorCode == BiometricPrompt.ERROR_USER_CANCELED)
                                     cancelled.run();
                                 else
-                                    Toast.makeText(activity,
+                                    ToastEx.makeText(activity,
                                             errString + " (" + errorCode + ")",
                                             Toast.LENGTH_LONG).show();
                             }
@@ -751,7 +751,7 @@ public class Helper {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(activity,
+                                ToastEx.makeText(activity,
                                         R.string.title_unexpected_error,
                                         Toast.LENGTH_LONG).show();
                                 cancelled.run();

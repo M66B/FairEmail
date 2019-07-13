@@ -271,7 +271,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Toast.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
             }
 
             @Override

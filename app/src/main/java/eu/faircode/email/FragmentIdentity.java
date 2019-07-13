@@ -1032,7 +1032,7 @@ public class FragmentIdentity extends FragmentBase {
                         Bundle args = data.getBundleExtra("args");
                         setColor(args.getInt("color"));
                     } else
-                        Toast.makeText(getContext(), R.string.title_pro_feature, Toast.LENGTH_LONG).show();
+                        ToastEx.makeText(getContext(), R.string.title_pro_feature, Toast.LENGTH_LONG).show();
                 }
                 break;
             case REQUEST_SAVE:

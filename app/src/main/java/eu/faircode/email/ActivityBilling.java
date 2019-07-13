@@ -188,10 +188,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                         .putBoolean("play_store", false)
                         .apply();
                 Log.i("IAB response valid");
-                Toast.makeText(this, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(this, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
             } else {
                 Log.i("IAB response invalid");
-                Toast.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
             }
         } catch (NoSuchAlgorithmException ex) {
             Log.e(ex);

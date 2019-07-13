@@ -377,7 +377,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         } else
-            Toast.makeText(this, R.string.title_pro_feature, Toast.LENGTH_LONG).show();
+            ToastEx.makeText(this, R.string.title_pro_feature, Toast.LENGTH_LONG).show();
     }
 
     private void onMenuImport() {
@@ -425,7 +425,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 if (pro)
                     prefs.edit().putBoolean("biometrics", !biometrics).apply();
 
-                Toast.makeText(ActivitySetup.this,
+                ToastEx.makeText(ActivitySetup.this,
                         pro ? R.string.title_setup_done : R.string.title_pro_feature,
                         Toast.LENGTH_LONG).show();
             }
@@ -619,13 +619,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Toast.makeText(ActivitySetup.this, R.string.title_setup_exported, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(ActivitySetup.this, R.string.title_setup_exported, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Toast.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                    ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
@@ -895,15 +895,15 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                Toast.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
+                ToastEx.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex.getCause() instanceof BadPaddingException)
-                    Toast.makeText(ActivitySetup.this, R.string.title_setup_password_invalid, Toast.LENGTH_LONG).show();
+                    ToastEx.makeText(ActivitySetup.this, R.string.title_setup_password_invalid, Toast.LENGTH_LONG).show();
                 else if (ex instanceof IllegalArgumentException)
-                    Toast.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                    ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
@@ -1055,7 +1055,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             String password2 = etPassword2.getEditText().getText().toString();
 
                             if (!BuildConfig.DEBUG && TextUtils.isEmpty(password1))
-                                Toast.makeText(getContext(), R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
+                                ToastEx.makeText(getContext(), R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
                             else {
                                 if (!export || password1.equals(password2)) {
                                     ((ActivitySetup) getActivity()).password = password1;
@@ -1064,7 +1064,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                                     export ? getIntentExport() : getIntentImport()),
                                             export ? REQUEST_EXPORT : REQUEST_IMPORT);
                                 } else
-                                    Toast.makeText(getContext(), R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
+                                    ToastEx.makeText(getContext(), R.string.title_setup_password_different, Toast.LENGTH_LONG).show();
                             }
                         }
                     })

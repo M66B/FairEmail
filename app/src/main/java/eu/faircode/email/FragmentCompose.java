@@ -2609,7 +2609,7 @@ public class FragmentCompose extends FragmentBase {
                         Handler handler = new Handler(context.getMainLooper());
                         handler.post(new Runnable() {
                             public void run() {
-                                Toast.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+                                ToastEx.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
                             }
                         });
                     }
@@ -2623,7 +2623,7 @@ public class FragmentCompose extends FragmentBase {
                     Handler handler = new Handler(context.getMainLooper());
                     handler.post(new Runnable() {
                         public void run() {
-                            Toast.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                            ToastEx.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -2684,7 +2684,7 @@ public class FragmentCompose extends FragmentBase {
                     Handler handler = new Handler(context.getMainLooper());
                     handler.post(new Runnable() {
                         public void run() {
-                            Toast.makeText(context, feedback, Toast.LENGTH_LONG).show();
+                            ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
                         }
                     });
                 }
