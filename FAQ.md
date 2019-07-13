@@ -190,6 +190,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(112) Which email provider do you recommend?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
+* [(115) Can you add email address chips?](#user-content-faq114)
 
 [I have another question.](#support)
 
@@ -1927,6 +1928,21 @@ and for the number of days to keep messages for, mainly to save on battery usage
 Moreover, setting up an account/identity with the quick setup is simple, so it is not really worth the effort.
 
 <br />
+
+<a name="faq115"></a>
+**(115) Can you add email address chips?**
+
+Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited,
+which is quite inconvenient when you made a typo in an email address.
+
+Chips are not suitable for showing in a list
+and since the message header in a list should look similar to the message header of the message view it is not an option to use chips for viewing messages.
+
+Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f471b882ec87d5a5a5015).
+
+<br />
+
+
 
 ## Support
 
