@@ -306,7 +306,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="12dp"
-                android:background="@color/colorAccent"
+                android:background="?attr/colorAccent"
                 app:layout_constraintBottom_toBottomOf="@id/btnColor"
                 app:layout_constraintStart_toEndOf="@id/btnColor"
                 app:layout_constraintTop_toTopOf="@id/btnColor" />
@@ -330,7 +330,7 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/title_pro_feature"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorAccent"
+                android:textColor="?attr/colorAccent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
@@ -380,7 +380,7 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/title_pro_feature"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="@color/colorAccent"
+                android:textColor="?attr/colorAccent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbNotify" />
 
@@ -708,7 +708,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="@color/colorAccent"
+                android:backgroundTint="?attr/colorAccent"
                 android:text="@string/title_setup_help"
                 android:textColor="?android:textColorPrimaryInverse"
                 android:textStyle="bold"
