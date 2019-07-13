@@ -45,9 +45,11 @@ public class FragmentAbout extends FragmentBase {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         TextView tvVersion = view.findViewById(R.id.tvVersion);
+        TextView tvRelease = view.findViewById(R.id.tvRelease);
         TextView tvLimitations = view.findViewById(R.id.tvLimitations);
 
         tvVersion.setText(getString(R.string.title_version, BuildConfig.VERSION_NAME));
+        tvRelease.setText(BuildConfig.RELEASE_NAME);
         tvLimitations.setPaintFlags(tvLimitations.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         return view;
