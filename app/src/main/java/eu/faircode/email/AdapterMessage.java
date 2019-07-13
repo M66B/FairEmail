@@ -55,9 +55,9 @@ import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.LinkMovementMethod;
 import android.text.style.DynamicDrawableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
-import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -1006,7 +1006,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
                         int colon = line.indexOf(':');
                         if (colon > 0)
-                            ssb.setSpan(new StyleSpan(Typeface.BOLD), index, index + colon, 0);
+                            ssb.setSpan(new ForegroundColorSpan(colorAccent), index, index + colon, 0);
                     }
                     index += line.length() + 1;
                 }
