@@ -806,16 +806,20 @@ public class Helper {
     }
 
     static void linkPro(final TextView tv) {
-        final Intent pro = new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.PRO_FEATURES_URI));
-        PackageManager pm = tv.getContext().getPackageManager();
-        if (pro.resolveActivity(pm) != null) {
-            tv.getPaint().setUnderlineText(true);
-            tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    tv.getContext().startActivity(pro);
-                }
-            });
+        if (isPro(tv.getContext()))
+            hide(tv);
+        else {
+            final Intent pro = new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.PRO_FEATURES_URI));
+            PackageManager pm = tv.getContext().getPackageManager();
+            if (pro.resolveActivity(pm) != null) {
+                tv.getPaint().setUnderlineText(true);
+                tv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        tv.getContext().startActivity(pro);
+                    }
+                });
+            }
         }
     }
 
