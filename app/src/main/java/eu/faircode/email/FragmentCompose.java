@@ -293,42 +293,6 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        final int chipBackground = Helper.resolveColor(getContext(), R.attr.colorPrimary);
-        final int chipForeground = Color.WHITE;
-        final int chipRadius = Helper.dp2pixels(getContext(), 6);
-
-        TextWatcher chip = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                for (Object span : editable.getSpans(0, editable.length(), ChipSpan.class))
-                    editable.removeSpan(span);
-
-                int start = 0;
-                for (int i = 0; i < editable.length(); i++)
-                    if (editable.charAt(i) == ',') {
-                        if (i > start) {
-                            if (editable.charAt(start) == ' ')
-                                start++;
-                            editable.setSpan(new ChipSpan(chipBackground, chipForeground, chipRadius),
-                                    start, i, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        }
-                        start = i + 1;
-                    }
-            }
-        };
-
-        etTo.addTextChangedListener(chip);
-        etCc.addTextChangedListener(chip);
-        etBcc.addTextChangedListener(chip);
-
         View.OnClickListener onPick = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
