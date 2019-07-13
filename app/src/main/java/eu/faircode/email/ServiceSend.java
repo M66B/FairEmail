@@ -144,6 +144,10 @@ public class ServiceSend extends LifecycleService {
                                                     send(message);
                                                     break;
 
+                                                case EntityOperation.ANSWERED:
+                                                    // This will be fixed when synchronizing the message
+                                                    break;
+
                                                 default:
                                                     throw new IllegalArgumentException("Unknown operation=" + op.name);
                                             }
