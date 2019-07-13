@@ -885,7 +885,7 @@ public class FragmentCompose extends FragmentBase {
                 ss.removeSpan(span);
 
         etBody.setText(ss);
-        etBody.setSelection(end);
+        etBody.setSelection(end, end);
     }
 
     private void onMenuContactGroup() {
@@ -1522,7 +1522,7 @@ public class FragmentCompose extends FragmentBase {
             ss.removeSpan(span);
         ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         etBody.setText(ss);
-        etBody.setSelection(end);
+        etBody.setSelection(end, end);
     }
 
     private void onSendAfter(long time) {
@@ -1691,7 +1691,7 @@ public class FragmentCompose extends FragmentBase {
 
         ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         etBody.setText(ss);
-        etBody.setSelection(end);
+        etBody.setSelection(end, end);
     }
 
     private void onExit() {
@@ -3162,7 +3162,7 @@ public class FragmentCompose extends FragmentBase {
                         ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                     etBody.setText(ss);
-                    etBody.setSelection(end);
+                    etBody.setSelection(end, end);
                     return true;
                 }
 
@@ -3177,7 +3177,7 @@ public class FragmentCompose extends FragmentBase {
                         ss.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                     etBody.setText(ss);
-                    etBody.setSelection(end);
+                    etBody.setSelection(end, end);
                     return true;
                 }
 
@@ -3200,7 +3200,7 @@ public class FragmentCompose extends FragmentBase {
                         ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                     etBody.setText(ss);
-                    etBody.setSelection(end);
+                    etBody.setSelection(end, end);
                     return true;
                 }
 
@@ -3217,6 +3217,7 @@ public class FragmentCompose extends FragmentBase {
                     fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
                     fragment.show(getFragmentManager(), "account:color");
 
+                    etBody.setSelection(end, end);
                     return true;
                 }
 
