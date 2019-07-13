@@ -532,7 +532,7 @@ public class FragmentRule extends FragmentBase {
                     JSONObject jsubject = jcondition.optJSONObject("subject");
                     JSONObject jheader = jcondition.optJSONObject("header");
 
-                    etName.setText(rule == null ? null : rule.name);
+                    etName.setText(rule == null ? args.getString("subject") : rule.name);
                     etOrder.setText(rule == null ? null : Integer.toString(rule.order));
                     cbEnabled.setChecked(rule == null || rule.enabled);
                     cbStop.setChecked(rule != null && rule.stop);
