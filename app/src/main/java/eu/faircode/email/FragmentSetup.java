@@ -239,7 +239,7 @@ public class FragmentSetup extends FragmentBase {
         btnInbox.setEnabled(false);
 
         boolean welcome = prefs.getBoolean("welcome", true);
-        grpWelcome.setVisibility(welcome || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        grpWelcome.setVisibility(welcome ? View.VISIBLE : View.GONE);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)
