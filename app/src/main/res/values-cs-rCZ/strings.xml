@@ -66,7 +66,6 @@
         <item quantity="many">Považovat %1$d zpráv za spam?</item>
         <item quantity="other">Považovat %1$d zpráv za spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Označit zprávu od %1$s jako spam?</string>
     <string name="title_notification_waiting">Čekání na vyhovující připojení</string>
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>

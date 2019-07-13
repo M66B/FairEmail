@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail è un\'app opensource di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
+    <string name="app_promote">Inviato con <a href="https://email.faircode.eu/">FairEmail</a>, un\'app email open source, privacy friendly per Android</string>
     <string name="app_exit">Premi di nuovo \'indietro\' per uscire</string>
     <string name="channel_service">Servizio</string>
     <string name="channel_send">Invia</string>
@@ -50,7 +51,7 @@
         <item quantity="one">Trattare %1$d messaggio come spam?</item>
         <item quantity="other">Trattare %1$d messaggi come spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Segnalare messaggio da %1$s come spam?</string>
+    <string name="title_ask_spam_who">Tratta il messaggio da %1$s come spam?</string>
     <string name="title_notification_waiting">In attesa di una connessione adeguata</string>
     <string name="title_notification_sending">Invio messaggi in corso</string>
     <string name="title_notification_failed">\'%1$s\' fallito</string>

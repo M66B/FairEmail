@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimivat eri tavalla kuin mitä olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
+    <string name="app_promote">Lähetetty <a href="https://email.faircode.eu/">FairEmaililla</a>, avoimen lähdekoodin yksityisyyttä kunnioittavalla sähköpostisovelluksella Androidille</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="channel_service">Palvelu</string>
     <string name="channel_send">Lähettäminen</string>
@@ -50,7 +51,7 @@
         <item quantity="one">Käsittele %1$d viestiä roskapostina?</item>
         <item quantity="other">Käsittele %1$d viestiä roskapostina?</item>
     </plurals>
-    <string name="title_ask_spam_who">Merkitse viesti lähettäjältä %1$s roskapostiksi?</string>
+    <string name="title_ask_spam_who">Käsittele viesti lähettäjältä %1$s roskapostina?</string>
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>

@@ -65,7 +65,6 @@
         <item quantity="many">Считать %1$d сообщений спамом?</item>
         <item quantity="other">Считать %1$d сообщений спамом?</item>
     </plurals>
-    <string name="title_ask_spam_who">Сообщение от %1$s спам?</string>
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_failed">\'%1$s\' не удалось</string>
     <string name="title_name_count">%1$s (%2$s)</string>

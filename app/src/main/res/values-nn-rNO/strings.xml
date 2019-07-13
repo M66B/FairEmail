@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
     <string name="app_limitations">For eksempel vil meldinger alltid bli formatert for å fjerne usikre elementer, og for å forbedre lesbarheten og åpning av linker må bekreftes for sikkerhet.</string>
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
+    <string name="app_promote">Sendt med <a href="https://email.faircode.eu/">FairEmail</a>, en åpen kildekode, privatlivs vennlig e-postapp for Android</string>
     <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Send</string>
@@ -50,7 +51,7 @@
         <item quantity="one">Behandle %1$d meldingen som spam?</item>
         <item quantity="other">Behandle %1$d meldingene som spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Rapportere meldingen fra %1$s som spam?</string>
+    <string name="title_ask_spam_who">Behandle melding fra %1$s som spam?</string>
     <string name="title_notification_waiting">Venter på passende tilkobling</string>
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>

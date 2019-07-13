@@ -66,7 +66,6 @@
         <item quantity="many">Traktować wiadomości %1$d jako spam?</item>
         <item quantity="other">Traktować wiadomości %1$d jako spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Zgłosić wiadomość od %1$s jako spam?</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
@@ -227,6 +226,7 @@
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
     <string name="title_advanced_crash_reports">Wyślij raport o błędach</string>
     <string name="title_advanced_debug">Debuguj</string>
+    <string name="title_advanced_cleanup">Oczyszczanie</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal istnieje możliwość ręcznej synchronizacji poprzez pociągnięcie w dół listy wiadomości. Spowoduje to synchronizację wiadomości i wykonywanie operacji przez ograniczony czas.</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
@@ -249,6 +249,7 @@
     <string name="title_advanced_subscribed_only_hint">Włączenie tej opcji usunie wszystkie lokalne foldery bez subskrypcji</string>
     <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
+    <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
@@ -343,6 +344,8 @@
     <string name="title_sync_days_remark">Zwiększenie tej wartości zwiększy zużycie baterii i danych</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
     <string name="title_keep_all">Przechowuj wszystkie wiadomości</string>
+    <string name="title_auto_trash">Automatycznie przenieś stare wiadomości do kosza</string>
+    <string name="title_auto_delete">Automatycznie trwale usuwaj stare wiadomości</string>
     <string name="title_folder_name_missing">Brak nazwy folderu</string>
     <string name="title_folder_exists">Folder %1$s istnieje</string>
     <string name="title_folder_delete">Usunąć bezpowrotnie ten folder i wszystkie wiadomości, które zawiera?</string>
@@ -565,6 +568,7 @@
     <string name="title_legend_thread">Konwersacja</string>
     <string name="title_legend_zoom">Zmień rozmiaru tekstu</string>
     <string name="title_legend_draft">Posiada szkic</string>
+    <string name="title_legend_auth">Uwierzytelnianie nie powiodło się</string>
     <string name="title_legend_snoozed">Jest uśpiony</string>
     <string name="title_legend_browsed">Jest przeglądany lub przeszukiwany</string>
     <string name="title_legend_answered">Udzielono odpowiedzi</string>
@@ -705,5 +709,12 @@
         <item>Do</item>
         <item>Dw</item>
         <item>Udw</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Jedna minuta</item>
+        <item>2 minuty</item>
+        <item>5 minut</item>
+        <item>10 minut</item>
+        <item>20 minut</item>
     </string-array>
 </resources>

@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
     <string name="app_limitations">De exemplu, mesajele vor fi mereu rescrise pentru a înlătura elementele nesigure și a îmbunătății lizibilitatea iar deschiderea legăturilor trebuie, pentru siguranță, confirmată.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
+    <string name="app_promote">Trimis cu <a href="https://email.faircode.eu/">FairEmail</a>, o aplicație de e-mail pentru Android cu sursă deschisă, ce vă protejează intimitatea</string>
     <string name="app_exit">Apăsați din nou \'Înapoi\' pentru a ieși</string>
     <string name="channel_service">Serviciu</string>
     <string name="channel_send">Trimite</string>
@@ -58,7 +59,7 @@
         <item quantity="few">Tratează %1$d mesaje ca spam?</item>
         <item quantity="other">Tratează %1$d mesaje ca spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Raportează mesajul de la %1$s ca spam?</string>
+    <string name="title_ask_spam_who">Tratează mesajul de la %1$s ca spam?</string>
     <string name="title_notification_waiting">Se așteaptă o conexiune adecvată</string>
     <string name="title_notification_sending">Se trimit mesaje</string>
     <string name="title_notification_failed">\'%1$s\' a eșuat</string>

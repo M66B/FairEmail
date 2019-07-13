@@ -50,7 +50,6 @@
         <item quantity="one">¿Tratar %1$d mensaje como spam?</item>
         <item quantity="other">¿Tratar %1$d mensajes como spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">¿Reportar mensaje de %1$s como spam?</string>
     <string name="title_notification_waiting">Esperando conexión</string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>

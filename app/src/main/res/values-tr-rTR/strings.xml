@@ -50,7 +50,6 @@
         <item quantity="one">%1$d iletisi gereksiz posta sayılsın mı?</item>
         <item quantity="other">%1$d iletileri gereksiz posta sayılsın mı?</item>
     </plurals>
-    <string name="title_ask_spam_who">%1$s\' iletisi gereksiz posta olarak bildirilsin mi?</string>
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>

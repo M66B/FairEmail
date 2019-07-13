@@ -16,7 +16,6 @@
         <item quantity="one">همگام‌سازی %1$d حساب</item>
         <item quantity="other">همگام‌سازی %1$d حساب‌ها</item>
     </plurals>
-    <string name="title_ask_spam_who">گزارش پیام از %1$s به عنوان اسپم؟</string>
     <string name="title_notification_failed">\'%1$s\' انجام نشد</string>
     <string name="menu_answers">الگوها</string>
     <string name="menu_operations">عملیات ها</string>

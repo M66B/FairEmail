@@ -6,7 +6,8 @@
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
     <string name="app_limitations">Berichten worden bijvoorbeeld altijd opnieuw geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren en het openen van koppelingen moet voor de veiligheid worden bevestigd.</string>
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
-    <string name="app_exit">Ga nogmaals op \'terug\' om af te sluiten</string>
+    <string name="app_promote">Verzonden met <a href="https://email.faircode.eu/">FairEmail</a>, een open source, privacy vriendelijke e-mail app voor Android</string>
+    <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Verzenden</string>
     <string name="channel_notification">Meldingen</string>
@@ -50,7 +51,7 @@
         <item quantity="one">Behandel één bericht als spam?</item>
         <item quantity="other">Behandel %1$d berichten als spam?</item>
     </plurals>
-    <string name="title_ask_spam_who">Rapporteer bericht van %1$s als spam?</string>
+    <string name="title_ask_spam_who">Behandel bericht van %1$s als spam?</string>
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
@@ -82,7 +83,7 @@
     <string name="title_setup_help">Help</string>
     <string name="title_setup_welcome">        Ontvangen en verzenden van berichten vereist een account en een identiteit zoals in elke andere e-mail app.
         De snelle instelling zal zowel een account als identiteit maken door alleen om uw naam, e-mailadres en wachtwoord te vragen.
-        Accounts en identiteiten (aliassen) kunnen ook handmatig worden ingesteld indien nodig.
+        Accounts en identiteiten (aliassen) kunnen indien nodig ook handmatig worden ingesteld.
     </string>
     <string name="title_setup_quick">Snel instellen</string>
     <string name="title_setup_quick_remark">Voor het snel instellen van een account en een identiteit voor de meeste providers</string>
@@ -98,8 +99,10 @@
     <string name="title_setup_grant">Verlenen</string>
     <string name="title_setup_account">Accounts instellen</string>
     <string name="title_setup_account_remark">Om e-mail te ontvangen</string>
+    <string name="title_setup_account_hint">Om kleur, veeg links/rechts map, enz te wijzigen</string>
     <string name="title_setup_identity">Identiteiten instellen</string>
     <string name="title_setup_identity_remark">Om e-mail te verzenden</string>
+    <string name="title_setup_identity_hint">Om naam, kleur, handtekening, enz te wijzigen</string>
     <string name="title_setup_permissions">Toestemmingen verlenen</string>
     <string name="title_setup_permissions_remark">Voor toegang tot contactinformatie (optioneel)</string>
     <string name="title_setup_doze">Accuoptimalisaties instellen</string>

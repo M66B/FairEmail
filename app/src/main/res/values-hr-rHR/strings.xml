@@ -58,7 +58,6 @@
         <item quantity="few">Želite %1$d poruke tretirati kao neželjenu poštu?</item>
         <item quantity="other">Želite %1$d poruka tretirati kao neželjenu poštu?</item>
     </plurals>
-    <string name="title_ask_spam_who">Prijaviti poruku od korisnika %1$s kao neželjenu poštu?</string>
     <string name="title_notification_waiting">Čeka se prikladna veza</string>
     <string name="title_notification_sending">Poruka se šalje</string>
     <string name="title_notification_failed">\'%1$s\' nije uspjelo</string>
@@ -219,6 +218,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
     <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
     <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
+    <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>
@@ -719,5 +719,12 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
         <item>Za</item>
         <item>Cc</item>
         <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Jedna minuta</item>
+        <item>2 minute</item>
+        <item>5 minuta</item>
+        <item>10 minuta</item>
+        <item>20 minuta</item>
     </string-array>
 </resources>

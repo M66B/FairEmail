@@ -50,7 +50,6 @@
         <item quantity="one">Behandla %1$d meddelande som skräppost?</item>
         <item quantity="other">Behandla %1$d meddelanden som skräppost?</item>
     </plurals>
-    <string name="title_ask_spam_who">Rapportera meddelande från %1$s som skräppost?</string>
     <string name="title_notification_waiting">Väntar på lämplig anslutning</string>
     <string name="title_notification_sending">Skickar meddelanden</string>
     <string name="title_notification_failed">\'%1$s\' misslyckades</string>
