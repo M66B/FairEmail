@@ -189,6 +189,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(111) Can you add OAuth authentication?](#user-content-faq111)
 * [(112) Which email provider do you recommend?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
+* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 
 [I have another question.](#support)
 
@@ -1912,6 +1913,18 @@ Biometric authentication is meant to prevent others from seeing your messages on
 FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
 
 Biometric authentication is a pro feature.
+
+<br />
+
+<a name="faq114"></a>
+**(114) Can you add an import for the settings of other email apps?**
+
+The format of the settings files of most other email apps is not documented, so this is difficult.
+Sometimes it is possible to reverse engineer the format, but as soon as the settings format changes things will break.
+Also, settings are often incompatible.
+For example, FairEmail has unlike most other email apps settings for the number of days to synchronize messages for
+and for the number of days to keep messages for, mainly to save on battery usage.
+Moreover, setting up an account/identity with the quick setup is simple, so it is not really worth the effort.
 
 <br />
 
