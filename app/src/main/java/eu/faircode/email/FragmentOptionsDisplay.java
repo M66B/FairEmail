@@ -325,7 +325,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
         swInline.setChecked(prefs.getBoolean("inline_images", false));
-        swImages.setChecked(prefs.getBoolean("autoimages", false));
+        swImages.setChecked(prefs.getBoolean("autoimages", true));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swRemoteContent.setChecked(prefs.getBoolean("autocontent", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));

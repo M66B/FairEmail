@@ -2921,7 +2921,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.contrast = prefs.getBoolean("contrast", false);
         this.monospaced = prefs.getBoolean("monospaced", false);
-        this.autoimages = (this.contacts && prefs.getBoolean("autoimages", false));
+        this.autoimages = (this.contacts && prefs.getBoolean("autoimages", true));
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
 
