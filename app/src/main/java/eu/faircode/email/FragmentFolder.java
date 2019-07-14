@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -43,7 +42,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
-import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -77,7 +75,6 @@ public class FragmentFolder extends FragmentBase {
     private long id = -1;
     private long account = -1;
     private String parent = null;
-    private Boolean subscribed = null;
     private boolean saving = false;
     private boolean deletable = false;
 
@@ -233,7 +230,6 @@ public class FragmentFolder extends FragmentBase {
                 cbAutoDelete.setEnabled(!cbKeepAll.isChecked());
                 btnSave.setEnabled(true);
 
-                subscribed = (folder == null ? null : folder.subscribed != null && folder.subscribed);
                 deletable = (folder != null && EntityFolder.USER.equals(folder.type));
                 getActivity().invalidateOptionsMenu();
             }
@@ -278,11 +274,6 @@ public class FragmentFolder extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean subscriptions = prefs.getBoolean("subscriptions", false);
-
-        menu.findItem(R.id.menu_subscribe).setChecked(subscribed != null && subscribed);
-        menu.findItem(R.id.menu_subscribe).setVisible(subscriptions && id > 0 && subscribed != null);
         menu.findItem(R.id.menu_delete).setVisible(id > 0 && !saving && deletable);
         super.onPrepareOptionsMenu(menu);
     }
@@ -290,40 +281,12 @@ public class FragmentFolder extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_subscribe:
-                subscribed = !item.isChecked();
-                item.setChecked(subscribed);
-                onMenuSubscribe();
-                return true;
             case R.id.menu_delete:
                 onMenuDelete();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    private void onMenuSubscribe() {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-        args.putBoolean("subscribed", subscribed);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-                boolean subscribed = args.getBoolean("subscribed");
-
-                EntityOperation.subscribe(context, id, subscribed);
-
-                return null;
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
-            }
-        }.execute(this, args, "folder:subscribe");
     }
 
     private void onMenuDelete() {

@@ -378,22 +378,27 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 8, R.string.title_notify_folder)
                         .setCheckable(true).setChecked(folder.notify);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 9, R.string.title_synchronize_enabled)
+                boolean subscriptions = prefs.getBoolean("subscriptions", false);
+                if (folder.subscribed != null && subscriptions)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, 9, R.string.title_subscribe)
+                            .setCheckable(true).setChecked(folder.subscribed);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 10, R.string.title_synchronize_enabled)
                         .setCheckable(true).setChecked(folder.synchronize);
 
                 if (!folder.read_only)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 10, R.string.title_edit_rules);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 11, R.string.title_edit_properties);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 11, R.string.title_edit_rules);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 12, R.string.title_edit_properties);
 
                 if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     String channelId = EntityFolder.getNotificationChannelId(folder.id);
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     NotificationChannel channel = nm.getNotificationChannel(channelId);
                     if (channel == null)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 12, R.string.title_create_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 13, R.string.title_create_channel);
                     else {
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 13, R.string.title_edit_channel);
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 14, R.string.title_delete_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 14, R.string.title_edit_channel);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 15, R.string.title_delete_channel);
                     }
                 }
 
@@ -422,6 +427,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         case R.string.title_notify_folder:
                         case R.string.title_synchronize_enabled:
                             onActionProperty(item.getItemId(), !item.isChecked());
+                            return true;
+
+                        case R.string.title_subscribe:
+                            onActionSubscribe();
                             return true;
 
                         case R.string.title_delete_local:
@@ -524,6 +533,29 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "folder:enable");
+                }
+
+                private void onActionSubscribe() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putBoolean("subscribed", !folder.subscribed);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean subscribed = args.getBoolean("subscribed");
+
+                            EntityOperation.subscribe(context, id, subscribed);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "folder:subscribe");
                 }
 
                 private void OnActionDeleteLocal(final boolean browsed) {
