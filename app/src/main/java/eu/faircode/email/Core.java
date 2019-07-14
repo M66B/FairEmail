@@ -1422,7 +1422,7 @@ class Core {
             Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
-                /*
+            /*
                 // Authentication is more reliable
                 Address sender = helper.getSender(); // header
                 if (sender != null) {
@@ -1432,7 +1432,7 @@ class Core {
                     if (s.length > 1 && (f == null || (f.length > 1 && !s[1].equals(f[1]))))
                         message.warning = context.getString(R.string.title_via, s[1]);
                 }
-                */
+            */
 
             try {
                 db.beginTransaction();
@@ -1466,6 +1466,30 @@ class Core {
 
             if (message.received > account.created)
                 updateContactInfo(context, folder, message);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            long maxSize = prefs.getInt("download", 0);
+            if (maxSize == 0)
+                maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
+            else
+                maxSize = Math.min(maxSize, MessageHelper.SMALL_MESSAGE_SIZE);
+
+            // Download small messages inline
+            if (message.size != null && message.size < maxSize) {
+                String body = parts.getHtml(context);
+                Helper.writeText(message.getFile(context), body);
+                db.message().setMessageContent(message.id,
+                        true,
+                        parts.isPlainOnly(),
+                        HtmlHelper.getPreview(body),
+                        parts.getWarnings(message.warning));
+                Log.i(folder.name + " inline downloaded message id=" + message.id +
+                        " size=" + message.size + "/" + (body == null ? null : body.length()));
+
+                if (!TextUtils.isEmpty(body))
+                    fixAttachments(context, message.id, body);
+            }
+
         } else {
             if (process) {
                 EntityIdentity identity = matchIdentity(context, folder, message);
@@ -1716,7 +1740,6 @@ class Core {
             maxSize = Long.MAX_VALUE;
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
-        MessageHelper helper = new MessageHelper(imessage);
 
         boolean fetch = false;
         if (!message.content)
@@ -1747,10 +1770,12 @@ class Core {
             //fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
             //ifolder.fetch(new Message[]{imessage}, fp);
 
+            MessageHelper helper = new MessageHelper(imessage);
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
             if (!message.content) {
-                if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize)) {
+                if (state.getNetworkState().isUnmetered() ||
+                        (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
                     Helper.writeText(message.getFile(context), body);
                     db.message().setMessageContent(message.id,
