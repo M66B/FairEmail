@@ -429,13 +429,14 @@ public class EmailProvider {
         Lookup lookup = new Lookup(dns, Type.SRV);
 
         // https://dns.watch/ 84.200.69.80
-        SimpleResolver resolver = new SimpleResolver("8.8.8.8");
+        SimpleResolver resolver = new SimpleResolver(Helper.DEFAULT_DNS);
         lookup.setResolver(resolver);
         Log.i("Lookup dns=" + dns + " @" + resolver.getAddress());
         Record[] records = lookup.run();
 
         if (lookup.getResult() != Lookup.SUCCESSFUL)
-            if (lookup.getResult() == Lookup.HOST_NOT_FOUND)
+            if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
+                    lookup.getResult() == Lookup.TYPE_NOT_FOUND)
                 throw new UnknownHostException(dns);
             else
                 throw new IllegalArgumentException(lookup.getErrorString());

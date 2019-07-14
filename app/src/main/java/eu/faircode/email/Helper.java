@@ -114,6 +114,8 @@ public class Helper {
 
     static final float LOW_LIGHT = 0.6f;
 
+    static final String DEFAULT_DNS = "8.8.8.8";
+
     static final String FAQ_URI = "https://github.com/M66B/FairEmail/blob/master/FAQ.md";
     static final String XDA_URI = "https://forum.xda-developers.com/android/apps-games/source-email-t3824168";
 
