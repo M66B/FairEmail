@@ -253,7 +253,7 @@ public class Helper {
     }
 
     static Intent getIntentIssue(Context context) {
-        if (BuildConfig.BETA_RELEASE && Helper.hasValidFingerprint(context)) {
+        if (BuildConfig.BETA_RELEASE) {
             String version = BuildConfig.VERSION_NAME + "/" +
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
                     (Helper.isPro(context) ? "+" : "");
