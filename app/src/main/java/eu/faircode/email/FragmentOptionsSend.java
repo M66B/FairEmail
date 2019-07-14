@@ -45,11 +45,12 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAutoResize;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
+    private SwitchCompat swLookupMx;
     private SwitchCompat swAutoSend;
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "prefix_once", "plain_only", "autoresize", "resize", "autosend", "send_delayed"
+            "keyboard", "prefix_once", "plain_only", "autoresize", "resize", "lookup_mx", "autosend", "send_delayed"
     };
 
     @Override
@@ -68,6 +69,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAutoResize = view.findViewById(R.id.swAutoResize);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
+        swLookupMx = view.findViewById(R.id.swLookupMx);
         swAutoSend = view.findViewById(R.id.swAutoSend);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
 
@@ -117,6 +119,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("resize").apply();
+            }
+        });
+
+        swLookupMx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("lookup_mx", checked).apply();
             }
         });
 
@@ -201,6 +210,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         spAutoResize.setEnabled(swAutoResize.isChecked());
 
+        swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
 
         int send_delayed = prefs.getInt("send_delayed", 0);

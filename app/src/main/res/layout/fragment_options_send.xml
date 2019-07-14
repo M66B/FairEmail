@@ -83,6 +83,29 @@
                 app:layout_constraintTop_toTopOf="@id/spAutoResize" />
 
             <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swLookupMx"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_advanced_lookup_mx"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spAutoResize"
+                app:switchPadding="12dp" />
+
+            <TextView
+                android:id="@+id/tvLookupMxHint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_lookup_mx_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swLookupMx" />
+
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swAutoSend"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -91,7 +114,7 @@
                 android:text="@string/title_advanced_autosend"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spAutoResize"
+                app:layout_constraintTop_toBottomOf="@id/tvLookupMxHint"
                 app:switchPadding="12dp" />
 
             <TextView

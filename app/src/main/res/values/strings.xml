@@ -193,6 +193,7 @@
     <string name="title_advanced_plain_only">Send plain text only by default</string>
     <string name="title_advanced_autoresize">Automatically resize attached and embedded images</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_lookup_mx">Check recipient email addresses before sending</string>
     <string name="title_advanced_autosend">Confirm sending messages</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
 
@@ -269,6 +270,8 @@
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and use extra battery power, especially if there are a lot of messages kept on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
+
+    <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
 
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
@@ -504,6 +507,7 @@
     <string name="title_save">Save</string>
     <string name="title_send">Send</string>
     <string name="title_send_at">Send at &#8230;</string>
+    <string name="title_no_server">No server found at \'%1$s\'</string>
 
     <string name="title_style_bold">Bold</string>
     <string name="title_style_italic">Italic</string>

@@ -114,6 +114,10 @@ import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
+import org.xbill.DNS.Lookup;
+import org.xbill.DNS.SimpleResolver;
+import org.xbill.DNS.TextParseException;
+import org.xbill.DNS.Type;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
@@ -125,6 +129,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -2463,8 +2468,10 @@ public class FragmentCompose extends FragmentBase {
                     try {
                         ato = InternetAddress.parse(to);
                         if (action == R.id.action_send)
-                            for (InternetAddress address : ato)
+                            for (InternetAddress address : ato) {
                                 address.validate();
+                                lookup(address, context);
+                            }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(to, ADDRESS_ELLIPSIZE), ex.getMessage()));
@@ -2474,8 +2481,10 @@ public class FragmentCompose extends FragmentBase {
                     try {
                         acc = InternetAddress.parse(cc);
                         if (action == R.id.action_send)
-                            for (InternetAddress address : acc)
+                            for (InternetAddress address : acc) {
                                 address.validate();
+                                lookup(address, context);
+                            }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(cc, ADDRESS_ELLIPSIZE), ex.getMessage()));
@@ -2485,8 +2494,10 @@ public class FragmentCompose extends FragmentBase {
                     try {
                         abcc = InternetAddress.parse(bcc);
                         if (action == R.id.action_send)
-                            for (InternetAddress address : abcc)
+                            for (InternetAddress address : abcc) {
                                 address.validate();
+                                lookup(address, context);
+                            }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(bcc, ADDRESS_ELLIPSIZE), ex.getMessage()));
@@ -2743,7 +2754,29 @@ public class FragmentCompose extends FragmentBase {
                 Helper.unexpectedError(getFragmentManager(), ex);
         }
 
-        String getActionName(int id) {
+        private void lookup(InternetAddress address, Context context) throws TextParseException, UnknownHostException {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
+            if (!lookup_mx)
+                return;
+
+            String email = address.getAddress();
+            if (email == null || !email.contains("@"))
+                return;
+
+            String domain = email.split("@")[1];
+            Lookup lookup = new Lookup(domain, Type.MX);
+            SimpleResolver resolver = new SimpleResolver(Helper.DEFAULT_DNS);
+            lookup.setResolver(resolver);
+            Log.i("Lookup dns=" + domain + " @" + resolver.getAddress());
+
+            lookup.run();
+            if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
+                    lookup.getResult() == Lookup.TYPE_NOT_FOUND)
+                throw new IllegalArgumentException(context.getString(R.string.title_no_server, domain));
+        }
+
+        private String getActionName(int id) {
             switch (id) {
                 case R.id.action_delete:
                     return "delete";
