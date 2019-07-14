@@ -1949,4 +1949,4 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 Registration is free.
 
-If you are a supporter of the project, you can get limited personal support by using [this form](https://contact.faircode.eu/?product=fairemail%2B).
+If you are a supporter of the project, you can get limited personal support by using [this form](https://contact.faircode.eu/?product=fairemailsupport).
