@@ -99,7 +99,7 @@
     <string name="title_setup_grant">Verlenen</string>
     <string name="title_setup_account">Accounts instellen</string>
     <string name="title_setup_account_remark">Om e-mail te ontvangen</string>
-    <string name="title_setup_account_hint">Om kleur, veeg links/rechts map, enz te wijzigen</string>
+    <string name="title_setup_account_hint">Om kleur, veeg naar links/rechts doelmap, etc te wijzigen</string>
     <string name="title_setup_identity">Identiteiten instellen</string>
     <string name="title_setup_identity_remark">Om e-mail te verzenden</string>
     <string name="title_setup_identity_hint">Om naam, kleur, handtekening, enz te wijzigen</string>
@@ -266,7 +266,7 @@
     <string name="title_account_interval_hint">Frequentie van het verversen van de verbinding voor push berichten of frequentie van het controleren op nieuwe berichten</string>
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_account_signature">Tekst handtekening</string>
-    <string name="title_account_color">Kleur</string>
+    <string name="title_color">Kleur</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>
     <string name="title_account_left">Veeg links</string>
     <string name="title_account_right">Veeg rechts</string>
@@ -423,7 +423,7 @@
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_edit_ref">Bewerk opnieuw geformatteerde beantwoorde/doorgestuurde berichttekst?</string>
     <string name="title_ask_sync_all">Alle berichten in %1$s synchroniseren?</string>
-    <string name="title_ask_delete_local">Verwijder alleen lokale berichten die ook op de externe server zijn opgeslagen?</string>
+    <string name="title_ask_delete_local">Lokale berichten verwijderen? Berichten blijven op de externe server.</string>
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>

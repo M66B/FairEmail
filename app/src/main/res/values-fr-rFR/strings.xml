@@ -99,8 +99,10 @@
     <string name="title_setup_grant">Autoriser</string>
     <string name="title_setup_account">Configurer les comptes</string>
     <string name="title_setup_account_remark">Recevoir des e-mails</string>
+    <string name="title_setup_account_hint">Pour changer la couleur, balayer le dossier à gauche/droite, etc</string>
     <string name="title_setup_identity">Configurer les identités</string>
     <string name="title_setup_identity_remark">Envoyer des e-mails</string>
+    <string name="title_setup_identity_hint">Pour changer le nom, la couleur, la signature, etc</string>
     <string name="title_setup_permissions">Accorder les autorisations</string>
     <string name="title_setup_permissions_remark">Pour accéder aux informations de contact (facultatif)</string>
     <string name="title_setup_doze">Configurer les optimisations de la batterie</string>
@@ -264,7 +266,7 @@
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages push ou la fréquence de vérification des nouveaux messages</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_account_signature">Texte de la signature</string>
-    <string name="title_account_color">Couleur</string>
+    <string name="title_color">Couleur</string>
     <string name="title_account_notify">Notifications séparées</string>
     <string name="title_account_left">Balayer vers la gauche</string>
     <string name="title_account_right">Balayer vers la droite</string>
@@ -421,7 +423,7 @@
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
     <string name="title_ask_sync_all">Synchroniser tous les messages dans %1$s ?</string>
-    <string name="title_ask_delete_local">Supprimer uniquement les messages locaux qui sont stockés sur le serveur distant ?</string>
+    <string name="title_ask_delete_local">Supprimer les messages locaux ? Les messages resteront sur le serveur distant.</string>
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>

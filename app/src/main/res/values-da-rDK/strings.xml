@@ -235,7 +235,6 @@
     <string name="title_account_name_hint">Bruges til at differentiere mapper</string>
     <string name="title_account_interval_hint">Frekvensen på opdatering af forbindelsen for push-meddelelser eller frekvensen for at tjekke for nye meddelelser</string>
     <string name="title_account_signature">Signaturtekst</string>
-    <string name="title_account_color">Farve</string>
     <string name="title_account_notify">Adskilte underretninger</string>
     <string name="title_account_left">Stryg til venstre</string>
     <string name="title_account_right">Stryg til højre</string>

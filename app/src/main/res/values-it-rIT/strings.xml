@@ -98,8 +98,10 @@
     <string name="title_setup_grant">Concedi</string>
     <string name="title_setup_account">Imposta account</string>
     <string name="title_setup_account_remark">Per ricevere email</string>
+    <string name="title_setup_account_hint">Per cambiare colore, scorri la cartella di destinazione a sinistra/destra, ecc</string>
     <string name="title_setup_identity">Imposta identità</string>
     <string name="title_setup_identity_remark">Per inviare email</string>
+    <string name="title_setup_identity_hint">Per cambiare nome, colore, firma, ecc</string>
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
     <string name="title_setup_doze">Imposta ottimizzazioni della batteria</string>
@@ -263,7 +265,7 @@
     <string name="title_account_interval_hint">Frequenza di aggiornamento della connessione per i messaggi push o frequenza di controllo per i nuovi messaggi</string>
     <string name="title_account_partial_fetch_hint">Disabilita questo solo in caso di messaggi vuoti o allegati corrotti</string>
     <string name="title_account_signature">Testo della firma</string>
-    <string name="title_account_color">Colore</string>
+    <string name="title_color">Colore</string>
     <string name="title_account_notify">Notifiche separate</string>
     <string name="title_account_left">Scorri a sinistra</string>
     <string name="title_account_right">Scorri a destra</string>
@@ -420,7 +422,7 @@
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
     <string name="title_ask_sync_all">Sincronizza tutti i messaggi in %1$s?</string>
-    <string name="title_ask_delete_local">Eliminare solo i messaggi locali che sono memorizzati anche sul server remoto?</string>
+    <string name="title_ask_delete_local">Elimina i messaggi locali? I messaggi rimarranno sul server remoto.</string>
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
     <string name="title_ask_reporting">Inviare rapporti di errore?</string>
     <string name="title_reporting_why">Il report di errore aiuterà a migliorare FairEmail</string>

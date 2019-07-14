@@ -62,7 +62,6 @@
     <string name="title_account_name">Nom del compte</string>
     <string name="title_account_name_hint">Emprat per diferenciar carpetes</string>
     <string name="title_account_signature">Text de signatura</string>
-    <string name="title_account_color">Color</string>
     <string name="title_domain">Nom de domini</string>
     <string name="title_autoconfig">Obté la configuració de</string>
     <string name="title_provider">Proveïdor</string>

@@ -272,7 +272,6 @@
     <string name="title_account_interval_hint">Frecvența de actualizare a conexiunii pentru mesaje push sau frecventa de verificare de mesaje noi</string>
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>
     <string name="title_account_signature">Text semnătură</string>
-    <string name="title_account_color">Culoare</string>
     <string name="title_account_notify">Separă notificările</string>
     <string name="title_account_left">Glisare spre stânga</string>
     <string name="title_account_right">Glisare spre dreapta</string>
@@ -429,7 +428,6 @@
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
     <string name="title_ask_sync_all">Se sincronizează toate mesajele din %1$s?</string>
-    <string name="title_ask_delete_local">Șterge doar mesajele locale care sunt stocate și pe serverul furnizorului?</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>

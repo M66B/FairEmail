@@ -99,8 +99,10 @@
     <string name="title_setup_grant">Myönnä</string>
     <string name="title_setup_account">Aseta tilit</string>
     <string name="title_setup_account_remark">Sähköpostien vastaanottoon</string>
+    <string name="title_setup_account_hint">Tilin värin, kansioiden vasemmalle/oikealle pyyhkäisyn, jne. asettamiseen</string>
     <string name="title_setup_identity">Aseta identiteetit</string>
     <string name="title_setup_identity_remark">Sähköpostien lähettämiseen</string>
+    <string name="title_setup_identity_hint">Lähettäjän nimen, värin, allekirjoituksen, jne. asettamiseen</string>
     <string name="title_setup_permissions">Myönnä käyttöluvat</string>
     <string name="title_setup_permissions_remark">Laitteen yhteystietojen lukemiseen (valinnainen)</string>
     <string name="title_setup_doze">Akun käytön optimoinnin asettaminen</string>
@@ -126,6 +128,7 @@
     <string name="title_setup_reorder_folders">Kansioiden järjestäminen</string>
     <string name="title_reset_order">Palauta alkuperäinen järjestys</string>
     <string name="title_setup_authentication">Tunnistautuminen</string>
+    <string name="title_setup_biometrics">Biometrinen tunnistautuminen</string>
     <string name="title_setup_biometrics_enable">Ota käyttöön</string>
     <string name="title_setup_biometrics_disable">Poista käytöstä</string>
     <string name="title_setup_biometrics_unlock">Poista lukitus</string>
@@ -212,11 +215,13 @@
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
     <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
+    <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
+    <string name="title_advanced_cleanup">Siistiminen</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
     <string name="title_advanced_manual_hint">Vaikka synkronointi on pois käytöstä, on mahdollista synkronoida manuaalisesti vetämällä alaspäin viestilistassa. Tämä synkronoi viestit ja suorittaa toimenpiteet.</string>
     <string name="title_advanced_poll_hint">Ajoittainen synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Koko ajan synkronointi välttää tämän synkronoimalla jatkuvasti vain muutokset.</string>
@@ -261,7 +266,7 @@
     <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
     <string name="title_account_signature">Allekirjoituksen teksti</string>
-    <string name="title_account_color">Väri</string>
+    <string name="title_color">Väri</string>
     <string name="title_account_notify">Erilliset ilmoitukset</string>
     <string name="title_account_left">Pyyhkäisy vasemmalle</string>
     <string name="title_account_right">Pyyhkäisy oikealle</string>
@@ -418,7 +423,7 @@
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_edit_ref">Muokkaa uudelleenmuotoiltua vastatun/edelleenlähetetyn viestin tekstiä?</string>
     <string name="title_ask_sync_all">Synkronoi kaikki viestit kansiossa %1$s?</string>
-    <string name="title_ask_delete_local">Poistetaanko vain paikalliset viestit, jotka ovat myös palvelimella?</string>
+    <string name="title_ask_delete_local">Poistetaanko paikalliset viestit? Viestit säilyvät palvelimella.</string>
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
@@ -711,5 +716,12 @@
         <item>Vastaanottaja</item>
         <item>Kopio</item>
         <item>Piilokopio</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Yksi minuutti</item>
+        <item>2 minuuttia</item>
+        <item>5 minuuttia</item>
+        <item>10 minuuttia</item>
+        <item>20 minuuttia</item>
     </string-array>
 </resources>

@@ -121,7 +121,6 @@
     <string name="title_account_name">نام حساب</string>
     <string name="title_account_name_hint">برای افتراق پوشه‌ها استفاده می‌شود</string>
     <string name="title_account_signature">متن امضا</string>
-    <string name="title_account_color">رنگ</string>
     <string name="title_account_notify">اعلانات جداگانه</string>
     <string name="title_account_left">کشیدن به چپ</string>
     <string name="title_account_right">کشیدن به راست</string>

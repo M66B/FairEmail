@@ -254,7 +254,6 @@
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или поврежденных вложений</string>
     <string name="title_account_signature">Текст подписи</string>
-    <string name="title_account_color">Цвет</string>
     <string name="title_account_notify">Раздельные уведомления</string>
     <string name="title_account_left">Свайп влево</string>
     <string name="title_account_right">Свайп вправо</string>

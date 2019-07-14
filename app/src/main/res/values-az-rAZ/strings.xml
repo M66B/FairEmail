@@ -195,7 +195,6 @@
     <string name="title_account_name">Hesab adı</string>
     <string name="title_account_name_hint">Qovluqları fərqləndirmək üçün istifadə edilir</string>
     <string name="title_account_signature">İmza mətni</string>
-    <string name="title_account_color">Rəng</string>
     <string name="title_account_notify">Ayrı bildirişlər</string>
     <string name="title_domain">Domen adı</string>
     <string name="title_autoconfig">Tənzimləmələri al</string>

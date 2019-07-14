@@ -99,8 +99,10 @@
     <string name="title_setup_grant">Tillat</string>
     <string name="title_setup_account">Oppsett av kontoer</string>
     <string name="title_setup_account_remark">Å motta e-post</string>
+    <string name="title_setup_account_hint">For å endre farge, sveip venstre/høyre målmappe, osv</string>
     <string name="title_setup_identity">Oppsett av identiteter</string>
     <string name="title_setup_identity_remark">Å sende e-post</string>
+    <string name="title_setup_identity_hint">For å endre navn, farge, signatur, osv</string>
     <string name="title_setup_permissions">Gi tillatelser</string>
     <string name="title_setup_permissions_remark">Få tilgang til kontaktinformasjon (valgfritt)</string>
     <string name="title_setup_doze">Oppsett av batterioptimaliseringer</string>
@@ -264,7 +266,7 @@
     <string name="title_account_interval_hint">Frekvens for å forfriske forbindelsen for push meldinger eller hyppigheten av å sjekke nye meldinger</string>
     <string name="title_account_partial_fetch_hint">Deaktiver kun dette ved tomme meldinger eller korrupte vedlegg</string>
     <string name="title_account_signature">Signaturtekst</string>
-    <string name="title_account_color">Farge</string>
+    <string name="title_color">Farge</string>
     <string name="title_account_notify">Separate meldinger</string>
     <string name="title_account_left">Sveip mot venstre</string>
     <string name="title_account_right">Sveip mot høyre</string>
@@ -421,7 +423,7 @@
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_edit_ref">Redigere omformatert svar/videresendt meldingstekst?</string>
     <string name="title_ask_sync_all">Synkroniser alle meldinger i %1$s?</string>
-    <string name="title_ask_delete_local">Slett bare lokale meldinger som er lagret på den eksterne serveren også?</string>
+    <string name="title_ask_delete_local">Slett lokale meldinger? Meldinger vil forbli på den eksterne serveren.</string>
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>

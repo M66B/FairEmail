@@ -269,7 +269,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_account_interval_hint">Učestalost osvježavanja veze za push poruke ili učestalost provjere novih poruka</string>
     <string name="title_account_partial_fetch_hint">Onemogućite ovo samo u slučaju praznih poruka ili oštećenih privitaka</string>
     <string name="title_account_signature">Tekst potpisa</string>
-    <string name="title_account_color">Boja</string>
     <string name="title_account_notify">Odvojene obavijesti</string>
     <string name="title_account_left">Povuci lijevo</string>
     <string name="title_account_right">Povuci desno</string>
@@ -426,7 +425,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
     <string name="title_ask_edit_ref">Uredi preoblikovani odgovor / proslijeđeni tekst poruke?</string>
     <string name="title_ask_sync_all">Sinkroniziranje svih poruka u%1$s?</string>
-    <string name="title_ask_delete_local">Izbrisati samo lokalne poruke koje su također spremljene na udaljenom serveru?</string>
     <string name="title_ask_help">Pomozite poboljšati FairEmail</string>
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>
     <string name="title_reporting_why">Izvješćivanje o pogreškama pomoći će u poboljšanju FairEmail aplikacije</string>

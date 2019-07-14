@@ -98,7 +98,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_grant">Zulassen</string>
     <string name="title_setup_account">Konten einrichten</string>
     <string name="title_setup_account_remark">Um E-Mails zu empfangen</string>
-    <string name="title_setup_account_hint">Um die Farbe zu ändern, wischen Sie das Objekt, z.B. den Ordner, nach links/rechts</string>
     <string name="title_setup_identity">Identitäten einrichten</string>
     <string name="title_setup_identity_remark">Um E-Mails zu senden</string>
     <string name="title_setup_identity_hint">Um Namen, Farbe, Signatur, etc. zu ändern</string>
@@ -265,7 +264,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Meldungen oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
     <string name="title_account_partial_fetch_hint">Deaktivieren Sie dies nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen</string>
     <string name="title_account_signature">Signaturtext</string>
-    <string name="title_account_color">Farbe</string>
+    <string name="title_color">Farbe</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_account_left">Nach links wischen</string>
     <string name="title_account_right">Nach rechts wischen</string>
@@ -422,7 +421,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
     <string name="title_ask_sync_all">Alle Nachrichten in %1$s synchronisieren?</string>
-    <string name="title_ask_delete_local">Nur lokale Nachrichten löschen, die auch auf dem entfernten Server gespeichert sind?</string>
+    <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>

@@ -249,7 +249,6 @@
     <string name="title_account_interval_hint">Frequência de atualizar a conexão para mensagens push ou frequência de verificação de novas mensagens</string>
     <string name="title_account_partial_fetch_hint">Desativar isto somente em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_account_signature">Texto da assinatura</string>
-    <string name="title_account_color">Cor</string>
     <string name="title_account_notify">Notificações separadas</string>
     <string name="title_account_left">Deslize para esquerda</string>
     <string name="title_account_right">Deslizar para direita</string>
@@ -404,7 +403,6 @@
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
     <string name="title_ask_sync_all">Sincronizar todas as mensagens em %1$s?</string>
-    <string name="title_ask_delete_local">Excluir apenas mensagens locais que são armazenadas também no servidor remoto?</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">Relatório de erro ajudará a melhorar o FairEmail</string>
