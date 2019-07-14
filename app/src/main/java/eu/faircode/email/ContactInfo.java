@@ -258,6 +258,19 @@ public class ContactInfo {
                     String lookupKey = cursor.getString(1);
                     String email = cursor.getString(2);
 
+                    Cursor relation = resolver.query(
+                            ContactsContract.Data.CONTENT_URI,
+                            new String[]{ContactsContract.CommonDataKinds.Relation.NAME},
+                            ContactsContract.Data.MIMETYPE + " = '" + ContactsContract.CommonDataKinds.Relation.CONTENT_ITEM_TYPE + "'" +
+                                    " AND " + ContactsContract.CommonDataKinds.Relation.NAME + " = 'UNTRUSTED' COLLATE NOCASE" +
+                                    " AND " + ContactsContract.CommonDataKinds.Relation.CONTACT_ID + " = ?",
+                            new String[]{Long.toString(contactId)},
+                            null);
+                    if (relation != null && relation.moveToNext()) {
+                        Log.i("Contact email=" + email + " relation=" + relation.getString(0));
+                        continue;
+                    }
+
                     Uri uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
                     all.put(email, uri);
                 }

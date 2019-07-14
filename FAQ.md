@@ -191,6 +191,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq114)
+* [(116) How can I show images in messages from trusted senders by default?](#user-content-faq116)
 
 [I have another question.](#support)
 
@@ -1942,7 +1943,15 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 
 <br />
 
+<a name="faq116"></a>
+**(116) How can I show images in messages from trusted senders by default?**
 
+You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.
+
+People in the Android contacts list are considered to be known and trusted,
+unless the contact relation is set to '*Untrusted*' (case insensitive; the relation type, for example parent, child, friend, etc does not matter).
+
+<br />
 
 ## Support
 
