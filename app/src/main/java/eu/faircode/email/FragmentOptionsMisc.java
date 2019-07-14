@@ -249,6 +249,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         for (String option : options)
             editor.remove(option);
         editor.apply();
+        ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
 
     private void onCleanup() {

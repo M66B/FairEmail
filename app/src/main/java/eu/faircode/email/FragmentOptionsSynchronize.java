@@ -36,6 +36,7 @@ import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -238,6 +239,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         for (String option : RESET_OPTIONS)
             editor.remove(option);
         editor.apply();
+        ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
 
     private void setOptions() {

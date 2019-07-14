@@ -28,6 +28,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -206,6 +207,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         for (String option : RESET_OPTIONS)
             editor.remove(option);
         editor.apply();
+        ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
 
     private void setOptions() {

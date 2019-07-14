@@ -39,6 +39,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -227,6 +228,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         for (String option : RESET_OPTIONS)
             editor.remove(option);
         editor.apply();
+        ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
 
     private void setOptions() {
