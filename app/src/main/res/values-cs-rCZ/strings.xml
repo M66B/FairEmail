@@ -107,6 +107,7 @@
     <string name="title_setup_quick_imap">IMAP server pro příjem zpráv</string>
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_go">Přejít</string>
+    <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
@@ -178,6 +179,7 @@
     <string name="title_advanced_plain_only">Odeslat pouze prostý text jako výchozí</string>
     <string name="title_advanced_autoresize">Automaticky upravit velikost přiložených a vložených obrázků</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
+    <string name="title_advanced_lookup_mx">Před odesláním zkontrolovat e-mailové adresy příjemců</string>
     <string name="title_advanced_autosend">Potvrzovat odesílání zpráv</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
@@ -244,6 +246,7 @@
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_sync_kept_hint">Zvýší využití dat a spotřebu baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí této volby o něco sníží využití dat a baterie, zároveň však znemožní aktualizovat seznam složek</string>
+    <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
@@ -458,6 +461,7 @@
     <string name="title_save">Uložit</string>
     <string name="title_send">Odeslat</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
+    <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
     <string name="title_style_bold">Tučně</string>
     <string name="title_style_italic">Kurzíva</string>
     <string name="title_style_underline">Podtržení</string>

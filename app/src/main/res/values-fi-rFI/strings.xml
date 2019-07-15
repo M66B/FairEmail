@@ -91,6 +91,7 @@
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_go">Aloita</string>
+    <string name="title_setup_wizard">Asetusvelho</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
@@ -162,6 +163,7 @@
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_autoresize">Muuta liitettyjen ja upotettujen kuvien koot</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
+    <string name="title_advanced_lookup_mx">Tarkista vastaanottajien sähköpostiosoitteet ennen lähettämistä</string>
     <string name="title_advanced_autosend">Vahvista viestien lähetys</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_metered">Käytä käytön mukaan laskutettavia yhteyksiä</string>
@@ -228,6 +230,7 @@
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
+    <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
@@ -442,6 +445,7 @@
     <string name="title_save">Tallenna</string>
     <string name="title_send">Lähetä</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
+    <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
     <string name="title_style_bold">Lihavointi</string>
     <string name="title_style_italic">Kursiivi</string>
     <string name="title_style_underline">Alleviivaus</string>

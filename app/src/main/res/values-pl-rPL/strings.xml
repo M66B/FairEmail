@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
     <string name="app_limitations">Przykładowo, wiadomości będą zawsze przeformatowane, aby usunąć niebezpieczne elementy i zwiększyć czytelność, a otwieranie linków musi być potwierdzane dla zachowania bezpieczeństwa.</string>
     <string name="app_crash">FairEmail nie jest obsługiwany na tym urządzeniu, ponieważ błędy w Androidzie powodują awarie</string>
+    <string name="app_promote">Wysłano z <a href="https://email.faircode.eu/">FairEmail</a>, otwartej aplikacji przyjaznej dla prywatności na Androida</string>
     <string name="app_exit">Ponownie \'wstecz\', aby wyjść</string>
     <string name="channel_service">Usługa</string>
     <string name="channel_send">Wyślij</string>
@@ -66,6 +67,7 @@
         <item quantity="many">Traktować wiadomości %1$d jako spam?</item>
         <item quantity="other">Traktować wiadomości %1$d jako spam?</item>
     </plurals>
+    <string name="title_ask_spam_who">Traktuj wiadomość od %1$s jako spam?</string>
     <string name="title_notification_waiting">Oczekiwanie na odpowiednie połączenie</string>
     <string name="title_notification_sending">Wysyłanie wiadomości</string>
     <string name="title_notification_failed">%1$s nie powiodło się</string>
@@ -105,6 +107,7 @@
     <string name="title_setup_quick_imap">Serwer IMAP do odbierania wiadomości</string>
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_go">Idż</string>
+    <string name="title_setup_wizard">Kreator</string>
     <string name="title_setup_instructions">Instrukcja konfiguracji</string>
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
@@ -113,8 +116,10 @@
     <string name="title_setup_grant">Zezwól</string>
     <string name="title_setup_account">Skonfiguruj konta</string>
     <string name="title_setup_account_remark">Do odebrania poczty</string>
+    <string name="title_setup_account_hint">Aby zmienić kolor, przesuń lewy/prawy folder docelowy, itp</string>
     <string name="title_setup_identity">Skonfiguruj tożsamości</string>
     <string name="title_setup_identity_remark">Do wysłania poczty</string>
+    <string name="title_setup_identity_hint">Aby zmienić nazwę, kolor, podpis, itp</string>
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Do dostępu do informacji kontaktowych (opcjonalnie)</string>
     <string name="title_setup_doze">Skonfiguruj optymalizacje baterii</string>
@@ -174,6 +179,7 @@
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
+    <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
     <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
     <string name="title_advanced_send_delayed">Opóźnij wysyłanie wiadomości</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
@@ -195,7 +201,10 @@
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
+    <string name="title_advanced_images_inline">Obrazy wstawione to obrazy zawarte w wiadomości</string>
     <string name="title_advanced_images">Automatycznie wyświetlaj zdjęcia dla znanych kontaktów</string>
+    <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
+    <string name="title_advanced_remote_content">Automatycznie wyświetlaj zawartość zdalną podczas przeglądania oryginalnych wiadomości</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
@@ -207,6 +216,7 @@
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
+    <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
     <string name="title_advanced_notify_action_trash">Kosz</string>
@@ -221,6 +231,7 @@
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
     <string name="title_advanced_sync_subscribed">Synchronizuj tylko subskrybowane foldery</string>
+    <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
@@ -233,6 +244,7 @@
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i wykorzystanie dodatkowej energii z baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
+    <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
@@ -241,6 +253,7 @@
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
+    <string name="title_advanced_inline_hint">Obrazy wbudowane są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autocollapse_hint">Rozwinięte wiadomości zostaną zawsze zamknięte przy \'cofnij\'</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
@@ -270,6 +283,7 @@
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_account_signature">Tekst podpisu</string>
+    <string name="title_color">Kolor</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>
     <string name="title_account_left">Przesuń w lewo</string>
     <string name="title_account_right">Przesuń w prawo</string>
@@ -376,6 +390,7 @@
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
     <string name="title_add_keyword">Dodaj słowo kluczowe</string>
+    <string name="title_show_inline">Pokaż wbudowane załączniki</string>
     <string name="title_download_all">Pobierz wszystkie</string>
     <string name="title_save_all">Zapisz wszystkie</string>
     <string name="title_trash">Kosz</string>
@@ -419,6 +434,7 @@
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_sync_all">Synchronizować wszystkie wiadomości w %1$s?</string>
+    <string name="title_ask_delete_local">Usunąć wiadomości lokalne? Wiadomości pozostaną na serwerze zdalnym.</string>
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raport o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże poprawić FairEmail</string>
@@ -437,6 +453,7 @@
     <string name="title_save">Zapisz</string>
     <string name="title_send">Wyślij</string>
     <string name="title_send_at">Wysłano o &#8230;</string>
+    <string name="title_no_server">Nie znaleziono serwera na \'%1$s\'</string>
     <string name="title_style_bold">Pogrubienie</string>
     <string name="title_style_italic">Kursywa</string>
     <string name="title_style_underline">Podkreśl</string>

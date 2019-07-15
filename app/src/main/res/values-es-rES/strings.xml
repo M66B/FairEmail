@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail es una aplicación de correo electrónico de código abierto centrada en la privacidad y la seguridad. Por esta razón, algunas funciones pueden comportarse de manera diferente a lo que esté acostumbrado.</string>
     <string name="app_limitations">Por ejemplo, el formato de los mensajes siempre será alterado para quitar elementos no seguros y para mejorar la legibilidad, y abrir enlaces debe ser confirmado por seguridad.</string>
     <string name="app_crash">FairEmail no es compatible con este dispositivo porque existen errores en Android que provocan fallos</string>
+    <string name="app_promote">Enviado con <a href="https://email.faircode.eu/">FairEmail</a>, una app de correo electrónico de código abierto y orientada a la privacidad para Android</string>
     <string name="app_exit">Volver \'atrás\' para salir</string>
     <string name="channel_service">Servicio</string>
     <string name="channel_send">Enviar</string>
@@ -50,6 +51,7 @@
         <item quantity="one">¿Tratar %1$d mensaje como spam?</item>
         <item quantity="other">¿Tratar %1$d mensajes como spam?</item>
     </plurals>
+    <string name="title_ask_spam_who">¿Tratar el mensaje de %1$s como spam?</string>
     <string name="title_notification_waiting">Esperando conexión</string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
@@ -89,6 +91,7 @@
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensajes</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_go">Comenzar</string>
+    <string name="title_setup_wizard">Asistente</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
@@ -97,8 +100,10 @@
     <string name="title_setup_grant">Conceder</string>
     <string name="title_setup_account">Configurar cuentas</string>
     <string name="title_setup_account_remark">Para recibir correo electrónico</string>
+    <string name="title_setup_account_hint">Para cambiar el color, deslizar la carpeta de destino a la izquierda/derecha, etc</string>
     <string name="title_setup_identity">Configurar identidades</string>
     <string name="title_setup_identity_remark">Para enviar correo electrónico</string>
+    <string name="title_setup_identity_hint">Para cambiar nombre, color, firma, etc</string>
     <string name="title_setup_permissions">Conceder permisos</string>
     <string name="title_setup_permissions_remark">Para acceder a información de contactos (opcional)</string>
     <string name="title_setup_doze">Configurar optimizaciones de batería</string>
@@ -158,6 +163,7 @@
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
     <string name="title_advanced_autoresize">Redimensionar automáticamente imágenes adjuntas e incrustadas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>
+    <string name="title_advanced_lookup_mx">Comprobar direcciones de correo electrónico del destinatario antes de enviar</string>
     <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
@@ -224,6 +230,7 @@
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_sync_kept_hint">Esto utilizará datos adicionales y energía adicional de batería, especialmente si hay muchos mensajes guardados en el dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desactivar esto reducirá el uso de datos y batería, pero también desactivará la actualización de la lista de carpetas</string>
+    <string name="title_advanced_lookup_mx_hint">Esto comprobará si existen registros DNS MX</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
@@ -262,6 +269,7 @@
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_account_signature">Texto de la firma</string>
+    <string name="title_color">Color</string>
     <string name="title_account_notify">Notificaciones separadas</string>
     <string name="title_account_left">Deslizar a la izquierda</string>
     <string name="title_account_right">Deslizar hacia la derecha</string>
@@ -418,6 +426,7 @@
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
     <string name="title_ask_sync_all">Sincronizar todos los mensajes en %1$s?</string>
+    <string name="title_ask_delete_local">¿Borrar mensajes locales? Los mensajes permanecerán en el servidor remoto.</string>
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
@@ -436,6 +445,7 @@
     <string name="title_save">Guardar</string>
     <string name="title_send">Enviar</string>
     <string name="title_send_at">Enviar a &#8230;</string>
+    <string name="title_no_server">No se encontró ningún servidor en \'%1$s\'</string>
     <string name="title_style_bold">Negrita</string>
     <string name="title_style_italic">Cursiva</string>
     <string name="title_style_underline">Subrayado</string>

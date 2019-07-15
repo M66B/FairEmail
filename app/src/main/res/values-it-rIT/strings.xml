@@ -90,6 +90,7 @@
     <string name="title_setup_quick_imap">Server IMAP per ricevere messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>
     <string name="title_setup_go">Vai</string>
+    <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
@@ -161,6 +162,7 @@
     <string name="title_advanced_plain_only">Invia testo semplice solo per impostazione predefinita</string>
     <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini allegate e incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
+    <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
     <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
     <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
@@ -227,6 +229,7 @@
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e utilizzerà energia batteria extra, specialmente se ci sono molti messaggi conservati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
+    <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
@@ -441,6 +444,7 @@
     <string name="title_save">Salva</string>
     <string name="title_send">Invia</string>
     <string name="title_send_at">Invia alle &#8230;</string>
+    <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>
     <string name="title_style_bold">Grassetto</string>
     <string name="title_style_italic">Corsivo</string>
     <string name="title_style_underline">Sottolinea</string>

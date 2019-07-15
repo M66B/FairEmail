@@ -82,6 +82,7 @@
     <string name="title_setup_quick_imap">接收消息的IMAP 服务器</string>
     <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
     <string name="title_setup_go">转到</string>
+    <string name="title_setup_wizard">向导</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
@@ -153,6 +154,7 @@
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_autoresize">自动调整附加和嵌入图像大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
+    <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
     <string name="title_advanced_autosend">确认发送邮件</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
@@ -219,6 +221,7 @@
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_sync_kept_hint">这将使用额外的数据和额外电量，特别是如果有许多消息保留在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能会降低数据和电池使用量，但也会禁用更新文件夹列表</string>
+    <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
@@ -414,6 +417,7 @@
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
     <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
+    <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
@@ -432,6 +436,7 @@
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
     <string name="title_send_at">发送于 &#8230;</string>
+    <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
     <string name="title_style_bold">粗体</string>
     <string name="title_style_italic">斜体</string>
     <string name="title_style_underline">下划线</string>

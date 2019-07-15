@@ -91,6 +91,7 @@
     <string name="title_setup_quick_imap">IMAP-serveren til å motta meldinger</string>
     <string name="title_setup_quick_smtp">SMTP-server for å sende meldinger</string>
     <string name="title_setup_go">Utfør</string>
+    <string name="title_setup_wizard">Veiviser</string>
     <string name="title_setup_instructions">Oppsett instruksjoner</string>
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
     <string name="title_setup_quick_success">En konto og en identitet har blitt lagt til</string>
@@ -162,6 +163,7 @@
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_autoresize">Endre størrelsen på vedlagte og innebygde bilder automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
+    <string name="title_advanced_lookup_mx">Sjekk mottakerens e-postadresser før du sender</string>
     <string name="title_advanced_autosend">Bekreft sending av meldinger</string>
     <string name="title_advanced_send_delayed">Forsink sending av meldinger</string>
     <string name="title_advanced_metered">Bruk målte tilkoblinger</string>
@@ -228,6 +230,7 @@
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_sync_kept_hint">Dette overfører ekstra data og bruker ekstra batteristrøm, spesielt hvis det er mange meldinger som holdes på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
+    <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>
@@ -442,6 +445,7 @@
     <string name="title_save">Lagre</string>
     <string name="title_send">Send</string>
     <string name="title_send_at">Sender &#8230;</string>
+    <string name="title_no_server">Ingen server funnet på \'%1$s\'</string>
     <string name="title_style_bold">Fet</string>
     <string name="title_style_italic">Kursiv</string>
     <string name="title_style_underline">Understrek</string>

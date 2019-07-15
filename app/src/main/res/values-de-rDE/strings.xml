@@ -160,6 +160,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_plain_only">Immer als Reintext senden</string>
     <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
+    <string name="title_advanced_lookup_mx">Überprüft die Empfänger-E-Mail-Adressen vor dem Senden</string>
     <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
@@ -226,6 +227,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_sync_folders_hint">Wenn Sie dies deaktivieren, wird der Daten- und Akkubedarf etwas reduziert, aber auch die Aktualisierung der Ordnerliste deaktiviert.</string>
+    <string name="title_advanced_lookup_mx_hint">Dies wird überprüfen, ob DNS MX-Einträge existieren</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
@@ -440,6 +442,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
     <string name="title_send_at">Später senden &#8230;</string>
+    <string name="title_no_server">Kein Server gefunden bei \'%1$s\'</string>
     <string name="title_style_bold">Fett</string>
     <string name="title_style_italic">Kursiv</string>
     <string name="title_style_underline">Unterstreichen</string>

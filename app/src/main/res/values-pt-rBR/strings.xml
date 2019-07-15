@@ -6,6 +6,7 @@
     <string name="app_welcome">FairEmail é um aplicativo de e-mail de código aberto focado em privacidade e segurança. Por esse motivo, alguns recursos podem funcionar de maneira diferente do que você está acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, e a abertura de links devem ser confirmadas por questão de segurança.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque bugs do Android causam tais falhas</string>
+    <string name="app_promote">Enviado com <a href="https://email.faircode.eu/">FairEmail</a>, um aplicativo de e-mail de código aberto para o Android, que respeita sua privacidade</string>
     <string name="app_exit">Pressione \'voltar\' novamente para sair</string>
     <string name="channel_service">Serviço</string>
     <string name="channel_send">Enviar</string>
@@ -50,6 +51,7 @@
         <item quantity="one">Tratar %1$d mensagem como spam?</item>
         <item quantity="other">Tratar %1$d mensagens como spam?</item>
     </plurals>
+    <string name="title_ask_spam_who">Tratar mensagem de %1$s como spam?</string>
     <string name="title_notification_waiting">Aguardando conexão adequada</string>
     <string name="title_notification_sending">Enviando mensagens</string>
     <string name="title_notification_failed">\'%1$s\' falhou</string>
@@ -89,6 +91,7 @@
     <string name="title_setup_quick_imap">Servidor IMAP para receber mensagens</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_go">Iniciar</string>
+    <string name="title_setup_wizard">Assistente</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
@@ -97,13 +100,16 @@
     <string name="title_setup_grant">Conceder</string>
     <string name="title_setup_account">Configurar contas</string>
     <string name="title_setup_account_remark">Receber e-mail</string>
+    <string name="title_setup_account_hint">Para alterar a cor, deslize para a esquerda/direita a pasta de destino, etc</string>
     <string name="title_setup_identity">Configuração de identidades</string>
     <string name="title_setup_identity_remark">Para enviar e-mail</string>
+    <string name="title_setup_identity_hint">Para mudar o nome, cor, assinatura, etc</string>
     <string name="title_setup_permissions">Conceder permissões</string>
     <string name="title_setup_permissions_remark">Para acessar informações de contato (opcional)</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
     <string name="title_setup_doze_remark">Para receber continuamente e-mail (opcional)</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo, selecione \"Todos os apps\" no topo, selecione este app, selecione e confirme \"Não otimizar\"</string>
+    <string name="title_setup_doze_battery">Alto uso de bateria?</string>
     <string name="title_setup_data">Desativar a economia de dados</string>
     <string name="title_setup_inbox">Ir para mensagens</string>
     <string name="title_setup_to_do">Para fazer</string>
@@ -122,6 +128,11 @@
     <string name="title_setup_reorder_accounts">Ordenar contas</string>
     <string name="title_setup_reorder_folders">Ordenar pastas</string>
     <string name="title_reset_order">Redefinir ordem</string>
+    <string name="title_setup_authentication">Autenticação</string>
+    <string name="title_setup_biometrics">Autenticação biométrica</string>
+    <string name="title_setup_biometrics_enable">Habilitar</string>
+    <string name="title_setup_biometrics_disable">Desabilitar</string>
+    <string name="title_setup_biometrics_unlock">Desbloquear</string>
     <string name="title_setup_theme">Selecione um tema</string>
     <string name="title_setup_light_theme">Tema claro</string>
     <string name="title_setup_dark_theme">Tema escuro</string>
@@ -172,8 +183,12 @@
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
+    <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
     <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
+    <string name="title_advanced_images">Mostrar imagens automaticamente para contatos conhecidos</string>
+    <string name="title_advanced_collapse_quotes">Recolher texto citado</string>
+    <string name="title_advanced_remote_content">Mostrar automaticamente conteúdo remoto ao visualizar mensagens originais</string>
     <string name="title_advanced_actionbar">Barra de ação de conversa</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Role para cima ao receber novas mensagens</string>
@@ -201,11 +216,13 @@
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
+    <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
     <string name="title_advanced_debug">Modo de depuração</string>
+    <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_enabled_hint">Globalmente desabilitar ou habilitar o recebimento de mensagens</string>
     <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente, puxando a lista de mensagens. Isso irá sincronizar mensagens e executar operações por um tempo limitado.</string>
     <string name="title_advanced_poll_hint">Sincronizar periodicamente irá comparar mensagens locais e remotas cada vez, o que é uma operação cara possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso escutando continuamente apenas as alterações.</string>
@@ -229,6 +246,7 @@
     <string name="title_advanced_subscribed_only_hint">Habilitando isto irá apagar todas as pastas locais sem assinatura</string>
     <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
     <string name="title_advanced_debug_hint">Habilitar o log extra e mostrar informações de depuração em vários lugares</string>
+    <string name="title_advanced_cleanup_hint">Isto irá excluir todos os arquivos temporários</string>
     <string name="title_select">Selecionar &#8230;</string>
     <string name="title_identity_name">Seu nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
@@ -249,6 +267,7 @@
     <string name="title_account_interval_hint">Frequência de atualizar a conexão para mensagens push ou frequência de verificação de novas mensagens</string>
     <string name="title_account_partial_fetch_hint">Desativar isto somente em caso de mensagens vazias ou anexos corrompidos</string>
     <string name="title_account_signature">Texto da assinatura</string>
+    <string name="title_color">Cor</string>
     <string name="title_account_notify">Notificações separadas</string>
     <string name="title_account_left">Deslize para esquerda</string>
     <string name="title_account_right">Deslizar para direita</string>
@@ -322,6 +341,8 @@
     <string name="title_sync_days_remark">O aumento deste valor aumentará o uso da bateria e o uso de dados</string>
     <string name="title_keep_days">Manter mensagens (dias)</string>
     <string name="title_keep_all">Manter todas as mensagens</string>
+    <string name="title_auto_trash">Mover automaticamente mensagens antigas para lixeira</string>
+    <string name="title_auto_delete">Excluir permanentemente mensagens antigas</string>
     <string name="title_folder_name_missing">Nome da pasta faltando</string>
     <string name="title_folder_exists">A pasta %1$s já existe</string>
     <string name="title_folder_delete">Excluir permanentemente esta pasta e quaisquer mensagens que ela contenha?</string>
@@ -403,6 +424,7 @@
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
     <string name="title_ask_sync_all">Sincronizar todas as mensagens em %1$s?</string>
+    <string name="title_ask_delete_local">Excluir mensagens locais? As mensagens permanecerão no servidor remoto.</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>
     <string name="title_ask_reporting">Enviar relatórios de erro?</string>
     <string name="title_reporting_why">Relatório de erro ajudará a melhorar o FairEmail</string>
@@ -421,6 +443,7 @@
     <string name="title_save">Salvar</string>
     <string name="title_send">Enviar</string>
     <string name="title_send_at">Enviar em &#8230;</string>
+    <string name="title_no_server">Nenhum servidor encontrado em \'%1$s\'</string>
     <string name="title_style_bold">Negrito</string>
     <string name="title_style_italic">Itálico</string>
     <string name="title_style_underline">Sublinhado</string>
@@ -554,6 +577,7 @@
     <string name="title_legend_thread">Conversação</string>
     <string name="title_legend_zoom">Alterar tamanho do texto</string>
     <string name="title_legend_draft">Existe um rascunho</string>
+    <string name="title_legend_auth">Falha na autenticação</string>
     <string name="title_legend_snoozed">Está adiado</string>
     <string name="title_legend_browsed">Já acessado ou pesquisado</string>
     <string name="title_legend_answered">Foi respondido</string>
@@ -694,5 +718,12 @@
         <item>Para</item>
         <item>Cc</item>
         <item>Bcc</item>
+    </string-array>
+    <string-array name="biometricsTimeoutNames">
+        <item>Um minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>10 minutos</item>
+        <item>20 minutos</item>
     </string-array>
 </resources>
