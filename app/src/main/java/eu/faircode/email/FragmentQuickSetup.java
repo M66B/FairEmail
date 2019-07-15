@@ -244,6 +244,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                         boolean inbox = false;
                         boolean drafts = false;
+                        EntityFolder altDrafts = null;
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
@@ -269,7 +270,14 @@ public class FragmentQuickSetup extends FragmentBase {
                                 }
                                 if (EntityFolder.DRAFTS.equals(type))
                                     drafts = true;
+                                if (folder.name.toLowerCase().contains("draft"))
+                                    altDrafts = folder;
                             }
+                        }
+
+                        if (!drafts && altDrafts != null) {
+                            drafts = true;
+                            altDrafts.type = EntityFolder.DRAFTS;
                         }
 
                         if (!inbox || !drafts)
