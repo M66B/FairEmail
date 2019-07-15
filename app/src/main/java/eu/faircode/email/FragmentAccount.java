@@ -506,6 +506,11 @@ public class FragmentAccount extends FragmentBase {
                 String password = args.getString("password");
                 String realm = args.getString("realm");
 
+                if (host.contains(":")) {
+                    Uri h = Uri.parse(host);
+                    host = h.getHost();
+                }
+
                 if (TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
@@ -762,6 +767,11 @@ public class FragmentAccount extends FragmentBase {
 
                 boolean pro = Helper.isPro(context);
                 boolean should = args.getBoolean("should");
+
+                if (host.contains(":")) {
+                    Uri h = Uri.parse(host);
+                    host = h.getHost();
+                }
 
                 if (!should && TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));

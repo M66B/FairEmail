@@ -567,6 +567,11 @@ public class FragmentIdentity extends FragmentBase {
 
                 boolean should = args.getBoolean("should");
 
+                if (host.contains(":")) {
+                    Uri h = Uri.parse(host);
+                    host = h.getHost();
+                }
+
                 if (!should && TextUtils.isEmpty(name))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_name));
                 if (!should && TextUtils.isEmpty(email))
