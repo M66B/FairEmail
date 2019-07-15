@@ -151,6 +151,20 @@ public class EmailProvider {
     }
 
     static EmailProvider fromDomain(Context context, String domain) throws IOException {
+        EmailProvider autoconfig = fromDomainInternal(context, domain);
+
+        List<EmailProvider> providers = loadProfiles(context);
+        for (EmailProvider provider : providers)
+            if (provider.imap_host.equals(autoconfig.imap_host) ||
+                    provider.smtp_host.equals(autoconfig.smtp_host)) {
+                Log.i("Replacing autoconfig by profile " + provider.name);
+                return provider;
+            }
+
+        return autoconfig;
+    }
+
+    private static EmailProvider fromDomainInternal(Context context, String domain) throws IOException {
         try {
             Log.i("Provider from DNS domain=" + domain);
             return addSpecials(context, fromDNS(domain));
