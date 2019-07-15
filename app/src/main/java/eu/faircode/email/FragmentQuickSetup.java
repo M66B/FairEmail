@@ -252,7 +252,12 @@ public class FragmentQuickSetup extends FragmentBase {
 
                             Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
 
-                            if (type != null && !EntityFolder.USER.equals(type)) {
+                            boolean isAltDrafts = fullName.toLowerCase().contains("draft");
+
+                            if (type != null && (!EntityFolder.USER.equals(type) || isAltDrafts)) {
+                                if (isAltDrafts)
+                                    type = EntityFolder.DRAFTS;
+
                                 int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
                                 EntityFolder folder = new EntityFolder();
                                 folder.name = fullName;
@@ -261,7 +266,11 @@ public class FragmentQuickSetup extends FragmentBase {
                                 folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
                                 folder.sync_days = EntityFolder.DEFAULT_SYNC;
                                 folder.keep_days = EntityFolder.DEFAULT_KEEP;
-                                folders.add(folder);
+
+                                if (isAltDrafts)
+                                    altDrafts = folder;
+                                else
+                                    folders.add(folder);
 
                                 if (EntityFolder.INBOX.equals(type)) {
                                     folder.unified = true;
@@ -270,8 +279,6 @@ public class FragmentQuickSetup extends FragmentBase {
                                 }
                                 if (EntityFolder.DRAFTS.equals(type))
                                     drafts = true;
-                                if (folder.name.toLowerCase().contains("draft"))
-                                    altDrafts = folder;
                             }
                         }
 
@@ -279,7 +286,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                         if (!drafts && altDrafts != null) {
                             drafts = true;
-                            altDrafts.type = EntityFolder.DRAFTS;
+                            folders.add(altDrafts);
                             Log.i("Quick alt drafts=" + altDrafts.name);
                         }
 
