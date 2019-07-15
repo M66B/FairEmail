@@ -2769,14 +2769,16 @@ public class FragmentCompose extends FragmentBase {
 
             String domain = email.split("@")[1];
             Lookup lookup = new Lookup(domain, Type.MX);
-            SimpleResolver resolver = new SimpleResolver(Helper.DEFAULT_DNS);
+            SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
             lookup.setResolver(resolver);
-            Log.i("Lookup dns=" + domain + " @" + resolver.getAddress());
+            Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
 
             lookup.run();
             if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                    lookup.getResult() == Lookup.TYPE_NOT_FOUND)
+                    lookup.getResult() == Lookup.TYPE_NOT_FOUND) {
+                Log.i("Lookup MX=" + domain + " result=" + lookup.getErrorString());
                 throw new IllegalArgumentException(context.getString(R.string.title_no_server, domain));
+            }
         }
 
         private String getActionName(int id) {

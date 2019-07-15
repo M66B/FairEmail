@@ -3,6 +3,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
@@ -16,6 +17,7 @@ import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPStore;
 
+import java.net.InetAddress;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -26,6 +28,11 @@ import java.util.Map;
 import javax.mail.MessagingException;
 
 public class ConnectionHelper {
+    private static final String DEFAULT_DNS = "8.8.8.8";
+
+    static final int AUTH_TYPE_PASSWORD = 1;
+    static final int AUTH_TYPE_GMAIL = 2;
+
     // Roam like at home
     // https://en.wikipedia.org/wiki/European_Union_roaming_regulations
     private static final List<String> RLAH_COUNTRY_CODES = Collections.unmodifiableList(Arrays.asList(
@@ -61,9 +68,6 @@ public class ConnectionHelper {
             "SE", // Sweden
             "GB" // United Kingdom
     ));
-
-    static final int AUTH_TYPE_PASSWORD = 1;
-    static final int AUTH_TYPE_GMAIL = 2;
 
     static class NetworkState {
         private Boolean connected = null;
@@ -268,5 +272,24 @@ public class ConnectionHelper {
     static boolean airplaneMode(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+    }
+
+    static String getDnsServer(Context context) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
+            return DEFAULT_DNS;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null)
+            return DEFAULT_DNS;
+        Network active = cm.getActiveNetwork();
+        if (active == null)
+            return DEFAULT_DNS;
+        LinkProperties props = cm.getLinkProperties(active);
+        if (props == null)
+            return DEFAULT_DNS;
+        List<InetAddress> dns = props.getDnsServers();
+        if (dns.size() == 0)
+            return DEFAULT_DNS;
+        else
+            return dns.get(0).getHostAddress();
     }
 }
