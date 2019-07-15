@@ -94,7 +94,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -2898,20 +2897,7 @@ public class FragmentCompose extends FragmentBase {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    Drawable image = HtmlHelper.decodeImage(context, id, source, show_images, tvReference);
-
-                                    ConstraintLayout.LayoutParams params =
-                                            (ConstraintLayout.LayoutParams) tvReference.getLayoutParams();
-                                    float width = context.getResources().getDisplayMetrics().widthPixels
-                                            - params.leftMargin - params.rightMargin;
-                                    if (image.getIntrinsicWidth() > width) {
-                                        float scale = width / image.getIntrinsicWidth();
-                                        image.setBounds(0, 0,
-                                                Math.round(image.getIntrinsicWidth() * scale),
-                                                Math.round(image.getIntrinsicHeight() * scale));
-                                    }
-
-                                    return image;
+                                    return HtmlHelper.decodeImage(context, id, source, show_images, tvReference);
                                 }
                             },
                             null);

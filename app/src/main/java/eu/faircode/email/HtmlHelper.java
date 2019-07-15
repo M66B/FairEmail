@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
@@ -32,6 +33,8 @@ import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -361,7 +364,10 @@ public class HtmlHelper {
                     return d;
                 } else {
                     Drawable d = new BitmapDrawable(res, bm);
-                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                    DisplayMetrics dm = context.getResources().getDisplayMetrics();
+                    d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+                    if (view != null)
+                        fitDrawable(d, view);
                     return d;
                 }
             }
@@ -370,7 +376,10 @@ public class HtmlHelper {
         // Data URI
         if (data && (show || inline))
             try {
-                return getDataDrawable(res, source);
+                Drawable d = getDataDrawable(context, source);
+                if (view != null)
+                    fitDrawable(d, view);
+                return d;
             } catch (IllegalArgumentException ex) {
                 Log.w(ex);
                 Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
@@ -393,8 +402,15 @@ public class HtmlHelper {
         final File file = new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
 
         Drawable cached = getCachedImage(context, file);
-        if (cached != null || view == null)
+        if (cached != null || view == null) {
+            if (view == null) {
+                Drawable d = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
+                d.setBounds(0, 0, px, px);
+                return d;
+            } else
+                fitDrawable(cached, view);
             return cached;
+        }
 
         final LevelListDrawable lld = new LevelListDrawable();
         Drawable wait = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
@@ -408,6 +424,7 @@ public class HtmlHelper {
                 try {
                     Drawable cached = getCachedImage(context, file);
                     if (cached != null) {
+                        fitDrawable(cached, view);
                         post(cached, source);
                         return;
                     }
@@ -447,7 +464,9 @@ public class HtmlHelper {
 
                     // Create drawable from bitmap
                     Drawable d = new BitmapDrawable(res, bm);
-                    d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+                    DisplayMetrics dm = context.getResources().getDisplayMetrics();
+                    d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+                    fitDrawable(d, view);
                     post(d, source);
                 } catch (Throwable ex) {
                     // Show broken icon
@@ -463,22 +482,14 @@ public class HtmlHelper {
 
             private void post(final Drawable d, String source) {
                 Log.i("Posting image=" + source);
+
                 new Handler(context.getMainLooper()).post(new Runnable() {
                     @Override
                     public void run() {
-                        int w = d.getIntrinsicWidth();
-                        int h = d.getIntrinsicHeight();
-
-                        float width = view.getWidth();
-                        if (w > width) {
-                            float scale = width / w;
-                            w = Math.round(w * scale);
-                            h = Math.round(h * scale);
-                            d.setBounds(0, 0, w, h);
-                        }
+                        Rect bounds = d.getBounds();
 
                         lld.addLevel(0, 0, d);
-                        lld.setBounds(0, 0, w, h);
+                        lld.setBounds(0, 0, bounds.width(), bounds.height());
                         lld.setLevel(0);
 
                         view.setText(view.getText());
@@ -490,7 +501,21 @@ public class HtmlHelper {
         return lld;
     }
 
-    private static Drawable getDataDrawable(Resources res, String source) {
+    private static void fitDrawable(Drawable d, View view) {
+        Rect bounds = d.getBounds();
+        int w = bounds.width();
+        int h = bounds.height();
+
+        float width = view.getWidth();
+        if (w > width) {
+            float scale = width / w;
+            w = Math.round(w * scale);
+            h = Math.round(h * scale);
+            d.setBounds(0, 0, w, h);
+        }
+    }
+
+    private static Drawable getDataDrawable(Context context, String source) {
         // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
         // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
         // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
@@ -503,8 +528,11 @@ public class HtmlHelper {
         if (bm == null)
             throw new IllegalArgumentException("decode byte array failed");
 
-        Drawable d = new BitmapDrawable(res, bm);
-        d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+        Drawable d = new BitmapDrawable(context.getResources(), bm);
+
+        DisplayMetrics dm = context.getResources().getDisplayMetrics();
+        d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+
         return d;
     }
 
@@ -514,7 +542,10 @@ public class HtmlHelper {
             Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
             if (bm != null) {
                 Drawable d = new BitmapDrawable(context.getResources(), bm);
-                d.setBounds(0, 0, bm.getWidth(), bm.getHeight());
+
+                DisplayMetrics dm = context.getResources().getDisplayMetrics();
+                d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+
                 return d;
             }
         }

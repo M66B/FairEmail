@@ -1953,20 +1953,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        Drawable image = HtmlHelper.decodeImage(context, message.id, source, show_images, tvBody);
-
-                        ConstraintLayout.LayoutParams params =
-                                (ConstraintLayout.LayoutParams) tvBody.getLayoutParams();
-                        float width = context.getResources().getDisplayMetrics().widthPixels
-                                - params.leftMargin - params.rightMargin;
-                        if (image.getIntrinsicWidth() > width) {
-                            float scale = width / image.getIntrinsicWidth();
-                            image.setBounds(0, 0,
-                                    Math.round(image.getIntrinsicWidth() * scale),
-                                    Math.round(image.getIntrinsicHeight() * scale));
-                        }
-
-                        return image;
+                        return HtmlHelper.decodeImage(context, message.id, source, show_images, tvBody);
                     }
                 }, null);
 
