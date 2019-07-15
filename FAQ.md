@@ -45,6 +45,7 @@ For authorizing:
 * ~~Search for messages with/without attachments~~ (this cannot be added because IMAP doesn't support searching for attachments)
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 * ~~Search suggestions~~
+* [Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)
 
 Anything on this list is in random order and *might* be added in the near future.
 
