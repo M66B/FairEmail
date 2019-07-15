@@ -275,9 +275,12 @@ public class FragmentQuickSetup extends FragmentBase {
                             }
                         }
 
+                        Log.i("Quick inbox=" + inbox + " drafts=" + drafts);
+
                         if (!drafts && altDrafts != null) {
                             drafts = true;
                             altDrafts.type = EntityFolder.DRAFTS;
+                            Log.i("Quick alt drafts=" + altDrafts.name);
                         }
 
                         if (!inbox || !drafts)
@@ -411,6 +414,8 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             protected void onException(final Bundle args, Throwable ex) {
+                Log.i("Quick ex=" + Helper.formatThrowable(ex, false));
+
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else {
