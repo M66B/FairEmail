@@ -1197,7 +1197,7 @@ class Core {
                                 context,
                                 account, folder,
                                 ifolder, (IMAPMessage) isub[j],
-                                false,
+                                false, download,
                                 rules, state);
                         ids[from + j] = message.id;
                     } catch (MessageRemovedException ex) {
@@ -1304,7 +1304,7 @@ class Core {
             Context context,
             EntityAccount account, EntityFolder folder,
             IMAPFolder ifolder, IMAPMessage imessage,
-            boolean browsed,
+            boolean browsed, boolean download,
             List<EntityRule> rules, State state) throws MessagingException, IOException {
         long uid = ifolder.getUID(imessage);
 
@@ -1468,16 +1468,16 @@ class Core {
                 updateContactInfo(context, folder, message);
 
             // Download small messages inline
-            if (message.size != null) {
+            if (download && message.size != null) {
                 long maxSize;
                 if (state == null || state.networkState.isUnmetered())
                     maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
                 else {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    int download = prefs.getInt("download", 0);
-                    maxSize = (download == 0
+                    int downloadSize = prefs.getInt("download", 0);
+                    maxSize = (downloadSize == 0
                             ? MessageHelper.SMALL_MESSAGE_SIZE
-                            : Math.min(download, MessageHelper.SMALL_MESSAGE_SIZE));
+                            : Math.min(downloadSize, MessageHelper.SMALL_MESSAGE_SIZE));
                 }
 
                 if (message.size < maxSize) {

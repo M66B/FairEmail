@@ -825,17 +825,19 @@ public class ServiceSynchronize extends LifecycleService {
                                         fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
                                         ifolder.fetch(e.getMessages(), fp);
 
+                                        boolean download = db.folder().getFolderDownload(folder.id);
+
                                         for (Message imessage : e.getMessages())
                                             try {
                                                 EntityMessage message = Core.synchronizeMessage(
                                                         ServiceSynchronize.this,
                                                         account, folder,
                                                         ifolder, (IMAPMessage) imessage,
-                                                        false,
+                                                        false, download,
                                                         db.rule().getEnabledRules(folder.id),
                                                         state);
 
-                                                if (db.folder().getFolderDownload(folder.id))
+                                                if (download)
                                                     Core.downloadMessage(ServiceSynchronize.this,
                                                             folder, ifolder,
                                                             (IMAPMessage) imessage, message.id, state);
@@ -920,15 +922,17 @@ public class ServiceSynchronize extends LifecycleService {
                                             fp.add(IMAPFolder.FetchProfileItem.FLAGS);
                                             ifolder.fetch(new Message[]{e.getMessage()}, fp);
 
+                                            boolean download = db.folder().getFolderDownload(folder.id);
+
                                             EntityMessage message = Core.synchronizeMessage(
                                                     ServiceSynchronize.this,
                                                     account, folder,
                                                     ifolder, (IMAPMessage) e.getMessage(),
-                                                    false,
+                                                    false, download,
                                                     db.rule().getEnabledRules(folder.id),
                                                     state);
 
-                                            if (db.folder().getFolderDownload(folder.id))
+                                            if (download)
                                                 Core.downloadMessage(ServiceSynchronize.this,
                                                         folder, ifolder,
                                                         (IMAPMessage) e.getMessage(), message.id, state);
