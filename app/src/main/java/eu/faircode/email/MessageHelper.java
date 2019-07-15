@@ -84,7 +84,7 @@ public class MessageHelper {
 
     private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
 
-    static final int SMALL_MESSAGE_SIZE = 64 * 1024; // bytes
+    static final int SMALL_MESSAGE_SIZE = 32 * 1024; // bytes
 
     static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
