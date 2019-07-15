@@ -78,6 +78,18 @@
             starttls="false" />
     </provider>
     <provider
+        name="orange.fr"
+        link="https://assistance.orange.fr/mobile-tablette/tous-les-mobiles-et-tablettes/installer-et-utiliser/utiliser-internet-mail-et-cloud/mail/l-application-mail-orange/parametrer-et-configurer/mail-configurer-les-serveurs-sortants-et-entrants-des-principaux-comptes-mails_47992-48856">
+        <imap
+            host="imap.orange.fr"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.orange.fr"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
         name="FastMail"
         link="https://www.fastmail.com/help/technical/servernamesandports.html">
         <imap
