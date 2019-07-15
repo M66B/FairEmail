@@ -368,7 +368,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.display = null;
                     identity.color = null;
 
-                    CharSequence promote = getText(R.string.app_promote);
+                    CharSequence promote = context.getText(R.string.app_promote);
                     if (promote instanceof Spanned)
                         identity.signature = HtmlHelper.toHtml((Spanned) promote);
                     else
