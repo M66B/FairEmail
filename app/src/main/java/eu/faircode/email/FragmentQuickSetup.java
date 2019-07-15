@@ -249,25 +249,24 @@ public class FragmentQuickSetup extends FragmentBase {
                             String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                             String type = EntityFolder.getType(attrs, fullName, true);
+                            boolean alt = fullName.toLowerCase().contains("draft");
 
-                            Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
+                            Log.i(fullName +
+                                    " attrs=" + TextUtils.join(" ", attrs) +
+                                    " type=" + type + " alt=" + altDrafts);
 
-                            boolean isAltDrafts = fullName.toLowerCase().contains("draft");
-
-                            if (type != null && (!EntityFolder.USER.equals(type) || isAltDrafts)) {
-                                if (isAltDrafts)
-                                    type = EntityFolder.DRAFTS;
-
+                            if (type != null && (!EntityFolder.USER.equals(type) || alt)) {
                                 int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
+
                                 EntityFolder folder = new EntityFolder();
                                 folder.name = fullName;
-                                folder.type = type;
+                                folder.type = (alt ? EntityFolder.DRAFTS : type);
                                 folder.synchronize = (sync >= 0);
                                 folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
                                 folder.sync_days = EntityFolder.DEFAULT_SYNC;
                                 folder.keep_days = EntityFolder.DEFAULT_KEEP;
 
-                                if (isAltDrafts)
+                                if (alt)
                                     altDrafts = folder;
                                 else
                                     folders.add(folder);
@@ -276,8 +275,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                     folder.unified = true;
                                     folder.notify = true;
                                     inbox = true;
-                                }
-                                if (EntityFolder.DRAFTS.equals(type))
+                                } else if (EntityFolder.DRAFTS.equals(type))
                                     drafts = true;
                             }
                         }
