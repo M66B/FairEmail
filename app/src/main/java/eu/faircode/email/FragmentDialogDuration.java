@@ -65,8 +65,8 @@ public class FragmentDialogDuration extends DialogFragmentEx {
             cal.setTimeInMillis(savedInstanceState.getLong("fair:time"));
         Log.i("Set init=" + new Date(cal.getTimeInMillis()));
 
-        final DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
-        tvDuration.setText(df.format(cal.getTime()));
+        final DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
+        tvDuration.setText(DTF.format(cal.getTime()));
 
         timePicker.setIs24HourView(android.text.format.DateFormat.is24HourFormat(getContext()));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -82,7 +82,7 @@ public class FragmentDialogDuration extends DialogFragmentEx {
             public void onTimeChanged(TimePicker view, int hour, int minute) {
                 cal.set(Calendar.HOUR_OF_DAY, hour);
                 cal.set(Calendar.MINUTE, minute);
-                tvDuration.setText(df.format(cal.getTime()));
+                tvDuration.setText(DTF.format(cal.getTime()));
                 Log.i("Set hour=" + hour + " minute=" + minute +
                         " time=" + new Date(cal.getTimeInMillis()));
             }
@@ -98,7 +98,7 @@ public class FragmentDialogDuration extends DialogFragmentEx {
                         cal.set(Calendar.YEAR, year);
                         cal.set(Calendar.MONTH, month);
                         cal.set(Calendar.DAY_OF_MONTH, day);
-                        tvDuration.setText(df.format(cal.getTime()));
+                        tvDuration.setText(DTF.format(cal.getTime()));
                         Log.i("Set year=" + year + " month=" + month + " day=" + day +
                                 " time=" + new Date(cal.getTimeInMillis()));
                     }

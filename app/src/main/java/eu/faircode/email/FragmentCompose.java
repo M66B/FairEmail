@@ -130,7 +130,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.UnknownHostException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -2691,8 +2690,8 @@ public class FragmentCompose extends FragmentBase {
                     if (draft.ui_snoozed == null)
                         feedback = context.getString(R.string.title_queued);
                     else {
-                        DateFormat df = SimpleDateFormat.getDateTimeInstance();
-                        feedback = context.getString(R.string.title_queued_at, df.format(draft.ui_snoozed));
+                        DateFormat DTF = Helper.getDateTimeInstance(context);
+                        feedback = context.getString(R.string.title_queued_at, DTF.format(draft.ui_snoozed));
                     }
 
                     Handler handler = new Handler(context.getMainLooper());

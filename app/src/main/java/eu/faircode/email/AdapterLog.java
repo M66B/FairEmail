@@ -36,7 +36,6 @@ import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +47,7 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
 
     private List<EntityLog> items = new ArrayList<>();
 
-    private DateFormat TF = SimpleDateFormat.getTimeInstance();
+    private DateFormat TF;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvTime;
@@ -73,6 +72,8 @@ public class AdapterLog extends RecyclerView.Adapter<AdapterLog.ViewHolder> {
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(parentFragment.getContext());
+
+        this.TF = Helper.getTimeInstance(context);
 
         setHasStableIds(true);
 

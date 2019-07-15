@@ -52,7 +52,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +69,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private List<TupleAccountEx> items = new ArrayList<>();
 
     private NumberFormat nf = NumberFormat.getNumberInstance();
-    private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+    private DateFormat DTF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -159,7 +158,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvLast.setText(context.getString(R.string.title_last_connected,
-                    account.last_connected == null ? "-" : df.format(account.last_connected)));
+                    account.last_connected == null ? "-" : DTF.format(account.last_connected)));
 
             tvAuthorize.setVisibility(account.auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
@@ -288,6 +287,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+
+        this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
 
         setHasStableIds(true);
 

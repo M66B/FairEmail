@@ -53,7 +53,6 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -410,10 +409,10 @@ public class Log {
 
             long size = 0;
             long from = new Date().getTime() - 24 * 3600 * 1000L;
-            DateFormat DF = SimpleDateFormat.getTimeInstance();
+            DateFormat TF = Helper.getTimeInstance(context);
 
             for (EntityLog entry : db.log().getLogs(from))
-                size += write(os, String.format("%s %s\r\n", DF.format(entry.time), entry.data));
+                size += write(os, String.format("%s %s\r\n", TF.format(entry.time), entry.data));
 
             db.attachment().setDownloaded(attachment.id, size);
         }
@@ -436,11 +435,11 @@ public class Log {
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
 
             long size = 0;
-            DateFormat DF = SimpleDateFormat.getTimeInstance();
+            DateFormat TF = Helper.getTimeInstance(context);
 
             for (EntityOperation op : db.operation().getOperations())
                 size += write(os, String.format("%s %d %s %s %s\r\n",
-                        DF.format(op.created),
+                        TF.format(op.created),
                         op.message == null ? -1 : op.message,
                         op.name,
                         op.args,

@@ -4228,7 +4228,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     {
                         Element span = document.createElement("span");
-                        DateFormat DTF = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+                        DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
                         span.text(getString(R.string.title_received) + " " + DTF.format(message.received));
                         p.append(span.html() + "<br>");
                     }

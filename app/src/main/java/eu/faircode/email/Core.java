@@ -2034,13 +2034,13 @@ class Core {
                     .setPublicVersion(pub);
 
             if (!biometrics) {
-                DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+                DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                 StringBuilder sb = new StringBuilder();
                 for (EntityMessage message : messages) {
                     sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
                     if (!TextUtils.isEmpty(message.subject))
                         sb.append(": ").append(message.subject);
-                    sb.append(" ").append(df.format(message.received));
+                    sb.append(" ").append(DTF.format(message.received));
                     sb.append("<br>");
                 }
 

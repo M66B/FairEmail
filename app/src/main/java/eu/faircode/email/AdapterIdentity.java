@@ -45,7 +45,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.Collator;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -60,7 +59,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
     private List<TupleIdentityEx> items = new ArrayList<>();
 
-    private DateFormat df = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+    private DateFormat DTF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -127,7 +126,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvHost.setText(String.format("%s:%d", identity.host, identity.port));
             tvAccount.setText(identity.accountName);
             tvLast.setText(context.getString(R.string.title_last_connected,
-                    identity.last_connected == null ? "-" : df.format(identity.last_connected)));
+                    identity.last_connected == null ? "-" : DTF.format(identity.last_connected)));
 
             tvAuthorize.setVisibility(identity.auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
 
@@ -218,6 +217,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
+        this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
 
         setHasStableIds(true);
 

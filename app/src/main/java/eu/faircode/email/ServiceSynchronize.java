@@ -51,7 +51,6 @@ import com.sun.mail.imap.IMAPStore;
 
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -720,7 +719,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 Log.i("Reporting sync error after=" + delayed);
                                 Throwable warning = new Throwable(
                                         getString(R.string.title_no_sync,
-                                                SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT)
+                                                Helper.getDateTimeInstance(this, DateFormat.SHORT, DateFormat.SHORT)
                                                         .format(account.last_connected)), ex);
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("receive:" + account.id, 1,

@@ -194,7 +194,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat TF;
-    private DateFormat DTF = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+    private DateFormat DTF;
 
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             "utm_source",
@@ -1192,7 +1192,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return;
                             }
 
-                            DateFormat df = SimpleDateFormat.getDateTimeInstance();
+                            DateFormat DTF = Helper.getDateTimeInstance(context);
 
                             VEvent event = icalendar.getEvents().get(0);
 
@@ -1221,10 +1221,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             tvCalendarSummary.setText(summary == null ? null : summary.getValue());
                             tvCalendarSummary.setVisibility(summary == null ? View.GONE : View.VISIBLE);
 
-                            tvCalendarStart.setText(start == null ? null : df.format(start.getTime()));
+                            tvCalendarStart.setText(start == null ? null : DTF.format(start.getTime()));
                             tvCalendarStart.setVisibility(start == null ? View.GONE : View.VISIBLE);
 
-                            tvCalendarEnd.setText(end == null ? null : df.format(end.getTime()));
+                            tvCalendarEnd.setText(end == null ? null : DTF.format(end.getTime()));
                             tvCalendarEnd.setVisibility(end == null ? View.GONE : View.VISIBLE);
 
                             tvAttendees.setText(TextUtils.join(", ", attendee));
@@ -1517,11 +1517,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onShowSnoozed(TupleMessageEx message) {
             if (message.ui_snoozed != null) {
-                DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
-                DateFormat day = new SimpleDateFormat("E");
+                DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
+                DateFormat D = new SimpleDateFormat("E");
                 Snackbar.make(
                         parentFragment.getView(),
-                        day.format(message.ui_snoozed) + " " + df.format(message.ui_snoozed),
+                        D.format(message.ui_snoozed) + " " + DTF.format(message.ui_snoozed),
                         Snackbar.LENGTH_LONG).show();
             }
         }
@@ -2883,6 +2883,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.suitable = ConnectionHelper.getNetworkState(context).isSuitable();
         this.inflater = LayoutInflater.from(context);
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
+        this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
         this.dp36 = Helper.dp2pixels(context, 36);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);

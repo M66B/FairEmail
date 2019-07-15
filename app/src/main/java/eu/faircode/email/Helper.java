@@ -347,8 +347,17 @@ public class Helper {
         return new DecimalFormat("@@").format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
+    // https://issuetracker.google.com/issues/37054851
+
+    static DateFormat getTimeInstance(Context context) {
+        return Helper.getTimeInstance(context, SimpleDateFormat.MEDIUM);
+    }
+
+    static DateFormat getDateInstance(Context context) {
+        return SimpleDateFormat.getDateInstance(SimpleDateFormat.MEDIUM);
+    }
+
     static DateFormat getTimeInstance(Context context, int style) {
-        // https://issuetracker.google.com/issues/37054851
         if (context != null &&
                 (style == SimpleDateFormat.SHORT || style == SimpleDateFormat.MEDIUM)) {
             Locale locale = Locale.getDefault();
@@ -360,6 +369,15 @@ public class Helper {
             return new SimpleDateFormat(pattern, locale);
         } else
             return SimpleDateFormat.getTimeInstance(style);
+    }
+
+    static DateFormat getDateTimeInstance(Context context) {
+        return Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM);
+    }
+
+    static DateFormat getDateTimeInstance(Context context, int dateStyle, int timeStyle) {
+        // TODO fix time format
+        return SimpleDateFormat.getDateTimeInstance(dateStyle, timeStyle);
     }
 
     static CharSequence getRelativeTimeSpanString(Context context, long millis) {

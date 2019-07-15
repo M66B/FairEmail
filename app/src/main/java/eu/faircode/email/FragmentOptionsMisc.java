@@ -46,8 +46,6 @@ import androidx.preference.PreferenceManager;
 
 import com.bugsnag.android.Bugsnag;
 
-import java.text.SimpleDateFormat;
-
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swBadge;
     private SwitchCompat swSubscriptions;
@@ -318,10 +316,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     }
 
     private void setLastCleanup(long time) {
-        java.text.DateFormat df = SimpleDateFormat.getDateTimeInstance();
+        java.text.DateFormat DTF = Helper.getDateTimeInstance(getContext());
         tvLastCleanup.setText(
                 getString(R.string.title_advanced_last_cleanup,
-                        time < 0 ? "-" : df.format(time)));
+                        time < 0 ? "-" : DTF.format(time)));
     }
 
     private void restart() {
