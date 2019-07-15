@@ -1198,7 +1198,7 @@ class Core {
                                 account, folder,
                                 ifolder, (IMAPMessage) isub[j],
                                 false,
-                                rules);
+                                rules, state);
                         ids[from + j] = message.id;
                     } catch (MessageRemovedException ex) {
                         Log.w(folder.name, ex);
@@ -1305,7 +1305,7 @@ class Core {
             EntityAccount account, EntityFolder folder,
             IMAPFolder ifolder, IMAPMessage imessage,
             boolean browsed,
-            List<EntityRule> rules) throws MessagingException, IOException {
+            List<EntityRule> rules, State state) throws MessagingException, IOException {
         long uid = ifolder.getUID(imessage);
 
         if (imessage.isExpunged()) {
@@ -1467,27 +1467,33 @@ class Core {
             if (message.received > account.created)
                 updateContactInfo(context, folder, message);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            long maxSize = prefs.getInt("download", 0);
-            if (maxSize == 0)
-                maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
-            else
-                maxSize = Math.min(maxSize, MessageHelper.SMALL_MESSAGE_SIZE);
-
             // Download small messages inline
-            if (message.size != null && message.size < maxSize) {
-                String body = parts.getHtml(context);
-                Helper.writeText(message.getFile(context), body);
-                db.message().setMessageContent(message.id,
-                        true,
-                        parts.isPlainOnly(),
-                        HtmlHelper.getPreview(body),
-                        parts.getWarnings(message.warning));
-                Log.i(folder.name + " inline downloaded message id=" + message.id +
-                        " size=" + message.size + "/" + (body == null ? null : body.length()));
+            if (message.size != null) {
+                long maxSize;
+                if (state == null || state.networkState.isUnmetered())
+                    maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
+                else {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    int download = prefs.getInt("download", 0);
+                    maxSize = (download == 0
+                            ? MessageHelper.SMALL_MESSAGE_SIZE
+                            : Math.min(download, MessageHelper.SMALL_MESSAGE_SIZE));
+                }
 
-                if (!TextUtils.isEmpty(body))
-                    fixAttachments(context, message.id, body);
+                if (message.size < maxSize) {
+                    String body = parts.getHtml(context);
+                    Helper.writeText(message.getFile(context), body);
+                    db.message().setMessageContent(message.id,
+                            true,
+                            parts.isPlainOnly(),
+                            HtmlHelper.getPreview(body),
+                            parts.getWarnings(message.warning));
+                    Log.i(folder.name + " inline downloaded message id=" + message.id +
+                            " size=" + message.size + "/" + (body == null ? null : body.length()));
+
+                    if (!TextUtils.isEmpty(body))
+                        fixAttachments(context, message.id, body);
+                }
             }
 
         } else {

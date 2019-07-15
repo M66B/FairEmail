@@ -832,7 +832,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                         account, folder,
                                                         ifolder, (IMAPMessage) imessage,
                                                         false,
-                                                        db.rule().getEnabledRules(folder.id));
+                                                        db.rule().getEnabledRules(folder.id),
+                                                        state);
 
                                                 if (db.folder().getFolderDownload(folder.id))
                                                     Core.downloadMessage(ServiceSynchronize.this,
@@ -924,7 +925,8 @@ public class ServiceSynchronize extends LifecycleService {
                                                     account, folder,
                                                     ifolder, (IMAPMessage) e.getMessage(),
                                                     false,
-                                                    db.rule().getEnabledRules(folder.id));
+                                                    db.rule().getEnabledRules(folder.id),
+                                                    state);
 
                                             if (db.folder().getFolderDownload(folder.id))
                                                 Core.downloadMessage(ServiceSynchronize.this,
