@@ -248,7 +248,8 @@ public class Log {
         Point size = new Point();
         display.getSize(size);
         float density = context.getResources().getDisplayMetrics().density;
-        sb.append(String.format("Resolution: %.2f x %.2f dp %b\r\n",
+        sb.append(String.format("Density %f resolution: %.2f x %.2f dp %b\r\n",
+                density,
                 size.x / density, size.y / density,
                 context.getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL)));
 
