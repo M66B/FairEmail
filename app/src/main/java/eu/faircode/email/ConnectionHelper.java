@@ -275,17 +275,32 @@ public class ConnectionHelper {
     }
 
     static String getDnsServer(Context context) {
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
-            return DEFAULT_DNS;
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null)
             return DEFAULT_DNS;
-        Network active = cm.getActiveNetwork();
-        if (active == null)
-            return DEFAULT_DNS;
-        LinkProperties props = cm.getLinkProperties(active);
+
+        LinkProperties props = null;
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            for (Network network : cm.getAllNetworks()) {
+                NetworkInfo ni = cm.getNetworkInfo(network);
+                if (ni != null && ni.isConnected()) {
+                    props = cm.getLinkProperties(network);
+                    Log.i("Old props=" + props);
+                    break;
+                }
+            }
+        else {
+            Network active = cm.getActiveNetwork();
+            if (active == null)
+                return DEFAULT_DNS;
+            props = cm.getLinkProperties(active);
+            Log.i("New props=" + props);
+        }
+
         if (props == null)
             return DEFAULT_DNS;
+
         List<InetAddress> dns = props.getDnsServers();
         if (dns.size() == 0)
             return DEFAULT_DNS;
