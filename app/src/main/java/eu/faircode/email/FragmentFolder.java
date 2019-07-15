@@ -244,24 +244,28 @@ public class FragmentFolder extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_SAVE_CHANGES:
-                if (resultCode == RESULT_OK) {
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            scroll.smoothScrollTo(0, btnSave.getBottom());
-                        }
-                    });
-                    onSave(false);
-                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                    getFragmentManager().popBackStack();
-                break;
+        try {
+            switch (requestCode) {
+                case REQUEST_SAVE_CHANGES:
+                    if (resultCode == RESULT_OK) {
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                scroll.smoothScrollTo(0, btnSave.getBottom());
+                            }
+                        });
+                        onSave(false);
+                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                        getFragmentManager().popBackStack();
+                    break;
 
-            case REQUEST_DELETE_FOLDER:
-                if (resultCode == RESULT_OK)
-                    onDelete();
-                break;
+                case REQUEST_DELETE_FOLDER:
+                    if (resultCode == RESULT_OK)
+                        onDelete();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

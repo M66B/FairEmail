@@ -214,11 +214,15 @@ public class FragmentAnswer extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_DELETE:
-                if (resultCode == RESULT_OK)
-                    onDelete();
-                break;
+        try {
+            switch (requestCode) {
+                case REQUEST_DELETE:
+                    if (resultCode == RESULT_OK)
+                        onDelete();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

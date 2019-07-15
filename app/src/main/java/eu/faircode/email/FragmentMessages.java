@@ -3338,105 +3338,109 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_RAW:
-                if (resultCode == RESULT_OK && data != null)
-                    onSaveRaw(data);
-                break;
-            case REQUEST_ATTACHMENT:
-                if (resultCode == RESULT_OK && data != null)
-                    onSaveAttachment(data);
-                break;
-            case REQUEST_ATTACHMENTS:
-                if (resultCode == RESULT_OK && data != null)
-                    onSaveAttachments(data);
-                break;
-            case REQUEST_DECRYPT:
-                if (resultCode == RESULT_OK && data != null)
-                    onDecrypt(data, message);
-                break;
-            case REQUEST_MESSAGE_DELETE:
-                if (resultCode == RESULT_OK && data != null)
-                    onDelete(data.getBundleExtra("args").getLong("id"));
-                break;
-            case REQUEST_MESSAGES_DELETE:
-                if (resultCode == RESULT_OK && data != null)
-                    onDelete(data.getBundleExtra("args").getLongArray("ids"));
-                break;
-            case REQUEST_MESSAGE_JUNK:
-                if (resultCode == RESULT_OK && data != null)
-                    onJunk(data.getBundleExtra("args").getLong("id"));
-                break;
-            case REQUEST_MESSAGES_JUNK:
-                if (resultCode == RESULT_OK)
-                    onActionMoveSelection(EntityFolder.JUNK);
-                break;
-            case REQUEST_ASKED_MOVE:
-                if (resultCode == RESULT_OK && data != null)
-                    onMoveAskAcross(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
-                break;
-            case REQUEST_ASKED_MOVE_ACROSS:
-                if (resultCode == RESULT_OK && data != null)
-                    moveAskConfirmed(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
-                break;
-            case REQUEST_MESSAGE_COLOR:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onColor(args.getLong("id"), args.getInt("color"));
-                }
-                break;
-            case REQUEST_MESSAGES_COLOR:
-                if (resultCode == RESULT_OK && data != null) {
-                    if (!Helper.isPro(getContext())) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                        return;
+        try {
+            switch (requestCode) {
+                case REQUEST_RAW:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSaveRaw(data);
+                    break;
+                case REQUEST_ATTACHMENT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSaveAttachment(data);
+                    break;
+                case REQUEST_ATTACHMENTS:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSaveAttachments(data);
+                    break;
+                case REQUEST_DECRYPT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDecrypt(data, message);
+                    break;
+                case REQUEST_MESSAGE_DELETE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDelete(data.getBundleExtra("args").getLong("id"));
+                    break;
+                case REQUEST_MESSAGES_DELETE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDelete(data.getBundleExtra("args").getLongArray("ids"));
+                    break;
+                case REQUEST_MESSAGE_JUNK:
+                    if (resultCode == RESULT_OK && data != null)
+                        onJunk(data.getBundleExtra("args").getLong("id"));
+                    break;
+                case REQUEST_MESSAGES_JUNK:
+                    if (resultCode == RESULT_OK)
+                        onActionMoveSelection(EntityFolder.JUNK);
+                    break;
+                case REQUEST_ASKED_MOVE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onMoveAskAcross(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
+                    break;
+                case REQUEST_ASKED_MOVE_ACROSS:
+                    if (resultCode == RESULT_OK && data != null)
+                        moveAskConfirmed(data.getBundleExtra("args").<MessageTarget>getParcelableArrayList("result"));
+                    break;
+                case REQUEST_MESSAGE_COLOR:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        onColor(args.getLong("id"), args.getInt("color"));
                     }
+                    break;
+                case REQUEST_MESSAGES_COLOR:
+                    if (resultCode == RESULT_OK && data != null) {
+                        if (!Helper.isPro(getContext())) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                            return;
+                        }
 
-                    Bundle args = data.getBundleExtra("args");
-                    onActionFlagSelection(true, args.getInt("color"));
-                }
-                break;
-            case REQUEST_MESSAGE_SNOOZE:
-                if (resultCode == RESULT_OK && data != null)
-                    onSnooze(data.getBundleExtra("args"));
-                break;
-            case REQUEST_MESSAGES_SNOOZE:
-                if (resultCode == RESULT_OK && data != null)
-                    onSnoozeSelection(data.getBundleExtra("args"));
-                break;
-            case REQUEST_MESSAGE_MOVE:
-                if (resultCode == RESULT_OK && data != null)
-                    onMove(data.getBundleExtra("args"));
-                break;
-            case REQUEST_MESSAGES_MOVE:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onActionMoveSelection(args.getLong("folder"));
-                }
-                break;
-            case REQUEST_PRINT:
-                if (resultCode == RESULT_OK && data != null)
-                    onPrint(data.getBundleExtra("args"));
-                break;
-            case REQUEST_SEARCH:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    search(
-                            getContext(), getViewLifecycleOwner(), getFragmentManager(),
-                            args.getLong("folder"), true, args.getString("query"));
-                }
-                break;
-            case REQUEST_ACCOUNT:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onMenuFolders(args.getLong("account"));
-                }
-                break;
-            case REQUEST_MESSAGE_PROPERTY:
-                if (resultCode == RESULT_OK)
-                    onPropertySet(data.getBundleExtra("args"));
-                break;
+                        Bundle args = data.getBundleExtra("args");
+                        onActionFlagSelection(true, args.getInt("color"));
+                    }
+                    break;
+                case REQUEST_MESSAGE_SNOOZE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSnooze(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_MESSAGES_SNOOZE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSnoozeSelection(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_MESSAGE_MOVE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onMove(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_MESSAGES_MOVE:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        onActionMoveSelection(args.getLong("folder"));
+                    }
+                    break;
+                case REQUEST_PRINT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onPrint(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_SEARCH:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        search(
+                                getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                                args.getLong("folder"), true, args.getString("query"));
+                    }
+                    break;
+                case REQUEST_ACCOUNT:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        onMenuFolders(args.getLong("account"));
+                    }
+                    break;
+                case REQUEST_MESSAGE_PROPERTY:
+                    if (resultCode == RESULT_OK)
+                        onPropertySet(data.getBundleExtra("args"));
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

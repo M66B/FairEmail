@@ -429,25 +429,29 @@ public class FragmentFolders extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_SYNC:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onSync(args.getLong("folder"), args.getBoolean("all"));
-                }
-                break;
-            case REQUEST_DELETE_LOCAL:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onDeleteLocal(args.getLong("folder"), args.getBoolean("browsed"));
-                }
-                break;
-            case REQUEST_EMPTY_TRASH:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onEmptyTrash(args.getLong("folder"));
-                }
-                break;
+        try {
+            switch (requestCode) {
+                case REQUEST_SYNC:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        onSync(args.getLong("folder"), args.getBoolean("all"));
+                    }
+                    break;
+                case REQUEST_DELETE_LOCAL:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        onDeleteLocal(args.getLong("folder"), args.getBoolean("browsed"));
+                    }
+                    break;
+                case REQUEST_EMPTY_TRASH:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        onEmptyTrash(args.getLong("folder"));
+                    }
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

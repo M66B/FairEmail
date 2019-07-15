@@ -417,31 +417,35 @@ public class FragmentRule extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_SENDER:
-                if (resultCode == RESULT_OK && data != null)
-                    onPickContact(data, true);
-                break;
-            case REQUEST_RECIPIENT:
-                if (resultCode == RESULT_OK && data != null)
-                    onPickContact(data, true);
-                break;
-            case REQUEST_COLOR:
-                if (resultCode == RESULT_OK && data != null) {
-                    if (!Helper.isPro(getContext())) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-                        return;
-                    }
+        try {
+            switch (requestCode) {
+                case REQUEST_SENDER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onPickContact(data, true);
+                    break;
+                case REQUEST_RECIPIENT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onPickContact(data, true);
+                    break;
+                case REQUEST_COLOR:
+                    if (resultCode == RESULT_OK && data != null) {
+                        if (!Helper.isPro(getContext())) {
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                            return;
+                        }
 
-                    Bundle args = data.getBundleExtra("args");
-                    onSelectColor(args.getInt("color"));
-                }
-                break;
-            case REQUEST_DELETE:
-                if (resultCode == RESULT_OK)
-                    onDelete();
-                break;
+                        Bundle args = data.getBundleExtra("args");
+                        onSelectColor(args.getInt("color"));
+                    }
+                    break;
+                case REQUEST_DELETE:
+                    if (resultCode == RESULT_OK)
+                        onDelete();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

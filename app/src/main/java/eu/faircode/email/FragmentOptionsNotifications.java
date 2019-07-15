@@ -258,19 +258,28 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == ActivitySetup.REQUEST_SOUND)
-            if (resultCode == RESULT_OK) {
-                Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
-                Log.i("Selected ringtone=" + uri);
-                if (uri != null && "file".equals(uri.getScheme()))
-                    uri = null;
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                if (uri == null)
-                    prefs.edit().remove("sound").apply();
-                else
-                    prefs.edit().putString("sound", uri.toString()).apply();
+        try {
+            switch (requestCode) {
+                case ActivitySetup.REQUEST_SOUND:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSelectSound((Uri) data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
+                    break;
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onSelectSound(Uri uri) {
+        Log.i("Selected ringtone=" + uri);
+        if (uri != null && "file".equals(uri.getScheme()))
+            uri = null;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (uri == null)
+            prefs.edit().remove("sound").apply();
+        else
+            prefs.edit().putString("sound", uri.toString()).apply();
     }
 
     private static Intent getIntentNotifications(Context context) {

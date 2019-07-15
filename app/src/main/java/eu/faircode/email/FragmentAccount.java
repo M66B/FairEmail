@@ -1293,32 +1293,36 @@ public class FragmentAccount extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_COLOR:
-                if (resultCode == RESULT_OK && data != null) {
-                    if (Helper.isPro(getContext())) {
-                        Bundle args = data.getBundleExtra("args");
-                        setColor(args.getInt("color"));
-                    } else
-                        ToastEx.makeText(getContext(), R.string.title_pro_feature, Toast.LENGTH_LONG).show();
-                }
-                break;
-            case REQUEST_SAVE:
-                if (resultCode == RESULT_OK) {
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            scroll.smoothScrollTo(0, btnSave.getBottom());
-                        }
-                    });
-                    onSave(false);
-                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
-                    getFragmentManager().popBackStack();
-                break;
-            case REQUEST_DELETE:
-                if (resultCode == RESULT_OK)
-                    onDelete();
-                break;
+        try {
+            switch (requestCode) {
+                case REQUEST_COLOR:
+                    if (resultCode == RESULT_OK && data != null) {
+                        if (Helper.isPro(getContext())) {
+                            Bundle args = data.getBundleExtra("args");
+                            setColor(args.getInt("color"));
+                        } else
+                            ToastEx.makeText(getContext(), R.string.title_pro_feature, Toast.LENGTH_LONG).show();
+                    }
+                    break;
+                case REQUEST_SAVE:
+                    if (resultCode == RESULT_OK) {
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                scroll.smoothScrollTo(0, btnSave.getBottom());
+                            }
+                        });
+                        onSave(false);
+                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                        getFragmentManager().popBackStack();
+                    break;
+                case REQUEST_DELETE:
+                    if (resultCode == RESULT_OK)
+                        onDelete();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

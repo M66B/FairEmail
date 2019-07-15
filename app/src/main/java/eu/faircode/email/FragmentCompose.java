@@ -1108,70 +1108,74 @@ public class FragmentCompose extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_CONTACT_TO:
-            case REQUEST_CONTACT_CC:
-            case REQUEST_CONTACT_BCC:
-                if (resultCode == RESULT_OK && data != null)
-                    onPickContact(requestCode, data);
-                break;
-            case REQUEST_IMAGE:
-                if (resultCode == RESULT_OK && data != null) {
-                    Uri uri = data.getData();
-                    if (uri != null)
-                        onAddAttachment(uri, true);
-                }
-                break;
-            case REQUEST_ATTACHMENT:
-            case REQUEST_RECORD_AUDIO:
-            case REQUEST_TAKE_PHOTO:
-                if (resultCode == RESULT_OK)
-                    if (requestCode == REQUEST_TAKE_PHOTO)
-                        onAddMedia(new Intent().setData(photoURI));
-                    else if (data != null)
-                        onAddMedia(data);
-                break;
-            case REQUEST_ENCRYPT:
-                if (resultCode == RESULT_OK && data != null) {
-                    if (BuildConfig.DEBUG || BuildConfig.BETA_RELEASE)
-                        Log.logExtras(data);
-                    onPgp(data);
-                }
-                break;
-            case REQUEST_COLOR:
-                if (resultCode == RESULT_OK && data != null)
-                    onColorSelected(data.getBundleExtra("args"));
-                break;
-            case REQUEST_SEND_AFTER:
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    onSendAfter(args.getLong("time"));
-                }
-                break;
-            case REQUEST_REF_EDIT:
-                if (resultCode == RESULT_OK)
-                    onReferenceEditConfirmed();
-                break;
-            case REQUEST_CONTACT_GROUP:
-                if (resultCode == RESULT_OK && data != null)
-                    onContactGroupSelected(data.getBundleExtra("args"));
-                break;
-            case REQUEST_ANSWER:
-                if (resultCode == RESULT_OK && data != null)
-                    onAnswerSelected(data.getBundleExtra("args"));
-                break;
-            case REQUEST_LINK:
-                if (resultCode == RESULT_OK && data != null)
-                    onLinkSelected(data.getBundleExtra("args"));
-                break;
-            case REQUEST_DISCARD:
-                if (resultCode == RESULT_OK)
-                    onAction(R.id.action_delete);
-                break;
-            case REQUEST_SEND:
-                if (resultCode == RESULT_OK)
-                    onActionSendConfirmed();
-                break;
+        try {
+            switch (requestCode) {
+                case REQUEST_CONTACT_TO:
+                case REQUEST_CONTACT_CC:
+                case REQUEST_CONTACT_BCC:
+                    if (resultCode == RESULT_OK && data != null)
+                        onPickContact(requestCode, data);
+                    break;
+                case REQUEST_IMAGE:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Uri uri = data.getData();
+                        if (uri != null)
+                            onAddAttachment(uri, true);
+                    }
+                    break;
+                case REQUEST_ATTACHMENT:
+                case REQUEST_RECORD_AUDIO:
+                case REQUEST_TAKE_PHOTO:
+                    if (resultCode == RESULT_OK)
+                        if (requestCode == REQUEST_TAKE_PHOTO)
+                            onAddMedia(new Intent().setData(photoURI));
+                        else if (data != null)
+                            onAddMedia(data);
+                    break;
+                case REQUEST_ENCRYPT:
+                    if (resultCode == RESULT_OK && data != null) {
+                        if (BuildConfig.DEBUG || BuildConfig.BETA_RELEASE)
+                            Log.logExtras(data);
+                        onPgp(data);
+                    }
+                    break;
+                case REQUEST_COLOR:
+                    if (resultCode == RESULT_OK && data != null)
+                        onColorSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_SEND_AFTER:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        onSendAfter(args.getLong("time"));
+                    }
+                    break;
+                case REQUEST_REF_EDIT:
+                    if (resultCode == RESULT_OK)
+                        onReferenceEditConfirmed();
+                    break;
+                case REQUEST_CONTACT_GROUP:
+                    if (resultCode == RESULT_OK && data != null)
+                        onContactGroupSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_ANSWER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onAnswerSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_LINK:
+                    if (resultCode == RESULT_OK && data != null)
+                        onLinkSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_DISCARD:
+                    if (resultCode == RESULT_OK)
+                        onAction(R.id.action_delete);
+                    break;
+                case REQUEST_SEND:
+                    if (resultCode == RESULT_OK)
+                        onActionSendConfirmed();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

@@ -441,10 +441,14 @@ public class FragmentQuickSetup extends FragmentBase {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQUEST_DONE:
-                finish();
-                break;
+        try {
+            switch (requestCode) {
+                case REQUEST_DONE:
+                    finish();
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 

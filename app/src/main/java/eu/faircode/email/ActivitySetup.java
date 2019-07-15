@@ -361,11 +361,21 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && data != null)
-            if (requestCode == REQUEST_EXPORT)
-                handleExport(data, this.password);
-            else if (requestCode == REQUEST_IMPORT)
-                handleImport(data, this.password);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_EXPORT:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleExport(data, this.password);
+                    break;
+                case REQUEST_IMPORT:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleImport(data, this.password);
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private void onMenuExport() {
