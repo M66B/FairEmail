@@ -26,7 +26,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -108,6 +107,7 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
+import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 
 class Core {
     private static int lastUnseen = -1;
@@ -1903,7 +1903,6 @@ class Core {
             final List<Long> add = new ArrayList<>();
             final List<Long> remove = groupNotifying.get(group);
 
-            int updates = 0;
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
                 if (id != 0)
@@ -1911,20 +1910,16 @@ class Core {
                         remove.remove(id);
                         Log.i("Notify existing=" + id);
                     } else {
-                        if (remove.contains(-id)) {
-                            updates++;
-                            remove.remove(-id);
-                        }
+                        remove.remove(-id);
                         add.add(id);
                         Log.i("Notify adding=" + id);
                     }
             }
 
             Log.i("Notify group=" + group + " count=" + notifications.size() +
-                    " added=" + add.size() + " removed=" + remove.size() + " updates=" + updates);
+                    " added=" + add.size() + " removed=" + remove.size());
 
-            if (notifications.size() == 0 ||
-                    (Build.VERSION.SDK_INT < Build.VERSION_CODES.O && add.size() - updates > 0)) {
+            if (notifications.size() == 0) {
                 String tag = "unseen." + group + "." + 0;
                 Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
@@ -1975,8 +1970,8 @@ class Core {
     private static List<Notification> getNotificationUnseen(Context context, String group, List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
 
-        // Android 7+ https://developer.android.com/training/notify-user/group
-        // Android 8+ https://developer.android.com/training/notify-user/channels
+        // Android 7+ N https://developer.android.com/training/notify-user/group
+        // Android 8+ O https://developer.android.com/training/notify-user/channels
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (messages == null || messages.size() == 0 || nm == null)
@@ -2001,72 +1996,61 @@ class Core {
         for (TupleMessageEx message : messages)
             messageContact.put(message, ContactInfo.get(context, message.from, false));
 
-        // Build pending intents
-        Intent summary = new Intent(context, ActivityView.class).setAction("unified");
-        PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
+        // Summary notification
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            // Build pending intents
+            Intent summary = new Intent(context, ActivityView.class).setAction("unified");
+            PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Intent clear = new Intent(context, ServiceUI.class).setAction("clear");
-        PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent clear = new Intent(context, ServiceUI.class).setAction("clear");
+            PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        // Build title
-        String title = context.getResources().getQuantityString(
-                R.plurals.title_notification_unseen, messages.size(), messages.size());
+            // Build title
+            String title = context.getResources().getQuantityString(
+                    R.plurals.title_notification_unseen, messages.size(), messages.size());
 
-        // Build notification
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(context, "notification")
-                        .setSmallIcon(R.drawable.baseline_email_white_24)
-                        .setContentTitle(title)
-                        .setContentIntent(piSummary)
-                        .setNumber(messages.size())
-                        .setShowWhen(false)
-                        .setDeleteIntent(piClear)
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                        .setCategory(NotificationCompat.CATEGORY_STATUS)
-                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                        .setGroup(group)
-                        .setGroupSummary(true)
-                        .setGroupAlertBehavior(Build.VERSION.SDK_INT < Build.VERSION_CODES.O
-                                ? NotificationCompat.GROUP_ALERT_SUMMARY
-                                : NotificationCompat.GROUP_ALERT_CHILDREN)
-                        .setOnlyAlertOnce(true);
+            // Build notification
+            NotificationCompat.Builder builder =
+                    new NotificationCompat.Builder(context, "notification")
+                            .setSmallIcon(R.drawable.baseline_email_white_24)
+                            .setContentTitle(title)
+                            .setContentIntent(piSummary)
+                            .setNumber(messages.size())
+                            .setShowWhen(false)
+                            .setDeleteIntent(piClear)
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setCategory(NotificationCompat.CATEGORY_STATUS)
+                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                            .setGroup(group)
+                            .setGroupSummary(true)
+                            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
-        Notification pub = builder.build();
-        builder
-                .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                .setPublicVersion(pub);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                builder.setSound(null);
 
-        if (!biometrics) {
-            DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-            StringBuilder sb = new StringBuilder();
-            for (EntityMessage message : messages) {
-                sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
-                if (!TextUtils.isEmpty(message.subject))
-                    sb.append(": ").append(message.subject);
-                sb.append(" ").append(df.format(message.received));
-                sb.append("<br>");
+            Notification pub = builder.build();
+            builder
+                    .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+                    .setPublicVersion(pub);
+
+            if (!biometrics) {
+                DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+                StringBuilder sb = new StringBuilder();
+                for (EntityMessage message : messages) {
+                    sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
+                    if (!TextUtils.isEmpty(message.subject))
+                        sb.append(": ").append(message.subject);
+                    sb.append(" ").append(df.format(message.received));
+                    sb.append("<br>");
+                }
+
+                builder.setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(HtmlHelper.fromHtml(sb.toString()))
+                        .setSummaryText(title));
             }
 
-            builder.setStyle(new NotificationCompat.BigTextStyle()
-                    .bigText(HtmlHelper.fromHtml(sb.toString()))
-                    .setSummaryText(title));
+            notifications.add(builder.build());
         }
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            if (light) {
-                builder.setDefaults(DEFAULT_LIGHTS);
-                //builder.setLights(Color.WHITE, 1000, 1000);
-                Log.i("Notify light enabled");
-            }
-
-            Uri uri = (sound == null ? null : Uri.parse(sound));
-            if (uri == null || "file".equals(uri.getScheme()))
-                uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            builder.setSound(uri);
-            Log.i("Notify sound=" + uri);
-        }
-
-        notifications.add(builder.build());
 
         // Message notifications
         for (TupleMessageEx message : messages) {
@@ -2118,12 +2102,34 @@ class Core {
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                            .setGroup(group)
-                            .setGroupSummary(false)
-                            .setGroupAlertBehavior(Build.VERSION.SDK_INT < Build.VERSION_CODES.O
-                                    ? NotificationCompat.GROUP_ALERT_SUMMARY
-                                    : NotificationCompat.GROUP_ALERT_CHILDREN)
                             .setOnlyAlertOnce(true);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                mbuilder
+                        .setGroup(group)
+                        .setGroupSummary(false)
+                        .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                int def = 0;
+
+                if (light) {
+                    def |= DEFAULT_LIGHTS;
+                    Log.i("Notify light enabled");
+                }
+
+                Uri uri = (sound == null ? null : Uri.parse(sound));
+                if (uri == null || "file".equals(uri.getScheme()))
+                    uri = null;
+                Log.i("Notify sound=" + uri);
+
+                if (uri == null)
+                    def |= DEFAULT_SOUND;
+                else
+                    mbuilder.setSound(uri);
+
+                mbuilder.setDefaults(def);
+            }
 
             if (biometrics)
                 mbuilder.setContentTitle(context.getResources().getQuantityString(
@@ -2235,9 +2241,6 @@ class Core {
                     mbuilder.setColorized(true);
                 }
             }
-
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                mbuilder.setSound(null);
 
             notifications.add(mbuilder.build());
         }
