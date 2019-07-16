@@ -113,10 +113,6 @@ import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
-import org.xbill.DNS.Lookup;
-import org.xbill.DNS.SimpleResolver;
-import org.xbill.DNS.TextParseException;
-import org.xbill.DNS.Type;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
@@ -128,7 +124,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -2412,6 +2407,7 @@ public class FragmentCompose extends FragmentBase {
             EntityMessage draft;
 
             DB db = DB.getInstance(context);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             try {
                 db.beginTransaction();
 
@@ -2466,14 +2462,17 @@ public class FragmentCompose extends FragmentBase {
                 InternetAddress acc[] = null;
                 InternetAddress abcc[] = null;
 
+                boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
+
                 if (!TextUtils.isEmpty(to))
                     try {
                         ato = InternetAddress.parse(to);
-                        if (action == R.id.action_send)
-                            for (InternetAddress address : ato) {
+                        if (action == R.id.action_send) {
+                            for (InternetAddress address : ato)
                                 address.validate();
-                                lookup(address, context);
-                            }
+                            if (lookup_mx)
+                                ConnectionHelper.lookup(ato, context);
+                        }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(to, ADDRESS_ELLIPSIZE), ex.getMessage()));
@@ -2483,10 +2482,10 @@ public class FragmentCompose extends FragmentBase {
                     try {
                         acc = InternetAddress.parse(cc);
                         if (action == R.id.action_send)
-                            for (InternetAddress address : acc) {
+                            for (InternetAddress address : acc)
                                 address.validate();
-                                lookup(address, context);
-                            }
+                        if (lookup_mx)
+                            ConnectionHelper.lookup(acc, context);
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(cc, ADDRESS_ELLIPSIZE), ex.getMessage()));
@@ -2496,10 +2495,10 @@ public class FragmentCompose extends FragmentBase {
                     try {
                         abcc = InternetAddress.parse(bcc);
                         if (action == R.id.action_send)
-                            for (InternetAddress address : abcc) {
+                            for (InternetAddress address : abcc)
                                 address.validate();
-                                lookup(address, context);
-                            }
+                        if (lookup_mx)
+                            ConnectionHelper.lookup(abcc, context);
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(bcc, ADDRESS_ELLIPSIZE), ex.getMessage()));
@@ -2675,7 +2674,6 @@ public class FragmentCompose extends FragmentBase {
                         db.attachment().setMessage(attachment.id, draft.id);
 
                     // Delay sending message
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     int send_delayed = prefs.getInt("send_delayed", 0);
                     if (draft.ui_snoozed == null && send_delayed != 0) {
                         draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
@@ -2754,30 +2752,6 @@ public class FragmentCompose extends FragmentBase {
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getFragmentManager(), ex);
-        }
-
-        private void lookup(InternetAddress address, Context context) throws TextParseException, UnknownHostException {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
-            if (!lookup_mx)
-                return;
-
-            String email = address.getAddress();
-            if (email == null || !email.contains("@"))
-                return;
-
-            String domain = email.split("@")[1];
-            Lookup lookup = new Lookup(domain, Type.MX);
-            SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
-            lookup.setResolver(resolver);
-            Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
-
-            lookup.run();
-            if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                    lookup.getResult() == Lookup.TYPE_NOT_FOUND) {
-                Log.i("Lookup MX=" + domain + " result=" + lookup.getErrorString());
-                throw new IllegalArgumentException(context.getString(R.string.title_no_server, domain));
-            }
         }
 
         private String getActionName(int id) {

@@ -99,6 +99,7 @@ public class EntityMessage implements Serializable {
     public Boolean dkim;
     public Boolean spf;
     public Boolean dmarc;
+    public Boolean mx = null;
     public String avatar; // lookup URI from sender
     public String sender; // sort key
     public Address[] from;
@@ -251,6 +252,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.dkim, other.dkim) &&
                     Objects.equals(this.spf, other.spf) &&
                     Objects.equals(this.dmarc, other.dmarc) &&
+                    Objects.equals(this.mx, other.mx) &&
                     Objects.equals(this.avatar, other.avatar) &&
                     Objects.equals(this.sender, other.sender) &&
                     MessageHelper.equal(this.from, other.from) &&

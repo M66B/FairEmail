@@ -649,7 +649,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean authenticated =
                     !(Boolean.FALSE.equals(message.dkim) ||
                             Boolean.FALSE.equals(message.spf) ||
-                            Boolean.FALSE.equals(message.dmarc));
+                            Boolean.FALSE.equals(message.dmarc) ||
+                            Boolean.FALSE.equals(message.mx));
 
             // Line 3
             ivType.setImageResource(message.drafts > 0
@@ -3070,6 +3071,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!Objects.equals(prev.dmarc, next.dmarc)) {
                         same = false;
                         Log.i("dmarc changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.mx, next.mx)) {
+                        same = false;
+                        Log.i("mx changed id=" + next.id);
                     }
                     if (!Objects.equals(prev.avatar, next.avatar)) {
                         same = false;

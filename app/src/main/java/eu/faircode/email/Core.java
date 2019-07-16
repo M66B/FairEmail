@@ -1327,6 +1327,7 @@ class Core {
         boolean process = false;
 
         DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         // Find message by uid (fast, no headers required)
         EntityMessage message = db.message().getMessageByUid(folder.id, uid);
@@ -1429,6 +1430,18 @@ class Core {
             Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
             message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
+            boolean check_mx = prefs.getBoolean("check_mx", false);
+            if (check_mx)
+                try {
+                    ConnectionHelper.lookup(
+                            message.reply == null || message.reply.length == 0
+                                    ? message.from : message.reply, context);
+                    message.mx = true;
+                } catch (Throwable ex) {
+                    message.warning = ex.getMessage();
+                    message.mx = false;
+                }
+
             /*
                 // Authentication is more reliable
                 Address sender = helper.getSender(); // header
@@ -1480,7 +1493,6 @@ class Core {
                 if (state == null || state.networkState.isUnmetered())
                     maxSize = MessageHelper.SMALL_MESSAGE_SIZE;
                 else {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     int downloadSize = prefs.getInt("download", 0);
                     maxSize = (downloadSize == 0
                             ? MessageHelper.SMALL_MESSAGE_SIZE

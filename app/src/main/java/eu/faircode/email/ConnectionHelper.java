@@ -17,7 +17,13 @@ import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPStore;
 
+import org.xbill.DNS.Lookup;
+import org.xbill.DNS.SimpleResolver;
+import org.xbill.DNS.TextParseException;
+import org.xbill.DNS.Type;
+
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -25,7 +31,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.Address;
 import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 public class ConnectionHelper {
     // https://dns.watch/
@@ -307,5 +316,27 @@ public class ConnectionHelper {
             return DEFAULT_DNS;
         else
             return dns.get(0).getHostAddress();
+    }
+
+    static void lookup(Address[] addresses, Context context) throws AddressException, TextParseException, UnknownHostException {
+        if (addresses != null)
+            for (Address address : addresses) {
+                String email = ((InternetAddress) address).getAddress();
+                if (email == null || !email.contains("@"))
+                    throw new AddressException(email);
+
+                String domain = email.split("@")[1];
+                Lookup lookup = new Lookup(domain, Type.MX);
+                SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
+                lookup.setResolver(resolver);
+                Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
+
+                lookup.run();
+                if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
+                        lookup.getResult() == Lookup.TYPE_NOT_FOUND) {
+                    Log.i("Lookup MX=" + domain + " result=" + lookup.getErrorString());
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_server, domain));
+                }
+            }
     }
 }

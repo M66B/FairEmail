@@ -269,10 +269,12 @@
     <string name="title_advanced_manual_hint">If synchronization is disabled, it is still possible to synchronize manually by pulling down the message list. This will synchronize messages and execute operations for a limited time.</string>
     <string name="title_advanced_poll_hint">Synchronizing periodically will compare local and remote messages each and every time, which is an expensive operation possibly resulting in extra battery usage, especially when there are a lot of messages to synchronize. Always synchronizing will avoid this by continuous listening for changes only.</string>
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
+    <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and use extra battery power, especially if there are a lot of messages kept on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
 
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
+    <string name="title_advanced_sync_delay_hint">This will delay synchronizing messages</string>
 
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
