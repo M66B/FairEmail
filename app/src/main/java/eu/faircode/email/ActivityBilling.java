@@ -280,6 +280,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     }
 
     private void checkPurchases(List<Purchase> purchases) {
+        Log.i("IAB purchases=" + (purchases == null ? null : purchases.size()));
+
         List<String> query = new ArrayList<>();
         query.add(getSkuPro());
 
