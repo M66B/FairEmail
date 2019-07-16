@@ -3571,7 +3571,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }.execute(getContext(), getActivity(), getArguments(), "view:image");
 
-            // TODO: dialog fragment
             final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             dialog.setContentView(pv);
 

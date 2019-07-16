@@ -362,7 +362,6 @@ public class ServiceSend extends LifecycleService {
         }
 
         // Create transport
-        // TODO: cache transport?
         try (Transport itransport = isession.getTransport(protocol)) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
