@@ -683,9 +683,12 @@
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
-        <item>Cada hora</item>
-        <item>Cada 2 horas</item>
-        <item>Cada 4 horas</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>No</item>

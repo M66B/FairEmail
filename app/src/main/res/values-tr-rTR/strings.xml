@@ -639,9 +639,12 @@
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
     <string-array name="pollIntervalNames">
         <item>Her Zaman</item>
-        <item>Her Saat</item>
-        <item>2 saatte bir</item>
-        <item>Her 4 saatte bir</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Hayır</item>

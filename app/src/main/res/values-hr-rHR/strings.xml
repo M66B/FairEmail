@@ -679,9 +679,12 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_crash_info_remark">Opišite što ste radili kada je aplikacija pala:</string>
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
-        <item>Svaki sat</item>
-        <item>Svaka 2 sata</item>
-        <item>Svaka 4 sata</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Ne</item>

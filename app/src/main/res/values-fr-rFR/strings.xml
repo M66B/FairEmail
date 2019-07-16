@@ -683,9 +683,12 @@
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l\'application s\'est arrêtée :</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
-        <item>Toutes les heures</item>
-        <item>Toutes les 2 heures</item>
-        <item>Toutes les 4 heures</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Non</item>

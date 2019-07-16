@@ -775,16 +775,22 @@
 
     <string-array name="pollIntervalNames">
         <item>Always</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
         <item>Every hour</item>
         <item>Every 2 hours</item>
         <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
     </string-array>
 
     <integer-array name="pollIntervalValues" translatable="false">
         <item>0</item>
+        <item>15</item>
+        <item>30</item>
         <item>60</item>
         <item>120</item>
         <item>240</item>
+        <item>480</item>
     </integer-array>
 
     <string-array name="sendDelayedNames">

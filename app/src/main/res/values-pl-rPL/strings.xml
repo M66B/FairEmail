@@ -686,9 +686,12 @@
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
-        <item>Co godzinę</item>
-        <item>Co 2 godziny</item>
-        <item>Co 4 godziny</item>
+        <item>Every 15 minutes</item>
+        <item>Every 30 minutes</item>
+        <item>Every hour</item>
+        <item>Every 2 hours</item>
+        <item>Every 4 hours</item>
+        <item>Every 8 hours</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Brak</item>
