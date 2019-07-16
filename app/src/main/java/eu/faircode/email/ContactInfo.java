@@ -215,11 +215,19 @@ public class ContactInfo {
                 @Override
                 public void onChange(boolean selfChange, Uri uri) {
                     Log.i("Contact changed uri=" + uri);
-                    emailLookup = getEmailLookup(context);
+                    try {
+                        emailLookup = getEmailLookup(context);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
                 }
             };
 
-            emailLookup = getEmailLookup(context);
+            try {
+                emailLookup = getEmailLookup(context);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
             Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
             Log.i("Observing uri=" + uri);
