@@ -28,7 +28,8 @@ import java.util.Map;
 import javax.mail.MessagingException;
 
 public class ConnectionHelper {
-    private static final String DEFAULT_DNS = "8.8.8.8";
+    // https://dns.watch/
+    private static final String DEFAULT_DNS = "84.200.69.80";
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;

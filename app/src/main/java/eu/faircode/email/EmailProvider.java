@@ -442,7 +442,6 @@ public class EmailProvider {
     private static SRVRecord lookup(Context context, String record) throws TextParseException, UnknownHostException {
         Lookup lookup = new Lookup(record, Type.SRV);
 
-        // https://dns.watch/ 84.200.69.80
         SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
         lookup.setResolver(resolver);
         Log.i("Lookup record=" + record + " @" + resolver.getAddress());
