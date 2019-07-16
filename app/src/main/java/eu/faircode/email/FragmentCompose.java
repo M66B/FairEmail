@@ -2491,11 +2491,12 @@ public class FragmentCompose extends FragmentBase {
                 if (!TextUtils.isEmpty(cc))
                     try {
                         acc = InternetAddress.parse(cc);
-                        if (action == R.id.action_send)
+                        if (action == R.id.action_send) {
                             for (InternetAddress address : acc)
                                 address.validate();
-                        if (lookup_mx)
-                            ConnectionHelper.lookup(acc, context);
+                            if (lookup_mx)
+                                ConnectionHelper.lookup(acc, context);
+                        }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(cc, ADDRESS_ELLIPSIZE), ex.getMessage()));
@@ -2504,11 +2505,12 @@ public class FragmentCompose extends FragmentBase {
                 if (!TextUtils.isEmpty(bcc))
                     try {
                         abcc = InternetAddress.parse(bcc);
-                        if (action == R.id.action_send)
+                        if (action == R.id.action_send) {
                             for (InternetAddress address : abcc)
                                 address.validate();
-                        if (lookup_mx)
-                            ConnectionHelper.lookup(abcc, context);
+                            if (lookup_mx)
+                                ConnectionHelper.lookup(abcc, context);
+                        }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
                                 Helper.ellipsize(bcc, ADDRESS_ELLIPSIZE), ex.getMessage()));
