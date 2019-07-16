@@ -264,7 +264,10 @@ public class MessageHelper {
                                 sb.append(line);
                     }
 
-                    imessage.addHeader("Autocrypt", "addr=" + from.getAddress() + "; keydata=" + sb.toString());
+                    imessage.addHeader("Autocrypt",
+                            "addr=" + from.getAddress() + ";" +
+                                    " prefer-encrypt=mutual;" +
+                                    " keydata=" + sb.toString());
                 }
 
         for (final EntityAttachment attachment : attachments)
