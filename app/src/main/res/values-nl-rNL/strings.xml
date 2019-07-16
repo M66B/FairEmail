@@ -218,6 +218,7 @@
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
     <string name="title_advanced_sync_subscribed">Alleen geabonneerde mappen synchroniseren</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
+    <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>

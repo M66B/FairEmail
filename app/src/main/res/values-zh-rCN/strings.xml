@@ -209,6 +209,7 @@
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时</string>
+    <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
