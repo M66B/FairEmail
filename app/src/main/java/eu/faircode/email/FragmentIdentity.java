@@ -302,7 +302,10 @@ public class FragmentIdentity extends FragmentBase {
             public void afterTextChanged(Editable s) {
                 SpannableStringBuilder ssb = new SpannableStringBuilder(s);
                 Helper.clearComposingText(ssb);
-                etSignature.setTag(HtmlHelper.toHtml(ssb));
+                if (TextUtils.isEmpty(s.toString()))
+                    etSignature.setTag(null);
+                else
+                    etSignature.setTag(HtmlHelper.toHtml(ssb));
             }
         });
 
