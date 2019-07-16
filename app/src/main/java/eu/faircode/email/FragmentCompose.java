@@ -796,6 +796,7 @@ public class FragmentCompose extends FragmentBase {
 
         menu.findItem(R.id.menu_plain_only).setChecked(plain_only);
         menu.findItem(R.id.menu_encrypt).setChecked(encrypt);
+
         bottom_navigation.getMenu().findItem(R.id.action_send)
                 .setTitle(encrypt ? R.string.title_encrypt : R.string.title_send);
     }
@@ -918,6 +919,7 @@ public class FragmentCompose extends FragmentBase {
     private void onMenuEncrypt() {
         encrypt = !encrypt;
         getActivity().invalidateOptionsMenu();
+        onAction(R.id.action_save);
     }
 
     private void onMenuSendAfter() {
@@ -1744,6 +1746,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("subject", etSubject.getText().toString().trim());
         args.putString("body", HtmlHelper.toHtml(etBody.getText()));
         args.putBoolean("plain_only", plain_only);
+        args.putBoolean("encrypt", encrypt);
         args.putBoolean("empty", isEmpty());
 
         Log.i("Run execute id=" + working);
@@ -2174,7 +2177,12 @@ public class FragmentCompose extends FragmentBase {
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.encryption == null &&
+                            if (attachment.encryption != null &&
+                                    attachment.encryption.equals(EntityAttachment.PGP_MESSAGE)) {
+                                draft.encrypt = true;
+                                db.message().setMessageEncrypt(draft.id, true);
+
+                            } else if (attachment.encryption == null &&
                                     ("forward".equals(action) ||
                                             (attachment.isInline() && attachment.isImage()))) {
                                 if (attachment.available) {
@@ -2241,6 +2249,7 @@ public class FragmentCompose extends FragmentBase {
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
 
             plain_only = (draft.plain_only != null && draft.plain_only);
+            encrypt = (draft.encrypt != null && draft.encrypt);
             getActivity().invalidateOptionsMenu();
 
             if (args.getBoolean("incomplete"))
@@ -2402,6 +2411,7 @@ public class FragmentCompose extends FragmentBase {
             String subject = args.getString("subject");
             String body = args.getString("body");
             boolean plain_only = args.getBoolean("plain_only");
+            boolean encrypt = args.getBoolean("encrypt");
             boolean empty = args.getBoolean("empty");
 
             EntityMessage draft;
@@ -2520,6 +2530,7 @@ public class FragmentCompose extends FragmentBase {
                         !MessageHelper.equal(draft.cc, acc) ||
                         !MessageHelper.equal(draft.bcc, abcc) ||
                         !Objects.equals(draft.subject, subject) ||
+                        ((draft.encrypt != null && draft.encrypt) != encrypt) ||
                         last_available != available);
 
                 last_available = available;
@@ -2533,6 +2544,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.cc = acc;
                     draft.bcc = abcc;
                     draft.subject = subject;
+                    draft.encrypt = encrypt;
                     draft.received = new Date().getTime();
                     draft.sender = MessageHelper.getSortKey(draft.from);
                     Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
@@ -3069,8 +3081,10 @@ public class FragmentCompose extends FragmentBase {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
 
-            encrypt = (identity != null && identity.encrypt && Helper.isPro(getContext()));
-            getActivity().invalidateOptionsMenu();
+            if (identity != null && identity.encrypt) {
+                encrypt = true;
+                getActivity().invalidateOptionsMenu();
+            }
 
             int at = (identity == null ? -1 : identity.email.indexOf('@'));
             etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));

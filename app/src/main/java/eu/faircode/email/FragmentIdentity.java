@@ -116,6 +116,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbSenderExtra;
     private EditText etReplyTo;
     private EditText etBcc;
+    private TextView tvEncryptPro;
     private CheckBox cbEncrypt;
     private CheckBox cbDeliveryReceipt;
     private CheckBox cbReadReceipt;
@@ -193,6 +194,7 @@ public class FragmentIdentity extends FragmentBase {
         cbSenderExtra = view.findViewById(R.id.cbSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etBcc = view.findViewById(R.id.etBcc);
+        tvEncryptPro = view.findViewById(R.id.tvEncryptPro);
         cbEncrypt = view.findViewById(R.id.cbEncrypt);
         cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
         cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
@@ -422,6 +424,8 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
+
+        Helper.linkPro(tvEncryptPro);
 
         btnAdvanced.setVisibility(View.GONE);
 

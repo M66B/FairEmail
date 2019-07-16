@@ -824,7 +824,7 @@ public class Helper {
     }
 
     static void linkPro(final TextView tv) {
-        if (isPro(tv.getContext()))
+        if (isPro(tv.getContext()) && !BuildConfig.DEBUG)
             hide(tv);
         else {
             final Intent pro = new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.PRO_FEATURES_URI));

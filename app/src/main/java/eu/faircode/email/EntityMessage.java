@@ -115,6 +115,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean content = false;
     public Boolean plain_only = null;
+    public Boolean encrypt = null;
     public String preview;
     public Long sent; // compose = null
     @NonNull
