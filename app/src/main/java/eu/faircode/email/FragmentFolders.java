@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -531,6 +532,16 @@ public class FragmentFolders extends FragmentBase {
         args.putBoolean("browsed", browsed);
 
         new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");

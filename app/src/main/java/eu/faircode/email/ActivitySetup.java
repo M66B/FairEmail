@@ -436,7 +436,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     prefs.edit().putBoolean("biometrics", !biometrics).apply();
 
                 ToastEx.makeText(ActivitySetup.this,
-                        pro ? R.string.title_setup_done : R.string.title_pro_feature,
+                        pro
+                                ? biometrics
+                                ? R.string.title_setup_biometrics_disable
+                                : R.string.title_setup_biometrics_enable
+                                : R.string.title_pro_feature,
                         Toast.LENGTH_LONG).show();
             }
         }, new Runnable() {
