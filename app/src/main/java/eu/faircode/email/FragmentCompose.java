@@ -124,6 +124,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -2481,7 +2482,7 @@ public class FragmentCompose extends FragmentBase {
                             for (InternetAddress address : ato)
                                 address.validate();
                             if (lookup_mx)
-                                ConnectionHelper.lookup(ato, context);
+                                ConnectionHelper.lookupMx(ato, context);
                         }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
@@ -2495,7 +2496,7 @@ public class FragmentCompose extends FragmentBase {
                             for (InternetAddress address : acc)
                                 address.validate();
                             if (lookup_mx)
-                                ConnectionHelper.lookup(acc, context);
+                                ConnectionHelper.lookupMx(acc, context);
                         }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
@@ -2509,7 +2510,7 @@ public class FragmentCompose extends FragmentBase {
                             for (InternetAddress address : abcc)
                                 address.validate();
                             if (lookup_mx)
-                                ConnectionHelper.lookup(abcc, context);
+                                ConnectionHelper.lookupMx(abcc, context);
                         }
                     } catch (AddressException ex) {
                         throw new AddressException(context.getString(R.string.title_address_parse_error,
@@ -2762,7 +2763,8 @@ public class FragmentCompose extends FragmentBase {
         protected void onException(Bundle args, Throwable ex) {
             if (ex instanceof MessageRemovedException)
                 finish();
-            else if (ex instanceof IllegalArgumentException || ex instanceof AddressException)
+            else if (ex instanceof IllegalArgumentException ||
+                    ex instanceof AddressException || ex instanceof UnknownHostException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
                 Helper.unexpectedError(getFragmentManager(), ex);

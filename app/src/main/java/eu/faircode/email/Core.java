@@ -63,6 +63,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -1433,13 +1434,16 @@ class Core {
             boolean check_mx = prefs.getBoolean("check_mx", false);
             if (check_mx)
                 try {
-                    ConnectionHelper.lookup(
+                    if (ConnectionHelper.lookupMx(
                             message.reply == null || message.reply.length == 0
-                                    ? message.from : message.reply, context);
-                    message.mx = true;
-                } catch (Throwable ex) {
-                    message.warning = ex.getMessage();
+                                    ? message.from : message.reply, context))
+                        message.mx = true;
+                } catch (UnknownHostException ex) {
                     message.mx = false;
+                    message.warning = ex.getMessage();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    message.warning = Helper.formatThrowable(ex, false);
                 }
 
             /*

@@ -19,7 +19,6 @@ import com.sun.mail.imap.IMAPStore;
 
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.SimpleResolver;
-import org.xbill.DNS.TextParseException;
 import org.xbill.DNS.Type;
 
 import java.net.InetAddress;
@@ -33,7 +32,6 @@ import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 public class ConnectionHelper {
@@ -318,25 +316,35 @@ public class ConnectionHelper {
             return dns.get(0).getHostAddress();
     }
 
-    static void lookup(Address[] addresses, Context context) throws AddressException, TextParseException, UnknownHostException {
+    static boolean lookupMx(Address[] addresses, Context context) throws UnknownHostException {
+        boolean ok = true;
+
         if (addresses != null)
-            for (Address address : addresses) {
-                String email = ((InternetAddress) address).getAddress();
-                if (email == null || !email.contains("@"))
-                    throw new AddressException(email);
+            for (Address address : addresses)
+                try {
+                    String email = ((InternetAddress) address).getAddress();
+                    if (email == null || !email.contains("@"))
+                        continue;
+                    String domain = email.split("@")[1];
+                    Lookup lookup = new Lookup(domain, Type.MX);
+                    SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
+                    lookup.setResolver(resolver);
+                    Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
 
-                String domain = email.split("@")[1];
-                Lookup lookup = new Lookup(domain, Type.MX);
-                SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
-                lookup.setResolver(resolver);
-                Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
-
-                lookup.run();
-                if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                        lookup.getResult() == Lookup.TYPE_NOT_FOUND) {
-                    Log.i("Lookup MX=" + domain + " result=" + lookup.getErrorString());
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_server, domain));
+                    lookup.run();
+                    if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
+                            lookup.getResult() == Lookup.TYPE_NOT_FOUND) {
+                        Log.i("Lookup MX=" + domain + " result=" + lookup.getErrorString());
+                        throw new UnknownHostException(context.getString(R.string.title_no_server, domain));
+                    } else if (lookup.getResult() != Lookup.SUCCESSFUL)
+                        ok = false;
+                } catch (UnknownHostException ex) {
+                    throw ex;
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    ok = false;
                 }
-            }
+
+        return ok;
     }
 }
