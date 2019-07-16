@@ -69,14 +69,24 @@
                 app:layout_constraintTop_toTopOf="@+id/btnPurchase" />
 
             <TextView
-                android:id="@+id/tvHint"
+                android:id="@+id/tvOnce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:text="@string/title_pro_once"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnPurchase" />
+
+            <TextView
+                android:id="@+id/tvHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:text="@string/title_pro_hint"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnPurchase" />
+                app:layout_constraintTop_toBottomOf="@id/tvOnce" />
 
             <TextView
                 android:id="@+id/tvPriceHint"
