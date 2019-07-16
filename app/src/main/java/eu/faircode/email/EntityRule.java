@@ -196,49 +196,40 @@ public class EntityRule {
         return matched;
     }
 
-    void execute(Context context, EntityMessage message) throws IOException {
-        try {
-            JSONObject jaction = new JSONObject(action);
-            int type = jaction.getInt("type");
-            Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
+    boolean execute(Context context, EntityMessage message) throws JSONException, IOException {
+        JSONObject jaction = new JSONObject(action);
+        int type = jaction.getInt("type");
+        Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
 
-            switch (type) {
-                case TYPE_SEEN:
-                    onActionSeen(context, message, true);
-                    break;
-                case TYPE_UNSEEN:
-                    onActionSeen(context, message, false);
-                    break;
-                case TYPE_SNOOZE:
-                    onActionSnooze(context, message, jaction);
-                    break;
-                case TYPE_FLAG:
-                    onActionFlag(context, message, jaction);
-                    break;
-                case TYPE_MOVE:
-                    onActionMove(context, message, jaction);
-                    break;
-                case TYPE_COPY:
-                    onActionCopy(context, message, jaction);
-                    break;
-                case TYPE_ANSWER:
-                    onActionAnswer(context, message, jaction);
-                    break;
-                case TYPE_AUTOMATION:
-                    onActionAutomation(context, message, jaction);
-                    break;
-            }
-        } catch (JSONException ex) {
-            Log.e(ex);
+        switch (type) {
+            case TYPE_SEEN:
+                return onActionSeen(context, message, true);
+            case TYPE_UNSEEN:
+                return onActionSeen(context, message, false);
+            case TYPE_SNOOZE:
+                return onActionSnooze(context, message, jaction);
+            case TYPE_FLAG:
+                return onActionFlag(context, message, jaction);
+            case TYPE_MOVE:
+                return onActionMove(context, message, jaction);
+            case TYPE_COPY:
+                return onActionCopy(context, message, jaction);
+            case TYPE_ANSWER:
+                return onActionAnswer(context, message, jaction);
+            case TYPE_AUTOMATION:
+                return onActionAutomation(context, message, jaction);
+            default:
+                throw new IllegalArgumentException("Unknown rule type=" + type);
         }
     }
 
-    private void onActionSeen(Context context, EntityMessage message, boolean seen) {
+    private boolean onActionSeen(Context context, EntityMessage message, boolean seen) {
         EntityOperation.queue(context, message, EntityOperation.SEEN, seen);
         message.seen = seen;
+        return true;
     }
 
-    private void onActionMove(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionMove(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
         boolean seen = jargs.optBoolean("seen");
         boolean thread = jargs.optBoolean("thread");
@@ -255,9 +246,11 @@ public class EntityRule {
 
         if (seen)
             message.seen = true;
+
+        return true;
     }
 
-    private void onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionCopy(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         long target = jargs.getLong("target");
 
         DB db = DB.getInstance(context);
@@ -266,9 +259,10 @@ public class EntityRule {
             throw new IllegalArgumentException("Rule copy to folder not found");
 
         EntityOperation.queue(context, message, EntityOperation.COPY, target, false);
+        return true;
     }
 
-    private void onActionAnswer(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
+    private boolean onActionAnswer(Context context, EntityMessage message, JSONObject jargs) throws JSONException, IOException {
         long iid = jargs.getLong("identity");
         long aid = jargs.getLong("answer");
         boolean cc = (jargs.has("cc") && jargs.getBoolean("cc"));
@@ -311,9 +305,10 @@ public class EntityRule {
                 null);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);
+        return true;
     }
 
-    private void onActionAutomation(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionAutomation(Context context, EntityMessage message, JSONObject jargs) {
         String sender = (message.from == null || message.from.length == 0
                 ? null : ((InternetAddress) message.from[0]).getAddress());
 
@@ -323,30 +318,30 @@ public class EntityRule {
         automation.putExtra(EXTRA_SUBJECT, message.subject);
 
         Log.i("Sending " + automation);
-        try {
-            context.sendBroadcast(automation);
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
+        context.sendBroadcast(automation);
+        return true;
     }
 
-    private void onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         int duration = jargs.getInt("duration");
         long wakeup = message.received + duration * 3600 * 1000L;
 
         if (wakeup < new Date().getTime())
-            return;
+            return false;
 
         DB db = DB.getInstance(context);
         db.message().setMessageSnoozed(message.id, wakeup);
         EntityMessage.snooze(context, message.id, wakeup);
         onActionSeen(context, message, true);
+
+        return true;
     }
 
-    private void onActionFlag(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionFlag(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         Integer color = (jargs.has("color") && !jargs.isNull("color")
                 ? jargs.getInt("color") : null);
         EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
+        return true;
     }
 
     @Override
