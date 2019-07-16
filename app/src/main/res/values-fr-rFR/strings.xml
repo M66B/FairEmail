@@ -229,9 +229,11 @@
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
+    <string name="title_advanced_check_mx">Vérifier l\'adresse mail de l\'expéditeur lors de la synchronisation des messages</string>
     <string name="title_advanced_sync_kept_hint">Ceci transférera des données supplémentaires et utilisera de la batterie supplémentaire, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l\'utilisation des données et de la batterie mais désactivera également la mise à jour de la liste des dossiers</string>
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
+    <string name="title_advanced_sync_delay_hint">Ceci retardera la synchronisation des messages</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>
     <string name="title_advanced_rlah_hint">On considère qu\'il n\'y a pas d\'itinérance au sein de l\'UE (roam like at home)</string>
@@ -656,6 +658,8 @@
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
+    <string name="title_executing">Exécution en cours</string>
+    <string name="title_completed">Terminé</string>
     <string name="title_ask_what">Demander ce qu\'il faut faire</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
@@ -668,6 +672,7 @@
     <string name="title_pro_feature">Il s\'agit d\'une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>
     <string name="title_pro_purchase">Acheter</string>
+    <string name="title_pro_once">Une seule fois</string>
     <string name="title_pro_hint">L\'achat des fonctionnalités Pro vous autorisera à utiliser toutes les fonctionnalités Pro actuelles et futures et permettra de maintenir et de supporter cette application</string>
     <string name="title_pro_price">Veuillez voir <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">cette FAQ</a> à propos du prix des fonctionnalités Pro</string>
     <string name="title_pro_pending">Achat en cours</string>
@@ -683,12 +688,12 @@
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l\'application s\'est arrêtée :</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>Toutes les 15 minutes</item>
+        <item>Toutes les 30 minutes</item>
+        <item>Toutes les heures</item>
+        <item>Toutes les 2 heures</item>
+        <item>Toutes les 4 heures</item>
+        <item>Toutes les 8 heures</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Non</item>

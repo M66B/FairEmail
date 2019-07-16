@@ -163,6 +163,7 @@
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_advanced_lookup_mx">Verifique os endereços de e-mail do destinatário antes de enviar</string>
     <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
     <string name="title_advanced_metered">Usar conexões limitadas</string>
@@ -217,6 +218,7 @@
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
     <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
+    <string name="title_advanced_double_back">Pressione duas vezes \"Voltar\" para sair</string>
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
@@ -227,8 +229,11 @@
     <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente, puxando a lista de mensagens. Isso irá sincronizar mensagens e executar operações por um tempo limitado.</string>
     <string name="title_advanced_poll_hint">Sincronizar periodicamente irá comparar mensagens locais e remotas cada vez, o que é uma operação cara possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso escutando continuamente apenas as alterações.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
+    <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e usar energia extra da bateria, especialmente se houver muitas mensagens mantidas no dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
+    <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
+    <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
     <string name="title_advanced_rlah_hint">Não assumindo roaming na UE</string>
@@ -653,6 +658,8 @@
     <string name="title_report">Reportar</string>
     <string name="title_fix">Corrigir</string>
     <string name="title_enable">Habilitar</string>
+    <string name="title_executing">Executando</string>
+    <string name="title_completed">Concluído</string>
     <string name="title_ask_what">Perguntar o que fazer</string>
     <string name="title_no_ask_again">Não perguntar novamente</string>
     <string name="title_no_body">Texto da mensagem não encontrado</string>
@@ -665,6 +672,7 @@
     <string name="title_pro_feature">Esta é uma funcionalidade Pro</string>
     <string name="title_pro_list">Lista de recursos Pro</string>
     <string name="title_pro_purchase">Comprar</string>
+    <string name="title_pro_once">Apenas uma vez</string>
     <string name="title_pro_hint">Comprar recursos Pro permitirá que você use todas as funcionalidades atuais e futuras, ajudará na manutenção e suporte deste app</string>
     <string name="title_pro_price">Por favor, veja <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">este FAQ</a> sobre o preço dos recursos Pro</string>
     <string name="title_pro_pending">Compra pendente</string>
@@ -680,12 +688,12 @@
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>A cada 15 minutos</item>
+        <item>A cada 30 minutos</item>
+        <item>A cada hora</item>
+        <item>A cada 2 horas</item>
+        <item>A cada 4 horas</item>
+        <item>A cada 8 horas</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Não</item>

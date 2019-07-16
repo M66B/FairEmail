@@ -163,7 +163,7 @@
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_advanced_lookup_mx">Controleer e-mail adressen voor verzenden</string>
+    <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
     <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
@@ -229,9 +229,11 @@
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en bewerkingen uitvoeren gedurende een beperkte tijd.</string>
     <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend te luisteren naar veranderingen.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
+    <string name="title_advanced_check_mx">Controleer e-mailadressen van de afzenders bij het synchroniseren van berichten</string>
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens overdragen en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat worden opgeslagen</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
     <string name="title_advanced_lookup_mx_hint">Dit zal controleren of DNS MX records bestaan</string>
+    <string name="title_advanced_sync_delay_hint">Dit zal de synchronisatie van berichten vertragen</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Uitschakelen van deze optie zal het ontvangen en verzenden van berichten op mobiele internetverbindingen uitschakelen</string>
     <string name="title_advanced_rlah_hint">Veronderstel geen roaming binnen de EU</string>
@@ -656,6 +658,8 @@
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
+    <string name="title_executing">Aan het uitvoeren</string>
+    <string name="title_completed">Voltooid</string>
     <string name="title_ask_what">Vraag wat te doen</string>
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
@@ -668,6 +672,7 @@
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>
     <string name="title_pro_purchase">Koop</string>
+    <string name="title_pro_once">Eenmalig</string>
     <string name="title_pro_hint">Het kopen van pro functies geeft toegang tot alle huidige en toekomstige pro functies en zorgt voor onderhoud en ondersteuning van deze app</string>
     <string name="title_pro_price">Zie <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">deze FAQ</a> over de prijs van de pro-functies</string>
     <string name="title_pro_pending">Aankoop in behandeling</string>

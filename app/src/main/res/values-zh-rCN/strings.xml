@@ -220,9 +220,11 @@
     <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在一定时间内同步消息和执行操作。</string>
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是一个昂贵的操作，可能导致额外的电池使用，特别是在有很多消息要同步的时候。始终同步将通过持续比较变化以避免发生上述情形。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
+    <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
     <string name="title_advanced_sync_kept_hint">这将使用额外的数据和额外电量，特别是如果有许多消息保留在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能会降低数据和电池使用量，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
+    <string name="title_advanced_sync_delay_hint">这将延迟同步消息</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
     <string name="title_advanced_metered_warning">禁用此选项将禁止在使用移动互联网连接时接收和发送消息</string>
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
@@ -647,6 +649,8 @@
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
+    <string name="title_executing">执行中</string>
+    <string name="title_completed">完成</string>
     <string name="title_ask_what">询问做什么</string>
     <string name="title_no_ask_again">别再询问</string>
     <string name="title_no_body">没有找到消息文本</string>
@@ -659,6 +663,7 @@
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>
     <string name="title_pro_purchase">购买</string>
+    <string name="title_pro_once">仅一次</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_pending">购买待处理</string>
@@ -674,12 +679,12 @@
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>每15分钟</item>
+        <item>每30分钟</item>
+        <item>每小时</item>
+        <item>每两小时</item>
+        <item>每四小时</item>
+        <item>每八小时</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>否</item>

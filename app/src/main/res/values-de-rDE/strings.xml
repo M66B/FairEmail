@@ -99,6 +99,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_grant">Zulassen</string>
     <string name="title_setup_account">Konten einrichten</string>
     <string name="title_setup_account_remark">Um E-Mails zu empfangen</string>
+    <string name="title_setup_account_hint">Um die Farbe, wische nach links/rechts Zielordner, usw, zu ändern</string>
     <string name="title_setup_identity">Identitäten einrichten</string>
     <string name="title_setup_identity_remark">Um E-Mails zu senden</string>
     <string name="title_setup_identity_hint">Um Namen, Farbe, Signatur, etc. zu ändern</string>
@@ -227,9 +228,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_manual_hint">Wenn die Synchronisation deaktiviert ist, ist es weiterhin möglich, die Synchronisation manuell durchzuführen, indem Sie die Nachrichtenliste herunterziehen. Dadurch werden Nachrichten synchronisiert und Operationen für eine begrenzte Zeit ausgeführt.</string>
     <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Batterieverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch die ständige Synchronisation wird dies vermieden, indem man ständig nur auf Änderungen achtet.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
+    <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen bei Synchronisierung von Nachrichten</string>
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_sync_folders_hint">Wenn Sie dies deaktivieren, wird der Daten- und Akkubedarf etwas reduziert, aber auch die Aktualisierung der Ordnerliste deaktiviert.</string>
     <string name="title_advanced_lookup_mx_hint">Dies wird überprüfen, ob DNS MX-Einträge existieren</string>
+    <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
@@ -654,6 +657,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
+    <string name="title_executing">Wird ausgeführt</string>
+    <string name="title_completed">Fertig</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>
     <string name="title_no_ask_again">Dies nicht mehr anzeigen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
@@ -666,6 +671,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_pro_feature">Dies ist eine Pro-Funktion</string>
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>
+    <string name="title_pro_once">Nur einmal</string>
     <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App</string>
     <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
     <string name="title_pro_pending">Kauf ausstehend</string>
@@ -681,12 +687,12 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>Alle 15 Minuten</item>
+        <item>Alle 30 Minuten</item>
+        <item>Jede Stunde</item>
+        <item>Alle 2 Stunden</item>
+        <item>Alle 4 Stunden</item>
+        <item>Alle 8 Stunden</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nein</item>

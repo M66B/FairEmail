@@ -245,9 +245,11 @@
     <string name="title_advanced_manual_hint">Je-li synchronizace zakázána, stále je možné synchronizovat ručně tažením dolů v přehledu zpráv. Po omezený čas se tak budou synchronizovat zprávy a provádět operace.</string>
     <string name="title_advanced_poll_hint">Synchronizování periodicky pokaždé porovnává místní a vzdálené zprávy, což je náročná operace potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
+    <string name="title_advanced_check_mx">Zkontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_sync_kept_hint">Zvýší využití dat a spotřebu baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí této volby o něco sníží využití dat a baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
+    <string name="title_advanced_sync_delay_hint">Zpozdí synchronizaci zpráv</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
@@ -672,6 +674,8 @@
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
     <string name="title_enable">Zapnout</string>
+    <string name="title_executing">Provádění</string>
+    <string name="title_completed">Dokončeno</string>
     <string name="title_ask_what">Zeptat se na požadovanou akci</string>
     <string name="title_no_ask_again">Znovu se neptat</string>
     <string name="title_no_body">Text zprávy nenalezen</string>
@@ -684,6 +688,7 @@
     <string name="title_pro_feature">Toto je Pro funkce</string>
     <string name="title_pro_list">Seznam Pro funkcí</string>
     <string name="title_pro_purchase">Koupit</string>
+    <string name="title_pro_once">Jen jednou</string>
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Pro odůvodnění ceny Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>
     <string name="title_pro_pending">Probíhá nákup</string>
@@ -699,12 +704,12 @@
     <string name="title_crash_info_remark">Popište prosím co jste dělali když došlo k pádu aplikace:</string>
     <string-array name="pollIntervalNames">
         <item>Nepřetržitě</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>Každých 15 minut</item>
+        <item>Každých 30 minut</item>
+        <item>Každou hodinu</item>
+        <item>Každé 2 hodiny</item>
+        <item>Každé 4 hodiny</item>
+        <item>Každých 8 hodin</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nepozdržovat</item>

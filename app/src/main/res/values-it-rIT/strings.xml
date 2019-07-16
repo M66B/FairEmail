@@ -228,9 +228,11 @@
     <string name="title_advanced_manual_hint">Se la sincronizzazione è disabilitata, è ancora possibile sincronizzare manualmente tirando giù l\'elenco dei messaggi. Questo sincronizzerà i messaggi ed eseguirà le operazioni per un tempo limitato.</string>
     <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo solo ascoltando continuamente le modifiche.</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
+    <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e utilizzerà energia batteria extra, specialmente se ci sono molti messaggi conservati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
+    <string name="title_advanced_sync_delay_hint">Questo ritarderà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
@@ -655,6 +657,8 @@
     <string name="title_report">Report</string>
     <string name="title_fix">Correggi</string>
     <string name="title_enable">Attiva</string>
+    <string name="title_executing">Esecuzione</string>
+    <string name="title_completed">Completato</string>
     <string name="title_ask_what">Chiedi cosa fare</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
     <string name="title_no_body">Nessun messaggio di testo trovato</string>
@@ -667,6 +671,7 @@
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
     <string name="title_pro_purchase">Acquista</string>
+    <string name="title_pro_once">Solo una volta</string>
     <string name="title_pro_hint">L\'acquisto di funzionalità a pagamento ti permetterà di utilizzare tutte le attuali e future funzioni, aiuterà il mantenimento e il supporto dell\'app</string>
     <string name="title_pro_price">Consulta <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">queste FAQ</a> riguardo il prezzo delle funzioni a pagamento</string>
     <string name="title_pro_pending">Acquisto in sospeso</string>
@@ -682,12 +687,12 @@
     <string name="title_crash_info_remark">Descrivi cosa stavi facendo quando l\'app si è interrotta:</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>Ogni 15 minuti</item>
+        <item>Ogni 30 minuti</item>
+        <item>Ogni ora</item>
+        <item>Ogni 2 ore</item>
+        <item>Ogni 4 ore</item>
+        <item>Ogni 8 ore</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>No</item>

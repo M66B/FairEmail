@@ -229,9 +229,11 @@
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten. Dette vil synkronisere meldinger og utføre operasjoner i en begrenset periode.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en dyr operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger som skal synkroniseres. Alltid synkronisering vil unngå dette ved kontinuerlig sjekking for endringer.</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
+    <string name="title_advanced_check_mx">Sjekk avsenderens e-postadresser når meldinger synkroniseres</string>
     <string name="title_advanced_sync_kept_hint">Dette overfører ekstra data og bruker ekstra batteristrøm, spesielt hvis det er mange meldinger som holdes på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
     <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
+    <string name="title_advanced_sync_delay_hint">Dette vil forsinke synkronisering av meldinger</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>
@@ -656,6 +658,8 @@
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
     <string name="title_enable">Aktiver</string>
+    <string name="title_executing">Utfører</string>
+    <string name="title_completed">Fullført</string>
     <string name="title_ask_what">Spør hva du skal gjøre</string>
     <string name="title_no_ask_again">Ikke spør dette igjen</string>
     <string name="title_no_body">Ingen meldingstekst funnet</string>
@@ -668,6 +672,7 @@
     <string name="title_pro_feature">Dette er en Pro-funksjon</string>
     <string name="title_pro_list">Liste over Pro funksjoner</string>
     <string name="title_pro_purchase">Kjøp</string>
+    <string name="title_pro_once">Bare en gang</string>
     <string name="title_pro_hint">Ved å kjøpe pro-funksjoner kan du bruke alle aktuelle og fremtidige pro-funksjoner, og vil holde denne appen vedlikeholdt og støttet</string>
     <string name="title_pro_price">Vennligst se <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">denne FAQ</a> om pris på Pro-funksjonene</string>
     <string name="title_pro_pending">Ventende kjøp</string>
@@ -683,12 +688,12 @@
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>Hvert 15. minutt</item>
+        <item>Hvert 30. minutt</item>
+        <item>Hver time</item>
+        <item>Hver 2. time</item>
+        <item>Hver 4. time</item>
+        <item>Hver 8. time</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Nei</item>
