@@ -83,7 +83,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(4) How can I use an invalid security certificate / IMAP STARTTLS / an empty password?](#user-content-faq4)
 * [(5) How can I customize the message view?](#user-content-faq5)
 * [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing sent folder?](#user-content-faq7)
+* [(7) Why are sent messages not appearing in the sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
 * [(11) Why is POP not supported?](#user-content-faq11)
@@ -379,15 +379,16 @@ See [this FAQ](#user-content-faq111) about why OAuth is not being used.
 <br />
 
 <a name="faq7"></a>
-**(7) Why are sent messages not appearing sent folder?**
+**(7) Why are sent messages not appearing in the sent folder?**
 
-Sent messages are normally added to the sent folder as soon as your provider adds the messages to the sent folder.
+Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder.
 This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
-In these cases you can enable the advanced identity setting *Store sent messages* to workaround this.
+In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.
+Note that enabling this settings might result in duplicate messages if your provider adds sent messages to the sent folder too.
 
-Note that FairEmail will automatically add sent messages to the sent folder when performing a full synchronize,
-which happens when reconnecting or if you synchronize manually.
+FairEmail will also add messages in the outbox not found in the sent folder to the sent folder when performing a full synchronize,
+which happens when reconnecting to the server or if when synchronizing manually.
 
 <br />
 
