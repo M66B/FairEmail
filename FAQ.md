@@ -1658,9 +1658,12 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
-However, FairEmail will show a small warning flag
+However, FairEmail will show a small red warning flag
 when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
 You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the behavior settings.
+
+FairEmail can show a warning flag too when the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
+This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 
 If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder.
 Moreover, without proper authentication there is a risk the sender will be impersonated.
