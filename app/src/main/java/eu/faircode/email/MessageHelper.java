@@ -349,40 +349,61 @@ public class MessageHelper {
         StringBuilder htmlContent = new StringBuilder();
         htmlContent.append(body.toString()).append("\n");
 
+        // multipart/mixed
+        //   multipart/related
+        //     multipart/alternative
+        //       text/plain
+        //       text/html
+        //     inlines
+        //  attachments
+
         BodyPart plainPart = new MimeBodyPart();
         plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
 
         BodyPart htmlPart = new MimeBodyPart();
         htmlPart.setContent(htmlContent.toString(), "text/html; charset=" + Charset.defaultCharset().name());
 
-        Multipart alternativePart = new MimeMultipart("alternative");
-        alternativePart.addBodyPart(plainPart);
-        alternativePart.addBodyPart(htmlPart);
+        Multipart altMultiPart = new MimeMultipart("alternative");
+        altMultiPart.addBodyPart(plainPart);
+        altMultiPart.addBodyPart(htmlPart);
 
-        int available = 0;
+        boolean plain_only = (message.plain_only != null && message.plain_only);
+
+        int availableAttachments = 0;
+        boolean hasInline = false;
         for (EntityAttachment attachment : attachments)
-            if (attachment.available)
-                available++;
-        Log.i("Attachments available=" + available);
+            if (attachment.available) {
+                availableAttachments++;
+                if (attachment.isInline())
+                    hasInline = true;
+            }
 
-        if (available == 0)
-            if (message.plain_only != null && message.plain_only)
+        if (availableAttachments == 0)
+            if (plain_only)
                 imessage.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             else
-                imessage.setContent(alternativePart);
+                imessage.setContent(altMultiPart);
         else {
-            Multipart mixedPart = new MimeMultipart("mixed");
+            Multipart mixedMultiPart = new MimeMultipart("mixed");
+            Multipart relatedMultiPart = new MimeMultipart("related");
 
-            BodyPart attachmentPart = new MimeBodyPart();
-            if (message.plain_only != null && message.plain_only)
-                attachmentPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
+            BodyPart bodyPart = new MimeBodyPart();
+            if (plain_only)
+                bodyPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             else
-                attachmentPart.setContent(alternativePart);
-            mixedPart.addBodyPart(attachmentPart);
+                bodyPart.setContent(altMultiPart);
+
+            if (hasInline && !plain_only) {
+                relatedMultiPart.addBodyPart(bodyPart);
+                MimeBodyPart relatedPart = new MimeBodyPart();
+                relatedPart.setContent(relatedMultiPart);
+                mixedMultiPart.addBodyPart(relatedPart);
+            } else
+                mixedMultiPart.addBodyPart(bodyPart);
 
             for (final EntityAttachment attachment : attachments)
                 if (attachment.available) {
-                    BodyPart bpAttachment = new MimeBodyPart();
+                    BodyPart attachmentPart = new MimeBodyPart();
 
                     File file = attachment.getFile(context);
 
@@ -412,18 +433,21 @@ public class MessageHelper {
                             return getContentType(new File(filename));
                         }
                     });
-                    bpAttachment.setDataHandler(new DataHandler(dataSource));
+                    attachmentPart.setDataHandler(new DataHandler(dataSource));
 
-                    bpAttachment.setFileName(attachment.name);
+                    attachmentPart.setFileName(attachment.name);
                     if (attachment.disposition != null)
-                        bpAttachment.setDisposition(attachment.disposition);
+                        attachmentPart.setDisposition(attachment.disposition);
                     if (attachment.cid != null)
-                        bpAttachment.setHeader("Content-ID", attachment.cid);
+                        attachmentPart.setHeader("Content-ID", attachment.cid);
 
-                    mixedPart.addBodyPart(bpAttachment);
+                    if (attachment.isInline() && !plain_only)
+                        relatedMultiPart.addBodyPart(attachmentPart);
+                    else
+                        mixedMultiPart.addBodyPart(attachmentPart);
                 }
 
-            imessage.setContent(mixedPart);
+            imessage.setContent(mixedMultiPart);
         }
     }
 
