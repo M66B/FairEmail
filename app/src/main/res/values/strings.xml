@@ -286,6 +286,7 @@
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
+    <string name="title_advanced_permission_contacts_hint">This requires permission to read your contacts being granted</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autocollapse_hint">Multiple expanded messages will always be closed on \'back\'</string>

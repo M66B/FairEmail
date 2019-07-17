@@ -281,6 +281,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/swImages" />
 
+            <TextView
+                android:id="@+id/tvImagesPermissionHint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_permission_contacts_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?colorWarning"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvImagesHint" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swCollapseQuotes"
                 android:layout_width="0dp"
@@ -289,7 +302,7 @@
                 android:text="@string/title_advanced_collapse_quotes"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvImagesHint"
+                app:layout_constraintTop_toBottomOf="@id/tvImagesPermissionHint"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
