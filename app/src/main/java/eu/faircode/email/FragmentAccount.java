@@ -1375,66 +1375,80 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void setFolders(List<EntityFolder> _folders, EntityAccount account) {
-        List<EntityFolder> folders = new ArrayList<>();
-        for (EntityFolder folder : _folders)
-            if (!EntityFolder.INBOX.equals(folder.type))
-                folders.add(folder);
+        {
+            List<EntityFolder> folders = new ArrayList<>();
 
-        EntityFolder none = new EntityFolder();
-        none.id = 0L;
-        none.name = "-";
-        folders.add(0, none);
+            EntityFolder none = new EntityFolder();
+            none.id = 0L;
+            none.name = "-";
+            folders.add(none);
 
-        adapter.clear();
-        adapter.addAll(folders);
+            for (EntityFolder folder : _folders)
+                if (!EntityFolder.INBOX.equals(folder.type))
+                    folders.add(folder);
 
-        for (int pos = 0; pos < folders.size(); pos++) {
-            EntityFolder folder = folders.get(pos);
+            adapter.clear();
+            adapter.addAll(folders);
 
-            if (EntityFolder.DRAFTS.equals(folder.type))
-                spDrafts.setSelection(pos);
-            else if (EntityFolder.SENT.equals(folder.type))
-                spSent.setSelection(pos);
-            else if (EntityFolder.ARCHIVE.equals(folder.type))
-                spArchive.setSelection(pos);
-            else if (EntityFolder.TRASH.equals(folder.type))
-                spTrash.setSelection(pos);
-            else if (EntityFolder.JUNK.equals(folder.type))
-                spJunk.setSelection(pos);
+            for (int pos = 0; pos < folders.size(); pos++) {
+                EntityFolder folder = folders.get(pos);
+
+                if (EntityFolder.DRAFTS.equals(folder.type))
+                    spDrafts.setSelection(pos);
+                else if (EntityFolder.SENT.equals(folder.type))
+                    spSent.setSelection(pos);
+                else if (EntityFolder.ARCHIVE.equals(folder.type))
+                    spArchive.setSelection(pos);
+                else if (EntityFolder.TRASH.equals(folder.type))
+                    spTrash.setSelection(pos);
+                else if (EntityFolder.JUNK.equals(folder.type))
+                    spJunk.setSelection(pos);
+            }
         }
 
-        EntityFolder ask = new EntityFolder();
-        ask.id = SWIPE_ACTION_ASK;
-        ask.name = getString(R.string.title_ask_what);
-        folders.add(1, ask);
+        {
+            List<EntityFolder> folders = new ArrayList<>();
 
-        EntityFolder seen = new EntityFolder();
-        seen.id = SWIPE_ACTION_SEEN;
-        seen.name = getString(R.string.title_seen);
-        folders.add(1, seen);
+            EntityFolder none = new EntityFolder();
+            none.id = 0L;
+            none.name = "-";
+            folders.add(none);
 
-        adapterSwipe.clear();
-        adapterSwipe.addAll(folders);
+            EntityFolder ask = new EntityFolder();
+            ask.id = SWIPE_ACTION_ASK;
+            ask.name = getString(R.string.title_ask_what);
+            folders.add(ask);
 
-        Long left = (account == null ? null : account.swipe_left);
-        Long right = (account == null ? null : account.swipe_right);
+            EntityFolder seen = new EntityFolder();
+            seen.id = SWIPE_ACTION_SEEN;
+            seen.name = getString(R.string.title_seen);
+            folders.add(seen);
 
-        String leftDefault = EntityFolder.TRASH;
-        String rightDefault = EntityFolder.TRASH;
-        for (EntityFolder folder : folders)
-            if (EntityFolder.ARCHIVE.equals(folder.type)) {
-                rightDefault = folder.type;
-                break;
+            folders.addAll(_folders);
+
+            adapterSwipe.clear();
+            adapterSwipe.addAll(folders);
+
+            Long left = (account == null ? null : account.swipe_left);
+            Long right = (account == null ? null : account.swipe_right);
+
+            String leftDefault = EntityFolder.TRASH;
+            String rightDefault = EntityFolder.TRASH;
+            for (EntityFolder folder : folders)
+                if (EntityFolder.ARCHIVE.equals(folder.type)) {
+                    rightDefault = folder.type;
+                    break;
+                }
+
+            for (int pos = 0; pos < folders.size(); pos++) {
+                EntityFolder folder = folders.get(pos);
+
+                if (left == null ? (account == null && leftDefault.equals(folder.type)) : left.equals(folder.id))
+                    spLeft.setSelection(pos);
+
+                if (right == null ? (account == null && rightDefault.equals(folder.type)) : right.equals(folder.id))
+                    spRight.setSelection(pos);
             }
-
-        for (int pos = 0; pos < folders.size(); pos++) {
-            EntityFolder folder = folders.get(pos);
-
-            if (left == null ? (account == null && leftDefault.equals(folder.type)) : left.equals(folder.id))
-                spLeft.setSelection(pos);
-
-            if (right == null ? (account == null && rightDefault.equals(folder.type)) : right.equals(folder.id))
-                spRight.setSelection(pos);
         }
 
         grpFolders.setVisibility(_folders.size() > 1 ? View.VISIBLE : View.GONE);
