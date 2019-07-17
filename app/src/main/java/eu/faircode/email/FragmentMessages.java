@@ -1313,154 +1313,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
-            Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
-            if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
+            Long target = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
+            if (FragmentAccount.SWIPE_ACTION_SEEN.equals(target))
                 onActionSeenSelection(!message.ui_seen, message.id);
-            else if (FragmentAccount.SWIPE_ACTION_ASK.equals(action)) {
-                adapter.notifyItemChanged(viewHolder.getAdapterPosition());
-
-                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
-                popupMenu.setGravity(Gravity.RIGHT);
-
-                if (message.ui_seen)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 2, R.string.title_unseen);
-                else
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
-
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 3, R.string.title_flag_color);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 3, R.string.title_move);
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem target) {
-                        switch (target.getItemId()) {
-                            case R.string.title_seen:
-                                onActionSeenSelection(true, message.id);
-                                return true;
-                            case R.string.title_unseen:
-                                onActionSeenSelection(false, message.id);
-                                return true;
-                            case R.string.title_snooze:
-                                onMenuSnooze();
-                                return true;
-                            case R.string.title_flag_color:
-                                onMenuColor();
-                                return true;
-                            case R.string.title_move:
-                                onMenuMove();
-                                return true;
-                            default:
-                                return false;
-                        }
-                    }
-
-                    private void onMenuSnooze() {
-                        Bundle args = new Bundle();
-                        args.putString("title", getString(R.string.title_snooze));
-                        args.putLong("account", message.account);
-                        args.putString("thread", message.thread);
-                        args.putLong("id", message.id);
-                        args.putBoolean("finish", false);
-
-                        FragmentDialogDuration fragment = new FragmentDialogDuration();
-                        fragment.setArguments(args);
-                        fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
-                        fragment.show(getFragmentManager(), "message:snooze");
-                    }
-
-                    private void onMenuColor() {
-                        int color = (message.color == null ? Color.TRANSPARENT : message.color);
-
-                        Bundle args = new Bundle();
-                        args.putLong("id", message.id);
-
-                        FragmentDialogColor fragment = new FragmentDialogColor();
-                        fragment.initialize(R.string.title_flag_color, color, args, getContext());
-                        fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_COLOR);
-                        fragment.show(getFragmentManager(), "message:color");
-                    }
-
-                    private void onMenuMove() {
-                        Bundle args = new Bundle();
-                        args.putString("title", getString(R.string.title_move_to_folder));
-                        args.putLong("account", message.account);
-                        args.putLongArray("disabled", new long[]{message.folder});
-                        args.putLong("message", message.id);
-                        args.putBoolean("copy", false);
-                        args.putBoolean("similar", true);
-
-                        FragmentDialogFolder fragment = new FragmentDialogFolder();
-                        fragment.setArguments(args);
-                        fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
-                        fragment.show(getFragmentManager(), "message:move");
-                    }
-                });
-
-                popupMenu.show();
-
-            } else {
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
-                args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
-                args.putLong("target", action);
-
-                new SimpleTask<ArrayList<MessageTarget>>() {
-                    @Override
-                    protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        boolean thread = args.getBoolean("thread");
-                        long tid = args.getLong("target");
-
-                        ArrayList<MessageTarget> result = new ArrayList<>();
-
-                        // Get target folder and hide message
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
-
-                            EntityFolder target = db.folder().getFolder(tid);
-                            if (target == null)
-                                throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
-
-                            EntityAccount account = db.account().getAccount(target.account);
-                            EntityMessage message = db.message().getMessage(id);
-                            if (message != null) {
-                                List<EntityMessage> messages = db.message().getMessageByThread(
-                                        message.account, message.thread, threading && thread ? null : id, message.folder);
-                                for (EntityMessage threaded : messages) {
-                                    result.add(new MessageTarget(threaded, account, target));
-                                    db.message().setMessageUiHide(threaded.id, new Date().getTime());
-                                    // Prevent new message notification on undo
-                                    db.message().setMessageUiIgnored(threaded.id, true);
-                                }
-                            }
-
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return result;
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                        moveUndo(result);
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        if (ex instanceof IllegalArgumentException)
-                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                        else
-                            Helper.unexpectedError(getFragmentManager(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:swipe");
-            }
+            else if (FragmentAccount.SWIPE_ACTION_ASK.equals(target))
+                swipeAsk(message, viewHolder);
+            else
+                swipeFolder(message, target);
         }
 
-        private TupleMessageEx getMessage(RecyclerView.ViewHolder viewHolder) {
+        private TupleMessageEx getMessage(@NonNull RecyclerView.ViewHolder viewHolder) {
             if (selectionTracker != null && selectionTracker.hasSelection())
                 return null;
 
@@ -1483,6 +1345,150 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return null;
 
             return message;
+        }
+
+        private void swipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
+            adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
+            popupMenu.setGravity(Gravity.RIGHT);
+
+            if (message.ui_seen)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 2, R.string.title_unseen);
+            else
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
+
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 3, R.string.title_flag_color);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 3, R.string.title_move);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem target) {
+                    switch (target.getItemId()) {
+                        case R.string.title_seen:
+                            onActionSeenSelection(true, message.id);
+                            return true;
+                        case R.string.title_unseen:
+                            onActionSeenSelection(false, message.id);
+                            return true;
+                        case R.string.title_snooze:
+                            onMenuSnooze();
+                            return true;
+                        case R.string.title_flag_color:
+                            onMenuColor();
+                            return true;
+                        case R.string.title_move:
+                            onMenuMove();
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+
+                private void onMenuSnooze() {
+                    Bundle args = new Bundle();
+                    args.putString("title", getString(R.string.title_snooze));
+                    args.putLong("account", message.account);
+                    args.putString("thread", message.thread);
+                    args.putLong("id", message.id);
+                    args.putBoolean("finish", false);
+
+                    FragmentDialogDuration fragment = new FragmentDialogDuration();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_SNOOZE);
+                    fragment.show(getFragmentManager(), "message:snooze");
+                }
+
+                private void onMenuColor() {
+                    int color = (message.color == null ? Color.TRANSPARENT : message.color);
+
+                    Bundle args = new Bundle();
+                    args.putLong("id", message.id);
+
+                    FragmentDialogColor fragment = new FragmentDialogColor();
+                    fragment.initialize(R.string.title_flag_color, color, args, getContext());
+                    fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_COLOR);
+                    fragment.show(getFragmentManager(), "message:color");
+                }
+
+                private void onMenuMove() {
+                    Bundle args = new Bundle();
+                    args.putString("title", getString(R.string.title_move_to_folder));
+                    args.putLong("account", message.account);
+                    args.putLongArray("disabled", new long[]{message.folder});
+                    args.putLong("message", message.id);
+                    args.putBoolean("copy", false);
+                    args.putBoolean("similar", true);
+
+                    FragmentDialogFolder fragment = new FragmentDialogFolder();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
+                    fragment.show(getFragmentManager(), "message:move");
+                }
+            });
+
+            popupMenu.show();
+        }
+
+        private void swipeFolder(@NonNull TupleMessageEx message, @NonNull Long target) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
+            args.putLong("target", target);
+
+            new SimpleTask<ArrayList<MessageTarget>>() {
+                @Override
+                protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    boolean thread = args.getBoolean("thread");
+                    long tid = args.getLong("target");
+
+                    ArrayList<MessageTarget> result = new ArrayList<>();
+
+                    // Get target folder and hide message
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityFolder target = db.folder().getFolder(tid);
+                        if (target == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
+
+                        EntityAccount account = db.account().getAccount(target.account);
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null) {
+                            List<EntityMessage> messages = db.message().getMessageByThread(
+                                    message.account, message.thread, threading && thread ? null : id, message.folder);
+                            for (EntityMessage threaded : messages) {
+                                result.add(new MessageTarget(threaded, account, target));
+                                db.message().setMessageUiHide(threaded.id, new Date().getTime());
+                                // Prevent new message notification on undo
+                                db.message().setMessageUiIgnored(threaded.id, true);
+                            }
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return result;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
+                    moveUndo(result);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    if (ex instanceof IllegalArgumentException)
+                        Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    else
+                        Helper.unexpectedError(getFragmentManager(), ex);
+                }
+            }.execute(FragmentMessages.this, args, "messages:swipe");
         }
     };
 
