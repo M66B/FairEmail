@@ -1439,7 +1439,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getFragmentManager(), ex);
+                        if (ex instanceof IllegalArgumentException)
+                            Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                        else
+                            Helper.unexpectedError(getFragmentManager(), ex);
                     }
                 }.execute(FragmentMessages.this, args, "messages:swipe");
             }
