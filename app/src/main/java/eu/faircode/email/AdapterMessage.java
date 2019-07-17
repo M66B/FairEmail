@@ -1988,7 +1988,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 builder.getSpanFlags(squote));
                 }
 
-                args.putBoolean("has_images", builder.getSpans(0, body.length(), ImageSpan.class).length > 0);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean inline = prefs.getBoolean("inline_images", false);
+
+                boolean has_images;
+                ImageSpan[] spans = builder.getSpans(0, body.length(), ImageSpan.class);
+                if (inline) {
+                    has_images = false;
+                    for (ImageSpan span : spans) {
+                        String source = span.getSource();
+                        if (source == null || !source.startsWith("cid:")) {
+                            has_images = true;
+                            break;
+                        }
+                    }
+                } else
+                    has_images = spans.length > 0;
+
+                args.putBoolean("has_images", has_images);
 
                 return builder;
             }
