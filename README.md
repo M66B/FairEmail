@@ -184,6 +184,7 @@ FairEmail uses:
 * [Bugsnag exception reporter for Android](https://github.com/bugsnag/bugsnag-android). Copyright (c) 2012 Bugsnag. [MIT License](https://github.com/bugsnag/bugsnag-android/blob/master/LICENSE.txt).
 * [biweekly](https://github.com/mangstadt/biweekly). Copyright (c) 2013-2018, Michael Angstadt. [BSD 2-Clause](https://github.com/mangstadt/biweekly/blob/master/LICENSE).
 * [PhotoView](https://github.com/chrisbanes/PhotoView). Copyright 2018 Chris Banes. [Apache License](https://github.com/chrisbanes/PhotoView/blob/master/LICENSE).
+* [ReLinker](https://github.com/KeepSafe/ReLinker). Copyright 2015 - 2016 KeepSafe Software, Inc. [Apache License](https://github.com/KeepSafe/ReLinker/blob/master/LICENSE).
 
 Error reporting is sponsored by:
 
