@@ -147,6 +147,9 @@ public class FragmentAccount extends FragmentBase {
     private static final int REQUEST_SAVE = 2;
     private static final int REQUEST_DELETE = 3;
 
+    static final Long SWIPE_ACTION_ASK = -1L;
+    static final Long SWIPE_ACTION_SEEN = -2L;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -1401,9 +1404,14 @@ public class FragmentAccount extends FragmentBase {
         }
 
         EntityFolder ask = new EntityFolder();
-        ask.id = -1L;
+        ask.id = SWIPE_ACTION_ASK;
         ask.name = getString(R.string.title_ask_what);
         folders.add(1, ask);
+
+        EntityFolder seen = new EntityFolder();
+        seen.id = SWIPE_ACTION_SEEN;
+        seen.name = getString(R.string.title_seen);
+        folders.add(1, seen);
 
         adapterSwipe.clear();
         adapterSwipe.addAll(folders);

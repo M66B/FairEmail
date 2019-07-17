@@ -1254,10 +1254,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int margin = Helper.dp2pixels(getContext(), 12);
             int size = Helper.dp2pixels(getContext(), 24);
 
+            int icon;
+            long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
+            if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
+                icon = R.drawable.baseline_list_24;
+            else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
+                if (message.ui_seen)
+                    icon = R.drawable.baseline_visibility_off_24;
+                else
+                    icon = R.drawable.baseline_visibility_24;
+            else
+                icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
+            Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
+
             if (dX > 0) {
                 // Right swipe
-                Drawable d = getResources().getDrawable(
-                        EntityFolder.getIcon(swipes.right_type), getContext().getTheme()).mutate();
                 d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
                 int padding = (rect.height() - size);
                 d.setBounds(
@@ -1268,8 +1279,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 d.draw(canvas);
             } else if (dX < 0) {
                 // Left swipe
-                Drawable d = getResources().getDrawable(
-                        EntityFolder.getIcon(swipes.left_type), getContext().getTheme()).mutate();
                 d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
                 int padding = (rect.height() - size);
                 d.setBounds(
@@ -1304,7 +1313,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
-            if (direction == ItemTouchHelper.LEFT ? swipes.swipe_left < 0 : swipes.swipe_right < 0) {
+            Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
+            if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
+                onActionSeenSelection(!message.ui_seen, message.id);
+            else if (FragmentAccount.SWIPE_ACTION_ASK.equals(action)) {
                 adapter.notifyItemChanged(viewHolder.getAdapterPosition());
 
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
@@ -1391,7 +1403,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Bundle args = new Bundle();
                 args.putLong("id", message.id);
                 args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
-                args.putLong("target", direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
+                args.putLong("target", action);
 
                 new SimpleTask<ArrayList<MessageTarget>>() {
                     @Override
