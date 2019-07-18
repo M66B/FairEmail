@@ -47,7 +47,7 @@ public class ViewModelMessages extends ViewModel {
     private AdapterMessage.ViewType last = AdapterMessage.ViewType.UNIFIED;
     private Map<AdapterMessage.ViewType, Model> models = new HashMap<>();
 
-    private ExecutorService executor = Executors.newCachedThreadPool(Helper.foregroundThreadFactory);
+    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
