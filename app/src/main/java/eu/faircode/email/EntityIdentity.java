@@ -92,6 +92,7 @@ public class EntityIdentity {
     @NonNull
     public Boolean store_sent = false;
     public Long sent_folder = null; // obsolete
+    public Long sign_key = null; // OpenPGP
     public Boolean tbd;
     public String state;
     public String error;

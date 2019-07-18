@@ -1450,11 +1450,21 @@ public class FragmentCompose extends FragmentBase {
                             intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                             return intent;
                         } else if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
-                            // Get sign key
-                            Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
-                            return intent;
+                            if (identity != null && identity.sign_key != null) {
+                                // Encrypt message
+                                Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
+                                intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
+                                intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
+                                intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                return intent;
+                            } else {
+                                // Get sign key
+                                return new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                            }
                         } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
                             pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
+                            if (identity != null)
+                                db.identity().setIdentitySignKey(identity.id, pgpSignKeyId);
 
                             // Encrypt message
                             Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);

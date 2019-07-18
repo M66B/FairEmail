@@ -748,6 +748,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.read_receipt = read_receipt;
                     identity.store_sent = store_sent;
                     identity.sent_folder = null;
+                    identity.sign_key = null;
                     identity.error = null;
                     identity.last_connected = last_connected;
 
