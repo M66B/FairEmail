@@ -192,7 +192,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private boolean date;
     private boolean threading;
-    private boolean pull;
     private boolean swipenav;
     private boolean autoscroll;
     private boolean actionbar;
@@ -308,11 +307,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             viewType = AdapterMessage.ViewType.SEARCH;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
-            pull = prefs.getBoolean("pull", true);
-        else
-            pull = false;
 
         swipenav = prefs.getBoolean("swipenav", true);
         autoscroll = (prefs.getBoolean("autoscroll", false) || viewType == AdapterMessage.ViewType.THREAD);
@@ -900,12 +894,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         fabMore.show();
                     else
                         fabMore.hide();
-                    updateSwipeRefresh();
                 }
             });
         }
 
-        updateSwipeRefresh();
+        swipeRefresh.setOnChildScrollUpCallback(new SwipeRefreshLayout.OnChildScrollUpCallback() {
+            @Override
+            public boolean canChildScrollUp(@NonNull SwipeRefreshLayout parent, @Nullable View child) {
+                if (viewType != AdapterMessage.ViewType.UNIFIED && viewType != AdapterMessage.ViewType.FOLDER)
+                    return true;
+                if (!prefs.getBoolean("pull", true))
+                    return true;
+                if (swiping)
+                    return true;
+                if (selectionTracker != null && selectionTracker.hasSelection())
+                    return true;
+                return rvMessage.canScrollVertically(-1);
+            }
+        });
 
         pgpService = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
         pgpService.bindToService();
@@ -944,10 +950,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     @Override
     public void onDestroy() {
         super.onDestroy();
-    }
-
-    private void updateSwipeRefresh() {
-        swipeRefresh.setEnabled(pull && !swiping && (selectionTracker == null || !selectionTracker.hasSelection()));
     }
 
     private void scrollToVisibleItem(LinearLayoutManager llm, boolean bottom) {
@@ -1294,7 +1296,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
             super.onSelectedChanged(viewHolder, actionState);
             swiping = (actionState == ItemTouchHelper.ACTION_STATE_SWIPE);
-            updateSwipeRefresh();
         }
 
         @Override
