@@ -449,6 +449,10 @@ First of all you need to install and configure [OpenKeychain](https://f-droid.or
 To encrypt and send a message just check the menu *Encrypt* and the message will be encrypted on sending.
 Similarly, to decrypt a received message, just select the menu *Decrypt* in the expanded message view.
 
+The first time you send an encrypted message you might be asked for a sign key.
+FairEmail will automatically store the sign key ID in the selected identity for the next time.
+If you need to reset the sign key, just save the identity to clear the sign key ID again.
+
 You can enable *Encrypt by default* in the identity settings, which replaces *Send* by *Encrypt and send*.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for other email clients.

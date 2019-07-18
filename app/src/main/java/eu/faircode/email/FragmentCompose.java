@@ -1486,11 +1486,13 @@ public class FragmentCompose extends FragmentBase {
                         return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
                     case OpenPgpApi.RESULT_CODE_ERROR:
+                        if (identity != null)
+                            db.identity().setIdentitySignKey(identity.id, null);
                         OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
                         if (error == null)
                             throw new IllegalArgumentException("Unknown error");
                         else
-                            throw new IllegalArgumentException(error.getMessage());
+                            throw new IllegalArgumentException(error.getMessage() + " (" + error.getErrorId() + ")");
 
                     default:
                         throw new IllegalArgumentException("Unknown result code=" + resultCode);
