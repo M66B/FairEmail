@@ -679,6 +679,8 @@ public class Helper {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             return false;
         else if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) {
+            if (!context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT))
+                return false;
             FingerprintManager fpm = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
             return (fpm != null && fpm.isHardwareDetected() && fpm.hasEnrolledFingerprints());
         } else {
