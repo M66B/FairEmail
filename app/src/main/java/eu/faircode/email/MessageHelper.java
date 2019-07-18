@@ -35,7 +35,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -745,6 +744,9 @@ public class MessageHelper {
         // encoded-word = "=?" charset "?" encoding "?" encoded-text "?="
 
         int i = 0;
+        boolean first = true;
+        List<MimeTextPart> parts = new ArrayList<>();
+
         while (i < text.length()) {
             int s = text.indexOf("=?", i);
             if (s < 0)
@@ -762,20 +764,71 @@ public class MessageHelper {
             if (e < 0)
                 break;
 
-            String encoded = text.substring(s, e + 2);
-            try {
-                String decoded = MimeUtility.decodeWord(encoded);
-                text = text.substring(0, s).replaceAll("[ \t\n\r]$", "") + decoded + text.substring(e + 2);
-            } catch (ParseException ex) {
-                Log.w(new IllegalArgumentException(text, ex));
-                i += encoded.length();
-            } catch (UnsupportedEncodingException ex) {
-                Log.w(new IllegalArgumentException(text, ex));
-                i += encoded.length();
-            }
+            String plain = text.substring(i, s);
+            if (!first)
+                plain = plain.replaceAll("[ \t\n\r]$", "");
+            if (!TextUtils.isEmpty(plain))
+                parts.add(new MimeTextPart(plain));
+
+            parts.add(new MimeTextPart(
+                    text.substring(s + 2, q1),
+                    text.substring(q1 + 1, q2),
+                    text.substring(q2 + 1, e)));
+
+            i = e + 2;
+            first = false;
         }
 
-        return text;
+        if (i < text.length())
+            parts.add(new MimeTextPart(text.substring(i)));
+
+        // Fold words to not break encoding
+        int p = 0;
+        while (p + 1 < parts.size()) {
+            MimeTextPart p1 = parts.get(p);
+            MimeTextPart p2 = parts.get(p + 1);
+            if (p1.charset != null && p1.charset.equalsIgnoreCase(p2.charset) &&
+                    p1.encoding != null && p1.encoding.equalsIgnoreCase(p2.encoding)) {
+                p1.text += p2.text;
+                parts.remove(p + 1);
+            } else
+                p++;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (MimeTextPart part : parts)
+            sb.append(part);
+        return sb.toString();
+    }
+
+    private static class MimeTextPart {
+        String charset;
+        String encoding;
+        String text;
+
+        MimeTextPart(String text) {
+            this.text = text;
+        }
+
+        MimeTextPart(String charset, String encoding, String text) {
+            this.charset = charset;
+            this.encoding = encoding;
+            this.text = text;
+        }
+
+        @Override
+        public String toString() {
+            if (charset == null)
+                return text;
+
+            String word = "=?" + charset + "?" + encoding + "?" + text + "?=";
+            try {
+                return decodeMime(MimeUtility.decodeWord(word));
+            } catch (Throwable ex) {
+                Log.w(new IllegalArgumentException(word, ex));
+                return word;
+            }
+        }
     }
 
     static String getSortKey(Address[] addresses) {
