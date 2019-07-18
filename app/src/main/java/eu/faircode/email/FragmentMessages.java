@@ -1301,13 +1301,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             final TupleMessageEx message = getMessage(viewHolder);
             if (message == null) {
-                adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                adapter.notifyDataSetChanged();
                 return;
             }
 
             TupleAccountSwipes swipes = accountSwipes.get(message.account);
             if (swipes == null) {
-                adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                adapter.notifyDataSetChanged();
                 return;
             }
 
@@ -1348,7 +1348,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void swipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
-            adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+            adapter.notifyDataSetChanged();
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
             popupMenu.setGravity(Gravity.RIGHT);
