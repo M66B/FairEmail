@@ -31,6 +31,7 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) migth fix the problem.
 * Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug.
 * A bug in the Nova Launcher lets FairEmail crash with a *java.lang.StackOverflowError* when the Nova Launcher has access to the accessibility service.
+* Fast scrolling sometimes triggers a swipe refresh. Unfortunately, there is no way to detect that a fast scroll is in progress and to disable swipe refreshing.
 
 ## Planned features
 
@@ -46,6 +47,7 @@ For authorizing:
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 * ~~Search suggestions~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
+* Generic unified folders
 
 Anything on this list is in random order and *might* be added in the near future.
 
