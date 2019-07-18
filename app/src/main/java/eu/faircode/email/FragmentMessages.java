@@ -1251,13 +1251,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (swipes == null)
                 return;
 
+            Long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
+            if (action == null)
+                return;
+
             AdapterMessage.ViewHolder holder = ((AdapterMessage.ViewHolder) viewHolder);
             Rect rect = holder.getItemRect();
             int margin = Helper.dp2pixels(getContext(), 12);
             int size = Helper.dp2pixels(getContext(), 24);
 
             int icon;
-            long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
             if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
                 icon = R.drawable.baseline_list_24;
             else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
@@ -1312,15 +1315,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
             }
 
+            Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
+            if (action == null) {
+                adapter.notifyDataSetChanged();
+                return;
+            }
+
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
-            Long target = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
-            if (FragmentAccount.SWIPE_ACTION_SEEN.equals(target))
+            if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
                 onActionSeenSelection(!message.ui_seen, message.id);
-            else if (FragmentAccount.SWIPE_ACTION_ASK.equals(target))
+            else if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
                 swipeAsk(message, viewHolder);
             else
-                swipeFolder(message, target);
+                swipeFolder(message, action);
         }
 
         private TupleMessageEx getMessage(@NonNull RecyclerView.ViewHolder viewHolder) {
