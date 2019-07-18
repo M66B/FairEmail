@@ -645,13 +645,6 @@ public class MessageHelper {
 
         subject = MimeUtility.unfold(subject);
         subject = new String(subject.getBytes(StandardCharsets.ISO_8859_1));
-
-        try {
-            subject = MimeUtility.decodeText(subject);
-        } catch (UnsupportedEncodingException ex) {
-            Log.w(ex);
-        }
-
         subject = decodeMime(subject);
 
         return subject;
@@ -769,17 +762,16 @@ public class MessageHelper {
             if (e < 0)
                 break;
 
-            String decode = text.substring(s, e + 2);
+            String encoded = text.substring(s, e + 2);
             try {
-                String decoded = MimeUtility.decodeWord(decode);
-                text = text.substring(0, s) + decoded + text.substring(e + 2);
-                i += decoded.length();
+                String decoded = MimeUtility.decodeWord(encoded);
+                text = text.substring(0, s).replaceAll("[ \t\n\r]$", "") + decoded + text.substring(e + 2);
             } catch (ParseException ex) {
                 Log.w(new IllegalArgumentException(text, ex));
-                i += decode.length();
+                i += encoded.length();
             } catch (UnsupportedEncodingException ex) {
                 Log.w(new IllegalArgumentException(text, ex));
-                i += decode.length();
+                i += encoded.length();
             }
         }
 
