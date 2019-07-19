@@ -99,6 +99,7 @@
     <string name="title_setup_quick_imap">Server IMAP pentru primire mesaje</string>
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_go">Start</string>
+    <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
@@ -273,6 +274,7 @@
     <string name="title_account_interval_hint">Frecvența de actualizare a conexiunii pentru mesaje push sau frecventa de verificare de mesaje noi</string>
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>
     <string name="title_account_signature">Text semnătură</string>
+    <string name="title_color">Culoare</string>
     <string name="title_account_notify">Separă notificările</string>
     <string name="title_account_left">Glisare spre stânga</string>
     <string name="title_account_right">Glisare spre dreapta</string>
@@ -447,6 +449,7 @@
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
     <string name="title_send_at">Trimite la &#8230;</string>
+    <string name="title_no_server">Nu există un server la \'%1$s\'</string>
     <string name="title_style_bold">Îngroșat</string>
     <string name="title_style_italic">Cursiv</string>
     <string name="title_style_underline">Subliniere</string>
@@ -656,6 +659,8 @@
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
     <string name="title_enable">Activează</string>
+    <string name="title_executing">Se execută</string>
+    <string name="title_completed">Finalizat</string>
     <string name="title_ask_what">Întreabă ce să faci</string>
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
@@ -668,6 +673,7 @@
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>
     <string name="title_pro_purchase">Cumpără</string>
+    <string name="title_pro_once">Doar o dată</string>
     <string name="title_pro_hint">Cumpărarea caracteristicilor Pro vă va permite să utilizați toate caracteristicile actuale cât și cele viitoare, și ajută la dezvoltarea acestei aplicații</string>
     <string name="title_pro_price">Vizitați <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">acestă pagină</a> pentru a afla despre prețurile caracteristicilor Pro</string>
     <string name="title_pro_pending">Achiziție în așteptare</string>
@@ -683,12 +689,12 @@
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
-        <item>Every 15 minutes</item>
-        <item>Every 30 minutes</item>
-        <item>Every hour</item>
-        <item>Every 2 hours</item>
-        <item>Every 4 hours</item>
-        <item>Every 8 hours</item>
+        <item>La fiecare 15 minute</item>
+        <item>La fiecare 30 de minute</item>
+        <item>La fiecare oră</item>
+        <item>La fiecare 2 ore</item>
+        <item>La fiecare 4 ore</item>
+        <item>La fiecare 8 ore</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Fără</item>
