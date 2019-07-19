@@ -567,6 +567,7 @@
     <string name="title_legend_closing">Sluiten</string>
     <string name="title_legend_waiting">Wachten op volgende synchronisatie</string>
     <string name="title_legend_unified">Gecombineerd postvak in / primaire account</string>
+    <string name="title_legend_shared">Gecombineerde map</string>
     <string name="title_legend_inbox">Postvak in</string>
     <string name="title_legend_drafts">Concepten</string>
     <string name="title_legend_sent">Verzonden</string>
