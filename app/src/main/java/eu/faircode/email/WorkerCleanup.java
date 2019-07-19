@@ -33,7 +33,6 @@ import androidx.work.WorkerParameters;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -61,26 +60,6 @@ public class WorkerCleanup extends Worker {
         DB db = DB.getInstance(context);
         try {
             Log.i("Start cleanup manual=" + manual);
-
-            // Cleanup folders
-            Log.i("Cleanup kept messages");
-            for (EntityFolder folder : db.folder().getFolders()) {
-                Calendar cal_keep = Calendar.getInstance();
-                cal_keep.add(Calendar.DAY_OF_MONTH, -folder.keep_days);
-                cal_keep.set(Calendar.HOUR_OF_DAY, 12);
-                cal_keep.set(Calendar.MINUTE, 0);
-                cal_keep.set(Calendar.SECOND, 0);
-                cal_keep.set(Calendar.MILLISECOND, 0);
-
-                long keep_time = cal_keep.getTimeInMillis();
-                if (keep_time < 0)
-                    keep_time = 0;
-
-                int messages = db.message().deleteMessagesBefore(folder.id, keep_time, false);
-                if (messages > 0)
-                    Log.i("Cleanup folder=" + folder.account + "/" + folder.name +
-                            " before=" + new Date(keep_time) + " deleted=" + messages);
-            }
 
             if (manual) {
                 // Check message files
