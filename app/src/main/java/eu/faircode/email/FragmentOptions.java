@@ -39,7 +39,7 @@ public class FragmentOptions extends FragmentBase {
 
     static String[] OPTIONS_RESTART = new String[]{
             "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic", "flags", "preview",
-            "addresses", "attachments_alt", "contrast", "monospaced", "autohtml", "autoimages", "actionbar",
+            "addresses", "attachments_alt", "contrast", "monospaced", "autohtml", "autoimages", "actionbar", "unified_system",
             "autoscroll", "swipenav", "autoexpand", "autoclose", "autonext",
             "subscriptions", "debug",
             "biometrics"

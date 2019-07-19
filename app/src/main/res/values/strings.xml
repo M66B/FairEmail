@@ -224,6 +224,7 @@
     <string name="title_advanced_collapse_quotes">Collapse quoted text</string>
     <string name="title_advanced_remote_content">Automatically show remote content when viewing original messages</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>
+    <string name="title_advanced_unified_system">Show unified folders in navigation menu</string>
 
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
     <string name="title_advanced_autoscroll">Scroll to top on receiving new messages</string>
