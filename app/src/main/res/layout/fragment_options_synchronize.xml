@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_pro_feature"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?android:attr/textColorLink"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvScheduleHint" />
 
