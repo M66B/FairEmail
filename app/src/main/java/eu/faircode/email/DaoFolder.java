@@ -159,6 +159,7 @@ public interface DaoFolder {
             " JOIN account ON account.id = folder.account" +
             " WHERE folder.synchronize" +
             " AND account.synchronize" +
+            " AND folder.type <> '" + EntityFolder.USER + "'" +
             " GROUP BY folder.type" +
             " HAVING COUNT(folder.id) > 1")
     LiveData<List<String>> liveUnifiedTypes();
