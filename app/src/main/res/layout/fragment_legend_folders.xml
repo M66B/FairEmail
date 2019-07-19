@@ -40,13 +40,35 @@
                 app:layout_constraintTop_toTopOf="@id/ivType" />
 
             <ImageView
+                android:id="@+id/ivShared"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/title_legend_shared"
+                android:padding="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivType"
+                app:srcCompat="@drawable/baseline_folder_shared_24" />
+
+            <TextView
+                android:id="@+id/tvShared"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:text="@string/title_legend_shared"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/ivShared"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivShared"
+                app:layout_constraintTop_toTopOf="@id/ivShared" />
+
+            <ImageView
                 android:id="@+id/ivInbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_inbox"
                 android:padding="12dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivType"
+                app:layout_constraintTop_toBottomOf="@id/ivShared"
                 app:srcCompat="@drawable/baseline_inbox_24" />
 
             <TextView
