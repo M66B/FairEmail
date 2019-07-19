@@ -12,13 +12,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUnified"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvAccount" />
+
     <View
         android:id="@+id/vSeparatorAccount"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/colorSeparator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvAccount" />
+        app:layout_constraintTop_toBottomOf="@id/rvUnified" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFolder"
@@ -57,9 +65,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/title_legend_expander"
-        app:srcCompat="@drawable/expander"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorMenu" />
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorMenu"
+        app:srcCompat="@drawable/expander" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMenuExtra"

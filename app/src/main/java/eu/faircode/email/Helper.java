@@ -407,6 +407,14 @@ public class Helper {
                 text.removeSpan(span);
     }
 
+    static String localizeFolderType(Context context, String type) {
+        int resid = context.getResources().getIdentifier(
+                "title_folder_" + type.toLowerCase(),
+                "string",
+                context.getPackageName());
+        return (resid > 0 ? context.getString(resid) : type);
+    }
+
     static String localizeFolderName(Context context, String name) {
         if (name != null && "INBOX".equals(name.toUpperCase()))
             return context.getString(R.string.title_folder_inbox);

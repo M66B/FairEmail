@@ -54,7 +54,8 @@ public interface DaoMessage {
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
-            ", MAX(CASE WHEN :found OR folder.unified THEN message.received ELSE 0 END) AS dummy" +
+            ", MAX(CASE WHEN :found OR CASE WHEN type IS NULL THEN folder.unified ELSE folder.type = :type END" +
+            "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -63,7 +64,9 @@ public interface DaoMessage {
             " AND (message.ui_hide = 0 OR :debug)" +
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " HAVING (:found OR SUM(folder.unified) > 0)" +
+            " HAVING (:found OR" +
+            "   CASE WHEN :type IS NULL THEN SUM(folder.unified) > 0" +
+            "   ELSE SUM(CASE WHEN folder.type = :type THEN 1 ELSE 0 END) > 0 END)" +
             " AND (NOT :filter_seen OR " + unseen_unified + " > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_unified + " > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL)" +
@@ -78,7 +81,8 @@ public interface DaoMessage {
             "  ELSE 0" +
             " END, message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    DataSource.Factory<Integer, TupleMessageEx> pagedUnifiedInbox(
+    DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
+            String type,
             boolean threading,
             String sort,
             boolean filter_seen, boolean filter_unflagged, boolean filter_snoozed,

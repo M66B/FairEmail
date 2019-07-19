@@ -177,6 +177,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
 
+    private String type;
     private long account;
     private long folder;
     private boolean server;
@@ -284,6 +285,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         // Get arguments
         Bundle args = getArguments();
+        type = args.getString("type");
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
         server = args.getBoolean("server", false);
@@ -526,7 +528,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         String sort = prefs.getString("sort", "time");
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
 
-        adapter = new AdapterMessage(this, viewType, compact, zoom, sort, filter_duplicates, iProperties);
+        adapter = new AdapterMessage(this, type, viewType, compact, zoom, sort, filter_duplicates, iProperties);
         rvMessage.setAdapter(adapter);
 
         seekBar.setOnTouchListener(new View.OnTouchListener() {
@@ -901,6 +903,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         swipeRefresh.setOnChildScrollUpCallback(new SwipeRefreshLayout.OnChildScrollUpCallback() {
             @Override
             public boolean canChildScrollUp(@NonNull SwipeRefreshLayout parent, @Nullable View child) {
+                if (type != null)
+                    return true;
                 if (viewType != AdapterMessage.ViewType.UNIFIED && viewType != AdapterMessage.ViewType.FOLDER)
                     return true;
                 if (!prefs.getBoolean("pull", true))
@@ -2624,7 +2628,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Get name
         String name;
         if (viewType == AdapterMessage.ViewType.UNIFIED)
-            name = getString(R.string.title_folder_unified);
+            if (type == null)
+                name = getString(R.string.title_folder_unified);
+            else
+                name = Helper.localizeFolderType(getContext(), type);
         else
             name = (folders.size() > 0 ? folders.get(0).getDisplayName(getContext()) : "");
 
@@ -2709,7 +2716,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ViewModelMessages.Model vmodel = model.getModel(
                 getContext(), getViewLifecycleOwner(),
-                viewType, account, folder, thread, id, query, server);
+                viewType, type, account, folder, thread, id, query, server);
 
         vmodel.setCallback(callback);
         vmodel.setObserver(getViewLifecycleOwner(), observer);

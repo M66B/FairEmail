@@ -248,13 +248,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (listener == null && folder.selectable) {
                 if (account < 0)
                     tvType.setText(folder.accountName);
-                else {
-                    int resid = context.getResources().getIdentifier(
-                            "title_folder_" + folder.type.toLowerCase(),
-                            "string",
-                            context.getPackageName());
-                    tvType.setText(resid > 0 ? context.getString(resid) : folder.type);
-                }
+                else
+                    tvType.setText(Helper.localizeFolderType(context, folder.type));
 
                 tvTotal.setText(folder.total == null ? "" : nf.format(folder.total));
 

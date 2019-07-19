@@ -154,6 +154,15 @@ public interface DaoFolder {
             " AND type <> '" + EntityFolder.USER + "'")
     List<EntityFolder> getSystemFolders(long account);
 
+    @Query("SELECT folder.type" +
+            " FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE folder.synchronize" +
+            " AND account.synchronize" +
+            " GROUP BY folder.type" +
+            " HAVING COUNT(folder.id) > 1")
+    LiveData<List<String>> liveUnifiedTypes();
+
     @Query("SELECT * FROM folder WHERE id = :id")
     EntityFolder getFolder(Long id);
 

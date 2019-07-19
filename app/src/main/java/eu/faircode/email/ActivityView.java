@@ -85,6 +85,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
     private RecyclerView rvAccount;
+    private RecyclerView rvUnified;
     private RecyclerView rvFolder;
     private RecyclerView rvMenu;
     private ImageView ivExpander;
@@ -153,6 +154,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvAccount.setLayoutManager(new LinearLayoutManager(this));
         final AdapterNavAccount aadapter = new AdapterNavAccount(this, this);
         rvAccount.setAdapter(aadapter);
+
+        rvUnified = drawerContainer.findViewById(R.id.rvUnified);
+        rvUnified.setLayoutManager(new LinearLayoutManager(this));
+        final AdapterNavUnified uadapter = new AdapterNavUnified(this, this);
+        rvUnified.setAdapter(uadapter);
 
         rvFolder = drawerContainer.findViewById(R.id.rvFolder);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));
@@ -349,6 +355,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (accounts == null)
                     accounts = new ArrayList<>();
                 aadapter.set(accounts);
+            }
+        });
+
+        db.folder().liveUnifiedTypes().observe(this, new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> types) {
+                if (types == null)
+                    types = new ArrayList<>();
+                uadapter.set(types);
             }
         });
 
@@ -946,6 +961,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
+        args.putString("type", intent.getStringExtra("type"));
         args.putLong("account", intent.getLongExtra("account", -1));
         args.putLong("folder", intent.getLongExtra("folder", -1));
 

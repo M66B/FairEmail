@@ -56,10 +56,11 @@ public class ViewModelMessages extends ViewModel {
     Model getModel(
             final Context context, final LifecycleOwner owner,
             final AdapterMessage.ViewType viewType,
-            long account, long folder, String thread, long id,
+            String type, long account, long folder,
+            String thread, long id,
             String query, boolean server) {
 
-        Args args = new Args(context, account, folder, thread, id, query, server);
+        Args args = new Args(context, type, account, folder, thread, id, query, server);
         Log.i("Get model=" + viewType + " " + args);
         dump();
 
@@ -84,7 +85,8 @@ public class ViewModelMessages extends ViewModel {
             switch (viewType) {
                 case UNIFIED:
                     builder = new LivePagedListBuilder<>(
-                            db.message().pagedUnifiedInbox(
+                            db.message().pagedUnified(
+                                    args.type,
                                     args.threading,
                                     args.sort,
                                     args.filter_seen, args.filter_unflagged, args.filter_snoozed,
@@ -125,7 +127,8 @@ public class ViewModelMessages extends ViewModel {
                             .build();
                     if (args.folder < 0)
                         builder = new LivePagedListBuilder<>(
-                                db.message().pagedUnifiedInbox(
+                                db.message().pagedUnified(
+                                        null,
                                         args.threading,
                                         "time",
                                         false, false, false,
@@ -258,6 +261,7 @@ public class ViewModelMessages extends ViewModel {
 
     private class Args {
         private long account;
+        private String type;
         private long folder;
         private String thread;
         private long id;
@@ -272,9 +276,11 @@ public class ViewModelMessages extends ViewModel {
         private boolean debug;
 
         Args(Context context,
-             long account, long folder, String thread, long id,
+             String type, long account, long folder,
+             String thread, long id,
              String query, boolean server) {
 
+            this.type = type;
             this.account = account;
             this.folder = folder;
             this.thread = thread;
@@ -295,7 +301,8 @@ public class ViewModelMessages extends ViewModel {
         public boolean equals(@Nullable Object obj) {
             if (obj instanceof Args) {
                 Args other = (Args) obj;
-                return (this.account == other.account &&
+                return (Objects.equals(this.type, other.type) &&
+                        this.account == other.account &&
                         this.folder == other.folder &&
                         Objects.equals(this.thread, other.thread) &&
                         this.id == other.id &&
@@ -315,7 +322,8 @@ public class ViewModelMessages extends ViewModel {
         @NonNull
         @Override
         public String toString() {
-            return "folder=" + account + ":" + folder + " thread=" + thread + ":" + id +
+            return "folder=" + type + ":" + account + ":" + folder +
+                    " thread=" + thread + ":" + id +
                     " query=" + query + ":" + server + "" +
                     " threading=" + threading +
                     " sort=" + sort +

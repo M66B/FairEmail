@@ -146,6 +146,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHolder> {
     private Fragment parentFragment;
+    private String type;
     private ViewType viewType;
     private boolean compact;
     private int zoom;
@@ -669,11 +670,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (viewType == ViewType.FOLDER)
                 tvFolder.setText(message.accountName);
-            else {
+            else if (type == null) {
                 String folderName = (message.folderDisplay == null
                         ? Helper.localizeFolderName(context, message.folderName)
                         : message.folderDisplay);
                 tvFolder.setText((compact ? "" : message.accountName + "/") + folderName);
+            } else {
+                String folderName = (message.folderDisplay == null
+                        ? Helper.localizeFolderName(context, message.folderName)
+                        : message.folderDisplay);
+                tvFolder.setText(message.accountName + "/" + folderName);
             }
             tvFolder.setVisibility(compact &&
                     (viewType == ViewType.FOLDER ||
@@ -2886,9 +2892,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     AdapterMessage(Fragment parentFragment,
-                   ViewType viewType, boolean compact, int zoom, String sort, boolean filter_duplicates,
+                   String type, ViewType viewType,
+                   boolean compact, int zoom, String sort, boolean filter_duplicates,
                    final IProperties properties) {
         this.parentFragment = parentFragment;
+        this.type = type;
         this.viewType = viewType;
         this.compact = compact;
         this.zoom = zoom;
