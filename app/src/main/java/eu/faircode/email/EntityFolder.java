@@ -195,6 +195,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         jargs.put(keep_days);
         jargs.put(download);
         jargs.put(auto_delete);
+        jargs.put(initialize);
 
         return jargs;
     }

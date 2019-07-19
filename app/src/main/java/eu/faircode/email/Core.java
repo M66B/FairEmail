@@ -962,6 +962,7 @@ class Core {
             int keep_days = jargs.getInt(1);
             boolean download = jargs.optBoolean(2, false);
             boolean auto_delete = jargs.optBoolean(3, false);
+            int initialize = jargs.optInt(4, folder.initialize);
 
             if (keep_days == sync_days && keep_days != Integer.MAX_VALUE)
                 keep_days++;
@@ -1238,7 +1239,7 @@ class Core {
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
 
-            if (download && folder.initialize == 0) {
+            if (download && initialize == 0) {
                 db.folder().setFolderSyncState(folder.id, "downloading");
 
                 // Download messages/attachments
@@ -1275,7 +1276,8 @@ class Core {
                 }
             }
 
-            if (state.running && folder.initialize != 0) {
+            if (state.running && initialize != 0) {
+                jargs.put(4, 0);
                 folder.initialize = 0;
                 db.folder().setFolderInitialize(folder.id, 0);
 
