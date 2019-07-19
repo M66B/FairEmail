@@ -410,16 +410,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
                         case R.string.title_synchronize_now:
-                            Bundle args = new Bundle();
-                            args.putLong("folder", folder.id);
-                            args.putBoolean("all", false);
-                            Intent data = new Intent();
-                            data.putExtra("args", args);
-                            parentFragment.onActivityResult(FragmentFolders.REQUEST_SYNC, RESULT_OK, data);
+                            onActionSync();
                             return true;
 
                         case R.string.title_synchronize_all:
-                            onActionSynchronizeAll();
+                            onActionSynAll();
                             return true;
 
                         case R.string.title_unified_folder:
@@ -477,7 +472,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     }
                 }
 
-                private void onActionSynchronizeAll() {
+                private void onActionSync() {
+                    Bundle args = new Bundle();
+                    args.putLong("folder", folder.id);
+                    args.putBoolean("all", false);
+                    Intent data = new Intent();
+                    data.putExtra("args", args);
+                    parentFragment.onActivityResult(FragmentFolders.REQUEST_SYNC, RESULT_OK, data);
+                }
+
+                private void onActionSynAll() {
                     Bundle aargs = new Bundle();
                     aargs.putString("question",
                             context.getString(R.string.title_ask_sync_all, folder.getDisplayName(context)));
