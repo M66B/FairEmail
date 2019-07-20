@@ -358,16 +358,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        boolean unified_system = prefs.getBoolean("unified_system", false);
-        if (unified_system)
-            db.folder().liveUnifiedTypes().observe(this, new Observer<List<String>>() {
-                @Override
-                public void onChanged(List<String> types) {
-                    if (types == null)
-                        types = new ArrayList<>();
-                    uadapter.set(types);
-                }
-            });
+        db.folder().liveUnifiedTypes().observe(this, new Observer<List<String>>() {
+            @Override
+            public void onChanged(List<String> types) {
+                if (types == null)
+                    types = new ArrayList<>();
+                uadapter.set(types);
+            }
+        });
 
         db.folder().liveNavigation().observe(this, new Observer<List<TupleFolderNav>>() {
             @Override

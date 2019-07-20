@@ -339,18 +339,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvRemoteContentHint"
                 app:switchPadding="12dp" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swUnifiedSystem"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="false"
-                android:text="@string/title_advanced_unified_system"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swActionbar"
-                app:switchPadding="12dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

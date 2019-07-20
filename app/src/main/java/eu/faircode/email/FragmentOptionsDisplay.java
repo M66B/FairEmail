@@ -63,12 +63,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swRemoteContent;
     private SwitchCompat swActionbar;
-    private SwitchCompat swUnifiedSystem;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "date", "threading", "avatars", "identicons", "circular", "name_email", "subject_italic",
             "flags", "preview", "addresses", "attachments_alt",
-            "contrast", "monospaced", "inline_images", "autoimages", "collapse_quotes", "autocontent", "actionbar", "unified_system"
+            "contrast", "monospaced", "inline_images", "autoimages", "collapse_quotes", "autocontent", "actionbar",
     };
 
     @Override
@@ -101,7 +100,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swRemoteContent = view.findViewById(R.id.swRemoteContent);
         swActionbar = view.findViewById(R.id.swActionbar);
-        swUnifiedSystem = view.findViewById(R.id.swUnifiedSystem);
 
         setOptions();
 
@@ -258,13 +256,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swUnifiedSystem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("unified_system", checked).apply();
-            }
-        });
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -338,7 +329,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swRemoteContent.setChecked(prefs.getBoolean("autocontent", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
-        swUnifiedSystem.setChecked(prefs.getBoolean("unified_system", false));
     }
 
     public static class FragmentDialogTheme extends DialogFragmentEx {
