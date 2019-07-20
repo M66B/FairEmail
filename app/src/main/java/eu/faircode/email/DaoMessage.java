@@ -54,8 +54,7 @@ public interface DaoMessage {
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
-            ", MAX(CASE WHEN :found OR CASE WHEN type IS NULL THEN folder.unified ELSE folder.type = :type END" +
-            "   THEN message.received ELSE 0 END) AS dummy" +
+            ", MAX(CASE WHEN :found OR (:type IS NULL AND folder.unified) OR folder.type = :type THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
