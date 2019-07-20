@@ -85,11 +85,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
     private RecyclerView rvAccount;
+    private ImageView ivExpanderUnified;
     private RecyclerView rvUnified;
     private RecyclerView rvFolder;
     private RecyclerView rvMenu;
-    private ImageView ivExpander;
+    private ImageView ivExpanderExtra;
     private RecyclerView rvMenuExtra;
+    private Group grpUnified;
 
     private boolean exit = false;
     private boolean searching = false;
@@ -155,10 +157,30 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final AdapterNavAccount aadapter = new AdapterNavAccount(this, this);
         rvAccount.setAdapter(aadapter);
 
+        ivExpanderUnified = drawerContainer.findViewById(R.id.ivExpanderUnified);
+        ivExpanderUnified.setVisibility(View.GONE);
+
+        grpUnified = drawerContainer.findViewById(R.id.grpUnified);
+        grpUnified.setVisibility(View.GONE);
+
         rvUnified = drawerContainer.findViewById(R.id.rvUnified);
         rvUnified.setLayoutManager(new LinearLayoutManager(this));
         final AdapterNavUnified uadapter = new AdapterNavUnified(this, this);
         rvUnified.setAdapter(uadapter);
+
+        boolean unified_system = prefs.getBoolean("unified_system", false);
+        ivExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
+        grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
+
+        ivExpanderUnified.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean unified_system = !prefs.getBoolean("unified_system", false);
+                prefs.edit().putBoolean("unified_system", unified_system).apply();
+                ivExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
+                grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
+            }
+        });
 
         rvFolder = drawerContainer.findViewById(R.id.rvFolder);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));
@@ -170,7 +192,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final AdapterNavMenu madapter = new AdapterNavMenu(this, this);
         rvMenu.setAdapter(madapter);
 
-        ivExpander = drawerContainer.findViewById(R.id.ivExpander);
+        ivExpanderExtra = drawerContainer.findViewById(R.id.ivExpanderExtra);
 
         rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -191,16 +213,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvMenuExtra.addItemDecoration(itemDecorator);
 
         boolean minimal = prefs.getBoolean("minimal", false);
+        ivExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
         rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
-        ivExpander.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
 
-        ivExpander.setOnClickListener(new View.OnClickListener() {
+        ivExpanderExtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean minimal = !prefs.getBoolean("minimal", false);
                 prefs.edit().putBoolean("minimal", minimal).apply();
+                ivExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
                 rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
-                ivExpander.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
+                if (!minimal)
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            drawerContainer.fullScroll(View.FOCUS_DOWN);
+                        }
+                    });
             }
         });
 
@@ -363,6 +392,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(List<String> types) {
                 if (types == null)
                     types = new ArrayList<>();
+                ivExpanderUnified.setVisibility(types.size() > 0 ? View.VISIBLE : View.GONE);
+                boolean unified_system = prefs.getBoolean("unified_system", false);
+                grpUnified.setVisibility(unified_system && types.size() > 0 ? View.VISIBLE : View.GONE);
                 uadapter.set(types);
             }
         });
