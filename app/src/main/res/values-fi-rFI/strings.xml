@@ -567,6 +567,7 @@
     <string name="title_legend_closing">Suljetaan</string>
     <string name="title_legend_waiting">Odotetaan seuraavaa synkronointia</string>
     <string name="title_legend_unified">Yhdistetty saapuneet-kansio / ensisijainen tili</string>
+    <string name="title_legend_shared">Yhdistetty kansio</string>
     <string name="title_legend_inbox">Saapuneet</string>
     <string name="title_legend_drafts">Luonnokset</string>
     <string name="title_legend_sent">Lähetetty</string>

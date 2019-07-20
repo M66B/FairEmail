@@ -566,6 +566,7 @@
     <string name="title_legend_closing">Chiusura</string>
     <string name="title_legend_waiting">In attesa della prossima sincronizzazione</string>
     <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
+    <string name="title_legend_shared">Cartella unificata</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
     <string name="title_legend_drafts">Bozze</string>
     <string name="title_legend_sent">Inviato</string>

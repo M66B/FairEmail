@@ -344,7 +344,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_display_name">Prikaži ime</string>
     <string name="title_show_folders">Prikaži skrivene mape</string>
     <string name="title_hide_folder">Sakrij mapu</string>
-    <string name="title_unified_folder">Prikaži u objedinjenoj ulaznoj pošti</string>
+    <string name="title_unified_folder">Prikaži u objedinjenoj ulaznom spremniku</string>
     <string name="title_navigation_folder">Prikaži u navigacijskom izborniku</string>
     <string name="title_synchronize_folder">Sinkroniziranje (primanje poruka)</string>
     <string name="title_poll_folder">Povremeno provjeravanje umjesto kontinuirane sinkronizacije</string>
@@ -359,7 +359,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_folder_name_missing">Nedostaje naziv mape</string>
     <string name="title_folder_exists">Postoji mapa %1$s</string>
     <string name="title_folder_delete">Trajno izbrisati ovu mapu i sve poruke koje sadrži?</string>
-    <string name="title_folder_unified">Jedinstveni ulazni spremnik</string>
+    <string name="title_folder_unified">Objedinjeni ulazni spremnik</string>
     <string name="title_folder_inbox">Ulazni spremnik</string>
     <string name="title_folder_outbox">Odlazni spremnik</string>
     <string name="title_folder_all">Arhiva</string>
@@ -371,7 +371,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_folder_user">Korisnik</string>
     <string name="title_folder_primary">Mapa primarnog računa</string>
     <string name="title_folder_thread">Konverzacija %1$s</string>
-    <string name="title_folders_unified">Mape jedinstvenog ulaznog spremnika</string>
+    <string name="title_folders_unified">Mape objedinjenog ulaznog spremnika</string>
     <string name="title_no_messages">Nema poruka</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Npr: %1$s</string>
@@ -573,7 +573,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_downloading">Preuzimanje</string>
     <string name="title_legend_closing">Zatvaranje</string>
     <string name="title_legend_waiting">Čeka se sljedeća sinkronizacija</string>
-    <string name="title_legend_unified">Ujedinjen spremnik / primarni račun</string>
+    <string name="title_legend_unified">Objedinjeni spremnik / primarni račun</string>
+    <string name="title_legend_shared">Objedinjena mapa</string>
     <string name="title_legend_inbox">Ulazni spremnik</string>
     <string name="title_legend_drafts">Skice</string>
     <string name="title_legend_sent">Poslano</string>
@@ -713,8 +714,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
         <item>10 minuta</item>
     </string-array>
     <string-array name="startupNames">
-        <item>Jedinstveni ulazni spremnik</item>
-        <item>Mape jedinstvenog ulaznog spremnika</item>
+        <item>Objedinjeni ulazni spremnik</item>
+        <item>Mape objedinjenog ulaznog spremnika</item>
         <item>Korisnički Računi</item>
     </string-array>
     <string-array name="downloadNames">
