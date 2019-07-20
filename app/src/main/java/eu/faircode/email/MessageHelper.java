@@ -901,10 +901,6 @@ public class MessageHelper {
                 if (TextUtils.isEmpty(charset) || "US-ASCII".equals(charset.toUpperCase())) {
                     // The first 127 characters are the same as in US-ASCII
                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
-                } else if (encoding != null && "8bit".equals(encoding.toLowerCase()) &&
-                        "ISO-8859-1".equals(charset.toUpperCase())) {
-                    // Workaround JavaMail bug
-                    result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                 } else {
                     if ("US-ASCII".equals(Charset.forName(charset).name()))
                         warnings.add(context.getString(R.string.title_no_charset, charset));
