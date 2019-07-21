@@ -1794,12 +1794,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     for (long id : selected) {
                         EntityMessage message = db.message().getMessage(id);
-                        if (message != null) {
-                            List<EntityMessage> messages = db.message().getMessageByThread(
-                                    message.account, message.thread, threading ? null : id, message.folder);
-                            for (EntityMessage threaded : messages)
-                                ids.add(threaded.id);
-                        }
+                        if (message != null && message.uid != null)
+                            ids.add(message.id);
                     }
 
                     db.setTransactionSuccessful();
