@@ -52,6 +52,9 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_pro);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean debug = prefs.getBoolean("debug", false);
+
         View view = inflater.inflate(R.layout.fragment_pro, container, false);
 
         tvPending = view.findViewById(R.id.tvPending);
@@ -89,7 +92,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnPurchase.setEnabled(false);
         tvPrice.setText(null);
         btnCheck.setEnabled(false);
-        btnCheck.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.VISIBLE : View.GONE);
+        btnCheck.setVisibility(Helper.isPlayStoreInstall(getContext()) && debug ? View.VISIBLE : View.GONE);
 
         return view;
     }
