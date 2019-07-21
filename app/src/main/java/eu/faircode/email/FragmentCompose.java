@@ -2078,6 +2078,12 @@ public class FragmentCompose extends FragmentBase {
                                 draft.subject = context.getString(R.string.title_subject_reply, subject);
                             else
                                 draft.subject = ref.subject;
+                        } else if ("forward".equals(action)) {
+                            String fwd = context.getString(R.string.title_subject_forward, "");
+                            if (!prefix_once || !subject.startsWith(fwd.trim()))
+                                draft.subject = context.getString(R.string.title_subject_forward, subject);
+                            else
+                                draft.subject = ref.subject;
                         } else if ("editasnew".equals(action)) {
                             draft.subject = ref.subject;
                             if (ref.content) {
@@ -2086,12 +2092,6 @@ public class FragmentCompose extends FragmentBase {
                                 if (document.body() != null)
                                     body = document.body().html();
                             }
-                        } else if ("forward".equals(action)) {
-                            String fwd = context.getString(R.string.title_subject_forward, "");
-                            if (!prefix_once || !subject.startsWith(fwd.trim()))
-                                draft.subject = context.getString(R.string.title_subject_forward, subject);
-                            else
-                                draft.subject = ref.subject;
                         } else if ("list".equals(action)) {
                             draft.subject = ref.subject;
                         } else if ("receipt".equals(action)) {
