@@ -157,8 +157,7 @@ public interface DaoFolder {
     @Query("SELECT folder.type" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " WHERE folder.synchronize" +
-            " AND account.synchronize" +
+            " WHERE account.synchronize" +
             " AND folder.type <> '" + EntityFolder.USER + "'" +
             " GROUP BY folder.type" +
             " HAVING COUNT(folder.id) > 1")
