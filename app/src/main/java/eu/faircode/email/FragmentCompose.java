@@ -3395,6 +3395,7 @@ public class FragmentCompose extends FragmentBase {
             }.execute(getContext(), getActivity(), new Bundle(), "compose:answer");
 
             return new AlertDialog.Builder(getContext())
+                    .setTitle(R.string.title_insert_template)
                     .setAdapter(adapter, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
