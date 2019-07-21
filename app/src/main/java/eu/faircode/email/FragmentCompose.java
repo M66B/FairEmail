@@ -2019,8 +2019,17 @@ public class FragmentCompose extends FragmentBase {
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(db, answer, null) + body;
                     } else {
+                        // Actions:
+                        // - reply
+                        // - reply_all
+                        // - forward
+                        // - editasnew
+                        // - list
+                        // - receipt
+                        // - participation
                         if ("reply".equals(action) || "reply_all".equals(action) ||
-                                "list".equals(action) || "receipt".equals(action) ||
+                                "list".equals(action) ||
+                                "receipt".equals(action) ||
                                 "participation".equals(action)) {
                             if (ref.to != null && ref.to.length > 0) {
                                 String to = ((InternetAddress) ref.to[0]).getAddress();
@@ -2069,8 +2078,6 @@ public class FragmentCompose extends FragmentBase {
                                 draft.subject = context.getString(R.string.title_subject_reply, subject);
                             else
                                 draft.subject = ref.subject;
-                        } else if ("list".equals(action)) {
-                            draft.subject = ref.subject;
                         } else if ("editasnew".equals(action)) {
                             draft.subject = ref.subject;
                             if (ref.content) {
@@ -2079,6 +2086,14 @@ public class FragmentCompose extends FragmentBase {
                                 if (document.body() != null)
                                     body = document.body().html();
                             }
+                        } else if ("forward".equals(action)) {
+                            String fwd = context.getString(R.string.title_subject_forward, "");
+                            if (!prefix_once || !subject.startsWith(fwd.trim()))
+                                draft.subject = context.getString(R.string.title_subject_forward, subject);
+                            else
+                                draft.subject = ref.subject;
+                        } else if ("list".equals(action)) {
+                            draft.subject = ref.subject;
                         } else if ("receipt".equals(action)) {
                             draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
@@ -2089,12 +2104,6 @@ public class FragmentCompose extends FragmentBase {
                             body = "<p>" + context.getString(R.string.title_receipt_text) + "</p>";
                             if (!Locale.getDefault().getLanguage().equals("en"))
                                 body += "<p>" + res.getString(R.string.title_receipt_text) + "</p>";
-                        } else if ("forward".equals(action)) {
-                            String fwd = context.getString(R.string.title_subject_forward, "");
-                            if (!prefix_once || !subject.startsWith(fwd.trim()))
-                                draft.subject = context.getString(R.string.title_subject_forward, subject);
-                            else
-                                draft.subject = ref.subject;
                         }
 
                         draft.plain_only = ref.plain_only;
@@ -2183,7 +2192,9 @@ public class FragmentCompose extends FragmentBase {
 
                     // Write reference text
                     if (ref != null && ref.content &&
-                            !"editasnew".equals(action) && !"list".equals(action) && !"receipt".equals(action)) {
+                            !"editasnew".equals(action) &&
+                            !"list".equals(action) &&
+                            !"receipt".equals(action)) {
                         String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date(ref.received).toString()),
                                 Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),
