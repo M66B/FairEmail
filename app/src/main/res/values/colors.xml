@@ -13,9 +13,6 @@
     <color name="colorActionForeground">#fff</color>
     <color name="colorActionForegroundDisabled">#ccc</color>
 
-    <color name="colorPrimaryButtonForeground">#fff</color>
-    <color name="colorPrimaryButtonBackground">#039be5</color>
-
     <color name="colorToastForeground">#fff</color>
     <color name="colorToastBackground">#006db3</color>
 
