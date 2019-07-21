@@ -374,6 +374,7 @@
     <string name="title_flag_color">Lisää värillinen tähti &#8230;</string>
     <string name="title_unflag">Poista tähti</string>
     <string name="title_forward">Lähetä edelleen</string>
+    <string name="title_editasnew">Muokkaa uutena</string>
     <string name="title_create_rule">Luo sääntö &#8230;</string>
     <string name="title_share">Jaa</string>
     <string name="title_print">Tulosta</string>
