@@ -196,19 +196,19 @@ public class Log {
                     HtmlHelper.getPreview(body),
                     null);
 
+            attachSettings(context, draft.id, 1);
+            attachAccounts(context, draft.id, 2);
+            attachNetworkInfo(context, draft.id, 3);
+            attachLog(context, draft.id, 4);
+            attachOperations(context, draft.id, 5);
+            attachLogcat(context, draft.id, 6);
+
+            EntityOperation.queue(context, draft, EntityOperation.ADD);
+
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
-
-        attachSettings(context, draft.id, 1);
-        attachAccounts(context, draft.id, 2);
-        attachNetworkInfo(context, draft.id, 3);
-        attachLog(context, draft.id, 4);
-        attachOperations(context, draft.id, 5);
-        attachLogcat(context, draft.id, 6);
-
-        EntityOperation.queue(context, draft, EntityOperation.ADD);
 
         return draft;
     }
