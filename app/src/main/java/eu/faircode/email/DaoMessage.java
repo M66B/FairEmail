@@ -436,6 +436,9 @@ public interface DaoMessage {
             " WHERE id = :id")
     int setMessageSnoozed(long id, Long wakeup);
 
+    @Query("UPDATE message SET notifying = 0")
+    int clearNotifyingMessages();
+
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 

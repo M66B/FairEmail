@@ -1387,6 +1387,9 @@ public class ServiceSynchronize extends LifecycleService {
                     try {
                         DB db = DB.getInstance(context);
 
+                        // Restore notifications
+                        db.message().clearNotifyingMessages();
+
                         // Restore snooze timers
                         for (EntityMessage message : db.message().getSnoozed())
                             EntityMessage.snooze(context, message.id, message.ui_snoozed);
