@@ -390,6 +390,7 @@
     <string name="title_flag_color">Barevná hvězdička &#8230;</string>
     <string name="title_unflag">Odebrat hvězdičku</string>
     <string name="title_forward">Přeposlat</string>
+    <string name="title_editasnew">Upravit jako nové</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_share">Sdílet</string>
     <string name="title_print">Tisk</string>
