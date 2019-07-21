@@ -31,6 +31,7 @@ import android.provider.Settings;
 import android.util.Base64;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -48,6 +49,8 @@ import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
 import com.android.billingclient.api.ConsumeResponseListener;
 import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchaseHistoryRecord;
+import com.android.billingclient.api.PurchaseHistoryResponseListener;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
@@ -70,6 +73,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     private List<IBillingListener> listeners = new ArrayList<>();
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
+    static final String ACTION_PURCHASE_CHECK = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_CHECK";
     static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
 
     @Override
@@ -93,6 +97,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_PURCHASE);
+        iff.addAction(ACTION_PURCHASE_CHECK);
         iff.addAction(ACTION_ACTIVATE_PRO);
         lbm.registerReceiver(receiver, iff);
 
@@ -114,6 +119,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         super.onDestroy();
     }
 
+    @NonNull
     static String getSkuPro() {
         if (BuildConfig.DEBUG)
             return "android.test.purchased";
@@ -150,6 +156,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
                 if (ACTION_PURCHASE.equals(intent.getAction()))
                     onPurchase(intent);
+                else if (ACTION_PURCHASE_CHECK.equals(intent.getAction()))
+                    onPurchaseCheck(intent);
                 else if (ACTION_ACTIVATE_PRO.equals(intent.getAction()))
                     onActivatePro(intent);
             }
@@ -171,6 +179,26 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 notifyError(text);
         } else
             Helper.view(this, getIntentPro());
+    }
+
+    private void onPurchaseCheck(Intent intent) {
+        billingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.INAPP, new PurchaseHistoryResponseListener() {
+            @Override
+            public void onPurchaseHistoryResponse(BillingResult result, List<PurchaseHistoryRecord> records) {
+                String text = getBillingResponseText(result);
+                Log.i("IAB history response=" + text);
+
+                if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    for (PurchaseHistoryRecord record : records)
+                        Log.i("IAB history=" + record.toString());
+
+                    queryPurchases();
+
+                    ToastEx.makeText(ActivityBilling.this, R.string.title_setup_done, Toast.LENGTH_LONG).show();
+                } else
+                    notifyError(text);
+            }
+        });
     }
 
     private void onActivatePro(Intent intent) {
@@ -208,6 +236,9 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             Log.i("IAB connected response=" + text);
 
             if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                for (IBillingListener listener : listeners)
+                    listener.onConnected();
+
                 backoff = 4;
                 queryPurchases();
             } else
@@ -216,8 +247,12 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
         @Override
         public void onBillingServiceDisconnected() {
+            for (IBillingListener listener : listeners)
+                listener.onDisconnected();
+
             backoff *= 2;
             Log.i("IAB disconnected retry in " + backoff + " s");
+
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -251,6 +286,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     }
 
     interface IBillingListener {
+        void onConnected();
+
+        void onDisconnected();
+
         void onSkuDetails(String sku, String price);
 
         void onPurchasePending(String sku);
@@ -265,10 +304,13 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         listeners.add(listener);
 
         if (billingClient != null)
-            if (billingClient.isReady())
+            if (billingClient.isReady()) {
+                listener.onConnected();
                 queryPurchases();
-            else
+            } else {
+                listener.onDisconnected();
                 billingClient.startConnection(billingClientStateListener);
+            }
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -294,6 +336,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             for (Purchase purchase : purchases)
                 try {
                     query.remove(purchase.getSku());
+
                     boolean purchased = (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED);
                     long time = purchase.getPurchaseTime();
                     Log.i("IAB SKU=" + purchase.getSku() + " purchased=" + purchased + " time=" + new Date(time));
@@ -312,25 +355,27 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     if (!purchased)
                         continue;
 
-                    byte[] decodedKey = Base64.decode(getString(R.string.public_key), Base64.DEFAULT);
-                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-                    PublicKey publicKey = keyFactory.generatePublic(new X509EncodedKeySpec(decodedKey));
-                    Signature sig = Signature.getInstance("SHA1withRSA");
-                    sig.initVerify(publicKey);
-                    sig.update(purchase.getOriginalJson().getBytes());
-                    if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
-                        if (getSkuPro().equals(purchase.getSku())) {
-                            if (purchase.isAcknowledged()) {
-                                Log.i("IAB valid signature");
-                                editor.putBoolean("pro", true);
-                            } else
-                                acknowledgePurchase(purchase);
-                        }
+                    if (getSkuPro().equals(purchase.getSku())) {
+                        byte[] decodedKey = Base64.decode(getString(R.string.public_key), Base64.DEFAULT);
+                        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+                        PublicKey publicKey = keyFactory.generatePublic(new X509EncodedKeySpec(decodedKey));
+                        Signature sig = Signature.getInstance("SHA1withRSA");
+                        sig.initVerify(publicKey);
+                        sig.update(purchase.getOriginalJson().getBytes());
+                        if (sig.verify(Base64.decode(purchase.getSignature(), Base64.DEFAULT))) {
+                            if (getSkuPro().equals(purchase.getSku())) {
+                                if (purchase.isAcknowledged()) {
+                                    Log.i("IAB valid signature");
+                                    editor.putBoolean("pro", true);
+                                } else
+                                    acknowledgePurchase(purchase);
+                            }
 
-                    } else {
-                        Log.w("IAB invalid signature");
-                        editor.putBoolean("pro", false);
-                        notifyError("Invalid purchase");
+                        } else {
+                            Log.w("IAB invalid signature");
+                            editor.putBoolean("pro", false);
+                            notifyError("Invalid purchase");
+                        }
                     }
                 } catch (Throwable ex) {
                     Log.e(ex);
