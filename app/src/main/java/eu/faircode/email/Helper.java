@@ -71,6 +71,7 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.iap.ConnectionException;
+import com.sun.mail.util.FolderClosedIOException;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -444,7 +445,7 @@ public class Helper {
             if (ex instanceof ConnectionException)
                 return null;
 
-            if (ex instanceof FolderClosedException)
+            if (ex instanceof FolderClosedException || ex instanceof FolderClosedIOException)
                 return null;
 
             if (ex instanceof IllegalStateException &&
