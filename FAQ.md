@@ -194,6 +194,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq114)
 * [(116) How can I show images in messages from trusted senders by default?](#user-content-faq116)
+* [(117) Can you help me restore my purchase?](#user-content-faq117)
 
 [I have another question.](#support)
 
@@ -1965,6 +1966,26 @@ Contacts in the Android contacts list are considered to be known and trusted,
 unless the contact is in the group / has the label '*Untrusted*' (case insensitive).
 
 <br />
+
+<a name="faq117"></a>
+**(117) Can you help me restore my purchase?**
+
+Google manages all purchases, so as developer I have little control over purchases.
+So, the only thing I can do, is give some advice:
+
+* Make sure you have an active internet connection
+* Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
+* Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
+* Open FairEmail and navigate to the pro features screen and press the *Check* button
+
+You can also try to clear the cache of the Play store app via the Android apps settings.
+
+Note that:
+
+* Purchases are stored in the Google cloud and cannot get lost
+* There is no time limit on purchases, so they cannot expire
+* Google does not expose details (name, e-mail, etc) about buyers to developers
+* An application like FairEmail cannot select which Google account to use
 
 ## Support
 
