@@ -2196,6 +2196,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             context.startActivity(forward);
         }
 
+        private void onMenuEditAsNew(final TupleMessageEx message) {
+            Intent asnew = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", "editasnew")
+                    .putExtra("reference", message.id);
+            context.startActivity(asnew);
+        }
+
         private void onMenuUnseen(final TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
@@ -2549,6 +2556,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.inflate(R.menu.menu_message);
 
             popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
+            popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(data.message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
@@ -2585,6 +2593,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     switch (target.getItemId()) {
                         case R.id.menu_forward:
                             onMenuForward(data.message);
+                            return true;
+                        case R.id.menu_editasnew:
+                            onMenuEditAsNew(data.message);
                             return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(data.message);

@@ -432,6 +432,7 @@
     <string name="title_flag_color">Colored star &#8230;</string>
     <string name="title_unflag">Remove star</string>
     <string name="title_forward">Forward</string>
+    <string name="title_editasnew">Edit as new</string>
     <string name="title_create_rule">Create rule &#8230;</string>
     <string name="title_share">Share</string>
     <string name="title_print">Print</string>

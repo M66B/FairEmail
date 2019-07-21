@@ -5,6 +5,10 @@
         android:title="@string/title_forward" />
 
     <item
+        android:id="@+id/menu_editasnew"
+        android:title="@string/title_editasnew" />
+
+    <item
         android:id="@+id/menu_unseen"
         android:title="@string/title_unseen" />
 

@@ -109,6 +109,7 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -2057,7 +2058,7 @@ public class FragmentCompose extends FragmentBase {
                             else if ("receipt".equals(action))
                                 draft.receipt_request = true;
 
-                        } else if ("forward".equals(action))
+                        } else if ("forward".equals(action) || "editasnew".equals(action))
                             draft.thread = draft.msgid; // new thread
 
                         String subject = (ref.subject == null ? "" : ref.subject);
@@ -2070,6 +2071,14 @@ public class FragmentCompose extends FragmentBase {
                                 draft.subject = ref.subject;
                         } else if ("list".equals(action)) {
                             draft.subject = ref.subject;
+                        } else if ("editasnew".equals(action)) {
+                            draft.subject = ref.subject;
+                            if (ref.content) {
+                                String html = Helper.readText(ref.getFile(context));
+                                Document document = Jsoup.parse(html);
+                                if (document.body() != null)
+                                    body = document.body().html();
+                            }
                         } else if ("receipt".equals(action)) {
                             draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
@@ -2173,7 +2182,8 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     // Write reference text
-                    if (ref != null && ref.content && !"list".equals(action) && !"receipt".equals(action)) {
+                    if (ref != null && ref.content &&
+                            !"editasnew".equals(action) && !"list".equals(action) && !"receipt".equals(action)) {
                         String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date(ref.received).toString()),
                                 Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),
@@ -2196,7 +2206,7 @@ public class FragmentCompose extends FragmentBase {
                                 db.message().setMessageEncrypt(draft.id, true);
 
                             } else if (attachment.encryption == null &&
-                                    ("forward".equals(action) ||
+                                    ("forward".equals(action) || "editasnew".equals(action) ||
                                             (attachment.isInline() && attachment.isImage()))) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
