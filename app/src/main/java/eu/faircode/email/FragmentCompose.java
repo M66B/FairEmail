@@ -2196,7 +2196,7 @@ public class FragmentCompose extends FragmentBase {
                         if (uris != null)
                             for (Uri uri : uris)
                                 addAttachment(context, draft.id, uri, false);
-                    } else {
+                    } else if (!"receipt".equals(action)) {
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
