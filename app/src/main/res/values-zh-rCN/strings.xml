@@ -365,6 +365,7 @@
     <string name="title_flag_color">有色星号 &#8230;</string>
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
+    <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_share">分享</string>
     <string name="title_print">打印</string>

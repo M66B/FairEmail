@@ -374,6 +374,7 @@
     <string name="title_flag_color">Couleur de suivi &#8230;</string>
     <string name="title_unflag">Marquer comme non suivi</string>
     <string name="title_forward">Transférer</string>
+    <string name="title_editasnew">Modifier en créant un nouveau</string>
     <string name="title_create_rule">Créer une règle &#8230;</string>
     <string name="title_share">Partager</string>
     <string name="title_print">Imprimer</string>

@@ -373,6 +373,7 @@
     <string name="title_flag_color">Stella colorata &#8230;</string>
     <string name="title_unflag">Rimuovi stella</string>
     <string name="title_forward">Inoltra</string>
+    <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_create_rule">Crea regola &#8230;</string>
     <string name="title_share">Condividi</string>
     <string name="title_print">Stampa</string>

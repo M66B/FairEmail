@@ -99,7 +99,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_grant">Zulassen</string>
     <string name="title_setup_account">Konten einrichten</string>
     <string name="title_setup_account_remark">Um E-Mails zu empfangen</string>
-    <string name="title_setup_account_hint">Um die Farbe, wische nach links/rechts Zielordner, usw, zu ändern</string>
+    <string name="title_setup_account_hint">Um die Farbe, Zielordner für wischen nach links/rechts, usw. zu ändern</string>
     <string name="title_setup_identity">Identitäten einrichten</string>
     <string name="title_setup_identity_remark">Um E-Mails zu senden</string>
     <string name="title_setup_identity_hint">Um Namen, Farbe, Signatur, etc. zu ändern</string>
@@ -373,6 +373,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_flag_color">Farbige Kennzeichnung &#8230;</string>
     <string name="title_unflag">Kennzeichnung entfernen</string>
     <string name="title_forward">Weiterleiten</string>
+    <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_create_rule">Regel &#8230; erstellen</string>
     <string name="title_share">Teilen</string>
     <string name="title_print">Drucken</string>
