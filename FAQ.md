@@ -1976,7 +1976,7 @@ So, the only thing I can do, is give some advice:
 * Make sure you have an active internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail and navigate to the pro features screen and press the *Check* button
+* Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
 You can also try to clear the cache of the Play store app via the Android apps settings.
 
