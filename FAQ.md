@@ -1962,7 +1962,7 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.
 
 People in the Android contacts list are considered to be known and trusted,
-unless the contact relation is set to '*Untrusted*' (case insensitive; the relation type, for example parent, child, friend, etc does not matter).
+unless the contact is in the group / has the label '*Untrusted*' (case insensitive).
 
 <br />
 

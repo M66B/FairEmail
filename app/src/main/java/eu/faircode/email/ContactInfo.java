@@ -253,6 +253,19 @@ public class ContactInfo {
 
         if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             ContentResolver resolver = context.getContentResolver();
+
+            long untrusted = -1;
+            try (Cursor cursor = resolver.query(
+                    ContactsContract.Groups.CONTENT_URI,
+                    new String[]{ContactsContract.Groups._ID},
+                    ContactsContract.Groups.TITLE + " = ? COLLATE NOCASE",
+                    new String[]{"untrusted"},
+                    null)) {
+                if (cursor != null && cursor.moveToNext())
+                    untrusted = cursor.getLong(0);
+            }
+            Log.i("Untrusted group=" + untrusted);
+
             try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                     new String[]{
                             ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
@@ -266,17 +279,22 @@ public class ContactInfo {
                     String lookupKey = cursor.getString(1);
                     String email = cursor.getString(2);
 
-                    Cursor relation = resolver.query(
+                    try (Cursor group = resolver.query(
                             ContactsContract.Data.CONTENT_URI,
-                            new String[]{ContactsContract.CommonDataKinds.Relation.NAME},
-                            ContactsContract.Data.MIMETYPE + " = '" + ContactsContract.CommonDataKinds.Relation.CONTENT_ITEM_TYPE + "'" +
-                                    " AND " + ContactsContract.CommonDataKinds.Relation.NAME + " = 'UNTRUSTED' COLLATE NOCASE" +
-                                    " AND " + ContactsContract.CommonDataKinds.Relation.CONTACT_ID + " = ?",
-                            new String[]{Long.toString(contactId)},
-                            null);
-                    if (relation != null && relation.moveToNext()) {
-                        Log.i("Contact email=" + email + " relation=" + relation.getString(0));
-                        continue;
+                            new String[]{ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID},
+                            ContactsContract.Data.MIMETYPE + " = ?" +
+                                    " AND " + ContactsContract.CommonDataKinds.GroupMembership.GROUP_ROW_ID + "= ?" +
+                                    " AND " + ContactsContract.CommonDataKinds.GroupMembership.CONTACT_ID + " = ?",
+                            new String[]{
+                                    ContactsContract.CommonDataKinds.GroupMembership.CONTENT_ITEM_TYPE,
+                                    Long.toString(untrusted),
+                                    Long.toString(contactId)
+                            },
+                            null)) {
+                        if (group != null && group.moveToNext()) {
+                            Log.i("Contact email=" + email + " untrusted");
+                            continue;
+                        }
                     }
 
                     Uri uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
