@@ -824,10 +824,12 @@ Setting identity colors is a pro feature.
 Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) might not only tell the sender that you have seen the message,
 but will also leak your IP address.
 
-Opening attachments or viewing an original message might execute scripts,
+Opening attachments or viewing an original message might load remote content and execute scripts,
 that might not only cause privacy sensitive information to leak, but can also be a security risk.
 
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
+
+FairEmail formats messages again causing messages to look different from the original, but also uncovering phishing links.
 
 The Gmail app shows images by default by downloading the images through a Google proxy server.
 Since the images are downloaded from the source server [in real-time](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/),
