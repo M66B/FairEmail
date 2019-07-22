@@ -68,7 +68,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
     private List<TupleAccountEx> items = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat DTF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -136,7 +136,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 tvName.setText(account.name);
             else {
                 if (account.unseen > 0)
-                    tvName.setText(context.getString(R.string.title_name_count, account.name, nf.format(account.unseen)));
+                    tvName.setText(context.getString(R.string.title_name_count, account.name, NF.format(account.unseen)));
                 else
                     tvName.setText(account.name);
 

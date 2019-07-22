@@ -44,7 +44,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
 
     private List<NavMenuItem> items = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -80,7 +80,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
                 tvItem.setText(menu.getTitle());
             else
                 tvItem.setText(context.getString(R.string.title_name_count,
-                        context.getString(menu.getTitle()), nf.format(menu.getCount())));
+                        context.getString(menu.getTitle()), NF.format(menu.getCount())));
 
             tvItem.setTextColor(Helper.resolveColor(context,
                     menu.getCount() == null ? android.R.attr.textColorSecondary : R.attr.colorUnread));

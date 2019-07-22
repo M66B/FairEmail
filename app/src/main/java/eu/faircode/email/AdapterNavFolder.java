@@ -47,7 +47,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
 
     private List<TupleFolderNav> items = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
@@ -106,7 +106,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                 tvItem.setText(folder.getDisplayName(context));
             else
                 tvItem.setText(context.getString(R.string.title_name_count,
-                        folder.getDisplayName(context), nf.format(count)));
+                        folder.getDisplayName(context), NF.format(count)));
 
             tvItem.setTextColor(Helper.resolveColor(context,
                     count == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));

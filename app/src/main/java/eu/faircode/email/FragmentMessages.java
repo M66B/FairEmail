@@ -232,7 +232,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private static final int UNDO_TIMEOUT = 5000; // milliseconds
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
@@ -2635,7 +2635,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (unseen == 0)
             setSubtitle(name);
         else
-            setSubtitle(getString(R.string.title_name_count, name, nf.format(unseen)));
+            setSubtitle(getString(R.string.title_name_count, name, NF.format(unseen)));
 
         if (errors)
             fabError.show();

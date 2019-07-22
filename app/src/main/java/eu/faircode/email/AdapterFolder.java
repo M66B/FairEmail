@@ -86,7 +86,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private List<TupleFolderEx> all = new ArrayList<>();
     private List<TupleFolderEx> items = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -220,7 +220,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (folder.unseen > 0)
                 tvName.setText(context.getString(R.string.title_name_count,
                         folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref),
-                        nf.format(folder.unseen)));
+                        NF.format(folder.unseen)));
             else
                 tvName.setText(folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref));
 
@@ -230,11 +230,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (listener == null && folder.selectable) {
                 StringBuilder sb = new StringBuilder();
                 if (folder.account == null)
-                    sb.append(nf.format(folder.messages));
+                    sb.append(NF.format(folder.messages));
                 else {
-                    sb.append(nf.format(folder.content));
+                    sb.append(NF.format(folder.content));
                     sb.append('/');
-                    sb.append(nf.format(folder.messages));
+                    sb.append(NF.format(folder.messages));
                 }
                 tvMessages.setText(sb.toString());
 
@@ -251,19 +251,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 else
                     tvType.setText(Helper.localizeFolderType(context, folder.type));
 
-                tvTotal.setText(folder.total == null ? "" : nf.format(folder.total));
+                tvTotal.setText(folder.total == null ? "" : NF.format(folder.total));
 
                 if (folder.account == null) {
                     tvAfter.setText(null);
                     ivSync.setImageResource(R.drawable.baseline_sync_24);
                 } else {
                     StringBuilder a = new StringBuilder();
-                    a.append(nf.format(folder.sync_days));
+                    a.append(NF.format(folder.sync_days));
                     a.append('/');
                     if (folder.keep_days == Integer.MAX_VALUE)
                         a.append('∞');
                     else
-                        a.append(nf.format(folder.keep_days));
+                        a.append(NF.format(folder.keep_days));
                     tvAfter.setText(a.toString());
                     ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
                 }

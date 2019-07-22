@@ -49,7 +49,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
 
     private List<TupleAccountEx> items = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat DTF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -91,7 +91,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
                 tvItem.setText(account.name);
             else
                 tvItem.setText(context.getString(R.string.title_name_count,
-                        account.name, nf.format(account.unseen)));
+                        account.name, NF.format(account.unseen)));
 
             tvItem.setTextColor(Helper.resolveColor(context,
                     account.unseen == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));

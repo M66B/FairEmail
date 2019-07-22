@@ -60,7 +60,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     private List<TupleContactEx> all = new ArrayList<>();
     private List<TupleContactEx> selected = new ArrayList<>();
 
-    private NumberFormat nf = NumberFormat.getNumberInstance();
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
@@ -140,7 +140,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
             tvName.setText(contact.name == null ? contact.email : contact.name);
             tvEmail.setText(contact.accountName + "/" + contact.email);
-            tvTimes.setText(nf.format(contact.times_contacted));
+            tvTimes.setText(NF.format(contact.times_contacted));
             tvLast.setText(contact.last_contacted == null ? null
                     : Helper.getRelativeTimeSpanString(context, contact.last_contacted));
 
