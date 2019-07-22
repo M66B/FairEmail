@@ -225,6 +225,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                     Objects.equals(f1.accountColor, f2.accountColor) &&
                     Objects.equals(f1.state, f2.state) &&
                     Objects.equals(f1.sync_state, f2.sync_state) &&
+                    Objects.equals(f1.last_sync, f2.last_sync) &&
                     f1.unseen == f2.unseen &&
                     f1.operations == f2.operations &&
                     f1.executing == f2.executing);
