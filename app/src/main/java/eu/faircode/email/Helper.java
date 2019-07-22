@@ -255,6 +255,8 @@ public class Helper {
         if (BuildConfig.BETA_RELEASE) {
             String version = BuildConfig.VERSION_NAME + "/" +
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
+                    (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
+                    (BuildConfig.DEBUG ? "d" : "") +
                     (Helper.isPro(context) ? "+" : "");
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setPackage(BuildConfig.APPLICATION_ID);
