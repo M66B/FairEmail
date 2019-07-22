@@ -42,7 +42,7 @@ public class WorkerPoll extends Worker {
     @Override
     public Result doWork() {
         Log.i("Running " + getName());
-        ServiceSynchronize.process(getApplicationContext());
+        ServiceSynchronize.process(getApplicationContext(), true);
         return Result.success();
     }
 

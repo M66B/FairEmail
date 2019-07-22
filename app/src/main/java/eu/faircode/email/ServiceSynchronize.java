@@ -101,6 +101,7 @@ public class ServiceSynchronize extends LifecycleService {
     private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static boolean booted = false;
+    private static boolean sync = true;
     private static boolean oneshot = false;
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
@@ -406,7 +407,7 @@ public class ServiceSynchronize extends LifecycleService {
                         if (doStart) {
                             if (clear)
                                 db.account().clearAccountConnected();
-                            start();
+                            start(!oneshot || sync);
                         }
 
                     } catch (Throwable ex) {
@@ -442,7 +443,7 @@ public class ServiceSynchronize extends LifecycleService {
         return ((enabled && pollInterval == 0) || oneshot);
     }
 
-    private void start() {
+    private void start(final boolean sync) {
         EntityLog.log(this, "Main start");
 
         state = new Core.State(networkState);
@@ -486,7 +487,7 @@ public class ServiceSynchronize extends LifecycleService {
                             @Override
                             public void run() {
                                 try {
-                                    monitorAccount(account, astate);
+                                    monitorAccount(account, astate, sync);
                                 } catch (Throwable ex) {
                                     Log.e(account.name, ex);
                                 }
@@ -549,7 +550,7 @@ public class ServiceSynchronize extends LifecycleService {
         stopSelf();
     }
 
-    private void monitorAccount(final EntityAccount account, final Core.State state) throws NoSuchProviderException {
+    private void monitorAccount(final EntityAccount account, final Core.State state, final boolean sync) throws NoSuchProviderException {
         final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         final PowerManager.WakeLock wlAccount = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id);
@@ -988,7 +989,8 @@ public class ServiceSynchronize extends LifecycleService {
                             idler.start();
                             idlers.add(idler);
 
-                            EntityOperation.sync(this, folder.id, false);
+                            if (sync)
+                                EntityOperation.sync(this, folder.id, false);
                         } else
                             mapFolders.put(folder, null);
 
@@ -1509,11 +1511,12 @@ public class ServiceSynchronize extends LifecycleService {
                         .setAction("reset"));
     }
 
-    static void process(Context context) {
+    static void process(Context context, boolean sync) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = prefs.getBoolean("enabled", true);
         int pollInterval = prefs.getInt("poll_interval", 0);
         if (!enabled || pollInterval > 0) {
+            ServiceSynchronize.sync = sync;
             oneshot = true;
             ContextCompat.startForegroundService(context,
                     new Intent(context, ServiceSynchronize.class)

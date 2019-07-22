@@ -229,7 +229,7 @@ public class EntityOperation {
         if (SEND.equals(name))
             ServiceSend.start(context);
         else
-            ServiceSynchronize.process(context);
+            ServiceSynchronize.process(context, false);
     }
 
     static void sync(Context context, long fid, boolean foreground) {
@@ -258,7 +258,7 @@ public class EntityOperation {
         if (folder.account == null) // Outbox
             ServiceSend.start(context);
         else if (foreground)
-            ServiceSynchronize.process(context);
+            ServiceSynchronize.process(context, true);
     }
 
     static void subscribe(Context context, long fid, boolean subscribe) {

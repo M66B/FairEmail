@@ -334,7 +334,7 @@ public class FragmentFolders extends FragmentBase {
                         if (enabled)
                             ServiceSynchronize.reload(context, "refresh folders");
                         else
-                            ServiceSynchronize.process(context);
+                            ServiceSynchronize.process(context, true);
                     }
 
                     db.setTransactionSuccessful();
