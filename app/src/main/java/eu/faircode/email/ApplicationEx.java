@@ -158,6 +158,7 @@ public class ApplicationEx extends Application {
         config.setAutoCaptureSessions(false);
 
         config.setDetectAnrs(false);
+        config.setDetectNdkCrashes(false);
 
         List<String> ignore = new ArrayList<>();
 
