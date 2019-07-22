@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +31,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,6 +52,9 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     private List<TupleFolderNav> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
+    private DateFormat DTF;
+
+    private boolean debug;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
@@ -111,7 +118,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             tvItem.setTextColor(Helper.resolveColor(context,
                     count == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
 
-            tvItemExtra.setVisibility(View.GONE);
+            tvItemExtra.setText(folder.last_sync == null ? null : DTF.format(folder.last_sync));
+            tvItemExtra.setVisibility(debug ? View.VISIBLE : View.GONE);
 
             ivWarning.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
         }
@@ -138,6 +146,12 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+
+        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.debug = prefs.getBoolean("debug", false);
+
         setHasStableIds(true);
     }
 
