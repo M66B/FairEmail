@@ -101,10 +101,19 @@ public abstract class DB extends RoomDatabase {
 
     private static final String DB_NAME = "fairemail";
 
-    public static synchronized DB getInstance(Context ctx) {
+    public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
-            Context context = ctx.getApplicationContext();
-            sInstance = migrate(context, getBuilder(context));
+            Context acontext = context.getApplicationContext();
+
+            sInstance = migrate(acontext, getBuilder(acontext));
+
+            // https://www.sqlite.org/lang_vacuum.html
+            try {
+                Log.i("Running VACUUM");
+                sInstance.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(
                     EntityAccount.TABLE_NAME,
