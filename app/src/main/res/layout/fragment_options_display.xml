@@ -99,6 +99,18 @@
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swGeneratedIcons"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:checked="true"
+                android:text="@string/title_advanced_generated_icons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swAvatars"
+                app:switchPadding="12dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swIdenticons"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -106,7 +118,7 @@
                 android:text="@string/title_advanced_identicons"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swAvatars"
+                app:layout_constraintTop_toBottomOf="@id/swGeneratedIcons"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat

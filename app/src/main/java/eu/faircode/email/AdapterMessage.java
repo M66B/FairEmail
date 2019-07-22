@@ -173,7 +173,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean date;
     private boolean threading;
-    private boolean avatars;
     private boolean name_email;
     private boolean subject_italic;
     private boolean flags;
@@ -743,7 +742,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     @Override
                     protected void onPreExecute(Bundle args) {
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
-                        ivAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
+                        ivAvatar.setVisibility(View.GONE);
                         tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
                     }
 
@@ -869,11 +868,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
-            if (info.hasPhoto())
+            if (info.hasPhoto()) {
                 ivAvatar.setImageBitmap(info.getPhotoBitmap());
-            else
-                ivAvatar.setImageResource(R.drawable.baseline_person_24);
-            ivAvatar.setVisibility(avatars ? View.VISIBLE : View.GONE);
+                ivAvatar.setVisibility(View.VISIBLE);
+            } else
+                ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(info.getDisplayName(name_email));
         }
 
@@ -2941,8 +2940,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
-        this.avatars = (prefs.getBoolean("avatars", true) ||
-                prefs.getBoolean("identicons", false));
         this.name_email = prefs.getBoolean("name_email", !compact);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.flags = prefs.getBoolean("flags", true);

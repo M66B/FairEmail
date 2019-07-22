@@ -159,11 +159,14 @@ public class ContactInfo {
         if (info.bitmap == null) {
             int dp = Helper.dp2pixels(context, 48);
             boolean dark = Helper.isDarkTheme(context);
-            boolean identicons = prefs.getBoolean("identicons", false);
-            if (identicons)
-                info.bitmap = Identicon.icon(key, dp, 5, dark);
-            else
-                info.bitmap = Identicon.letter(key, dp, dark);
+            boolean generated = prefs.getBoolean("generated_icons", true);
+            if (generated) {
+                boolean identicons = prefs.getBoolean("identicons", false);
+                if (identicons)
+                    info.bitmap = Identicon.icon(key, dp, 5, dark);
+                else
+                    info.bitmap = Identicon.letter(key, dp, dark);
+            }
         }
 
         boolean circular = prefs.getBoolean("circular", true);
