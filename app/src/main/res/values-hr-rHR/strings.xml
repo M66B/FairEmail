@@ -183,6 +183,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
     <string name="title_advanced_threading">Prikaz razgovora</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
+    <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
     <string name="title_advanced_identicons">Pokaži identitete</string>
     <string name="title_advanced_circular">Pokaži okrugle ikone</string>
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
@@ -195,6 +196,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_monospaced">Upotrijebiti font u jednolikim razmjerima za tekst poruke</string>
     <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_images">Automatski prikaz slika za poznate kontakte</string>
+    <string name="title_advanced_images_all">Automatski prikaži sve slike</string>
     <string name="title_advanced_collapse_quotes">Sažmi citirani tekst</string>
     <string name="title_advanced_remote_content">Automatsko prikazivanje udaljenog sadržaja pri pregledavanju izvornih poruka</string>
     <string name="title_advanced_actionbar">Traka s akcijama razgovora</string>
@@ -381,6 +383,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_flag_color">Obojena zvijezda &#8230;</string>
     <string name="title_unflag">Ukloni zvjezdicu</string>
     <string name="title_forward">Naprijed</string>
+    <string name="title_editasnew">Priredi kao novo</string>
     <string name="title_create_rule">Stvori pravilo &#8230;</string>
     <string name="title_share">Podijeli</string>
     <string name="title_print">Ispiši</string>

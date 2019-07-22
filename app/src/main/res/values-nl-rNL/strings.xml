@@ -176,6 +176,7 @@
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
+    <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_circular">Toon ronde iconen</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
@@ -188,6 +189,7 @@
     <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_images">Automatisch afbeeldingen weergeven voor bekende contacten</string>
+    <string name="title_advanced_images_all">Automatisch alle afbeeldingen weergeven</string>
     <string name="title_advanced_collapse_quotes">Geciteerde tekst samenvouwen</string>
     <string name="title_advanced_remote_content">Externe inhoud automatisch weergeven bij het bekijken van originele berichten</string>
     <string name="title_advanced_actionbar">Actiebalk gesprek</string>

@@ -176,6 +176,7 @@
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
+    <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
@@ -188,6 +189,7 @@
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_images">Näytä tunnettujen yhteystietojen kuvat automaattisesti</string>
+    <string name="title_advanced_images_all">Näytä kaikki kuvat oletuksena</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_remote_content">Näytä ulkoinen sisältö automaattisesti alkuperäisissä viesteissä</string>
     <string name="title_advanced_actionbar">Keskustelujen toimintopalkki</string>

@@ -167,6 +167,7 @@
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
+    <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
@@ -179,6 +180,7 @@
     <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_images">自动显示已知联系人的图片</string>
+    <string name="title_advanced_images_all">自动显示所有图像</string>
     <string name="title_advanced_collapse_quotes">折叠引用的文本</string>
     <string name="title_advanced_remote_content">查看原始消息时自动显示远程内容</string>
     <string name="title_advanced_actionbar">对话操作栏</string>

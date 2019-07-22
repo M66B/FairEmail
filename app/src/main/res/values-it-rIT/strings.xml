@@ -175,6 +175,7 @@
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
+    <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
@@ -187,6 +188,7 @@
     <string name="title_advanced_monospaced">Usa il carattere monospaziale per il testo del messaggio</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
     <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti noti</string>
+    <string name="title_advanced_images_all">Mostra automaticamente tutte le immagini</string>
     <string name="title_advanced_collapse_quotes">Comprimi testo citato</string>
     <string name="title_advanced_remote_content">Mostra automaticamente il contenuto remoto quando si visualizzano i messaggi originali</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>

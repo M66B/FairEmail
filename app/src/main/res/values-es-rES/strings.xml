@@ -176,6 +176,7 @@
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
+    <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
@@ -188,6 +189,7 @@
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_images">Mostrar automáticamente imágenes de contactos conocidos</string>
+    <string name="title_advanced_images_all">Mostrar automáticamente todas las imágenes</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
     <string name="title_advanced_remote_content">Mostrar contenido remoto automáticamente al visualizar mensajes originales</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
@@ -374,6 +376,7 @@
     <string name="title_flag_color">Estrella coloreada &#8230;</string>
     <string name="title_unflag">Desmarcar como favorito</string>
     <string name="title_forward">Reenviar</string>
+    <string name="title_editasnew">Editar como nuevo</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
     <string name="title_share">Compartir</string>
     <string name="title_print">Imprimir</string>
