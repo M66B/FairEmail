@@ -257,16 +257,4 @@
             port="587"
             starttls="true" />
     </provider>
-    <provider
-        name="freenet.de"
-        link="https://kundenservice.freenet.de/artikel/1869">
-        <imap
-            host="mx.freenet.de"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="mx.freenet.de"
-            port="587"
-            starttls="true" />
-    </provider>
 </providers>
