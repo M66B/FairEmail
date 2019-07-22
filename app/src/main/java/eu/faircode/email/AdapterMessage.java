@@ -1154,101 +1154,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     a.add(attachment);
 
                 if (attachment.available && "text/calendar".equals(attachment.type)) {
-                    // https://tools.ietf.org/html/rfc5546
                     calendar = true;
-
-                    Bundle args = new Bundle();
-                    args.putLong("id", message.id);
-                    args.putSerializable("file", attachment.getFile(context));
-
-                    new SimpleTask<ICalendar>() {
-                        @Override
-                        protected void onPreExecute(Bundle args) {
-                            grpCalendar.setVisibility(View.VISIBLE);
-                            pbCalendarWait.setVisibility(View.VISIBLE);
-                        }
-
-                        @Override
-                        protected void onPostExecute(Bundle args) {
-                            pbCalendarWait.setVisibility(View.GONE);
-                        }
-
-                        @Override
-                        protected ICalendar onExecute(Context context, Bundle args) throws IOException {
-                            File file = (File) args.getSerializable("file");
-                            return Biweekly.parse(file).first();
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, ICalendar icalendar) {
-                            long id = args.getLong("id");
-                            TupleMessageEx amessage = getMessage();
-                            if (amessage == null || !amessage.id.equals(id))
-                                return;
-
-                            if (icalendar == null ||
-                                    icalendar.getMethod() == null ||
-                                    icalendar.getEvents().size() == 0) {
-                                tvCalendarSummary.setVisibility(View.GONE);
-                                tvCalendarStart.setVisibility(View.GONE);
-                                tvCalendarEnd.setVisibility(View.GONE);
-                                tvAttendees.setVisibility(View.GONE);
-                                pbCalendarWait.setVisibility(View.GONE);
-                                grpCalendar.setVisibility(View.GONE);
-                                grpCalendarResponse.setVisibility(View.GONE);
-                                return;
-                            }
-
-                            DateFormat DTF = Helper.getDateTimeInstance(context);
-
-                            VEvent event = icalendar.getEvents().get(0);
-
-                            Summary summary = event.getSummary();
-
-                            ICalDate start = event.getDateStart() == null ? null : event.getDateStart().getValue();
-                            ICalDate end = event.getDateEnd() == null ? null : event.getDateEnd().getValue();
-
-                            List<String> attendee = new ArrayList<>();
-                            for (Attendee a : event.getAttendees()) {
-                                String email = a.getEmail();
-                                String name = a.getCommonName();
-                                if (TextUtils.isEmpty(name)) {
-                                    if (!TextUtils.isEmpty(email))
-                                        attendee.add(email);
-                                } else {
-                                    if (TextUtils.isEmpty(email) || name.equals(email))
-                                        attendee.add(name);
-                                    else
-                                        attendee.add(name + " (" + email + ")");
-                                }
-                            }
-
-                            Organizer organizer = event.getOrganizer();
-
-                            tvCalendarSummary.setText(summary == null ? null : summary.getValue());
-                            tvCalendarSummary.setVisibility(summary == null ? View.GONE : View.VISIBLE);
-
-                            tvCalendarStart.setText(start == null ? null : DTF.format(start.getTime()));
-                            tvCalendarStart.setVisibility(start == null ? View.GONE : View.VISIBLE);
-
-                            tvCalendarEnd.setText(end == null ? null : DTF.format(end.getTime()));
-                            tvCalendarEnd.setVisibility(end == null ? View.GONE : View.VISIBLE);
-
-                            tvAttendees.setText(TextUtils.join(", ", attendee));
-                            tvAttendees.setVisibility(attendee.size() == 0 ? View.GONE : View.VISIBLE);
-
-                            boolean canRespond =
-                                    (icalendar.getMethod().isRequest() &&
-                                            organizer != null && organizer.getEmail() != null &&
-                                            message.to != null && message.to.length > 0);
-                            grpCalendarResponse.setVisibility(canRespond ? View.VISIBLE : View.GONE);
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
-                        }
-                    }.execute(context, owner, args, "message:calendar");
+                    bindCalendar(message, attachment);
                 }
             }
             adapterAttachment.set(a);
@@ -1291,6 +1198,103 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     images.add(attachment);
             adapterImage.set(images);
             grpImages.setVisibility(images.size() > 0 ? View.VISIBLE : View.GONE);
+        }
+
+        private void bindCalendar(final TupleMessageEx message, EntityAttachment attachment) {
+            // https://tools.ietf.org/html/rfc5546
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putSerializable("file", attachment.getFile(context));
+
+            new SimpleTask<ICalendar>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    grpCalendar.setVisibility(View.VISIBLE);
+                    pbCalendarWait.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    pbCalendarWait.setVisibility(View.GONE);
+                }
+
+                @Override
+                protected ICalendar onExecute(Context context, Bundle args) throws IOException {
+                    File file = (File) args.getSerializable("file");
+                    return Biweekly.parse(file).first();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, ICalendar icalendar) {
+                    long id = args.getLong("id");
+                    TupleMessageEx amessage = getMessage();
+                    if (amessage == null || !amessage.id.equals(id))
+                        return;
+
+                    if (icalendar == null ||
+                            icalendar.getMethod() == null ||
+                            icalendar.getEvents().size() == 0) {
+                        tvCalendarSummary.setVisibility(View.GONE);
+                        tvCalendarStart.setVisibility(View.GONE);
+                        tvCalendarEnd.setVisibility(View.GONE);
+                        tvAttendees.setVisibility(View.GONE);
+                        pbCalendarWait.setVisibility(View.GONE);
+                        grpCalendar.setVisibility(View.GONE);
+                        grpCalendarResponse.setVisibility(View.GONE);
+                        return;
+                    }
+
+                    DateFormat DTF = Helper.getDateTimeInstance(context);
+
+                    VEvent event = icalendar.getEvents().get(0);
+
+                    Summary summary = event.getSummary();
+
+                    ICalDate start = event.getDateStart() == null ? null : event.getDateStart().getValue();
+                    ICalDate end = event.getDateEnd() == null ? null : event.getDateEnd().getValue();
+
+                    List<String> attendee = new ArrayList<>();
+                    for (Attendee a : event.getAttendees()) {
+                        String email = a.getEmail();
+                        String name = a.getCommonName();
+                        if (TextUtils.isEmpty(name)) {
+                            if (!TextUtils.isEmpty(email))
+                                attendee.add(email);
+                        } else {
+                            if (TextUtils.isEmpty(email) || name.equals(email))
+                                attendee.add(name);
+                            else
+                                attendee.add(name + " (" + email + ")");
+                        }
+                    }
+
+                    Organizer organizer = event.getOrganizer();
+
+                    tvCalendarSummary.setText(summary == null ? null : summary.getValue());
+                    tvCalendarSummary.setVisibility(summary == null ? View.GONE : View.VISIBLE);
+
+                    tvCalendarStart.setText(start == null ? null : DTF.format(start.getTime()));
+                    tvCalendarStart.setVisibility(start == null ? View.GONE : View.VISIBLE);
+
+                    tvCalendarEnd.setText(end == null ? null : DTF.format(end.getTime()));
+                    tvCalendarEnd.setVisibility(end == null ? View.GONE : View.VISIBLE);
+
+                    tvAttendees.setText(TextUtils.join(", ", attendee));
+                    tvAttendees.setVisibility(attendee.size() == 0 ? View.GONE : View.VISIBLE);
+
+                    boolean canRespond =
+                            (icalendar.getMethod().isRequest() &&
+                                    organizer != null && organizer.getEmail() != null &&
+                                    message.to != null && message.to.length > 0);
+                    grpCalendarResponse.setVisibility(canRespond ? View.VISIBLE : View.GONE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:calendar");
         }
 
         private void onActionCalendar(TupleMessageEx message, int action) {
