@@ -260,11 +260,11 @@ public class ApplicationEx extends Application {
 
     static void upgrade(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+
         int version = prefs.getInt("version", BuildConfig.VERSION_CODE);
         if (version < 468) {
             Log.i("Upgrading from " + version + " to " + BuildConfig.VERSION_CODE);
-
-            SharedPreferences.Editor editor = prefs.edit();
 
             editor.remove("notify_trash");
             editor.remove("notify_archive");
@@ -272,20 +272,25 @@ public class ApplicationEx extends Application {
             editor.remove("notify_flag");
             editor.remove("notify_seen");
 
-            editor.putInt("version", BuildConfig.VERSION_CODE);
-            editor.apply();
+        } else if (version < 601) {
+            Log.i("Upgrading from " + version + " to " + BuildConfig.VERSION_CODE);
+
+            editor.putBoolean("contact_images", prefs.getBoolean("autoimages", true));
+            editor.remove("autoimages");
         }
 
         if (BuildConfig.DEBUG && false) {
-            SharedPreferences.Editor editor = prefs.edit();
             editor.remove("app_support");
             editor.remove("notify_archive");
             editor.remove("message_swipe");
             editor.remove("message_select");
             editor.remove("folder_actions");
             editor.remove("folder_sync");
-            editor.apply();
         }
+
+        editor.putInt("version", BuildConfig.VERSION_CODE);
+
+        editor.apply();
     }
 
     static Context getLocalizedContext(Context context) {

@@ -222,6 +222,7 @@
     <string name="title_advanced_monospaced">Use monospaced font for message text</string>
     <string name="title_advanced_images_inline">Automatically show inline images</string>
     <string name="title_advanced_images">Automatically show images for known contacts</string>
+    <string name="title_advanced_images_all">Automatically show all images</string>
     <string name="title_advanced_collapse_quotes">Collapse quoted text</string>
     <string name="title_advanced_remote_content">Automatically show remote content when viewing original messages</string>
     <string name="title_advanced_actionbar">Conversation action bar</string>

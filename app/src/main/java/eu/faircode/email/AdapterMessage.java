@@ -180,7 +180,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean attachments_alt;
     private boolean contrast;
     private boolean monospaced;
-    private boolean autoimages;
+    private boolean contact_images;
+    private boolean all_images;
     private boolean collapse_quotes;
     private boolean authentication;
     private static boolean debug;
@@ -770,10 +771,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else
                 bindContactInfo(info, message);
 
-            if (message.avatar != null) {
-                if (autoimages)
-                    properties.setValue("images", message.id, true);
-            }
+            if (all_images || (contact_images && message.avatar != null))
+                properties.setValue("images", message.id, true);
 
             if (viewType == ViewType.THREAD) {
                 if (expanded)
@@ -2947,7 +2946,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.contrast = prefs.getBoolean("contrast", false);
         this.monospaced = prefs.getBoolean("monospaced", false);
-        this.autoimages = (this.contacts && prefs.getBoolean("autoimages", true));
+        this.contact_images = (this.contacts && prefs.getBoolean("contact_images", true));
+        this.all_images = prefs.getBoolean("all_images", false);
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
 
