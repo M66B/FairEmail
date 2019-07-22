@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.ActivityManager;
 import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
@@ -30,6 +31,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Display;
@@ -241,6 +243,17 @@ public class Log {
         sb.append(String.format("Display: %s\r\n", Build.DISPLAY));
         sb.append(String.format("Id: %s\r\n", Build.ID));
         sb.append("\r\n");
+
+        sb.append(String.format("Processors: %d\r\n", Runtime.getRuntime().availableProcessors()));
+
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        sb.append(String.format("Memory class: %d\r\n", am.getMemoryClass()));
+
+        Runtime rt = Runtime.getRuntime();
+        long hused = (rt.totalMemory() - rt.freeMemory()) / 1024L;
+        long hmax = rt.maxMemory() / 1024L;
+        long nheap = Debug.getNativeHeapAllocatedSize() / 1024L;
+        sb.append(String.format("Heap usage: %s/%s KiB native: %s KiB\r\n", hused, hmax, nheap));
 
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
