@@ -53,6 +53,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         private View view;
         private ImageView ivItem;
         private TextView tvItem;
+        private TextView tvItemExtra;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -61,6 +62,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
+            tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -108,6 +110,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
 
             tvItem.setTextColor(Helper.resolveColor(context,
                     count == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+
+            tvItemExtra.setVisibility(View.GONE);
 
             ivWarning.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
         }

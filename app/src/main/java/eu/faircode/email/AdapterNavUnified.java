@@ -50,6 +50,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         private View view;
         private ImageView ivItem;
         private TextView tvItem;
+        private TextView tvItemExtra;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -58,6 +59,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
+            tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -72,6 +74,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         private void bindTo(String type) {
             ivItem.setImageResource(R.drawable.baseline_folder_shared_24);
             tvItem.setText(Helper.localizeFolderType(context, type));
+            tvItemExtra.setVisibility(View.GONE);
             ivWarning.setVisibility(View.GONE);
         }
 

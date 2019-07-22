@@ -34,7 +34,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,11 +50,13 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     private List<TupleAccountEx> items = new ArrayList<>();
 
     private NumberFormat nf = NumberFormat.getNumberInstance();
+    private DateFormat DTF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
         private ImageView ivItem;
         private TextView tvItem;
+        private TextView tvItemExtra;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -61,6 +65,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             view = itemView.findViewById(R.id.clItem);
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
+            tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -91,6 +96,8 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
             tvItem.setTextColor(Helper.resolveColor(context,
                     account.unseen == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
 
+            tvItemExtra.setText(account.last_connected == null ? null : DTF.format(account.last_connected));
+
             ivWarning.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
         }
 
@@ -115,6 +122,9 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+
+        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
+
         setHasStableIds(true);
     }
 

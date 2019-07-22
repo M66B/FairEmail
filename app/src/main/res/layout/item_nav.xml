@@ -34,8 +34,23 @@
             android:text="Nav item"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ivWarning"
+            app:layout_constraintEnd_toStartOf="@+id/tvItemExtra"
             app:layout_constraintStart_toEndOf="@id/ivItem"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvItemExtra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:singleLine="true"
+            android:text="Extra"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivWarning"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
