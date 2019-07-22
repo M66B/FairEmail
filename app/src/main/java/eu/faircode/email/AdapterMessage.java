@@ -657,7 +657,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivType.setImageResource(message.drafts > 0
                     ? R.drawable.baseline_edit_24 : EntityFolder.getIcon(message.folderType));
             ivType.setVisibility(message.drafts > 0 ||
-                    (viewType == ViewType.UNIFIED && !EntityFolder.INBOX.equals(message.folderType)) ||
+                    (viewType == ViewType.UNIFIED && type == null && !EntityFolder.INBOX.equals(message.folderType)) ||
                     (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
                     ? View.VISIBLE : View.GONE);
             ivAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
@@ -683,7 +683,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
             tvFolder.setVisibility(compact &&
                     (viewType == ViewType.FOLDER ||
-                            (type == null && viewType == ViewType.UNIFIED && EntityFolder.INBOX.equals(message.folderType)))
+                            (viewType == ViewType.UNIFIED && type == null && EntityFolder.INBOX.equals(message.folderType)))
                     ? View.GONE : View.VISIBLE);
 
             if (viewType == ViewType.THREAD || !threading) {
