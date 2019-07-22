@@ -154,15 +154,17 @@ public interface DaoFolder {
             " AND type <> '" + EntityFolder.USER + "'")
     List<EntityFolder> getSystemFolders(long account);
 
-    @Query("SELECT folder.type" +
+    @Query("SELECT folder.type," +
+            " SUM(CASE WHEN NOT message.ui_seen AND message.ui_hide = 0 THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
+            " LEFT JOIN message ON message.folder = folder.id" +
             " WHERE account.synchronize" +
             " AND folder.type <> '" + EntityFolder.SYSTEM + "'" +
             " AND folder.type <> '" + EntityFolder.USER + "'" +
             " GROUP BY folder.type" +
             " HAVING COUNT(folder.id) > 1")
-    LiveData<List<String>> liveUnifiedTypes();
+    LiveData<List<EntityFolderUnified>> liveUnified();
 
     @Query("SELECT * FROM folder WHERE id = :id")
     EntityFolder getFolder(Long id);

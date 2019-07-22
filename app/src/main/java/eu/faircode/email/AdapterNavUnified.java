@@ -34,6 +34,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -44,7 +45,9 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private List<String> items = new ArrayList<>();
+    private List<EntityFolderUnified> items = new ArrayList<>();
+
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
@@ -71,9 +74,18 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             view.setOnClickListener(null);
         }
 
-        private void bindTo(String type) {
-            ivItem.setImageResource(EntityFolder.getIcon(type));
-            tvItem.setText(Helper.localizeFolderType(context, type));
+        private void bindTo(EntityFolderUnified folder) {
+            ivItem.setImageResource(EntityFolder.getIcon(folder.type));
+
+            if (folder.unseen == 0)
+                tvItem.setText(Helper.localizeFolderType(context, folder.type));
+            else
+                tvItem.setText(context.getString(R.string.title_name_count,
+                        Helper.localizeFolderType(context, folder.type), NF.format(folder.unseen)));
+
+            tvItem.setTextColor(Helper.resolveColor(context,
+                    folder.unseen == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+
             tvItemExtra.setVisibility(View.GONE);
             ivWarning.setVisibility(View.GONE);
         }
@@ -84,14 +96,14 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            String type = items.get(pos);
-            if (type == null)
+            EntityFolderUnified folder = items.get(pos);
+            if (folder == null || folder.type == null)
                 return;
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                            .putExtra("type", type));
+                            .putExtra("type", folder.type));
         }
     }
 
@@ -101,14 +113,14 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         this.inflater = LayoutInflater.from(context);
     }
 
-    public void set(@NonNull List<String> types) {
+    public void set(@NonNull List<EntityFolderUnified> types) {
         Log.i("Set nav unified=" + types.size());
 
-        Collections.sort(types, new Comparator<String>() {
+        Collections.sort(types, new Comparator<EntityFolderUnified>() {
             @Override
-            public int compare(String t1, String t2) {
-                int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(t1);
-                int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(t2);
+            public int compare(EntityFolderUnified f1, EntityFolderUnified f2) {
+                int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
+                int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);
                 return Integer.compare(i1, i2);
             }
         });
@@ -142,10 +154,10 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<String> prev = new ArrayList<>();
-        private List<String> next = new ArrayList<>();
+        private List<EntityFolderUnified> prev = new ArrayList<>();
+        private List<EntityFolderUnified> next = new ArrayList<>();
 
-        DiffCallback(List<String> prev, List<String> next) {
+        DiffCallback(List<EntityFolderUnified> prev, List<EntityFolderUnified> next) {
             this.prev.addAll(prev);
             this.next.addAll(next);
         }
@@ -162,14 +174,16 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            String t1 = prev.get(oldItemPosition);
-            String t2 = next.get(newItemPosition);
-            return t1.equals(t2);
+            EntityFolderUnified f1 = prev.get(oldItemPosition);
+            EntityFolderUnified f2 = next.get(newItemPosition);
+            return f1.type.equals(f2.type);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            return true;
+            EntityFolderUnified f1 = prev.get(oldItemPosition);
+            EntityFolderUnified f2 = next.get(newItemPosition);
+            return (f1.unseen == f2.unseen);
         }
     }
 
@@ -187,8 +201,8 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        String type = items.get(position);
-        holder.bindTo(type);
+        EntityFolderUnified folder = items.get(position);
+        holder.bindTo(folder);
         holder.wire();
     }
 }

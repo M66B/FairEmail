@@ -387,15 +387,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        db.folder().liveUnifiedTypes().observe(this, new Observer<List<String>>() {
+        db.folder().liveUnified().observe(this, new Observer<List<EntityFolderUnified>>() {
             @Override
-            public void onChanged(List<String> types) {
-                if (types == null)
-                    types = new ArrayList<>();
-                ivExpanderUnified.setVisibility(types.size() > 0 ? View.VISIBLE : View.GONE);
+            public void onChanged(List<EntityFolderUnified> folders) {
+                if (folders == null)
+                    folders = new ArrayList<>();
+                ivExpanderUnified.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
                 boolean unified_system = prefs.getBoolean("unified_system", false);
-                grpUnified.setVisibility(unified_system && types.size() > 0 ? View.VISIBLE : View.GONE);
-                uadapter.set(types);
+                grpUnified.setVisibility(unified_system && folders.size() > 0 ? View.VISIBLE : View.GONE);
+                uadapter.set(folders);
             }
         });
 
