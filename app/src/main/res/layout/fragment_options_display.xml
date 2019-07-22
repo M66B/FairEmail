@@ -248,7 +248,7 @@
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swInline"
+                android:id="@+id/swImagesInline"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -259,7 +259,7 @@
                 app:switchPadding="12dp" />
 
             <TextView
-                android:id="@+id/tvInlineHint"
+                android:id="@+id/tvImagesInlineHint"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="48dp"
@@ -268,21 +268,21 @@
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swInline" />
+                app:layout_constraintTop_toBottomOf="@id/swImagesInline" />
 
             <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swImages"
+                android:id="@+id/swImagesContacts"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:text="@string/title_advanced_images"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvInlineHint"
+                app:layout_constraintTop_toBottomOf="@id/tvImagesInlineHint"
                 app:switchPadding="12dp" />
 
             <TextView
-                android:id="@+id/tvImagesHint"
+                android:id="@+id/tvImagesContactsHint"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="48dp"
@@ -291,7 +291,7 @@
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swImages" />
+                app:layout_constraintTop_toBottomOf="@id/swImagesContacts" />
 
             <TextView
                 android:id="@+id/tvImagesPermissionHint"
@@ -304,7 +304,7 @@
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvImagesHint" />
+                app:layout_constraintTop_toBottomOf="@id/tvImagesContactsHint" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swCollapseQuotes"

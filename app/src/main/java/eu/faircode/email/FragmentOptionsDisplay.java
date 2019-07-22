@@ -59,8 +59,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
-    private SwitchCompat swInline;
-    private SwitchCompat swImages;
+    private SwitchCompat swImagesInline;
+    private SwitchCompat swImagesContacts;
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swRemoteContent;
     private SwitchCompat swActionbar;
@@ -97,8 +97,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
-        swInline = view.findViewById(R.id.swInline);
-        swImages = view.findViewById(R.id.swImages);
+        swImagesInline = view.findViewById(R.id.swImagesInline);
+        swImagesContacts = view.findViewById(R.id.swImagesContacts);
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swRemoteContent = view.findViewById(R.id.swRemoteContent);
         swActionbar = view.findViewById(R.id.swActionbar);
@@ -232,14 +232,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swImagesInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("inline_images", checked).apply();
             }
         });
 
-        swImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swImagesContacts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoimages", checked).apply();
@@ -337,8 +337,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
-        swInline.setChecked(prefs.getBoolean("inline_images", false));
-        swImages.setChecked(prefs.getBoolean("autoimages", true));
+        swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
+        swImagesContacts.setChecked(prefs.getBoolean("autoimages", true));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swRemoteContent.setChecked(prefs.getBoolean("autocontent", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
