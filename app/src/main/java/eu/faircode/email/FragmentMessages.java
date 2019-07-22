@@ -2050,7 +2050,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Folder
         switch (viewType) {
             case UNIFIED:
-                db.folder().liveUnified().observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
+                db.folder().liveUnified(type).observe(getViewLifecycleOwner(), new Observer<List<TupleFolderEx>>() {
                     @Override
                     public void onChanged(List<TupleFolderEx> folders) {
                         if (folders == null)
@@ -2059,7 +2059,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         updateState(folders);
                     }
                 });
-                db.message().liveHidden(null).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
+                db.message().liveHiddenFolder(null, type).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
                     @Override
                     public void onChanged(List<Long> ids) {
                         if (ids != null && selectionTracker != null)
@@ -2086,7 +2086,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                     }
                 });
-                db.message().liveHidden(folder).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
+                db.message().liveHiddenFolder(folder, null).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
                     @Override
                     public void onChanged(List<Long> ids) {
                         if (ids != null && selectionTracker != null)
@@ -2115,7 +2115,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                     }
                 });
-                db.message().liveHidden(account, thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
+                db.message().liveHiddenThread(account, thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
                     @Override
                     public void onChanged(List<Long> ids) {
                         if (ids != null) {

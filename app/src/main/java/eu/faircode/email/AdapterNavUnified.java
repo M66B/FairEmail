@@ -72,7 +72,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         }
 
         private void bindTo(String type) {
-            ivItem.setImageResource(R.drawable.baseline_folder_shared_24);
+            ivItem.setImageResource(EntityFolder.getIcon(type));
             tvItem.setText(Helper.localizeFolderType(context, type));
             tvItemExtra.setVisibility(View.GONE);
             ivWarning.setVisibility(View.GONE);

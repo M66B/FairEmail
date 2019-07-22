@@ -101,9 +101,9 @@ public interface DaoFolder {
             " LEFT JOIN rule ON rule.folder = folder.id" +
             " LEFT JOIN operation ON operation.folder = folder.id" +
             " WHERE account.`synchronize`" +
-            " AND folder.unified" +
+            " AND ((:type IS NULL AND folder.unified) OR folder.type = :type)" +
             " GROUP BY folder.id")
-    LiveData<List<TupleFolderEx>> liveUnified();
+    LiveData<List<TupleFolderEx>> liveUnified(String type);
 
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor" +
@@ -158,6 +158,7 @@ public interface DaoFolder {
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE account.synchronize" +
+            " AND folder.type <> '" + EntityFolder.SYSTEM + "'" +
             " AND folder.type <> '" + EntityFolder.USER + "'" +
             " GROUP BY folder.type" +
             " HAVING COUNT(folder.id) > 1")

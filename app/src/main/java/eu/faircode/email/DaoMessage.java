@@ -172,15 +172,16 @@ public interface DaoMessage {
 
     @Query("SELECT message.id FROM folder" +
             " JOIN message ON message.folder = folder.id" +
-            " WHERE CASE WHEN :folder IS NULL THEN folder.unified ELSE folder.id = :folder END" +
+            " WHERE ((:folder IS NULL AND :type IS NULL AND folder.unified)" +
+            " OR folder.type = :type OR folder.id = :folder)" +
             " AND ui_hide <> 0")
-    LiveData<List<Long>> liveHidden(Long folder);
+    LiveData<List<Long>> liveHiddenFolder(Long folder, String type);
 
     @Query("SELECT id FROM message" +
             " WHERE account = :account" +
             " AND thread = :thread" +
             " AND ui_hide <> 0")
-    LiveData<List<Long>> liveHidden(long account, String thread);
+    LiveData<List<Long>> liveHiddenThread(long account, String thread);
 
     @Query("SELECT *" +
             " FROM message" +
