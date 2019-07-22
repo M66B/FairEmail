@@ -903,8 +903,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         swipeRefresh.setOnChildScrollUpCallback(new SwipeRefreshLayout.OnChildScrollUpCallback() {
             @Override
             public boolean canChildScrollUp(@NonNull SwipeRefreshLayout parent, @Nullable View child) {
-                if (type != null)
-                    return true;
                 if (viewType != AdapterMessage.ViewType.UNIFIED && viewType != AdapterMessage.ViewType.FOLDER)
                     return true;
                 if (!prefs.getBoolean("pull", true))
@@ -988,6 +986,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onSwipeRefresh() {
         Bundle args = new Bundle();
         args.putLong("folder", folder);
+        args.putString("type", type);
 
         new SimpleTask<Void>() {
             @Override
@@ -998,6 +997,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
+                String type = args.getString("type");
 
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
@@ -1010,7 +1010,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     List<EntityFolder> folders = new ArrayList<>();
                     if (fid < 0)
-                        folders.addAll(db.folder().getFoldersSynchronizingUnified());
+                        folders.addAll(db.folder().getFoldersSynchronizingUnified(type));
                     else {
                         EntityFolder folder = db.folder().getFolder(fid);
                         if (folder != null)
