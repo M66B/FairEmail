@@ -46,7 +46,7 @@ For authorizing:
 * ~~Search for a folder~~ (filtering a hierarchical folder list is problematic)
 * ~~Search suggestions~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
-* Generic unified folders
+* ~~Generic unified folders~~
 
 Anything on this list is in random order and *might* be added in the near future.
 
