@@ -643,7 +643,7 @@
                 android:layout_marginTop="12dp"
                 android:backgroundTint="?attr/colorAccent"
                 android:text="@string/title_setup_help"
-                android:textColor="?android:textColorPrimaryInverse"
+                android:textColor="@android:color/black"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvError" />
@@ -674,28 +674,28 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,
-            tvColor,btnColor,vwColor,ibColorDefault,tvColorPro,
-            tvSignature,etSignature,btnHtml,
-            btnAdvanced,btnSave" />
+                tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,
+                tvColor,btnColor,vwColor,ibColorDefault,tvColorPro,
+                tvSignature,etSignature,btnHtml,
+                btnAdvanced,btnSave" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAdvanced"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvProvider,spProvider,
-            tvDomain,tvDomainHint,etDomain,btnAutoConfig,
-            tvSmtp,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort,
-            tvUser,etUser,tvPassword,tilPassword,
-            tvRealm,etRealm,
-            cbUseIp,tvUseIpHint,
-            cbSynchronize,cbPrimary,
-            cbSenderExtra,tvSenderExtraHint,
-            tvReplyTo,etReplyTo,tvBcc,etBcc,
-            cbEncrypt,tvEncryptPro,
-            cbDeliveryReceipt,cbReadReceipt,tvReceipt,
-            cbStoreSent,tvStoreSent" />
+                tvProvider,spProvider,
+                tvDomain,tvDomainHint,etDomain,btnAutoConfig,
+                tvSmtp,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort,
+                tvUser,etUser,tvPassword,tilPassword,
+                tvRealm,etRealm,
+                cbUseIp,tvUseIpHint,
+                cbSynchronize,cbPrimary,
+                cbSenderExtra,tvSenderExtraHint,
+                tvReplyTo,etReplyTo,tvBcc,etBcc,
+                cbEncrypt,tvEncryptPro,
+                cbDeliveryReceipt,cbReadReceipt,tvReceipt,
+                cbStoreSent,tvStoreSent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
