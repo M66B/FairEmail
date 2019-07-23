@@ -252,27 +252,18 @@ public class FragmentQuickSetup extends FragmentBase {
                             String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
                             String type = EntityFolder.getType(attrs, fullName, true);
-                            boolean alt = fullName.toLowerCase().contains("draft");
+                            Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
 
-                            Log.i(fullName +
-                                    " attrs=" + TextUtils.join(" ", attrs) +
-                                    " type=" + type + " alt=" + altDrafts);
-
-                            if (type != null && (!EntityFolder.USER.equals(type) || alt)) {
+                            if (type != null) {
                                 int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
 
                                 EntityFolder folder = new EntityFolder();
                                 folder.name = fullName;
-                                folder.type = (alt ? EntityFolder.DRAFTS : type);
+                                folder.type = type;
                                 folder.synchronize = (sync >= 0);
                                 folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
                                 folder.sync_days = EntityFolder.DEFAULT_SYNC;
                                 folder.keep_days = EntityFolder.DEFAULT_KEEP;
-
-                                if (alt)
-                                    altDrafts = folder;
-                                else
-                                    folders.add(folder);
 
                                 if (EntityFolder.INBOX.equals(type)) {
                                     folder.unified = true;
@@ -280,6 +271,20 @@ public class FragmentQuickSetup extends FragmentBase {
                                     inbox = true;
                                 } else if (EntityFolder.DRAFTS.equals(type))
                                     drafts = true;
+
+                                folders.add(folder);
+                            } else if (fullName.toLowerCase().contains("draft")) {
+                                int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(EntityFolder.DRAFTS);
+
+                                EntityFolder folder = new EntityFolder();
+                                folder.name = fullName;
+                                folder.type = EntityFolder.DRAFTS;
+                                folder.synchronize = (sync >= 0);
+                                folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
+                                folder.sync_days = EntityFolder.DEFAULT_SYNC;
+                                folder.keep_days = EntityFolder.DEFAULT_KEEP;
+
+                                altDrafts = folder;
                             }
                         }
 
