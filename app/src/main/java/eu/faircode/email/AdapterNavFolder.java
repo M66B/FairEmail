@@ -86,7 +86,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                 if ("syncing".equals(folder.sync_state))
                     ivItem.setImageResource(R.drawable.baseline_compare_arrows_24);
                 else
-                    ivItem.setImageResource(R.drawable.baseline_send_24);
+                    ivItem.setImageResource(EntityFolder.getIcon(folder.type));
 
                 ivItem.clearColorFilter();
             } else {
