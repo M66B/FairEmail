@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
@@ -100,6 +101,7 @@ public abstract class DB extends RoomDatabase {
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
 
     private static final String DB_NAME = "fairemail";
+    private static final long VACUUM_INTERVAL = 24 * 3600 * 1000L;
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
@@ -108,12 +110,19 @@ public abstract class DB extends RoomDatabase {
             sInstance = migrate(acontext, getBuilder(acontext));
 
             // https://www.sqlite.org/lang_vacuum.html
-            try {
-                Log.i("Running VACUUM");
-                sInstance.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            long last_vacuum = prefs.getLong("last_vacuum", 0);
+            Log.i("Last VACUUM at " + new Date(last_vacuum));
+
+            long now = new Date().getTime();
+            if (last_vacuum + VACUUM_INTERVAL < now)
+                try {
+                    Log.i("Running VACUUM");
+                    sInstance.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
+                    prefs.edit().putLong("last_vacuum", now).apply();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
 
             sInstance.getInvalidationTracker().addObserver(new InvalidationTracker.Observer(
                     EntityAccount.TABLE_NAME,
