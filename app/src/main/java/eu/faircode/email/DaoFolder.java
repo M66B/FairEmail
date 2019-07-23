@@ -163,8 +163,7 @@ public interface DaoFolder {
             " WHERE account.synchronize" +
             " AND folder.type <> '" + EntityFolder.SYSTEM + "'" +
             " AND folder.type <> '" + EntityFolder.USER + "'" +
-            " GROUP BY folder.type" +
-            " HAVING COUNT(folder.id) > 1")
+            " GROUP BY folder.type")
     LiveData<List<EntityFolderUnified>> liveUnified();
 
     @Query("SELECT * FROM folder WHERE id = :id")
