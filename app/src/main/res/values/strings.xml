@@ -650,7 +650,6 @@
     <string name="title_legend_waiting">Waiting for next synchronization</string>
 
     <string name="title_legend_unified">Unified inbox / primary account</string>
-    <string name="title_legend_shared">Unified folder</string>
     <string name="title_legend_inbox">Inbox</string>
     <string name="title_legend_drafts">Drafts</string>
     <string name="title_legend_sent">Sent</string>
