@@ -32,7 +32,7 @@ public class FragmentDialogMarkdown extends DialogFragmentEx {
         dialog.setContentView(dview);
         dialog.getWindow().setLayout(
                 WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT);
+                WindowManager.LayoutParams.WRAP_CONTENT);
 
         new SimpleTask<Spanned>() {
             @Override
