@@ -65,7 +65,8 @@ public class EmailProvider {
 
     enum UserType {LOCAL, EMAIL}
 
-    private static final int TIMEOUT = 20 * 1000; // milliseconds
+    private static final int DNS_TIMEOUT = 5 * 1000; // milliseconds
+    private static final int ISPDB_TIMEOUT = 20 * 1000; // milliseconds
 
     private EmailProvider() {
     }
@@ -78,18 +79,6 @@ public class EmailProvider {
         if (this.imap_host == null || this.imap_port == 0 ||
                 this.smtp_host == null || this.smtp_port == 0)
             throw new UnknownHostException(this.name + " invalid");
-    }
-
-    private EmailProvider(String name, String domain, String imap_prefix, String smtp_prefix) {
-        this.name = name;
-
-        this.imap_host = (imap_prefix == null ? "" : imap_prefix + ".") + domain;
-        this.imap_port = 993;
-        this.imap_starttls = false;
-
-        this.smtp_host = (smtp_prefix == null ? "" : smtp_prefix + ".") + domain;
-        this.smtp_port = 587;
-        this.smtp_starttls = true;
     }
 
     static List<EmailProvider> loadProfiles(Context context) {
@@ -194,8 +183,8 @@ public class EmailProvider {
         Log.i("Fetching " + url);
 
         HttpURLConnection request = (HttpURLConnection) url.openConnection();
-        request.setReadTimeout(TIMEOUT);
-        request.setConnectTimeout(TIMEOUT);
+        request.setReadTimeout(ISPDB_TIMEOUT);
+        request.setConnectTimeout(ISPDB_TIMEOUT);
         request.setRequestMethod("GET");
         request.setDoInput(true);
         request.connect();
@@ -384,27 +373,50 @@ public class EmailProvider {
     }
 
     private static EmailProvider fromTemplate(Context context, String domain) throws UnknownHostException {
-        if (checkTemplate(domain, null, 993, null, 587))
-            return new EmailProvider(domain, domain, null, null);
+        EmailProvider provider;
 
-        else if (checkTemplate(domain, "imap", 993, "smtp", 587))
-            return new EmailProvider(domain, domain, "imap", "smtp");
+        provider = checkTemplate(domain, null, 993, null, 587);
+        if (provider != null)
+            return provider;
 
-        else if (checkTemplate(domain, "mail", 993, "mail", 587))
-            return new EmailProvider(domain, domain, "mail", "mail");
+        provider = checkTemplate(domain, "imap", 993, "smtp", 587);
+        if (provider != null)
+            return provider;
 
-        else
-            throw new UnknownHostException(domain + " template");
+        provider = checkTemplate(domain, "mail", 993, "mail", 587);
+        if (provider != null)
+            return provider;
+
+        throw new UnknownHostException(domain + " template");
     }
 
-    private static boolean checkTemplate(
-            String domain, String imap_prefix, int imap_port, String smtp_prefix, int smtp_port) {
-        return isHostReachable((imap_prefix == null ? "" : imap_prefix + ".") + domain, imap_port, 5000) &&
-                isHostReachable((smtp_prefix == null ? "" : smtp_prefix + ".") + domain, smtp_port, 5000);
+    private static EmailProvider checkTemplate(
+            String domain,
+            String imap_prefix, int imap_port,
+            String smtp_prefix, int smtp_port) {
+        String imap_host = (imap_prefix == null ? "" : imap_prefix + ".") + domain;
+        String smtp_host = (smtp_prefix == null ? "" : smtp_prefix + ".") + domain;
+
+        if (isHostReachable(imap_host, imap_port, DNS_TIMEOUT) &&
+                isHostReachable(smtp_host, smtp_port, DNS_TIMEOUT)) {
+            EmailProvider provider = new EmailProvider();
+            provider.name = domain;
+
+            provider.imap_host = imap_host;
+            provider.imap_port = imap_port;
+            provider.imap_starttls = (imap_port == 143);
+
+            provider.smtp_host = smtp_host;
+            provider.smtp_port = smtp_port;
+            provider.smtp_starttls = (smtp_port == 587);
+
+            return provider;
+        } else
+            return null;
     }
 
     private static boolean isHostReachable(String host, int port, int timeoutms) {
-        Log.i("Checking " + host + ":" + port);
+        Log.i("Checking reachable " + host + ":" + port);
         try (Socket socket = new Socket()) {
             InetAddress iaddr = InetAddress.getByName(host);
             InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr, port);
