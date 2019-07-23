@@ -569,7 +569,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_closing">Schließen</string>
     <string name="title_legend_waiting">Warten auf Synchronisation</string>
     <string name="title_legend_unified">Sammeleingang / primäres Konto</string>
-    <string name="title_legend_shared">Zusammengeführte System-Ordner</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_drafts">Entwürfe</string>
     <string name="title_legend_sent">Gesendet</string>

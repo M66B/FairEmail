@@ -63,6 +63,7 @@
     <string name="menu_legend">Légende</string>
     <string name="menu_faq">Support</string>
     <string name="menu_issue">Signaler un problème</string>
+    <string name="menu_attribution">Attribution</string>
     <string name="menu_privacy">Confidentialité</string>
     <string name="menu_about">À propos</string>
     <string name="menu_pro">Fonctionnalités Pro</string>
@@ -570,7 +571,6 @@
     <string name="title_legend_closing">Fermeture en cours</string>
     <string name="title_legend_waiting">En attente de la prochaine synchronisation</string>
     <string name="title_legend_unified">Boîte de réception unifiée / compte primaire</string>
-    <string name="title_legend_shared">Dossier unifié</string>
     <string name="title_legend_inbox">Boîte de réception</string>
     <string name="title_legend_drafts">Brouillons</string>
     <string name="title_legend_sent">Envoyés</string>

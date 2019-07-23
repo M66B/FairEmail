@@ -55,6 +55,7 @@
     <string name="menu_legend">图例</string>
     <string name="menu_faq">支持</string>
     <string name="menu_issue">报告问题</string>
+    <string name="menu_attribution">归属</string>
     <string name="menu_privacy">隐私</string>
     <string name="menu_about">关于</string>
     <string name="menu_pro">专业版功能</string>
@@ -561,7 +562,6 @@
     <string name="title_legend_closing">正在结束</string>
     <string name="title_legend_waiting">等待下次同步</string>
     <string name="title_legend_unified">统一收件箱/主账户</string>
-    <string name="title_legend_shared">聚合文件夹</string>
     <string name="title_legend_inbox">收件箱</string>
     <string name="title_legend_drafts">草稿</string>
     <string name="title_legend_sent">已发送</string>

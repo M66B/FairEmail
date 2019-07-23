@@ -574,7 +574,6 @@
     <string name="title_legend_closing">Zamykanie</string>
     <string name="title_legend_waiting">Oczekiwanie na następną synchronizację</string>
     <string name="title_legend_unified">Wspólna skrzynka odbiorcza / konto podstawowe</string>
-    <string name="title_legend_shared">Wspólny folder</string>
     <string name="title_legend_inbox">Odebrane</string>
     <string name="title_legend_drafts">Szkice</string>
     <string name="title_legend_sent">Wysłane</string>

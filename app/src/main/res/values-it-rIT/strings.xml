@@ -63,6 +63,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Supporto</string>
     <string name="menu_issue">Segnala problema</string>
+    <string name="menu_attribution">Attribuzione</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Al riguardo</string>
     <string name="menu_pro">Funzionalità a pagamento</string>
@@ -569,7 +570,6 @@
     <string name="title_legend_closing">Chiusura</string>
     <string name="title_legend_waiting">In attesa della prossima sincronizzazione</string>
     <string name="title_legend_unified">Posta in arrivo unificata / account principale</string>
-    <string name="title_legend_shared">Cartella unificata</string>
     <string name="title_legend_inbox">Posta in arrivo</string>
     <string name="title_legend_drafts">Bozze</string>
     <string name="title_legend_sent">Inviato</string>

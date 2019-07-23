@@ -577,7 +577,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_closing">Zatvaranje</string>
     <string name="title_legend_waiting">Čeka se sljedeća sinkronizacija</string>
     <string name="title_legend_unified">Objedinjeni spremnik / primarni račun</string>
-    <string name="title_legend_shared">Objedinjena mapa</string>
     <string name="title_legend_inbox">Ulazni spremnik</string>
     <string name="title_legend_drafts">Skice</string>
     <string name="title_legend_sent">Poslano</string>

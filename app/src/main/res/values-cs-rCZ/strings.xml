@@ -586,7 +586,6 @@
     <string name="title_legend_closing">Ukončování</string>
     <string name="title_legend_waiting">Čekání na další synchronizaci</string>
     <string name="title_legend_unified">Sjednocené doručené / hlavní účet</string>
-    <string name="title_legend_shared">Sjednocená složka</string>
     <string name="title_legend_inbox">Doručené</string>
     <string name="title_legend_drafts">Koncepty</string>
     <string name="title_legend_sent">Odeslané</string>

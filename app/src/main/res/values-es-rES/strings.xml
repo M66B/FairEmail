@@ -63,6 +63,7 @@
     <string name="menu_legend">Leyenda</string>
     <string name="menu_faq">Soporte</string>
     <string name="menu_issue">Reportar problema</string>
+    <string name="menu_attribution">Atribución</string>
     <string name="menu_privacy">Privacidad</string>
     <string name="menu_about">Acerca de</string>
     <string name="menu_pro">Características Pro</string>
@@ -570,7 +571,6 @@
     <string name="title_legend_closing">Cerrando</string>
     <string name="title_legend_waiting">Esperando a la próxima sincronización</string>
     <string name="title_legend_unified">Bandeja de entrada unificada / Cuenta principal</string>
-    <string name="title_legend_shared">Carpeta unificada</string>
     <string name="title_legend_inbox">Bandeja de entrada</string>
     <string name="title_legend_drafts">Borradores</string>
     <string name="title_legend_sent">Enviado</string>
