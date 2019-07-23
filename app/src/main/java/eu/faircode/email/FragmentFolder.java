@@ -361,6 +361,9 @@ public class FragmentFolder extends FragmentBase {
 
                 boolean should = args.getBoolean("should");
 
+                if (TextUtils.isEmpty(display))
+                    display = null;
+
                 int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_SYNC : Integer.parseInt(sync));
                 int keep_days = (TextUtils.isEmpty(keep) ? EntityFolder.DEFAULT_KEEP : Integer.parseInt(keep));
                 if (keep_days < sync_days)
