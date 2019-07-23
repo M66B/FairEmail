@@ -80,6 +80,7 @@
     <string name="menu_legend">Legend</string>
     <string name="menu_faq">Support</string>
     <string name="menu_issue">Report issue</string>
+    <string name="menu_attribution">Attribution</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">About</string>
 

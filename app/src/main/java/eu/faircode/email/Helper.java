@@ -260,6 +260,12 @@ public class Helper {
             return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
     }
 
+    static Intent getIntentAttribution() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/M66B/FairEmail/blob/master/README.md#attribution"));
+        return intent;
+    }
+
     // Graphics
 
     static int dp2pixels(Context context, int dp) {

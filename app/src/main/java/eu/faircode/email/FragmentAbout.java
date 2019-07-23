@@ -69,6 +69,8 @@ public class FragmentAbout extends FragmentBase {
                         getIntentChangelog().resolveActivity(pm) != null);
         menu.findItem(R.id.menu_issue).setVisible(
                 Helper.getIntentIssue(getContext()).resolveActivity(pm) != null);
+        menu.findItem(R.id.menu_attribution).setVisible(
+                Helper.getIntentAttribution().resolveActivity(pm) != null);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -81,6 +83,9 @@ public class FragmentAbout extends FragmentBase {
             case R.id.menu_issue:
                 onMenuIssue();
                 return true;
+            case R.id.menu_attribution:
+                onMenuAttribution();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -92,6 +97,10 @@ public class FragmentAbout extends FragmentBase {
 
     private void onMenuIssue() {
         startActivity(Helper.getIntentIssue(getContext()));
+    }
+
+    private void onMenuAttribution() {
+        startActivity(Helper.getIntentAttribution());
     }
 
     private Intent getIntentChangelog() {
