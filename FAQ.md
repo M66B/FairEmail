@@ -1891,6 +1891,8 @@ Mostly you can workaround this by disabling *Partial fetch* in the advanced acco
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages.
 Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
 
+Disabling *Partial fetch* will result in more memory usage.
+
 <br />
 
 <a name="faq111"></a>
