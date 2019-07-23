@@ -251,7 +251,7 @@ public class ServiceSend extends LifecycleService {
                         .setAutoCancel(false)
                         .setShowWhen(true)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
-                        .setCategory(NotificationCompat.CATEGORY_STATUS)
+                        .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         if (lastUnsent > 0)

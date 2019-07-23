@@ -283,7 +283,7 @@ public class ServiceSynchronize extends LifecycleService {
                         .setAutoCancel(false)
                         .setShowWhen(false)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
-                        .setCategory(NotificationCompat.CATEGORY_STATUS)
+                        .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         if (lastStats.operations > 0)

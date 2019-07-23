@@ -87,7 +87,7 @@ public class ServiceExternal extends Service {
                         .setAutoCancel(false)
                         .setShowWhen(false)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
-                        .setCategory(NotificationCompat.CATEGORY_STATUS)
+                        .setCategory(NotificationCompat.CATEGORY_SERVICE)
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         return builder;

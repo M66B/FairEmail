@@ -2118,7 +2118,7 @@ class Core {
                             .setWhen(message.received)
                             .setDeleteIntent(piIgnore)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                            .setCategory(NotificationCompat.CATEGORY_EMAIL)
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                             .setOnlyAlertOnce(true);
 
