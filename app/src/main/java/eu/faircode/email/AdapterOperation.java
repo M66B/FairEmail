@@ -228,8 +228,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             public void onDestroyed() {
                 Log.i(AdapterOperation.this + " parent destroyed");
                 AdapterOperation.this.parentFragment = null;
-                AdapterOperation.this.context = null;
-                AdapterOperation.this.owner = null;
             }
         });
     }

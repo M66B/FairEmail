@@ -227,8 +227,6 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             public void onDestroyed() {
                 Log.i(AdapterIdentity.this + " parent destroyed");
                 AdapterIdentity.this.parentFragment = null;
-                AdapterIdentity.this.context = null;
-                AdapterIdentity.this.owner = null;
             }
         });
     }

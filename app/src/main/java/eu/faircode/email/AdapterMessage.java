@@ -2971,8 +2971,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             public void onDestroyed() {
                 Log.i(AdapterMessage.this + " parent destroyed");
                 AdapterMessage.this.parentFragment = null;
-                AdapterMessage.this.context = null;
-                AdapterMessage.this.owner = null;
             }
         });
     }

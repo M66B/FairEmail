@@ -195,8 +195,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             public void onDestroyed() {
                 Log.i(AdapterImage.this + " parent destroyed");
                 AdapterImage.this.parentFragment = null;
-                AdapterImage.this.context = null;
-                AdapterImage.this.owner = null;
             }
         });
     }

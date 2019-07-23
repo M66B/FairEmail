@@ -180,8 +180,6 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
             public void onDestroyed() {
                 Log.i(AdapterAnswer.this + " parent destroyed");
                 AdapterAnswer.this.parentFragment = null;
-                AdapterAnswer.this.context = null;
-                AdapterAnswer.this.owner = null;
             }
         });
 

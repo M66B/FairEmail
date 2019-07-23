@@ -297,8 +297,6 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             public void onDestroyed() {
                 Log.i(AdapterRule.this + " parent destroyed");
                 AdapterRule.this.parentFragment = null;
-                AdapterRule.this.context = null;
-                AdapterRule.this.owner = null;
             }
         });
     }

@@ -297,8 +297,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             public void onDestroyed() {
                 Log.i(AdapterAccount.this + " parent destroyed");
                 AdapterAccount.this.parentFragment = null;
-                AdapterAccount.this.context = null;
-                AdapterAccount.this.owner = null;
             }
         });
     }
