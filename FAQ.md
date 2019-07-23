@@ -627,7 +627,7 @@ This can for example happen when connectivity was abruptly lost. A typical examp
 
 The message *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
 
-The message *... Read timed out ...* means that the email server is not responding anymore or that the internet connction is bad.
+The message *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
