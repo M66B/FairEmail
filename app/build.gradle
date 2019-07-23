@@ -247,6 +247,9 @@ dependencies {
     // https://github.com/KeepSafe/ReLinker
     implementation "com.getkeepsafe.relinker:relinker:$relinker_version"
 
+    // https://square.github.io/leakcanary/getting_started/
+    //debugImplementation "com.squareup.leakcanary:leakcanary-android:2.0-alpha-3"
+
     // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
     implementation project(path: ':colorpicker')
 }
