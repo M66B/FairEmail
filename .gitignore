@@ -19,6 +19,7 @@
 /app/full
 /app/play_beta
 /app/play_release
+/app/src/main/assets/*.md
 /tools/config.sh
 crowdin.properties
 keystore.properties

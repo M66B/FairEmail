@@ -322,14 +322,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }));
 
-        if (Helper.getIntentPrivacy().resolveActivity(pm) != null)
-            extra.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onMenuPrivacy();
-                }
-            }));
+        extra.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuPrivacy();
+            }
+        }));
 
         extra.add(new NavMenuItem(R.drawable.baseline_info_24, R.string.menu_about, new Runnable() {
             @Override
@@ -899,7 +898,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuPrivacy() {
-        Helper.view(this, Helper.getIntentPrivacy());
+        Bundle args = new Bundle();
+        args.putString("name", "PRIVACY.md");
+        FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
+        fragment.setArguments(args);
+        fragment.show(getSupportFragmentManager(), "privacy");
     }
 
     private void onMenuAbout() {

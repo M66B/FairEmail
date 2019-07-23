@@ -227,21 +227,9 @@ public class Helper {
         }
     }
 
-    static Intent getIntentSetupHelp() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/FairEmail/blob/master/SETUP.md#setup-help"));
-        return intent;
-    }
-
     static Intent getIntentFAQ() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(Helper.FAQ_URI));
-        return intent;
-    }
-
-    static Intent getIntentPrivacy() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://github.com/M66B/FairEmail/blob/master/PRIVACY.md#fairemail"));
         return intent;
     }
 

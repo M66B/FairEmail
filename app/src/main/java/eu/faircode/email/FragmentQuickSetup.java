@@ -165,7 +165,6 @@ public class FragmentQuickSetup extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         PackageManager pm = getContext().getPackageManager();
-        menu.findItem(R.id.menu_help).setVisible(Helper.getIntentSetupHelp().resolveActivity(pm) != null);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -181,7 +180,11 @@ public class FragmentQuickSetup extends FragmentBase {
     }
 
     private void onMenuHelp() {
-        startActivity(Helper.getIntentSetupHelp());
+        Bundle args = new Bundle();
+        args.putString("name", "SETUP.md");
+        FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
+        fragment.setArguments(args);
+        fragment.show(getChildFragmentManager(), "help");
     }
 
     private void onSave(boolean check) {

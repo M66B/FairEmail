@@ -141,11 +141,14 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        btnHelp.setVisibility(Helper.getIntentSetupHelp().resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
         btnHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(Helper.getIntentSetupHelp());
+                Bundle args = new Bundle();
+                args.putString("name", "SETUP.md");
+                FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
+                fragment.setArguments(args);
+                fragment.show(getChildFragmentManager(), "help");
             }
         });
 
