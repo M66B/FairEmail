@@ -46,6 +46,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class EmailProvider {
     public String name;
@@ -372,60 +377,87 @@ public class EmailProvider {
         return provider;
     }
 
-    private static EmailProvider fromTemplate(Context context, String domain) throws UnknownHostException {
-        EmailProvider provider;
+    private static final ExecutorService executor = Executors.newCachedThreadPool();
 
-        provider = checkTemplate(domain, null, 993, null, 587);
-        if (provider != null)
-            return provider;
+    private static class Server {
+        String host;
+        int port;
+        Future<Boolean> reachable;
 
-        provider = checkTemplate(domain, "imap", 993, "smtp", 587);
-        if (provider != null)
-            return provider;
+        Server(String domain, String prefix, int port) {
+            this.host = (prefix == null ? "" : prefix + ".") + domain;
+            this.port = port;
 
-        provider = checkTemplate(domain, "mail", 993, "mail", 587);
-        if (provider != null)
-            return provider;
+            Log.i("Scanning " + host + ":" + port);
+            this.reachable = executor.submit(new Callable<Boolean>() {
+                @Override
+                public Boolean call() {
+                    try (Socket socket = new Socket()) {
+                        InetAddress iaddr = InetAddress.getByName(host);
+                        InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr, Server.this.port);
+                        socket.connect(inetSocketAddress, DNS_TIMEOUT);
+                        Log.i("Reachable " + Server.this);
+                        return true;
+                    } catch (IOException ex) {
+                        Log.i("Unreachable " + Server.this + ": " + Helper.formatThrowable(ex));
+                        return false;
+                    }
+                }
+            });
+        }
+
+        @Override
+        public String toString() {
+            return host + ":" + port;
+        }
+    }
+
+    private static EmailProvider fromTemplate(Context context, String domain)
+            throws ExecutionException, InterruptedException, UnknownHostException {
+        List<Server> imaps = new ArrayList<>();
+        List<Server> smtps = new ArrayList<>();
+
+        // SSL
+        imaps.add(new Server(domain, null, 993));
+        imaps.add(new Server(domain, "imap", 993));
+        imaps.add(new Server(domain, "mail", 993));
+        imaps.add(new Server(domain, "mx", 993));
+        // STARTTLS
+        imaps.add(new Server(domain, null, 143));
+        imaps.add(new Server(domain, "imap", 143));
+        imaps.add(new Server(domain, "mail", 143));
+        imaps.add(new Server(domain, "mx", 143));
+
+        // SSL
+        smtps.add(new Server(domain, null, 465));
+        smtps.add(new Server(domain, "smtp", 465));
+        smtps.add(new Server(domain, "mail", 465));
+        smtps.add(new Server(domain, "mx", 465));
+        // STARTTLS
+        smtps.add(new Server(domain, null, 587));
+        smtps.add(new Server(domain, "smtp", 587));
+        smtps.add(new Server(domain, "mail", 587));
+        smtps.add(new Server(domain, "mx", 587));
+
+        for (Server imap : imaps)
+            if (imap.reachable.get())
+                for (Server smtp : smtps)
+                    if (smtp.reachable.get()) {
+                        EmailProvider provider = new EmailProvider();
+                        provider.name = domain;
+
+                        provider.imap_host = imap.host;
+                        provider.imap_port = imap.port;
+                        provider.imap_starttls = (imap.port == 143);
+
+                        provider.smtp_host = smtp.host;
+                        provider.smtp_port = smtp.port;
+                        provider.smtp_starttls = (smtp.port == 587);
+
+                        return provider;
+                    }
 
         throw new UnknownHostException(domain + " template");
-    }
-
-    private static EmailProvider checkTemplate(
-            String domain,
-            String imap_prefix, int imap_port,
-            String smtp_prefix, int smtp_port) {
-        String imap_host = (imap_prefix == null ? "" : imap_prefix + ".") + domain;
-        String smtp_host = (smtp_prefix == null ? "" : smtp_prefix + ".") + domain;
-
-        if (isHostReachable(imap_host, imap_port, DNS_TIMEOUT) &&
-                isHostReachable(smtp_host, smtp_port, DNS_TIMEOUT)) {
-            EmailProvider provider = new EmailProvider();
-            provider.name = domain;
-
-            provider.imap_host = imap_host;
-            provider.imap_port = imap_port;
-            provider.imap_starttls = (imap_port == 143);
-
-            provider.smtp_host = smtp_host;
-            provider.smtp_port = smtp_port;
-            provider.smtp_starttls = (smtp_port == 587);
-
-            return provider;
-        } else
-            return null;
-    }
-
-    private static boolean isHostReachable(String host, int port, int timeoutms) {
-        Log.i("Checking reachable " + host + ":" + port);
-        try (Socket socket = new Socket()) {
-            InetAddress iaddr = InetAddress.getByName(host);
-            InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr, port);
-            socket.connect(inetSocketAddress, timeoutms);
-            return true;
-        } catch (IOException ex) {
-            Log.w(ex);
-            return false;
-        }
     }
 
     private static void addDocumentation(EmailProvider provider, String href, String title) {
