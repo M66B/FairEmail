@@ -243,8 +243,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             boolean sync = args.getBoolean("sync");
 
                             DB db = DB.getInstance(context);
-                            if (!sync)
+                            if (!sync) {
+                                db.account().setAccountWarning(id, null);
                                 db.account().setAccountError(id, null);
+                            }
                             db.account().setAccountSynchronize(id, sync);
 
                             return sync;
