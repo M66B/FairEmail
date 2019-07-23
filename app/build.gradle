@@ -121,6 +121,7 @@ task copyMarkdown(type: Copy) {
     into "src/main/assets"
     include "SETUP.md"
     include "PRIVACY.md"
+    include "ATTRIBUTION.md"
 }
 preBuild.dependsOn copyMarkdown
 

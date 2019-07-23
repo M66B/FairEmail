@@ -1,7 +1,3 @@
-# FairEmail
-
-*Open source, privacy friendly email app*
-
 ## Privacy policy
 
 FairEmail **does not** collect any information.

@@ -69,8 +69,6 @@ public class FragmentAbout extends FragmentBase {
                         getIntentChangelog().resolveActivity(pm) != null);
         menu.findItem(R.id.menu_issue).setVisible(
                 Helper.getIntentIssue(getContext()).resolveActivity(pm) != null);
-        menu.findItem(R.id.menu_attribution).setVisible(
-                Helper.getIntentAttribution().resolveActivity(pm) != null);
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -100,7 +98,11 @@ public class FragmentAbout extends FragmentBase {
     }
 
     private void onMenuAttribution() {
-        startActivity(Helper.getIntentAttribution());
+        Bundle args = new Bundle();
+        args.putString("name", "ATTRIBUTION.md");
+        FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
+        fragment.setArguments(args);
+        fragment.show(getFragmentManager(), "privacy");
     }
 
     private Intent getIntentChangelog() {
