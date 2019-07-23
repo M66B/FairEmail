@@ -192,6 +192,7 @@
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
+    <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Použít kulaté ikony</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
@@ -204,6 +205,7 @@
     <string name="title_advanced_monospaced">Použít neproporcionální písmo pro text zprávy</string>
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_images">Automaticky zobrazit obrázky pro známé kontakty</string>
+    <string name="title_advanced_images_all">Automaticky zobrazit všechny obrázky</string>
     <string name="title_advanced_collapse_quotes">Sbalit citovaný text</string>
     <string name="title_advanced_remote_content">Automaticky zobrazovat vzdálený obsah při prohlížení původních zpráv</string>
     <string name="title_advanced_actionbar">Panel akcí konverzací</string>

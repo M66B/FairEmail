@@ -192,6 +192,7 @@
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
+    <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
@@ -203,6 +204,7 @@
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_images_inline">Obrazy wstawione to obrazy zawarte w wiadomości</string>
     <string name="title_advanced_images">Automatycznie wyświetlaj zdjęcia dla znanych kontaktów</string>
+    <string name="title_advanced_images_all">Automatycznie pokazuj wszystkie obrazy</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_remote_content">Automatycznie wyświetlaj zawartość zdalną podczas przeglądania oryginalnych wiadomości</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
@@ -243,6 +245,7 @@
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal istnieje możliwość ręcznej synchronizacji poprzez pociągnięcie w dół listy wiadomości. Spowoduje to synchronizację wiadomości i wykonywanie operacji przez ograniczony czas.</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
+    <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i wykorzystanie dodatkowej energii z baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
@@ -387,6 +390,7 @@
     <string name="title_flag_color">Kolorowa gwiazdka &#8230;</string>
     <string name="title_unflag">Usuń gwiazdkę</string>
     <string name="title_forward">Prześlij dalej</string>
+    <string name="title_editasnew">Edytuj jako nową</string>
     <string name="title_create_rule">Utwórz regułę &#8230;</string>
     <string name="title_share">Udostępnij</string>
     <string name="title_print">Drukuj</string>
@@ -570,6 +574,7 @@
     <string name="title_legend_closing">Zamykanie</string>
     <string name="title_legend_waiting">Oczekiwanie na następną synchronizację</string>
     <string name="title_legend_unified">Wspólna skrzynka odbiorcza / konto podstawowe</string>
+    <string name="title_legend_shared">Wspólny folder</string>
     <string name="title_legend_inbox">Odebrane</string>
     <string name="title_legend_drafts">Szkice</string>
     <string name="title_legend_sent">Wysłane</string>
