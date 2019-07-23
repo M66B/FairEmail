@@ -119,42 +119,41 @@ public class ContactInfo {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
-            try {
-                ContentResolver resolver = context.getContentResolver();
-                try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
-                        new String[]{
-                                ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
-                                ContactsContract.Contacts.LOOKUP_KEY,
-                                ContactsContract.Contacts.DISPLAY_NAME
-                        },
-                        ContactsContract.CommonDataKinds.Email.ADDRESS + " = ? COLLATE NOCASE",
-                        new String[]{
-                                address.getAddress()
-                        }, null)) {
+        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
+            ContentResolver resolver = context.getContentResolver();
+            try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                    new String[]{
+                            ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
+                            ContactsContract.Contacts.LOOKUP_KEY,
+                            ContactsContract.Contacts.DISPLAY_NAME
+                    },
+                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ? COLLATE NOCASE",
+                    new String[]{
+                            address.getAddress()
+                    }, null)) {
 
-                    if (cursor != null && cursor.moveToNext()) {
-                        int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
-                        int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
-                        int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
+                if (cursor != null && cursor.moveToNext()) {
+                    int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
+                    int colLookupKey = cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY);
+                    int colDisplayName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
 
-                        long contactId = cursor.getLong(colContactId);
-                        String lookupKey = cursor.getString(colLookupKey);
-                        Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
+                    long contactId = cursor.getLong(colContactId);
+                    String lookupKey = cursor.getString(colLookupKey);
+                    Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
 
-                        boolean avatars = prefs.getBoolean("avatars", true);
-                        if (avatars) {
-                            InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, lookupUri);
-                            info.bitmap = BitmapFactory.decodeStream(is);
-                        }
-
-                        info.displayName = cursor.getString(colDisplayName);
-                        info.lookupUri = lookupUri;
+                    boolean avatars = prefs.getBoolean("avatars", true);
+                    if (avatars) {
+                        InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(resolver, lookupUri);
+                        info.bitmap = BitmapFactory.decodeStream(is);
                     }
+
+                    info.displayName = cursor.getString(colDisplayName);
+                    info.lookupUri = lookupUri;
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+        }
 
         if (info.bitmap == null) {
             int dp = Helper.dp2pixels(context, 48);
@@ -213,29 +212,28 @@ public class ContactInfo {
     }
 
     static void init(final Context context, Handler handler) {
-        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
-            ContentObserver observer = new ContentObserver(handler) {
-                @Override
-                public void onChange(boolean selfChange, Uri uri) {
-                    Log.i("Contact changed uri=" + uri);
-                    try {
-                        emailLookup = getEmailLookup(context);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                }
-            };
-
+        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
             try {
+                ContentObserver observer = new ContentObserver(handler) {
+                    @Override
+                    public void onChange(boolean selfChange, Uri uri) {
+                        Log.i("Contact changed uri=" + uri);
+                        try {
+                            emailLookup = getEmailLookup(context);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                };
+
                 emailLookup = getEmailLookup(context);
+
+                Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
+                Log.i("Observing uri=" + uri);
+                context.getContentResolver().registerContentObserver(uri, true, observer);
             } catch (Throwable ex) {
                 Log.e(ex);
             }
-
-            Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
-            Log.i("Observing uri=" + uri);
-            context.getContentResolver().registerContentObserver(uri, true, observer);
-        }
     }
 
     static Uri getLookupUri(Context context, Address[] addresses) {
@@ -266,6 +264,8 @@ public class ContactInfo {
                     null)) {
                 if (cursor != null && cursor.moveToNext())
                     untrusted = cursor.getLong(0);
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
             Log.i("Untrusted group=" + untrusted);
 
@@ -303,6 +303,8 @@ public class ContactInfo {
                     Uri uri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
                     all.put(email, uri);
                 }
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
         }
 
