@@ -152,11 +152,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         drawerContainer = findViewById(R.id.drawer_container);
 
+        // Accounts
         rvAccount = drawerContainer.findViewById(R.id.rvAccount);
         rvAccount.setLayoutManager(new LinearLayoutManager(this));
         final AdapterNavAccount aadapter = new AdapterNavAccount(this, this);
         rvAccount.setAdapter(aadapter);
 
+        // Unified system folders
         ivExpanderUnified = drawerContainer.findViewById(R.id.ivExpanderUnified);
         ivExpanderUnified.setVisibility(View.GONE);
 
@@ -182,6 +184,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
+        // Navigation folders
         rvFolder = drawerContainer.findViewById(R.id.rvFolder);
         rvFolder.setLayoutManager(new LinearLayoutManager(this));
         final AdapterNavFolder fadapter = new AdapterNavFolder(this, this);
@@ -192,6 +195,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final AdapterNavMenu madapter = new AdapterNavMenu(this, this);
         rvMenu.setAdapter(madapter);
 
+        // Extra menus
         ivExpanderExtra = drawerContainer.findViewById(R.id.ivExpanderExtra);
 
         rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
@@ -234,6 +238,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         });
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
+
+        // Fixed menus
 
         PackageManager pm = getPackageManager();
         final List<NavMenuItem> menus = new ArrayList<>();
@@ -279,6 +285,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }));
 
         madapter.set(menus);
+
+        // Collapsible menus
 
         List<NavMenuItem> extra = new ArrayList<>();
 
@@ -376,6 +384,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         eadapter.set(extra);
 
+        // Live data
+
         DB db = DB.getInstance(this);
 
         db.account().liveAccountsEx(false).observe(this, new Observer<List<TupleAccountEx>>() {
@@ -416,6 +426,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 madapter.notifyDataSetChanged();
             }
         });
+
+        // Initialize
 
         if (getSupportFragmentManager().getFragments().size() == 0 &&
                 !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
