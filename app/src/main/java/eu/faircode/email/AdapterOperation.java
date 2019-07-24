@@ -21,22 +21,23 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,8 +54,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private boolean debug;
-
     private List<TupleOperationEx> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -64,6 +63,8 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         private TextView tvOperation;
         private TextView tvTime;
         private TextView tvError;
+
+        private TwoStateOwner powner = new TwoStateOwner(owner, "OperationPopup");
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -78,14 +79,12 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
 
         private void wire() {
             view.setOnClickListener(this);
-            if (BuildConfig.DEBUG || debug)
-                view.setOnLongClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
-            if (BuildConfig.DEBUG || debug)
-                view.setOnLongClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(TupleOperationEx operation) {
@@ -183,30 +182,52 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            TupleOperationEx operation = items.get(pos);
+            final TupleOperationEx operation = items.get(pos);
             if (operation == null)
                 return false;
 
-            Bundle args = new Bundle();
-            args.putLong("id", operation.id);
-            args.putLong("folder", operation.folder);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 1, R.string.title_delete);
 
-            new SimpleTask<Void>() {
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-                    long folder = args.getLong("folder");
-                    DB db = DB.getInstance(context);
-                    db.operation().deleteOperation(id);
-                    db.folder().setFolderError(folder, null);
-                    return null;
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.string.title_delete:
+                            onActionDelete();
+                            return true;
+                        default:
+                            return false;
+                    }
                 }
 
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                private void onActionDelete() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", operation.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            DB db = DB.getInstance(context);
+                            EntityOperation operation = db.operation().getOperation(id);
+                            if (operation == null)
+                                return null;
+
+                            db.operation().deleteOperation(operation.id);
+                            db.folder().setFolderError(operation.folder, null);
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "operation:delete");
                 }
-            }.execute(context, owner, args, "operation:delete");
+            });
+
+            popupMenu.show();
 
             return true;
         }
@@ -217,9 +238,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.debug = prefs.getBoolean("debug", false);
 
         setHasStableIds(true);
 
@@ -311,6 +329,11 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(inflater.inflate(R.layout.item_operation, parent, false));
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 
     @Override
