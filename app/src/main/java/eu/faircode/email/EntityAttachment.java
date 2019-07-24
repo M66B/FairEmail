@@ -119,9 +119,12 @@ public class EntityAttachment {
 
     static void copy(Context context, long oldid, long newid) {
         DB db = DB.getInstance(context);
+
         List<EntityAttachment> attachments = db.attachment().getAttachments(oldid);
         for (EntityAttachment attachment : attachments) {
             File source = attachment.getFile(context);
+
+            long aid = attachment.id;
 
             attachment.id = null;
             attachment.message = newid;
@@ -134,6 +137,7 @@ public class EntityAttachment {
                     Helper.copy(source, target);
                 } catch (IOException ex) {
                     Log.e(ex);
+                    db.attachment().setError(aid, Helper.formatThrowable(ex, false));
                     db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
                 }
             }
