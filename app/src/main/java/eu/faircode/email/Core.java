@@ -988,7 +988,7 @@ class Core {
             // Check uid validity
             try {
                 long uidv = ifolder.getUIDValidity();
-                if (folder.uidv != null && folder.uidv.equals(uidv)) {
+                if (folder.uidv != null && !folder.uidv.equals(uidv)) {
                     Log.w(folder.name + " uid validity changed from " + folder.uidv + " to " + uidv);
                     db.message().deleteLocalMessages(folder.id);
                 }
