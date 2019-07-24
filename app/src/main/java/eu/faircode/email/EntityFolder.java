@@ -64,6 +64,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Long id;
     public Long account; // Outbox = null
     public Long parent;
+    public Long uidv; // UIDValidity
     @NonNull
     public String name;
     @NonNull
@@ -287,6 +288,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
             EntityFolder other = (EntityFolder) obj;
             return (this.id.equals(other.id) &&
                     Objects.equals(this.account, other.account) &&
+                    Objects.equals(this.uidv, other.uidv) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
                     this.synchronize.equals(other.synchronize) &&

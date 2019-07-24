@@ -985,6 +985,19 @@ class Core {
 
             db.folder().setFolderSyncState(folder.id, "syncing");
 
+            // Check uid validity
+            try {
+                long uidv = ifolder.getUIDValidity();
+                if (folder.uidv != null && folder.uidv.equals(uidv)) {
+                    Log.w(folder.name + " uid validity changed from " + folder.uidv + " to " + uidv);
+                    db.message().deleteLocalMessages(folder.id);
+                }
+                folder.uidv = uidv;
+                db.folder().setFolderUidValidity(folder.id, uidv);
+            } catch (MessagingException ex) {
+                Log.w(ex);
+            }
+
             // Get reference times
             Calendar cal_sync = Calendar.getInstance();
             cal_sync.add(Calendar.DAY_OF_MONTH, -sync_days);

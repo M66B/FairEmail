@@ -278,6 +278,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET keep_days = :days WHERE id = :id")
     int setFolderKeep(long id, int days);
 
+    @Query("UPDATE folder SET uidv = :uidv WHERE id = :id")
+    int setFolderUidValidity(long id, Long uidv);
+
     @Query("UPDATE folder SET last_sync = :last_sync WHERE id = :id")
     int setFolderSync(long id, long last_sync);
 
