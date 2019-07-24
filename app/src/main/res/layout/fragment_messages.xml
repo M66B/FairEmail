@@ -138,10 +138,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_no_messages"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintBottom_toTopOf="@+id/seekBar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+                app:layout_constraintBottom_toBottomOf="@+id/rvMessage"
+                app:layout_constraintEnd_toEndOf="@+id/rvMessage"
+                app:layout_constraintStart_toStartOf="@+id/rvMessage"
+                app:layout_constraintTop_toTopOf="@+id/rvMessage" />
 
             <eu.faircode.email.FixedRecyclerView
                 android:id="@+id/rvMessage"
@@ -156,7 +156,7 @@
                 app:fastScrollHorizontalTrackDrawable="@drawable/fast_scroll_track"
                 app:fastScrollVerticalThumbDrawable="@drawable/fast_scroll_thumb"
                 app:fastScrollVerticalTrackDrawable="@drawable/fast_scroll_track"
-                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
@@ -167,10 +167,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:indeterminate="true"
-                app:layout_constraintBottom_toTopOf="@+id/seekBar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
+                app:layout_constraintBottom_toBottomOf="@id/rvMessage"
+                app:layout_constraintEnd_toEndOf="@id/rvMessage"
+                app:layout_constraintStart_toStartOf="@id/rvMessage"
+                app:layout_constraintTop_toTopOf="@id/rvMessage" />
 
             <SeekBar
                 android:id="@+id/seekBar"
