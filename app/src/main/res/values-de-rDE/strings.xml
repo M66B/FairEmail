@@ -63,6 +63,7 @@
     <string name="menu_legend">Legende</string>
     <string name="menu_faq">Unterstützung</string>
     <string name="menu_issue">Problem melden</string>
+    <string name="menu_attribution">Eigenschaften</string>
     <string name="menu_privacy">Datenschutz</string>
     <string name="menu_about">Über</string>
     <string name="menu_pro">Pro-Funktionen</string>

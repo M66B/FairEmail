@@ -175,6 +175,7 @@
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
+    <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
@@ -187,6 +188,7 @@
     <string name="title_advanced_monospaced">Använd monospace-typsnitt för meddelandetexten</string>
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
     <string name="title_advanced_images">Visa automatiskt bilder för kända kontakter</string>
+    <string name="title_advanced_images_all">Visa automatiskt alla bilder</string>
     <string name="title_advanced_collapse_quotes">Kollapsa citerad text</string>
     <string name="title_advanced_remote_content">Visa automatiskt fjärrinnehåll när du visar originalmeddelanden</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
@@ -371,6 +373,7 @@
     <string name="title_flag_color">Färgad stjärna &#8230;</string>
     <string name="title_unflag">Ta bort stjärna</string>
     <string name="title_forward">Vidarebefordra</string>
+    <string name="title_editasnew">Redigera som ny</string>
     <string name="title_create_rule">Skapa regel &#8230;</string>
     <string name="title_share">Dela</string>
     <string name="title_print">Skriv ut</string>

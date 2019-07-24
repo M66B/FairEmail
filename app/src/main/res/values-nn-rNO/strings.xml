@@ -63,6 +63,7 @@
     <string name="menu_legend">Forklaring</string>
     <string name="menu_faq">Støtte</string>
     <string name="menu_issue">Rapporter en feil</string>
+    <string name="menu_attribution">Attributter</string>
     <string name="menu_privacy">Personvern</string>
     <string name="menu_about">Om</string>
     <string name="menu_pro">Pro-funksjoner</string>
