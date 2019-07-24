@@ -52,7 +52,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -178,16 +178,26 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onExecute(Context context, Bundle args) throws IOException {
+                protected Void onExecute(Context context, Bundle args) throws FileNotFoundException {
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
-                    EntityAttachment attachment = db.attachment().getAttachment(id);
-                    if (attachment == null)
-                        return null;
-                    db.attachment().setDownloaded(id, null);
-                    attachment.getFile(context).delete();
-                    db.attachment().deleteAttachment(id);
+                    try {
+                        db.beginTransaction();
+
+                        EntityAttachment attachment = db.attachment().getAttachment(id);
+                        if (attachment == null)
+                            return null;
+
+                        db.attachment().deleteAttachment(attachment.id);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    if (!attachment.getFile(context).delete())
+                        throw new FileNotFoundException(attachment.getFile(context).toString());
 
                     return null;
                 }
