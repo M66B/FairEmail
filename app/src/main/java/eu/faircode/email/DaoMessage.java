@@ -38,18 +38,13 @@ public interface DaoMessage {
     // all bare columns in the result set take values from the input row which also contains the minimum or maximum."
     // https://www.sqlite.org/lang_select.html
 
-    String folder_in = "folder.type IN ('" + EntityFolder.ARCHIVE + "', '" + EntityFolder.OUTBOX + "', '" + EntityFolder.DRAFTS + "')";
-
-    String unseen_unified = "SUM(CASE WHEN message.ui_seen OR " + folder_in + " THEN 0 ELSE 1 END)";
-    String unflagged_unified = "SUM(CASE WHEN message.ui_flagged AND NOT " + folder_in + " THEN 0 ELSE 1 END)";
-
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
             ", COUNT(message.id) AS count" +
-            ", " + unseen_unified + " AS unseen" +
-            ", " + unflagged_unified + " AS unflagged" +
+            ", SUM(1 - message.ui_seen) AS unseen" +
+            ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
@@ -65,13 +60,13 @@ public interface DaoMessage {
             " HAVING (:found OR" +
             "   CASE WHEN :type IS NULL THEN SUM(folder.unified) > 0" +
             "   ELSE SUM(CASE WHEN folder.type = :type THEN 1 ELSE 0 END) > 0 END)" +
-            " AND (NOT :filter_seen OR " + unseen_unified + " > 0)" +
-            " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_unified + " > 0)" +
+            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
+            " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL)" +
             " ORDER BY" +
             " CASE" +
-            "  WHEN 'unread' = :sort THEN " + unseen_unified + " = 0" +
-            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_unified + " = 0" +
+            "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
+            "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  WHEN 'size' = :sort THEN -SUM(message.size)" +
@@ -88,16 +83,14 @@ public interface DaoMessage {
             boolean debug);
 
     String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
-    String unseen_folder = "SUM(CASE WHEN message.ui_seen OR (folder.id <> :folder AND " + folder_in + ") THEN 0 ELSE 1 END)";
-    String unflagged_folder = "SUM(CASE WHEN message.ui_flagged AND NOT (folder.id <> :folder AND " + folder_in + ") THEN 0 ELSE 1 END)";
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
             ", COUNT(message.id) AS count" +
-            ", " + unseen_folder + " AS unseen" +
-            ", " + unflagged_folder + " AS unflagged" +
+            ", SUM(1 - message.ui_seen) AS unseen" +
+            ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
@@ -112,13 +105,13 @@ public interface DaoMessage {
             " AND (NOT :found OR ui_found = :found)" +
             " GROUP BY CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
-            " AND (NOT :filter_seen OR " + unseen_folder + " > 0 OR " + is_outbox + ")" +
-            " AND (NOT :filter_unflagged OR COUNT(message.id) - " + unflagged_folder + " > 0 OR " + is_outbox + ")" +
+            " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
+            " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + ")" +
             " ORDER BY" +
             " CASE" +
-            "  WHEN 'unread' = :sort THEN " + unseen_folder + " = 0" +
-            "  WHEN 'starred' = :sort THEN COUNT(message.id) - " + unflagged_folder + " = 0" +
+            "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
+            "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
             "  WHEN 'subject' = :sort THEN LOWER(message.subject)" +
             "  WHEN 'size' = :sort THEN -SUM(message.size)" +
