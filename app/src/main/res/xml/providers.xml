@@ -269,4 +269,28 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Zoho"
+        link="https://www.zoho.com/mail/help/imap-access.html">
+        <imap
+            host="imap.zoho.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.zoho.com"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
+        name="Zoho EU"
+        link="https://www.zoho.eu/mail/help/imap-access.html">
+        <imap
+            host="imap.zoho.eu"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.zoho.eu"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
