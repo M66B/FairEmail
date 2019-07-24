@@ -377,7 +377,8 @@ public class EmailProvider {
         return provider;
     }
 
-    private static final ExecutorService executor = Executors.newCachedThreadPool();
+    private static final ExecutorService executor =
+            Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     private static class Server {
         String host;

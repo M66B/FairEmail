@@ -97,7 +97,7 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoLog log();
 
     private static DB sInstance;
-    private static ExecutorService executor = Executors.newFixedThreadPool(
+    private static final ExecutorService executor = Executors.newFixedThreadPool(
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
 
     private static final String DB_NAME = "fairemail";

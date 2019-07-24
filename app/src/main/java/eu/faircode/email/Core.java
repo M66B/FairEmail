@@ -120,7 +120,8 @@ class Core {
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long MIN_HIDE = 60 * 1000L; // milliseconds
 
-    private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private static final ExecutorService executor =
+            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static void processOperations(
             Context context,

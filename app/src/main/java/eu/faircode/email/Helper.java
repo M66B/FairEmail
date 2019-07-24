@@ -141,7 +141,8 @@ public class Helper {
         }
     };
 
-    private final static ExecutorService executor = Executors.newSingleThreadExecutor();
+    private static final ExecutorService executor =
+            Executors.newSingleThreadExecutor(backgroundThreadFactory);
 
     // Features
 

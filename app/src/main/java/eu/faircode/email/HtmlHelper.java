@@ -85,7 +85,8 @@ public class HtmlHelper {
     private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
 
-    private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private static final ExecutorService executor =
+            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static String sanitize(Context context, String html, boolean show_images) {
         Document parsed = Jsoup.parse(html);
