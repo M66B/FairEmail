@@ -288,27 +288,34 @@ public class EntityFolder extends EntityOrder implements Serializable {
             EntityFolder other = (EntityFolder) obj;
             return (this.id.equals(other.id) &&
                     Objects.equals(this.account, other.account) &&
+                    Objects.equals(this.parent, other.parent) &&
                     Objects.equals(this.uidv, other.uidv) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
+                    this.level.equals(other.level) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.poll.equals(other.poll) &&
                     this.download.equals(other.download) &&
                     Objects.equals(this.subscribed, other.subscribed) &&
                     this.sync_days.equals(other.sync_days) &&
                     this.keep_days.equals(other.keep_days) &&
+                    this.auto_delete.equals(other.auto_delete) &&
                     Objects.equals(this.display, other.display) &&
                     Objects.equals(this.order, other.order) &&
                     this.hide == other.hide &&
                     this.collapsed == other.collapsed &&
                     this.unified == other.unified &&
+                    this.navigation == other.navigation &&
                     this.notify == other.notify &&
                     Objects.equals(this.total, other.total) &&
                     Helper.equal(this.keywords, other.keywords) &&
+                    this.initialize.equals(other.initialize) &&
                     Objects.equals(this.tbc, other.tbc) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.sync_state, other.sync_state) &&
+                    this.read_only == other.read_only &&
+                    this.selectable == other.selectable &&
                     Objects.equals(this.error, other.error) &&
                     Objects.equals(this.last_sync, other.last_sync));
         } else
