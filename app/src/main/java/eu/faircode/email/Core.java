@@ -1313,7 +1313,7 @@ class Core {
                 }
             }
 
-            db.folder().setFolderSync(folder.id, new Date().getTime());
+            db.folder().setFolderLastSync(folder.id, new Date().getTime());
             db.folder().setFolderError(folder.id, null);
 
         } finally {
