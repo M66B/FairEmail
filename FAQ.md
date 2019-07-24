@@ -951,7 +951,8 @@ Finally, make sure you are using [the latest version](https://github.com/M66B/Fa
 
 You can reduce the network usage basically in the same way as reducing battery usage, see the previous question for suggestions.
 
-Additionally, you can let FairEmail download small messages and attachments only on a metered (mobile, paid) connection only.
+By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection.
+You can change this in the connection settings.
 
 <br />
 
