@@ -974,6 +974,11 @@ class Core {
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
 
+            if (account.host.toLowerCase().contains("imap.zoho")) {
+                sync_unseen = false;
+                sync_flagged = false;
+            }
+
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
                     " sync unseen=" + sync_unseen + " flagged=" + sync_flagged +
                     " delete unseen=" + delete_unseen + " kept=" + sync_kept);
