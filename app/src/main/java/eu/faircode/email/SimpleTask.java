@@ -195,4 +195,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     protected void onPostExecute(Bundle args) {
     }
+
+    static int getCount() {
+        return tasks.size();
+    }
 }

@@ -216,7 +216,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean manual = false;
     private Integer lastUnseen = null;
     private boolean swiping = false;
-    private int busy = 0;
 
     private AdapterMessage adapter;
 
@@ -942,8 +941,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private BroadcastReceiver creceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            busy = intent.getIntExtra("count", 0);
-            if (busy == 0) {
+            Log.i("Received " + intent);
+            Log.logExtras(intent);
+
+            int count = intent.getIntExtra("count", 0);
+            if (count == 0) {
                 if (initialized && !loading)
                     pbWait.setVisibility(View.GONE);
             } else
@@ -2752,7 +2754,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onLoaded(int fetched) {
             loading = false;
 
-            if (initialized && busy == 0)
+            if (initialized && SimpleTask.getCount() == 0)
                 pbWait.setVisibility(View.GONE);
 
             tvNoEmail.setVisibility(fetched == 0 ? View.VISIBLE : View.GONE);
@@ -2807,7 +2809,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             });
 
             initialized = true;
-            if (!loading && busy == 0)
+            if (!loading && SimpleTask.getCount() == 0)
                 pbWait.setVisibility(View.GONE);
 
             if (viewType != AdapterMessage.ViewType.SEARCH)
