@@ -141,10 +141,25 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     @Override
+    public void onUserInteraction() {
+        Log.i("User interaction");
+
+        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
+            finish();
+            startActivity(new Intent(this, ActivityMain.class));
+        }
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        Log.i("User leaving");
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
-        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
 
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         if (pm != null && !pm.isInteractive()) {
             Log.i("Stop with screen off");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

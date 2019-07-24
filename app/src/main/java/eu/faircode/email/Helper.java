@@ -697,11 +697,11 @@ public class Helper {
     static boolean shouldAuthenticate(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);
-        long biometrics_timeout = prefs.getInt("biometrics_timeout", 2) * 60 * 1000L;
 
         if (biometrics) {
             long now = new Date().getTime();
             long last_authentication = prefs.getLong("last_authentication", 0);
+            long biometrics_timeout = prefs.getInt("biometrics_timeout", 2) * 60 * 1000L;
             Log.i("Authentication valid until=" + new Date(last_authentication + biometrics_timeout));
 
             if (last_authentication + biometrics_timeout < now)
