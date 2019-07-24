@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.paging.PagedList;
@@ -177,6 +178,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         try {
             db.beginTransaction();
 
+            String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase());
             for (int i = index; i < messages.size() && found < pageSize && !destroyed; i++) {
                 index = i + 1;
 
@@ -185,31 +187,35 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     continue;
 
                 boolean match = false;
-                if (query == null)
+                if (find == null)
                     match = true;
                 else {
-                    String find = query.toLowerCase();
-                    String body = null;
-                    if (message.content)
-                        try {
-                            body = Helper.readText(message.getFile(context));
-                        } catch (IOException ex) {
-                            Log.e(ex);
-                        }
-
-                    if (message.from != null)
+                    if (message.from != null && message.from.length > 0)
                         for (int j = 0; j < message.from.length && !match; j++)
                             match = message.from[j].toString().toLowerCase().contains(find);
 
-                    if (message.to != null)
+                    if (!match && message.to != null && message.to.length > 0)
                         for (int j = 0; j < message.to.length && !match; j++)
                             match = message.to[j].toString().toLowerCase().contains(find);
 
-                    if (message.subject != null && !match)
+                    if (!match && message.subject != null)
                         match = message.subject.toLowerCase().contains(find);
 
-                    if (!match && message.content)
-                        match = body.toLowerCase().contains(find);
+                    if (!match && message.keywords != null && message.keywords.length > 0)
+                        for (String keyword : message.keywords)
+                            if (keyword.toLowerCase().contains(find)) {
+                                match = true;
+                                break;
+                            }
+
+                    if (!match && message.content) {
+                        try {
+                            String body = Helper.readText(message.getFile(context));
+                            match = body.toLowerCase().contains(find);
+                        } catch (IOException ex) {
+                            Log.e(ex);
+                        }
+                    }
                 }
 
                 if (match) {
