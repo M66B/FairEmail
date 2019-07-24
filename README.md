@@ -102,6 +102,8 @@ Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
 * [Play store](https://play.google.com/store/apps/details?id=eu.faircode.email)
 * [Play store](https://play.google.com/apps/testing/eu.faircode.email) (test)
 
+To download a GitHub release you might need to expand the assets section to download the [APK file](https://en.wikipedia.org/wiki/Android_application_package).
+
 The GitHub version is being updated more often than the Play store version.
 The GitHub release will automatically check for updates on GitHub.
 You can turn this off in the miscellaneous settings.
