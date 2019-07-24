@@ -190,30 +190,40 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 if (find == null)
                     match = true;
                 else {
-                    if (message.from != null && message.from.length > 0)
-                        for (int j = 0; j < message.from.length && !match; j++)
-                            match = message.from[j].toString().toLowerCase().contains(find);
+                    if (find.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
+                        String special = find.split(":")[1];
+                        if (context.getString(R.string.title_search_special_unseen).equals(special))
+                            match = !message.ui_seen;
+                        else if (context.getString(R.string.title_search_special_flagged).equals(special))
+                            match = message.ui_flagged;
+                        else if (context.getString(R.string.title_search_special_snoozed).equals(special))
+                            match = (message.ui_snoozed != null);
+                    } else {
+                        if (message.from != null && message.from.length > 0)
+                            for (int j = 0; j < message.from.length && !match; j++)
+                                match = message.from[j].toString().toLowerCase().contains(find);
 
-                    if (!match && message.to != null && message.to.length > 0)
-                        for (int j = 0; j < message.to.length && !match; j++)
-                            match = message.to[j].toString().toLowerCase().contains(find);
+                        if (!match && message.to != null && message.to.length > 0)
+                            for (int j = 0; j < message.to.length && !match; j++)
+                                match = message.to[j].toString().toLowerCase().contains(find);
 
-                    if (!match && message.subject != null)
-                        match = message.subject.toLowerCase().contains(find);
+                        if (!match && message.subject != null)
+                            match = message.subject.toLowerCase().contains(find);
 
-                    if (!match && message.keywords != null && message.keywords.length > 0)
-                        for (String keyword : message.keywords)
-                            if (keyword.toLowerCase().contains(find)) {
-                                match = true;
-                                break;
+                        if (!match && message.keywords != null && message.keywords.length > 0)
+                            for (String keyword : message.keywords)
+                                if (keyword.toLowerCase().contains(find)) {
+                                    match = true;
+                                    break;
+                                }
+
+                        if (!match && message.content) {
+                            try {
+                                String body = Helper.readText(message.getFile(context));
+                                match = body.toLowerCase().contains(find);
+                            } catch (IOException ex) {
+                                Log.e(ex);
                             }
-
-                    if (!match && message.content) {
-                        try {
-                            String body = Helper.readText(message.getFile(context));
-                            match = body.toLowerCase().contains(find);
-                        } catch (IOException ex) {
-                            Log.e(ex);
                         }
                     }
                 }
@@ -281,7 +291,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 Log.i("Boundary server query=" + query);
                 if (query == null)
                     imessages = ifolder.getMessages();
-                else {
+                else if (query.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
+                    String special = query.split(":")[1];
+                    if (context.getString(R.string.title_search_special_unseen).equals(special))
+                        imessages = ifolder.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+                    else if (context.getString(R.string.title_search_special_flagged).equals(special))
+                        imessages = ifolder.search(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
+                    else
+                        imessages = new Message[0];
+                } else {
                     Object result = ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                         @Override
                         public Object doCommand(IMAPProtocol protocol) {

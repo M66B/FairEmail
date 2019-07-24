@@ -31,6 +31,7 @@ import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -69,6 +70,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
@@ -2282,42 +2284,62 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             searchView.setQuery(searching, false);
         }
 
+        AutoCompleteTextView autoCompleteTextView = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
+        autoCompleteTextView.setThreshold(0);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
                 searching = newText;
 
-                Bundle args = new Bundle();
-                args.putString("query", newText);
+                if (TextUtils.isEmpty(newText)) {
+                    MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "suggestion"});
+                    String prefix = getString(R.string.title_search_special_prefix);
+                    cursor.addRow(new Object[]{-1, prefix + ":" + getString(R.string.title_search_special_unseen)});
+                    cursor.addRow(new Object[]{-2, prefix + ":" + getString(R.string.title_search_special_flagged)});
+                    cursor.addRow(new Object[]{-3, prefix + ":" + getString(R.string.title_search_special_snoozed)});
+                    SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                            getContext(),
+                            R.layout.search_suggestion,
+                            cursor,
+                            new String[]{"suggestion"},
+                            new int[]{android.R.id.text1},
+                            0);
+                    searchView.setSuggestionsAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    Bundle args = new Bundle();
+                    args.putString("query", newText);
 
-                new SimpleTask<Cursor>() {
-                    @Override
-                    protected Cursor onExecute(Context context, Bundle args) {
-                        String query = args.getString("query");
+                    new SimpleTask<Cursor>() {
+                        @Override
+                        protected Cursor onExecute(Context context, Bundle args) {
+                            String query = args.getString("query");
 
-                        DB db = DB.getInstance(context);
-                        return db.message().getSuggestions("%" + query + "%");
-                    }
+                            DB db = DB.getInstance(context);
+                            return db.message().getSuggestions("%" + query + "%");
+                        }
 
-                    @Override
-                    protected void onExecuted(Bundle args, Cursor cursor) {
-                        Log.i("Suggestions=" + cursor.getCount());
-                        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                                getContext(),
-                                R.layout.search_suggestion,
-                                cursor,
-                                new String[]{"suggestion"},
-                                new int[]{android.R.id.text1},
-                                0);
-                        searchView.setSuggestionsAdapter(adapter);
-                        adapter.notifyDataSetChanged();
-                    }
+                        @Override
+                        protected void onExecuted(Bundle args, Cursor cursor) {
+                            Log.i("Suggestions=" + cursor.getCount());
+                            SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                                    getContext(),
+                                    R.layout.search_suggestion,
+                                    cursor,
+                                    new String[]{"suggestion"},
+                                    new int[]{android.R.id.text1},
+                                    0);
+                            searchView.setSuggestionsAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                        }
 
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getFragmentManager(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:suggestions");
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getFragmentManager(), ex);
+                        }
+                    }.execute(FragmentMessages.this, args, "messages:suggestions");
+                }
 
                 return true;
             }
