@@ -691,6 +691,10 @@
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l\'application s\'est arrêtée :</string>
+    <string name="title_search_special_prefix">spécial</string>
+    <string name="title_search_special_unseen">non_lus</string>
+    <string name="title_search_special_flagged">suivis</string>
+    <string name="title_search_special_snoozed">différés</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
         <item>Toutes les 15 minutes</item>

@@ -691,6 +691,10 @@
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
+    <string name="title_search_special_prefix">speciaal</string>
+    <string name="title_search_special_unseen">ongelezen</string>
+    <string name="title_search_special_flagged">ster</string>
+    <string name="title_search_special_snoozed">gesluimerd</string>
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
         <item>Elke 15 minuten</item>

@@ -691,6 +691,10 @@
     <string name="title_debug_info">Feilsøkingsinformasjon</string>
     <string name="title_debug_info_remark">Vennligst beskriv problemet og angi tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv hva du gjorde da appen krasjet:</string>
+    <string name="title_search_special_prefix">spesiell</string>
+    <string name="title_search_special_unseen">ulest</string>
+    <string name="title_search_special_flagged">stjernemerkede</string>
+    <string name="title_search_special_snoozed">utsatt</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Hvert 15. minutt</item>

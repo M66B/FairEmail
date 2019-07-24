@@ -690,6 +690,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_debug_info">Debuginformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
+    <string name="title_search_special_prefix">spezial</string>
+    <string name="title_search_special_unseen">ungelesen</string>
+    <string name="title_search_special_flagged">markiert</string>
+    <string name="title_search_special_snoozed">zurückgestellt</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
         <item>Alle 15 Minuten</item>
