@@ -385,6 +385,9 @@ public class FragmentSetup extends FragmentBase {
                 break;
             }
 
+        if (has)
+            ContactInfo.init(getContext());
+
         tvPermissionsDone.setText(has ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setTextColor(has ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(has ? check : null, null, null, null);

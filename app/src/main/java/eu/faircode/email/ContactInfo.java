@@ -36,6 +36,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.Looper;
 import android.provider.ContactsContract;
 
 import androidx.preference.PreferenceManager;
@@ -45,6 +46,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -58,6 +61,9 @@ public class ContactInfo {
 
     private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
     private static Map<String, ContactInfo> emailContactInfo = new HashMap<>();
+
+    private static final ExecutorService executor =
+            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final long CACHE_CONTACT_DURATION = 120 * 1000L;
 
@@ -211,29 +217,42 @@ public class ContactInfo {
         return info;
     }
 
-    static void init(final Context context, Handler handler) {
-        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS))
-            try {
-                ContentObserver observer = new ContentObserver(handler) {
-                    @Override
-                    public void onChange(boolean selfChange, Uri uri) {
-                        Log.i("Contact changed uri=" + uri);
-                        try {
-                            emailLookup = getEmailLookup(context);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
+    static void init(final Context context) {
+        if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
+            Handler handler = new Handler(Looper.getMainLooper());
+
+            ContentObserver observer = new ContentObserver(handler) {
+                @Override
+                public void onChange(boolean selfChange, Uri uri) {
+                    Log.i("Contact changed uri=" + uri);
+                    executor.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                emailLookup = getEmailLookup(context);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
                         }
+                    });
+                }
+            };
+
+            executor.submit(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        emailLookup = getEmailLookup(context);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
                     }
-                };
+                }
+            });
 
-                emailLookup = getEmailLookup(context);
-
-                Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
-                Log.i("Observing uri=" + uri);
-                context.getContentResolver().registerContentObserver(uri, true, observer);
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
+            Uri uri = ContactsContract.CommonDataKinds.Email.CONTENT_URI;
+            Log.i("Observing uri=" + uri);
+            context.getContentResolver().registerContentObserver(uri, true, observer);
+        }
     }
 
     static Uri getLookupUri(Context context, Address[] addresses) {
@@ -253,6 +272,7 @@ public class ContactInfo {
         Map<String, Uri> all = new ConcurrentHashMap<>();
 
         if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
+            Log.i("Reading email/uri");
             ContentResolver resolver = context.getContentResolver();
 
             long untrusted = -1;

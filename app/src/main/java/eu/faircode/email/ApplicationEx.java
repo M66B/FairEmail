@@ -105,7 +105,7 @@ public class ApplicationEx extends Application {
             CookieManager.getInstance().setAcceptCookie(false);
 
         MessageHelper.setSystemProperties();
-        ContactInfo.init(this, new Handler());
+        ContactInfo.init(this);
 
         try {
             WorkerWatchdog.init(this);
