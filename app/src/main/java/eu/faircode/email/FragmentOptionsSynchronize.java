@@ -273,7 +273,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         tvScheduleEnd.setText(formatHour(getContext(), prefs.getInt("schedule_end", 0)));
 
         swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
-        swFlagged.setChecked(prefs.getBoolean("sync_flagged", true));
+        swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));
         swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
         swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));

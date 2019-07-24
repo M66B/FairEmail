@@ -909,7 +909,7 @@ Note that you can set the number of days to *keep* messages for to a higher numb
 You could for example initially synchronize messages for a large number of days and after this has been completed
 reduce the number of days to synchronize messages for, but leave the number of days to keep messages for.
 
-Starred messages will by default always be synchronized (this can be turned off in the receive settings),
+In the receive settings you can enable to always synchronize starred messages,
 which will allow you to keep older messages around while synchronizing messages for a limited number of days.
 
 Disabling the folder option *Automatically download message texts and attachments*

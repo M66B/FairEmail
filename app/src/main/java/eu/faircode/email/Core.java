@@ -970,7 +970,7 @@ class Core {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean sync_unseen = prefs.getBoolean("sync_unseen", false);
-            boolean sync_flagged = prefs.getBoolean("sync_flagged", true);
+            boolean sync_flagged = prefs.getBoolean("sync_flagged", false);
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
 
