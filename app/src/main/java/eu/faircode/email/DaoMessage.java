@@ -50,7 +50,6 @@ public interface DaoMessage {
             ", COUNT(message.id) AS count" +
             ", " + unseen_unified + " AS unseen" +
             ", " + unflagged_unified + " AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
@@ -99,7 +98,6 @@ public interface DaoMessage {
             ", COUNT(message.id) AS count" +
             ", " + unseen_folder + " AS unseen" +
             ", " + unflagged_folder + " AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
@@ -142,7 +140,6 @@ public interface DaoMessage {
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
             ", message.size AS totalSize" +
@@ -250,7 +247,6 @@ public interface DaoMessage {
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
-            ", (SELECT COUNT(a.id) FROM attachment a WHERE a.message = message.id) AS attachments" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
             ", message.size AS totalSize" +
@@ -268,7 +264,6 @@ public interface DaoMessage {
             ", 1 AS count" +
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
-            ", 0 AS attachments" +
             ", 0 AS drafts" +
             ", 1 AS visible" +
             ", message.size AS totalSize" +

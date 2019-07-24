@@ -113,6 +113,8 @@ public class EntityMessage implements Serializable {
     public String subject;
     public Long size;
     @NonNull
+    public Integer attachments = 0; // performance
+    @NonNull
     public Boolean content = false;
     public Boolean plain_only = null;
     public Boolean encrypt = null;
@@ -266,6 +268,7 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.raw, other.raw) &&
                     Objects.equals(this.subject, other.subject) &&
                     Objects.equals(this.size, other.size) &&
+                    Objects.equals(this.attachments, other.attachments) &&
                     this.content == other.content &&
                     Objects.equals(this.plain_only, other.plain_only) &&
                     Objects.equals(this.preview, other.preview) &&

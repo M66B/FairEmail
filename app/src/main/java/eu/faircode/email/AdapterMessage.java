@@ -3159,6 +3159,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("size changed id=" + next.id);
                     }
+                    if (!Objects.equals(prev.attachments, next.attachments)) {
+                        same = false;
+                        Log.i("attachments changed id=" + next.id);
+                    }
                     if (!prev.content.equals(next.content)) {
                         same = false;
                         Log.i("content changed id=" + next.id);

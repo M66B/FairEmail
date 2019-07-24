@@ -57,7 +57,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 95,
+        version = 96,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -161,7 +161,19 @@ public abstract class DB extends RoomDatabase {
                 .databaseBuilder(context, DB.class, DB_NAME)
                 .openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 .setQueryExecutor(executor)
-                .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING);
+                .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING)
+                .addCallback(new Callback() {
+                    @Override
+                    public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("Creating triggers");
+                        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
+                                " AFTER INSERT ON attachment" +
+                                " BEGIN UPDATE message SET attachments = attachments + 1 WHERE message.id = NEW.message; END");
+                        db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
+                                " AFTER DELETE ON attachment" +
+                                " BEGIN UPDATE message SET attachments = attachments - 1 WHERE message.id = OLD.message; END");
+                    }
+                });
     }
 
     private static DB migrate(final Context context, RoomDatabase.Builder<DB> builder) {
@@ -954,6 +966,15 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `identity` ADD COLUMN `sign_key` INTEGER");
+                    }
+                })
+                .addMigrations(new Migration(95, 96) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `attachments` INTEGER NOT NULL DEFAULT 0");
+                        db.execSQL("UPDATE message SET attachments =" +
+                                " (SELECT COUNT(attachment.id) FROM attachment WHERE attachment.message = message.id)");
                     }
                 })
                 .build();
