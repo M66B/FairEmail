@@ -67,8 +67,7 @@ public interface DaoMessage {
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL)" +
-            " ORDER BY" +
-            " CASE" +
+            " ORDER BY CASE" +
             "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
@@ -112,8 +111,7 @@ public interface DaoMessage {
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + ")" +
-            " ORDER BY" +
-            " CASE" +
+            " ORDER BY CASE" +
             "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
             "  WHEN 'sender' = :sort THEN LOWER(message.sender)" +
