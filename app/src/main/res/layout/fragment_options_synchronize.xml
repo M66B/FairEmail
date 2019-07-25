@@ -168,17 +168,41 @@
                 app:layout_constraintTop_toBottomOf="@id/tvSchedulePro"
                 app:switchPadding="12dp" />
 
+            <TextView
+                android:id="@+id/tvUnseenHint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_unseen_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swUnseen" />
+
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swFlagged"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:checked="true"
+                android:checked="false"
                 android:text="@string/title_advanced_flagged"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swUnseen"
+                app:layout_constraintTop_toBottomOf="@id/tvUnseenHint"
                 app:switchPadding="12dp" />
+
+            <TextView
+                android:id="@+id/tvFlaggedHint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:text="@string/title_advanced_unseen_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swFlagged" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swDeleteUnseen"
@@ -189,7 +213,7 @@
                 android:text="@string/title_advanced_delete_unseen"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swFlagged"
+                app:layout_constraintTop_toBottomOf="@id/tvFlaggedHint"
                 app:switchPadding="12dp" />
 
             <androidx.appcompat.widget.SwitchCompat
@@ -205,7 +229,7 @@
                 app:switchPadding="12dp" />
 
             <TextView
-                android:id="@+id/tvSyncKept"
+                android:id="@+id/tvSyncKeptHint"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="48dp"
@@ -224,7 +248,7 @@
                 android:checked="true"
                 android:text="@string/title_advanced_sync_folders"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSyncKept"
+                app:layout_constraintTop_toBottomOf="@id/tvSyncKeptHint"
                 app:switchPadding="12dp" />
 
             <TextView
