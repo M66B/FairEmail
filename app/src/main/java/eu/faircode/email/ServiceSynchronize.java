@@ -95,7 +95,9 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 public class ServiceSynchronize extends LifecycleService {
     private ConnectionHelper.NetworkState networkState = new ConnectionHelper.NetworkState();
     private Core.State state;
+    private int lastStartId = -1;
     private boolean started = false;
+    private boolean stopped = false;
     private int queued = 0;
     private long lastLost = 0;
     private TupleAccountStats lastStats = new TupleAccountStats();
@@ -112,7 +114,6 @@ public class ServiceSynchronize extends LifecycleService {
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final long ONESHOT_DURATION = 90 * 1000L; // milliseconds
-    private static final long STOP_DELAY = 5000L; // milliseconds
 
     static final int PI_ALARM = 1;
     static final int PI_ONESHOT = 2;
@@ -222,8 +223,10 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public void onDestroy() {
-        Log.i("Service destroy");
         EntityLog.log(this, "Service destroy");
+
+        if (!stopped)
+            Log.e("Service destroy without stop");
 
         unregisterReceiver(onScreenOff);
 
@@ -244,6 +247,8 @@ public class ServiceSynchronize extends LifecycleService {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        lastStartId = startId;
+        stopped = false;
         String action = (intent == null ? null : intent.getAction());
         Log.i("Service command intent=" + intent + " action=" + action);
         Log.logExtras(intent);
@@ -448,14 +453,8 @@ public class ServiceSynchronize extends LifecycleService {
                         EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
 
                         if (!doStart && queued == 0 && !isEnabled()) {
-                            try {
-                                Thread.sleep(STOP_DELAY);
-                            } catch (InterruptedException ignored) {
-                            }
-                            if (!doStart && queued == 0 && !isEnabled()) {
-                                queue.shutdownNow();
-                                stopService();
-                            }
+                            stopped = true;
+                            stopService(lastStartId);
                         }
 
                         wl.release();
@@ -570,7 +569,7 @@ public class ServiceSynchronize extends LifecycleService {
         state = null;
     }
 
-    private void stopService() {
+    private void stopService(int startId) {
         EntityLog.log(this, "Service stop");
 
         DB db = DB.getInstance(this);
@@ -578,7 +577,7 @@ public class ServiceSynchronize extends LifecycleService {
         for (EntityOperation op : ops)
             db.folder().setFolderSyncState(op.folder, null);
 
-        stopSelf();
+        stopSelf(startId);
     }
 
     private void monitorAccount(final EntityAccount account, final Core.State state, final boolean sync) throws NoSuchProviderException {
