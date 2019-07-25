@@ -76,8 +76,8 @@ public class MessageHelper {
     private MimeMessage imessage;
 
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
-    private final static int WRITE_TIMEOUT = 40 * 1000; // milliseconds
-    private final static int READ_TIMEOUT = 40 * 1000; // milliseconds
+    private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
+    private final static int READ_TIMEOUT = 60 * 1000; // milliseconds
     private final static int FETCH_SIZE = 256 * 1024; // bytes, default 16K
     private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
 
