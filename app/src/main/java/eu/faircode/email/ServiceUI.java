@@ -65,6 +65,7 @@ public class ServiceUI extends IntentService {
         // - Executing a PendingIntent from a notification.
         // https://developer.android.com/about/versions/oreo/background#services
         Log.i("Service UI intent=" + intent);
+        Log.logExtras(intent);
 
         if (intent == null)
             return;
