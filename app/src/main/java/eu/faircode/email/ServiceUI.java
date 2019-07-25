@@ -177,7 +177,7 @@ public class ServiceUI extends IntentService {
 
             EntityMessage message = db.message().getMessage(id);
             if (message != null) {
-                List<EntityMessage> messages = db.message().getMessageByThread(
+                List<EntityMessage> messages = db.message().getMessagesByThread(
                         message.account, message.thread, threading ? null : id, null);
                 for (EntityMessage threaded : messages) {
                     EntityOperation.queue(this, threaded, EntityOperation.FLAG, true);

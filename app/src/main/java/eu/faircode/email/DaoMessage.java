@@ -223,7 +223,7 @@ public interface DaoMessage {
             " AND (:folder IS NULL OR message.folder = :folder)" +
             " AND NOT uid IS NULL" +
             " AND ui_hide = 0")
-    List<EntityMessage> getMessageByThread(long account, String thread, Long id, Long folder);
+    List<EntityMessage> getMessagesByThread(long account, String thread, Long id, Long folder);
 
     @Query("SELECT * FROM message" +
             " WHERE account = :account" +

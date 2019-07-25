@@ -1486,7 +1486,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                     EntityMessage message = db.message().getMessage(id);
                                     if (message != null) {
-                                        List<EntityMessage> messages = db.message().getMessageByThread(
+                                        List<EntityMessage> messages = db.message().getMessagesByThread(
                                                 message.account, message.thread, threading ? null : id, null);
                                         for (EntityMessage threaded : messages)
                                             if (threaded.ui_seen == message.ui_seen)
@@ -1564,7 +1564,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
-                        List<EntityMessage> messages = db.message().getMessageByThread(
+                        List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading && thread ? null : id, null);
                         for (EntityMessage threaded : messages)
                             EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged);

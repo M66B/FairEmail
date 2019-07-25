@@ -239,7 +239,7 @@ public class EntityRule {
         if (folder == null)
             throw new IllegalArgumentException("Rule move to folder not found");
 
-        List<EntityMessage> messages = db.message().getMessageByThread(
+        List<EntityMessage> messages = db.message().getMessagesByThread(
                 message.account, message.thread, thread ? null : message.id, message.folder);
         for (EntityMessage threaded : messages)
             EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, seen);
