@@ -1076,7 +1076,7 @@ public class FragmentCompose extends FragmentBase {
 
                 String[] tos = new String[ato.length];
                 for (int i = 0; i < ato.length; i++)
-                    tos[i] = ato[i].getAddress();
+                    tos[i] = ato[i].getAddress().toLowerCase();
 
                 Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                 intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
