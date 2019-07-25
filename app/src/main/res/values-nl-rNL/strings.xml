@@ -233,6 +233,7 @@
     <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend te luisteren naar veranderingen.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_check_mx">Controleer e-mailadressen van de afzenders bij het synchroniseren van berichten</string>
+    <string name="title_advanced_unseen_hint">Sommige aanbieders ondersteunen dit niet correct, wat bijvoorbeeld kan leiden tot synchronisatie van alle berichten</string>
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens overdragen en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat worden opgeslagen</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
     <string name="title_advanced_lookup_mx_hint">Dit zal controleren of DNS MX records bestaan</string>
