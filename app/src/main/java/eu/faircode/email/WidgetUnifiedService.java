@@ -19,12 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.widget.RemoteViewsService;
 
 public class WidgetUnifiedService extends RemoteViewsService {
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new WidgetUnifiedRemoteViewsFactory(this.getApplicationContext());
+        return new WidgetUnifiedRemoteViewsFactory(
+                this.getApplicationContext(),
+                intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
+                        AppWidgetManager.INVALID_APPWIDGET_ID));
     }
 }

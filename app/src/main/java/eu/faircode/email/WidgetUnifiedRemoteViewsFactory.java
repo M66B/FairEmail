@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -40,11 +41,15 @@ import static android.os.Looper.getMainLooper;
 
 public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     private Context context;
+    private int appWidgetId;
+
     private Handler handler;
     private TwoStateOwner owner;
     private List<EntityMessage> messages = new ArrayList<>();
 
-    WidgetUnifiedRemoteViewsFactory(final Context context) {
+    WidgetUnifiedRemoteViewsFactory(final Context context, final int appWidgetId) {
+        this.appWidgetId = appWidgetId;
+
         this.context = context;
         this.handler = new Handler(getMainLooper());
 
@@ -52,7 +57,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             @Override
             public void run() {
                 DB db = DB.getInstance(context);
-                owner = new TwoStateOwner("WidgetUnified");
+                owner = new TwoStateOwner("WidgetUnified:" + appWidgetId);
                 db.message().liveWidgetUnified().observe(owner, new Observer<List<EntityMessage>>() {
                     @Override
                     public void onChanged(List<EntityMessage> messages) {
@@ -78,8 +83,11 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
                         WidgetUnifiedRemoteViewsFactory.this.messages = messages;
 
-                        if (changed)
-                            WidgetUnified.update(context);
+                        if (changed) {
+                            Log.i("Widget factory notify changed id=" + appWidgetId);
+                            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+                            appWidgetManager.notifyAppWidgetViewDataChanged(new int[]{appWidgetId}, R.id.lv);
+                        }
                     }
                 });
             }
@@ -88,7 +96,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
     @Override
     public void onCreate() {
-        Log.i("Widget factory create");
+        Log.i("Widget factory create id=" + appWidgetId);
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -99,11 +107,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
     @Override
     public void onDataSetChanged() {
+        Log.i("Widget factory changed id=" + appWidgetId);
     }
 
     @Override
     public void onDestroy() {
-        Log.i("Widget factory destroy");
+        Log.i("Widget factory destroy id=" + appWidgetId);
         handler.post(new Runnable() {
             @Override
             public void run() {
