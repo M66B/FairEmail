@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,9 +24,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_pick"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_person_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_person_24" />
 
             <TextView
                 android:id="@+id/tvPick"
@@ -45,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_cc"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_people_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivPick" />
+                app:layout_constraintTop_toBottomOf="@id/ivPick"
+                app:srcCompat="@drawable/baseline_people_24" />
 
             <TextView
                 android:id="@+id/tvCC"
@@ -67,9 +68,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_link"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_insert_link_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivCC" />
+                app:layout_constraintTop_toBottomOf="@id/ivCC"
+                app:srcCompat="@drawable/baseline_insert_link_24" />
 
             <TextView
                 android:id="@+id/tvLink"
@@ -89,9 +90,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_file"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_attachment_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivLink" />
+                app:layout_constraintTop_toBottomOf="@id/ivLink"
+                app:srcCompat="@drawable/baseline_attachment_24" />
 
             <TextView
                 android:id="@+id/tvFile"
@@ -111,9 +112,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_picture"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_image_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivFile" />
+                app:layout_constraintTop_toBottomOf="@id/ivFile"
+                app:srcCompat="@drawable/baseline_image_24" />
 
             <TextView
                 android:id="@+id/tvPicture"
@@ -133,9 +134,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_photo"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_photo_camera_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivPicture" />
+                app:layout_constraintTop_toBottomOf="@id/ivPicture"
+                app:srcCompat="@drawable/baseline_photo_camera_24" />
 
             <TextView
                 android:id="@+id/tvPhoto"
@@ -155,9 +156,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_audio"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_record_voice_over_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
+                app:layout_constraintTop_toBottomOf="@id/ivPhoto"
+                app:srcCompat="@drawable/baseline_record_voice_over_24" />
 
             <TextView
                 android:id="@+id/tvAudio"
@@ -177,9 +178,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_bold"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_format_bold_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivAudio" />
+                app:layout_constraintTop_toBottomOf="@id/ivAudio"
+                app:srcCompat="@drawable/baseline_format_bold_24" />
 
             <TextView
                 android:id="@+id/tvBold"
@@ -199,9 +200,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_italic"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_format_italic_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivBold" />
+                app:layout_constraintTop_toBottomOf="@id/ivBold"
+                app:srcCompat="@drawable/baseline_format_italic_24" />
 
             <TextView
                 android:id="@+id/tvItalic"
@@ -221,9 +222,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_underline"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_format_underlined_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivItalic" />
+                app:layout_constraintTop_toBottomOf="@id/ivItalic"
+                app:srcCompat="@drawable/baseline_format_underlined_24" />
 
             <TextView
                 android:id="@+id/tvUnderline"
@@ -243,9 +244,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_text_size"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_format_size_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivUnderline" />
+                app:layout_constraintTop_toBottomOf="@id/ivUnderline"
+                app:srcCompat="@drawable/baseline_format_size_24" />
 
             <TextView
                 android:id="@+id/tvSize"
@@ -265,9 +266,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_text_color"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_format_color_text_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivSize" />
+                app:layout_constraintTop_toBottomOf="@id/ivSize"
+                app:srcCompat="@drawable/baseline_format_color_text_24" />
 
             <TextView
                 android:id="@+id/tvColor"

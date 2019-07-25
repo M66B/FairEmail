@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,9 +24,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_primary_connected"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_folder_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_folder_24" />
 
             <TextView
                 android:id="@+id/tvPrimaryConnected"
@@ -45,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_primary_disconnected"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_folder_open_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected" />
+                app:layout_constraintTop_toBottomOf="@id/ivPrimaryConnected"
+                app:srcCompat="@drawable/baseline_folder_open_24" />
 
             <TextView
                 android:id="@+id/tvPrimaryDisconnected"
@@ -67,9 +68,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_download_on"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_mail_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivPrimaryDisconnected" />
+                app:layout_constraintTop_toBottomOf="@id/ivPrimaryDisconnected"
+                app:srcCompat="@drawable/baseline_mail_24" />
 
             <TextView
                 android:id="@+id/tvDownloadOn"
@@ -89,9 +90,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_download_off"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_mail_outline_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivDownloadOn" />
+                app:layout_constraintTop_toBottomOf="@id/ivDownloadOn"
+                app:srcCompat="@drawable/baseline_mail_outline_24" />
 
             <TextView
                 android:id="@+id/tvDownloadOff"
@@ -111,9 +112,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_synchronize_on"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_sync_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivDownloadOff" />
+                app:layout_constraintTop_toBottomOf="@id/ivDownloadOff"
+                app:srcCompat="@drawable/baseline_sync_24" />
 
             <TextView
                 android:id="@+id/tvSynchronize"
@@ -133,9 +134,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_synchronize_off"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_sync_disabled_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivSynchronize" />
+                app:layout_constraintTop_toBottomOf="@id/ivSynchronize"
+                app:srcCompat="@drawable/baseline_sync_disabled_24" />
 
             <TextView
                 android:id="@+id/tvSynchronizeOff"
@@ -155,9 +156,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_disconnected"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_cloud_off_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff" />
+                app:layout_constraintTop_toBottomOf="@id/ivSynchronizeOff"
+                app:srcCompat="@drawable/baseline_cloud_off_24" />
 
             <TextView
                 android:id="@+id/tvDisconnected"
@@ -177,9 +178,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_connecting"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_cloud_queue_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivDisconnected" />
+                app:layout_constraintTop_toBottomOf="@id/ivDisconnected"
+                app:srcCompat="@drawable/baseline_cloud_queue_24" />
 
             <TextView
                 android:id="@+id/tvConnecting"
@@ -199,9 +200,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_connected"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_cloud_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivConnecting" />
+                app:layout_constraintTop_toBottomOf="@id/ivConnecting"
+                app:srcCompat="@drawable/baseline_cloud_24" />
 
             <TextView
                 android:id="@+id/tvConnected"
@@ -221,9 +222,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_executing"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_dns_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivConnected" />
+                app:layout_constraintTop_toBottomOf="@id/ivConnected"
+                app:srcCompat="@drawable/baseline_dns_24" />
 
             <TextView
                 android:id="@+id/tvExecuting"
@@ -243,9 +244,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_synchronizing"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_compare_arrows_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivExecuting" />
+                app:layout_constraintTop_toBottomOf="@id/ivExecuting"
+                app:srcCompat="@drawable/baseline_compare_arrows_24" />
 
             <TextView
                 android:id="@+id/tvSynchronizing"
@@ -265,9 +266,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_downloading"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_cloud_download_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivSynchronizing" />
+                app:layout_constraintTop_toBottomOf="@id/ivSynchronizing"
+                app:srcCompat="@drawable/baseline_cloud_download_24" />
 
             <TextView
                 android:id="@+id/tvDownloading"
@@ -287,9 +288,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_closing"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_close_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivDownloading" />
+                app:layout_constraintTop_toBottomOf="@id/ivDownloading"
+                app:srcCompat="@drawable/baseline_close_24" />
 
             <TextView
                 android:id="@+id/tvClosing"
@@ -309,9 +310,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_waiting"
                 android:padding="12dp"
-                app:srcCompat="@drawable/baseline_hourglass_empty_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivClosing" />
+                app:layout_constraintTop_toBottomOf="@id/ivClosing"
+                app:srcCompat="@drawable/baseline_hourglass_empty_24" />
 
             <TextView
                 android:id="@+id/tvWaiting"
