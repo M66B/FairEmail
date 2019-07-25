@@ -31,6 +31,7 @@ public class TupleFolderNav extends EntityFolder implements Serializable {
     public String accountName;
     public Integer accountColor;
     public int unseen;
+    public int snoozed;
     public int operations;
     public int executing;
 

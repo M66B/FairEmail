@@ -109,6 +109,7 @@ public interface DaoFolder {
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor" +
             ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
+            ", SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) AS snoozed" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id) AS operations" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +

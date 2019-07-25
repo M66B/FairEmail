@@ -107,7 +107,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                     ivItem.setColorFilter(folder.accountColor);
             }
 
-            int count = (EntityFolder.OUTBOX.equals(folder.type) ? folder.operations : folder.unseen);
+            int count = (EntityFolder.OUTBOX.equals(folder.type) ? folder.snoozed + folder.operations : folder.unseen);
 
             if (count == 0)
                 tvItem.setText(folder.getDisplayName(context));
@@ -227,6 +227,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                     Objects.equals(f1.sync_state, f2.sync_state) &&
                     Objects.equals(f1.last_sync, f2.last_sync) &&
                     f1.unseen == f2.unseen &&
+                    f1.snoozed == f2.snoozed &&
                     f1.operations == f2.operations &&
                     f1.executing == f2.executing);
         }
