@@ -771,7 +771,7 @@ public class ServiceSynchronize extends LifecycleService {
                                 if (BuildConfig.DEBUG && "Postausgang".equals(folder.name))
                                     throw new ReadOnlyFolderException(ifolder);
                                 ifolder.open(Folder.READ_WRITE);
-                                db.folder().setFolderReadOnly(folder.id, false);
+                                db.folder().setFolderReadOnly(folder.id, ifolder.getUIDNotSticky());
                             } catch (ReadOnlyFolderException ex) {
                                 Log.w(folder.name + " read only");
                                 try {
