@@ -62,8 +62,7 @@ public class WidgetUnified extends AppWidgetProvider {
     static void update(Context context) {
         Log.i("Widget unified update");
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        int[] appWidgetIds = AppWidgetManager.getInstance(context).getAppWidgetIds(
-                new ComponentName(context, WidgetUnified.class));
+        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
         appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
     }
 }
