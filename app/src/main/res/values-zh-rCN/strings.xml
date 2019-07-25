@@ -224,6 +224,7 @@
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是一个昂贵的操作，可能导致额外的电池使用，特别是在有很多消息要同步的时候。始终同步将通过持续比较变化以避免发生上述情形。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
+    <string name="title_advanced_unseen_hint">一些提供者未正确支持支持该功能，这可能导致同步所有信息。</string>
     <string name="title_advanced_sync_kept_hint">这将使用额外的数据和额外电量，特别是如果有许多消息保留在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能会降低数据和电池使用量，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>

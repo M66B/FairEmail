@@ -232,6 +232,7 @@
     <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo solo ascoltando continuamente le modifiche.</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
+    <string name="title_advanced_unseen_hint">Alcuni provider non lo supportano correttamente, il che potrebbe portare ad esempio alla sincronizzazione di tutti i messaggi</string>
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e utilizzerà energia batteria extra, specialmente se ci sono molti messaggi conservati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>

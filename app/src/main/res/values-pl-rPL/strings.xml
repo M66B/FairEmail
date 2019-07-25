@@ -79,6 +79,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Wsparcie</string>
     <string name="menu_issue">Zgłoś problem</string>
+    <string name="menu_attribution">Źródła</string>
     <string name="menu_privacy">Prywatność</string>
     <string name="menu_about">O programie</string>
     <string name="menu_pro">Funkcje pro</string>
@@ -246,6 +247,7 @@
     <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
+    <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może, na przykład skutkować synchronizacją wszystkich wiadomości</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i wykorzystanie dodatkowej energii z baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
@@ -525,6 +527,7 @@
     <string name="title_rule_snooze">Drzemka</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
     <string name="title_rule_move">Przenieś</string>
+    <string name="title_rule_copy">Kopiuj (etykieta)</string>
     <string name="title_rule_answer">Odpowiedz</string>
     <string name="title_rule_automation">Automatyzacja</string>
     <string name="title_rule_caption">Edytuj regułę</string>
@@ -694,6 +697,10 @@
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
+    <string name="title_search_special_prefix">specjalna</string>
+    <string name="title_search_special_unseen">nieodczytana</string>
+    <string name="title_search_special_flagged">oznaczona</string>
+    <string name="title_search_special_snoozed">odłożona</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
         <item>Co 15 minut</item>

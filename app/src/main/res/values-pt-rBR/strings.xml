@@ -63,6 +63,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Suporte</string>
     <string name="menu_issue">Reportar problema</string>
+    <string name="menu_attribution">Atribuição</string>
     <string name="menu_privacy">Privacidade</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_pro">Recursos Pro</string>
@@ -176,6 +177,7 @@
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
+    <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
@@ -188,6 +190,7 @@
     <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
     <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_images">Mostrar imagens automaticamente para contatos conhecidos</string>
+    <string name="title_advanced_images_all">Mostrar automaticamente todas as imagens</string>
     <string name="title_advanced_collapse_quotes">Recolher texto citado</string>
     <string name="title_advanced_remote_content">Mostrar automaticamente conteúdo remoto ao visualizar mensagens originais</string>
     <string name="title_advanced_actionbar">Barra de ação de conversa</string>
@@ -230,6 +233,7 @@
     <string name="title_advanced_poll_hint">Sincronizar periodicamente irá comparar mensagens locais e remotas cada vez, o que é uma operação cara possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso escutando continuamente apenas as alterações.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>
+    <string name="title_advanced_unseen_hint">Alguns provedores de e-mail não suportam isso corretamente, o que pode, por exemplo, resultar em todas as mensagens sendo sincronizadas</string>
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e usar energia extra da bateria, especialmente se houver muitas mensagens mantidas no dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
     <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
@@ -374,6 +378,7 @@
     <string name="title_flag_color">Estrela colorida &#8230;</string>
     <string name="title_unflag">Remover estrela</string>
     <string name="title_forward">Encaminhar</string>
+    <string name="title_editasnew">Editar como novo</string>
     <string name="title_create_rule">Criar regra &#8230;</string>
     <string name="title_share">Compartilhar</string>
     <string name="title_print">Imprimir</string>
@@ -687,6 +692,10 @@
     <string name="title_debug_info">Informações de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
+    <string name="title_search_special_prefix">especial</string>
+    <string name="title_search_special_unseen">não_lida</string>
+    <string name="title_search_special_flagged">favorito</string>
+    <string name="title_search_special_snoozed">adiado</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>A cada 15 minutos</item>
