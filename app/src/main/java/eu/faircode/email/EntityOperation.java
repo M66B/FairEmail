@@ -134,6 +134,12 @@ public class EntityOperation {
                 if (!EntityFolder.ARCHIVE.equals(source.type) || EntityFolder.TRASH.equals(target.type))
                     db.message().setMessageUiHide(message.id, new Date().getTime());
 
+                if (message.ui_snoozed != null &&
+                        (EntityFolder.ARCHIVE.equals(target.type) || EntityFolder.TRASH.equals(target.type))) {
+                    message.ui_snoozed = null;
+                    EntityMessage.snooze(context, message.id, null);
+                }
+
                 Calendar cal_keep = Calendar.getInstance();
                 cal_keep.add(Calendar.DAY_OF_MONTH, -target.keep_days);
                 cal_keep.set(Calendar.HOUR_OF_DAY, 0);
