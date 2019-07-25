@@ -682,6 +682,10 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
+    <string name="title_search_special_prefix">特殊</string>
+    <string name="title_search_special_unseen">未读</string>
+    <string name="title_search_special_flagged">星标</string>
+    <string name="title_search_special_snoozed">延后</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>
