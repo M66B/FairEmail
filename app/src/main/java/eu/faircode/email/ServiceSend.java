@@ -106,9 +106,13 @@ public class ServiceSend extends LifecycleService {
                         process = true;
                     ops.add(op.id);
                 }
+                for (Long h : handling)
+                    if (!ops.contains(h))
+                        process = true;
+
                 handling = ops;
 
-                if (handling.size() > 0 && process) {
+                if (process) {
                     Log.i("OUTBOX operations=" + operations.size());
 
                     executor.submit(new Runnable() {
