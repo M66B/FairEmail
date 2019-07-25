@@ -1485,10 +1485,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     db.beginTransaction();
 
                                     EntityMessage message = db.message().getMessage(id);
-                                    if (message == null)
-                                        return null;
-
-                                    EntityOperation.queue(context, message, EntityOperation.SEEN, !message.ui_seen);
+                                    if (message != null) {
+                                        List<EntityMessage> messages = db.message().getMessageByThread(
+                                                message.account, message.thread, threading ? null : id, null);
+                                        for (EntityMessage threaded : messages)
+                                            if (threaded.ui_seen == message.ui_seen)
+                                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, !message.ui_seen);
+                                    }
 
                                     db.setTransactionSuccessful();
                                 } finally {
@@ -1503,8 +1506,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                             }
                         }.execute(context, owner, args, "message:seen");
-
-
                     }
                 }
             }
