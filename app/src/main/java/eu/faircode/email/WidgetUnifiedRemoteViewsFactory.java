@@ -32,8 +32,6 @@ import android.widget.RemoteViewsService;
 
 import androidx.lifecycle.Observer;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -42,17 +40,14 @@ import static android.os.Looper.getMainLooper;
 
 public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     private Context context;
-    private DateFormat DTF;
-
     private Handler handler;
     private TwoStateOwner owner;
     private List<EntityMessage> messages = new ArrayList<>();
 
     WidgetUnifiedRemoteViewsFactory(final Context context) {
         this.context = context;
-        this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-
         this.handler = new Handler(getMainLooper());
+
         handler.post(new Runnable() {
             @Override
             public void run() {
@@ -135,7 +130,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         views.setOnClickFillInIntent(R.id.llMessage, thread);
 
         SpannableString from = new SpannableString(MessageHelper.formatAddressesShort(message.from));
-        SpannableString time = new SpannableString(DTF.format(message.received));
+        SpannableString time = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
         SpannableString subject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
 
         if (!message.ui_seen) {
