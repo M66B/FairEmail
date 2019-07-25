@@ -1705,7 +1705,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     message.account, message.thread, threading ? null : id, null);
                             for (EntityMessage threaded : messages)
-                                EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
+                                if (threaded.ui_seen != seen)
+                                    EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
                         }
                     }
 
@@ -1760,7 +1761,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             List<EntityMessage> messages = db.message().getMessageByThread(
                                     message.account, message.thread, threading ? null : id, null);
                             for (EntityMessage threaded : messages)
-                                EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged, color);
+                                if (threaded.ui_flagged != flagged)
+                                    EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged, color);
                         }
                     }
 
