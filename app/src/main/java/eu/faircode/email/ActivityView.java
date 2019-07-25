@@ -102,6 +102,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_OUTBOX = 4;
     static final int REQUEST_ERROR = 5;
     static final int REQUEST_UPDATE = 6;
+    static final int REQUEST_WIDGET = 7;
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
@@ -506,7 +507,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 else if (action.startsWith("thread")) {
                     intent.putExtra("thread", action.split(":", 2)[1]);
                     onViewThread(intent);
-                }
+                } else if (action.equals("widget"))
+                    onViewThread(intent);
             }
 
             if (intent.hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
