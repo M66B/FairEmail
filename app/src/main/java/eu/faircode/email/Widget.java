@@ -28,21 +28,22 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import java.text.NumberFormat;
-
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Widget extends AppWidgetProvider {
+    private static final ExecutorService executor =
+            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
-        Thread thread = new Thread(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 DB db = DB.getInstance(context);
                 update(appWidgetIds, appWidgetManager, context, db.message().getUnseenUnified());
             }
-        }, "widget:update");
-        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-        thread.start();
+        });
     }
 
     static void update(Context context, int count) {
