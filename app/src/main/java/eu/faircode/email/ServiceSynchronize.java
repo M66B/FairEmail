@@ -59,6 +59,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -184,9 +185,39 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
+        db.message().liveWidgetUnified().observe(cowner, new Observer<List<EntityMessage>>() {
+            private List<EntityMessage> last = null;
+
+            @Override
+            public void onChanged(List<EntityMessage> messages) {
+                if (messages == null)
+                    messages = new ArrayList<>();
+
+                boolean changed = false;
+                if (last != null && last.size() == messages.size()) {
+                    for (int i = 0; i < last.size(); i++) {
+                        EntityMessage m1 = last.get(i);
+                        EntityMessage m2 = messages.get(i);
+                        if (!m1.id.equals(m2.id) ||
+                                !MessageHelper.equal(m1.from, m2.from) ||
+                                !m1.received.equals(m2.received) ||
+                                !Objects.equals(m1.subject, m2.subject) ||
+                                m1.ui_seen != m2.ui_seen) {
+                            changed = true;
+                            break;
+                        }
+                    }
+                } else
+                    changed = true;
+
+                last = messages;
+
+                if (changed)
+                    WidgetUnified.update(ServiceSynchronize.this);
+            }
+        });
+
         WorkerCleanup.queue(this);
-
-
     }
 
     @Override

@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -56,5 +57,13 @@ public class WidgetUnified extends AppWidgetProvider {
 
             appWidgetManager.updateAppWidget(id, views);
         }
+    }
+
+    static void update(Context context) {
+        Log.i("Widget unified update");
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        int[] appWidgetIds = AppWidgetManager.getInstance(context).getAppWidgetIds(
+                new ComponentName(context, WidgetUnified.class));
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
     }
 }

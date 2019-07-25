@@ -273,7 +273,7 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
-    @Query("SELECT message.*" +
+    String widget = "SELECT message.*" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
@@ -281,8 +281,13 @@ public interface DaoMessage {
             " AND folder.unified" +
             " AND message.ui_hide = 0" +
             " AND message.ui_snoozed IS NULL" +
-            " ORDER BY message.received DESC")
+            " ORDER BY message.received DESC";
+
+    @Query(widget)
     LiveData<List<EntityMessage>> liveWidgetUnified();
+
+    @Query(widget)
+    List<EntityMessage> getWidgetUnified();
 
     @Query("SELECT COUNT(message.id) FROM message" +
             " JOIN account ON account.id = message.account" +
