@@ -37,6 +37,7 @@
         android:id="@+id/tvSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
         android:maxLines="1"
         android:text="Subject"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
