@@ -71,6 +71,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Podrška</string>
     <string name="menu_issue">Prijavi problem</string>
+    <string name="menu_attribution">Pripisivanje</string>
     <string name="menu_privacy">Privatnost</string>
     <string name="menu_about">O aplikaciji</string>
     <string name="menu_pro">Pro značajke</string>
@@ -207,6 +208,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
     <string name="title_advanced_collapse">Sažmi poruke u razgovorima na \"natrag\"</string>
     <string name="title_advanced_autoclose">Automatski zatvori razgovore</string>
+    <string name="title_advanced_onclose">Na zatvaranje konverzacije</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
     <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
@@ -238,6 +240,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_poll_hint">Sinkroniziranje povremeno će uspoređivati lokalne i udaljene poruke svaki put, što je skupa operacija koja vjerojatno rezultira dodatnom potrošnjom baterije, osobito kada postoji mnogo poruka za sinkronizaciju. Stalna sinkronizacija će to izbjeći kontinuiranim slušanjem samo na promjene.</string>
     <string name="title_advanced_schedule_hint">Dodirnite vrijeme za postavljanje vremena</string>
     <string name="title_advanced_check_mx">Provjerite adrese pošiljatelja pri sinkronizaciji poruka</string>
+    <string name="title_advanced_unseen_hint">Neki pružatelji usluga to ne podržavaju ispravno, što bi na primjer moglo rezultirati sinkronizacijom svih poruka</string>
     <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i koristiti dodatnu snagu baterije, osobito ako se na uređaju čuva mnogo poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
@@ -696,6 +699,10 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_debug_info">Informacije o otklanjanju pogrešaka</string>
     <string name="title_debug_info_remark">Opišite problem i navedite vrijeme problema:</string>
     <string name="title_crash_info_remark">Opišite što ste radili kada je aplikacija pala:</string>
+    <string name="title_search_special_prefix">posebno</string>
+    <string name="title_search_special_unseen">nepročitano</string>
+    <string name="title_search_special_flagged">označeno</string>
+    <string name="title_search_special_snoozed">odgođeno</string>
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
         <item>Svakih 15 minuta</item>
@@ -729,6 +736,11 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Ne poduzimaj ništa</item>
+        <item>Pređi na prethodni razgovor</item>
+        <item>Pređi na sljedeći razgovor</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Maleno</item>
