@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.res.XmlResourceParser;
+import android.text.TextUtils;
 
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.Record;
@@ -147,6 +148,7 @@ public class EmailProvider {
     static EmailProvider fromDomain(Context context, String domain) throws IOException {
         EmailProvider autoconfig = fromDomainInternal(context, domain);
 
+        // Always prefer built-in profiles (ISPDB is not always correct)
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
             if (provider.imap_host.equals(autoconfig.imap_host) ||
@@ -160,16 +162,19 @@ public class EmailProvider {
 
     private static EmailProvider fromDomainInternal(Context context, String domain) throws IOException {
         try {
+            // Assume the provider knows best
             Log.i("Provider from DNS domain=" + domain);
             return addSpecials(context, fromDNS(context, domain));
         } catch (Throwable ex) {
             Log.w(ex);
             try {
+                // Check ISPDB
                 Log.i("Provider from ISPDB domain=" + domain);
                 return addSpecials(context, fromISPDB(context, domain));
             } catch (Throwable ex1) {
                 Log.w(ex1);
                 try {
+                    // Scan ports
                     Log.i("Provider from template domain=" + domain);
                     return addSpecials(context, fromTemplate(context, domain));
                 } catch (Throwable ex2) {
@@ -362,13 +367,32 @@ public class EmailProvider {
 
     private static EmailProvider fromDNS(Context context, String domain) throws TextParseException, UnknownHostException {
         // https://tools.ietf.org/html/rfc6186
-        SRVRecord imap = lookup(context, "_imaps._tcp." + domain);
+        SRVRecord imap;
+        boolean starttls;
+        try {
+            // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
+            imap = lookup(context, "_imaps._tcp." + domain);
+            // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
+            if (TextUtils.isEmpty(imap.getTarget().toString(true)))
+                throw new UnknownHostException(imap.toString());
+            starttls = false;
+        } catch (UnknownHostException ex) {
+            // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
+            imap = lookup(context, "_imap._tcp." + domain);
+            if (TextUtils.isEmpty(imap.getTarget().toString(true)))
+                throw new UnknownHostException(imap.toString());
+            starttls = (imap.getPort() == 143);
+        }
+
+        // Note that this covers connections both with and without Transport Layer Security (TLS)
         SRVRecord smtp = lookup(context, "_submission._tcp." + domain);
+        if (TextUtils.isEmpty(smtp.getTarget().toString(true)))
+            throw new UnknownHostException(smtp.toString());
 
         EmailProvider provider = new EmailProvider(domain);
         provider.imap_host = imap.getTarget().toString(true);
         provider.imap_port = imap.getPort();
-        provider.imap_starttls = (provider.imap_port == 143);
+        provider.imap_starttls = starttls;
 
         provider.smtp_host = smtp.getTarget().toString(true);
         provider.smtp_port = smtp.getPort();
