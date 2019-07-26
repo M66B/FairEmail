@@ -2,13 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_plain_icon"
-        android:icon="@drawable/baseline_notes_24"
-        android:title="@string/title_send_plain_text"
-        android:visible="false"
-        app:showAsAction="always" />
-
-    <item
         android:id="@+id/menu_zoom"
         android:icon="@drawable/baseline_format_size_24"
         android:title="@string/title_zoom"
