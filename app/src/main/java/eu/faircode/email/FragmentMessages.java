@@ -3069,7 +3069,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 finish();
             else {
                 Log.i("Navigating to id=" + closeId);
-                navigate(closeId, false);
+                navigate(closeId, "previous".equals(onclose));
             }
         }
     }
