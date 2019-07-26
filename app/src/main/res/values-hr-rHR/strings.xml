@@ -207,7 +207,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
     <string name="title_advanced_collapse">Sažmi poruke u razgovorima na \"natrag\"</string>
     <string name="title_advanced_autoclose">Automatski zatvori razgovore</string>
-    <string name="title_advanced_autonext">Automatski prelazak na sljedeći kad zatrvorite razgovor</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
     <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>

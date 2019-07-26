@@ -199,7 +199,6 @@
     <string name="title_advanced_autoexpand">Utöka meddelanden automatiskt</string>
     <string name="title_advanced_collapse">Kollapsa meddelanden i konversationer på \"tillbaka\"</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
-    <string name="title_advanced_autonext">Gå automatiskt till nästa konversation vid stängning av konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>

@@ -201,7 +201,7 @@
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
-    <string name="title_advanced_autonext">Automatisch naar het volgende gesprek gaan bij het sluiten van een gesprek</string>
+    <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
@@ -729,6 +729,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Doe niets</item>
+        <item>Ga naar vorige gesprek</item>
+        <item>Ga naar volgende gesprek</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Klein</item>

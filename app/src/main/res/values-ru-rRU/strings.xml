@@ -189,7 +189,6 @@
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
-    <string name="title_advanced_autonext">При закрытии диалога, автоматически открыть следующий</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>

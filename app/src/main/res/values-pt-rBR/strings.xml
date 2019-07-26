@@ -201,7 +201,6 @@
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_collapse">Recolher mensagens em conversas ao \'voltar\'</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
-    <string name="title_advanced_autonext">Ir para a próxima conversa automaticamente ao fechar a conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>

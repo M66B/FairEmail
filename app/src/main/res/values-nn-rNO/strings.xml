@@ -201,7 +201,7 @@
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
     <string name="title_advanced_autoclose">Lukk samtaler automatisk</string>
-    <string name="title_advanced_autonext">Gå automatisk til neste samtale ved lukking av samtale</string>
+    <string name="title_advanced_onclose">Når du avslutter en samtale</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
@@ -729,6 +729,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Gjør ingenting</item>
+        <item>Gå til forrige samtale</item>
+        <item>Gå til neste samtale</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Liten</item>

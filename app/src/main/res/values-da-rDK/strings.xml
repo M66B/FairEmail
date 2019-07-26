@@ -176,7 +176,6 @@
     <string name="title_advanced_autoexpand">Udvid automatisk meddelelser</string>
     <string name="title_advanced_collapse">Skjul meddelelser i samtaler ved tryk på tilbage-knappen</string>
     <string name="title_advanced_autoclose">Luk automatisk samtaler</string>
-    <string name="title_advanced_autonext">Gå automatisk til næste samtale ved lukning af aktuel samtale</string>
     <string name="title_advanced_autoread">Markér automatisk meddelelser som læst ved flytning af meddelelser</string>
     <string name="title_advanced_automove">Bekræft flytning af meddelelser</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kan bekræfte meddelelsen</string>

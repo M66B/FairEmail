@@ -216,7 +216,6 @@
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_collapse">Sbalit zprávy v konverzacích při pohybu zpět</string>
     <string name="title_advanced_autoclose">Automaticky zavírat konverzace</string>
-    <string name="title_advanced_autonext">Automaticky přejít na další konverzaci při zavření konverzace</string>
     <string name="title_advanced_autoread">Automaticky označit zprávy jako přečtené při přesunu</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>

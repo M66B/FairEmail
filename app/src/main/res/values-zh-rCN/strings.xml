@@ -192,7 +192,6 @@
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
-    <string name="title_advanced_autonext">关闭对话时自动转到下一个对话</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>

@@ -63,6 +63,7 @@
     <string name="menu_legend">Selite</string>
     <string name="menu_faq">Tuki</string>
     <string name="menu_issue">Ilmoita ongelmasta</string>
+    <string name="menu_attribution">Käytettävät teknologiat</string>
     <string name="menu_privacy">Yksityisyys</string>
     <string name="menu_about">Tietoja</string>
     <string name="menu_pro">Pro-ominaisuudet</string>
@@ -200,7 +201,7 @@
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_collapse">Tiivistä viestit keskusteluissa takaisin-painikkeella</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
-    <string name="title_advanced_autonext">Siirry seuraavaan keskusteluun, kun keskustelu suljetaan</string>
+    <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
@@ -232,6 +233,7 @@
     <string name="title_advanced_poll_hint">Ajoittainen synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Koko ajan synkronointi välttää tämän synkronoimalla jatkuvasti vain muutokset.</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
+    <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa esimerkiksi kaikkien viestien synkronoinnin</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
@@ -690,6 +692,10 @@
     <string name="title_debug_info">Vianetsintätiedot</string>
     <string name="title_debug_info_remark">Kuvaile ongelmatilanne ja milloin se ilmenee:</string>
     <string name="title_crash_info_remark">Kuvaile mitä olit tekemässä, kun sovellus kaatui:</string>
+    <string name="title_search_special_prefix">erityinen</string>
+    <string name="title_search_special_unseen">lukematon</string>
+    <string name="title_search_special_flagged">tähdellinen</string>
+    <string name="title_search_special_snoozed">torkutettu</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>
@@ -723,6 +729,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Älä tee mitään</item>
+        <item>Siirry edelliseen keskusteluun</item>
+        <item>Siirry seuraavaan keskusteluun</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Pieni</item>

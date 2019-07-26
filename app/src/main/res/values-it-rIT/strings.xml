@@ -200,7 +200,7 @@
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
-    <string name="title_advanced_autonext">Passa automaticamente alla conversazione successiva nella conversazione stretta</string>
+    <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
@@ -728,6 +728,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Non fare nulla</item>
+        <item>Vai alla conversazione precedente</item>
+        <item>Vai alla conversazione successiva</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Piccolo</item>

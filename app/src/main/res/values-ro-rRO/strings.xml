@@ -203,7 +203,6 @@
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
-    <string name="title_advanced_autonext">Se trece la următoarea conversație când este închisă cea curentă</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
