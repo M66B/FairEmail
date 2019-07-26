@@ -241,9 +241,10 @@ public class HtmlHelper {
 
                     String awidth = img.attr("width");
                     String aheight = img.attr("height");
-                    if (!TextUtils.isEmpty(awidth))
+
+                    if (!TextUtils.isEmpty(awidth) && !"auto".equals(awidth.toLowerCase()))
                         width = Integer.parseInt(awidth);
-                    if (!TextUtils.isEmpty(aheight))
+                    if (!TextUtils.isEmpty(aheight) && !"auto".equals(aheight.toLowerCase()))
                         height = Integer.parseInt(aheight);
 
                     if (width != 0 || height != 0) {
