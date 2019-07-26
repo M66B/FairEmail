@@ -199,7 +199,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean actionbar;
     private boolean autoexpand;
     private boolean autoclose;
-    private boolean autonext;
+    private String onclose;
     private boolean addresses;
 
     private int colorPrimary;
@@ -224,7 +224,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private Long previous = null;
     private Long next = null;
-    private Long closeNext = null;
+    private Long closeId = null;
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
@@ -317,7 +317,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         actionbar = prefs.getBoolean("actionbar", true);
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
-        autonext = (!autoclose && prefs.getBoolean("autonext", false));
+        onclose = (autoclose ? null : prefs.getString("onclose", null));
         addresses = prefs.getBoolean("addresses", false);
 
         colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
@@ -2684,30 +2684,35 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void loadMessages(final boolean top) {
-        if (viewType == AdapterMessage.ViewType.THREAD && autonext) {
+        if (viewType == AdapterMessage.ViewType.THREAD && onclose != null) {
             ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
             model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                 boolean once = false;
 
                 @Override
                 public void onPrevious(boolean exists, Long id) {
-                    // Do nothing
+                    onData(false, exists, id);
                 }
 
                 @Override
                 public void onNext(boolean exists, Long id) {
-                    if (!exists || id != null) {
-                        closeNext = id;
-                        if (!once) {
-                            once = true;
-                            loadMessagesNext(top);
-                        }
-                    }
+                    onData(true, exists, id);
                 }
 
                 @Override
                 public void onFound(int position, int size) {
                     // Do nothing
+                }
+
+                private void onData(boolean next, boolean exists, Long id) {
+                    if ((next ? "next" : "previous").equals(onclose))
+                        if (!exists || id != null) {
+                            closeId = id;
+                            if (!once) {
+                                once = true;
+                                loadMessagesNext(top);
+                            }
+                        }
                 }
             });
         } else if (viewType == AdapterMessage.ViewType.SEARCH && !reset) {
@@ -2825,7 +2830,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private boolean handleThreadActions(@NonNull PagedList<TupleMessageEx> messages) {
         // Auto close / next
-        if (messages.size() == 0 && (autoclose || autonext)) {
+        if (messages.size() == 0 && (autoclose || onclose != null)) {
             handleAutoClose();
             return true;
         }
@@ -2912,7 +2917,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
             }
         } else {
-            if (autoCloseCount > 0 && (autoclose || autonext)) {
+            if (autoCloseCount > 0 && (autoclose || onclose != null)) {
                 int count = 0;
                 for (int i = 0; i < messages.size(); i++) {
                     TupleMessageEx message = messages.get(i);
@@ -3058,12 +3063,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void handleAutoClose() {
         if (autoclose)
             finish();
-        else if (autonext) {
-            if (closeNext == null)
+        else if (onclose != null) {
+            if (closeId == null)
                 finish();
             else {
-                Log.i("Navigating to last next=" + closeNext);
-                navigate(closeNext, false);
+                Log.i("Navigating to id=" + closeId);
+                navigate(closeId, false);
             }
         }
     }

@@ -21,13 +21,16 @@ package eu.faircode.email;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,7 +45,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swDoubleTap;
     private SwitchCompat swAutoExpand;
     private SwitchCompat swAutoClose;
-    private SwitchCompat swAutoNext;
+    private Spinner spOnClose;
     private SwitchCompat swCollapse;
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoMove;
@@ -50,7 +53,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swDisableTracking;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "pull", "autoscroll", "swipenav", "doubletap", "autoexpand", "autoclose", "autonext",
+            "pull", "autoscroll", "swipenav", "doubletap", "autoexpand", "autoclose", "onclose",
             "collapse", "autoread", "automove", "authentication", "disable_tracking"
     };
 
@@ -70,7 +73,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swAutoClose = view.findViewById(R.id.swAutoClose);
-        swAutoNext = view.findViewById(R.id.swAutoNext);
+        spOnClose = view.findViewById(R.id.spOnClose);
         swCollapse = view.findViewById(R.id.swCollapse);
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoMove = view.findViewById(R.id.swAutoMove);
@@ -122,14 +125,24 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoclose", checked).apply();
-                swAutoNext.setEnabled(!checked);
+                spOnClose.setEnabled(!checked);
             }
         });
 
-        swAutoNext.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        spOnClose.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("autonext", checked).apply();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.onCloseValues);
+                String value = values[position];
+                if (TextUtils.isEmpty(value))
+                    prefs.edit().remove("onclose").apply();
+                else
+                    prefs.edit().putString("onclose", value).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("onclose").apply();
             }
         });
 
@@ -219,8 +232,17 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
-        swAutoNext.setChecked(prefs.getBoolean("autonext", false));
-        swAutoNext.setEnabled(!swAutoClose.isChecked());
+
+        String onClose = prefs.getString("onclose", "");
+        String[] onCloseValues = getResources().getStringArray(R.array.onCloseValues);
+        for (int pos = 0; pos < onCloseValues.length; pos++)
+            if (onCloseValues[pos].equals(onClose)) {
+                spOnClose.setSelection(pos);
+                break;
+            }
+
+        spOnClose.setEnabled(!swAutoClose.isChecked());
+
         swCollapse.setChecked(prefs.getBoolean("collapse", false));
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));

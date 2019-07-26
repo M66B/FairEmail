@@ -235,7 +235,7 @@
     <string name="title_advanced_autoexpand">Automatically expand messages</string>
     <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
-    <string name="title_advanced_autonext">Automatically go to next conversation on close conversation</string>
+    <string name="title_advanced_onclose">On closing a conversation</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
@@ -864,6 +864,18 @@
         <item>2097152</item>
         <item>0</item>
     </integer-array>
+
+    <string-array name="onCloseNames">
+        <item>Do nothing</item>
+        <item>Go to previous conversation</item>
+        <item>Go to next conversation</item>
+    </string-array>
+
+    <string-array name="onCloseValues" translatable="false">
+        <item></item>
+        <item>previous</item>
+        <item>next</item>
+    </string-array>
 
     <string-array name="resizeNames">
         <item>Small</item>
