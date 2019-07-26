@@ -402,11 +402,14 @@ public class HtmlHelper {
 
         Drawable cached = getCachedImage(context, file);
         if (cached != null || view == null) {
-            if (view == null) {
-                Drawable d = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
-                d.setBounds(0, 0, px, px);
-                return d;
-            } else
+            if (view == null)
+                if (cached == null) {
+                    Drawable d = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
+                    d.setBounds(0, 0, px, px);
+                    return d;
+                } else
+                    return cached;
+            else
                 fitDrawable(cached, view);
             return cached;
         }
