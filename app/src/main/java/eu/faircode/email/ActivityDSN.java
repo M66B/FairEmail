@@ -32,9 +32,9 @@ import androidx.constraintlayout.widget.Group;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class ActivityDSN extends ActivityBase {
     @Override
@@ -82,13 +82,13 @@ public class ActivityDSN extends ActivityBase {
 
                 ContentResolver resolver = context.getContentResolver();
                 AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                try (InputStream is = new BufferedInputStream(descriptor.createInputStream())) {
+                try (InputStream is = descriptor.createInputStream()) {
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    byte[] buffer = new byte[1024];
+                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int length;
                     while ((length = is.read(buffer)) != -1)
                         bos.write(buffer, 0, length);
-                    result.headers = MessageHelper.decodeMime(bos.toString("UTF-8"));
+                    result.headers = MessageHelper.decodeMime(bos.toString(StandardCharsets.UTF_8.name()));
                 }
 
                 return result;

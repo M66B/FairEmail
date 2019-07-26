@@ -115,7 +115,6 @@ import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -1426,7 +1425,7 @@ public class FragmentCompose extends FragmentBase {
                                 File file = attachment.getFile(context);
                                 if (BuildConfig.DEBUG || BuildConfig.BETA_RELEASE)
                                     Log.i("Writing " + file + " size=" + bytes.length);
-                                try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
+                                try (OutputStream out = new FileOutputStream(file)) {
                                     out.write(bytes);
                                     db.attachment().setDownloaded(attachment.id, (long) bytes.length);
                                 }
@@ -1828,9 +1827,9 @@ public class FragmentCompose extends FragmentBase {
             OutputStream os = null;
             try {
                 is = context.getContentResolver().openInputStream(uri);
-                os = new BufferedOutputStream(new FileOutputStream(file));
+                os = new FileOutputStream(file);
 
-                byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
+                byte[] buffer = new byte[Helper.BUFFER_SIZE];
                 for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                     size += len;
                     os.write(buffer, 0, len);
@@ -1918,7 +1917,7 @@ public class FragmentCompose extends FragmentBase {
                         scaled = rotated;
                     }
 
-                    try (OutputStream out = new BufferedOutputStream(new FileOutputStream(file))) {
+                    try (OutputStream out = new FileOutputStream(file)) {
                         scaled.compress("image/jpeg".equals(attachment.type)
                                         ? Bitmap.CompressFormat.JPEG
                                         : Bitmap.CompressFormat.PNG,

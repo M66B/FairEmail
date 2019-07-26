@@ -27,7 +27,6 @@ import android.webkit.MimeTypeMap;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -85,7 +84,6 @@ public class MessageHelper {
 
     static final int SMALL_MESSAGE_SIZE = 32 * 1024; // bytes
 
-    static final int ATTACHMENT_BUFFER_SIZE = 8192; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
 
     static void setSystemProperties() {
@@ -874,7 +872,7 @@ public class MessageHelper {
                     result = (String) content;
                 else if (content instanceof InputStream)
                     // Typically com.sun.mail.util.QPDecoderStream
-                    result = Helper.readStream((InputStream) content, "UTF-8");
+                    result = Helper.readStream((InputStream) content, StandardCharsets.UTF_8.name());
                 else
                     result = content.toString();
             } catch (IOException | FolderClosedException | MessageRemovedException ex) {
@@ -972,8 +970,8 @@ public class MessageHelper {
                 long total = apart.part.getSize();
                 int lastprogress = 0;
 
-                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                    byte[] buffer = new byte[ATTACHMENT_BUFFER_SIZE];
+                try (OutputStream os = new FileOutputStream(file)) {
+                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
                         size += len;
                         os.write(buffer, 0, len);

@@ -30,7 +30,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.DeadSystemException;
-import android.os.Handler;
 import android.os.RemoteException;
 import android.view.OrientationEventListener;
 import android.webkit.CookieManager;

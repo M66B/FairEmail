@@ -54,8 +54,6 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -459,7 +457,7 @@ public class HtmlHelper {
 
                     Log.i("Downloaded image source=" + source);
 
-                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                    try (OutputStream os = new FileOutputStream(file)) {
                         bm.compress(Bitmap.CompressFormat.PNG, 90, os);
                     }
 
@@ -638,7 +636,7 @@ public class HtmlHelper {
                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
                 if (attachment != null && attachment.available) {
                     File file = attachment.getFile(context);
-                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                    try (InputStream is = new FileInputStream(file)) {
                         byte[] bytes = new byte[(int) file.length()];
                         if (is.read(bytes) != bytes.length)
                             throw new IOException("length");

@@ -73,7 +73,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -602,7 +601,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 ContentResolver resolver = context.getContentResolver();
                 DocumentFile file = DocumentFile.fromSingleUri(context, uri);
-                try (OutputStream raw = new BufferedOutputStream(resolver.openOutputStream(uri))) {
+                try (OutputStream raw = resolver.openOutputStream(uri)) {
                     Log.i("Writing URI=" + uri + " name=" + file.getName() + " virtual=" + file.isVirtual());
 
                     if (TextUtils.isEmpty(password))

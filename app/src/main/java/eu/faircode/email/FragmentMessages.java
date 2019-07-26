@@ -117,7 +117,6 @@ import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -3536,9 +3535,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 try {
                     pfd = context.getContentResolver().openFileDescriptor(uri, "w");
                     os = new FileOutputStream(pfd.getFileDescriptor());
-                    is = new BufferedInputStream(new FileInputStream(file));
+                    is = new FileInputStream(file);
 
-                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
+                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int read;
                     while ((read = is.read(buffer)) != -1)
                         os.write(buffer, 0, read);
@@ -3609,9 +3608,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 try {
                     pfd = context.getContentResolver().openFileDescriptor(uri, "w");
                     os = new FileOutputStream(pfd.getFileDescriptor());
-                    is = new BufferedInputStream(new FileInputStream(file));
+                    is = new FileInputStream(file);
 
-                    byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
+                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
                     int read;
                     while ((read = is.read(buffer)) != -1)
                         os.write(buffer, 0, read);
@@ -3684,9 +3683,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     try {
                         pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
                         os = new FileOutputStream(pfd.getFileDescriptor());
-                        is = new BufferedInputStream(new FileInputStream(file));
+                        is = new FileInputStream(file);
 
-                        byte[] buffer = new byte[MessageHelper.ATTACHMENT_BUFFER_SIZE];
+                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
                         int read;
                         while ((read = is.read(buffer)) != -1)
                             os.write(buffer, 0, read);
@@ -3752,7 +3751,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                         File file = attachment.getFile(context);
-                        encrypted = new BufferedInputStream(new FileInputStream(file));
+                        encrypted = new FileInputStream(file);
                         break;
                     }
 

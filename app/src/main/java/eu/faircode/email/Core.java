@@ -55,7 +55,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -500,7 +499,7 @@ class Core {
                 throw new IllegalArgumentException("raw message file not found");
 
             Log.i(folder.name + " reading " + file);
-            try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+            try (InputStream is = new FileInputStream(file)) {
                 imessage = new MimeMessage(isession, is);
             }
         }
@@ -602,7 +601,7 @@ class Core {
             Log.i(folder.name + " move from " + folder.type + " to " + target.type);
 
             File file = message.getRawFile(context);
-            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+            try (OutputStream os = new FileOutputStream(file)) {
                 imessage.writeTo(os);
             }
 
@@ -702,7 +701,7 @@ class Core {
                 throw new MessageRemovedException();
 
             File file = message.getRawFile(context);
-            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+            try (OutputStream os = new FileOutputStream(file)) {
                 imessage.writeTo(os);
                 db.message().setMessageRaw(message.id, true);
             }
