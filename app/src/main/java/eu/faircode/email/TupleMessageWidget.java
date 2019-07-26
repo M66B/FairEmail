@@ -19,12 +19,17 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Intent;
-import android.widget.RemoteViewsService;
+import java.util.Objects;
 
-public class WidgetUnifiedService extends RemoteViewsService {
+public class TupleMessageWidget extends EntityMessage {
+    public String accountName;
+
     @Override
-    public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new WidgetUnifiedRemoteViewsFactory(this.getApplicationContext(), intent);
+    public boolean equals(Object obj) {
+        if (obj instanceof TupleMessageEx) {
+            TupleMessageEx other = (TupleMessageEx) obj;
+            return (super.equals(obj) && Objects.equals(this.accountName, other.accountName));
+        }
+        return false;
     }
 }

@@ -186,24 +186,25 @@ public class ServiceSynchronize extends LifecycleService {
             }
         });
 
-        db.message().liveWidgetUnified().observe(cowner, new Observer<List<EntityMessage>>() {
-            private List<EntityMessage> last = null;
+        db.message().liveWidgetUnified().observe(cowner, new Observer<List<TupleMessageWidget>>() {
+            private List<TupleMessageWidget> last = null;
 
             @Override
-            public void onChanged(List<EntityMessage> messages) {
+            public void onChanged(List<TupleMessageWidget> messages) {
                 if (messages == null)
                     messages = new ArrayList<>();
 
                 boolean changed = false;
                 if (last != null && last.size() == messages.size()) {
                     for (int i = 0; i < last.size(); i++) {
-                        EntityMessage m1 = last.get(i);
-                        EntityMessage m2 = messages.get(i);
+                        TupleMessageWidget m1 = last.get(i);
+                        TupleMessageWidget m2 = messages.get(i);
                         if (!m1.id.equals(m2.id) ||
                                 !MessageHelper.equal(m1.from, m2.from) ||
                                 !m1.received.equals(m2.received) ||
                                 !Objects.equals(m1.subject, m2.subject) ||
-                                m1.ui_seen != m2.ui_seen) {
+                                !(m1.ui_seen == m2.ui_seen) ||
+                                !Objects.equals(m1.accountName, m2.accountName)) {
                             changed = true;
                             break;
                         }

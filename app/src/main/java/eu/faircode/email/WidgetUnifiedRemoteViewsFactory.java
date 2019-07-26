@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -36,11 +37,13 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private Context context;
     private int appWidgetId;
 
-    private List<EntityMessage> messages = new ArrayList<>();
+    private List<TupleMessageWidget> messages = new ArrayList<>();
 
-    WidgetUnifiedRemoteViewsFactory(final Context context, final int appWidgetId) {
-        this.appWidgetId = appWidgetId;
+    WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
         this.context = context;
+        this.appWidgetId = intent.getIntExtra(
+                AppWidgetManager.EXTRA_APPWIDGET_ID,
+                AppWidgetManager.INVALID_APPWIDGET_ID);
     }
 
     @Override
@@ -67,29 +70,36 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
     @Override
     public RemoteViews getViewAt(int position) {
-        EntityMessage message = messages.get(position);
-
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.item_widget_unified);
 
-        Intent thread = new Intent(context, ActivityView.class);
-        thread.putExtra("account", message.account);
-        thread.putExtra("thread", message.thread);
-        thread.putExtra("id", message.id);
-        views.setOnClickFillInIntent(R.id.llMessage, thread);
+        try {
+            TupleMessageWidget message = messages.get(position);
 
-        SpannableString from = new SpannableString(MessageHelper.formatAddressesShort(message.from));
-        SpannableString time = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
-        SpannableString subject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
+            Intent thread = new Intent(context, ActivityView.class);
+            thread.putExtra("account", message.account);
+            thread.putExtra("thread", message.thread);
+            thread.putExtra("id", message.id);
+            views.setOnClickFillInIntent(R.id.llMessage, thread);
 
-        if (!message.ui_seen) {
-            from.setSpan(new StyleSpan(Typeface.BOLD), 0, from.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-            time.setSpan(new StyleSpan(Typeface.BOLD), 0, time.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-            subject.setSpan(new StyleSpan(Typeface.BOLD), 0, subject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            SpannableString from = new SpannableString(MessageHelper.formatAddressesShort(message.from));
+            SpannableString time = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
+            SpannableString subject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
+            SpannableString account = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
+
+            if (!message.ui_seen) {
+                from.setSpan(new StyleSpan(Typeface.BOLD), 0, from.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                time.setSpan(new StyleSpan(Typeface.BOLD), 0, time.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                subject.setSpan(new StyleSpan(Typeface.BOLD), 0, subject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                account.setSpan(new StyleSpan(Typeface.BOLD), 0, account.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            }
+
+            views.setTextViewText(R.id.tvFrom, from);
+            views.setTextViewText(R.id.tvTime, time);
+            views.setTextViewText(R.id.tvSubject, subject);
+            views.setTextViewText(R.id.tvAccount, account);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
-
-        views.setTextViewText(R.id.tvFrom, from);
-        views.setTextViewText(R.id.tvTime, time);
-        views.setTextViewText(R.id.tvSubject, subject);
 
         return views;
     }
