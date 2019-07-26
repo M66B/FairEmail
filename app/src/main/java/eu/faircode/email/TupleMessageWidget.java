@@ -23,12 +23,15 @@ import java.util.Objects;
 
 public class TupleMessageWidget extends EntityMessage {
     public String accountName;
+    public int unseen;
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleMessageEx) {
             TupleMessageEx other = (TupleMessageEx) obj;
-            return (super.equals(obj) && Objects.equals(this.accountName, other.accountName));
+            return (super.equals(obj) &&
+                    Objects.equals(this.accountName, other.accountName) &&
+                    this.unseen == other.unseen);
         }
         return false;
     }

@@ -81,7 +81,11 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             thread.putExtra("id", message.id);
             views.setOnClickFillInIntent(R.id.llMessage, thread);
 
-            SpannableString from = new SpannableString(MessageHelper.formatAddressesShort(message.from));
+            String froms = MessageHelper.formatAddressesShort(message.from);
+            if (message.unseen > 1)
+                froms = context.getString(R.string.title_name_count, froms, Integer.toString(message.unseen));
+
+            SpannableString from = new SpannableString(froms);
             SpannableString time = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
             SpannableString subject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
             SpannableString account = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);

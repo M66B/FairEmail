@@ -202,7 +202,7 @@ public class ServiceSynchronize extends ServiceBase {
                                 !MessageHelper.equal(m1.from, m2.from) ||
                                 !m1.received.equals(m2.received) ||
                                 !Objects.equals(m1.subject, m2.subject) ||
-                                !(m1.ui_seen == m2.ui_seen) ||
+                                !(m1.unseen == m2.unseen) ||
                                 !Objects.equals(m1.accountName, m2.accountName)) {
                             changed = true;
                             break;

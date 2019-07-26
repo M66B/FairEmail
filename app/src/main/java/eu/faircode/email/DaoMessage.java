@@ -274,6 +274,8 @@ public interface DaoMessage {
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
     String widget = "SELECT message.*, account.name AS accountName" +
+            ", SUM(1 - message.ui_seen) AS unseen" +
+            ", MAX(message.received) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
@@ -281,12 +283,15 @@ public interface DaoMessage {
             " AND folder.unified" +
             " AND message.ui_hide = 0" +
             " AND message.ui_snoozed IS NULL" +
+            " GROUP BY account.id, CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " ORDER BY message.received DESC";
 
     @Query(widget)
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     LiveData<List<TupleMessageWidget>> liveWidgetUnified();
 
     @Query(widget)
+    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     List<TupleMessageWidget> getWidgetUnified();
 
     @Query("SELECT COUNT(message.id) FROM message" +
