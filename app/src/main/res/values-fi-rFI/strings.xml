@@ -224,6 +224,7 @@
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
+    <string name="title_advanced_prefer_ip4">Käytä ensisijaisesti IPv4-osoitteita</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
@@ -255,6 +256,7 @@
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
+    <string name="title_advanced_prefer_ip4_hint">Kytke päälle vain, jos IPv6-osoitteiden avulla yhdistämisessä on ongelmia</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_select">Valitse &#8230;</string>

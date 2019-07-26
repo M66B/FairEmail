@@ -223,6 +223,7 @@
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
+    <string name="title_advanced_prefer_ip4">Indirizzi IPv4 preferiti</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
     <string name="title_advanced_debug">Debug</string>
@@ -254,6 +255,7 @@
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_subscribed_only_hint">Abilitando questa opzione verranno eliminate tutte le cartelle locali senza abbonamento</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
+    <string name="title_advanced_prefer_ip4_hint">Abilitare questo solo se la connettività IPv6 non funziona correttamente</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_select">Seleziona &#8230;</string>

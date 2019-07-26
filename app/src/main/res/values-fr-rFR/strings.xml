@@ -224,6 +224,7 @@
     <string name="title_advanced_double_back">\'Retour\' deux fois pour quitter</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
+    <string name="title_advanced_prefer_ip4">Préférer les adresses IPv4</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_debug">Débogage</string>
@@ -255,6 +256,7 @@
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
+    <string name="title_advanced_prefer_ip4_hint">Activer ceci uniquement si la connectivité IPv6 ne fonctionne pas correctement</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_select">Sélectionner &#8230;</string>
