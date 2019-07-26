@@ -22,6 +22,9 @@ package eu.faircode.email;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
@@ -31,6 +34,9 @@ public class ReceiverAutoStart extends BroadcastReceiver {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) ||
                 Intent.ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             Log.i("Received " + intent);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().remove("last_vacuum").apply();
 
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);
