@@ -141,6 +141,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 
 import javax.mail.Session;
@@ -1760,7 +1761,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             List<EntityMessage> messages = db.message().getMessagesByThread(
                                     message.account, message.thread, threading ? null : id, null);
                             for (EntityMessage threaded : messages)
-                                if (threaded.ui_flagged != flagged)
+                                if (threaded.ui_flagged != flagged || !Objects.equals(threaded.color, color))
                                     EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged, color);
                         }
                     }
