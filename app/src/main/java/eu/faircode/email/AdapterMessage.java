@@ -2079,7 +2079,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!show_images) {
                         ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                         if (image.length > 0 && image[0].getSource() != null) {
-                            Uri uri = Uri.parse(image[0].getSource());
+                            HtmlHelper.AnnotatedSource a = new HtmlHelper.AnnotatedSource(image[0].getSource());
+                            Uri uri = Uri.parse(a.getSource());
                             if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
                                 onOpenLink(uri, null);
                                 return true;
