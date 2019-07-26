@@ -103,7 +103,7 @@ public class ApplicationEx extends Application {
         if (Helper.hasWebView(this))
             CookieManager.getInstance().setAcceptCookie(false);
 
-        MessageHelper.setSystemProperties();
+        MessageHelper.setSystemProperties(this);
         ContactInfo.init(this);
 
         try {

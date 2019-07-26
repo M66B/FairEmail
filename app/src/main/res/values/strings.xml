@@ -260,6 +260,7 @@
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
+    <string name="title_advanced_prefer_ip4">Prefer IPv4 addresses</string>
     <string name="title_advanced_updates">Check for updates</string>
     <string name="title_advanced_crash_reports">Send error reports</string>
     <string name="title_advanced_debug">Debug mode</string>
@@ -300,6 +301,7 @@
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
+    <string name="title_advanced_prefer_ip4_hint">Enable this only if IPv6 connectivity does not work properly</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>
     <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>
 

@@ -55,6 +55,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDoubleBack;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
+    private SwitchCompat swPreferIp4;
     private SwitchCompat swUpdates;
     private SwitchCompat swCrashReports;
     private SwitchCompat swDebug;
@@ -68,7 +69,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "subscribed_only", "biometrics_timeout", "double_back", "english", "watchdog", "updates", "crash_reports", "debug"
+            "badge", "subscriptions", "subscribed_only", "biometrics_timeout", "double_back", "english", "watchdog", "prefer_ip4", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -93,6 +94,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
+        swPreferIp4 = view.findViewById(R.id.swPreferIp4);
         swUpdates = view.findViewById(R.id.swUpdates);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         swDebug = view.findViewById(R.id.swDebug);
@@ -169,6 +171,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("watchdog", checked).apply();
                 WorkerWatchdog.init(getContext());
+            }
+        });
+
+        swPreferIp4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("prefer_ip4", checked).apply();
+                System.setProperty("java.net.preferIPv4Stack", Boolean.toString(checked));
+                ServiceSynchronize.reload(getContext(), "prefer_ip4=" + checked);
             }
         });
 
@@ -310,6 +321,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDoubleBack.setChecked(prefs.getBoolean("double_back", true));
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
+        swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", false));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
