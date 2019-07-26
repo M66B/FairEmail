@@ -33,7 +33,6 @@ import android.text.TextUtils;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
@@ -63,7 +62,7 @@ import javax.mail.internet.MimeMessage;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
-public class ServiceSend extends LifecycleService {
+public class ServiceSend extends ServiceBase {
     private int lastUnsent = 0;
     private boolean lastSuitable = false;
     private TwoStateOwner cowner;

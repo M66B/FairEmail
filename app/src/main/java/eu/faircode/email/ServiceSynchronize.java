@@ -39,7 +39,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
@@ -92,7 +91,7 @@ import javax.mail.event.StoreListener;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
-public class ServiceSynchronize extends LifecycleService {
+public class ServiceSynchronize extends ServiceBase {
     private ConnectionHelper.NetworkState networkState = new ConnectionHelper.NetworkState();
     private Core.State state;
     private int lastStartId = -1;
