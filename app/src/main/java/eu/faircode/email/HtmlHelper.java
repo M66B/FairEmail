@@ -235,25 +235,29 @@ public class HtmlHelper {
 
             // Annotate source with width and height
             if (img.hasAttr("src")) {
+                int width = 0;
+                int height = 0;
+
                 try {
-                    int width = 0;
-                    int height = 0;
-
                     String awidth = img.attr("width");
-                    String aheight = img.attr("height");
-
                     if (!TextUtils.isEmpty(awidth) && !"auto".equals(awidth.toLowerCase()))
                         width = Integer.parseInt(awidth);
-                    if (!TextUtils.isEmpty(aheight) && !"auto".equals(aheight.toLowerCase()))
-                        height = Integer.parseInt(aheight);
-
-                    if (width != 0 || height != 0) {
-                        String src = img.attr("src");
-                        AnnotatedSource a = new AnnotatedSource(src, width, height);
-                        img.attr("src", a.getAnnotated());
-                    }
                 } catch (NumberFormatException ex) {
                     Log.w(ex);
+                }
+
+                try {
+                    String aheight = img.attr("height");
+                    if (!TextUtils.isEmpty(aheight) && !"auto".equals(aheight.toLowerCase()))
+                        height = Integer.parseInt(aheight);
+                } catch (NumberFormatException ex) {
+                    Log.w(ex);
+                }
+
+                if (width != 0 || height != 0) {
+                    String src = img.attr("src");
+                    AnnotatedSource a = new AnnotatedSource(src, width, height);
+                    img.attr("src", a.getAnnotated());
                 }
             }
         }
