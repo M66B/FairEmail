@@ -387,6 +387,7 @@ This requires a sent folder to be selected in the account settings and the sent 
 If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
 In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.
 Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.
+Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.
 
 If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.
 A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.
