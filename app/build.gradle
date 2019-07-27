@@ -40,6 +40,11 @@ android {
         abortOnError false
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     packagingOptions {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/README.md'
@@ -132,6 +137,10 @@ repositories {
 }
 
 configurations.all {
+    // Workaround https://issuetracker.google.com/issues/138441698
+    // Support @69c481c39a17d4e1e44a4eb298bb81c48f226eef
+    exclude group: "androidx.room", module: "room-runtime"
+    // Workaround https://issuetracker.google.com/issues/134685570
     exclude group: "androidx.lifecycle", module: "lifecycle-livedata"
 }
 
@@ -195,6 +204,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.room/room-runtime
     implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-common:$room_version" // because of exclude
+    // https://mvnrepository.com/artifact/androidx.sqlite/sqlite-framework
+    implementation "androidx.sqlite:sqlite-framework:2.0.1" // because of exclude
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
