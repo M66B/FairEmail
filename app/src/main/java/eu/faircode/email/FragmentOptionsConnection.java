@@ -254,7 +254,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                     ConnectionHelper.NetworkState networkState = ConnectionHelper.getNetworkState(getContext());
 
                     tvConnectionType.setText(networkState.isUnmetered() ? R.string.title_legend_unmetered : R.string.title_legend_metered);

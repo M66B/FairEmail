@@ -479,11 +479,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             setIntent(intent);
 
             if ("unified".equals(action)) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
             } else if ("why".equals(action)) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
@@ -627,7 +627,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack();
                 return true;
             default:
@@ -813,7 +813,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuFolders(long account) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("unified", 0);
 
         Bundle args = new Bundle();
@@ -840,7 +840,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, Long folder) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(ActivityView.this);
@@ -858,7 +858,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuOperations() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("operations", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -867,7 +867,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuAnswers() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("answers", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -880,7 +880,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuLegend() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("legend", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -905,7 +905,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuAbout() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("about", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -959,7 +959,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onShowLog() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("logs", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -970,7 +970,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 String action = intent.getAction();
 
                 if (ACTION_VIEW_FOLDERS.equals(action))
@@ -1003,7 +1003,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewMessages(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
@@ -1030,7 +1030,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onViewThread(Intent intent) {
         boolean found = intent.getBooleanExtra("found", false);
 
-        if (!found && getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (!found && getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
@@ -1095,7 +1095,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onShowPro(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

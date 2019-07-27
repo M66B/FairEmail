@@ -785,7 +785,7 @@ public class FragmentIdentity extends FragmentBase {
                     fragment.setArguments(aargs);
                     fragment.setTargetFragment(FragmentIdentity.this, REQUEST_SAVE);
                     fragment.show(getFragmentManager(), "identity:save");
-                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getFragmentManager().popBackStack();
             }
 
@@ -1058,7 +1058,7 @@ public class FragmentIdentity extends FragmentBase {
                             }
                         });
                         onSave(false);
-                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         getFragmentManager().popBackStack();
                     break;
                 case REQUEST_DELETE:
@@ -1109,7 +1109,7 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getFragmentManager().popBackStack();
             }
 

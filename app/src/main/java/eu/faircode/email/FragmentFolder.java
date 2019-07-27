@@ -255,7 +255,7 @@ public class FragmentFolder extends FragmentBase {
                             }
                         });
                         onSave(false);
-                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                    } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                         getFragmentManager().popBackStack();
                     break;
 
@@ -478,7 +478,7 @@ public class FragmentFolder extends FragmentBase {
                     ask.setArguments(aargs);
                     ask.setTargetFragment(FragmentFolder.this, REQUEST_SAVE_CHANGES);
                     ask.show(getFragmentManager(), "folder:save");
-                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getFragmentManager().popBackStack();
             }
 
@@ -519,7 +519,7 @@ public class FragmentFolder extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getFragmentManager().popBackStack();
             }
 

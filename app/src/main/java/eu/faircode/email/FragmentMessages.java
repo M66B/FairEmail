@@ -2254,7 +2254,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                             adapter.checkInternet();
                     }
                 });
@@ -2525,7 +2525,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuFolders(long account) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getFragmentManager().popBackStack("unified", 0);
 
         Bundle args = new Bundle();
@@ -2773,7 +2773,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public void onException(@NonNull Throwable ex) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                 if (ex instanceof IllegalStateException) {
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
@@ -3075,7 +3075,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void navigate(long id, final boolean left) {
-        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
         Bundle args = new Bundle();
@@ -3094,7 +3094,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return;
                 }
 
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                 getArguments().putBoolean("fade", true);
@@ -3337,7 +3337,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 String action = intent.getAction();
 
                 if (ACTION_STORE_RAW.equals(action))
@@ -4376,7 +4376,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return;
         }
 
-        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();

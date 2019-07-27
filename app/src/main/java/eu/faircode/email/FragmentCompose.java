@@ -749,7 +749,7 @@ public class FragmentCompose extends FragmentBase {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                             checkInternet();
                     }
                 });
@@ -806,7 +806,7 @@ public class FragmentCompose extends FragmentBase {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     onExit();
                 return true;
             case R.id.menu_zoom:
@@ -3307,7 +3307,7 @@ public class FragmentCompose extends FragmentBase {
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
         @Override
         public boolean onBackPressed() {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                 onExit();
             return true;
         }

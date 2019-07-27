@@ -68,7 +68,7 @@ public class FragmentBase extends Fragment {
     }
 
     protected void finish() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getFragmentManager().popBackStack();
         else
             finish = true;

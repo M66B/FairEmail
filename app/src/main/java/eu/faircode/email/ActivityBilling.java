@@ -153,7 +153,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 if (ACTION_PURCHASE.equals(intent.getAction()))
                     onPurchase(intent);
                 else if (ACTION_PURCHASE_CHECK.equals(intent.getAction()))

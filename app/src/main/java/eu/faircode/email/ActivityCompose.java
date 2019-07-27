@@ -207,7 +207,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     onBackPressed();
                 return true;
             default:
@@ -234,7 +234,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED)) {
+            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 if (ACTION_SHOW_PRO.equals(intent.getAction()))
                     onShowPro(intent);
             }
@@ -242,7 +242,7 @@ public class ActivityCompose extends ActivityBilling implements FragmentManager.
     };
 
     private void onShowPro(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
