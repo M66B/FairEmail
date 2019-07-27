@@ -32,6 +32,8 @@ import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 
 public class ConnectionHelper {
@@ -254,8 +256,16 @@ public class ConnectionHelper {
         return true;
     }
 
-    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
-        istore.connect(account.host, account.port, account.user, account.password);
+    static void connect(Context context, Session isession, IMAPStore istore, EntityAccount account) throws MessagingException {
+        connect(context, isession, istore, account.host, account.port, account.user, account.password);
+    }
+
+    static void connect(Context context, Session isession, Transport itransport, EntityIdentity identity) throws MessagingException {
+        connect(context, isession, itransport, identity.host, identity.port, identity.user, identity.password);
+    }
+
+    static void connect(Context context, Session isession, IMAPStore istore, String host, int port, String user, String password) throws MessagingException {
+        istore.connect(host, port, user, password);
 
         // https://www.ietf.org/rfc/rfc2971.txt
         if (istore.hasCapability("ID"))
@@ -277,6 +287,10 @@ public class ConnectionHelper {
             }
     }
 
+    static void connect(Context context, Session isession, Transport itransport, String host, int port, String user, String password) throws MessagingException {
+        itransport.connect(host, port, user, password);
+    }
+    
     static boolean airplaneMode(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;

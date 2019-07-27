@@ -703,7 +703,7 @@ public class FragmentIdentity extends FragmentBase {
 
                     // Create transport
                     try (Transport itransport = isession.getTransport(protocol)) {
-                        itransport.connect(host, Integer.parseInt(port), user, password);
+                        ConnectionHelper.connect(context, isession, itransport, host, Integer.parseInt(port), user, password);
                     }
                 }
 

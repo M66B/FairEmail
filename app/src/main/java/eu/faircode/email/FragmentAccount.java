@@ -72,7 +72,6 @@ import java.util.Properties;
 
 import javax.mail.Folder;
 import javax.mail.Session;
-import javax.mail.Store;
 
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
@@ -536,10 +535,10 @@ public class FragmentAccount extends FragmentBase {
                 Properties props = MessageHelper.getSessionProperties(realm, insecure);
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(true);
-                try (Store istore = isession.getStore("imap" + (starttls ? "" : "s"))) {
-                    istore.connect(host, Integer.parseInt(port), user, password);
+                try (IMAPStore istore = (IMAPStore) isession.getStore("imap" + (starttls ? "" : "s"))) {
+                    ConnectionHelper.connect(context, isession, istore, host, Integer.parseInt(port), user, password);
 
-                    result.idle = ((IMAPStore) istore).hasCapability("IDLE");
+                    result.idle = istore.hasCapability("IDLE");
 
                     boolean inbox = false;
                     boolean archive = false;
@@ -893,8 +892,8 @@ public class FragmentAccount extends FragmentBase {
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
 
-                    try (Store istore = isession.getStore("imap" + (starttls ? "" : "s"))) {
-                        istore.connect(host, Integer.parseInt(port), user, password);
+                    try (IMAPStore istore = (IMAPStore) isession.getStore("imap" + (starttls ? "" : "s"))) {
+                        ConnectionHelper.connect(context, isession, istore, host, Integer.parseInt(port), user, password);
 
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             // Check folder attributes

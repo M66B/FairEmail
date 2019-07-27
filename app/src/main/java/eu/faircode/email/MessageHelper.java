@@ -20,12 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-
-import androidx.preference.PreferenceManager;
 
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
@@ -102,12 +99,6 @@ public class MessageHelper {
         // https://docs.oracle.com/javaee/6/api/javax/mail/internet/MimeMultipart.html
         System.setProperty("mail.mime.multipart.ignoremissingboundaryparameter", "true"); // javax.mail.internet.ParseException: In parameter list
         System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
-
-        // https://docs.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean prefer_ip4 = prefs.getBoolean("prefer_ip4", false);
-        Log.i("Prefer ip4=" + prefer_ip4);
-        System.setProperty("java.net.preferIPv4Stack", Boolean.toString(prefer_ip4));
     }
 
     static Properties getSessionProperties(String realm, boolean insecure) {

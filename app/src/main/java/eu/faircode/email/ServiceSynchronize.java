@@ -730,7 +730,7 @@ public class ServiceSynchronize extends ServiceBase {
                     db.account().setAccountState(account.id, "connecting");
 
                     try {
-                        ConnectionHelper.connect(this, istore, account);
+                        ConnectionHelper.connect(this, isession, istore, account);
                     } catch (Throwable ex) {
                         if (ex instanceof AuthenticationFailedException) {
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

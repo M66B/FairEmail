@@ -282,7 +282,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 Log.i("Boundary server connecting account=" + account.name);
                 istore = (IMAPStore) isession.getStore(protocol);
-                ConnectionHelper.connect(context, istore, account);
+                ConnectionHelper.connect(context, isession, istore, account);
 
                 Log.i("Boundary server opening folder=" + browsable.name);
                 ifolder = (IMAPFolder) istore.getFolder(browsable.name);

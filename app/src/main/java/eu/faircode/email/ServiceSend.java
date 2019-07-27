@@ -367,7 +367,7 @@ public class ServiceSend extends ServiceBase {
         try (Transport itransport = isession.getTransport(protocol)) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
-            itransport.connect(ident.host, ident.port, ident.user, ident.password);
+            ConnectionHelper.connect(this, isession, itransport, ident);
             db.identity().setIdentityState(ident.id, "connected");
 
             // Send message

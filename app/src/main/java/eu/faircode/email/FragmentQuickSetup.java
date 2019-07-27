@@ -243,7 +243,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
                     try (IMAPStore istore = (IMAPStore) isession.getStore(provider.imap_starttls ? "imap" : "imaps")) {
-                        istore.connect(provider.imap_host, provider.imap_port, user, password);
+                        ConnectionHelper.connect(context, isession, istore, provider.imap_host, provider.imap_port, user, password);
 
                         boolean inbox = false;
                         boolean drafts = false;
@@ -307,7 +307,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
                     try (Transport itransport = isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps")) {
-                        itransport.connect(provider.smtp_host, provider.smtp_port, user, password);
+                        ConnectionHelper.connect(context, isession, itransport, provider.smtp_host, provider.smtp_port, user, password);
                     }
                 }
 
