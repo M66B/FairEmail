@@ -2318,7 +2318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return null;
                         db.message().deleteMessage(id);
 
-                        EntityOperation.sync(context, message.folder, false);
+                        EntityOperation.sync(context, message.folder, true);
 
                         db.setTransactionSuccessful();
                     } finally {
