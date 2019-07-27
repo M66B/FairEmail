@@ -26,7 +26,7 @@ For authorizing:
 * ~~A [bug in Android](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping.~~
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty.~~
-* A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) "*... Exception while computing database live data ... Couldn't read row ...*" causes sometimes a crash.
+* ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) "*... Exception while computing database live data ... Couldn't read row ...*" causes sometimes a crash.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) "*... Bad notification posted ...*" lets FairEmail crash on some devices after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) "*... ActivityRecord not found for ...*" sometimes causes a crash after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) migth fix the problem.
 * Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug.

@@ -162,6 +162,7 @@ public abstract class DB extends RoomDatabase {
                 .openHelperFactory(new RequerySQLiteOpenHelperFactory())
                 .setQueryExecutor(executor)
                 .setJournalMode(JournalMode.WRITE_AHEAD_LOGGING)
+                .enableMultiInstanceInvalidation()
                 .addCallback(new Callback() {
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
