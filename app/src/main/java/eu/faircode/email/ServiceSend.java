@@ -36,7 +36,6 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -379,16 +378,6 @@ public class ServiceSend extends ServiceBase {
                     "Sent via " + ident.host + "/" + ident.user +
                             " to " + TextUtils.join(", ", to));
 
-            // Append replied/forwarded text
-            StringBuilder sb = new StringBuilder();
-            sb.append(Helper.readText(message.getFile(this)));
-            if (!TextUtils.isEmpty(ident.signature))
-                sb.append(ident.signature);
-            File refFile = message.getRefFile(this);
-            if (refFile.exists())
-                sb.append(Helper.readText(refFile));
-            Helper.writeText(message.getFile(this), sb.toString());
-
             try {
                 db.beginTransaction();
 
@@ -415,9 +404,6 @@ public class ServiceSend extends ServiceBase {
             } finally {
                 db.endTransaction();
             }
-
-            if (refFile.exists())
-                refFile.delete();
 
             db.identity().setIdentityConnected(ident.id, new Date().getTime());
             db.identity().setIdentityError(ident.id, null);

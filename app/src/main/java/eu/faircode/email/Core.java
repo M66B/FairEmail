@@ -484,17 +484,11 @@ class Core {
         // Get raw message
         MimeMessage imessage;
         if (folder.id.equals(message.folder)) {
-            // Pre flight checks
+            // Pre flight check
             if (!message.content)
                 throw new IllegalArgumentException("Message body missing");
 
-            // Drafts/sent message are added with signature and referenced text
-            EntityIdentity identity = null;
-            if (message.identity != null &&
-                    (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.SENT.equals(folder.type)))
-                identity = db.identity().getIdentity(message.identity);
-
-            imessage = MessageHelper.from(context, message, identity, isession);
+            imessage = MessageHelper.from(context, message, null, isession);
         } else {
             // Cross account move
             File file = message.getRawFile(context);
@@ -1403,6 +1397,11 @@ class Core {
                             dup.received = helper.getReceived();
                             dup.sent = helper.getSent();
                         }
+
+                        // Download message again to get signature / quoted message
+                        // This will propagate any modifications by the server locally as well
+                        if (EntityFolder.SENT.equals(folder.type))
+                            dup.content = false;
 
                         dup.error = null;
 
