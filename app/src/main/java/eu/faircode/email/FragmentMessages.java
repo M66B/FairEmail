@@ -108,6 +108,7 @@ import com.bugsnag.android.Bugsnag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.sun.mail.util.FolderClosedIOException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -144,6 +145,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+import javax.mail.FolderClosedException;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
@@ -2785,7 +2787,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
                     });
                     snackbar.show();
-                } else if (ex instanceof IllegalArgumentException)
+                } else if (ex instanceof IllegalArgumentException ||
+                        ex instanceof FolderClosedException || ex instanceof FolderClosedIOException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else {
                     Bundle args = new Bundle();
