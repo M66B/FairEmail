@@ -121,8 +121,6 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbDeliveryReceipt;
     private CheckBox cbReadReceipt;
 
-    private CheckBox cbStoreSent;
-
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
@@ -198,8 +196,6 @@ public class FragmentIdentity extends FragmentBase {
         cbEncrypt = view.findViewById(R.id.cbEncrypt);
         cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
         cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
-
-        cbStoreSent = view.findViewById(R.id.cbStoreSent);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -505,7 +501,6 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("encrypt", cbEncrypt.isChecked());
         args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
         args.putBoolean("read_receipt", cbReadReceipt.isChecked());
-        args.putBoolean("store_sent", cbStoreSent.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
@@ -570,7 +565,6 @@ public class FragmentIdentity extends FragmentBase {
                 boolean encrypt = args.getBoolean("encrypt");
                 boolean delivery_receipt = args.getBoolean("delivery_receipt");
                 boolean read_receipt = args.getBoolean("read_receipt");
-                boolean store_sent = args.getBoolean("store_sent");
 
                 boolean should = args.getBoolean("should");
 
@@ -662,8 +656,6 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.read_receipt, read_receipt))
                         return true;
-                    if (!Objects.equals(identity.store_sent, store_sent))
-                        return true;
                     if (identity.error != null)
                         return true;
 
@@ -746,7 +738,6 @@ public class FragmentIdentity extends FragmentBase {
                     identity.encrypt = encrypt;
                     identity.delivery_receipt = delivery_receipt;
                     identity.read_receipt = read_receipt;
-                    identity.store_sent = store_sent;
                     identity.sent_folder = null;
                     identity.sign_key = null;
                     identity.error = null;
@@ -887,7 +878,6 @@ public class FragmentIdentity extends FragmentBase {
                     cbEncrypt.setChecked(identity == null ? false : identity.encrypt);
                     cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
                     cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
-                    cbStoreSent.setChecked(identity == null ? false : identity.store_sent);
 
                     color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 

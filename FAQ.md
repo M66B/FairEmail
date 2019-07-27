@@ -384,14 +384,19 @@ See [this FAQ](#user-content-faq111) about why OAuth is not being used.
 
 Sent messages are normally moved from the outbox to the sent folder as soon as your provider adds sent messages to the sent folder.
 This requires a sent folder to be selected in the account settings and the sent folder to be set to synchronizing.
-If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.
-In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.
-Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.
-Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.
 
-If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.
-A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.
-You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.
+Some providers do not keep track of sent messages or the used SMTP server might not be related to the provider.
+In these cases FairEmail will automatically add sent messages to the sent folder on synchronizing the sent folder, which will happen after a message have been sent.
+Note that this will result in extra internet traffic.
+
+~~If this doesn't happen, your provider might not keep track of sent messages or you might be using an SMTP server not related to the provider.~~
+~~In these cases you can enable the advanced identity setting *Store sent messages* to let FairEmail add sent messages to the sent folder right after sending a message.~~
+~~Note that enabling this setting might result in duplicate messages if your provider adds sent messages to the sent folder too.~~
+~~Also beware that enabling this setting will result in extra data usage, especially when when sending messages with large attachments.~~
+
+~~If sent messages in the outbox are not found in the sent folder on a full synchronize, they will be moved from the outbox to the sent folder too.~~
+~~A full synchronize happens when reconnecting to the server or when synchronizing periodically or manually.~~
+~~You'll likely want to enable the advanced setting *Store sent messages* instead to move messages to the sent folder sooner.~~
 
 <br />
 

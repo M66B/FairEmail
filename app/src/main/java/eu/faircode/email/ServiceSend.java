@@ -398,16 +398,12 @@ public class ServiceSend extends ServiceBase {
                 db.message().setMessageSeen(message.id, true);
                 db.message().setMessageUiSeen(message.id, true);
                 db.message().setMessageError(message.id, null);
+                if (!BuildConfig.DEBUG && !debug)
+                    db.message().setMessageUiHide(message.id, new Date().getTime());
 
                 EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
-                if (ident.store_sent && sent != null) {
-                    db.message().setMessageFolder(message.id, sent.id);
-                    message.folder = sent.id;
-                    EntityOperation.queue(this, message, EntityOperation.ADD);
-                } else {
-                    if (!BuildConfig.DEBUG && !debug)
-                        db.message().setMessageUiHide(message.id, new Date().getTime());
-                }
+                if (sent != null)
+                    EntityOperation.sync(this, sent.id, false);
 
                 if (message.inreplyto != null) {
                     List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);

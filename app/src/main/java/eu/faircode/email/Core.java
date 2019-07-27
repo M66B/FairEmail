@@ -1265,6 +1265,7 @@ class Core {
                 for (EntityMessage orphan : orphans) {
                     Log.i(folder.name + " adding orphan id=" + orphan.id + " sent=" + new Date(orphan.sent));
                     orphan.folder = folder.id;
+                    orphan.ui_hide = 0L;
                     db.message().updateMessage(orphan);
                     EntityOperation.queue(context, orphan, EntityOperation.ADD);
                 }

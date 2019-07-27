@@ -584,25 +584,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
 
-            <CheckBox
-                android:id="@+id/cbStoreSent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_identity_store_sent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
-
-            <TextView
-                android:id="@+id/tvStoreSent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_identity_store_sent_remark"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cbStoreSent" />
-
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
@@ -611,7 +592,7 @@
                 android:tag="disable"
                 android:text="@string/title_save"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvStoreSent" />
+                app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
 
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbSave"
@@ -695,8 +676,7 @@
                 cbSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvBcc,etBcc,
                 cbEncrypt,tvEncryptPro,
-                cbDeliveryReceipt,cbReadReceipt,tvReceipt,
-                cbStoreSent,tvStoreSent" />
+                cbDeliveryReceipt,cbReadReceipt,tvReceipt" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
