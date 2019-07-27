@@ -266,8 +266,6 @@
     <string name="title_identity_read_receipt">Solicitar recibo de leitura</string>
     <string name="title_identity_delivery_receipt">Solicitar recibo de entrega</string>
     <string name="title_identity_receipt_remark">A maioria dos provedores ignoram solicitações de recebimento</string>
-    <string name="title_identity_store_sent">Armazenar mensagens enviadas</string>
-    <string name="title_identity_store_sent_remark">Habilitar isso somente se seu provedor não armazena automaticamente mensagens enviadas</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Conta vinculada</string>

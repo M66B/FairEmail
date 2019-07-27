@@ -215,7 +215,6 @@
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
-    <string name="title_advanced_prefer_ip4">首选IPv4地址</string>
     <string name="title_advanced_updates">检查更新</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
@@ -247,7 +246,6 @@
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
-    <string name="title_advanced_prefer_ip4_hint">只有当IPv6连接工作不正常时，才启用此功能</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_select">选择 &#8230;</string>
@@ -260,8 +258,6 @@
     <string name="title_identity_read_receipt">请求读取回执</string>
     <string name="title_identity_delivery_receipt">请求发出凭据</string>
     <string name="title_identity_receipt_remark">大部份提供商忽略接收请求</string>
-    <string name="title_identity_store_sent">存储已发送消息</string>
-    <string name="title_identity_store_sent_remark">仅当您的电邮供应商不自动存储已发送消息时才启用此选项</string>
     <string name="title_optional">可选</string>
     <string name="title_recommended">推荐</string>
     <string name="title_account_linked">已绑定的账户</string>
@@ -363,6 +359,7 @@
     <string name="title_folder_thread">会话%1$s</string>
     <string name="title_folders_unified">聚合收件箱文件夹</string>
     <string name="title_no_messages">没有邮件</string>
+    <string name="title_no_folders">无文件夹</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>

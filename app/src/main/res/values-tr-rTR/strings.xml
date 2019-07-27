@@ -252,8 +252,6 @@
     <string name="title_identity_read_receipt">Okundu bilgisi iste</string>
     <string name="title_identity_delivery_receipt">Alındı belgesi iste</string>
     <string name="title_identity_receipt_remark">Çoğu sağlayıcı alındı isteklerini yok sayıyor</string>
-    <string name="title_identity_store_sent">Gönderilmiş iletileri depola</string>
-    <string name="title_identity_store_sent_remark">Bunu, yalnızca sağlayıcınız gönderilen iletileri otomatik olarak kaydetmiyorsa etkinleştirin</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_recommended">Önerilen</string>
     <string name="title_account_linked">Bağlı hesap</string>

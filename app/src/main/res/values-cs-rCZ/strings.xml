@@ -280,8 +280,6 @@
     <string name="title_identity_read_receipt">Požadovat potvrzení o přečtení</string>
     <string name="title_identity_delivery_receipt">Požadovat potvrzení doručení</string>
     <string name="title_identity_receipt_remark">Většina poskytovatelů ignoruje žádosti o potvrzení</string>
-    <string name="title_identity_store_sent">Ukládat odeslané zprávy</string>
-    <string name="title_identity_store_sent_remark">Povolte pouze pokud váš poskytovatel neukládá odchozí zprávy automaticky</string>
     <string name="title_optional">Nepovinné</string>
     <string name="title_recommended">Doporučeno</string>
     <string name="title_account_linked">Připojený účet</string>

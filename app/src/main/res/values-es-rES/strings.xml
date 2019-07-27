@@ -224,7 +224,6 @@
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
-    <string name="title_advanced_prefer_ip4">Preferir direcciones IPv4</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_debug">Modo de depuración</string>
@@ -256,7 +255,6 @@
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_subscribed_only_hint">Activar esto eliminará todas las carpetas locales sin suscripción</string>
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
-    <string name="title_advanced_prefer_ip4_hint">Activar esto sólo si la conectividad IPv6 no funciona correctamente</string>
     <string name="title_advanced_debug_hint">Habilitar registro adicional y mostrar información de depuración en varios lugares</string>
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
     <string name="title_select">Seleccione &#8230;</string>
@@ -269,8 +267,6 @@
     <string name="title_identity_read_receipt">Solicitar confirmación de lectura</string>
     <string name="title_identity_delivery_receipt">Solicitar confirmación de entrega</string>
     <string name="title_identity_receipt_remark">La mayoría de los proveedores ignoran las solicitudes de confirmación</string>
-    <string name="title_identity_store_sent">Almacenar mensajes enviados</string>
-    <string name="title_identity_store_sent_remark">Active esto solo si su proveedor no almacena automáticamente los mensajes enviados</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Cuenta vinculada</string>

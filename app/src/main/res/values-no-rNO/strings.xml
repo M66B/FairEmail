@@ -224,7 +224,6 @@
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
-    <string name="title_advanced_prefer_ip4">Foretrekker IPv4-adresser</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
     <string name="title_advanced_crash_reports">Send feilrapporter</string>
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
@@ -256,7 +255,6 @@
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
-    <string name="title_advanced_prefer_ip4_hint">Aktiver dette bare hvis IPv6-tilkoblingen ikke fungerer som den skal</string>
     <string name="title_advanced_debug_hint">Aktivere ekstra logging og vis feilsøkingsinformasjon på forskjellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_select">Velg &#8230;</string>
@@ -269,8 +267,6 @@
     <string name="title_identity_read_receipt">Be om lesebekreftelse</string>
     <string name="title_identity_delivery_receipt">Be om leveringskvittering</string>
     <string name="title_identity_receipt_remark">De fleste tilbydere ignorerer forespørsler om kvittering</string>
-    <string name="title_identity_store_sent">Lagre sendte meldinger</string>
-    <string name="title_identity_store_sent_remark">Aktiver dette bare hvis leverandøren ikke lagrer automatisk sendte meldinger</string>
     <string name="title_optional">Valgfri</string>
     <string name="title_recommended">Anbefalt</string>
     <string name="title_account_linked">Koble kontoen</string>
@@ -372,6 +368,7 @@
     <string name="title_folder_thread">Samtale %1$s</string>
     <string name="title_folders_unified">Enhetlig Innboks mapper</string>
     <string name="title_no_messages">Ingen meldinger</string>
+    <string name="title_no_folders">Ingen mapper</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Videresend: %1$s</string>
     <string name="title_seen">Merk som lest</string>

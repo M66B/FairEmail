@@ -224,7 +224,6 @@
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
-    <string name="title_advanced_prefer_ip4">Voorkeur voor IPv4 adressen</string>
     <string name="title_advanced_updates">Controleren op updates</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
@@ -256,7 +255,6 @@
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_subscribed_only_hint">Dit inschakelen zal alle lokale mappen zonder abonnement verwijderen</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
-    <string name="title_advanced_prefer_ip4_hint">Schakel dit alleen in als IPv6 connectiviteit niet goed werkt</string>
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
     <string name="title_select">Selecteer &#8230;</string>
@@ -269,8 +267,6 @@
     <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
     <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
     <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>
-    <string name="title_identity_store_sent">Sla verzonden berichten op</string>
-    <string name="title_identity_store_sent_remark">Dit alleen inschakelen als uw provider niet automatisch verzonden berichten opslaat</string>
     <string name="title_optional">Optioneel</string>
     <string name="title_recommended">Aanbevolen</string>
     <string name="title_account_linked">Gekoppeld account</string>
@@ -372,6 +368,7 @@
     <string name="title_folder_thread">Gesprek %1$s</string>
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
     <string name="title_no_messages">Geen berichten</string>
+    <string name="title_no_folders">Geen mappen</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>

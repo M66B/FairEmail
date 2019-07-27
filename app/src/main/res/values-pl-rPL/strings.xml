@@ -280,8 +280,6 @@
     <string name="title_identity_read_receipt">Poproś o potwierdzenie odczytu</string>
     <string name="title_identity_delivery_receipt">Poproś o potwierdzenie dostarczenia</string>
     <string name="title_identity_receipt_remark">Większość dostawców ignoruje prośby otrzymania</string>
-    <string name="title_identity_store_sent">Zachowuj wysłane wiadomości</string>
-    <string name="title_identity_store_sent_remark">Włącz tylko, gdy dostawca nie zachowuje automatycznie wysłanych wiadomości</string>
     <string name="title_optional">Opcjonalnie</string>
     <string name="title_recommended">Zalecane</string>
     <string name="title_account_linked">Połączone konto</string>

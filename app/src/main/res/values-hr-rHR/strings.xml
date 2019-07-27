@@ -274,8 +274,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_identity_read_receipt">Zatražite potvrdu o čitanju</string>
     <string name="title_identity_delivery_receipt">Zatražite potvrdu o isporuci</string>
     <string name="title_identity_receipt_remark">Većina pružatelja usluga ignorira zahtjeve za primanje</string>
-    <string name="title_identity_store_sent">Spremite poslane poruke</string>
-    <string name="title_identity_store_sent_remark">Omogućite ovo samo ako vaš davatelj usluga ne sprema automatski poslane poruke</string>
     <string name="title_optional">Opcijonalno</string>
     <string name="title_recommended">Preporučeno</string>
     <string name="title_account_linked">Povezani račun</string>

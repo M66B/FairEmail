@@ -263,8 +263,6 @@
     <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
     <string name="title_identity_delivery_receipt">Solicitare confirmare livrare</string>
     <string name="title_identity_receipt_remark">Majoritatea furnizorilor ignoră cererile de confirmare a livrării</string>
-    <string name="title_identity_store_sent">Stochează mesajele trimise</string>
-    <string name="title_identity_store_sent_remark">Activați doar dacă furnizorul nu stochează în mod automat mesajele trimise</string>
     <string name="title_optional">Opțional</string>
     <string name="title_recommended">Recomandat</string>
     <string name="title_account_linked">Cont asociat</string>

@@ -243,8 +243,6 @@
     <string name="title_identity_read_receipt">Запросить уведомления о прочтении</string>
     <string name="title_identity_delivery_receipt">Запросить уведомление о доставке</string>
     <string name="title_identity_receipt_remark">Большинство провайдеров игнорируют запросы на получение</string>
-    <string name="title_identity_store_sent">Сохранять отправленные сообщения</string>
-    <string name="title_identity_store_sent_remark">Включите это, только если ваш провайдер не сохраняет отправленные сообщения автоматически</string>
     <string name="title_optional">Необязательно</string>
     <string name="title_recommended">Рекомендуется</string>
     <string name="title_account_linked">Связанная учётная запись</string>

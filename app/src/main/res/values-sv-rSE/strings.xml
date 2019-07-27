@@ -263,8 +263,6 @@
     <string name="title_identity_read_receipt">Begär läskvitto</string>
     <string name="title_identity_delivery_receipt">Begär leveranskvitto</string>
     <string name="title_identity_receipt_remark">De flesta leverantörer ignorerar kvittobegäran</string>
-    <string name="title_identity_store_sent">Lagra skickade meddelanden</string>
-    <string name="title_identity_store_sent_remark">Aktivera detta endast om din leverantör inte automatiskt lagrar skickade meddelanden</string>
     <string name="title_optional">Valfritt</string>
     <string name="title_recommended">Rekommenderat</string>
     <string name="title_account_linked">Länkade kontot</string>

@@ -224,7 +224,6 @@
     <string name="title_advanced_double_back">\'Retour\' deux fois pour quitter</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
-    <string name="title_advanced_prefer_ip4">Préférer les adresses IPv4</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_debug">Débogage</string>
@@ -256,7 +255,6 @@
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
-    <string name="title_advanced_prefer_ip4_hint">Activer ceci uniquement si la connectivité IPv6 ne fonctionne pas correctement</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_select">Sélectionner &#8230;</string>
@@ -269,8 +267,6 @@
     <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
     <string name="title_identity_delivery_receipt">Demander un accusé de réception</string>
     <string name="title_identity_receipt_remark">La plupart des fournisseurs ignorent les demandes d\'accusé de réception</string>
-    <string name="title_identity_store_sent">Enregistrer les messages envoyés</string>
-    <string name="title_identity_store_sent_remark">Activer ceci seulement si votre fournisseur n\'enregistre pas automatiquement les messages envoyés</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_recommended">Recommandé</string>
     <string name="title_account_linked">Compte associé</string>
@@ -372,6 +368,7 @@
     <string name="title_folder_thread">Fil de discussion %1$s</string>
     <string name="title_folders_unified">Dossiers de la boîte de réception unifiée</string>
     <string name="title_no_messages">Aucun message</string>
+    <string name="title_no_folders">Aucun dossier</string>
     <string name="title_subject_reply">Re : %1$s</string>
     <string name="title_subject_forward">Tr : %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
