@@ -6,7 +6,8 @@
     android:background="?attr/activatableItemBackground"
     android:descendantFocusability="beforeDescendants"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:paddingEnd="3dp">
 
     <View
         android:id="@+id/vwColor"
