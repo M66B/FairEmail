@@ -613,11 +613,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 for (EntityMessage threaded : messages) {
                                     EntityFolder folder = db.folder().getFolder(threaded.folder);
                                     if (!target.id.equals(threaded.folder) &&
-                                            !EntityFolder.DRAFTS.equals(folder.type) &&
-                                            !EntityFolder.OUTBOX.equals(folder.type) &&
+                                            !EntityFolder.DRAFTS.equals(folder.type) && !EntityFolder.OUTBOX.equals(folder.type) &&
                                             (!EntityFolder.SENT.equals(folder.type) || EntityFolder.TRASH.equals(target.type)) &&
-                                            !EntityFolder.TRASH.equals(folder.type) &&
-                                            !EntityFolder.JUNK.equals(folder.type))
+                                            !EntityFolder.TRASH.equals(folder.type) && !EntityFolder.JUNK.equals(folder.type))
                                         result.add(new MessageTarget(threaded, account, target));
                                 }
                             }
