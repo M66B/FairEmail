@@ -1351,14 +1351,11 @@ public class FragmentCompose extends FragmentBase {
                         attachments.remove(attachment);
                     }
 
-                EntityIdentity identity =
-                        (message.identity == null ? null : db.identity().getIdentity(message.identity));
-
                 // Build message
                 Properties props = MessageHelper.getSessionProperties(null, false);
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
-                MessageHelper.build(context, message, attachments, identity, imessage);
+                MessageHelper.build(context, message, attachments, null, imessage);
 
                 // Serialize message
                 ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -1382,6 +1379,10 @@ public class FragmentCompose extends FragmentBase {
                     Log.i("Result " + result);
                     Log.logExtras(result);
                 }
+
+                // Identity to store sign key ID into
+                EntityIdentity identity =
+                        (message.identity == null ? null : db.identity().getIdentity(message.identity));
 
                 int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
                 switch (resultCode) {

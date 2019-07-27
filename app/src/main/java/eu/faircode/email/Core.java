@@ -488,8 +488,11 @@ class Core {
             if (!message.content)
                 throw new IllegalArgumentException("Message body missing");
 
-            EntityIdentity identity =
-                    (message.identity == null ? null : db.identity().getIdentity(message.identity));
+            // Drafts/sent message are added with signature and referenced text
+            EntityIdentity identity = null;
+            if (message.identity != null &&
+                    (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.SENT.equals(folder.type)))
+                identity = db.identity().getIdentity(message.identity);
 
             imessage = MessageHelper.from(context, message, identity, isession);
         } else {

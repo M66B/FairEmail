@@ -338,12 +338,15 @@ public class MessageHelper {
         StringBuilder body = new StringBuilder();
         body.append(Helper.readText(message.getFile(context)));
 
-        if (identity != null && !TextUtils.isEmpty(identity.signature))
-            body.append(identity.signature);
+        // When sending message
+        if (identity != null) {
+            if (!TextUtils.isEmpty(identity.signature))
+                body.append(identity.signature);
 
-        File refFile = message.getRefFile(context);
-        if (refFile.exists())
-            body.append(Helper.readText(refFile));
+            File refFile = message.getRefFile(context);
+            if (refFile.exists())
+                body.append(Helper.readText(refFile));
+        }
 
         String plainContent = HtmlHelper.getText(body.toString());
 
