@@ -1,3 +1,5 @@
+@Jul 24, 2019
+
 There is a bug in the Zoho IMAP server causing all messages to be returned when searching for messages by flag (UNSEEN, FLAGGED, etc), despite specifying a SINCE.
 
 This causes all messages to be synchronized/downloaded, causing a lot of unnecessary traffic for both the user (inconveniently hitting rate limits as well) and for your servers.
@@ -25,3 +27,12 @@ The log was captured using imap.zoho.eu
 07-24 17:07:32.127 26182 27215 I System.out: * 1 FETCH (FLAGS (\Recent \Seen) INTERNALDATE "08-Jul-2019 23:10:22 +0000" ... redacted
 
 07-24 17:48:15.563 27990 28576 I System.out: * CAPABILITY IMAP4rev1 UNSELECT CHILDREN XLIST NAMESPACE IDLE MOVE ID AUTH=PLAIN SASL-IR UIDPLUS ESEARCH LIST-EXTENDED LIST-STATUS WITHIN LITERAL- APPENDLIMIT=10485760
+
+
+@Jul 26, 2019
+
+Thank you for contacting Zoho Mail support.
+
+From the records we see that your account ... is not being accessed via IMAP from any IMAP client. Kindly help us with the email address of the Zoho account in which you faced this issue.
+
+We will check with that and assist you further.
