@@ -418,9 +418,16 @@ public class EmailProvider {
                 @Override
                 public Boolean call() {
                     try (Socket socket = new Socket()) {
-                        InetAddress iaddr = InetAddress.getByName(host);
-                        InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr, Server.this.port);
-                        socket.connect(inetSocketAddress, DNS_TIMEOUT);
+                        InetAddress[] iaddr = InetAddress.getAllByName(host);
+                        for (int i = 0; i < iaddr.length; i++)
+                            try {
+                                Log.i("Connecting to " + iaddr[i]);
+                                InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr[i], Server.this.port);
+                                socket.connect(inetSocketAddress, DNS_TIMEOUT);
+                            } catch (Throwable ex) {
+                                if (i + 1 == iaddr.length)
+                                    throw ex;
+                            }
                         Log.i("Reachable " + Server.this);
                         return true;
                     } catch (IOException ex) {
