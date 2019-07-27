@@ -2445,7 +2445,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_compact).setChecked(prefs.getBoolean("compact", false));
 
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
-                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
+                (viewType == AdapterMessage.ViewType.UNIFIED ||
+                        viewType == AdapterMessage.ViewType.FOLDER ||
+                        viewType == AdapterMessage.ViewType.SEARCH));
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -2610,16 +2612,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         Bundle args = new Bundle();
         args.putLong("id", folder);
+        args.putBoolean("search", viewType == AdapterMessage.ViewType.SEARCH);
         args.putBoolean("snoozed", snoozed);
 
         new SimpleTask<List<Long>>() {
             @Override
             protected List<Long> onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
+                boolean search = args.getBoolean("search");
                 boolean snoozed = args.getBoolean("snoozed");
 
                 DB db = DB.getInstance(context);
-                return db.message().getMessageAll(id < 0 ? null : id, snoozed);
+                return db.message().getMessageIds(id < 0 ? null : id, search, snoozed);
             }
 
             @Override
