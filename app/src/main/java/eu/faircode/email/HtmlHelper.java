@@ -238,21 +238,19 @@ public class HtmlHelper {
                 int width = 0;
                 int height = 0;
 
-                try {
-                    String awidth = img.attr("width");
-                    if (!TextUtils.isEmpty(awidth) && !"auto".equals(awidth.toLowerCase()))
-                        width = Integer.parseInt(awidth);
-                } catch (NumberFormatException ex) {
-                    Log.w(ex);
-                }
+                String awidth = img.attr("width");
+                for (int i = 0; i < awidth.length(); i++)
+                    if (Character.isDigit(awidth.charAt(i)))
+                        width = width * 10 + (byte) awidth.charAt(i) - (byte) '0';
+                    else
+                        break;
 
-                try {
-                    String aheight = img.attr("height");
-                    if (!TextUtils.isEmpty(aheight) && !"auto".equals(aheight.toLowerCase()))
-                        height = Integer.parseInt(aheight);
-                } catch (NumberFormatException ex) {
-                    Log.w(ex);
-                }
+                String aheight = img.attr("height");
+                for (int i = 0; i < aheight.length(); i++)
+                    if (Character.isDigit(aheight.charAt(i)))
+                        height = height * 10 + (byte) aheight.charAt(i) - (byte) '0';
+                    else
+                        break;
 
                 if (width != 0 || height != 0) {
                     String src = img.attr("src");
