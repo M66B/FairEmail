@@ -89,8 +89,10 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
                             try {
                                 value = mComputeFunction.call();
                             } catch (Exception e) {
-                                throw new RuntimeException("Exception while computing database"
-                                        + " live data.", e);
+                                eu.faircode.email.Log.w(e);
+                                //throw new RuntimeException("Exception while computing database"
+                                //        + " live data.", e);
+                                computed = false;
                             }
                         }
                         if (computed) {

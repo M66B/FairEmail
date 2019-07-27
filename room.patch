@@ -1,0 +1,17 @@
+diff --git a/app/src/main/java/androidx/room/RoomTrackingLiveData.java b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
+index 8df1014a4..f6086584b 100644
+--- a/app/src/main/java/androidx/room/RoomTrackingLiveData.java
++++ b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
+@@ -89,8 +89,10 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+                             try {
+                                 value = mComputeFunction.call();
+                             } catch (Exception e) {
+-                                throw new RuntimeException("Exception while computing database"
+-                                        + " live data.", e);
++                                eu.faircode.email.Log.w(e);
++                                //throw new RuntimeException("Exception while computing database"
++                                //        + " live data.", e);
++                                computed = false;
+                             }
+                         }
+                         if (computed) {
