@@ -21,6 +21,7 @@ import org.xbill.DNS.Lookup;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.Type;
 
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -37,6 +38,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 
 public class ConnectionHelper {
+    private static final String any4 = "0.0.0.0";
     // https://dns.watch/
     private static final String DEFAULT_DNS = "84.200.69.80";
 
@@ -265,7 +267,22 @@ public class ConnectionHelper {
     }
 
     static void connect(Context context, Session isession, IMAPStore istore, String host, int port, String user, String password) throws MessagingException {
-        istore.connect(host, port, user, password);
+        try {
+            istore.connect(host, port, user, password);
+        } catch (MessagingException ex) {
+            if (!hasIPv6(host))
+                throw ex;
+
+            try {
+                Log.i("Binding to " + any4);
+                isession.getProperties().put("mail.imap.localaddress", any4);
+                isession.getProperties().put("mail.imaps.localaddress", any4);
+                istore.connect(host, port, user, password);
+            } catch (Throwable ex1) {
+                Log.w(ex1);
+                throw ex;
+            }
+        }
 
         // https://www.ietf.org/rfc/rfc2971.txt
         if (istore.hasCapability("ID"))
@@ -288,9 +305,34 @@ public class ConnectionHelper {
     }
 
     static void connect(Context context, Session isession, Transport itransport, String host, int port, String user, String password) throws MessagingException {
-        itransport.connect(host, port, user, password);
+        try {
+            itransport.connect(host, port, user, password);
+        } catch (MessagingException ex) {
+            if (!hasIPv6(host))
+                throw ex;
+
+            try {
+                Log.i("Binding to " + any4);
+                isession.getProperties().put("mail.smtp.localaddress", any4);
+                isession.getProperties().put("mail.smtps.localaddress", any4);
+                itransport.connect(host, port, user, password);
+            } catch (Throwable ex1) {
+                Log.w(ex1);
+                throw ex;
+            }
+        }
     }
-    
+
+    private static boolean hasIPv6(String host) {
+        try {
+            for (InetAddress iaddr : InetAddress.getAllByName(host))
+                if (iaddr instanceof Inet6Address)
+                    return true;
+        } catch (UnknownHostException ignored) {
+        }
+        return false;
+    }
+
     static boolean airplaneMode(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
