@@ -142,11 +142,11 @@
 
     <string name="title_setup_export">Export settings</string>
     <string name="title_setup_import">Import settings</string>
-    <string name="title_setup_import_do">Imported accounts will be added, not overwritten</string>
+    <string name="title_setup_import_do">Imported accounts will be added without overwriting any existing ones</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_repeat">Repeat password</string>
     <string name="title_setup_password_missing">Password missing</string>
-    <string name="title_setup_password_different">Passwords different</string>
+    <string name="title_setup_password_different">Passwords don\'t match</string>
     <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_exported">Settings exported</string>
     <string name="title_setup_imported">Settings imported</string>
@@ -270,15 +270,15 @@
 
     <string name="title_advanced_enabled_hint">Globally disable or enable receiving of messages</string>
     <string name="title_advanced_manual_hint">If synchronization is disabled, it is still possible to synchronize manually by pulling down the message list. This will synchronize messages and execute operations for a limited time.</string>
-    <string name="title_advanced_poll_hint">Synchronizing periodically will compare local and remote messages each and every time, which is an expensive operation possibly resulting in extra battery usage, especially when there are a lot of messages to synchronize. Always synchronizing will avoid this by continuous listening for changes only.</string>
+    <string name="title_advanced_poll_hint">Synchronizing periodically will compare local and remote messages each and every time, which is an expensive operation possibly resulting in extra battery usage, especially when there are a lot of messages to synchronize. Always synchronizing will avoid this by continuous monitoring for changes only.</string>
     <string name="title_advanced_schedule_hint">Tap on a time to set a time</string>
     <string name="title_advanced_check_mx">Check sender email addresses on synchronizing messages</string>
-    <string name="title_advanced_unseen_hint">Some providers do not support this correctly, which could for example result in all messages being synchronized</string>
-    <string name="title_advanced_sync_kept_hint">This will transfer extra data and use extra battery power, especially if there are a lot of messages kept on the device</string>
+    <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which, for example, may result in all messages being synchronized</string>
+    <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
 
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
-    <string name="title_advanced_sync_delay_hint">This will delay synchronizing messages</string>
+    <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
 
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Disabling this option will disable receiving and sending messages on mobile internet connections</string>
@@ -290,7 +290,7 @@
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
-    <string name="title_advanced_permission_contacts_hint">This requires permission to read your contacts being granted</string>
+    <string name="title_advanced_permission_contacts_hint">This requires granting permission to read your contacts</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autocollapse_hint">Multiple expanded messages will always be closed on \'back\'</string>
