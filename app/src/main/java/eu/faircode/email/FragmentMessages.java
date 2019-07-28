@@ -3375,12 +3375,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onDecrypt(Intent intent) {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
-            return;
-        }
-
         if (pgpService.isBound()) {
             Intent data = new Intent();
             data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);

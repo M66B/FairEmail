@@ -35,6 +35,7 @@ This app starts a foreground service with a low priority status bar notification
 * Flat [conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
 * Two way synchronization
 * Offline storage and operations
+* Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
 * Battery friendly
 * Low data usage
 * Small (< 10 MB)
@@ -66,7 +67,6 @@ All pro features are convenience or advanced features.
 * Search on device or server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
 * Keyword management
 * Biometric authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
-* Encryption/decryption ([OpenPGP](https://www.openpgp.org/)) ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq12))
 * Unified inbox widget
 * Export settings
 

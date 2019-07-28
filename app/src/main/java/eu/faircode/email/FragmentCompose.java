@@ -1060,12 +1060,6 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onEncrypt() {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
-            return;
-        }
-
         if (pgpService.isBound())
             try {
                 String to = etTo.getText().toString();
