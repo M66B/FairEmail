@@ -83,7 +83,7 @@ All pro features are convenience or advanced features.
 * Confirm opening links, images and attachments
 * No special permissions required
 * No advertisements
-* No analytics and no tracking
+* No analytics and no tracking ([error reporting](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) is opt-in)
 * No [Google backup](https://developer.android.com/guide/topics/data/backup)
 * FairEmail is an original work, not a fork or a clone
 
