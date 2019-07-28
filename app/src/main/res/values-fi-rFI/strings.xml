@@ -117,7 +117,7 @@
     <string name="title_setup_done">Valmis</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
-    <string name="title_setup_import_do">Tuodut tilit lisätään eikä korvata olemassa olevia</string>
+    <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_repeat">Toista salasana</string>
     <string name="title_setup_password_missing">Salasana puuttuu</string>
@@ -237,7 +237,7 @@
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
-    <string name="title_advanced_sync_delay_hint">Tämä viivästää viestien synkronointia</string>
+    <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
@@ -247,7 +247,7 @@
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
-    <string name="title_advanced_permission_contacts_hint">Tämä vaatii oikeudet lukea yhteystietosi</string>
+    <string name="title_advanced_permission_contacts_hint">Tämä vaatii oikeudet yhteystietojen lukemiseen</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
     <string name="title_advanced_autocollapse_hint">Monta laajennettua viestiä suljetaan aina takaisin-painikkeella</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
@@ -368,6 +368,7 @@
     <string name="title_folder_thread">Keskustelu %1$s</string>
     <string name="title_folders_unified">Yhdistetyn saapuneet-kansion kansiot</string>
     <string name="title_no_messages">Ei viestejä</string>
+    <string name="title_no_folders">Ei kansioita</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Merkitse luetuksi</string>

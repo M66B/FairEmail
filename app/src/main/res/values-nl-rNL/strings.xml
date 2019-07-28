@@ -39,6 +39,10 @@
         <item quantity="one">Eén nieuw</item>
         <item quantity="other">%1$d nieuw</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">Eén bericht geselecteerd</item>
+        <item quantity="other">%1$d berichten geselecteerd</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Eén bericht verplaatsen naar %2$s ?</item>
         <item quantity="other">%1$d berichten verplaatsen naar %2$s?</item>
@@ -117,11 +121,11 @@
     <string name="title_setup_done">Gedaan</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
-    <string name="title_setup_import_do">Geïmporteerde accounts zullen worden toegevoegd, niet overschreven</string>
+    <string name="title_setup_import_do">Geïmporteerde accounts worden toegevoegd zonder de bestaande te overschrijven</string>
     <string name="title_setup_password">Wachtwoord</string>
     <string name="title_setup_password_repeat">Herhaal wachtwoord</string>
     <string name="title_setup_password_missing">Wachtwoord ontbreekt</string>
-    <string name="title_setup_password_different">Wachtwoorden verschillen</string>
+    <string name="title_setup_password_different">De wachtwoorden komen niet overeen</string>
     <string name="title_setup_password_invalid">Wachtwoord ongeldig</string>
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
@@ -230,11 +234,11 @@
     <string name="title_advanced_cleanup">Opruimen</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
     <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en bewerkingen uitvoeren gedurende een beperkte tijd.</string>
-    <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend te luisteren naar veranderingen.</string>
+    <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend veranderingen te monitoren.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_check_mx">Controleer e-mailadressen van de afzenders bij het synchroniseren van berichten</string>
-    <string name="title_advanced_unseen_hint">Sommige aanbieders ondersteunen dit niet correct, wat bijvoorbeeld kan leiden tot synchronisatie van alle berichten</string>
-    <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens overdragen en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat worden opgeslagen</string>
+    <string name="title_advanced_unseen_hint">Sommige aanbieders ondersteunen dit niet goed, wat bijvoorbeeld kan leiden tot synchronisatie van alle berichten</string>
+    <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat zijn opgeslagen</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
     <string name="title_advanced_lookup_mx_hint">Dit zal controleren of DNS MX records bestaan</string>
     <string name="title_advanced_sync_delay_hint">Dit zal de synchronisatie van berichten vertragen</string>
@@ -247,7 +251,7 @@
     <string name="title_advanced_name_email_hint">Indien uitgeschakeld, worden alleen namen weergegeven als deze beschikbaar zijn</string>
     <string name="title_advanced_preview_hint">Alleen beschikbaar wanneer de berichttekst werd gedownload</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
-    <string name="title_advanced_permission_contacts_hint">Dit vereist dat toestemming om je contacten te lezen werd verleend</string>
+    <string name="title_advanced_permission_contacts_hint">Dit vereist toestemming om je contacten te lezen</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>

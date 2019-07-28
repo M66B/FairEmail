@@ -116,11 +116,9 @@
     <string name="title_setup_done">Klar</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
-    <string name="title_setup_import_do">Importerade konton kommer att läggas till, inte skrivas över</string>
     <string name="title_setup_password">Lösenord</string>
     <string name="title_setup_password_repeat">Upprepa lösenord</string>
     <string name="title_setup_password_missing">Lösenord saknas</string>
-    <string name="title_setup_password_different">Lösenorden är olika</string>
     <string name="title_setup_password_invalid">Ogiltigt lösenord</string>
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
@@ -227,13 +225,10 @@
     <string name="title_advanced_cleanup">Rensa</string>
     <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
     <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan. Detta synkroniserar meddelanden och utför operationer under en begränsad tid.</string>
-    <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala- och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Alltid synkronisering kommer att undvika detta genom kontinuerlig lyssning för ändringar endast.</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
-    <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och använda extra batterikraft, speciellt om det finns många meddelanden som hålls på enheten</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
-    <string name="title_advanced_sync_delay_hint">Detta kommer att fördröja synkronisering av meddelanden</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
     <string name="title_advanced_rlah_hint">Förutsatt ingen roaming inom EU</string>
@@ -243,7 +238,6 @@
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
-    <string name="title_advanced_permission_contacts_hint">Detta kräver att tillstånd att läsa dina kontakter beviljas</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>

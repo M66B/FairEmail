@@ -28,11 +28,9 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
-    <string name="title_setup_import_do">Імпортовані обліковки буде додано, а не перезаписано</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_repeat">Повторіть пароль</string>
     <string name="title_setup_password_missing">Пароль відсутній</string>
-    <string name="title_setup_password_different">Паролі відрізняються</string>
     <string name="title_setup_password_invalid">Пароль не є дійсним</string>
     <string name="title_setup_exported">Налаштування експортовано</string>
     <string name="title_setup_imported">Налаштування імпортовано</string>

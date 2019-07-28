@@ -39,6 +39,10 @@
         <item quantity="one">%1$d nuovo</item>
         <item quantity="other">%1$d nuovi</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">Selezionato il messaggio %1$d</item>
+        <item quantity="other">Selezionati i messaggi %1$d</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Spostare %1$d messaggio in %2$s ?</item>
         <item quantity="other">Spostare %1$d messaggi in %2$s ?</item>
@@ -116,11 +120,11 @@
     <string name="title_setup_done">Fine</string>
     <string name="title_setup_export">Esporta impostazioni</string>
     <string name="title_setup_import">Importa impostazioni</string>
-    <string name="title_setup_import_do">Gli account importati saranno aggiunti, non sovrascritti</string>
+    <string name="title_setup_import_do">Gli account importati saranno aggiunti senza sovrascrivere quelli esistenti</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_repeat">Ripeti password</string>
     <string name="title_setup_password_missing">Password mancante</string>
-    <string name="title_setup_password_different">Password diverse</string>
+    <string name="title_setup_password_different">Le password non corrispondono</string>
     <string name="title_setup_password_invalid">Password non valida</string>
     <string name="title_setup_exported">Impostazioni esportate</string>
     <string name="title_setup_imported">Impostazioni importate</string>
@@ -229,14 +233,14 @@
     <string name="title_advanced_cleanup">Pulizia</string>
     <string name="title_advanced_enabled_hint">Attiva o disattiva a livello globale la ricezione dei messaggi</string>
     <string name="title_advanced_manual_hint">Se la sincronizzazione è disabilitata, è ancora possibile sincronizzare manualmente tirando giù l\'elenco dei messaggi. Questo sincronizzerà i messaggi ed eseguirà le operazioni per un tempo limitato.</string>
-    <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo solo ascoltando continuamente le modifiche.</string>
+    <string name="title_advanced_poll_hint">La sincronizzazione periodica compara i messaggi locali e remoti ogni volta, il che è un\'operazione costosa che potrebbe comportare un utilizzo aggiuntivo di batteria, specialmente quando ci sono molti messaggi da sincronizzare. La sincronizzazione sempre eviterà questo tramite un monitoraggio continuo solo per le modifiche.</string>
     <string name="title_advanced_schedule_hint">Tocca un orario per impostare un orario</string>
     <string name="title_advanced_check_mx">Controlla gli indirizzi email mittente alla sincronizzazione dei messaggi</string>
-    <string name="title_advanced_unseen_hint">Alcuni provider non lo supportano correttamente, il che potrebbe portare ad esempio alla sincronizzazione di tutti i messaggi</string>
-    <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e utilizzerà energia batteria extra, specialmente se ci sono molti messaggi conservati sul dispositivo</string>
+    <string name="title_advanced_unseen_hint">Alcuni provider non lo supportano correttamente, il che, ad esempio, potrebbe portare alla sincronizzazione di tutti i messaggi</string>
+    <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
-    <string name="title_advanced_sync_delay_hint">Questo ritarderà la sincronizzazione dei messaggi</string>
+    <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
@@ -246,7 +250,7 @@
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono incluse nel messaggio</string>
-    <string name="title_advanced_permission_contacts_hint">Questo richiede sia concesso il permesso di leggere i tuoi contatti</string>
+    <string name="title_advanced_permission_contacts_hint">Questo richiede il permesso di leggere i tuoi contatti</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
@@ -367,6 +371,7 @@
     <string name="title_folder_thread">Conversazione %1$s</string>
     <string name="title_folders_unified">Cartella posta in arrivo unificata</string>
     <string name="title_no_messages">Nessun messaggio</string>
+    <string name="title_no_folders">Nessuna cartella</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Segna come letto</string>

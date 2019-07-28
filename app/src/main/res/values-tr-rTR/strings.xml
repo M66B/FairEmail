@@ -112,11 +112,9 @@
     <string name="title_setup_done">Bitti</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
-    <string name="title_setup_import_do">İçe aktarılan hesaplar eklenecek, üzerine yazılmayacak</string>
     <string name="title_setup_password">Parola</string>
     <string name="title_setup_password_repeat">Parolayı tekrarla</string>
     <string name="title_setup_password_missing">Parola eksik</string>
-    <string name="title_setup_password_different">Parolalar farklı</string>
     <string name="title_setup_password_invalid">Parola geçersiz</string>
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
@@ -221,13 +219,10 @@
     <string name="title_advanced_cleanup">Temizle</string>
     <string name="title_advanced_enabled_hint">İleti alımını tamamen aç ya da kapat</string>
     <string name="title_advanced_manual_hint">Eşitleme kapalıysa, mesaj listesini aşağı çekerek elle eşitleme hala yapılabilir. Bu eylem iletileri eşitleyecek ve işlemleri kısıtlı bir süre için uygulayacaktır.</string>
-    <string name="title_advanced_poll_hint">Belli aralıklarala eşitleme yerel ve uzak sunucudaki iletileri her defasında karşılaştıracak, bu da özellikle eşitlenecek ileti sayısı fazla olduğunda, fazladan pil kullanımına neden olan maliyetli bir işlem olacaktır. Sürekli eşitleme sadece değişiklikleri izleyerek bu durumdan kaçınacaktır.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
-    <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
-    <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını geciktirecek</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>

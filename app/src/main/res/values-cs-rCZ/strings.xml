@@ -132,11 +132,9 @@
     <string name="title_setup_done">Hotovo</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
-    <string name="title_setup_import_do">Importované účty budou doplněny, nikoliv přepsány</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_repeat">Zopakujte heslo</string>
     <string name="title_setup_password_missing">Chybí heslo</string>
-    <string name="title_setup_password_different">Hesla se liší</string>
     <string name="title_setup_password_invalid">Heslo není platné</string>
     <string name="title_setup_exported">Nastavení exportována</string>
     <string name="title_setup_imported">Nastavení importována</string>
@@ -244,13 +242,10 @@
     <string name="title_advanced_cleanup">Úklid</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí přijímání zpráv</string>
     <string name="title_advanced_manual_hint">Je-li synchronizace zakázána, stále je možné synchronizovat ručně tažením dolů v přehledu zpráv. Po omezený čas se tak budou synchronizovat zprávy a provádět operace.</string>
-    <string name="title_advanced_poll_hint">Synchronizování periodicky pokaždé porovnává místní a vzdálené zprávy, což je náročná operace potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_check_mx">Zkontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
-    <string name="title_advanced_sync_kept_hint">Zvýší využití dat a spotřebu baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí této volby o něco sníží využití dat a baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
-    <string name="title_advanced_sync_delay_hint">Zpozdí synchronizaci zpráv</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
@@ -260,7 +255,6 @@
     <string name="title_advanced_name_email_hint">Při deaktivaci se zobrazí pouze jména, pokud budou k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky které jsou součástí zprávy</string>
-    <string name="title_advanced_permission_contacts_hint">Vyžaduje udělené oprávnění ke čtení kontaktů</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu pokud je v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_autocollapse_hint">Vícero rozbalených zpráv bude vždy sbaleno při pohybu zpět</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace když jsou všechny zprávy archivovány, odeslány nebo v koši</string>

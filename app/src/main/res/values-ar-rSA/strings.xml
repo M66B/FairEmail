@@ -69,11 +69,9 @@
     <string name="title_setup_done">تمّ</string>
     <string name="title_setup_export">تصدير الإعدادات</string>
     <string name="title_setup_import">استيراد الإعدادات</string>
-    <string name="title_setup_import_do">سيتم إضافة حسابات المستوردة، لا تتم الكتابة فوق</string>
     <string name="title_setup_password">الكلمة السرية</string>
     <string name="title_setup_password_repeat">أعد كتابة الكلمة السرية</string>
     <string name="title_setup_password_missing">كلمة المرور مفقودة</string>
-    <string name="title_setup_password_different">كلمات المرور غير متطابقة</string>
     <string name="title_setup_password_invalid">الكلمة السرية غير صالحة</string>
     <string name="title_setup_exported">تم تصدير الإعدادات</string>
     <string name="title_setup_imported">تم استيراد الإعدادات</string>

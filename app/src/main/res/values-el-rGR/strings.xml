@@ -42,7 +42,6 @@
     <string name="title_setup_password">Κωδικός πρόσβασης</string>
     <string name="title_setup_password_repeat">Επανάληψη κωδικού πρόσβασης</string>
     <string name="title_setup_password_missing">Λείπει ο κωδικός πρόσβασης</string>
-    <string name="title_setup_password_different">Οι κωδικοί είναι διαφορετικοί</string>
     <string name="title_setup_password_invalid">Μη έγκυρος κωδικός πρόσβασης</string>
     <string name="title_setup_exported">Επιτυχής εξαγωγή ρυθμίσεων</string>
     <string name="title_setup_imported">Επιτυχής εισαγωγή ρυθμίσεων</string>

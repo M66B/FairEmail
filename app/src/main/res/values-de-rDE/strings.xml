@@ -39,6 +39,10 @@
         <item quantity="one">%1$d neue</item>
         <item quantity="other">%1$d neue</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">%1$d Nachricht ausgewählt</item>
+        <item quantity="other">%1$d Nachrichten ausgewählt</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Verschiebe eine E-Mail nach %2$s ?</item>
         <item quantity="other">Verschiebe %1$d E-Mails nach %2$s ?</item>
@@ -116,11 +120,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_done">Erledigt</string>
     <string name="title_setup_export">Einstellungen exportieren</string>
     <string name="title_setup_import">Einstellungen importieren</string>
-    <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, nicht überschrieben</string>
+    <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
     <string name="title_setup_password">Passwort</string>
     <string name="title_setup_password_repeat">Passwort erneut eingeben</string>
     <string name="title_setup_password_missing">Passwort fehlt</string>
-    <string name="title_setup_password_different">Passwörter stimmen nicht überein</string>
+    <string name="title_setup_password_different">Die Passworte stimmen nicht überein</string>
     <string name="title_setup_password_invalid">Passwort ungültig</string>
     <string name="title_setup_exported">Einstellungen exportiert</string>
     <string name="title_setup_imported">Einstellungen importiert</string>
@@ -246,7 +250,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_name_email_hint">Wenn deaktiviert, werden nur Namen angezeigt, sofern verfügbar</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
-    <string name="title_advanced_permission_contacts_hint">Dies erfordert die Berechtigung, Ihre Kontakte zu lesen</string>
+    <string name="title_advanced_permission_contacts_hint">Dies erfordert die Gewährung der Berechtigung, Ihre Kontakte zu lesen</string>
     <string name="title_advanced_autoexpand_hint">Eine (ungelesene) Nachricht wird automatisch geöffnet</string>
     <string name="title_advanced_autocollapse_hint">Mehrere erweiterte Nachrichten werden immer auf \'zurück\' geschlossen</string>
     <string name="title_advanced_autoclose_hint">Automatisches Schließen des Unterhaltungsthreads, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>

@@ -43,7 +43,6 @@
     <string name="title_setup_done">Fet</string>
     <string name="title_setup_export">Exporta la configuració</string>
     <string name="title_setup_import">Importa una configuració</string>
-    <string name="title_setup_import_do">Els comptes importats no es sobreescriuran</string>
     <string name="title_setup_exported">Configuració exportada</string>
     <string name="title_setup_imported">Configuració importada</string>
     <string name="title_setup_light_theme">Tema clar</string>

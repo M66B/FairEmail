@@ -124,11 +124,9 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_done">Gotovo</string>
     <string name="title_setup_export">Izvezi postavke</string>
     <string name="title_setup_import">Uvezi postavke</string>
-    <string name="title_setup_import_do">Uvezeni računi bit će dodani, ne prepisani</string>
     <string name="title_setup_password">Lozinka</string>
     <string name="title_setup_password_repeat">Ponovite lozinku</string>
     <string name="title_setup_password_missing">Nedostaje lozinka</string>
-    <string name="title_setup_password_different">Lozinke su različite</string>
     <string name="title_setup_password_invalid">Neispravna lozinka</string>
     <string name="title_setup_exported">Postavke su izvezene</string>
     <string name="title_setup_imported">Postavke su uvezene</string>
@@ -237,14 +235,10 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_cleanup">Čišćenje</string>
     <string name="title_advanced_enabled_hint">Globalno onemogućiti ili omogućiti primanje poruka</string>
     <string name="title_advanced_manual_hint">Ako je sinkronizacija onemogućena, još uvijek je moguće ručno usklađivanje povlačenjem popisa poruka prema dolje. To će sinkronizirati poruke i izvršavati operacije na ograničeno vrijeme.</string>
-    <string name="title_advanced_poll_hint">Sinkroniziranje povremeno će uspoređivati lokalne i udaljene poruke svaki put, što je skupa operacija koja vjerojatno rezultira dodatnom potrošnjom baterije, osobito kada postoji mnogo poruka za sinkronizaciju. Stalna sinkronizacija će to izbjeći kontinuiranim slušanjem samo na promjene.</string>
     <string name="title_advanced_schedule_hint">Dodirnite vrijeme za postavljanje vremena</string>
     <string name="title_advanced_check_mx">Provjerite adrese pošiljatelja pri sinkronizaciji poruka</string>
-    <string name="title_advanced_unseen_hint">Neki pružatelji usluga to ne podržavaju ispravno, što bi na primjer moglo rezultirati sinkronizacijom svih poruka</string>
-    <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i koristiti dodatnu snagu baterije, osobito ako se na uređaju čuva mnogo poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
-    <string name="title_advanced_sync_delay_hint">Ovo će odgoditi sinkronizaciju poruka</string>
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>
@@ -254,7 +248,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_name_email_hint">Kada onemogućeno, samo će imena biti prikazana ako su dostupna</string>
     <string name="title_advanced_preview_hint">Dostupno samo kada je preuzet tekst poruke</string>
     <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>
-    <string name="title_advanced_permission_contacts_hint">Za to je potrebno da dodijeljite dozvolu za čitanje kontakata</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku ako postoji samo jedna poruka ili samo jedna nepročitana poruka u razgovoru</string>
     <string name="title_advanced_autocollapse_hint">Višestruke proširene poruke uvijek će biti zatvorene na \'natrag\'</string>
     <string name="title_advanced_autoclose_hint">Automatski zatvori razgovore kada su sve poruke arhivirane, poslane ili stavljene u otpad</string>

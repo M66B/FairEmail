@@ -71,6 +71,7 @@
     <string name="menu_legend">Legendă</string>
     <string name="menu_faq">Suport tehnic</string>
     <string name="menu_issue">Raportaţi o problemă</string>
+    <string name="menu_attribution">Biblioteci folosite</string>
     <string name="menu_privacy">Confidențialitate</string>
     <string name="menu_about">Despre</string>
     <string name="menu_pro">Caracteristici versiune Pro</string>
@@ -108,8 +109,10 @@
     <string name="title_setup_grant">Acordă</string>
     <string name="title_setup_account">Configurare conturi</string>
     <string name="title_setup_account_remark">Pentru a primi e-mail</string>
+    <string name="title_setup_account_hint">Pentru a schimba culoare, glisați stânga/dreapta pe dosarul dorit, etc</string>
     <string name="title_setup_identity">Configurare identităţi</string>
     <string name="title_setup_identity_remark">Pentru a trimite e-mail</string>
+    <string name="title_setup_identity_hint">Pentru a schimba numele, culoarea, semnătura, etc</string>
     <string name="title_setup_permissions">Acordă permisiuni</string>
     <string name="title_setup_permissions_remark">Pentru a obține informațiile contactelor (opțional)</string>
     <string name="title_setup_doze">Configurare optimizare baterie</string>
@@ -122,11 +125,10 @@
     <string name="title_setup_done">Gata</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
-    <string name="title_setup_import_do">Conturile importate vor fi adăugate, nu suprascrise</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_repeat">Repetă parola</string>
     <string name="title_setup_password_missing">Lipsește parola</string>
-    <string name="title_setup_password_different">Parolele sunt diferite</string>
+    <string name="title_setup_password_different">Parolele nu corespund</string>
     <string name="title_setup_password_invalid">Parolă incorectă</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
@@ -181,6 +183,7 @@
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
+    <string name="title_advanced_generated_icons">Arată iconițele generate</string>
     <string name="title_advanced_identicons">Arată iconițe generate</string>
     <string name="title_advanced_circular">Arată pictograme rotunde</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
@@ -193,6 +196,7 @@
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_images">Arată în mod automat imaginile pentru contactele cunoscute</string>
+    <string name="title_advanced_images_all">Arată automat toate imaginile</string>
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
     <string name="title_advanced_remote_content">Arată automat conținutul găzduit pe servere la vizualizarea mesajului original</string>
     <string name="title_advanced_actionbar">Bara de acțiuni conversație</string>
@@ -203,6 +207,7 @@
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
+    <string name="title_advanced_onclose">La închiderea conversației</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
@@ -231,7 +236,7 @@
     <string name="title_advanced_cleanup">Curățare</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
     <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată, este posibilă sincronizarea manuală prin tragerea în jos a listei de mesaje. Astfel se vor sincroniza mesajele și se vor executa operațiile pentru o perioadă limitată de timp.</string>
-    <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin verificarea continuă a schimbărilor.</string>
+    <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
@@ -364,6 +369,7 @@
     <string name="title_folder_thread">Conversație %1$s</string>
     <string name="title_folders_unified">Director unificat de mesaje primite</string>
     <string name="title_no_messages">Nici un mesaj</string>
+    <string name="title_no_folders">Nici un dosar</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
@@ -372,6 +378,7 @@
     <string name="title_flag_color">Stea colorată &#8230;</string>
     <string name="title_unflag">Elimină stea</string>
     <string name="title_forward">Redirecționează</string>
+    <string name="title_editasnew">Editare ca nou</string>
     <string name="title_create_rule">Creare regulă &#8230;</string>
     <string name="title_share">Partajează</string>
     <string name="title_print">Tipărire</string>
@@ -684,6 +691,10 @@
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
+    <string name="title_search_special_prefix">special</string>
+    <string name="title_search_special_unseen">necitit</string>
+    <string name="title_search_special_flagged">stea</string>
+    <string name="title_search_special_snoozed">amanat</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
         <item>La fiecare 15 minute</item>
@@ -717,6 +728,11 @@
         <item>1 Mo</item>
         <item>2 Mo</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Nicio acțiune</item>
+        <item>Mergi la conversația anterioară</item>
+        <item>Mergi la conversația următoare</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Mic</item>

@@ -133,11 +133,9 @@
     <string name="title_setup_done">Gotowe</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
-    <string name="title_setup_import_do">Zaimportowane konta zostaną dodane, nie nadpisane</string>
     <string name="title_setup_password">Hasło</string>
     <string name="title_setup_password_repeat">Powtórz hasło</string>
     <string name="title_setup_password_missing">Brak hasła</string>
-    <string name="title_setup_password_different">Hasła się różnią</string>
     <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
@@ -243,14 +241,10 @@
     <string name="title_advanced_cleanup">Oczyszczanie</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal istnieje możliwość ręcznej synchronizacji poprzez pociągnięcie w dół listy wiadomości. Spowoduje to synchronizację wiadomości i wykonywanie operacji przez ograniczony czas.</string>
-    <string name="title_advanced_poll_hint">Synchronizacja okresowa porównuje wiadomości lokalne i zdalne za każdym razem, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest dużo wiadomości do synchronizacji. Synchronizacja stała pozwoli uniknąć ciągłego sprawdzania zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
-    <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co może, na przykład skutkować synchronizacją wszystkich wiadomości</string>
-    <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i wykorzystanie dodatkowej energii z baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
-    <string name="title_advanced_sync_delay_hint">Opóźni to synchronizację wiadomości</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
@@ -260,7 +254,6 @@
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wbudowane są obrazami zawartymi w wiadomości</string>
-    <string name="title_advanced_permission_contacts_hint">Wymaga to przyznania pozwolenia na dostęp do kontaktów</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autocollapse_hint">Rozwinięte wiadomości zostaną zawsze zamknięte przy \'cofnij\'</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>

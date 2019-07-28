@@ -103,11 +103,9 @@
     <string name="title_setup_done">Hazırdır</string>
     <string name="title_setup_export">Tənzimləmələri ixrac et</string>
     <string name="title_setup_import">Tənzimləmələri idxal et</string>
-    <string name="title_setup_import_do">İdxal edilmiş hesablar əlavə ediləcək, üzərinə yazılmayacaq</string>
     <string name="title_setup_password">Şifrə</string>
     <string name="title_setup_password_repeat">Şifrəni təkrarla</string>
     <string name="title_setup_password_missing">Şifrə əskikdir</string>
-    <string name="title_setup_password_different">Şifrələr fərqlidir</string>
     <string name="title_setup_password_invalid">Şifrə etibarsızdır</string>
     <string name="title_setup_exported">Tənzimləmələr ixrac edildi</string>
     <string name="title_setup_imported">Tənzimləmələr idxal edildi</string>

@@ -117,11 +117,9 @@
     <string name="title_setup_done">Hecho</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
-    <string name="title_setup_import_do">Las cuentas importadas se añadirán, no se sobrescribirán</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
     <string name="title_setup_password_missing">Falta contraseña</string>
-    <string name="title_setup_password_different">Las contraseñas no coinciden</string>
     <string name="title_setup_password_invalid">Contraseña inválida</string>
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
@@ -230,14 +228,10 @@
     <string name="title_advanced_cleanup">Limpieza</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
     <string name="title_advanced_manual_hint">Si la sincronización está desactivada, todavía es posible sincronizar manualmente tirando hacia abajo de la lista de mensajes. Esto sincronizará mensajes y ejecutará operaciones por un tiempo limitado.</string>
-    <string name="title_advanced_poll_hint">Sincronizar periódicamente comparará mensajes locales y remotos cada vez, lo que es una operación costosa que posiblemente resulte en un uso extra de la batería, especialmente cuando hay muchos mensajes para sincronizar. Sincronizar siempre evitará esto escuchando continuamente si hay cambios solamente.</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_check_mx">Compruebe las direcciones de correo electrónico de remitentes al sincronizar mensajes</string>
-    <string name="title_advanced_unseen_hint">Algunos proveedores no soportan esto correctamente, lo que podría, por ejemplo, resultar en que todos los mensajes se sincronizaran</string>
-    <string name="title_advanced_sync_kept_hint">Esto utilizará datos adicionales y energía adicional de batería, especialmente si hay muchos mensajes guardados en el dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desactivar esto reducirá el uso de datos y batería, pero también desactivará la actualización de la lista de carpetas</string>
     <string name="title_advanced_lookup_mx_hint">Esto comprobará si existen registros DNS MX</string>
-    <string name="title_advanced_sync_delay_hint">Esto retrasará la sincronización de mensajes</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
     <string name="title_advanced_metered_warning">Desactivar esta opción desactivará la recepción y envío de mensajes en conexiones móviles a Internet</string>
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
@@ -247,7 +241,6 @@
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
-    <string name="title_advanced_permission_contacts_hint">Esto requiere permiso para acceder a tus contactos</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre se cerrarán con \'atrás\'</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
@@ -368,6 +361,7 @@
     <string name="title_folder_thread">Conversación %1$s</string>
     <string name="title_folders_unified">Carpetas de bandeja de entrada unificada</string>
     <string name="title_no_messages">Sin mensajes</string>
+    <string name="title_no_folders">No hay carpetas</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Marcar como leído</string>
