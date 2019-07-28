@@ -76,6 +76,7 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -2612,6 +2613,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 selectionTracker.clearSelection();
                 for (long id : ids)
                     selectionTracker.select(id);
+
+                ToastEx.makeText(getContext(),
+                        getContext().getResources().getQuantityString(
+                                R.plurals.title_selected_messages, ids.size(), ids.size()),
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

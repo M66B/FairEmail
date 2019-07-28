@@ -50,6 +50,11 @@
         <item quantity="other">%1$d new</item>
     </plurals>
 
+    <plurals name="title_selected_messages">
+        <item quantity="one">Selected %1$d message</item>
+        <item quantity="other">Selected %1$d messages</item>
+    </plurals>
+
     <plurals name="title_moving_messages">
         <item quantity="one">Move %1$d message to %2$s?</item>
         <item quantity="other">Move %1$d messages to %2$s?</item>
