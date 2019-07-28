@@ -2444,9 +2444,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_compact).setChecked(prefs.getBoolean("compact", false));
 
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
-                (viewType == AdapterMessage.ViewType.UNIFIED ||
-                        viewType == AdapterMessage.ViewType.FOLDER ||
-                        viewType == AdapterMessage.ViewType.SEARCH));
+                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
 
         super.onPrepareOptionsMenu(menu);
     }
