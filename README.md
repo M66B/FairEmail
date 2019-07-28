@@ -67,6 +67,7 @@ All pro features are convenience or advanced features.
 * Keyword management
 * Biometric authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
 * Encryption/decryption ([OpenPGP](https://www.openpgp.org/)) ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq12))
+* Unified inbox widget
 * Export settings
 
 ## Simple

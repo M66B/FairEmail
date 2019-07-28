@@ -26,6 +26,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.View;
 import android.widget.RemoteViews;
 
 public class WidgetUnified extends AppWidgetProvider {
@@ -36,24 +37,29 @@ public class WidgetUnified extends AppWidgetProvider {
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
+        boolean pro = Helper.isPro(context);
         for (int id : appWidgetIds) {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
-            views.setOnClickPendingIntent(R.id.title, pi);
+            views.setViewVisibility(R.id.pro, pro ? View.GONE : View.VISIBLE);
+            if (pro) {
+                views.setOnClickPendingIntent(R.id.title, pi);
 
-            Intent service = new Intent(context, WidgetUnifiedService.class);
-            service.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
-            service.setData(Uri.parse(service.toUri(Intent.URI_INTENT_SCHEME)));
+                Intent service = new Intent(context, WidgetUnifiedService.class);
+                service.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
+                service.setData(Uri.parse(service.toUri(Intent.URI_INTENT_SCHEME)));
 
-            views.setRemoteAdapter(R.id.lv, service);
+                views.setRemoteAdapter(R.id.lv, service);
 
-            Intent thread = new Intent(context, ActivityView.class);
-            thread.setAction("widget");
-            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            PendingIntent piItem = PendingIntent.getActivity(
-                    context, ActivityView.REQUEST_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+                Intent thread = new Intent(context, ActivityView.class);
+                thread.setAction("widget");
+                thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                PendingIntent piItem = PendingIntent.getActivity(
+                        context, ActivityView.REQUEST_WIDGET, thread, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            views.setPendingIntentTemplate(R.id.lv, piItem);
+                views.setPendingIntentTemplate(R.id.lv, piItem);
+            } else
+                views.setTextViewText(R.id.pro, context.getText(R.string.title_pro_feature));
 
             appWidgetManager.updateAppWidget(id, views);
         }
@@ -61,8 +67,10 @@ public class WidgetUnified extends AppWidgetProvider {
 
     static void update(Context context) {
         Log.i("Widget unified update");
-        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
-        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+        if (Helper.isPro(context)) {
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+        }
     }
 }
