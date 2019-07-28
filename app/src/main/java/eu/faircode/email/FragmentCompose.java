@@ -2614,7 +2614,10 @@ public class FragmentCompose extends FragmentBase {
                                 null);
                     }
                 } else {
-                    String previous = Helper.readText(draft.getFile(context));
+                    File file = draft.getFile(context);
+                    if (!file.exists())
+                        Helper.writeText(file, body);
+                    String previous = Helper.readText(file);
                     if (!body.equals(previous) ||
                             plain_only != (draft.plain_only != null && draft.plain_only)) {
                         dirty = true;
