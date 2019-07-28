@@ -93,6 +93,8 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
                                 //throw new RuntimeException("Exception while computing database"
                                 //        + " live data.", e);
                                 computed = false;
+                                mInvalid.set(false);
+                                break;
                             }
                         }
                         if (computed) {
@@ -127,6 +129,7 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
             }
         }
     };
+
     @SuppressLint("RestrictedApi")
     RoomTrackingLiveData(
             RoomDatabase database,

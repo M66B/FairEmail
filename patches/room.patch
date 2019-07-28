@@ -1,8 +1,6 @@
-diff --git a/app/src/main/java/androidx/room/RoomTrackingLiveData.java b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
-index 8df1014a4..f6086584b 100644
---- a/app/src/main/java/androidx/room/RoomTrackingLiveData.java
-+++ b/app/src/main/java/androidx/room/RoomTrackingLiveData.java
-@@ -89,8 +89,10 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
+--- /home/marcel/support/room/runtime/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-27 12:47:44.950985792 +0200
++++ app/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-28 15:50:45.670936158 +0200
+@@ -89,8 +89,12 @@ class RoomTrackingLiveData<T> extends Li
                              try {
                                  value = mComputeFunction.call();
                              } catch (Exception e) {
@@ -12,6 +10,16 @@ index 8df1014a4..f6086584b 100644
 +                                //throw new RuntimeException("Exception while computing database"
 +                                //        + " live data.", e);
 +                                computed = false;
++                                mInvalid.set(false);
++                                break;
                              }
                          }
                          if (computed) {
+@@ -125,6 +129,7 @@ class RoomTrackingLiveData<T> extends Li
+             }
+         }
+     };
++
+     @SuppressLint("RestrictedApi")
+     RoomTrackingLiveData(
+             RoomDatabase database,
