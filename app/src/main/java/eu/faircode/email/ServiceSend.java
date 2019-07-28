@@ -36,6 +36,8 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.smtp.SMTPTransport;
+
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -55,7 +57,6 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
-import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -364,10 +365,10 @@ public class ServiceSend extends ServiceBase {
         }
 
         // Create transport
-        try (Transport itransport = isession.getTransport(protocol)) {
+        try (SMTPTransport itransport = (SMTPTransport) isession.getTransport(protocol)) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
-            ConnectionHelper.connect(this, isession, itransport, ident);
+            ConnectionHelper.connect(this, itransport, ident);
             db.identity().setIdentityState(ident.id, "connected");
 
             // Send message

@@ -16,11 +16,13 @@ import androidx.preference.PreferenceManager;
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.smtp.SMTPTransport;
 
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.Type;
 
+import java.lang.reflect.Field;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -34,7 +36,6 @@ import java.util.Map;
 import javax.mail.Address;
 import javax.mail.MessagingException;
 import javax.mail.Session;
-import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 
 public class ConnectionHelper {
@@ -258,15 +259,15 @@ public class ConnectionHelper {
         return true;
     }
 
-    static void connect(Context context, Session isession, IMAPStore istore, EntityAccount account) throws MessagingException {
-        connect(context, isession, istore, account.host, account.port, account.user, account.password);
+    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
+        connect(context, istore, account.host, account.port, account.user, account.password);
     }
 
-    static void connect(Context context, Session isession, Transport itransport, EntityIdentity identity) throws MessagingException {
-        connect(context, isession, itransport, identity.host, identity.port, identity.user, identity.password);
+    static void connect(Context context, SMTPTransport itransport, EntityIdentity identity) throws MessagingException {
+        connect(context, itransport, identity.host, identity.port, identity.user, identity.password);
     }
 
-    static void connect(Context context, Session isession, IMAPStore istore, String host, int port, String user, String password) throws MessagingException {
+    static void connect(Context context, IMAPStore istore, String host, int port, String user, String password) throws MessagingException {
         try {
             istore.connect(host, port, user, password);
         } catch (MessagingException ex) {
@@ -275,6 +276,9 @@ public class ConnectionHelper {
 
             try {
                 Log.i("Binding to " + any4);
+                Field fSession = getDeclaredField(istore.getClass(), "session");
+                fSession.setAccessible(true);
+                Session isession = (Session) fSession.get(istore);
                 isession.getProperties().put("mail.imap.localaddress", any4);
                 isession.getProperties().put("mail.imaps.localaddress", any4);
                 istore.connect(host, port, user, password);
@@ -304,7 +308,7 @@ public class ConnectionHelper {
             }
     }
 
-    static void connect(Context context, Session isession, Transport itransport, String host, int port, String user, String password) throws MessagingException {
+    static void connect(Context context, SMTPTransport itransport, String host, int port, String user, String password) throws MessagingException {
         try {
             itransport.connect(host, port, user, password);
         } catch (MessagingException ex) {
@@ -313,6 +317,9 @@ public class ConnectionHelper {
 
             try {
                 Log.i("Binding to " + any4);
+                Field fSession = getDeclaredField(itransport.getClass(), "session");
+                fSession.setAccessible(true);
+                Session isession = (Session) fSession.get(itransport);
                 isession.getProperties().put("mail.smtp.localaddress", any4);
                 isession.getProperties().put("mail.smtps.localaddress", any4);
                 itransport.connect(host, port, user, password);
@@ -323,14 +330,28 @@ public class ConnectionHelper {
         }
     }
 
+    private static Field getDeclaredField(Class clazz, String name) throws NoSuchFieldException {
+        while (clazz != null) {
+            try {
+                return clazz.getDeclaredField(name);
+            } catch (NoSuchFieldException ex) {
+                clazz = clazz.getSuperclass();
+            }
+        }
+        throw new NoSuchFieldException(name);
+    }
+
     private static boolean hasIPv6(String host) {
+        boolean has = false;
         try {
-            for (InetAddress iaddr : InetAddress.getAllByName(host))
+            for (InetAddress iaddr : InetAddress.getAllByName(host)) {
+                Log.i(host + " resolves to " + iaddr);
                 if (iaddr instanceof Inet6Address)
-                    return true;
+                    has = true;
+            }
         } catch (UnknownHostException ignored) {
         }
-        return false;
+        return has;
     }
 
     static boolean airplaneMode(Context context) {

@@ -53,6 +53,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
+import com.sun.mail.smtp.SMTPTransport;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -62,7 +63,6 @@ import java.util.Properties;
 
 import javax.mail.Folder;
 import javax.mail.Session;
-import javax.mail.Transport;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -257,7 +257,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
                     try (IMAPStore istore = (IMAPStore) isession.getStore(provider.imap_starttls ? "imap" : "imaps")) {
-                        ConnectionHelper.connect(context, isession, istore, provider.imap_host, provider.imap_port, user, password);
+                        ConnectionHelper.connect(context, istore, provider.imap_host, provider.imap_port, user, password);
 
                         boolean inbox = false;
                         boolean drafts = false;
@@ -320,8 +320,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     Properties props = MessageHelper.getSessionProperties(null, false);
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
-                    try (Transport itransport = isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps")) {
-                        ConnectionHelper.connect(context, isession, itransport, provider.smtp_host, provider.smtp_port, user, password);
+                    try (SMTPTransport itransport = (SMTPTransport) isession.getTransport(provider.smtp_starttls ? "smtp" : "smtps")) {
+                        ConnectionHelper.connect(context, itransport, provider.smtp_host, provider.smtp_port, user, password);
                     }
                 }
 

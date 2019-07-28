@@ -536,7 +536,7 @@ public class FragmentAccount extends FragmentBase {
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(true);
                 try (IMAPStore istore = (IMAPStore) isession.getStore("imap" + (starttls ? "" : "s"))) {
-                    ConnectionHelper.connect(context, isession, istore, host, Integer.parseInt(port), user, password);
+                    ConnectionHelper.connect(context, istore, host, Integer.parseInt(port), user, password);
 
                     result.idle = istore.hasCapability("IDLE");
 
@@ -893,7 +893,7 @@ public class FragmentAccount extends FragmentBase {
                     isession.setDebug(true);
 
                     try (IMAPStore istore = (IMAPStore) isession.getStore("imap" + (starttls ? "" : "s"))) {
-                        ConnectionHelper.connect(context, isession, istore, host, Integer.parseInt(port), user, password);
+                        ConnectionHelper.connect(context, istore, host, Integer.parseInt(port), user, password);
 
                         for (Folder ifolder : istore.getDefaultFolder().list("*")) {
                             // Check folder attributes
