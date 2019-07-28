@@ -262,7 +262,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
                     Uri.parse("package:" + BuildConfig.APPLICATION_ID));
             if (settings.resolveActivity(getPackageManager()) != null)
-                sbDataSaver.setAction(R.string.title_fix, new View.OnClickListener() {
+                sbDataSaver.setAction(R.string.title_setup_manage, new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         startActivity(settings);
