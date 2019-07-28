@@ -86,6 +86,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHint" />
 
+            <eu.faircode.email.ContentLoadingProgressBar
+                android:id="@+id/pbCheck"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:indeterminate="true"
+                app:layout_constraintBottom_toBottomOf="@id/btnCheck"
+                app:layout_constraintStart_toEndOf="@id/btnCheck"
+                app:layout_constraintTop_toTopOf="@id/btnCheck" />
+
             <TextView
                 android:id="@+id/tvError"
                 android:layout_width="wrap_content"
@@ -170,6 +181,17 @@
                 android:text="@string/title_save"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSmtp" />
+
+            <eu.faircode.email.ContentLoadingProgressBar
+                android:id="@+id/pbSave"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                android:indeterminate="true"
+                app:layout_constraintBottom_toBottomOf="@id/btnSave"
+                app:layout_constraintStart_toEndOf="@id/btnSave"
+                app:layout_constraintTop_toTopOf="@id/btnSave" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSetup"

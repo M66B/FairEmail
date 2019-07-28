@@ -74,6 +74,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private EditText etEmail;
     private TextInputLayout tilPassword;
     private Button btnCheck;
+    private ContentLoadingProgressBar pbCheck;
 
     private TextView tvError;
     private Button btnHelp;
@@ -82,6 +83,8 @@ public class FragmentQuickSetup extends FragmentBase {
     private TextView tvImap;
     private TextView tvSmtp;
     private Button btnSave;
+    private ContentLoadingProgressBar pbSave;
+
     private Group grpSetup;
 
     private static final int REQUEST_DONE = 1;
@@ -100,6 +103,7 @@ public class FragmentQuickSetup extends FragmentBase {
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
         btnCheck = view.findViewById(R.id.btnCheck);
+        pbCheck = view.findViewById(R.id.pbCheck);
 
         tvError = view.findViewById(R.id.tvError);
         btnHelp = view.findViewById(R.id.btnHelp);
@@ -108,6 +112,8 @@ public class FragmentQuickSetup extends FragmentBase {
         tvImap = view.findViewById(R.id.tvImap);
         tvSmtp = view.findViewById(R.id.tvSmtp);
         btnSave = view.findViewById(R.id.btnSave);
+        pbSave = view.findViewById(R.id.pbSave);
+
         grpSetup = view.findViewById(R.id.grpSetup);
 
         // Wire controls
@@ -147,6 +153,8 @@ public class FragmentQuickSetup extends FragmentBase {
         });
 
         // Initialize
+        pbCheck.setVisibility(View.GONE);
+        pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
@@ -200,6 +208,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 boolean check = args.getBoolean("check");
 
                 Helper.setViewsEnabled(view, false);
+                pbCheck.setVisibility(check ? View.VISIBLE : View.GONE);
+                pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 tvError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
@@ -208,7 +218,11 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             protected void onPostExecute(Bundle args) {
+                boolean check = args.getBoolean("check");
+
                 Helper.setViewsEnabled(view, true);
+                pbCheck.setVisibility(View.GONE);
+                pbSave.setVisibility(View.GONE);
             }
 
             @Override
