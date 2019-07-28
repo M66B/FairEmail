@@ -153,6 +153,16 @@
                 app:layout_constraintTop_toTopOf="@id/btnColor" />
 
             <TextView
+                android:id="@+id/tvColorHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_identity_color_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnColor" />
+
+            <TextView
                 android:id="@+id/tvColorPro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -161,7 +171,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?android:attr/textColorLink"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnColor" />
+                app:layout_constraintTop_toBottomOf="@id/tvColorHint" />
 
             <TextView
                 android:id="@+id/tvSignature"
@@ -657,7 +667,7 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
                 tvName,etName,tvEmail,etEmail,tvDisplay,etDisplay,
-                tvColor,btnColor,vwColor,ibColorDefault,tvColorPro,
+                tvColor,btnColor,vwColor,ibColorDefault,tvColorHint,tvColorPro,
                 tvSignature,etSignature,btnHtml,
                 btnAdvanced,btnSave" />
 
