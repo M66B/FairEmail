@@ -1,6 +1,6 @@
 --- /home/marcel/support/room/runtime/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-27 12:47:44.950985792 +0200
-+++ app/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-28 15:50:45.670936158 +0200
-@@ -89,8 +89,12 @@ class RoomTrackingLiveData<T> extends Li
++++ app/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-28 18:06:23.373936158 +0200
+@@ -89,8 +89,14 @@ class RoomTrackingLiveData<T> extends Li
                              try {
                                  value = mComputeFunction.call();
                              } catch (Exception e) {
@@ -10,12 +10,14 @@
 +                                //throw new RuntimeException("Exception while computing database"
 +                                //        + " live data.", e);
 +                                computed = false;
-+                                mInvalid.set(false);
-+                                break;
++                                try {
++                                    Thread.sleep(5000L);
++                                } catch (InterruptedException ignored) {
++                                }
                              }
                          }
                          if (computed) {
-@@ -125,6 +129,7 @@ class RoomTrackingLiveData<T> extends Li
+@@ -125,6 +131,7 @@ class RoomTrackingLiveData<T> extends Li
              }
          }
      };

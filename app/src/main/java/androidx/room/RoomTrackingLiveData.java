@@ -93,8 +93,10 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
                                 //throw new RuntimeException("Exception while computing database"
                                 //        + " live data.", e);
                                 computed = false;
-                                mInvalid.set(false);
-                                break;
+                                try {
+                                    Thread.sleep(5000L);
+                                } catch (InterruptedException ignored) {
+                                }
                             }
                         }
                         if (computed) {
