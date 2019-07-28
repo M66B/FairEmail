@@ -39,6 +39,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WorkerCleanup extends Worker {
     private static final int CLEANUP_INTERVAL = 4; // hours
+    private static final long KEEP_FILES_DURATION = 3600 * 1000L; // milliseconds
     private static final long CACHE_IMAGE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_CONTACTS_DURATION = 180 * 24 * 3600 * 1000L; // milliseconds
     private static final long KEEP_LOG_DURATION = 24 * 3600 * 1000L; // milliseconds
@@ -110,15 +111,16 @@ public class WorkerCleanup extends Worker {
 
             // Cleanup message files
             Log.i("Cleanup message files");
-            for (File file : files) {
-                long id = Long.parseLong(file.getName().split("\\.")[0]);
-                EntityMessage message = db.message().getMessage(id);
-                if (message == null || !message.content) {
-                    Log.i("Deleting " + file);
-                    if (!file.delete())
-                        Log.w("Error deleting " + file);
+            for (File file : files)
+                if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
+                    long id = Long.parseLong(file.getName().split("\\.")[0]);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content) {
+                        Log.i("Deleting " + file);
+                        if (!file.delete())
+                            Log.w("Error deleting " + file);
+                    }
                 }
-            }
 
             // Cleanup attachment files
             Log.i("Cleanup attachment files");
