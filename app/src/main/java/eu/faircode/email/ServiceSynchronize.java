@@ -46,7 +46,6 @@ import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
-import com.sun.mail.imap.IMAPStore;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -625,13 +624,60 @@ public class ServiceSynchronize extends ServiceBase {
                 isession.setDebug(debug);
                 // adb -t 1 logcat | grep "fairemail\|System.out"
 
-                final IMAPStore istore = (IMAPStore) isession.getStore(account.getProtocol());
+                final ConnectionHelper.ServiceHolder iservice =
+                        new ConnectionHelper.ServiceHolder(account.getProtocol(), isession);
 
                 final Map<EntityFolder, IMAPFolder> mapFolders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
                 try {
+                    // Initiate connection
+                    EntityLog.log(this, account.name + " connecting");
+                    db.folder().setFolderStates(account.id, null);
+                    db.account().setAccountState(account.id, "connecting");
+
+                    try {
+                        ConnectionHelper.connect(this, iservice, account);
+                    } catch (Throwable ex) {
+                        if (ex instanceof AuthenticationFailedException) {
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            nm.notify("receive:" + account.id, 1,
+                                    Core.getNotificationError(this, "error", account.name, ex)
+                                            .build());
+                            throw ex;
+                        }
+
+                        // Report account connection error
+                        if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
+                            EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
+
+                            long now = new Date().getTime();
+                            long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
+                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L && backoff > BACKOFF_ERROR_AFTER) {
+                                Log.i("Reporting sync error after=" + delayed);
+                                Throwable warning = new Throwable(
+                                        getString(R.string.title_no_sync,
+                                                Helper.getDateTimeInstance(this, DateFormat.SHORT, DateFormat.SHORT)
+                                                        .format(account.last_connected)), ex);
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.notify("receive:" + account.id, 1,
+                                        Core.getNotificationError(this, "warning", account.name, warning)
+                                                .build());
+                            }
+                        }
+
+                        throw ex;
+                    }
+
+                    final boolean capIdle = iservice.getStore().hasCapability("IDLE");
+                    Log.i(account.name + " idle=" + capIdle);
+
+                    db.account().setAccountState(account.id, "connected");
+                    db.account().setAccountError(account.id, null);
+                    db.account().setAccountWarning(account.id, null);
+                    EntityLog.log(this, account.name + " connected");
+
                     // Listen for store events
-                    istore.addStoreListener(new StoreListener() {
+                    iservice.getStore().addStoreListener(new StoreListener() {
                         @Override
                         public void notification(StoreEvent e) {
                             if (e.getMessageType() == StoreEvent.NOTICE)
@@ -664,7 +710,7 @@ public class ServiceSynchronize extends ServiceBase {
                     });
 
                     // Listen for folder events
-                    istore.addFolderListener(new FolderAdapter() {
+                    iservice.getStore().addFolderListener(new FolderAdapter() {
                         @Override
                         public void folderCreated(FolderEvent e) {
                             try {
@@ -713,7 +759,7 @@ public class ServiceSynchronize extends ServiceBase {
                     });
 
                     // Listen for connection events
-                    istore.addConnectionListener(new ConnectionAdapter() {
+                    iservice.getStore().addConnectionListener(new ConnectionAdapter() {
                         @Override
                         public void opened(ConnectionEvent e) {
                             Log.i(account.name + " opened event");
@@ -730,55 +776,8 @@ public class ServiceSynchronize extends ServiceBase {
                         }
                     });
 
-
-                    // Initiate connection
-                    EntityLog.log(this, account.name + " connecting");
-                    db.folder().setFolderStates(account.id, null);
-                    db.account().setAccountState(account.id, "connecting");
-
-                    try {
-                        ConnectionHelper.connect(this, istore, account);
-                    } catch (Throwable ex) {
-                        if (ex instanceof AuthenticationFailedException) {
-                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.notify("receive:" + account.id, 1,
-                                    Core.getNotificationError(this, "error", account.name, ex)
-                                            .build());
-                            throw ex;
-                        }
-
-                        // Report account connection error
-                        if (account.last_connected != null && !ConnectionHelper.airplaneMode(this)) {
-                            EntityLog.log(this, account.name + " last connected: " + new Date(account.last_connected));
-
-                            long now = new Date().getTime();
-                            long delayed = now - account.last_connected - account.poll_interval * 60 * 1000L;
-                            if (delayed > ACCOUNT_ERROR_AFTER * 60 * 1000L && backoff > BACKOFF_ERROR_AFTER) {
-                                Log.i("Reporting sync error after=" + delayed);
-                                Throwable warning = new Throwable(
-                                        getString(R.string.title_no_sync,
-                                                Helper.getDateTimeInstance(this, DateFormat.SHORT, DateFormat.SHORT)
-                                                        .format(account.last_connected)), ex);
-                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                nm.notify("receive:" + account.id, 1,
-                                        Core.getNotificationError(this, "warning", account.name, warning)
-                                                .build());
-                            }
-                        }
-
-                        throw ex;
-                    }
-
-                    final boolean capIdle = istore.hasCapability("IDLE");
-                    Log.i(account.name + " idle=" + capIdle);
-
-                    db.account().setAccountState(account.id, "connected");
-                    db.account().setAccountError(account.id, null);
-                    db.account().setAccountWarning(account.id, null);
-                    EntityLog.log(this, account.name + " connected");
-
                     // Update folder list
-                    Core.onSynchronizeFolders(this, account, istore, state);
+                    Core.onSynchronizeFolders(this, account, iservice.getStore(), state);
 
                     // Open synchronizing folders
                     final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -803,7 +802,7 @@ public class ServiceSynchronize extends ServiceBase {
 
                             db.folder().setFolderState(folder.id, "connecting");
 
-                            final IMAPFolder ifolder = (IMAPFolder) istore.getFolder(folder.name);
+                            final IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(folder.name);
                             try {
                                 if (BuildConfig.DEBUG && "Postausgang".equals(folder.name))
                                     throw new ReadOnlyFolderException(ifolder);
@@ -1080,7 +1079,7 @@ public class ServiceSynchronize extends ServiceBase {
 
                                                                 db.folder().setFolderState(folder.id, "connecting");
 
-                                                                ifolder = istore.getFolder(folder.name);
+                                                                ifolder = iservice.getStore().getFolder(folder.name);
                                                                 ifolder.open(Folder.READ_WRITE);
 
                                                                 db.folder().setFolderState(folder.id, "connected");
@@ -1090,7 +1089,7 @@ public class ServiceSynchronize extends ServiceBase {
 
                                                             Core.processOperations(ServiceSynchronize.this,
                                                                     account, folder,
-                                                                    isession, istore, ifolder,
+                                                                    isession, iservice.getStore(), ifolder,
                                                                     state);
 
                                                         } catch (Throwable ex) {
@@ -1148,18 +1147,18 @@ public class ServiceSynchronize extends ServiceBase {
                     try {
                         while (state.running()) {
                             if (!state.recoverable())
-                                throw new StoreClosedException(istore, "Unrecoverable");
+                                throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
 
                             // Sends store NOOP
-                            if (!istore.isConnected())
-                                throw new StoreClosedException(istore, "NOOP");
+                            if (!iservice.getStore().isConnected())
+                                throw new StoreClosedException(iservice.getStore(), "NOOP");
 
                             for (EntityFolder folder : mapFolders.keySet())
                                 if (folder.synchronize)
                                     if (!folder.poll && capIdle) {
                                         // Sends folder NOOP
                                         if (!mapFolders.get(folder).isOpen())
-                                            throw new StoreClosedException(istore, folder.name);
+                                            throw new StoreClosedException(iservice.getStore(), folder.name);
                                     } else
                                         EntityOperation.sync(this, folder.id, false);
 
@@ -1231,7 +1230,7 @@ public class ServiceSynchronize extends ServiceBase {
                     // Close store
                     try {
                         EntityLog.log(this, account.name + " store closing");
-                        istore.close();
+                        iservice.close();
                         EntityLog.log(this, account.name + " store closed");
                     } catch (Throwable ex) {
                         Log.w(account.name, ex);

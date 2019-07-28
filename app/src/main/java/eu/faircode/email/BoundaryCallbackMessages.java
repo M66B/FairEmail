@@ -32,7 +32,6 @@ import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
-import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 
@@ -80,7 +79,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     private List<Long> messages = null;
 
-    private IMAPStore istore = null;
+    private ConnectionHelper.ServiceHolder iservice = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
 
@@ -281,11 +280,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 isession.setDebug(debug);
 
                 Log.i("Boundary server connecting account=" + account.name);
-                istore = (IMAPStore) isession.getStore(protocol);
-                ConnectionHelper.connect(context, istore, account);
+                iservice = new ConnectionHelper.ServiceHolder(protocol, isession);
+                ConnectionHelper.connect(context, iservice, account);
 
                 Log.i("Boundary server opening folder=" + browsable.name);
-                ifolder = (IMAPFolder) istore.getFolder(browsable.name);
+                ifolder = (IMAPFolder) iservice.getStore().getFolder(browsable.name);
                 ifolder.open(Folder.READ_WRITE);
 
                 Log.i("Boundary server query=" + query);
@@ -314,7 +313,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             try {
                                 // https://tools.ietf.org/html/rfc3501#section-6.4.4
                                 Argument arg = new Argument();
-                                if (query.startsWith("raw:") && istore.hasCapability("X-GM-EXT-1")) {
+                                if (query.startsWith("raw:") && iservice.getStore().hasCapability("X-GM-EXT-1")) {
                                     // https://support.google.com/mail/answer/7190
                                     // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
                                     arg.writeAtom("X-GM-RAW");
@@ -480,8 +479,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             public void run() {
                 Log.i("Boundary destroy");
                 try {
-                    if (istore != null)
-                        istore.close();
+                    if (iservice != null)
+                        iservice.close();
                 } catch (Throwable ex) {
                     Log.e("Boundary", ex);
                 }

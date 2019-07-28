@@ -59,7 +59,6 @@ import androidx.lifecycle.Lifecycle;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
-import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 
 import java.net.UnknownHostException;
@@ -535,10 +534,11 @@ public class FragmentAccount extends FragmentBase {
                 Properties props = MessageHelper.getSessionProperties(realm, insecure);
                 Session isession = Session.getInstance(props, null);
                 isession.setDebug(true);
-                try (IMAPStore istore = (IMAPStore) isession.getStore("imap" + (starttls ? "" : "s"))) {
-                    ConnectionHelper.connect(context, istore, host, Integer.parseInt(port), user, password);
+                try (ConnectionHelper.ServiceHolder iservice =
+                             new ConnectionHelper.ServiceHolder("imap" + (starttls ? "" : "s"), isession)) {
+                    ConnectionHelper.connect(context, iservice, host, Integer.parseInt(port), user, password);
 
-                    result.idle = istore.hasCapability("IDLE");
+                    result.idle = iservice.getStore().hasCapability("IDLE");
 
                     boolean inbox = false;
                     boolean archive = false;
@@ -552,7 +552,7 @@ public class FragmentAccount extends FragmentBase {
                     EntityFolder altSent = null;
                     EntityFolder altJunk = null;
 
-                    for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                    for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                         // Check folder attributes
                         String fullName = ifolder.getFullName();
                         String[] attrs = ((IMAPFolder) ifolder).getAttributes();
@@ -892,10 +892,11 @@ public class FragmentAccount extends FragmentBase {
                     Session isession = Session.getInstance(props, null);
                     isession.setDebug(true);
 
-                    try (IMAPStore istore = (IMAPStore) isession.getStore("imap" + (starttls ? "" : "s"))) {
-                        ConnectionHelper.connect(context, istore, host, Integer.parseInt(port), user, password);
+                    try (ConnectionHelper.ServiceHolder iservice
+                                 = new ConnectionHelper.ServiceHolder("imap" + (starttls ? "" : "s"), isession)) {
+                        ConnectionHelper.connect(context, iservice, host, Integer.parseInt(port), user, password);
 
-                        for (Folder ifolder : istore.getDefaultFolder().list("*")) {
+                        for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                             // Check folder attributes
                             String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();

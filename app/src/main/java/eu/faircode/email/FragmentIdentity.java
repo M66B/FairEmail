@@ -63,7 +63,6 @@ import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
-import com.sun.mail.smtp.SMTPTransport;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -702,8 +701,9 @@ public class FragmentIdentity extends FragmentBase {
                     isession.setDebug(true);
 
                     // Create transport
-                    try (SMTPTransport itransport = (SMTPTransport) isession.getTransport(protocol)) {
-                        ConnectionHelper.connect(context, itransport, host, Integer.parseInt(port), user, password);
+                    try (ConnectionHelper.ServiceHolder iservice =
+                                 new ConnectionHelper.ServiceHolder(protocol, isession)) {
+                        ConnectionHelper.connect(context, iservice, host, Integer.parseInt(port), user, password);
                     }
                 }
 

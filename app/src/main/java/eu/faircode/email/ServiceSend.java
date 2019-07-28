@@ -36,8 +36,6 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
-import com.sun.mail.smtp.SMTPTransport;
-
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -365,15 +363,15 @@ public class ServiceSend extends ServiceBase {
         }
 
         // Create transport
-        try (SMTPTransport itransport = (SMTPTransport) isession.getTransport(protocol)) {
+        try (ConnectionHelper.ServiceHolder iservice = new ConnectionHelper.ServiceHolder(protocol, isession)) {
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
-            ConnectionHelper.connect(this, itransport, ident);
+            ConnectionHelper.connect(this, iservice, ident);
             db.identity().setIdentityState(ident.id, "connected");
 
             // Send message
             Address[] to = imessage.getAllRecipients();
-            itransport.sendMessage(imessage, to);
+            iservice.getTransport().sendMessage(imessage, to);
             long time = new Date().getTime();
             EntityLog.log(this,
                     "Sent via " + ident.host + "/" + ident.user +

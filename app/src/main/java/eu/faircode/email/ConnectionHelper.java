@@ -11,6 +11,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import com.bugsnag.android.BreadcrumbType;
@@ -22,7 +23,6 @@ import org.xbill.DNS.Lookup;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.Type;
 
-import java.lang.reflect.Field;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -35,6 +35,8 @@ import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.MessagingException;
+import javax.mail.NoSuchProviderException;
+import javax.mail.Service;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 
@@ -259,86 +261,33 @@ public class ConnectionHelper {
         return true;
     }
 
-    static void connect(Context context, IMAPStore istore, EntityAccount account) throws MessagingException {
+    static void connect(Context context, @NonNull ServiceHolder istore, EntityAccount account) throws MessagingException {
         connect(context, istore, account.host, account.port, account.user, account.password);
     }
 
-    static void connect(Context context, SMTPTransport itransport, EntityIdentity identity) throws MessagingException {
-        connect(context, itransport, identity.host, identity.port, identity.user, identity.password);
+    static void connect(Context context, ServiceHolder iservice, EntityIdentity identity) throws MessagingException {
+        connect(context, iservice, identity.host, identity.port, identity.user, identity.password);
     }
 
-    static void connect(Context context, IMAPStore istore, String host, int port, String user, String password) throws MessagingException {
+    static void connect(Context context, ServiceHolder iservice, String host, int port, String user, String password) throws MessagingException {
         try {
-            istore.connect(host, port, user, password);
+            iservice.connect(context, host, port, user, password);
         } catch (MessagingException ex) {
             if (!hasIPv6(host))
                 throw ex;
 
             try {
                 Log.i("Binding to " + any4);
-                Field fSession = getDeclaredField(istore.getClass(), "session");
-                fSession.setAccessible(true);
-                Session isession = (Session) fSession.get(istore);
-                isession.getProperties().put("mail.imap.localaddress", any4);
-                isession.getProperties().put("mail.imaps.localaddress", any4);
-                istore.connect(host, port, user, password);
+                iservice.getSession().getProperties().put("mail.imap.localaddress", any4);
+                iservice.getSession().getProperties().put("mail.imaps.localaddress", any4);
+                iservice.getSession().getProperties().put("mail.smtp.localaddress", any4);
+                iservice.getSession().getProperties().put("mail.smtps.localaddress", any4);
+                iservice.connect(context, host, port, user, password);
             } catch (Throwable ex1) {
                 Log.w(ex1);
                 throw ex;
             }
         }
-
-        // https://www.ietf.org/rfc/rfc2971.txt
-        if (istore.hasCapability("ID"))
-            try {
-                Map<String, String> id = new LinkedHashMap<>();
-                id.put("name", context.getString(R.string.app_name));
-                id.put("version", BuildConfig.VERSION_NAME);
-                Map<String, String> sid = istore.id(id);
-                if (sid != null) {
-                    Map<String, String> crumb = new HashMap<>();
-                    for (String key : sid.keySet()) {
-                        crumb.put(key, sid.get(key));
-                        EntityLog.log(context, "Server " + key + "=" + sid.get(key));
-                    }
-                    Bugsnag.leaveBreadcrumb("server", BreadcrumbType.LOG, crumb);
-                }
-            } catch (MessagingException ex) {
-                Log.w(ex);
-            }
-    }
-
-    static void connect(Context context, SMTPTransport itransport, String host, int port, String user, String password) throws MessagingException {
-        try {
-            itransport.connect(host, port, user, password);
-        } catch (MessagingException ex) {
-            if (!hasIPv6(host))
-                throw ex;
-
-            try {
-                Log.i("Binding to " + any4);
-                Field fSession = getDeclaredField(itransport.getClass(), "session");
-                fSession.setAccessible(true);
-                Session isession = (Session) fSession.get(itransport);
-                isession.getProperties().put("mail.smtp.localaddress", any4);
-                isession.getProperties().put("mail.smtps.localaddress", any4);
-                itransport.connect(host, port, user, password);
-            } catch (Throwable ex1) {
-                Log.w(ex1);
-                throw ex;
-            }
-        }
-    }
-
-    private static Field getDeclaredField(Class clazz, String name) throws NoSuchFieldException {
-        while (clazz != null) {
-            try {
-                return clazz.getDeclaredField(name);
-            } catch (NoSuchFieldException ex) {
-                clazz = clazz.getSuperclass();
-            }
-        }
-        throw new NoSuchFieldException(name);
     }
 
     private static boolean hasIPv6(String host) {
@@ -423,5 +372,67 @@ public class ConnectionHelper {
                 }
 
         return ok;
+    }
+
+    static class ServiceHolder implements AutoCloseable {
+        private String protocol;
+        private Session issesion;
+        private Service iservice;
+
+        private ServiceHolder() {
+        }
+
+        ServiceHolder(String protocol, Session issesion) {
+            this.protocol = protocol;
+            this.issesion = issesion;
+        }
+
+        void connect(Context context, String host, int port, String user, String password) throws MessagingException {
+            if ("imap".equals(protocol) || "imaps".equals(protocol)) {
+                iservice = issesion.getStore(protocol);
+                iservice.connect(host, port, user, password);
+
+                // https://www.ietf.org/rfc/rfc2971.txt
+                if (getStore().hasCapability("ID"))
+                    try {
+                        Map<String, String> id = new LinkedHashMap<>();
+                        id.put("name", context.getString(R.string.app_name));
+                        id.put("version", BuildConfig.VERSION_NAME);
+                        Map<String, String> sid = getStore().id(id);
+                        if (sid != null) {
+                            Map<String, String> crumb = new HashMap<>();
+                            for (String key : sid.keySet()) {
+                                crumb.put(key, sid.get(key));
+                                EntityLog.log(context, "Server " + key + "=" + sid.get(key));
+                            }
+                            Bugsnag.leaveBreadcrumb("server", BreadcrumbType.LOG, crumb);
+                        }
+                    } catch (MessagingException ex) {
+                        Log.w(ex);
+                    }
+
+            } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
+                iservice = issesion.getTransport(protocol);
+                iservice.connect(host, port, user, password);
+            } else
+                throw new NoSuchProviderException(protocol);
+        }
+
+        Session getSession() {
+            return this.issesion;
+        }
+
+        IMAPStore getStore() {
+            return (IMAPStore) this.iservice;
+        }
+
+        SMTPTransport getTransport() {
+            return (SMTPTransport) this.iservice;
+        }
+
+        public void close() throws MessagingException {
+            if (iservice != null)
+                iservice.close();
+        }
     }
 }
