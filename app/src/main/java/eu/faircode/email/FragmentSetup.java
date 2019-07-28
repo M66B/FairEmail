@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -29,7 +28,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -76,8 +74,6 @@ public class FragmentSetup extends FragmentBase {
     private Button btnDoze;
     private Button btnBattery;
 
-    private Button btnData;
-
     private Button btnInbox;
 
     private Group grpWelcome;
@@ -121,8 +117,6 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
         btnBattery = view.findViewById(R.id.btnBattery);
-
-        btnData = view.findViewById(R.id.btnData);
 
         btnInbox = view.findViewById(R.id.btnInbox);
 
@@ -200,19 +194,6 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        btnData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            @TargetApi(Build.VERSION_CODES.N)
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
-                            Uri.parse("package:" + BuildConfig.APPLICATION_ID)));
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        });
-
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -236,8 +217,6 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone.setText(null);
         tvDozeDone.setCompoundDrawables(null, null, null, null);
         btnDoze.setEnabled(false);
-
-        btnData.setVisibility(View.GONE);
 
         btnInbox.setEnabled(false);
 
@@ -361,14 +340,6 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
-
-        // Power saving
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-            boolean saving = (cm != null &&
-                    cm.getRestrictBackgroundStatus() == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED);
-            btnData.setVisibility(saving || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-        }
     }
 
     @Override
