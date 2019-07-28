@@ -33,6 +33,8 @@
 -keepnames class androidx.** {*;}
 
 #IAB
+-keep class com.android.billingclient.** {*;}
+-keepnames class com.android.billingclient.** {*;}
 -keep class com.android.vending.billing.** {*;}
 -keepnames class com.android.vending.billing.** {*;}
 
