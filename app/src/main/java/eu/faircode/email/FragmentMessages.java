@@ -2605,36 +2605,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuSelectAll() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean snoozed = prefs.getBoolean("snoozed", false);
-
-        Bundle args = new Bundle();
-        args.putLong("id", folder);
-        args.putBoolean("search", viewType == AdapterMessage.ViewType.SEARCH);
-        args.putBoolean("snoozed", snoozed);
-
-        new SimpleTask<List<Long>>() {
+        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+        model.getIds(getContext(), getViewLifecycleOwner(), new Observer<List<Long>>() {
             @Override
-            protected List<Long> onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-                boolean search = args.getBoolean("search");
-                boolean snoozed = args.getBoolean("snoozed");
-
-                DB db = DB.getInstance(context);
-                return db.message().getMessageIds(id < 0 ? null : id, search, snoozed);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, List<Long> ids) {
+            public void onChanged(List<Long> ids) {
+                selectionTracker.clearSelection();
                 for (long id : ids)
                     selectionTracker.select(id);
             }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
-            }
-        }.execute(this, args, "messages:all");
+        });
     }
 
     private void updateState(List<TupleFolderEx> folders) {

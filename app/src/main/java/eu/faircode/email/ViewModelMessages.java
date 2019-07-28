@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -35,9 +36,11 @@ import androidx.lifecycle.ViewModel;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
+import androidx.room.paging.LimitOffsetDataSource;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -214,7 +217,7 @@ public class ViewModelMessages extends ViewModel {
 
         Model model = models.get(last);
         if (model == null) {
-            Log.w("Observe previous/next without list");
+            Log.w("Observe previous/next without model");
             return;
         }
 
@@ -257,6 +260,41 @@ public class ViewModelMessages extends ViewModel {
                 Log.w("Observe previous/next gone id=" + id);
             }
         });
+    }
+
+    void getIds(Context context, LifecycleOwner owner, final Observer<List<Long>> observer) {
+        final Model model = models.get(last);
+        if (model == null) {
+            Log.w("Get IDs without model");
+            observer.onChanged(new ArrayList<Long>());
+            return;
+        }
+
+        new SimpleTask<List<Long>>() {
+            @Override
+            protected List<Long> onExecute(Context context, Bundle args) {
+                List<Long> ids = new ArrayList<>();
+
+                LimitOffsetDataSource<TupleMessageEx> ds = (LimitOffsetDataSource<TupleMessageEx>) model.list.getValue().getDataSource();
+                int count = ds.countItems();
+                for (int i = 0; i < count; i += 100)
+                    for (TupleMessageEx message : ds.loadRange(i, Math.min(100, count - i)))
+                        ids.add(message.id);
+
+                Log.i("Loaded messages #" + ids.size());
+                return ids;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<Long> ids) {
+                observer.onChanged(ids);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                observer.onChanged(new ArrayList<Long>());
+            }
+        }.execute(context, owner, new Bundle(), "model:ids");
     }
 
     private class Args {
