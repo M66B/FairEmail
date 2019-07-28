@@ -113,6 +113,7 @@ public class ServiceSynchronize extends ServiceBase {
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
     private static final long ONESHOT_DURATION = 90 * 1000L; // milliseconds
+    private static final long STOP_DELAY = 5000L; // milliseconds
 
     static final int PI_ALARM = 1;
     static final int PI_ONESHOT = 2;
@@ -453,8 +454,14 @@ public class ServiceSynchronize extends ServiceBase {
                         EntityLog.log(ServiceSynchronize.this, "Reload done queued=" + queued);
 
                         if (!doStart && queued == 0 && !isEnabled()) {
-                            stopped = true;
-                            stopService(lastStartId);
+                            try {
+                                Thread.sleep(STOP_DELAY);
+                            } catch (InterruptedException ignored) {
+                            }
+                            if (queued == 0 && !isEnabled()) {
+                                stopped = true;
+                                stopService(lastStartId);
+                            }
                         }
 
                         wl.release();
