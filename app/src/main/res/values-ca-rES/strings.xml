@@ -38,7 +38,6 @@
     <string name="title_setup_identity_remark">Per enviar correu-e</string>
     <string name="title_setup_doze_remark">Per rebre correu-e contínuament (opcional)</string>
     <string name="title_setup_doze_instructions">En el següent diàleg, selecciona \"totes les apps\" a dalt, selecciona aquesta aplicació i polsa i confirma «no optimitzis la bateria»</string>
-    <string name="title_setup_data">Desactiva estalvi de dades</string>
     <string name="title_setup_to_do">Per fer</string>
     <string name="title_setup_done">Fet</string>
     <string name="title_setup_export">Exporta la configuració</string>

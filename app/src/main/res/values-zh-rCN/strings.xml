@@ -105,7 +105,7 @@
     <string name="title_setup_doze_remark">持续接受邮件(可选)</string>
     <string name="title_setup_doze_instructions">在下个界面，选择最上面的\"所有应用\"，选择这个app如何选择并确定\"不优化\"</string>
     <string name="title_setup_doze_battery">高耗电?</string>
-    <string name="title_setup_data">禁用省流量</string>
+    <string name="title_setup_data">已启用数据节省</string>
     <string name="title_setup_inbox">转到信息</string>
     <string name="title_setup_to_do">未设置</string>
     <string name="title_setup_done">完成</string>
