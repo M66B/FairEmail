@@ -103,6 +103,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Integer initialize = DEFAULT_KEEP;
     public Boolean tbc; // to be created
     public Boolean tbd; // to be deleted
+    public String rename;
     public String state;
     public String sync_state;
     @NonNull
@@ -311,6 +312,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     Helper.equal(this.keywords, other.keywords) &&
                     this.initialize.equals(other.initialize) &&
                     Objects.equals(this.tbc, other.tbc) &&
+                    Objects.equals(this.rename, other.rename) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.sync_state, other.sync_state) &&

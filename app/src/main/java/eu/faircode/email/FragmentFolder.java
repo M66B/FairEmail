@@ -222,7 +222,7 @@ public class FragmentFolder extends FragmentBase {
 
                 Helper.setViewsEnabled(view, true);
 
-                etName.setEnabled(folder == null);
+                etName.setEnabled(folder == null || EntityFolder.USER.equals(folder.type));
                 cbPoll.setEnabled(cbSynchronize.isChecked());
                 cbDownload.setEnabled(cbSynchronize.isChecked());
                 etKeepDays.setEnabled(!cbKeepAll.isChecked());
@@ -361,7 +361,7 @@ public class FragmentFolder extends FragmentBase {
 
                 boolean should = args.getBoolean("should");
 
-                if (TextUtils.isEmpty(display))
+                if (TextUtils.isEmpty(display) || display.equals(name))
                     display = null;
 
                 int sync_days = (TextUtils.isEmpty(sync) ? EntityFolder.DEFAULT_SYNC : Integer.parseInt(sync));
@@ -380,6 +380,8 @@ public class FragmentFolder extends FragmentBase {
                         if (folder == null)
                             return !TextUtils.isEmpty(name);
 
+                        if (!Objects.equals(folder.name, name))
+                            return true;
                         if (!Objects.equals(folder.display, display))
                             return true;
                         if (!Objects.equals(folder.unified, unified))
@@ -406,9 +408,6 @@ public class FragmentFolder extends FragmentBase {
                         return false;
                     }
 
-                    if (TextUtils.isEmpty(display) || display.equals(name))
-                        display = null;
-
                     if (folder == null) {
                         reload = true;
                         Log.i("Creating folder=" + name + " parent=" + parent);
@@ -423,7 +422,8 @@ public class FragmentFolder extends FragmentBase {
 
                         if (TextUtils.isEmpty(name))
                             throw new IllegalArgumentException(context.getString(R.string.title_folder_name_missing));
-                        if (db.folder().getFolderByName(aid, name) != null)
+                        EntityFolder target = db.folder().getFolderByName(aid, name);
+                        if (target != null)
                             throw new IllegalArgumentException(context.getString(R.string.title_folder_exists, name));
 
                         EntityFolder create = new EntityFolder();
@@ -443,11 +443,19 @@ public class FragmentFolder extends FragmentBase {
                         create.tbc = true;
                         db.folder().insertFolder(create);
                     } else {
-                        reload = (!folder.synchronize.equals(synchronize) ||
+                        if (!folder.name.equals(name)) {
+                            EntityFolder target = db.folder().getFolderByName(folder.account, name);
+                            if (target != null)
+                                throw new IllegalArgumentException(context.getString(R.string.title_folder_exists, name));
+                        }
+
+                        reload = (!folder.name.equals(name) ||
+                                !folder.synchronize.equals(synchronize) ||
                                 !folder.poll.equals(poll));
 
-                        Log.i("Updating folder=" + name);
+                        Log.i("Updating folder=" + folder.name);
                         db.folder().setFolderProperties(id,
+                                folder.name.equals(name) ? null : name,
                                 display, unified, navigation, notify, hide,
                                 synchronize, poll, download,
                                 sync_days, keep_days, auto_delete);

@@ -158,7 +158,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         }
 
         private void bindTo(final TupleFolderEx folder) {
-            view.setActivated(folder.tbc != null || folder.tbd != null);
+            view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
             view.setAlpha(folder.hide || !folder.selectable || disabledIds.contains(folder.id)
                     ? Helper.LOW_LIGHT : 1.0f);
 

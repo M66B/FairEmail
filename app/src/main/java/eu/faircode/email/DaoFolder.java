@@ -249,7 +249,8 @@ public interface DaoFolder {
     int setFoldersUser(long account);
 
     @Query("UPDATE folder" +
-            " SET display = :display" +
+            " SET `rename` = :rename" +
+            ", display = :display" +
             ", unified = :unified" +
             ", navigation = :navigation" +
             ", notify = :notify" +
@@ -262,7 +263,7 @@ public interface DaoFolder {
             ", auto_delete = :auto_delete" +
             " WHERE id = :id")
     int setFolderProperties(
-            long id,
+            long id, String rename,
             String display, boolean unified, boolean navigation, boolean notify, boolean hide,
             boolean synchronize, boolean poll, boolean download,
             int sync_days, int keep_days, boolean auto_delete);
@@ -288,8 +289,11 @@ public interface DaoFolder {
     @Query("UPDATE folder SET read_only = :read_only WHERE id = :id")
     int setFolderReadOnly(long id, boolean read_only);
 
-    @Query("UPDATE folder SET tbc = null WHERE id = :id")
+    @Query("UPDATE folder SET tbc = NULL WHERE id = :id")
     int resetFolderTbc(long id);
+
+    @Query("UPDATE folder SET `rename` = NULL WHERE id = :id")
+    int resetFolderRename(long id);
 
     @Query("UPDATE folder SET tbd = 1 WHERE id = :id")
     int setFolderTbd(long id);

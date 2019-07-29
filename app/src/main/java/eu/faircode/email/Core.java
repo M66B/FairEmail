@@ -801,6 +801,18 @@ class Core {
                 db.folder().resetFolderTbc(folder.id);
                 local.put(folder.name, folder);
                 sync_folders = true;
+
+            } else if (folder.rename != null) {
+                Log.i(folder.name + " rename into " + folder.rename);
+                Folder ifolder = istore.getFolder(folder.name);
+                if (ifolder.exists()) {
+                    ifolder.renameTo(istore.getFolder(folder.rename));
+                    db.folder().renameFolder(folder.account, folder.name, folder.rename);
+                    folder.name = folder.rename;
+                }
+                db.folder().resetFolderRename(folder.id);
+                sync_folders = true;
+
             } else if (folder.tbd != null && folder.tbd) {
                 Log.i(folder.name + " deleting");
                 Folder ifolder = istore.getFolder(folder.name);
@@ -808,6 +820,7 @@ class Core {
                     ifolder.delete(false);
                 db.folder().deleteFolder(folder.id);
                 sync_folders = true;
+
             } else {
                 local.put(folder.name, folder);
                 if (folder.initialize != 0)
@@ -864,7 +877,7 @@ class Core {
             String type = EntityFolder.getType(attr, fullName, false);
             boolean selectable = !Arrays.asList(attr).contains("\\Noselect");
 
-            if (EntityFolder.INBOX.equals(type))
+            if (EntityFolder.INBOX.equals(type) || fullName.equals(childName))
                 childName = null;
 
             Log.i(account.name + ":" + fullName + " subscribed=" + subscribed +
