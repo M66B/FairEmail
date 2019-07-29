@@ -49,6 +49,12 @@
         <item quantity="many">%1$d nowe</item>
         <item quantity="other">%1$d nowe</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">Wybrano %1$d wiadomość</item>
+        <item quantity="few">Wybrano %1$d wiadomości</item>
+        <item quantity="many">Wybrano %1$d wiadomości</item>
+        <item quantity="other">Wybrano %1$d wiadomości</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Przenieść %1$d wiadomość do %2$s?</item>
         <item quantity="few">Przenieść %1$d wiadomości do %2$s?</item>
@@ -127,14 +133,17 @@
     <string name="title_setup_doze_remark">Do ciągłego sprawdzania e-mail (opcjonalnie)</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym, na górze wybierz \"Wszystkie aplikacje\", odszukaj i dotknij FairEmail, wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
+    <string name="title_setup_data">Oszczędzanie danych jest włączone</string>
     <string name="title_setup_inbox">Idź do wiadomości</string>
     <string name="title_setup_to_do">Do zrobienia</string>
     <string name="title_setup_done">Gotowe</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
+    <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
     <string name="title_setup_password">Hasło</string>
     <string name="title_setup_password_repeat">Powtórz hasło</string>
     <string name="title_setup_password_missing">Brak hasła</string>
+    <string name="title_setup_password_different">Hasła nie są identyczne</string>
     <string name="title_setup_password_invalid">Nieprawidłowe hasło</string>
     <string name="title_setup_exported">Ustawienia wyeksportowane</string>
     <string name="title_setup_imported">Ustawienia zaimportowane</string>
@@ -212,6 +221,7 @@
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_collapse">Zwiń wiadomości w konwersacji przy \'cofnij\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
+    <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
@@ -240,10 +250,14 @@
     <string name="title_advanced_cleanup">Oczyszczanie</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
     <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal istnieje możliwość ręcznej synchronizacji poprzez pociągnięcie w dół listy wiadomości. Spowoduje to synchronizację wiadomości i wykonywanie operacji przez ograniczony czas.</string>
+    <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
+    <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co na przykład może spowodować synchronizację wszystkich wiadomości</string>
+    <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
+    <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
@@ -253,6 +267,7 @@
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wbudowane są obrazami zawartymi w wiadomości</string>
+    <string name="title_advanced_permission_contacts_hint">Wymaga to przyznania pozwolenia na odczyt kontaktów</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autocollapse_hint">Rozwinięte wiadomości zostaną zawsze zamknięte przy \'cofnij\'</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
@@ -265,6 +280,7 @@
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
+    <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_encrypt">Szyfruj domyślnie</string>
@@ -373,6 +389,7 @@
     <string name="title_folder_thread">Rozmowa %1$s</string>
     <string name="title_folders_unified">Wspólne foldery odbiorcze</string>
     <string name="title_no_messages">Brak wiadomości</string>
+    <string name="title_no_folders">Brak folderów</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
@@ -723,6 +740,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Nic nie rób</item>
+        <item>Idź do poprzedniej wiadomości</item>
+        <item>Idź do następnej wiadomości</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Małe</item>
