@@ -484,7 +484,7 @@ class Core {
             db.message().setMessageMsgId(message.id, message.msgid);
         }
 
-        Properties props = MessageHelper.getSessionProperties(null, false);
+        Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
 
         // Get raw message
@@ -608,7 +608,7 @@ class Core {
                 imessage.writeTo(os);
             }
 
-            Properties props = MessageHelper.getSessionProperties(null, false);
+            Properties props = MessageHelper.getSessionProperties();
             Session isession = Session.getInstance(props, null);
 
             Message icopy;

@@ -74,16 +74,7 @@ import biweekly.ICalendar;
 public class MessageHelper {
     private MimeMessage imessage;
 
-    private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
-    private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
-    private final static int READ_TIMEOUT = 60 * 1000; // milliseconds
-    private final static int FETCH_SIZE = 256 * 1024; // bytes, default 16K
-    private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
-
-    private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
-
     static final int SMALL_MESSAGE_SIZE = 32 * 1024; // bytes
-
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
 
     static void setSystemProperties(Context context) {
@@ -101,94 +92,8 @@ public class MessageHelper {
         System.setProperty("mail.mime.multipart.ignoreexistingboundaryparameter", "true");
     }
 
-    static Properties getSessionProperties(String realm, boolean insecure) {
+    static Properties getSessionProperties() {
         Properties props = new Properties();
-
-        props.put("mail.event.scope", "folder");
-
-        String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
-
-        // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
-        props.put("mail.imaps.ssl.checkserveridentity", checkserveridentity);
-        props.put("mail.imaps.ssl.trust", "*");
-        props.put("mail.imaps.starttls.enable", "false");
-
-        if (realm != null)
-            props.put("mail.imaps.auth.ntlm.domain", realm);
-
-        // TODO: make timeouts configurable?
-        props.put("mail.imaps.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
-        props.put("mail.imaps.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
-        props.put("mail.imaps.timeout", Integer.toString(READ_TIMEOUT));
-
-        props.put("mail.imaps.connectionpool.debug", "true");
-        props.put("mail.imaps.connectionpoolsize", "2");
-        props.put("mail.imaps.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
-
-        props.put("mail.imaps.finalizecleanclose", "false");
-
-        // https://tools.ietf.org/html/rfc4978
-        // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
-        props.put("mail.imaps.compress.enable", "true");
-        //props.put("mail.imaps.compress.level", "-1");
-        //props.put("mail.imaps.compress.strategy", "0");
-
-        props.put("mail.imaps.throwsearchexception", "true");
-        props.put("mail.imaps.fetchsize", Integer.toString(FETCH_SIZE));
-        props.put("mail.imaps.peek", "true");
-        props.put("mail.imaps.appendbuffersize", Integer.toString(APPEND_BUFFER_SIZE));
-
-        props.put("mail.imap.ssl.checkserveridentity", checkserveridentity);
-        props.put("mail.imap.ssl.trust", "*");
-        props.put("mail.imap.starttls.enable", "true");
-        props.put("mail.imap.starttls.required", "true");
-
-        if (realm != null)
-            props.put("mail.imap.auth.ntlm.domain", realm);
-
-        props.put("mail.imap.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
-        props.put("mail.imap.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
-        props.put("mail.imap.timeout", Integer.toString(READ_TIMEOUT));
-
-        props.put("mail.imap.connectionpool.debug", "true");
-        props.put("mail.imap.connectionpoolsize", "2");
-        props.put("mail.imap.connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
-
-        props.put("mail.imap.finalizecleanclose", "false");
-
-        props.put("mail.imap.compress.enable", "true");
-
-        props.put("mail.imap.throwsearchexception", "true");
-        props.put("mail.imap.fetchsize", Integer.toString(FETCH_SIZE));
-        props.put("mail.imap.peek", "true");
-        props.put("mail.imap.appendbuffersize", Integer.toString(APPEND_BUFFER_SIZE));
-
-        // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
-        props.put("mail.smtps.ssl.checkserveridentity", checkserveridentity);
-        props.put("mail.smtps.ssl.trust", "*");
-        props.put("mail.smtps.starttls.enable", "false");
-        props.put("mail.smtps.starttls.required", "false");
-
-        props.put("mail.smtps.auth", "true");
-        if (realm != null)
-            props.put("mail.smtps.auth.ntlm.domain", realm);
-
-        props.put("mail.smtps.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
-        props.put("mail.smtps.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
-        props.put("mail.smtps.timeout", Integer.toString(READ_TIMEOUT));
-
-        props.put("mail.smtp.ssl.checkserveridentity", checkserveridentity);
-        props.put("mail.smtp.ssl.trust", "*");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.starttls.required", "true");
-
-        props.put("mail.smtp.auth", "true");
-        if (realm != null)
-            props.put("mail.smtp.auth.ntlm.domain", realm);
-
-        props.put("mail.smtp.connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
-        props.put("mail.smtp.writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
-        props.put("mail.smtp.timeout", Integer.toString(READ_TIMEOUT));
 
         // MIME
         props.put("mail.mime.allowutf8", "false"); // SMTPTransport, MimeMessage

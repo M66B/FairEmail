@@ -310,7 +310,7 @@ public class ServiceSend extends ServiceBase {
             throw new IllegalArgumentException("Identity not found");
 
         // Create message
-        Properties props = MessageHelper.getSessionProperties(null, false);
+        Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(this, message, ident, isession);
 

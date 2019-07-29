@@ -1346,7 +1346,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                 // Build message
-                Properties props = MessageHelper.getSessionProperties(null, false);
+                Properties props = MessageHelper.getSessionProperties();
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
                 MessageHelper.build(context, message, attachments, null, imessage);

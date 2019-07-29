@@ -97,7 +97,7 @@ public class ActivityEml extends ActivityBase {
                 AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
                 try (InputStream is = descriptor.createInputStream()) {
 
-                    Properties props = MessageHelper.getSessionProperties(null, false);
+                    Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
                     MimeMessage mmessage = new MimeMessage(isession, is);
 

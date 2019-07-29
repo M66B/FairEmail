@@ -36,14 +36,83 @@ public class MailService implements AutoCloseable {
     private Session isession;
     private Service iservice;
 
+    private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
+    private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
+    private final static int READ_TIMEOUT = 60 * 1000; // milliseconds
+    private final static int FETCH_SIZE = 256 * 1024; // bytes, default 16K
+    private final static int POOL_TIMEOUT = 45 * 1000; // milliseconds, default 45 sec
+
+    private static final int APPEND_BUFFER_SIZE = 4 * 1024 * 1024; // bytes
+
     private MailService() {
     }
 
-    MailService(Context context, String protocol, String realm, boolean insecure, boolean debug) {
-        this.context = context;
+    MailService(Context context, String protocol, String realm, boolean insecure, boolean debug) throws NoSuchProviderException {
+        this.context = context.getApplicationContext();
         this.protocol = protocol;
         this.debug = debug;
-        this.properties = MessageHelper.getSessionProperties(realm, insecure);
+        this.properties = MessageHelper.getSessionProperties();
+
+        this.properties.put("mail.event.scope", "folder");
+
+        String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
+
+        if ("imap".equals(protocol) || "imaps".equals(protocol)) {
+            // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
+            this.properties.put("mail." + this.protocol + ".ssl.checkserveridentity", checkserveridentity);
+            this.properties.put("mail." + this.protocol + ".ssl.trust", "*");
+
+            this.properties.put("mail.imaps.starttls.enable", "false");
+
+            this.properties.put("mail.imap.starttls.enable", "true");
+            this.properties.put("mail.imap.starttls.required", "true");
+
+            if (realm != null)
+                this.properties.put("mail." + this.protocol + ".auth.ntlm.domain", realm);
+
+            // TODO: make timeouts configurable?
+            this.properties.put("mail." + this.protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+            this.properties.put("mail." + this.protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
+            this.properties.put("mail." + this.protocol + ".timeout", Integer.toString(READ_TIMEOUT));
+
+            this.properties.put("mail." + this.protocol + ".connectionpool.debug", "true");
+            this.properties.put("mail." + this.protocol + ".connectionpoolsize", "2");
+            this.properties.put("mail." + this.protocol + ".connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
+
+            this.properties.put("mail." + this.protocol + ".finalizecleanclose", "false");
+
+            // https://tools.ietf.org/html/rfc4978
+            // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
+            this.properties.put("mail." + this.protocol + ".compress.enable", "true");
+            //this.properties.put("mail.imaps.compress.level", "-1");
+            //this.properties.put("mail.imaps.compress.strategy", "0");
+
+            this.properties.put("mail." + this.protocol + ".throwsearchexception", "true");
+            this.properties.put("mail." + this.protocol + ".fetchsize", Integer.toString(FETCH_SIZE));
+            this.properties.put("mail." + this.protocol + ".peek", "true");
+            this.properties.put("mail." + this.protocol + ".appendbuffersize", Integer.toString(APPEND_BUFFER_SIZE));
+
+        } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
+            // https://javaee.github.io/javamail/docs/api/com/sun/mail/smtp/package-summary.html#properties
+            this.properties.put("mail." + this.protocol + ".ssl.checkserveridentity", checkserveridentity);
+            this.properties.put("mail." + this.protocol + ".ssl.trust", "*");
+
+            this.properties.put("mail.smtps.starttls.enable", "false");
+
+            this.properties.put("mail.smtp.starttls.enable", "true");
+            this.properties.put("mail.smtp.starttls.required", "true");
+
+            this.properties.put("mail." + this.protocol + ".auth", "true");
+
+            if (realm != null)
+                this.properties.put("mail." + this.protocol + ".auth.ntlm.domain", realm);
+
+            this.properties.put("mail." + this.protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+            this.properties.put("mail." + this.protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
+            this.properties.put("mail." + this.protocol + ".timeout", Integer.toString(READ_TIMEOUT));
+
+        } else
+            throw new NoSuchProviderException(protocol);
     }
 
     void setPartialFetch(boolean enabled) {
