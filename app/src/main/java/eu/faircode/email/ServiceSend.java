@@ -38,9 +38,6 @@ import androidx.preference.PreferenceManager;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -312,32 +309,9 @@ public class ServiceSend extends ServiceBase {
         if (ident == null)
             throw new IllegalArgumentException("Identity not found");
 
-        String protocol = ident.getProtocol();
-
-        // Get properties
-        Properties props = MessageHelper.getSessionProperties(ident.realm, ident.insecure);
-
-        String haddr;
-        if (ident.use_ip) {
-            InetAddress addr = InetAddress.getByName(ident.host);
-            if (addr instanceof Inet4Address)
-                haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
-            else {
-                // Inet6Address.getLocalHost() will return the IPv6 local host
-                byte[] LOOPBACK = new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
-                haddr = "[IPv6:" + Inet6Address.getByAddress("ip6-localhost", LOOPBACK, 0).getHostAddress() + "]";
-            }
-        } else
-            haddr = ident.host;
-
-        EntityLog.log(this, "Send localhost=" + haddr);
-        props.put("mail." + protocol + ".localhost", haddr);
-
-        // Create session
-        final Session isession = Session.getInstance(props, null);
-        isession.setDebug(debug);
-
         // Create message
+        Properties props = MessageHelper.getSessionProperties(null, false);
+        Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(this, message, ident, isession);
 
         // Add reply to
@@ -365,10 +339,13 @@ public class ServiceSend extends ServiceBase {
         }
 
         // Create transport
-        try (ConnectionHelper.ServiceHolder iservice = new ConnectionHelper.ServiceHolder(protocol, isession)) {
+        try (MailService iservice = new MailService(
+                this, ident.getProtocol(), ident.realm, ident.insecure, debug)) {
+            iservice.setUseIp(ident.use_ip, ident.host);
+
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");
-            ConnectionHelper.connect(this, iservice, ident);
+            iservice.connect(ident);
             db.identity().setIdentityState(ident.id, "connected");
 
             // Send message

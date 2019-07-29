@@ -67,10 +67,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.Properties;
 
 import javax.mail.Folder;
-import javax.mail.Session;
 
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
@@ -531,12 +529,9 @@ public class FragmentAccount extends FragmentBase {
                 result.folders = new ArrayList<>();
 
                 // Check IMAP server / get folders
-                Properties props = MessageHelper.getSessionProperties(realm, insecure);
-                Session isession = Session.getInstance(props, null);
-                isession.setDebug(true);
-                try (ConnectionHelper.ServiceHolder iservice =
-                             new ConnectionHelper.ServiceHolder("imap" + (starttls ? "" : "s"), isession)) {
-                    ConnectionHelper.connect(context, iservice, host, Integer.parseInt(port), user, password);
+                String protocol = "imap" + (starttls ? "" : "s");
+                try (MailService iservice = new MailService(context, protocol, realm, insecure, true)) {
+                    iservice.connect(host, Integer.parseInt(port), user, password);
 
                     result.idle = iservice.getStore().hasCapability("IDLE");
 
@@ -888,13 +883,9 @@ public class FragmentAccount extends FragmentBase {
                 // Check IMAP server
                 EntityFolder inbox = null;
                 if (check) {
-                    Properties props = MessageHelper.getSessionProperties(realm, insecure);
-                    Session isession = Session.getInstance(props, null);
-                    isession.setDebug(true);
-
-                    try (ConnectionHelper.ServiceHolder iservice
-                                 = new ConnectionHelper.ServiceHolder("imap" + (starttls ? "" : "s"), isession)) {
-                        ConnectionHelper.connect(context, iservice, host, Integer.parseInt(port), user, password);
+                    String protocol = "imap" + (starttls ? "" : "s");
+                    try (MailService iservice = new MailService(context, protocol, realm, insecure, true)) {
+                        iservice.connect(host, Integer.parseInt(port), user, password);
 
                         for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                             // Check folder attributes

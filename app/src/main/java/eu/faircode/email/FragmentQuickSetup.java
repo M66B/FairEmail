@@ -57,10 +57,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
 import javax.mail.Folder;
-import javax.mail.Session;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -251,12 +249,9 @@ public class FragmentQuickSetup extends FragmentBase {
                 long now = new Date().getTime();
 
                 {
-                    Properties props = MessageHelper.getSessionProperties(null, false);
-                    Session isession = Session.getInstance(props, null);
-                    isession.setDebug(true);
-                    try (ConnectionHelper.ServiceHolder iservice =
-                                 new ConnectionHelper.ServiceHolder(provider.imap_starttls ? "imap" : "imaps", isession)) {
-                        ConnectionHelper.connect(context, iservice, provider.imap_host, provider.imap_port, user, password);
+                    String protocol = provider.imap_starttls ? "imap" : "imaps";
+                    try (MailService iservice = new MailService(context, protocol, null, false, true)) {
+                        iservice.connect(provider.imap_host, provider.imap_port, user, password);
 
                         boolean inbox = false;
                         boolean drafts = false;
@@ -316,12 +311,9 @@ public class FragmentQuickSetup extends FragmentBase {
                 }
 
                 {
-                    Properties props = MessageHelper.getSessionProperties(null, false);
-                    Session isession = Session.getInstance(props, null);
-                    isession.setDebug(true);
-                    try (ConnectionHelper.ServiceHolder iservice
-                                 = new ConnectionHelper.ServiceHolder(provider.smtp_starttls ? "smtp" : "smtps", isession)) {
-                        ConnectionHelper.connect(context, iservice, provider.smtp_host, provider.smtp_port, user, password);
+                    String protocol = provider.smtp_starttls ? "smtp" : "smtps";
+                    try (MailService iservice = new MailService(context, protocol, null, false, true)) {
+                        iservice.connect(provider.smtp_host, provider.smtp_port, user, password);
                     }
                 }
 

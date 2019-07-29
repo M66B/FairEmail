@@ -40,7 +40,6 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -51,7 +50,6 @@ import javax.mail.FolderClosedException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
-import javax.mail.Session;
 import javax.mail.UIDFolder;
 import javax.mail.search.BodyTerm;
 import javax.mail.search.FlagTerm;
@@ -79,7 +77,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     private List<Long> messages = null;
 
-    private ConnectionHelper.ServiceHolder iservice = null;
+    private MailService iservice = null;
     private IMAPFolder ifolder = null;
     private Message[] imessages = null;
 
@@ -265,23 +263,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
-                String protocol = account.getProtocol();
-
-                // Get properties
-                Properties props = MessageHelper.getSessionProperties(account.realm, account.insecure);
-                if (!account.partial_fetch) {
-                    props.put("mail.imap.partialfetch", "false");
-                    props.put("mail.imaps.partialfetch", "false");
-                }
-                props.put("mail." + protocol + ".separatestoreconnection", "true");
-
-                // Create session
-                Session isession = Session.getInstance(props, null);
-                isession.setDebug(debug);
-
                 Log.i("Boundary server connecting account=" + account.name);
-                iservice = new ConnectionHelper.ServiceHolder(protocol, isession);
-                ConnectionHelper.connect(context, iservice, account);
+                iservice = new MailService(context, account.getProtocol(), account.realm, account.insecure, debug);
+                iservice.setPartialFetch(account.partial_fetch);
+                iservice.setSeparateStoreConnection();
+                iservice.connect(account);
 
                 Log.i("Boundary server opening folder=" + browsable.name);
                 ifolder = (IMAPFolder) iservice.getStore().getFolder(browsable.name);

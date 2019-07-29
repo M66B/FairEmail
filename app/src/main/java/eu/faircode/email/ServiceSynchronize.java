@@ -58,7 +58,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -74,7 +73,6 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.ReadOnlyFolderException;
-import javax.mail.Session;
 import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
 import javax.mail.event.ConnectionAdapter;
@@ -610,22 +608,10 @@ public class ServiceSynchronize extends ServiceBase {
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
-                //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
-                // Get properties
-                Properties props = MessageHelper.getSessionProperties(account.realm, account.insecure);
-                if (!account.partial_fetch) {
-                    props.put("mail.imap.partialfetch", "false");
-                    props.put("mail.imaps.partialfetch", "false");
-                }
-
-                // Create session
-                final Session isession = Session.getInstance(props, null);
-                isession.setDebug(debug);
-                // adb -t 1 logcat | grep "fairemail\|System.out"
-
-                final ConnectionHelper.ServiceHolder iservice =
-                        new ConnectionHelper.ServiceHolder(account.getProtocol(), isession);
+                final MailService iservice = new MailService(
+                        this, account.getProtocol(), account.realm, account.insecure, debug);
+                iservice.setPartialFetch(account.partial_fetch);
 
                 final Map<EntityFolder, IMAPFolder> mapFolders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
@@ -636,7 +622,7 @@ public class ServiceSynchronize extends ServiceBase {
                     db.account().setAccountState(account.id, "connecting");
 
                     try {
-                        ConnectionHelper.connect(this, iservice, account);
+                        iservice.connect(account);
                     } catch (Throwable ex) {
                         if (ex instanceof AuthenticationFailedException) {
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1089,7 +1075,7 @@ public class ServiceSynchronize extends ServiceBase {
 
                                                             Core.processOperations(ServiceSynchronize.this,
                                                                     account, folder,
-                                                                    isession, iservice.getStore(), ifolder,
+                                                                    iservice.getStore(), ifolder,
                                                                     state);
 
                                                         } catch (Throwable ex) {

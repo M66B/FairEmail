@@ -76,6 +76,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
@@ -126,7 +127,7 @@ class Core {
     static void processOperations(
             Context context,
             EntityAccount account, EntityFolder folder,
-            Session isession, Store istore, Folder ifolder,
+            Store istore, Folder ifolder,
             State state)
             throws MessagingException, JSONException, IOException {
         try {
@@ -209,15 +210,15 @@ class Core {
                                             " msg=" + op.message +
                                             " args=" + op.args);
                                 else
-                                    onAdd(context, jargs, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                    onAdd(context, jargs, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.MOVE:
-                                onMove(context, jargs, false, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                onMove(context, jargs, false, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.COPY:
-                                onMove(context, jargs, true, folder, message, isession, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                onMove(context, jargs, true, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.DELETE:
@@ -460,7 +461,7 @@ class Core {
         }
     }
 
-    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
+    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
         // Add message
         DB db = DB.getInstance(context);
 
@@ -482,6 +483,9 @@ class Core {
             message.msgid = EntityMessage.generateMessageId();
             db.message().setMessageMsgId(message.id, message.msgid);
         }
+
+        Properties props = MessageHelper.getSessionProperties(null, false);
+        Session isession = Session.getInstance(props, null);
 
         // Get raw message
         MimeMessage imessage;
@@ -577,7 +581,7 @@ class Core {
         }
     }
 
-    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, Session isession, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
+    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -603,6 +607,9 @@ class Core {
             try (OutputStream os = new FileOutputStream(file)) {
                 imessage.writeTo(os);
             }
+
+            Properties props = MessageHelper.getSessionProperties(null, false);
+            Session isession = Session.getInstance(props, null);
 
             Message icopy;
             try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {

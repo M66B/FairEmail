@@ -64,16 +64,10 @@ import androidx.lifecycle.Lifecycle;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Properties;
-
-import javax.mail.Session;
 
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
@@ -678,32 +672,11 @@ public class FragmentIdentity extends FragmentBase {
 
                 // Check SMTP server
                 if (check) {
-                    String protocol = (starttls ? "smtp" : "smtps");
-
-                    // Get properties
-                    Properties props = MessageHelper.getSessionProperties(realm, insecure);
-
-                    String haddr;
-                    if (use_ip) {
-                        InetAddress addr = InetAddress.getByName(host);
-                        if (addr instanceof Inet4Address)
-                            haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
-                        else
-                            haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
-                    } else
-                        haddr = host;
-
-                    Log.i("Send localhost=" + haddr);
-                    props.put("mail." + protocol + ".localhost", haddr);
-
-                    // Create session
-                    Session isession = Session.getInstance(props, null);
-                    isession.setDebug(true);
-
                     // Create transport
-                    try (ConnectionHelper.ServiceHolder iservice =
-                                 new ConnectionHelper.ServiceHolder(protocol, isession)) {
-                        ConnectionHelper.connect(context, iservice, host, Integer.parseInt(port), user, password);
+                    String protocol = (starttls ? "smtp" : "smtps");
+                    try (MailService iservice = new MailService(context, protocol, realm, insecure, true)) {
+                        iservice.setUseIp(use_ip, host);
+                        iservice.connect(host, Integer.parseInt(port), user, password);
                     }
                 }
 
