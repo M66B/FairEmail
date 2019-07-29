@@ -7,19 +7,13 @@ import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
-import com.sun.mail.util.SocketConnectException;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.net.InterfaceAddress;
-import java.net.NetworkInterface;
 import java.net.UnknownHostException;
-import java.util.Collections;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -31,6 +25,7 @@ import javax.mail.Session;
 public class MailService implements AutoCloseable {
     private Context context;
     private String protocol;
+    private boolean insecure;
     private boolean debug;
     private Properties properties;
     private Session isession;
@@ -50,6 +45,7 @@ public class MailService implements AutoCloseable {
     MailService(Context context, String protocol, String realm, boolean insecure, boolean debug) throws NoSuchProviderException {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
+        this.insecure = insecure;
         this.debug = debug;
         this.properties = MessageHelper.getSessionProperties();
 
@@ -149,48 +145,22 @@ public class MailService implements AutoCloseable {
 
     public void connect(String host, int port, String user, String password) throws MessagingException {
         try {
-            if (BuildConfig.DEBUG)
-                throw new MailConnectException(new SocketConnectException("Debug", new Exception(), host, port, 0));
+            //if (BuildConfig.DEBUG)
+            //    throw new MailConnectException(new SocketConnectException("Debug", new Exception(), host, port, 0));
             _connect(context, host, port, user, password);
         } catch (MailConnectException ex) {
-            try {
-                // Addresses
-                InetAddress[] iaddrs = InetAddress.getAllByName(host);
-                if (iaddrs.length == 1 && !BuildConfig.DEBUG)
-                    throw ex;
-
-                // Interfaces
-                Enumeration<NetworkInterface> _nis = NetworkInterface.getNetworkInterfaces();
-                if (_nis == null)
-                    throw ex;
-                List<NetworkInterface> nis = Collections.list(_nis);
-
-                // Match address/interfaces
-                for (InetAddress iaddr : iaddrs) {
-                    Log.i("Evaluating " + iaddr);
-                    for (NetworkInterface ni : nis)
-                        if (ni.isUp() && !ni.isLoopback()) {
-                            Log.i("Evaluating " + ni);
-                            List<InterfaceAddress> ias = ni.getInterfaceAddresses();
-                            if (ias != null)
-                                for (InterfaceAddress ia : ias) {
-                                    InetAddress a = ia.getAddress();
-                                    if (a != null && a.getClass().equals(iaddr.getClass())) {
-                                        Log.i("Binding to " + ia + " for " + iaddr);
-                                        properties.put("mail." + this.protocol + ".localaddress", a.getHostAddress());
-                                        try {
-                                            _connect(context, host, port, user, password);
-                                            return;
-                                        } catch (MessagingException ex1) {
-                                            Log.w(ex1);
-                                        }
-                                    }
-                                }
+            if (this.insecure)
+                try {
+                    for (InetAddress iaddr : InetAddress.getAllByName(host))
+                        try {
+                            _connect(context, iaddr.getHostAddress(), port, user, password);
+                            return;
+                        } catch (MessagingException ex1) {
+                            Log.w(ex1);
                         }
+                } catch (Throwable ex1) {
+                    Log.w(ex1);
                 }
-            } catch (Throwable ex1) {
-                Log.w(ex1);
-            }
 
             throw ex;
         }
