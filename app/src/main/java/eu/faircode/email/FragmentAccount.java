@@ -227,7 +227,7 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long itemid) {
                 EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
-                grpServer.setVisibility(position == 1 ? View.VISIBLE : View.GONE);
+                grpServer.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
 
                 btnAdvanced.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
