@@ -54,13 +54,11 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.Collator;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
@@ -691,9 +689,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     public void set(@NonNull List<TupleFolderEx> folders) {
         Log.i("Set folders=" + folders.size());
         all = folders;
-
-        final Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
 
         if (folders.size() > 0)
             Collections.sort(folders, folders.get(0).getComparator(context));
