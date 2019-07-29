@@ -18,6 +18,7 @@ import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
+import com.sun.mail.util.MailConnectException;
 
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.SimpleResolver;
@@ -272,7 +273,7 @@ public class ConnectionHelper {
     static void connect(Context context, ServiceHolder iservice, String host, int port, String user, String password) throws MessagingException {
         try {
             iservice.connect(context, host, port, user, password);
-        } catch (MessagingException ex) {
+        } catch (MailConnectException ex) {
             if (!hasIPv6(host))
                 throw ex;
 
