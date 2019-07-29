@@ -36,6 +36,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -166,6 +167,7 @@ public class ServiceSend extends ServiceBase {
 
                                             if (ex instanceof OutOfMemoryError ||
                                                     ex instanceof MessageRemovedException ||
+                                                    ex instanceof FileNotFoundException ||
                                                     ex instanceof SendFailedException ||
                                                     ex instanceof IllegalArgumentException) {
                                                 Log.w("Unrecoverable");

@@ -57,6 +57,7 @@ import org.jsoup.nodes.Element;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -263,6 +264,7 @@ class Core {
 
                         if (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
+                                ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
                                 ex.getCause() instanceof CommandFailedException) {
