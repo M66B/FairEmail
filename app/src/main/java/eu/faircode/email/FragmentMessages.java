@@ -1874,8 +1874,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     message.account, message.thread, threading ? null : id, message.folder);
                             for (EntityMessage threaded : messages) {
                                 EntityFolder target = db.folder().getFolderByType(message.account, type);
-                                EntityAccount account = db.account().getAccount(target.account);
-                                result.add(new MessageTarget(threaded, account, target));
+                                if (target != null) {
+                                    EntityAccount account = db.account().getAccount(target.account);
+                                    result.add(new MessageTarget(threaded, account, target));
+                                }
                             }
                         }
                     }
