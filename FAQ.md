@@ -1149,7 +1149,7 @@ You can use the *Home* button to quickly go to the top of the message.
 ~~For example the Gmail spam folder is called:~~
 
 ```
-~~[Gmail]/Spam~~
+[Gmail]/Spam
 ```
 
 ~~By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.~~
