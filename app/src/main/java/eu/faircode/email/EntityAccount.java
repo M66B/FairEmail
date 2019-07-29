@@ -178,7 +178,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
     public static EntityAccount fromJSON(JSONObject json) throws JSONException {
         EntityAccount account = new EntityAccount();
-        // id
+        if (json.has("id"))
+            account.id = json.getLong("id");
 
         if (json.has("order"))
             account.order = json.getInt("order");

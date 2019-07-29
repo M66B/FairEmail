@@ -759,7 +759,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         answer.id = db.answer().insertAnswer(answer);
                         xAnswer.put(id, answer.id);
 
-                        Log.i("Imported answer=" + answer.name);
+                        Log.i("Imported answer=" + answer.name + " id=" + answer.id + " (" + id + ")");
                     }
 
                     // Accounts
@@ -767,6 +767,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     for (int a = 0; a < jaccounts.length(); a++) {
                         JSONObject jaccount = (JSONObject) jaccounts.get(a);
                         EntityAccount account = EntityAccount.fromJSON(jaccount);
+                        Long aid = account.id;
+                        account.id = null;
 
                         // Forward referenced
                         Long swipe_left = account.swipe_left;
@@ -778,7 +780,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                         account.created = new Date().getTime();
                         account.id = db.account().insertAccount(account);
-                        Log.i("Imported account=" + account.name);
+                        Log.i("Imported account=" + account.name + " id=" + account.id + " (" + aid + ")");
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             account.deleteNotificationChannel(context);
@@ -809,7 +811,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             identity.id = db.identity().insertIdentity(identity);
                             xIdentity.put(id, identity.id);
 
-                            Log.i("Imported identity=" + identity.email);
+                            Log.i("Imported identity=" + identity.email + " id=" + identity + id + " (" + id + ")");
                         }
 
                         Map<Long, Long> xFolder = new HashMap<>();
@@ -854,14 +856,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                     rules.add(rule);
                                 }
                             }
-                            Log.i("Imported folder=" + folder.name);
+                            Log.i("Imported folder=" + folder.name + " id=" + folder.id + " (" + id + ")");
                         }
 
                         for (EntityRule rule : rules) {
                             try {
                                 JSONObject jaction = new JSONObject(rule.action);
-                                int type = jaction.getInt("type");
 
+                                int type = jaction.getInt("type");
                                 switch (type) {
                                     case EntityRule.TYPE_MOVE:
                                     case EntityRule.TYPE_COPY:
@@ -870,14 +872,16 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                         jaction.put("target", xFolder.get(target));
                                         break;
                                     case EntityRule.TYPE_ANSWER:
-                                        long iid = jaction.getLong("identity");
-                                        long aid = jaction.getLong("answer");
-                                        Log.i("XLAT identity " + iid + " > " + xIdentity.get(iid));
-                                        Log.i("XLAT target " + aid + " > " + xAnswer.get(aid));
-                                        jaction.put("identity", xIdentity.get(iid));
-                                        jaction.put("answer", xAnswer.get(aid));
+                                        long identity = jaction.getLong("identity");
+                                        long answer = jaction.getLong("answer");
+                                        Log.i("XLAT identity " + identity + " > " + xIdentity.get(identity));
+                                        Log.i("XLAT answer " + answer + " > " + xAnswer.get(answer));
+                                        jaction.put("identity", xIdentity.get(identity));
+                                        jaction.put("answer", xAnswer.get(answer));
                                         break;
                                 }
+
+                                rule.action = jaction.toString();
                             } catch (JSONException ex) {
                                 Log.e(ex);
                             }
@@ -892,11 +896,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 JSONObject jcontact = (JSONObject) jcontacts.get(c);
                                 EntityContact contact = EntityContact.fromJSON(jcontact);
                                 contact.account = account.id;
-                                if (db.contact().getContact(contact.account, contact.type, contact.email) == null) {
+                                if (db.contact().getContact(contact.account, contact.type, contact.email) == null)
                                     contact.id = db.contact().insertContact(contact);
-                                    Log.i("Imported contact=" + contact);
-                                }
                             }
+                            Log.i("Imported contacts=" + jcontacts.length());
                         }
 
                         // Update swipe left/right
