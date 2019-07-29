@@ -3426,16 +3426,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 // https://en.wikipedia.org/wiki/UTM_parameters
                 Uri.Builder builder = uri.buildUpon();
 
+                boolean changed = false;
                 builder.clearQuery();
                 for (String key : uri.getQueryParameterNames())
-                    if (!PARANOID_QUERY.contains(key.toLowerCase()))
-                        for (String value : uri.getQueryParameters(key))
-                            if (!TextUtils.isEmpty(key)) {
-                                Log.i("Query " + key + "=" + value);
-                                builder.appendQueryParameter(key, value);
-                            }
+                    if (PARANOID_QUERY.contains(key.toLowerCase()))
+                        changed = true;
+                    else if (!TextUtils.isEmpty(key))
+                        for (String value : uri.getQueryParameters(key)) {
+                            Log.i("Query " + key + "=" + value);
+                            builder.appendQueryParameter(key, value);
+                        }
 
-                sanitized = builder.build();
+                sanitized = (changed ? builder.build() : uri);
             }
 
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
