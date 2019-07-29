@@ -197,12 +197,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat TF;
     private DateFormat DTF;
 
+    // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
             "utm_source",
             "utm_medium",
             "utm_campaign",
             "utm_term",
-            "utm_content"
+            "utm_content",
+
+            "utm_name",
+            "utm_cid",
+            "utm_reader",
+            "utm_viz_id",
+            "utm_pubreferrer",
+            "utm_swu",
+
+            "gclid",
+            "fbclid"
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
