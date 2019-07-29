@@ -111,14 +111,17 @@
     <string name="title_setup_doze_remark">Para receber continuamente e-mail (opcional)</string>
     <string name="title_setup_doze_instructions">Na próxima caixa de diálogo, selecione \"Todos os apps\" no topo, selecione este app, selecione e confirme \"Não otimizar\"</string>
     <string name="title_setup_doze_battery">Alto uso de bateria?</string>
+    <string name="title_setup_data">Economia de dados está habilitada</string>
     <string name="title_setup_inbox">Ir para mensagens</string>
     <string name="title_setup_to_do">Para fazer</string>
     <string name="title_setup_done">Feito</string>
     <string name="title_setup_export">Exportar configurações</string>
     <string name="title_setup_import">Importar configurações</string>
+    <string name="title_setup_import_do">As contas importadas serão adicionadas sem sobrescrever as existentes</string>
     <string name="title_setup_password">Senha</string>
     <string name="title_setup_password_repeat">Repita a senha</string>
     <string name="title_setup_password_missing">Senha não informada</string>
+    <string name="title_setup_password_different">As senhas não correspondem</string>
     <string name="title_setup_password_invalid">Senha inválida</string>
     <string name="title_setup_exported">Configurações exportadas</string>
     <string name="title_setup_imported">Configurações importadas</string>
@@ -198,6 +201,7 @@
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_collapse">Recolher mensagens em conversas ao \'voltar\'</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
+    <string name="title_advanced_onclose">Ao fechar uma conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
@@ -226,10 +230,14 @@
     <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_enabled_hint">Globalmente desabilitar ou habilitar o recebimento de mensagens</string>
     <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente, puxando a lista de mensagens. Isso irá sincronizar mensagens e executar operações por um tempo limitado.</string>
+    <string name="title_advanced_poll_hint">Sincronizar periodicamente irá cada vez comparar mensagens locais e remotas, o que é uma operação pesada, possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso através de um acompanhamento contínuo para somente alterações.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>
+    <string name="title_advanced_unseen_hint">Alguns provedores de e-mail não suportam isso corretamente, o que, por exemplo, pode resultar em todas as mensagens sendo sincronizadas</string>
+    <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e consumir energia extra da bateria, especialmente se uma série de mensagens forem armazenadas no dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
     <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
+    <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
     <string name="title_advanced_rlah_hint">Não assumindo roaming na UE</string>
@@ -239,6 +247,7 @@
     <string name="title_advanced_name_email_hint">Quando desativado apenas os nomes serão exibidos quando disponíveis</string>
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_inline_hint">Imagens em linha são incluídas na mensagem</string>
+    <string name="title_advanced_permission_contacts_hint">Isto requer permissão para ler seus contatos</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_autocollapse_hint">Várias mensagens expandidas serão sempre fechadas ao \'voltar\'</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
@@ -251,6 +260,7 @@
     <string name="title_select">Selecionar &#8230;</string>
     <string name="title_identity_name">Seu nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
+    <string name="title_identity_color_hint">Cores de identidade têm precedência sobre as cores da conta</string>
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
     <string name="title_identity_encrypt">Criptografar por padrão</string>
@@ -359,6 +369,7 @@
     <string name="title_folder_thread">Conversa %1$s</string>
     <string name="title_folders_unified">Pastas de caixa de entrada unificada</string>
     <string name="title_no_messages">Sem mensagens</string>
+    <string name="title_no_folders">Sem pastas</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Enc: %1$s</string>
     <string name="title_seen">Marcar como lida</string>
@@ -718,6 +729,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Não fazer nada</item>
+        <item>Ir para conversa anterior</item>
+        <item>Ir para a próxima conversa</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Pequeno</item>
