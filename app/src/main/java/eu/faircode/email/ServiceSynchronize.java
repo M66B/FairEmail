@@ -324,6 +324,9 @@ public class ServiceSynchronize extends ServiceBase {
             builder.setContentText(getResources().getQuantityString(
                     R.plurals.title_notification_operations, lastStats.operations, lastStats.operations));
 
+        if (!networkState.isSuitable())
+            builder.setSubText(getString(R.string.title_notification_waiting));
+
         return builder;
     }
 
@@ -1301,9 +1304,12 @@ public class ServiceSynchronize extends ServiceBase {
     }
 
     private ConnectivityManager.NetworkCallback onNetworkCallback = new ConnectivityManager.NetworkCallback() {
+        private Boolean lastSuitable = null;
+
         @Override
         public void onAvailable(Network network) {
             networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
+            updateNotification();
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1359,6 +1365,7 @@ public class ServiceSynchronize extends ServiceBase {
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
             networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
+            updateNotification();
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1376,6 +1383,7 @@ public class ServiceSynchronize extends ServiceBase {
         @Override
         public void onLost(Network network) {
             networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
+            updateNotification();
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1388,6 +1396,14 @@ public class ServiceSynchronize extends ServiceBase {
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+            }
+        }
+
+        private void updateNotification() {
+            if (lastSuitable == null || lastSuitable != networkState.isSuitable()) {
+                lastSuitable = networkState.isSuitable();
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastStats).build());
             }
         }
     };
