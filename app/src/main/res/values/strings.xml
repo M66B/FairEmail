@@ -293,7 +293,7 @@
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
-    <string name="title_advanced_preview_hint">Only available when message text was downloaded</string>
+    <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
     <string name="title_advanced_permission_contacts_hint">This requires granting permission to read your contacts</string>
 
