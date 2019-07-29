@@ -1,3 +1,12 @@
+<img src="https://github.com/M66B/FairEmail/raw/master/images/banner_crying6.png" />
+
+<p align="center">
+	<a href="#downloads">Downloads</a> &bull;
+	<a href="#privacy">Privacy</a> &bull;
+	<a href="#support">Support</a> &bull;
+	<a href="#license">License</a>
+</p>
+
 <img align="right" src="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/res/mipmap-hdpi/ic_launcher.png">
 
 # FairEmail
@@ -143,7 +152,7 @@ FairEmail will work properly on devices without any Google service installed.
 
 See [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#known-problems) for known problems.
 
-## Support / frequently asked questions
+## Support
 
 See [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) for a list of often asked questions and about how to get support.
 
@@ -182,19 +191,10 @@ and is used to [help improve FairEmail](https://github.com/M66B/FairEmail/blob/m
 
 ## License
 
+Copyright &copy; 2018-2019 Marcel Bokhorst. All rights reserved.
+
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 
-Copyright &copy; 2018-2019 Marcel Bokhorst. All rights reserved
+> FairEmail is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-FairEmail is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-FairEmail is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with FairEmail. If not, see [https://www.gnu.org/licenses/](https://www.gnu.org/licenses/).
+> FairEmail is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
