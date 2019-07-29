@@ -922,12 +922,15 @@ public class FragmentIdentity extends FragmentBase {
                             spProvider.setTag(0);
                             spProvider.setSelection(0);
                             if (identity != null)
-                                for (int pos = 1; pos < providers.size(); pos++)
-                                    if (providers.get(pos).smtp_host.equals(identity.host)) {
+                                for (int pos = 1; pos < providers.size(); pos++) {
+                                    EmailProvider provider = providers.get(pos);
+                                    if (provider.smtp_host.equals(identity.host) &&
+                                            provider.smtp_port == identity.port) {
                                         spProvider.setTag(pos);
                                         spProvider.setSelection(pos);
                                         break;
                                     }
+                                }
 
                             spAccount.setTag(0);
                             spAccount.setSelection(0);
