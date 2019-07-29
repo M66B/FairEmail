@@ -527,6 +527,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         new SimpleTask<Void>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(ActivitySetup.this, R.string.title_executing, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
@@ -686,6 +691,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         args.putString("password", password);
 
         new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(ActivitySetup.this, R.string.title_executing, Toast.LENGTH_LONG).show();
+            }
+
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
