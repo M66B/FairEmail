@@ -94,7 +94,7 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
                                 //        + " live data.", e);
                                 computed = false;
                                 try {
-                                    Thread.sleep(5000L);
+                                    Thread.sleep(3000L);
                                 } catch (InterruptedException ignored) {
                                 }
                             }

@@ -1,5 +1,5 @@
 --- /home/marcel/support/room/runtime/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-27 12:47:44.950985792 +0200
-+++ app/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-28 18:06:23.373936158 +0200
++++ app/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-29 07:27:21.478734412 +0200
 @@ -89,8 +89,14 @@ class RoomTrackingLiveData<T> extends Li
                              try {
                                  value = mComputeFunction.call();
@@ -11,7 +11,7 @@
 +                                //        + " live data.", e);
 +                                computed = false;
 +                                try {
-+                                    Thread.sleep(5000L);
++                                    Thread.sleep(3000L);
 +                                } catch (InterruptedException ignored) {
 +                                }
                              }
