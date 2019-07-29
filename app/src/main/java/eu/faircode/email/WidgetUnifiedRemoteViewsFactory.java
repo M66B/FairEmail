@@ -72,6 +72,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     public RemoteViews getViewAt(int position) {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.item_widget_unified);
 
+        if (position >= messages.size())
+            return views;
+
         try {
             TupleMessageWidget message = messages.get(position);
 
@@ -120,6 +123,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
 
     @Override
     public long getItemId(int position) {
+        if (position >= messages.size())
+            return -1;
         return messages.get(position).id;
     }
 
