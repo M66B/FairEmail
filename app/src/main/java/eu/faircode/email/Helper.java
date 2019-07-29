@@ -99,6 +99,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
+import javax.mail.MessagingException;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
@@ -424,6 +425,13 @@ public class Helper {
     static String formatThrowable(Throwable ex, String separator, boolean sanitize) {
         if (sanitize) {
             if (ex instanceof MessageRemovedException)
+                return null;
+
+            if (ex instanceof MessagingException &&
+                    ex.getCause() instanceof ConnectionException &&
+                    ex.getCause().getMessage() != null &&
+                    (ex.getCause().getMessage().contains("Read error") ||
+                            ex.getCause().getMessage().contains("Write error")))
                 return null;
 
             if (ex instanceof IOException &&
