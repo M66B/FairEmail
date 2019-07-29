@@ -762,6 +762,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         Log.i("Imported answer=" + answer.name + " id=" + answer.id + " (" + id + ")");
                     }
 
+                    EntityAccount primary = db.account().getPrimaryAccount();
+
                     // Accounts
                     JSONArray jaccounts = jimport.getJSONArray("accounts");
                     for (int a = 0; a < jaccounts.length(); a++) {
@@ -769,6 +771,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         EntityAccount account = EntityAccount.fromJSON(jaccount);
                         Long aid = account.id;
                         account.id = null;
+
+                        if (primary != null)
+                            account.primary = false;
 
                         // Forward referenced
                         Long swipe_left = account.swipe_left;
