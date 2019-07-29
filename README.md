@@ -130,6 +130,8 @@ One line command to display certificate fingerprints:
 
 ```unzip -p fairemail.apk META-INF/CERT.RSA | keytool -printcert```
 
+I do not hand over the signing keys of my apps to Google.
+
 * [F-Droid](https://f-droid.org/en/packages/eu.faircode.email/) ([last build status](https://f-droid.org/wiki/page/eu.faircode.email/lastbuild))
 
 Note that F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
