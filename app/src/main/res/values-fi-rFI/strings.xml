@@ -260,6 +260,7 @@
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
+    <string name="title_identity_color_hint">Identiteettien värit ovat etusijalla ennen tilien värejä</string>
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_encrypt">Salaa oletusarvoisesti</string>

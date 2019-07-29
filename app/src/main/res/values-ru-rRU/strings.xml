@@ -282,6 +282,7 @@
     <string name="title_select">Выбор &#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш эл. адрес</string>
+    <string name="title_identity_color_hint">Цвета идентификаторов имеют приоритет над цветами учётных записей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_encrypt">Шифровать по умолчанию</string>

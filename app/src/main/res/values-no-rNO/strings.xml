@@ -39,6 +39,10 @@
         <item quantity="one">%1$d ny</item>
         <item quantity="other">%1$d ny</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">Valgt %1$d melding</item>
+        <item quantity="other">Valgte %1$d meldinger</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flytte %1$d melding til %2$s?</item>
         <item quantity="other">Flytte %1$d meldinger til %2$s?</item>
@@ -111,14 +115,17 @@
     <string name="title_setup_doze_remark">Slik mottar du kontinuerlig e-post (valgfritt)</string>
     <string name="title_setup_doze_instructions">I den neste dialogboksen velger du \"Alle apper\" øverst, velg så denne appen og så bekrefte \"Ikke optimaliser\"</string>
     <string name="title_setup_doze_battery">Høy batteriforbruk?</string>
+    <string name="title_setup_data">Datasparing er aktivert</string>
     <string name="title_setup_inbox">Gå til meldinger</string>
     <string name="title_setup_to_do">Gjøremål</string>
     <string name="title_setup_done">Utført</string>
     <string name="title_setup_export">Eksporter innstillingene</string>
     <string name="title_setup_import">Importer innstillinger</string>
+    <string name="title_setup_import_do">Importerte kontoer vil bli lagt til uten å overskrive eksisterende</string>
     <string name="title_setup_password">Passord</string>
     <string name="title_setup_password_repeat">Gjenta passord</string>
     <string name="title_setup_password_missing">Passord mangler</string>
+    <string name="title_setup_password_different">Passordene er ikke like</string>
     <string name="title_setup_password_invalid">Ugyldig passord</string>
     <string name="title_setup_exported">Innstillinger eksportert</string>
     <string name="title_setup_imported">Innstillinger importert</string>
@@ -227,10 +234,14 @@
     <string name="title_advanced_cleanup">Rydd opp</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
     <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten. Dette vil synkronisere meldinger og utføre operasjoner i en begrenset periode.</string>
+    <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en kostbar operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger å synkronisere. Alltid synkronisering vil unngå dette ved kontinuerlig overvåking for endringer.</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_check_mx">Sjekk avsenderens e-postadresser når meldinger synkroniseres</string>
+    <string name="title_advanced_unseen_hint">Noen leverandører støtter ikke dette ordentlig, noe som for eksempel kan føre til at alle meldinger blir synkronisert</string>
+    <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og bruke ekstra batteristrøm, spesielt hvis det er lagret mange meldinger på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
     <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
+    <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>
@@ -240,6 +251,7 @@
     <string name="title_advanced_name_email_hint">Når deaktivert, vil bare navn bli vist når det er tilgjengelig</string>
     <string name="title_advanced_preview_hint">Kun tilgjengelig når meldingstekst ble lastet ned</string>
     <string name="title_advanced_inline_hint">Innebygde bilder er bilder som er inkludert i meldingen</string>
+    <string name="title_advanced_permission_contacts_hint">Dette krever at du gir tillatelse til å lese kontaktene dine</string>
     <string name="title_advanced_autoexpand_hint">Åpne automatisk melding når det bare er én melding eller bare en ulest melding i en samtale</string>
     <string name="title_advanced_autocollapse_hint">Flere utvidede meldinger vil alltid bli lukket ved \'tilbake\'</string>
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
@@ -252,6 +264,7 @@
     <string name="title_select">Velg &#8230;</string>
     <string name="title_identity_name">Ditt navn</string>
     <string name="title_identity_email">Din e-postadresse</string>
+    <string name="title_identity_color_hint">Identitetsfarger har forrang fremfor kontofarger</string>
     <string name="title_advanced_sender">Tillat redigering av avsenderadresse</string>
     <string name="title_identity_reply_to">Svar til adressen</string>
     <string name="title_identity_encrypt">Krypter som standard</string>

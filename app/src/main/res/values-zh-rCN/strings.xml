@@ -254,6 +254,7 @@
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
+    <string name="title_identity_color_hint">身份颜色优先于帐户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_identity_reply_to">回复地址</string>
     <string name="title_identity_encrypt">默认加密</string>

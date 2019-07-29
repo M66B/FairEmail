@@ -264,6 +264,7 @@
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
+    <string name="title_identity_color_hint">Los colores de identidad tienen prioridad sobre los colores de cuenta</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_encrypt">Encriptar por defecto</string>

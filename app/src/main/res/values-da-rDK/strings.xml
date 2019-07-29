@@ -39,6 +39,10 @@
         <item quantity="one">%1$d ny</item>
         <item quantity="other">%1$d nye</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">%1$d besked valgt</item>
+        <item quantity="other">%1$d beskeder valgt</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flyt %1$d meddelelse til %2$s?</item>
         <item quantity="other">Flyt %1$d meddelelser til %2$s?</item>
@@ -110,14 +114,17 @@
     <string name="title_setup_doze_remark">For løbende at kunne modtage e-mails (valgfrit)</string>
     <string name="title_setup_doze_instructions">Ved næste dialogboks skal du vælge \"alle apps\" i toppen, vælge denne app og vælg \"undlade at optimere\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
+    <string name="title_setup_data">Datasparer er aktiveret</string>
     <string name="title_setup_inbox">Gå til beskeder</string>
     <string name="title_setup_to_do">Mangler</string>
     <string name="title_setup_done">Udført</string>
     <string name="title_setup_export">Eksportér indstillinger</string>
     <string name="title_setup_import">Importér indstillinger</string>
+    <string name="title_setup_import_do">Importerede konti tilføjes uden at overskrive eksisterende ditto</string>
     <string name="title_setup_password">Adgangskode</string>
     <string name="title_setup_password_repeat">Gentag adgangskode</string>
     <string name="title_setup_password_missing">Adgangskode mangler</string>
+    <string name="title_setup_password_different">Adgangskoder matcher ikke</string>
     <string name="title_setup_password_invalid">Ugyldig adgangskode</string>
     <string name="title_setup_exported">Indstillinger eksporteret</string>
     <string name="title_setup_imported">Indstillinger importeret</string>
@@ -167,7 +174,7 @@
     <string name="title_advanced_download">Hent automatisk meddelelser og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download meddelelser og vedhæftninger under roaming</string>
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
-    <string name="title_advanced_manage_connectivity">Håndtér forbindelse</string>
+    <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_browse">Gennemse meddelelser på serveren</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
@@ -217,7 +224,7 @@
     <string name="title_advanced_subscriptions">Administrér mappeabonnementer</string>
     <string name="title_advanced_sync_subscribed">Synkronisér kun abonnerede mapper</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
-    <string name="title_advanced_double_back">Tryk \"tilbage\" 2 gange for at lukke</string>
+    <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\" for at lukke</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
@@ -226,19 +233,24 @@
     <string name="title_advanced_cleanup">Oprydning</string>
     <string name="title_advanced_enabled_hint">Generel deaktivering eller aktivering af modtagelse af meddelelser</string>
     <string name="title_advanced_manual_hint">Er synkronisering deaktiveret, kan du stadig synkronisere manuelt ved at trække ned i beskedlisten. Dette vil i en begrænset tidsperiode synkronisere beskeder samt eksekvere operationer.</string>
+    <string name="title_advanced_poll_hint">Periodisk synkronisering vil hver gang sammenligne lokale og fjernbeskeder, hvilket koster en del resssourcer, herunder et muligt ekstra strømforbrug, især hvis der er mange beskeder at synkronisere. Kontinuerlig synkronisering undgår dette ved løbende at tjekke for ændringer.</string>
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
-    <string name="title_advanced_check_mx">Tjek afsender e-mailadresser ved beskedsynkroniseringer</string>
+    <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
+    <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette korrekt, hvilket f.eks. kan resultere i, at alle beskeder synkroniseres</string>
+    <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
+    <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>
     <string name="title_advanced_rlah_hint">Der forventes ikke roaming inden for EU</string>
-    <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere Internet under roaming.</string>
+    <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere netværk under roaming.</string>
     <string name="title_advanced_browse_hint">Hent flere meddelelser, når du scroller ned</string>
     <string name="title_advanced_threading_hint">Gruppér meddelelser relateret til hinanden</string>
     <string name="title_advanced_name_email_hint">Hvis deaktiveret, vil navne kun blive vist, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når meddelelsestekst er hentet</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
+    <string name="title_advanced_permission_contacts_hint">Dette kræver, at der gives tilladelse til at læse dine kontakter</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk meddelelse, når der kun er én meddelelse eller kun én ulæst meddelelse i en samtale</string>
     <string name="title_advanced_autocollapse_hint">Alle udvidede meddelelser vil altid lukkes, når du trykker på tilbage-knappen</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, hvis alle meddelelser er arkiveret, sendt eller smidt ud</string>
@@ -251,6 +263,7 @@
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
+    <string name="title_identity_color_hint">Identitetsfarver har forrang fremfor kontofarver</string>
     <string name="title_advanced_sender">Tillad at ændre afsenderadresse</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_encrypt">Kryptér som standard</string>
