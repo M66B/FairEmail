@@ -215,9 +215,6 @@ public class MailService implements AutoCloseable {
                 iservice.close();
         } finally {
             this.context = null;
-            this.properties = null;
-            this.isession = null;
-            this.iservice = null;
         }
     }
 }
