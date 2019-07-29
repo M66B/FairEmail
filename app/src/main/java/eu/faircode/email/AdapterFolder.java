@@ -242,8 +242,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         ? R.drawable.baseline_mail_24 : R.drawable.baseline_mail_outline_24);
             }
 
-            if (folder.selectable)
+            if (folder.selectable) {
+                ivType.setVisibility(View.VISIBLE);
                 ivType.setImageResource(EntityFolder.getIcon(folder.type));
+            } else if (listener != null)
+                ivType.setVisibility(View.GONE);
 
             if (listener == null && folder.selectable) {
                 if (account < 0)
