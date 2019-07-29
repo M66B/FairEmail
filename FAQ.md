@@ -194,6 +194,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(115) Can you add email address chips?](#user-content-faq114)
 * [(116) How can I show images in messages from trusted senders by default?](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
+* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
 
 [I have another question.](#support)
 
@@ -1997,6 +1998,15 @@ Note that:
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An application like FairEmail cannot select which Google account to use
+
+<br />
+
+<a name="faq118"></a>
+**(118) What does 'Remove tracking parameters' exactly?**
+
+Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
+
+<br />
 
 ## Support
 
