@@ -1308,8 +1308,7 @@ public class ServiceSynchronize extends ServiceBase {
 
         @Override
         public void onAvailable(Network network) {
-            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
-            updateNotification();
+            updateState();
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1364,8 +1363,7 @@ public class ServiceSynchronize extends ServiceBase {
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities capabilities) {
-            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
-            updateNotification();
+            updateState();
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1382,8 +1380,7 @@ public class ServiceSynchronize extends ServiceBase {
 
         @Override
         public void onLost(Network network) {
-            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
-            updateNotification();
+            updateState();
 
             synchronized (ServiceSynchronize.this) {
                 try {
@@ -1399,7 +1396,9 @@ public class ServiceSynchronize extends ServiceBase {
             }
         }
 
-        private void updateNotification() {
+        private void updateState() {
+            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
+
             if (lastSuitable == null || lastSuitable != networkState.isSuitable()) {
                 lastSuitable = networkState.isSuitable();
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
