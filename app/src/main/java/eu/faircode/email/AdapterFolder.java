@@ -690,13 +690,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         Log.i("Set folders=" + folders.size());
         all = folders;
 
-        if (folders.size() > 0)
-            Collections.sort(folders, folders.get(0).getComparator(context));
-
         List<TupleFolderEx> hierarchical;
-        if (account < 0)
+        if (account < 0) {
+            if (folders.size() > 0)
+                Collections.sort(folders, folders.get(0).getComparator(context));
             hierarchical = folders;
-        else {
+        } else {
             List<TupleFolderEx> parents = new ArrayList<>();
             Map<Long, TupleFolderEx> idFolder = new HashMap<>();
             Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
@@ -733,8 +732,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     anyChild = true;
                     break;
                 }
-            for (TupleFolderEx parent : parents)
+            for (TupleFolderEx parent : parents) {
                 parent.expander = anyChild;
+
+                if (!parent.selectable && parent.child_refs != null && EntityFolder.USER.equals(parent.type))
+                    for (TupleFolderEx child : parent.child_refs)
+                        if (!EntityFolder.USER.equals(child.type)) {
+                            parent.type = EntityFolder.SYSTEM;
+                            break;
+                        }
+            }
 
             hierarchical = getHierarchical(parents, anyChild ? 0 : 1);
         }
@@ -767,13 +774,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
-    List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation) {
+    private List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation) {
         List<TupleFolderEx> result = new ArrayList<>();
+
+        if (parents.size() > 0)
+            Collections.sort(parents, parents.get(0).getComparator(context));
 
         for (TupleFolderEx parent : parents)
             if (!parent.hide || show_hidden) {
                 parent.indentation = indentation;
                 result.add(parent);
+
                 if (!parent.collapsed && parent.child_refs != null)
                     result.addAll(getHierarchical(parent.child_refs, indentation + 1));
             }
