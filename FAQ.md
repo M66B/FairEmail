@@ -130,7 +130,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(51) How are folders sorted?](#user-content-faq51)
 * [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
 * [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
-* [(54) How do I use a namespace prefix?](#user-content-faq54)
+* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
 * [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
 * [(56) Can you add support for JMAP?](#user-content-faq56)
 * [(57) Can I use HTML in signatures?](#user-content-faq57)
@@ -1142,17 +1142,17 @@ You can use the *Home* button to quickly go to the top of the message.
 <br />
 
 <a name="faq54"></a>
-**(54) How do I use a namespace prefix?**
+**~~(54) How do I use a namespace prefix?~~**
 
-A namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.
+~~A namespace prefix is used to automatically remove the prefix providers sometimes add to folder names.~~
 
-For example the Gmail spam folder is called:
+~~For example the Gmail spam folder is called:~~
 
 ```
-[Gmail]/Spam
+~~[Gmail]/Spam~~
 ```
 
-By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.
+~~By setting the namespace prefix to *[Gmail]* FairEmail will automatically remove *[Gmail]/* from all folder names.~~
 
 <br />
 
