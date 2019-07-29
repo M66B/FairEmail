@@ -1,6 +1,5 @@
-# FairEmail
-
-*Open source, privacy friendly email app for Android*
+FairEmail
+---------
 
 This open source, privacy friendly email app might be for you if your current email app:
 
@@ -18,76 +17,72 @@ This app is minimalistic by design, so you can concentrate on reading and writin
 
 This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
 
-## Main features
+<b>Main features</b>
 
-* 100 % [open source](https://github.com/M66B/FairEmail/blob/master/LICENSE)
-* [Privacy friendly](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md)
+* 100 % open source
+* Privacy friendly
 * Multiple accounts
 * Multiple email addresses
 * Unified inbox
-* Flat [conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
+* Flat conversation threading
 * Two way synchronization
 * Offline storage and operations
-* Encryption/decryption ([OpenPGP](https://www.openpgp.org/))
+* Encryption/decryption (OpenPGP)
 * Battery friendly
 * Low data usage
 * Small (< 10 MB)
 * Material design (including dark theme)
 * Maintained and supported
 
-## Privacy features
+<b>Privacy features</b>
 
-* Reformat messages to prevent [phishing](https://en.wikipedia.org/wiki/Phishing)
+* Reformat messages to prevent phishing
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
 * Automatically recognize and disable tracking images
-* Warning if messages could not be [authenticated](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq92)
+* Warning if messages could not be authenticated
 
-## Pro features
+<b>Pro features</b>
 
 All pro features are convenience or advanced features.
 
 * Account/identity colors
-* Colored stars ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq107))
+* Colored stars
 * Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo)
 * Configurable notification actions
-* Snooze messages ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq67))
+* Snooze messages
 * Send messages after selected time
-* Synchronization scheduling ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq78))
+* Synchronization scheduling
 * Reply templates
 * Accept/decline calendar invitations
-* Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
-* Search on device or server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
+* Filter rules
+* Search on device or server
 * Keyword management
-* Biometric authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
+* Biometric authentication
 * Unified inbox widget
 * Export settings
 
-## Simple
+<b>Simple</b>
 
 * Quick setup
 * Easy navigation
 * No bells and whistles
 * No distracting "eye candy"
 
-## Secure
+<b>Secure</b>
 
 * No data storage on third party servers
 * Safe message view (styling, scripting and unsafe HTML removed)
 * Confirm opening links, images and attachments
 * No special permissions required
 * No advertisements
-* No analytics and no tracking ([error reporting](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) is opt-in)
-* No [Google backup](https://developer.android.com/guide/topics/data/backup)
+* No analytics and no tracking (error reporting is opt-in)
+* No Google backup
 * FairEmail is an original work, not a fork or a clone
 
-## Efficient
+<b>Efficient</b>
 
-* [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE) (push messages) supported
+* IMAP IDLE (push messages) supported
 * Built with latest development tools and libraries
 
-## Screenshots
-
-Please see [here](https://email.faircode.eu/#screenshots) for screenshots.
-
-For more information, please [see here](https://github.com/M66B/FairEmail/blob/master/README.md)
+For more information, please see here: https://github.com/M66B/FairEmail/blob/master/README.md
