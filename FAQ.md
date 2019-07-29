@@ -195,6 +195,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(116) How can I show images in messages from trusted senders by default?](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
+* [(119) Can you add colors to the unified inbox widget?](#user-content-faq119)
 
 [I have another question.](#support)
 
@@ -2007,6 +2008,17 @@ Note that:
 Checking *Remove tracking parameters* will remove all [UTM parameters](https://en.wikipedia.org/wiki/UTM_parameters) from a link.
 
 <br />
+
+<a name="faq119"></a>
+**(119) Can you add colors to the unified inbox widget?**
+
+The widget is designed to look good on most home/launcher screens by making it monochrome and by using a half transparent background.
+This way the widget will nicely blend in, while still being properly readable.
+
+Adding (account) colors will cause problems with some backgrounds and will cause readability problems, which is why this won't be added.
+
+<br />
+
 
 ## Support
 
