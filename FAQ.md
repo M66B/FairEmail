@@ -99,7 +99,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
 * [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'Connection reset by peer', 'Read timed out' and 'Broken pipe' mean?](#user-content-faq22)
-* [(23) Why do I get 'Too many simultaneous connections' ?](#user-content-faq23)
+* [(23) Why do I get 'Too many simultaneous connections' or 'Maximum number of connections ... exceeded' ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
 * [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
@@ -655,7 +655,7 @@ This delay will be doubled after each failed attempt to prevent draining the bat
 <br />
 
 <a name="faq23"></a>
-**(23) Why do I get 'Too many simultaneous connections' ?**
+**(23) Why do I get 'Too many simultaneous connections' or 'Maximum number of connections ... exceeded' ?**
 
 The message *Too many simultaneous connections* is sent by the email server
 when there are too many folder connections for the same email account at the same time.
