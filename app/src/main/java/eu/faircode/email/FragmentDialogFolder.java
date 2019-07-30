@@ -32,6 +32,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -93,7 +94,12 @@ public class FragmentDialogFolder extends DialogFragmentEx {
 
             @Override
             protected void onExecuted(final Bundle args, List<TupleFolderEx> folders) {
-                if (folders == null || folders.size() == 0)
+                if (folders == null)
+                    folders = new ArrayList<>();
+
+                Log.i("Selecting folders=" + folders.size() + " disabled=" + disabled.length);
+
+                if (folders.size() == 0)
                     tvNoFolder.setVisibility(View.VISIBLE);
                 else {
                     rvFolder.setVisibility(View.VISIBLE);
@@ -104,6 +110,7 @@ public class FragmentDialogFolder extends DialogFragmentEx {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                Log.e(ex);
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(getContext(), getActivity(), args, "folder:select");
