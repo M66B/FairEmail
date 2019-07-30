@@ -149,20 +149,22 @@ public class MailService implements AutoCloseable {
             //    throw new MailConnectException(new SocketConnectException("Debug", new Exception(), host, port, 0));
             _connect(context, host, port, user, password);
         } catch (MailConnectException ex) {
-            if (this.insecure)
-                try {
-                    InetAddress[] iaddrs = InetAddress.getAllByName(host);
-                    if (iaddrs.length > 1)
-                        for (InetAddress iaddr : iaddrs)
-                            try {
-                                _connect(context, iaddr.getHostAddress(), port, user, password);
-                                return;
-                            } catch (MessagingException ex1) {
-                                Log.w(ex1);
-                            }
-                } catch (Throwable ex1) {
-                    Log.w(ex1);
-                }
+            try {
+                // Some devices resolve IPv6 addresses while not having IPv6 connectivity
+                this.properties.put("mail." + this.protocol + ".ssl.checkserveridentity", "false");
+                InetAddress[] iaddrs = InetAddress.getAllByName(host);
+                if (iaddrs.length > 1)
+                    for (InetAddress iaddr : iaddrs)
+                        try {
+                            Log.i("Falling back to " + iaddr.getHostAddress());
+                            _connect(context, iaddr.getHostAddress(), port, user, password);
+                            return;
+                        } catch (MessagingException ex1) {
+                            Log.w(ex1);
+                        }
+            } catch (Throwable ex1) {
+                Log.w(ex1);
+            }
 
             throw ex;
         }
