@@ -72,6 +72,7 @@ public class ServiceSend extends ServiceBase {
     public void onCreate() {
         Log.i("Service send create");
         super.onCreate();
+        startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null, null).build());
 
         cowner = new TwoStateOwner(ServiceSend.this, "send");
         final DB db = DB.getInstance(this);
@@ -223,10 +224,7 @@ public class ServiceSend extends ServiceBase {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null, null).build());
-
         super.onStartCommand(intent, flags, startId);
-
         return START_STICKY;
     }
 

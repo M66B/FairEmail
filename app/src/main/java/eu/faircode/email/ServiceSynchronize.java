@@ -119,6 +119,7 @@ public class ServiceSynchronize extends ServiceBase {
     public void onCreate() {
         Log.i("Service create version=" + BuildConfig.VERSION_NAME);
         super.onCreate();
+        startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 
         // Listen for network changes
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -250,8 +251,6 @@ public class ServiceSynchronize extends ServiceBase {
         String action = (intent == null ? null : intent.getAction());
         Log.i("Service command intent=" + intent + " action=" + action);
         Log.logExtras(intent);
-
-        startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 
         super.onStartCommand(intent, flags, startId);
 

@@ -37,10 +37,14 @@ public class ServiceExternal extends Service {
 
 
     @Override
+    public void onCreate() {
+        super.onCreate();
+        startForeground(Helper.NOTIFICATION_EXTERNAL, getNotification().build());
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         try {
-            startForeground(Helper.NOTIFICATION_EXTERNAL, getNotification().build());
-
             Log.i("Received intent=" + intent);
             Log.logExtras(intent);
 
