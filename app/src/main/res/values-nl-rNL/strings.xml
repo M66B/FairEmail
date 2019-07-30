@@ -700,6 +700,8 @@
     <string name="title_search_special_unseen">ongelezen</string>
     <string name="title_search_special_flagged">ster</string>
     <string name="title_search_special_snoozed">gesluimerd</string>
+    <string name="title_widget_unseen">Alleen ongelezen berichten</string>
+    <string name="title_widget_flagged">Alleen berichten met een ster</string>
     <string-array name="pollIntervalNames">
         <item>Altijd</item>
         <item>Elke 15 minuten</item>
