@@ -146,13 +146,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private void wire() {
             view.setOnClickListener(this);
             ivExpander.setOnClickListener(this);
-            view.setOnLongClickListener(this);
+            if (listener == null)
+                view.setOnLongClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
             ivExpander.setOnClickListener(null);
-            view.setOnLongClickListener(null);
+            if (listener == null)
+                view.setOnLongClickListener(null);
         }
 
         private void bindTo(final TupleFolderEx folder) {
