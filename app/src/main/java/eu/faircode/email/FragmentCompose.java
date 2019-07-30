@@ -2347,6 +2347,9 @@ public class FragmentCompose extends FragmentBase {
                                 }
                             }
 
+                            Log.i("Attachments=" + attachments.size() +
+                                    " available=" + available + " downloading=" + downloading);
+
                             // Attachment deleted
                             if (available < last_available)
                                 onAction(R.id.action_save);
@@ -2355,8 +2358,6 @@ public class FragmentCompose extends FragmentBase {
 
                             rvAttachment.setTag(downloading);
                             checkInternet();
-
-                            checkDraft(draft.id);
                         }
                     });
 
@@ -2367,10 +2368,12 @@ public class FragmentCompose extends FragmentBase {
                     if (draft == null || draft.ui_hide != 0)
                         finish();
                     else {
+                        Log.i("Draft content=" + draft.content);
+                        if (draft.content && state == State.NONE)
+                            showDraft(draft);
+
                         tvNoInternet.setTag(draft.content);
                         checkInternet();
-
-                        checkDraft(draft.id);
                     }
                 }
             });
@@ -2823,42 +2826,6 @@ public class FragmentCompose extends FragmentBase {
             }
         }
     };
-
-    private void checkDraft(long id) {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<EntityMessage>() {
-            @Override
-            protected EntityMessage onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-
-                EntityMessage draft = db.message().getMessage(id);
-                if (draft == null || !draft.content)
-                    return null;
-
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments)
-                    if (!attachment.available)
-                        return null;
-
-                return draft;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null && state == State.NONE)
-                    showDraft(draft);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
-            }
-        }.execute(this, args, "compose:check");
-    }
 
     private void showDraft(long id) {
         Bundle args = new Bundle();
