@@ -794,6 +794,9 @@
     <string name="title_search_special_flagged">starred</string>
     <string name="title_search_special_snoozed">snoozed</string>
 
+    <string name="title_widget_unseen">Unread messages only</string>
+    <string name="title_widget_flagged">Starred messages only</string>
+
     <string-array name="pollIntervalNames">
         <item>Always</item>
         <item>Every 15 minutes</item>

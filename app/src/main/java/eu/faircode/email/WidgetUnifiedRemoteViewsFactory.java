@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -29,6 +30,8 @@ import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
+
+import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +57,13 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     @Override
     public void onDataSetChanged() {
         Log.i("Widget factory changed id=" + appWidgetId);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
+        boolean flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+
         DB db = DB.getInstance(context);
-        messages = db.message().getWidgetUnified();
+        messages = db.message().getWidgetUnified(unseen, flagged);
     }
 
     @Override

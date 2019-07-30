@@ -274,16 +274,18 @@ public interface DaoMessage {
             " AND folder.unified" +
             " AND message.ui_hide = 0" +
             " AND message.ui_snoozed IS NULL" +
+            " AND (NOT :unseen OR NOT message.ui_seen)" +
+            " AND (NOT :flagged OR message.ui_flagged)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
             " ORDER BY message.received DESC";
 
     @Query(widget)
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    LiveData<List<TupleMessageWidget>> liveWidgetUnified();
+    LiveData<List<TupleMessageWidget>> liveWidgetUnified(boolean unseen, boolean flagged);
 
     @Query(widget)
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    List<TupleMessageWidget> getWidgetUnified();
+    List<TupleMessageWidget> getWidgetUnified(boolean unseen, boolean flagged);
 
     @Query("SELECT COUNT(message.id) FROM message" +
             " JOIN account ON account.id = message.account" +

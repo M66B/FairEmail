@@ -32,6 +32,25 @@ import android.widget.RemoteViews;
 public class WidgetUnified extends AppWidgetProvider {
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
+        update(context, appWidgetManager, appWidgetIds);
+    }
+
+    static void init(Context context, int appWidgetId) {
+        Log.i("Widget unified init=" + appWidgetId);
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        update(context, appWidgetManager, new int[]{appWidgetId});
+    }
+
+    static void update(Context context) {
+        Log.i("Widget unified update");
+        if (Helper.isPro(context)) {
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
+        }
+    }
+
+    private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Intent view = new Intent(context, ActivityView.class);
         view.setAction("unified");
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -62,15 +81,6 @@ public class WidgetUnified extends AppWidgetProvider {
                 views.setTextViewText(R.id.pro, context.getText(R.string.title_pro_feature));
 
             appWidgetManager.updateAppWidget(id, views);
-        }
-    }
-
-    static void update(Context context) {
-        Log.i("Widget unified update");
-        if (Helper.isPro(context)) {
-            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
         }
     }
 }
