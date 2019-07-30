@@ -96,9 +96,9 @@ public class FragmentDialogFolder extends DialogFragmentEx {
                 if (folders == null || folders.size() == 0)
                     tvNoFolder.setVisibility(View.VISIBLE);
                 else {
-                    rvFolder.setVisibility(View.VISIBLE);
                     adapter.setDisabled(Helper.fromLongArray(disabled));
                     adapter.set(folders);
+                    rvFolder.setVisibility(View.VISIBLE);
                 }
             }
 
