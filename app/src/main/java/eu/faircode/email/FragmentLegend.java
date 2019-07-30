@@ -48,6 +48,9 @@ public class FragmentLegend extends FragmentBase {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_legend);
 
+        if (savedInstanceState != null)
+            layout = savedInstanceState.getInt("fair:layout");
+
         View view;
         if (layout < 0) {
             view = inflater.inflate(R.layout.fragment_legend, container, false);
@@ -63,10 +66,19 @@ public class FragmentLegend extends FragmentBase {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null)
+            layout = savedInstanceState.getInt("fair:layout");
+
         if (layout < 0) {
             TabLayout tabLayout = view.findViewById(R.id.tab_layout);
             tabLayout.setupWithViewPager(pager);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("fair:layout", layout);
+        super.onSaveInstanceState(outState);
     }
 
     private class PagerAdapter extends FragmentStatePagerAdapter {
