@@ -151,13 +151,15 @@ public class MailService implements AutoCloseable {
         } catch (MailConnectException ex) {
             if (this.insecure)
                 try {
-                    for (InetAddress iaddr : InetAddress.getAllByName(host))
-                        try {
-                            _connect(context, iaddr.getHostAddress(), port, user, password);
-                            return;
-                        } catch (MessagingException ex1) {
-                            Log.w(ex1);
-                        }
+                    InetAddress[] iaddrs = InetAddress.getAllByName(host);
+                    if (iaddrs.length > 1)
+                        for (InetAddress iaddr : iaddrs)
+                            try {
+                                _connect(context, iaddr.getHostAddress(), port, user, password);
+                                return;
+                            } catch (MessagingException ex1) {
+                                Log.w(ex1);
+                            }
                 } catch (Throwable ex1) {
                     Log.w(ex1);
                 }
