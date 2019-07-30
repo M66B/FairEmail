@@ -409,8 +409,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         //rvMessage.setItemViewCacheSize(10);
         //rvMessage.getRecycledViewPool().setMaxRecycledViews(0, 10);
         final LinearLayoutManager llm = new LinearLayoutManager(getContext()) {
-            Rect parentRect = new Rect();
-            Rect childRect = new Rect();
+            private Rect parentRect = new Rect();
+            private Rect childRect = new Rect();
 
             @Override
             public boolean requestChildRectangleOnScreen(@NonNull RecyclerView parent, @NonNull View child, @NonNull Rect rect, boolean immediate) {
@@ -423,7 +423,39 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 child.getHitRect(childRect);
                 if (Rect.intersects(parentRect, childRect))
                     return false;
-                return super.requestChildRectangleOnScreen(parent, child, rect, immediate, focusedChildVisible);
+
+                try {
+                    return super.requestChildRectangleOnScreen(parent, child, rect, immediate, focusedChildVisible);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    /*
+                        java.lang.NullPointerException: Attempt to read from field 'int android.view.ViewGroup$LayoutParams.width' on a null object reference
+                        java.lang.NullPointerException: Attempt to read from field 'int android.view.ViewGroup$LayoutParams.width' on a null object reference
+                        at android.widget.PopupWindow.alignToAnchor(PopupWindow.java:2353)
+                        at android.widget.PopupWindow.access$000(PopupWindow.java:106)
+                        at android.widget.PopupWindow$1.onViewAttachedToWindow(PopupWindow.java:220)
+                        at android.view.View.dispatchAttachedToWindow(View.java:18358)
+                        at android.view.ViewGroup.dispatchAttachedToWindow(ViewGroup.java:3397)
+                        at android.view.ViewGroup.addViewInner(ViewGroup.java:5077)
+                        at android.view.ViewGroup.addView(ViewGroup.java:4865)
+                        at android.view.ViewGroup.addView(ViewGroup.java:4805)
+                        at androidx.recyclerview.widget.RecyclerView$5.addView(SourceFile:870)
+                        at androidx.recyclerview.widget.ChildHelper.addView(SourceFile:107)
+                        at androidx.recyclerview.widget.RecyclerView$LayoutManager.addViewInt(SourceFile:8569)
+                        at androidx.recyclerview.widget.RecyclerView$LayoutManager.addView(SourceFile:8527)
+                        at androidx.recyclerview.widget.RecyclerView$LayoutManager.addView(SourceFile:8515)
+                        at androidx.recyclerview.widget.LinearLayoutManager.layoutChunk(SourceFile:1641)
+                        at androidx.recyclerview.widget.LinearLayoutManager.fill(SourceFile:1587)
+                        at androidx.recyclerview.widget.LinearLayoutManager.onLayoutChildren(SourceFile:665)
+                        at androidx.recyclerview.widget.RecyclerView.dispatchLayoutStep2(SourceFile:4115)
+                        at androidx.recyclerview.widget.RecyclerView.dispatchLayout(SourceFile:3832)
+                        at androidx.recyclerview.widget.RecyclerView.consumePendingUpdateOperations(SourceFile:1881)
+                        at androidx.recyclerview.widget.RecyclerView.scrollByInternal(SourceFile:1950)
+                        at androidx.recyclerview.widget.RecyclerView.scrollBy(SourceFile:1826)
+                        at androidx.recyclerview.widget.RecyclerView$LayoutManager.requestChildRectangleOnScreen(SourceFile:9881)
+                     */
+                    return false;
+                }
             }
         };
         rvMessage.setLayoutManager(llm);
