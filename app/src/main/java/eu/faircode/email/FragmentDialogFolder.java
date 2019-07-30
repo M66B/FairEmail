@@ -32,7 +32,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -41,7 +40,9 @@ public class FragmentDialogFolder extends DialogFragmentEx {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        String title = getArguments().getString("title");
+        final String title = getArguments().getString("title");
+        final long account = getArguments().getLong("account");
+        final long[] disabled = getArguments().getLongArray("disabled");
 
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_select, null);
         final TextView tvNoFolder = dview.findViewById(R.id.tvNoFolder);
@@ -52,8 +53,22 @@ public class FragmentDialogFolder extends DialogFragmentEx {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
+        final AdapterFolder adapter = new AdapterFolder(getContext(), getActivity(),
+                account, false, new AdapterFolder.IFolderSelectedListener() {
+            @Override
+            public void onFolderSelected(TupleFolderEx folder) {
+                Bundle args = getArguments();
+                args.putLong("folder", folder.id);
+
+                sendResult(RESULT_OK);
+                dismiss();
+            }
+        });
+
+        rvFolder.setAdapter(adapter);
+
         Bundle args = new Bundle();
-        args.putLong("account", getArguments().getLong("account"));
+        args.putLong("account", account);
 
         new SimpleTask<List<TupleFolderEx>>() {
             @Override
@@ -78,31 +93,12 @@ public class FragmentDialogFolder extends DialogFragmentEx {
 
             @Override
             protected void onExecuted(final Bundle args, List<TupleFolderEx> folders) {
-                if (folders == null)
-                    folders = new ArrayList<>();
-
-                if (folders.size() == 0)
+                if (folders == null || folders.size() == 0)
                     tvNoFolder.setVisibility(View.VISIBLE);
                 else {
-                    long account = args.getLong("account");
-                    AdapterFolder adapter = new AdapterFolder(getContext(), getActivity(),
-                            account, false, new AdapterFolder.IFolderSelectedListener() {
-                        @Override
-                        public void onFolderSelected(TupleFolderEx folder) {
-                            Bundle args = getArguments();
-                            args.putLong("folder", folder.id);
-
-                            sendResult(RESULT_OK);
-                            dismiss();
-                        }
-                    });
-
-                    rvFolder.setAdapter(adapter);
-
-                    adapter.setDisabled(Helper.fromLongArray(getArguments().getLongArray("disabled")));
-                    adapter.set(folders);
-
                     rvFolder.setVisibility(View.VISIBLE);
+                    adapter.setDisabled(Helper.fromLongArray(disabled));
+                    adapter.set(folders);
                 }
             }
 
