@@ -41,7 +41,7 @@ public class Widget extends AppWidgetProvider {
             @Override
             public void run() {
                 DB db = DB.getInstance(context);
-                update(appWidgetIds, appWidgetManager, context, db.message().getUnseenUnified());
+                update(context, appWidgetManager, appWidgetIds, db.message().getUnseenUnified());
             }
         });
     }
@@ -49,10 +49,10 @@ public class Widget extends AppWidgetProvider {
     static void update(Context context, int count) {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int[] appWidgetIds = AppWidgetManager.getInstance(context).getAppWidgetIds(new ComponentName(context, Widget.class));
-        update(appWidgetIds, appWidgetManager, context, count);
+        update(context, appWidgetManager, appWidgetIds, count);
     }
 
-    private static void update(int[] appWidgetIds, AppWidgetManager appWidgetManager, Context context, int count) {
+    private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, int count) {
         Intent view = new Intent(context, ActivityView.class);
         view.setAction("unified");
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
