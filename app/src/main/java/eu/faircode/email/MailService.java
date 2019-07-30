@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
@@ -30,6 +32,8 @@ public class MailService implements AutoCloseable {
     private Properties properties;
     private Session isession;
     private Service iservice;
+
+    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
 
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
     private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
@@ -49,6 +53,7 @@ public class MailService implements AutoCloseable {
         properties = MessageHelper.getSessionProperties();
 
         properties.put("mail.event.scope", "folder");
+        properties.put("mail.event.executor", executor);
 
         String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
 
