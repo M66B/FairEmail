@@ -114,6 +114,8 @@ public class EntityAttachment {
         String filename = Long.toString(id);
         if (!TextUtils.isEmpty(name))
             filename += "." + Helper.sanitizeFilename(name);
+        if (filename.length() > 255)
+            filename = filename.substring(0, 255);
         return new File(dir, filename);
     }
 

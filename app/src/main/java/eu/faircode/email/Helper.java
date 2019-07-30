@@ -529,13 +529,7 @@ public class Helper {
         if (name == null)
             return null;
 
-        name = name.replaceAll("[?:\"*|/\\\\<>]", "_");
-
-        // Both the name and extension can be long
-        if (name.length() > 255)
-            name = name.substring(0, 255);
-
-        return name;
+        return name.replaceAll("[?:\"*|/\\\\<>]", "_");
     }
 
     static String getExtension(String filename) {
