@@ -528,7 +528,14 @@ public class Helper {
     static String sanitizeFilename(String name) {
         if (name == null)
             return null;
-        return name.replaceAll("[?:\"*|/\\\\<>]", "_");
+
+        name = name.replaceAll("[?:\"*|/\\\\<>]", "_");
+
+        // Both the name and extension can be long
+        if (name.length() > 255)
+            name = name.substring(0, 255);
+
+        return name;
     }
 
     static String getExtension(String filename) {
