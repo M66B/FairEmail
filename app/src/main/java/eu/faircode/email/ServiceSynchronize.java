@@ -202,6 +202,7 @@ public class ServiceSynchronize extends ServiceBase {
                                 !m1.received.equals(m2.received) ||
                                 !Objects.equals(m1.subject, m2.subject) ||
                                 !(m1.unseen == m2.unseen) ||
+                                !(m1.unflagged == m2.unflagged) ||
                                 !Objects.equals(m1.accountName, m2.accountName)) {
                             changed = true;
                             break;

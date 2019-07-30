@@ -24,6 +24,7 @@ import java.util.Objects;
 public class TupleMessageWidget extends EntityMessage {
     public String accountName;
     public int unseen;
+    public int unflagged;
 
     @Override
     public boolean equals(Object obj) {
@@ -31,7 +32,8 @@ public class TupleMessageWidget extends EntityMessage {
             TupleMessageEx other = (TupleMessageEx) obj;
             return (super.equals(obj) &&
                     Objects.equals(this.accountName, other.accountName) &&
-                    this.unseen == other.unseen);
+                    this.unseen == other.unseen &&
+                    this.unflagged == other.unflagged);
         }
         return false;
     }

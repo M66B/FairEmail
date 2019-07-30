@@ -266,6 +266,7 @@ public interface DaoMessage {
 
     String widget = "SELECT message.*, account.name AS accountName" +
             ", SUM(1 - message.ui_seen) AS unseen" +
+            ", COUNT(message.id) - SUM(message.ui_flagged) AS unflagged" +
             ", MAX(message.received) AS dummy" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
