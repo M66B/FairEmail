@@ -196,8 +196,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         db.endTransaction();
                     }
 
-                    if (!attachment.getFile(context).delete())
-                        throw new FileNotFoundException(attachment.getFile(context).toString());
+                    attachment.getFile(context).delete();
 
                     return null;
                 }
