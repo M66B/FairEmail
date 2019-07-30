@@ -231,7 +231,8 @@ public class FragmentIdentity extends FragmentBase {
                     for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
                         EmailProvider provider = (EmailProvider) spProvider.getItemAtPosition(pos);
                         if (provider.imap_host.equals(account.host) &&
-                                provider.imap_port == account.port) {
+                                provider.imap_port == account.port &&
+                                provider.imap_starttls == account.starttls) {
                             found = true;
 
                             spProvider.setSelection(pos);
@@ -925,7 +926,8 @@ public class FragmentIdentity extends FragmentBase {
                                 for (int pos = 1; pos < providers.size(); pos++) {
                                     EmailProvider provider = providers.get(pos);
                                     if (provider.smtp_host.equals(identity.host) &&
-                                            provider.smtp_port == identity.port) {
+                                            provider.smtp_port == identity.port &&
+                                            provider.smtp_starttls == identity.starttls) {
                                         spProvider.setTag(pos);
                                         spProvider.setSelection(pos);
                                         break;

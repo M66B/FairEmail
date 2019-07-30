@@ -1142,7 +1142,8 @@ public class FragmentAccount extends FragmentBase {
                         for (int pos = 2; pos < providers.size(); pos++) {
                             EmailProvider provider = providers.get(pos);
                             if (provider.imap_host.equals(account.host) &&
-                                    provider.imap_port == account.port) {
+                                    provider.imap_port == account.port &&
+                                    provider.imap_starttls == account.starttls) {
                                 found = true;
                                 spProvider.setTag(pos);
                                 spProvider.setSelection(pos);
