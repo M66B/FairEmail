@@ -339,7 +339,7 @@ public class ServiceSend extends ServiceBase {
         // Create transport
         try (MailService iservice = new MailService(
                 this, ident.getProtocol(), ident.realm, ident.insecure, debug)) {
-            iservice.setUseIp(ident.use_ip, ident.host);
+            iservice.setUseIp(ident.use_ip);
 
             // Connect transport
             db.identity().setIdentityState(ident.id, "connecting");

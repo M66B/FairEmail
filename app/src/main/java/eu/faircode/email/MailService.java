@@ -25,7 +25,7 @@ import javax.mail.Session;
 public class MailService implements AutoCloseable {
     private Context context;
     private String protocol;
-    private boolean insecure;
+    private boolean useip;
     private boolean debug;
     private Properties properties;
     private Session isession;
@@ -45,7 +45,6 @@ public class MailService implements AutoCloseable {
     MailService(Context context, String protocol, String realm, boolean insecure, boolean debug) throws NoSuchProviderException {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
-        this.insecure = insecure;
         this.debug = debug;
         this.properties = MessageHelper.getSessionProperties();
 
@@ -116,19 +115,8 @@ public class MailService implements AutoCloseable {
             this.properties.put("mail." + this.protocol + ".partialfetch", "false");
     }
 
-    void setUseIp(boolean enabled, String host) throws UnknownHostException {
-        String haddr;
-        if (enabled) {
-            InetAddress addr = InetAddress.getByName(host);
-            if (addr instanceof Inet4Address)
-                haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
-            else
-                haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
-        } else
-            haddr = host;
-
-        Log.i("Send localhost=" + haddr);
-        this.properties.put("mail." + this.protocol + ".localhost", haddr);
+    void setUseIp(boolean enabled) {
+        this.useip = enabled;
     }
 
     void setSeparateStoreConnection() {
@@ -199,6 +187,23 @@ public class MailService implements AutoCloseable {
                 }
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
+            String haddr = host;
+
+            if (useip)
+                try {
+                    // This assumes getByName always returns the same address (type)
+                    InetAddress addr = InetAddress.getByName(host);
+                    if (addr instanceof Inet4Address)
+                        haddr = "[" + Inet4Address.getLocalHost().getHostAddress() + "]";
+                    else
+                        haddr = "[IPv6:" + Inet6Address.getLocalHost().getHostAddress() + "]";
+                } catch (UnknownHostException ex) {
+                    Log.w(ex);
+                }
+
+            Log.i("Using localhost=" + haddr);
+            this.properties.put("mail." + this.protocol + ".localhost", haddr);
+
             iservice = isession.getTransport(protocol);
             iservice.connect(host, port, user, password);
         } else
