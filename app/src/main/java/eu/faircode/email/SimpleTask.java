@@ -122,7 +122,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                         if (state.equals(Lifecycle.State.DESTROYED)) {
                             // No delivery
                             cleanup(context);
-                        } else if (state.isAtLeast(Lifecycle.State.STARTED)) {
+                        } else if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                             // Inline delivery
                             Log.i("Deliver task " + name);
                             deliver();
@@ -136,7 +136,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                         Log.i("Destroyed task " + name);
                                         owner.getLifecycle().removeObserver(this);
                                         cleanup(context);
-                                    } else if (state.isAtLeast(Lifecycle.State.STARTED)) {
+                                    } else if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                                         Log.i("Deferred delivery task " + name);
                                         owner.getLifecycle().removeObserver(this);
                                         deliver();
