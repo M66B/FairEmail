@@ -49,22 +49,27 @@ public class WorkerWatchdog extends Worker {
     }
 
     static void init(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean watchdog = prefs.getBoolean("watchdog", true);
-        if (watchdog) {
-            Log.i("Queuing " + getName() + " every " + WATCHDOG_INTERVAL + " minutes");
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean watchdog = prefs.getBoolean("watchdog", true);
+            if (watchdog) {
+                Log.i("Queuing " + getName() + " every " + WATCHDOG_INTERVAL + " minutes");
 
-            PeriodicWorkRequest workRequest =
-                    new PeriodicWorkRequest.Builder(WorkerWatchdog.class, WATCHDOG_INTERVAL, TimeUnit.MINUTES)
-                            .build();
-            WorkManager.getInstance(context)
-                    .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);
+                PeriodicWorkRequest workRequest =
+                        new PeriodicWorkRequest.Builder(WorkerWatchdog.class, WATCHDOG_INTERVAL, TimeUnit.MINUTES)
+                                .build();
+                WorkManager.getInstance(context)
+                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);
 
-            Log.i("Queued " + getName());
-        } else {
-            Log.i("Cancelling " + getName());
-            WorkManager.getInstance(context).cancelUniqueWork(getName());
-            Log.i("Cancelled " + getName());
+                Log.i("Queued " + getName());
+            } else {
+                Log.i("Cancelling " + getName());
+                WorkManager.getInstance(context).cancelUniqueWork(getName());
+                Log.i("Cancelled " + getName());
+            }
+        } catch (IllegalStateException ex) {
+            // https://issuetracker.google.com/issues/138465476
+            Log.w(ex);
         }
     }
 

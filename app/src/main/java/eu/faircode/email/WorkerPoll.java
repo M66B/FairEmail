@@ -47,23 +47,28 @@ public class WorkerPoll extends Worker {
     }
 
     static void init(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean enabled = prefs.getBoolean("enabled", true);
-        int pollInterval = prefs.getInt("poll_interval", 0);
-        if (enabled && pollInterval > 0) {
-            Log.i("Queuing " + getName() + " every " + pollInterval + " minutes");
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean enabled = prefs.getBoolean("enabled", true);
+            int pollInterval = prefs.getInt("poll_interval", 0);
+            if (enabled && pollInterval > 0) {
+                Log.i("Queuing " + getName() + " every " + pollInterval + " minutes");
 
-            PeriodicWorkRequest workRequest =
-                    new PeriodicWorkRequest.Builder(WorkerPoll.class, pollInterval, TimeUnit.MINUTES)
-                            .build();
-            WorkManager.getInstance(context)
-                    .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);
+                PeriodicWorkRequest workRequest =
+                        new PeriodicWorkRequest.Builder(WorkerPoll.class, pollInterval, TimeUnit.MINUTES)
+                                .build();
+                WorkManager.getInstance(context)
+                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);
 
-            Log.i("Queued " + getName());
-        } else {
-            Log.i("Cancelling " + getName());
-            WorkManager.getInstance(context).cancelUniqueWork(getName());
-            Log.i("Cancelled " + getName());
+                Log.i("Queued " + getName());
+            } else {
+                Log.i("Cancelling " + getName());
+                WorkManager.getInstance(context).cancelUniqueWork(getName());
+                Log.i("Cancelled " + getName());
+            }
+        } catch (IllegalStateException ex) {
+            // https://issuetracker.google.com/issues/138465476
+            Log.w(ex);
         }
     }
 
