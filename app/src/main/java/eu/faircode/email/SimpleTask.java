@@ -129,21 +129,20 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             cleanup(context);
                         } else
                             owner.getLifecycle().addObserver(new LifecycleObserver() {
-                                @OnLifecycleEvent(Lifecycle.Event.ON_START)
-                                public void onStart() {
-                                    // Deferred delivery
-                                    Log.i("Deferred delivery task " + name);
-                                    owner.getLifecycle().removeObserver(this);
-                                    deliver();
-                                    cleanup(context);
-                                }
-
-                                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                                public void onDestroyed() {
-                                    // No delivery
-                                    Log.i("Destroyed task " + name);
-                                    owner.getLifecycle().removeObserver(this);
-                                    cleanup(context);
+                                @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+                                public void onAny() {
+                                    Lifecycle.State state = owner.getLifecycle().getCurrentState();
+                                    if (state.equals(Lifecycle.State.DESTROYED)) {
+                                        Log.i("Destroyed task " + name);
+                                        owner.getLifecycle().removeObserver(this);
+                                        cleanup(context);
+                                    } else if (state.isAtLeast(Lifecycle.State.STARTED)) {
+                                        Log.i("Deferred delivery task " + name);
+                                        owner.getLifecycle().removeObserver(this);
+                                        deliver();
+                                        cleanup(context);
+                                    } else
+                                        Log.i("Task deferring " + state);
                                 }
                             });
                     }
