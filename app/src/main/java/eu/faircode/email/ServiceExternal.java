@@ -48,6 +48,9 @@ public class ServiceExternal extends Service {
             Log.i("Received intent=" + intent);
             Log.logExtras(intent);
 
+            super.onStartCommand(intent, flags, startId);
+            startForeground(Helper.NOTIFICATION_EXTERNAL, getNotification().build());
+
             if (intent == null)
                 return START_NOT_STICKY;
 

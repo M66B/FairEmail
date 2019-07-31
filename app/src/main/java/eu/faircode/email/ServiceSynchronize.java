@@ -254,6 +254,7 @@ public class ServiceSynchronize extends ServiceBase {
         Log.logExtras(intent);
 
         super.onStartCommand(intent, flags, startId);
+        startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 
         if (action != null)
             try {

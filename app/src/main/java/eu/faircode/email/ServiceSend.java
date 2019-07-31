@@ -225,6 +225,7 @@ public class ServiceSend extends ServiceBase {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
+        startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null, null).build());
         return START_STICKY;
     }
 
