@@ -690,6 +690,8 @@
     <string name="title_search_special_unseen">未读</string>
     <string name="title_search_special_flagged">星标</string>
     <string name="title_search_special_snoozed">延后</string>
+    <string name="title_widget_unseen">仅未读信息</string>
+    <string name="title_widget_flagged">仅带有星标的邮件</string>
     <string-array name="pollIntervalNames">
         <item>总是</item>
         <item>每15分钟</item>

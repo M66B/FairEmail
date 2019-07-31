@@ -707,6 +707,8 @@
     <string name="title_search_special_unseen">nieodczytana</string>
     <string name="title_search_special_flagged">oznaczona</string>
     <string name="title_search_special_snoozed">odłożona</string>
+    <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
+    <string name="title_widget_flagged">Tylko oznaczone gwiazdką</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
         <item>Co 15 minut</item>

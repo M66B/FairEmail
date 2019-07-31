@@ -700,6 +700,8 @@
     <string name="title_search_special_unseen">no_leído</string>
     <string name="title_search_special_flagged">destacado</string>
     <string name="title_search_special_snoozed">pospuesto</string>
+    <string name="title_widget_unseen">Sólo mensajes no leídos</string>
+    <string name="title_widget_flagged">Sólo mensajes destacados</string>
     <string-array name="pollIntervalNames">
         <item>Siempre</item>
         <item>Cada 15 minutos</item>

@@ -699,6 +699,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_search_special_unseen">ungelesen</string>
     <string name="title_search_special_flagged">markiert</string>
     <string name="title_search_special_snoozed">zurückgestellt</string>
+    <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
+    <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string-array name="pollIntervalNames">
         <item>Immer</item>
         <item>Alle 15 Minuten</item>

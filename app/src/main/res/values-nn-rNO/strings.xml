@@ -700,6 +700,8 @@
     <string name="title_search_special_unseen">ulest</string>
     <string name="title_search_special_flagged">stjernemerkede</string>
     <string name="title_search_special_snoozed">utsatt</string>
+    <string name="title_widget_unseen">Bare uleste meldinger</string>
+    <string name="title_widget_flagged">Bare stjerne merkede meldinger</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Hvert 15. minutt</item>

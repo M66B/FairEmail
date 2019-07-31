@@ -700,6 +700,8 @@
     <string name="title_search_special_unseen">non_lus</string>
     <string name="title_search_special_flagged">suivis</string>
     <string name="title_search_special_snoozed">différés</string>
+    <string name="title_widget_unseen">Messages non lus seulement</string>
+    <string name="title_widget_flagged">Messages suivis seulement</string>
     <string-array name="pollIntervalNames">
         <item>Toujours</item>
         <item>Toutes les 15 minutes</item>

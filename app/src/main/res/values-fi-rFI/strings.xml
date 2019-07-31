@@ -39,6 +39,10 @@
         <item quantity="one">%1$d uusi</item>
         <item quantity="other">%1$d uutta</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">Valittuna %1$d viesti</item>
+        <item quantity="other">Valittuna %1$d viestiä</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Siirrä %1$d viesti kansioon %2$s?</item>
         <item quantity="other">Siirrä %1$d viestiä kansioon %2$s?</item>
@@ -696,6 +700,8 @@
     <string name="title_search_special_unseen">lukematon</string>
     <string name="title_search_special_flagged">tähdellinen</string>
     <string name="title_search_special_snoozed">torkutettu</string>
+    <string name="title_widget_unseen">Vain lukemattomat viestit</string>
+    <string name="title_widget_flagged">Vain tähdelliset viestit</string>
     <string-array name="pollIntervalNames">
         <item>Koko ajan</item>
         <item>15 minuutin välein</item>

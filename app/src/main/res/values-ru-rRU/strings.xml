@@ -718,6 +718,8 @@
     <string name="title_search_special_unseen">непрочитано</string>
     <string name="title_search_special_flagged">избранное</string>
     <string name="title_search_special_snoozed">отложено</string>
+    <string name="title_widget_unseen">Только непрочитанные сообщения</string>
+    <string name="title_widget_flagged">Только избранные сообщения</string>
     <string-array name="pollIntervalNames">
         <item>Непрерывно</item>
         <item>Каждые 15 минут</item>

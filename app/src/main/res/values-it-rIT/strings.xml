@@ -699,6 +699,8 @@
     <string name="title_search_special_unseen">non_letto</string>
     <string name="title_search_special_flagged">stellato</string>
     <string name="title_search_special_snoozed">posticipato</string>
+    <string name="title_widget_unseen">Solo messaggi non letti</string>
+    <string name="title_widget_flagged">Solo messaggi preferiti</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>Ogni 15 minuti</item>
