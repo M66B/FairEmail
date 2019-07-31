@@ -1903,24 +1903,28 @@ public class FragmentCompose extends FragmentBase {
                 options.inJustDecodeBounds = false;
                 options.inSampleSize = factor;
 
-                Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
-                if (scaled != null) {
-                    Log.i("Image target size=" + scaled.getWidth() + "x" + scaled.getHeight() + " rotation=" + rotation);
+                Bitmap resized = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+                if (resized != null) {
+                    Log.i("Image target size=" + resized.getWidth() + "x" + resized.getHeight() + " rotation=" + rotation);
 
                     if (rotation != null) {
-                        Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
-                        scaled.recycle();
-                        scaled = rotated;
+                        Bitmap rotated = Bitmap.createBitmap(resized, 0, 0, resized.getWidth(), resized.getHeight(), rotation, true);
+                        resized.recycle();
+                        resized = rotated;
                     }
 
-                    try (OutputStream out = new FileOutputStream(file)) {
-                        scaled.compress("image/jpeg".equals(attachment.type)
+                    File tmp = File.createTempFile(Long.toString(attachment.id), ".resized", context.getCacheDir());
+                    try (OutputStream out = new FileOutputStream(tmp)) {
+                        resized.compress("image/jpeg".equals(attachment.type)
                                         ? Bitmap.CompressFormat.JPEG
                                         : Bitmap.CompressFormat.PNG,
                                 REDUCED_IMAGE_QUALITY, out);
                     } finally {
-                        scaled.recycle();
+                        resized.recycle();
                     }
+
+                    file.delete();
+                    tmp.renameTo(file);
 
                     DB db = DB.getInstance(context);
                     db.attachment().setDownloaded(attachment.id, file.length());
