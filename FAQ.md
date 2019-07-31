@@ -31,6 +31,7 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) lets FairEmail crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A bug in Nova Launcher or Android 5.x lets FairEmail crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
+* The folder selector sometimes shows no folders for yet unknown reasons.
 
 ## Planned features
 
