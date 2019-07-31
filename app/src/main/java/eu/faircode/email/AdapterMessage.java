@@ -1364,10 +1364,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             response.setMethod(Method.REPLY);
                             response.addEvent(ev);
 
-                            File dir = new File(context.getFilesDir(), "temporary");
-                            if (!dir.exists())
-                                dir.mkdir();
-                            File ics = new File(dir, "meeting.ics");
+                            File ics = File.createTempFile(Long.toString(attachment.id), ".ics", context.getCacheDir());
                             response.write(ics);
 
                             return ics;

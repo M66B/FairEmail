@@ -2179,7 +2179,7 @@ public class FragmentCompose extends FragmentBase {
                         EntityAttachment attachment = new EntityAttachment();
                         attachment.message = draft.id;
                         attachment.sequence = 1;
-                        attachment.name = ics.getName();
+                        attachment.name = "meeting.ics";
                         attachment.type = "text/calendar";
                         attachment.disposition = Part.ATTACHMENT;
                         attachment.size = ics.length();
