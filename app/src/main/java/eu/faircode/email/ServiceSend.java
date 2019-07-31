@@ -36,12 +36,17 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.BreadcrumbType;
+import com.bugsnag.android.Bugsnag;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -131,6 +136,15 @@ public class ServiceSend extends ServiceBase {
                                                     " start op=" + op.id + "/" + op.name +
                                                     " msg=" + op.message +
                                                     " args=" + op.args);
+
+                                            Map<String, String> crumb = new HashMap<>();
+                                            crumb.put("name", op.name);
+                                            crumb.put("args", op.args);
+                                            crumb.put("folder", op.folder + ":outbox");
+                                            if (op.message != null)
+                                                crumb.put("message", Long.toString(op.message));
+                                            crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+                                            Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.LOG, crumb);
 
                                             switch (op.name) {
                                                 case EntityOperation.SYNC:
