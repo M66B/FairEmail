@@ -82,6 +82,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private void run(final Context context, final LifecycleOwner owner, final Bundle args, final String name) {
         final Handler handler = new Handler();
 
+        if (owner instanceof TwoStateOwner)
+            Log.e(new Throwable("SimpleTask/TwoStateOwner"));
+
         // prevent garbage collection
         synchronized (tasks) {
             tasks.add(this);
