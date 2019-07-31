@@ -84,7 +84,7 @@ public class FragmentDialogFolder extends DialogFragmentEx {
             }
 
             @Override
-            protected List<TupleFolderEx> onExecute(Context context, Bundle args) throws Throwable {
+            protected List<TupleFolderEx> onExecute(Context context, Bundle args) {
                 long account = args.getLong("account");
 
                 DB db = DB.getInstance(context);
