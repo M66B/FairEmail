@@ -44,6 +44,11 @@
         <item quantity="few">%1$d noi</item>
         <item quantity="other">%1$d noi</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">%1$d mesaj selectat</item>
+        <item quantity="few">%1$d mesaje selectate</item>
+        <item quantity="other">%1$d de mesaje selectate</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Se mută %1$d mesaj la %2$s ?</item>
         <item quantity="few">Se mută %1$d mesaje la %2$s ?</item>
@@ -119,11 +124,13 @@
     <string name="title_setup_doze_remark">Pentru a primi în mod continuu e-mail (opțional)</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
+    <string name="title_setup_data">Economizorul de date este activat</string>
     <string name="title_setup_inbox">Mergi la mesaje</string>
     <string name="title_setup_to_do">De făcut</string>
     <string name="title_setup_done">Gata</string>
     <string name="title_setup_export">Exportă setări</string>
     <string name="title_setup_import">Importă setări</string>
+    <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_repeat">Repetă parola</string>
     <string name="title_setup_password_missing">Lipsește parola</string>
@@ -170,6 +177,7 @@
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_autoresize">Redimensionează automat imaginile atașate și incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
+    <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
     <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
@@ -182,8 +190,8 @@
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
-    <string name="title_advanced_generated_icons">Arată iconițele generate</string>
-    <string name="title_advanced_identicons">Arată iconițe generate</string>
+    <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
+    <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
     <string name="title_advanced_circular">Arată pictograme rotunde</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
@@ -237,8 +245,12 @@
     <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată, este posibilă sincronizarea manuală prin tragerea în jos a listei de mesaje. Astfel se vor sincroniza mesajele și se vor executa operațiile pentru o perioadă limitată de timp.</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
+    <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
+    <string name="title_advanced_unseen_hint">Unii furnizori nu suportă aceasta în mod corect, și asta, de exemplu, poate duce la sincronizarea tuturor mesajelor</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
+    <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
+    <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
@@ -248,6 +260,7 @@
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
+    <string name="title_advanced_permission_contacts_hint">Este necesară acordarea permisiunii de a citii contactele</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
@@ -260,6 +273,7 @@
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
+    <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_encrypt">Criptare în mod implicit</string>
@@ -434,6 +448,7 @@
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
     <string name="title_ask_sync_all">Se sincronizează toate mesajele din %1$s?</string>
+    <string name="title_ask_delete_local">Ștergeți mesajele locale? Mesajele vor rămâne pe serverul gazdă.</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
@@ -694,6 +709,8 @@
     <string name="title_search_special_unseen">necitit</string>
     <string name="title_search_special_flagged">stea</string>
     <string name="title_search_special_snoozed">amanat</string>
+    <string name="title_widget_unseen">Numai mesajele necitite</string>
+    <string name="title_widget_flagged">Numai mesajele cu stea</string>
     <string-array name="pollIntervalNames">
         <item>Permanent</item>
         <item>La fiecare 15 minute</item>
