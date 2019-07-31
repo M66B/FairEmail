@@ -2307,7 +2307,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 snackbar.dismiss();
-                new FragmentDialogReporting().show(getFragmentManager(), "first");
+                new FragmentDialogReporting().show(getFragmentManager(), "reporting");
             }
         });
 
