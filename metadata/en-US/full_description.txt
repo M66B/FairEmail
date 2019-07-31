@@ -1,6 +1,3 @@
-FairEmail
----------
-
 This open source, privacy friendly email app might be for you if your current email app:
 
 * takes long to receive or to show messages
@@ -85,4 +82,4 @@ All pro features are convenience or advanced features.
 * IMAP IDLE (push messages) supported
 * Built with latest development tools and libraries
 
-For more information, please see here: https://github.com/M66B/FairEmail/blob/master/README.md
+For more information, please see here: <a href="https://github.com/M66B/FairEmail/blob/master/README.md">https://github.com/M66B/FairEmail/blob/master/README.md</a>
