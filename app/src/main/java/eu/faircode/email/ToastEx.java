@@ -13,11 +13,11 @@ public class ToastEx extends Toast {
         super(context);
     }
 
-    public static Toast makeText(Context context, int resId, int duration) throws Resources.NotFoundException {
+    public static ToastEx makeText(Context context, int resId, int duration) throws Resources.NotFoundException {
         return makeText(context, context.getText(resId), duration);
     }
 
-    public static Toast makeText(Context context, CharSequence text, int duration) {
+    public static ToastEx makeText(Context context, CharSequence text, int duration) {
         ToastEx toast = new ToastEx(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.toast, null);

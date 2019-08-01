@@ -267,22 +267,19 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             protected void onPreExecute(Bundle args) {
                 btnCleanup.setEnabled(false);
+                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 btnCleanup.setEnabled(true);
+                ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 WorkerCleanup.cleanup(context, true);
                 return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
             }
 
             @Override
