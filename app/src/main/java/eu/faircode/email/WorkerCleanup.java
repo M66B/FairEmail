@@ -90,6 +90,10 @@ public class WorkerCleanup extends Worker {
                         }
                     }
                 }
+
+                // Restore alarms
+                for (EntityMessage message : db.message().getSnoozed())
+                    EntityMessage.snooze(context, message.id, message.ui_snoozed);
             }
 
             long now = new Date().getTime();
