@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -52,7 +51,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -178,7 +176,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             new SimpleTask<Void>() {
                 @Override
-                protected Void onExecute(Context context, Bundle args) throws FileNotFoundException {
+                protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
 
                     DB db = DB.getInstance(context);
@@ -286,18 +284,6 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "attachment:fetch");
-        }
-
-        private class NameResolveInfo {
-            Drawable icon;
-            String name;
-            ResolveInfo info;
-
-            NameResolveInfo(Drawable icon, String name, ResolveInfo info) {
-                this.icon = icon;
-                this.name = name;
-                this.info = info;
-            }
         }
     }
 
