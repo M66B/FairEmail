@@ -2033,7 +2033,7 @@ This gives you a choice to leave new message notifications as a reminder that th
 On Android 7 Nougat and later new message notifications will be [grouped](https://developer.android.com/training/notify-user/group).
 Tapping on the summary notification will open the unified inbox.
 The summary notification can be expanded to view individual new message notifications.
-Tapping on an individual new message notification will open the conversation the message is part of.
+Tapping on an individual new message notification will open the conversation the message it is part of.
 See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
 
 <br />
