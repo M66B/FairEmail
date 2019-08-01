@@ -168,19 +168,25 @@ public class ServiceSynchronize extends ServiceBase {
         });
 
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
+            private ExecutorService executor =
+                    Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+
             @Override
-            public void onChanged(List<TupleMessageEx> messages) {
-                try {
-                    if (messages == null)
-                        messages = new ArrayList<>();
-                    Core.notifyMessages(ServiceSynchronize.this, messages);
-                } catch (SecurityException ex) {
-                    Log.w(ex);
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
-                    prefs.edit().remove("sound").apply();
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
+            public void onChanged(final List<TupleMessageEx> messages) {
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Core.notifyMessages(ServiceSynchronize.this, messages);
+                        } catch (SecurityException ex) {
+                            Log.w(ex);
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                            prefs.edit().remove("sound").apply();
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
             }
         });
 

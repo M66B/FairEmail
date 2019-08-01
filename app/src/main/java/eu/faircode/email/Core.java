@@ -77,8 +77,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
@@ -120,9 +118,6 @@ class Core {
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long MIN_HIDE = 60 * 1000L; // milliseconds
-
-    private static final ExecutorService executor =
-            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static void processOperations(
             Context context,
@@ -1918,6 +1913,8 @@ class Core {
     }
 
     static void notifyMessages(Context context, List<TupleMessageEx> messages) {
+        if (messages == null)
+            messages = new ArrayList<>();
         Log.i("Notify messages=" + messages.size());
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -2018,27 +2015,11 @@ class Core {
             }
 
             if (remove.size() + add.size() > 0) {
-                final DB db = DB.getInstance(context);
-
-                executor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            db.beginTransaction();
-
-                            for (long id : remove)
-                                db.message().setMessageNotifying(Math.abs(id), 0);
-                            for (long id : add)
-                                db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
-
-                            db.setTransactionSuccessful();
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        } finally {
-                            db.endTransaction();
-                        }
-                    }
-                });
+                DB db = DB.getInstance(context);
+                for (long id : remove)
+                    db.message().setMessageNotifying(Math.abs(id), 0);
+                for (long id : add)
+                    db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
             }
         }
     }
