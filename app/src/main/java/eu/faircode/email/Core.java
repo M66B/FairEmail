@@ -1112,6 +1112,8 @@ class Core {
 
             if (uids.size() > 0) {
                 // This is done outside of JavaMail to prevent changed notifications
+                if (!ifolder.isOpen())
+                    throw new FolderClosedException(ifolder, "UID FETCH");
                 MessagingException ex = (MessagingException) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                     @Override
                     public Object doCommand(IMAPProtocol protocol) {
