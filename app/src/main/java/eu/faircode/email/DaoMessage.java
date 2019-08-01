@@ -278,7 +278,8 @@ public interface DaoMessage {
             " AND (NOT :unseen OR NOT message.ui_seen)" +
             " AND (NOT :flagged OR message.ui_flagged)" +
             " GROUP BY account.id, CASE WHEN message.thread IS NULL THEN message.id ELSE message.thread END" +
-            " ORDER BY message.received DESC";
+            " ORDER BY message.received DESC" +
+            " LIMIT 50";
 
     @Query(widget)
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
