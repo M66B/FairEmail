@@ -35,6 +35,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -510,15 +511,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
 
         if (intent.hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
-            searching = true;
-            String search = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT).toString();
+            CharSequence csearch = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+            String search = (csearch == null ? null : csearch.toString());
+            if (!TextUtils.isEmpty(search)) {
+                searching = true;
+                FragmentMessages.search(
+                        ActivityView.this, ActivityView.this, getSupportFragmentManager(),
+                        -1, false, search);
+            }
 
             intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
             setIntent(intent);
-
-            FragmentMessages.search(
-                    ActivityView.this, ActivityView.this, getSupportFragmentManager(),
-                    -1, false, search);
         }
     }
 
