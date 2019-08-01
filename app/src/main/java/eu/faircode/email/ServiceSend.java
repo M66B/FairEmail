@@ -433,25 +433,21 @@ public class ServiceSend extends ServiceBase {
     }
 
     static void boot(final Context context) {
-        if (!booted) {
-            booted = true;
-
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        DB db = DB.getInstance(context);
-                        EntityFolder outbox = db.folder().getOutbox();
-                        if (outbox != null && db.operation().getOperations(outbox.id).size() > 0)
-                            start(context);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DB db = DB.getInstance(context);
+                    EntityFolder outbox = db.folder().getOutbox();
+                    if (outbox != null && db.operation().getOperations(outbox.id).size() > 0)
+                        start(context);
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
-            }, "send:boot");
-            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-            thread.start();
-        }
+            }
+        }, "send:boot");
+        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+        thread.start();
     }
 
     static void start(Context context) {
