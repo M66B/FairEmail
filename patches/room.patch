@@ -1,15 +1,23 @@
 --- /home/marcel/support/room/runtime/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-27 12:47:44.950985792 +0200
-+++ app/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-07-29 07:27:21.478734412 +0200
-@@ -89,8 +89,14 @@ class RoomTrackingLiveData<T> extends Li
++++ app/src/main/java/androidx/room/RoomTrackingLiveData.java	2019-08-01 09:33:53.297685740 +0200
+@@ -84,13 +84,20 @@ class RoomTrackingLiveData<T> extends Li
+                     // as long as it is invalid, keep computing.
+                     try {
+                         T value = null;
+-                        while (mInvalid.compareAndSet(true, false)) {
+-                            computed = true;
++                        int retry = 0;
++                        while (mInvalid.compareAndSet(true, false) && !computed) {
                              try {
                                  value = mComputeFunction.call();
++                                computed = true;
                              } catch (Exception e) {
 -                                throw new RuntimeException("Exception while computing database"
 -                                        + " live data.", e);
++                                if (++retry > 3)
++                                    throw new RuntimeException(
++                                            "Exception while computing database live data.", e);
 +                                eu.faircode.email.Log.w(e);
-+                                //throw new RuntimeException("Exception while computing database"
-+                                //        + " live data.", e);
-+                                computed = false;
 +                                try {
 +                                    Thread.sleep(3000L);
 +                                } catch (InterruptedException ignored) {
@@ -17,7 +25,7 @@
                              }
                          }
                          if (computed) {
-@@ -125,6 +131,7 @@ class RoomTrackingLiveData<T> extends Li
+@@ -125,6 +132,7 @@ class RoomTrackingLiveData<T> extends Li
              }
          }
      };

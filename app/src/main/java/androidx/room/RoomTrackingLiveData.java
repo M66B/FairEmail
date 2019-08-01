@@ -84,15 +84,16 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
                     // as long as it is invalid, keep computing.
                     try {
                         T value = null;
-                        while (mInvalid.compareAndSet(true, false)) {
-                            computed = true;
+                        int retry = 0;
+                        while (mInvalid.compareAndSet(true, false) && !computed) {
                             try {
                                 value = mComputeFunction.call();
+                                computed = true;
                             } catch (Exception e) {
+                                if (++retry > 3)
+                                    throw new RuntimeException(
+                                            "Exception while computing database live data.", e);
                                 eu.faircode.email.Log.w(e);
-                                //throw new RuntimeException("Exception while computing database"
-                                //        + " live data.", e);
-                                computed = false;
                                 try {
                                     Thread.sleep(3000L);
                                 } catch (InterruptedException ignored) {
