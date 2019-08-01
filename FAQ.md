@@ -197,6 +197,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
 * [(119) Can you add colors to the unified inbox widget?](#user-content-faq119)
+* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
 
 [I have another question.](#support)
 
@@ -1369,6 +1370,8 @@ You can set or disable the maximum message size on the 'connection' settings tab
 
 Duplicate (archived) messages, trashed messages and draft messages are not counted.
 
+Messages will automatically be marked read on expanding.
+
 <br />
 
 <a name="faq71"></a>
@@ -2020,6 +2023,20 @@ Adding (account) colors will cause problems with some backgrounds and will cause
 
 <br />
 
+<a name="faq120"></a>
+**(120) Why are new message notifications not removed on opening the app?**
+
+New message notifications will be removed on swiping notifications away or on marking the associated messages read.
+Opening the app will not remove new message notifications.
+This gives you a choice to leave new message notifications as a reminder that there are still unread messages.
+
+On Android 7 Nougat and later new message notifications will be [grouped](https://developer.android.com/training/notify-user/group).
+Tapping on the summary notification will open the unified inbox.
+The summary notification can be expanded to view individual new message notifications.
+Tapping on an individual new message notification will open the conversation the message is part of.
+See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+
+<br />
 
 ## Support
 
