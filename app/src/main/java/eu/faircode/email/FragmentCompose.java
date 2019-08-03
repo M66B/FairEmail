@@ -1913,7 +1913,7 @@ public class FragmentCompose extends FragmentBase {
                         resized = rotated;
                     }
 
-                    File tmp = File.createTempFile(Long.toString(attachment.id), ".resized", context.getCacheDir());
+                    File tmp = File.createTempFile("image", ".resized", context.getCacheDir());
                     try (OutputStream out = new FileOutputStream(tmp)) {
                         resized.compress("image/jpeg".equals(attachment.type)
                                         ? Bitmap.CompressFormat.JPEG
