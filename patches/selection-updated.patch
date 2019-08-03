@@ -1,0 +1,56 @@
+diff --git a/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java b/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
+index a513f5725..d8845a0b0 100644
+--- a/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
++++ b/app/src/main/java/androidx/recyclerview/selection/DefaultSelectionTracker.java
+@@ -348,6 +348,10 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
+         return mRange != null;
+     }
+ 
++    boolean isOverlapping(int position, int count) {
++        return (mRange != null && mRange.isOverlapping(position, count));
++    }
++
+     private boolean canSetState(@NonNull K key, boolean nextState) {
+         return mSelectionPredicate.canSetStateForKey(key, nextState);
+     }
+@@ -578,17 +582,21 @@ public class DefaultSelectionTracker<K>
+ 
+         @Override
+         public void onItemRangeInserted(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+ 
+         @Override
+         public void onItemRangeRemoved(int startPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+ 
+         @Override
+         public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+-            mSelectionTracker.endRange();
++            if (mSelectionTracker.isOverlapping(fromPosition, itemCount) ||
++                    mSelectionTracker.isOverlapping(toPosition, itemCount))
++                mSelectionTracker.endRange();
+         }
+     }
+ }
+diff --git a/app/src/main/java/androidx/recyclerview/selection/Range.java b/app/src/main/java/androidx/recyclerview/selection/Range.java
+index 35fb3a8ba..b11a14a9a 100644
+--- a/app/src/main/java/androidx/recyclerview/selection/Range.java
++++ b/app/src/main/java/androidx/recyclerview/selection/Range.java
+@@ -170,6 +170,11 @@ final class Range {
+         mCallbacks.updateForRange(begin, end, selected, type);
+     }
+ 
++    boolean isOverlapping(int position, int count) {
++        return (position >= mBegin && position <= mEnd) ||
++                (position + count >= mBegin && position + count <= mEnd);
++    }
++
+     @Override
+     public String toString() {
+         return "Range{begin=" + mBegin + ", end=" + mEnd + "}";
