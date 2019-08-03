@@ -26,8 +26,6 @@ import android.content.SharedPreferences;
 
 import androidx.preference.PreferenceManager;
 
-import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-
 public class ReceiverAutoStart extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
@@ -40,19 +38,7 @@ public class ReceiverAutoStart extends BroadcastReceiver {
 
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);
-
-            Thread cleanup = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        WorkerCleanup.cleanup(context, true);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                }
-            });
-            cleanup.setPriority(THREAD_PRIORITY_BACKGROUND);
-            cleanup.start();
+            WorkerCleanup.queueOnce(context);
         }
     }
 }

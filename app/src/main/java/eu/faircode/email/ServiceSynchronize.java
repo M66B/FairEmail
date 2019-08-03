@@ -223,8 +223,6 @@ public class ServiceSynchronize extends ServiceBase {
                     WidgetUnified.update(ServiceSynchronize.this);
             }
         });
-
-        WorkerCleanup.queue(this);
     }
 
     @Override
@@ -240,8 +238,6 @@ public class ServiceSynchronize extends ServiceBase {
         cm.unregisterNetworkCallback(onNetworkCallback);
 
         Core.notifyReset(this);
-
-        WorkerCleanup.cancel(this);
 
         stopForeground(true);
 

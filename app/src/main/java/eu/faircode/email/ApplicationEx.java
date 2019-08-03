@@ -106,14 +106,8 @@ public class ApplicationEx extends Application {
         MessageHelper.setSystemProperties(this);
         ContactInfo.init(this);
 
-        try {
-            WorkerWatchdog.init(this);
-        } catch (Throwable ex) {
-            // Incorrect:
-            // java.lang.RuntimeException: Unable to create application eu.faircode.email.ApplicationEx:
-            // java.lang.IllegalStateException: WorkManager is not initialized properly.
-            Log.e(ex);
-        }
+        WorkerWatchdog.init(this);
+        WorkerCleanup.queue(this);
     }
 
     @Override

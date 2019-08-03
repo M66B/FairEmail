@@ -24,7 +24,9 @@ import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
+import androidx.work.Data;
 import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
@@ -36,6 +38,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class WorkerCleanup extends Worker {
     private static final int CLEANUP_INTERVAL = 4; // hours
@@ -53,7 +57,7 @@ public class WorkerCleanup extends Worker {
     @Override
     public Result doWork() {
         Log.i("Running " + getName());
-        cleanup(getApplicationContext(), false);
+        cleanup(getApplicationContext(), getInputData().getBoolean("manual", false));
         return Result.success();
     }
 
@@ -61,6 +65,7 @@ public class WorkerCleanup extends Worker {
         DB db = DB.getInstance(context);
         try {
             Log.i("Start cleanup manual=" + manual);
+            Thread.currentThread().setPriority(THREAD_PRIORITY_BACKGROUND);
 
             if (manual) {
                 // Check message files
@@ -175,11 +180,30 @@ public class WorkerCleanup extends Worker {
 
             PeriodicWorkRequest workRequest =
                     new PeriodicWorkRequest.Builder(WorkerCleanup.class, CLEANUP_INTERVAL, TimeUnit.HOURS)
+                            .setInitialDelay(CLEANUP_INTERVAL, TimeUnit.HOURS)
                             .build();
             WorkManager.getInstance(context)
-                    .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.REPLACE, workRequest);
+                    .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, workRequest);
 
             Log.i("Queued " + getName());
+        } catch (IllegalStateException ex) {
+            // https://issuetracker.google.com/issues/138465476
+            Log.w(ex);
+        }
+    }
+
+    static void queueOnce(Context context) {
+        try {
+            Log.i("Queuing " + getName() + " once");
+
+            Data data = new Data.Builder().putBoolean("manual", true).build();
+
+            OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(WorkerCleanup.class)
+                    .setInputData(data)
+                    .build();
+            WorkManager.getInstance(context).enqueue(workRequest);
+
+            Log.i("Queued " + getName() + " once");
         } catch (IllegalStateException ex) {
             // https://issuetracker.google.com/issues/138465476
             Log.w(ex);
