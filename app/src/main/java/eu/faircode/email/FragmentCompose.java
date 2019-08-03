@@ -226,7 +226,7 @@ public class FragmentCompose extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefix_once = prefs.getBoolean("prefix_once", false);
+        prefix_once = prefs.getBoolean("prefix_once", true);
         monospaced = prefs.getBoolean("monospaced", false);
         style = prefs.getBoolean("style_toolbar", true);
     }
@@ -2072,17 +2072,17 @@ public class FragmentCompose extends FragmentBase {
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action) ||
                                 "participation".equals(action)) {
-                            String re = context.getString(R.string.title_subject_reply, "");
-                            if (!prefix_once || !subject.startsWith(re))
-                                draft.subject = context.getString(R.string.title_subject_reply, subject);
-                            else
-                                draft.subject = ref.subject;
+                            if (prefix_once) {
+                                String re = context.getString(R.string.title_subject_reply, "");
+                                subject = subject.replace(re.trim(), "").trim();
+                            }
+                            draft.subject = context.getString(R.string.title_subject_reply, subject);
                         } else if ("forward".equals(action)) {
-                            String fwd = context.getString(R.string.title_subject_forward, "");
-                            if (!prefix_once || !subject.startsWith(fwd.trim()))
-                                draft.subject = context.getString(R.string.title_subject_forward, subject);
-                            else
-                                draft.subject = ref.subject;
+                            if (prefix_once) {
+                                String fwd = context.getString(R.string.title_subject_forward, "");
+                                subject = subject.replace(fwd.trim(), "").trim();
+                            }
+                            draft.subject = context.getString(R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
                             draft.subject = ref.subject;
                             if (ref.content) {
