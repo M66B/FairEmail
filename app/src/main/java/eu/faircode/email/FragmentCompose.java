@@ -940,7 +940,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionTakePhoto() {
-        File dir = new File(getContext().getFilesDir(), "temporary");
+        File dir = new File(getContext().getCacheDir(), "photo");
         if (!dir.exists())
             dir.mkdir();
         File file = new File(dir, new Date().getTime() + ".jpg");
@@ -1857,8 +1857,8 @@ public class FragmentCompose extends FragmentBase {
             db.attachment().setDownloaded(attachment.id, size);
 
             if ("eu.faircode.email".equals(uri.getAuthority())) {
-                // content://eu.faircode.email/temporary/nnn.jpg
-                File tmp = new File(context.getFilesDir(), uri.getPath());
+                // content://eu.faircode.email/photo/nnn.jpg
+                File tmp = new File(context.getCacheDir(), uri.getPath());
                 Log.i("Deleting " + tmp);
                 if (!tmp.delete())
                     Log.w("Error deleting " + tmp);

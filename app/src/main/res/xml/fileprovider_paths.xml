@@ -6,7 +6,7 @@
     <files-path
         name="raw"
         path="raw" />
-    <files-path
-        name="temporary"
-        path="temporary" />
+    <cache-path
+        name="photo"
+        path="photo" />
 </paths>
