@@ -97,13 +97,19 @@ public interface DaoOperation {
 
     @Query("SELECT COUNT(id) FROM operation" +
             " WHERE folder = :folder" +
-            " AND (:name IS NULL OR operation.name = :name)")
+            " AND (:name IS NULL OR name = :name)")
     int getOperationCount(long folder, String name);
 
     @Query("SELECT COUNT(id) FROM operation" +
             " WHERE folder = :folder" +
-            " AND  message = :message")
+            " AND message = :message")
     int getOperationCount(long folder, long message);
+
+    @Query("SELECT COUNT(id) FROM operation" +
+            " WHERE folder = :folder" +
+            " AND message = :message" +
+            " AND name = :name")
+    int getOperationCount(long folder, long message, String name);
 
     @Query("UPDATE operation SET state = :state WHERE id = :id")
     int setOperationState(long id, String state);

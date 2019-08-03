@@ -1585,7 +1585,8 @@ class Core {
                 }
             }
 
-            if (!message.seen.equals(seen) || !message.seen.equals(message.ui_seen)) {
+            if ((!message.seen.equals(seen) || !message.ui_seen.equals(seen)) &&
+                    db.operation().getOperationCount(folder.id, message.id, EntityOperation.SEEN) == 0) {
                 update = true;
                 message.seen = seen;
                 message.ui_seen = seen;
@@ -1594,7 +1595,8 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
-            if (!message.answered.equals(answered) || !message.answered.equals(message.ui_answered)) {
+            if ((!message.answered.equals(answered) || !message.ui_answered.equals(message.answered)) &&
+                    db.operation().getOperationCount(folder.id, message.id, EntityOperation.ANSWERED) == 0) {
                 if (!answered && message.ui_answered && ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
                     // This can happen when the answered operation was skipped because the message was moving
                     answered = true;
@@ -1606,7 +1608,8 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " answered=" + answered);
             }
 
-            if (!message.flagged.equals(flagged) || !message.flagged.equals(message.ui_flagged)) {
+            if ((!message.flagged.equals(flagged) || !message.ui_flagged.equals(flagged)) &&
+                    db.operation().getOperationCount(folder.id, message.id, EntityOperation.FLAG) == 0) {
                 update = true;
                 message.flagged = flagged;
                 message.ui_flagged = flagged;
