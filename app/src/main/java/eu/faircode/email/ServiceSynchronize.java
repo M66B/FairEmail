@@ -1446,7 +1446,9 @@ public class ServiceSynchronize extends ServiceBase {
                     int pollInterval = prefs.getInt("poll_interval", 0);
                     int accounts = db.account().getSynchronizingAccounts().size();
                     if (enabled && pollInterval == 0 && accounts > 0)
-                        init(context);
+                        ContextCompat.startForegroundService(context,
+                                new Intent(context, ServiceSynchronize.class)
+                                        .setAction("init"));
                     else {
                         for (EntityAccount account : db.account().getAccounts())
                             db.account().setAccountState(account.id, null);
@@ -1463,12 +1465,6 @@ public class ServiceSynchronize extends ServiceBase {
         }, "synchronize:boot");
         thread.setPriority(THREAD_PRIORITY_BACKGROUND);
         thread.start();
-    }
-
-    static void init(Context context) {
-        ContextCompat.startForegroundService(context,
-                new Intent(context, ServiceSynchronize.class)
-                        .setAction("init"));
     }
 
     private static void schedule(Context context) {
