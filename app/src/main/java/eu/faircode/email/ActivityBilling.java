@@ -76,6 +76,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     static final String ACTION_PURCHASE_CHECK = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_CHECK";
     static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
 
+    final static long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -330,8 +332,14 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         if (purchases != null) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
-            if (prefs.getBoolean("play_store", true))
-                editor.remove("pro");
+            if (prefs.getBoolean("play_store", true)) {
+                long cached = prefs.getLong(getSkuPro() + ".cached", 0);
+                if (cached + MAX_SKU_CACHE_DURATION < new Date().getTime()) {
+                    Log.i("IAB cache expired");
+                    editor.remove("pro");
+                } else
+                    Log.i("IAB caching");
+            }
 
             for (Purchase purchase : purchases)
                 try {
@@ -367,6 +375,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                                 if (purchase.isAcknowledged()) {
                                     Log.i("IAB valid signature");
                                     editor.putBoolean("pro", true);
+                                    editor.putLong(getSkuPro() + ".cached", new Date().getTime());
                                 } else
                                     acknowledgePurchase(purchase);
                             }
@@ -439,7 +448,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 Log.i("IAB acknowledged SKU=" + purchase.getSku() + " response=" + text);
                 if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBilling.this);
-                    prefs.edit().putBoolean("pro", true).apply();
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("pro", true);
+                    editor.putLong(getSkuPro() + ".cached", new Date().getTime());
+                    editor.apply();
 
                     for (IBillingListener listener : listeners)
                         listener.onPurchased(purchase.getSku());
