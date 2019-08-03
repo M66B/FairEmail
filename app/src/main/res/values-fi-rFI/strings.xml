@@ -481,7 +481,7 @@
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
     <string name="title_draft_deleted">Luonnos hylätty</string>
     <string name="title_draft_saved">Luonnos tallennettu</string>
-    <string name="title_ask_send_via">Lähetäänkö viesti vaataanottajalle %1$s identiteetillä %2$s?</string>
+    <string name="title_ask_send_via">Lähetäänkö viesti vastaanottajalle %1$s identiteetillä %2$s?</string>
     <string name="title_queued">Lähetetään viestiä</string>
     <string name="title_queued_at">Viesti lähetetään arviolta %1$s</string>
     <string name="title_encrypt">Salaa</string>
