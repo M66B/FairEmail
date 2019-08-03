@@ -455,4 +455,8 @@ public class ServiceSend extends ServiceBase {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSend.class));
     }
+
+    static void watchdog(Context context) {
+        boot(context);
+    }
 }

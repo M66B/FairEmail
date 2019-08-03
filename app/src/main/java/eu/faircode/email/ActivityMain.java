@@ -81,9 +81,11 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
-                    if (hasAccounts)
+                    if (hasAccounts) {
                         startActivity(new Intent(ActivityMain.this, ActivityView.class));
-                    else
+                        ServiceSynchronize.watchdog(ActivityMain.this);
+                        ServiceSend.watchdog(ActivityMain.this);
+                    } else
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));
                     finish();
                 }

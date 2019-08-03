@@ -261,10 +261,6 @@ public class ServiceSynchronize extends ServiceBase {
         if (action != null)
             try {
                 switch (action) {
-                    case "init":
-                        onInit();
-                        break;
-
                     case "alarm":
                         onAlarm();
                         break;
@@ -331,11 +327,6 @@ public class ServiceSynchronize extends ServiceBase {
             builder.setSubText(getString(R.string.title_notification_waiting));
 
         return builder;
-    }
-
-    private void onInit() {
-        EntityLog.log(this, "Service init");
-        // Network events will manage the service
     }
 
     private void onAlarm() {
@@ -1437,14 +1428,9 @@ public class ServiceSynchronize extends ServiceBase {
                     schedule(context);
 
                     // Conditionally init service
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean enabled = prefs.getBoolean("enabled", true);
-                    int pollInterval = prefs.getInt("poll_interval", 0);
                     int accounts = db.account().getSynchronizingAccounts().size();
-                    if (enabled && pollInterval == 0 && accounts > 0)
-                        ContextCompat.startForegroundService(context,
-                                new Intent(context, ServiceSynchronize.class)
-                                        .setAction("init"));
+                    if (accounts > 0)
+                        watchdog(context);
                     else {
                         for (EntityAccount account : db.account().getAccounts())
                             db.account().setAccountState(account.id, null);

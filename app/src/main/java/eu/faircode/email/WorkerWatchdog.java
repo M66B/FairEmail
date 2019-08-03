@@ -45,6 +45,7 @@ public class WorkerWatchdog extends Worker {
     public Result doWork() {
         Log.i("Running " + getName());
         ServiceSynchronize.watchdog(getApplicationContext());
+        ServiceSend.watchdog(getApplicationContext());
         return Result.success();
     }
 
