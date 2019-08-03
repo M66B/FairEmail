@@ -339,6 +339,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET identity = :identity WHERE id = :id")
     int setMessageIdentity(long id, Long identity);
 
+    @Query("UPDATE message SET `from` = :from WHERE id = :id")
+    int setMessageFrom(long id, String from);
+
     @Query("UPDATE message SET uid = :uid WHERE id = :id")
     int setMessageUid(long id, Long uid);
 
