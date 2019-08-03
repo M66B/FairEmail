@@ -2075,7 +2075,6 @@ class Core {
                             .setContentTitle(title)
                             .setContentIntent(piSummary)
                             .setNumber(messages.size())
-                            .setShowWhen(false)
                             .setDeleteIntent(piClear)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_STATUS)
