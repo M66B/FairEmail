@@ -769,7 +769,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         return false;
 
                                     Bundle args = new Bundle();
-                                    args.putString("title", getString(R.string.title_move_to_folder));
+                                    args.putString("title", getString(R.string.title_search_in));
                                     args.putLong("account", intent.getLongExtra("account", -1));
                                     args.putLongArray("disabled", new long[]{});
                                     args.putString("query", query);
