@@ -936,7 +936,7 @@ If you don't mind that old messages that were delete from the server are still v
 
 Some providers don't follow the IMAP standard and don't keep connections open long enough, forcing FairEmail to reconnect often, causing extra battery usage.
 You can inspect the *Log* via the main navigation menu to check if there are frequent reconnects.
-You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 minutes.
+You can workaround this by lowering the keep-alive interval in the advanced account settings to for example 9 or 15 minutes.
 
 Some providers send every two minutes something like '*Still there*' resulting in network traffic and your device to wake up and causing unnecessary extra battery usage.
 You can inspect the *Log* via the main navigation menu to check if your provider is doing this.
