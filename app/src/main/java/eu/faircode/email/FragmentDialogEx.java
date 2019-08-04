@@ -27,10 +27,10 @@ public class FragmentDialogEx extends DialogFragment {
     public void show(@NonNull FragmentManager manager, @Nullable String tag) {
         try {
             super.show(manager, tag);
-        } catch (IllegalStateException ex) {
-            // Can not perform this action after onSaveInstanceState
+        } catch (Throwable ex) {
+            // IllegalStateException Can not perform this action after onSaveInstanceState
             // Should not happen, but still happened in AdapterMessage.onOpenLink
-            Log.w(ex);
+            Log.e(ex);
         }
     }
 

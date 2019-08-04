@@ -39,7 +39,11 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
 
     @Override
     public void show() {
-        super.show();
+        try {
+            super.show();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
