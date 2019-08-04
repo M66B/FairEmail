@@ -133,6 +133,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
+import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.MessageRemovedException;
@@ -2074,13 +2075,13 @@ public class FragmentCompose extends FragmentBase {
                                 "participation".equals(action)) {
                             if (prefix_once) {
                                 String re = context.getString(R.string.title_subject_reply, "");
-                                subject = subject.replace(re.trim(), "").trim();
+                                subject = subject.replaceAll("(?i)" + Pattern.quote(re.trim()), "").trim();
                             }
                             draft.subject = context.getString(R.string.title_subject_reply, subject);
                         } else if ("forward".equals(action)) {
                             if (prefix_once) {
                                 String fwd = context.getString(R.string.title_subject_forward, "");
-                                subject = subject.replace(fwd.trim(), "").trim();
+                                subject = subject.replaceAll("(?i)" + Pattern.quote(fwd.trim()), "").trim();
                             }
                             draft.subject = context.getString(R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
