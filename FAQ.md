@@ -535,6 +535,9 @@ The message header and message body are fetched separately from the server.
 The message text of larger messages is not being pre-fetched on metered connections and need to be fetched on opening the message.
 The message text will keep loading if there is no connection to the account, see also the next question.
 
+You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons)
+and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+
 In the advanced settings you can set the maximum size for automatically downloading of messages on metered connections.
 
 Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are too.
