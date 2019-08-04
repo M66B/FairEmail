@@ -48,6 +48,7 @@ For authorizing:
 * ~~Search suggestions~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
+* New message notification schedules per account
 
 Anything on this list is in random order and *might* be added in the near future.
 
