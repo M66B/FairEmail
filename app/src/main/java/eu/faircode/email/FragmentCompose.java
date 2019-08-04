@@ -3284,7 +3284,7 @@ public class FragmentCompose extends FragmentBase {
         }
     };
 
-    public static class FragmentDialogContactGroup extends DialogFragmentEx {
+    public static class FragmentDialogContactGroup extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3338,7 +3338,7 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    public static class FragmentDialogAnswer extends DialogFragmentEx {
+    public static class FragmentDialogAnswer extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3382,7 +3382,7 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    public static class FragmentDialogLink extends DialogFragmentEx {
+    public static class FragmentDialogLink extends FragmentDialogEx {
         private EditText etLink;
 
         @Override

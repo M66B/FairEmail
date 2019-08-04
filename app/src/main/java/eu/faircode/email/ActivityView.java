@@ -1130,7 +1130,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         return intent;
     }
 
-    public static class FragmentDialogFirst extends DialogFragmentEx {
+    public static class FragmentDialogFirst extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -1147,7 +1147,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }
     }
 
-    public static class FragmentDialogRate extends DialogFragmentEx {
+    public static class FragmentDialogRate extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

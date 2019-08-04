@@ -365,7 +365,7 @@ public class FragmentSetup extends FragmentBase {
         btnPermissions.setEnabled(!has);
     }
 
-    public static class FragmentDialogDoze extends DialogFragmentEx {
+    public static class FragmentDialogDoze extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

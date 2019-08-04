@@ -142,7 +142,7 @@ public class FragmentOperations extends FragmentBase {
         return intent;
     }
 
-    public static class DialogDelete extends DialogFragmentEx {
+    public static class DialogDelete extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

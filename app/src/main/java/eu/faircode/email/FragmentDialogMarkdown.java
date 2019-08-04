@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 import io.noties.markwon.Markwon;
 
-public class FragmentDialogMarkdown extends DialogFragmentEx {
+public class FragmentDialogMarkdown extends FragmentDialogEx {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

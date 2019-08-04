@@ -180,7 +180,7 @@ public class FragmentContacts extends FragmentBase {
         return intent;
     }
 
-    public static class FragmentDelete extends DialogFragmentEx {
+    public static class FragmentDelete extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

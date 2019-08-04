@@ -34,7 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.preference.PreferenceManager;
 
-public class FragmentDialogAsk extends DialogFragmentEx {
+public class FragmentDialogAsk extends FragmentDialogEx {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

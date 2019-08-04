@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import static android.app.Activity.RESULT_CANCELED;
 
-public class DialogFragmentEx extends DialogFragment {
+public class FragmentDialogEx extends DialogFragment {
     private boolean once = false;
 
     @Override

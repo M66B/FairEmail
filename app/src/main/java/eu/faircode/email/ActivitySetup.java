@@ -1083,7 +1083,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         return intent;
     }
 
-    public static class FragmentDialogPassword extends DialogFragmentEx {
+    public static class FragmentDialogPassword extends FragmentDialogEx {
         private TextInputLayout etPassword1;
         private TextInputLayout etPassword2;
 

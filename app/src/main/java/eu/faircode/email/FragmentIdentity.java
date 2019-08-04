@@ -1094,7 +1094,7 @@ public class FragmentIdentity extends FragmentBase {
         etSignature.setTag(html);
     }
 
-    public static class FragmentDialogHtml extends DialogFragmentEx {
+    public static class FragmentDialogHtml extends FragmentDialogEx {
         private EditText etHtml;
 
         @Override

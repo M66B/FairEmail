@@ -40,7 +40,7 @@ import java.util.Date;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentDialogDuration extends DialogFragmentEx {
+public class FragmentDialogDuration extends FragmentDialogEx {
     private Calendar cal = Calendar.getInstance();
 
     @Override

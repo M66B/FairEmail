@@ -484,7 +484,7 @@ public class FragmentQuickSetup extends FragmentBase {
         }
     }
 
-    public static class FragmentDialogDone extends DialogFragmentEx {
+    public static class FragmentDialogDone extends FragmentDialogEx {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
