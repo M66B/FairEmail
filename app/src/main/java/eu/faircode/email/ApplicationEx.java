@@ -156,22 +156,28 @@ public class ApplicationEx extends Application {
         List<String> ignore = new ArrayList<>();
 
         ignore.add("com.sun.mail.util.MailConnectException");
-        ignore.add("javax.mail.AuthenticationFailedException");
-        ignore.add("java.net.UnknownHostException");
-        ignore.add("java.net.ConnectException");
-        ignore.add("java.net.SocketTimeoutException");
-        ignore.add("java.net.SocketException");
+
         ignore.add("android.accounts.OperationCanceledException");
-        ignore.add("org.xmlpull.v1.XmlPullParserException");
+        ignore.add("android.app.RemoteServiceException");
 
-        ignore.add("javax.mail.StoreClosedException");
-        ignore.add("javax.mail.FolderClosedException");
-        ignore.add("javax.mail.ReadOnlyFolderException");
-
-        ignore.add("javax.mail.MessageRemovedException");
-        ignore.add("javax.mail.internet.AddressException");
+        ignore.add("java.lang.NoClassDefFoundError");
+        ignore.add("java.lang.UnsatisfiedLinkError");
 
         ignore.add("java.nio.charset.MalformedInputException");
+
+        ignore.add("java.net.ConnectException");
+        ignore.add("java.net.SocketException");
+        ignore.add("java.net.SocketTimeoutException");
+        ignore.add("java.net.UnknownHostException");
+
+        ignore.add("javax.mail.AuthenticationFailedException");
+        ignore.add("javax.mail.FolderClosedException");
+        ignore.add("javax.mail.internet.AddressException");
+        ignore.add("javax.mail.MessageRemovedException");
+        ignore.add("javax.mail.ReadOnlyFolderException");
+        ignore.add("javax.mail.StoreClosedException");
+
+        ignore.add("org.xmlpull.v1.XmlPullParserException");
 
         config.setIgnoreClasses(ignore.toArray(new String[0]));
 
