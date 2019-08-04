@@ -182,7 +182,7 @@
     <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
-    <string name="title_advanced_prefix_once">Prefiksuj tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
+    <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
@@ -209,11 +209,13 @@
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
+    <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_images_inline">Obrazy wstawione to obrazy zawarte w wiadomości</string>
     <string name="title_advanced_images">Automatycznie wyświetlaj zdjęcia dla znanych kontaktów</string>
     <string name="title_advanced_images_all">Automatycznie pokazuj wszystkie obrazy</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_remote_content">Automatycznie wyświetlaj zawartość zdalną podczas przeglądania oryginalnych wiadomości</string>
+    <string name="title_advanced_actionbar">Pasek akcji konwersacji</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
@@ -377,7 +379,7 @@
     <string name="title_folder_delete">Usunąć bezpowrotnie ten folder i wszystkie wiadomości, które zawiera?</string>
     <string name="title_folder_unified">Wspólna skrzynka odbiorcza</string>
     <string name="title_folder_inbox">Odebrane</string>
-    <string name="title_folder_outbox">Wysłane</string>
+    <string name="title_folder_outbox">Wysyłane</string>
     <string name="title_folder_all">Archiwum</string>
     <string name="title_folder_drafts">Szkice</string>
     <string name="title_folder_trash">Kosz</string>
@@ -403,6 +405,8 @@
     <string name="title_share">Udostępnij</string>
     <string name="title_print">Drukuj</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
+    <string name="title_raw_download">Pobierz wiadomość źródłową</string>
+    <string name="title_raw_save">Zapisz wiadomość źródłową</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
     <string name="title_add_keyword">Dodaj słowo kluczowe</string>
     <string name="title_show_inline">Pokaż wbudowane załączniki</string>
@@ -438,6 +442,7 @@
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
+    <string name="title_raw_saved">Wiadomość źródłowa zapisana</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
     <string name="title_attachments_saved">Załączniki zapisane</string>
     <string name="title_attachments_incomplete">Niektóre załączniki lub obrazy nie zostały pobrane i nie można ich dodać</string>
