@@ -614,6 +614,7 @@
     <string name="title_rule_recipient">Recipient contains</string>
     <string name="title_rule_subject">Subject contains</string>
     <string name="title_rule_header">Header contains</string>
+    <string name="title_rule_time">Time between</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Action</string>
@@ -755,6 +756,7 @@
     <string name="title_report">Report</string>
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
+    <string name="title_any">Any</string>
     <string name="title_executing">Executing</string>
     <string name="title_completed">Completed</string>
     <string name="title_ask_what">Ask what to do</string>

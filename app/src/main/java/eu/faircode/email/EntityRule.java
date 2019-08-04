@@ -35,6 +35,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
@@ -143,6 +144,7 @@ public class EntityRule {
                     return false;
             }
 
+            // Subject
             JSONObject jsubject = jcondition.optJSONObject("subject");
             if (jsubject != null) {
                 String value = jsubject.getString("value");
@@ -152,6 +154,7 @@ public class EntityRule {
                     return false;
             }
 
+            // Header
             JSONObject jheader = jcondition.optJSONObject("header");
             if (jheader != null && imessage != null) {
                 String value = jheader.getString("value");
@@ -171,8 +174,30 @@ public class EntityRule {
                     return false;
             }
 
+            // Schedule
+            JSONObject jschedule = jcondition.optJSONObject("schedule");
+            if (jschedule != null) {
+                int day = jschedule.optInt("day", -1) + 1;
+                int start = jschedule.optInt("start", 0);
+                int end = jschedule.optInt("end", 0);
+                if (end <= start)
+                    end += 24 * 60;
+
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(new Date(message.received));
+                int mday = cal.get(Calendar.DAY_OF_WEEK);
+                int mhour = cal.get(Calendar.HOUR_OF_DAY);
+                int mminute = cal.get(Calendar.MINUTE);
+                int minutes = mhour * 60 + mminute;
+
+                if (day > 0 && mday != day)
+                    return false;
+                if (minutes < start || minutes > end)
+                    return false;
+            }
+
             // Safeguard
-            if (jsender == null && jrecipient == null && jsubject == null && jheader == null)
+            if (jsender == null && jrecipient == null && jsubject == null && jheader == null && jschedule == null)
                 return false;
         } catch (JSONException ex) {
             Log.e(ex);

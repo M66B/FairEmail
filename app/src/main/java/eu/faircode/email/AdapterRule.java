@@ -110,6 +110,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     condition.add(context.getString(R.string.title_rule_subject));
                 if (jcondition.has("header"))
                     condition.add(context.getString(R.string.title_rule_header));
+                if (jcondition.has("schedule"))
+                    condition.add(context.getString(R.string.title_rule_time));
                 tvCondition.setText(TextUtils.join(" & ", condition));
             } catch (Throwable ex) {
                 tvCondition.setText(ex.getMessage());
