@@ -161,6 +161,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
 
+            <View
+                android:id="@+id/vwAnchor"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="@id/rvMessage"
+                app:layout_constraintTop_toTopOf="@id/rvMessage" />
+
             <eu.faircode.email.ContentLoadingProgressBar
                 android:id="@+id/pbWait"
                 style="@style/Base.Widget.AppCompat.ProgressBar"

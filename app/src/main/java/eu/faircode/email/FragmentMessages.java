@@ -55,7 +55,6 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.LongSparseArray;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -83,6 +82,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.documentfile.provider.DocumentFile;
@@ -167,6 +167,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibHintSelect;
     private TextView tvNoEmail;
     private FixedRecyclerView rvMessage;
+    private View vwAnchor;
     private SeekBar seekBar;
     private ImageButton ibDown;
     private ImageButton ibUp;
@@ -343,6 +344,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvMessage);
+        vwAnchor = view.findViewById(R.id.vwAnchor);
         seekBar = view.findViewById(R.id.seekBar);
         ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
@@ -1398,10 +1400,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         private void swipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
+            // Use fixed anchor
+            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) vwAnchor.getLayoutParams();
+            lparam.topMargin = viewHolder.itemView.getTop() + viewHolder.itemView.getHeight();
+            vwAnchor.setLayoutParams(lparam);
+
             adapter.notifyDataSetChanged();
 
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
-            popupMenu.setGravity(Gravity.RIGHT);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
 
             if (message.ui_seen)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 2, R.string.title_unseen);
