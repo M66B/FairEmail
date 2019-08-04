@@ -162,6 +162,7 @@ public class ApplicationEx extends Application {
         ignore.add("java.net.SocketTimeoutException");
         ignore.add("java.net.SocketException");
         ignore.add("android.accounts.OperationCanceledException");
+        ignore.add("org.xmlpull.v1.XmlPullParserException");
 
         ignore.add("javax.mail.StoreClosedException");
         ignore.add("javax.mail.FolderClosedException");
