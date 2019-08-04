@@ -795,6 +795,8 @@ class Core {
                 Folder ifolder = istore.getFolder(folder.name);
                 if (!ifolder.exists())
                     ifolder.create(Folder.HOLDS_MESSAGES);
+                if (subscribed_only)
+                    ifolder.setSubscribed(true);
                 db.folder().resetFolderTbc(folder.id);
                 local.put(folder.name, folder);
                 sync_folders = true;
