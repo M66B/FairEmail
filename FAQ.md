@@ -1553,6 +1553,8 @@ The synchronization process will also be started to execute [operations](#user-c
 for example to mark a message read, move a message or store a draft.
 This is to keep the local and remote message store synchronized.
 
+If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
+
 <br />
 
 <a name="faq80"></a>
