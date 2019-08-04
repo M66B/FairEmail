@@ -238,8 +238,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 String[] dparts = email.split("@");
                 EmailProvider provider = EmailProvider.fromDomain(context, dparts[1]);
 
-                if (provider.helpUrl != null)
-                    args.putString("help", provider.helpUrl);
+                if (provider.link != null)
+                    args.putString("link", provider.link);
                 if (provider.documentation != null)
                     args.putString("documentation", provider.documentation.toString());
 
@@ -442,8 +442,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     tvError.setVisibility(View.VISIBLE);
                 }
 
-                if (args.containsKey("help")) {
-                    Uri uri = Uri.parse(args.getString("help"));
+                if (args.containsKey("link")) {
+                    Uri uri = Uri.parse(args.getString("link"));
                     btnHelp.setTag(uri);
                     btnHelp.setVisibility(View.VISIBLE);
                 }
@@ -458,7 +458,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     public void run() {
                         if (args.containsKey("documentation"))
                             scroll.smoothScrollTo(0, tvInstructions.getBottom());
-                        else if (args.containsKey("help"))
+                        else if (args.containsKey("link"))
                             scroll.smoothScrollTo(0, btnHelp.getBottom());
                         else if (tvError.getVisibility() == View.VISIBLE)
                             scroll.smoothScrollTo(0, tvError.getBottom());

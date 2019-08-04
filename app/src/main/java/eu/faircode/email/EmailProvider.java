@@ -55,10 +55,10 @@ import java.util.concurrent.Future;
 
 public class EmailProvider {
     public String name;
-    public int order;
-    public int keepalive;
     public String link;
+    public int order;
     public String type;
+    public int keepalive;
     public String imap_host;
     public boolean imap_starttls;
     public int imap_port;
@@ -66,8 +66,7 @@ public class EmailProvider {
     public int smtp_port;
     public boolean smtp_starttls;
     public UserType user = UserType.EMAIL;
-    public String helpUrl = null;
-    public StringBuilder documentation = null; // html
+    public StringBuilder documentation; // html
 
     enum UserType {LOCAL, EMAIL}
 
@@ -117,7 +116,6 @@ public class EmailProvider {
                         throw new IllegalAccessException(name);
                 } else if (eventType == XmlPullParser.END_TAG) {
                     if ("provider".equals(xml.getName())) {
-                        addSpecials(context, provider);
                         result.add(provider);
                         provider = null;
                     }
@@ -146,9 +144,11 @@ public class EmailProvider {
     }
 
     static EmailProvider fromDomain(Context context, String domain) throws IOException {
-        EmailProvider autoconfig = fromDomainInternal(context, domain);
+        EmailProvider autoconfig = _fromDomain(context, domain);
 
-        // Always prefer built-in profiles (ISPDB is not always correct)
+        // Always prefer built-in profiles
+        // - ISPDB is not always correct
+        // - documentation links
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
             if (provider.imap_host.equals(autoconfig.imap_host) ||
@@ -160,23 +160,23 @@ public class EmailProvider {
         return autoconfig;
     }
 
-    private static EmailProvider fromDomainInternal(Context context, String domain) throws IOException {
+    private static EmailProvider _fromDomain(Context context, String domain) throws IOException {
         try {
             // Assume the provider knows best
             Log.i("Provider from DNS domain=" + domain);
-            return addSpecials(context, fromDNS(context, domain));
+            return fromDNS(context, domain);
         } catch (Throwable ex) {
             Log.w(ex);
             try {
                 // Check ISPDB
                 Log.i("Provider from ISPDB domain=" + domain);
-                return addSpecials(context, fromISPDB(context, domain));
+                return fromISPDB(context, domain);
             } catch (Throwable ex1) {
                 Log.w(ex1);
                 try {
                     // Scan ports
                     Log.i("Provider from template domain=" + domain);
-                    return addSpecials(context, fromTemplate(context, domain));
+                    return fromTemplate(context, domain);
                 } catch (Throwable ex2) {
                     Log.w(ex2);
                     throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
@@ -499,20 +499,6 @@ public class EmailProvider {
             provider.documentation.append("<br /><br />");
 
         provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
-    }
-
-    private static EmailProvider addSpecials(Context context, EmailProvider provider) {
-        if ("imap.gmail.com".equals(provider.imap_host))
-            provider.helpUrl = Helper.FAQ_URI + "#user-content-faq6";
-
-        if (provider.imap_host.endsWith("office365.com") ||
-                provider.imap_host.endsWith("live.com"))
-            provider.helpUrl = Helper.FAQ_URI + "#user-content-faq14";
-
-        if (provider.imap_host.endsWith("yahoo.com"))
-            provider.helpUrl = Helper.FAQ_URI + "#user-content-faq88";
-
-        return provider;
     }
 
     private static SRVRecord lookup(Context context, String record) throws TextParseException, UnknownHostException {

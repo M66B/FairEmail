@@ -769,8 +769,8 @@ public class FragmentIdentity extends FragmentBase {
         tvError.setVisibility(View.VISIBLE);
 
         final EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
-        if (provider != null && provider.helpUrl != null) {
-            Uri uri = Uri.parse(provider.helpUrl);
+        if (provider != null && provider.link != null) {
+            Uri uri = Uri.parse(provider.link);
             btnHelp.setTag(uri);
             btnHelp.setVisibility(View.VISIBLE);
         }
@@ -785,7 +785,7 @@ public class FragmentIdentity extends FragmentBase {
             public void run() {
                 if (provider != null && provider.documentation != null)
                     scroll.smoothScrollTo(0, tvInstructions.getBottom());
-                else if (provider != null && provider.helpUrl != null)
+                else if (provider != null && provider.link != null)
                     scroll.smoothScrollTo(0, btnHelp.getBottom());
                 else
                     scroll.smoothScrollTo(0, tvError.getBottom());

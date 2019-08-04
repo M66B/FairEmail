@@ -377,7 +377,8 @@ You might get the alert "*Please log in via your web browser*".
 This happens when Google considers the network that connects you to the internet (this could be a VPN) to to be unsafe.
 This can be prevented by using an app specific password.
 
-See [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
+See [here](https://support.google.com/mail/answer/7126229) for Google's instructions
+and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
 See [this FAQ](#user-content-faq111) about why OAuth is not being used.
 
@@ -521,6 +522,8 @@ Searching messages is a pro feature.
 
 To use Outlook or Hotmail with two factor authentication enabled, you need to create an app password.
 See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) for the details.
+
+See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
 <br />
 

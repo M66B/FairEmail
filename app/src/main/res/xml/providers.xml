@@ -2,7 +2,7 @@
 <providers>
     <provider
         name="Gmail"
-        link="https://support.google.com/mail/answer/7126229"
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq6"
         order="1"
         type="com.google">
         <imap
@@ -16,7 +16,7 @@
     </provider>
     <provider
         name="Outlook/Office365"
-        link="https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040"
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="2">
         <imap
             host="outlook.office365.com"
@@ -43,7 +43,7 @@
     <!-- no IMAP IDLE -->
     <provider
         name="Yahoo!"
-        link="https://help.yahoo.com/kb/SLN4075.html">
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88">
         <imap
             host="imap.mail.yahoo.com"
             port="993"
