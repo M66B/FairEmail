@@ -190,7 +190,7 @@ public class ServiceSynchronize extends ServiceBase {
             }
         });
 
-        db.message().liveWidgetUnified(false, false).observe(cowner, new Observer<List<TupleMessageWidget>>() {
+        db.message().liveWidgetUnified(false, false).observe(this, new Observer<List<TupleMessageWidget>>() {
             private List<TupleMessageWidget> last = null;
 
             @Override
