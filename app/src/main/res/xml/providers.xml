@@ -175,6 +175,7 @@
     </provider>
     <provider
         name="web.de"
+        keepalive="9"
         link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html">
         <imap
             host="imap.web.de"
