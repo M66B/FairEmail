@@ -48,7 +48,7 @@ For authorizing:
 * ~~Search suggestions~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (IMO it is not a good idea to let an email client handle sensitive encryption keys for an exceptional use case while OpenKeychain can export keys too)
 * ~~Generic unified folders~~
-* New message notification schedules per account
+* ~~New message notification schedules per account~~ (implemented by added a time condition to rules, so messages can be snoozed in selected periods)
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -1541,6 +1541,9 @@ like for example multiple synchronization periods per day or different synchroni
 
 It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile,
 which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
+
+It is also possible to create [rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition.
+This way it is possible to snooze business related messages until the start of the business hours.
 
 Scheduling is a pro feature.
 
