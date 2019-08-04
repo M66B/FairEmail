@@ -1535,7 +1535,8 @@ Account names are case sensitive.
 Automation can be used for more advanced schedules,
 like for example multiple synchronization periods per day or different synchronization periods for different days.
 
-It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile.
+It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile,
+which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
 
 Scheduling is a pro feature.
 
