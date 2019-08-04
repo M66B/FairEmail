@@ -1063,7 +1063,16 @@ public abstract class DB extends RoomDatabase {
                 return null;
             List<Address> result = new ArrayList<>();
             try {
-                JSONArray jaddresses = new JSONArray(json);
+                JSONArray jroot = new JSONArray(json);
+                JSONArray jaddresses = new JSONArray();
+                for (int i = 0; i < jroot.length(); i++) {
+                    Object item = jroot.get(i);
+                    if (jroot.get(i) instanceof JSONArray)
+                        for (int j = 0; j < ((JSONArray) item).length(); j++)
+                            jaddresses.put(((JSONArray) item).get(j));
+                    else
+                        jaddresses.put(item);
+                }
                 for (int i = 0; i < jaddresses.length(); i++) {
                     JSONObject jaddress = (JSONObject) jaddresses.get(i);
                     if (jaddress.has("personal"))

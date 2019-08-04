@@ -23,6 +23,8 @@ import androidx.room.Ignore;
 
 import java.util.Objects;
 
+import javax.mail.Address;
+
 public class TupleMessageEx extends EntityMessage {
     public String accountName;
     public Integer accountColor;
@@ -34,6 +36,7 @@ public class TupleMessageEx extends EntityMessage {
     public String identityName;
     public String identityEmail;
     public Boolean identitySynchronize;
+    public Address[] senders;
     public int count;
     public int unseen;
     public int unflagged;
