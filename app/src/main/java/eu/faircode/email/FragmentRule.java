@@ -40,6 +40,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -108,6 +109,7 @@ public class FragmentRule extends FragmentBase {
     private TextView tvActionRemark;
 
     private NumberPicker npDuration;
+    private CheckBox cbScheduleEnd;
 
     private Button btnColor;
     private View vwColor;
@@ -205,6 +207,7 @@ public class FragmentRule extends FragmentBase {
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
 
         npDuration = view.findViewById(R.id.npDuration);
+        cbScheduleEnd = view.findViewById(R.id.cbScheduleEnd);
 
         btnColor = view.findViewById(R.id.btnColor);
         vwColor = view.findViewById(R.id.vwColor);
@@ -347,6 +350,13 @@ public class FragmentRule extends FragmentBase {
 
         npDuration.setMinValue(1);
         npDuration.setMaxValue(99);
+
+        cbScheduleEnd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                npDuration.setEnabled(!checked);
+            }
+        });
 
         tvActionRemark.setVisibility(View.GONE);
 
@@ -578,12 +588,14 @@ public class FragmentRule extends FragmentBase {
         int minutes = data.getIntExtra("minutes", 0);
         tvScheduleStart.setTag(minutes);
         tvScheduleStart.setText(formatHour(getContext(), minutes));
+        cbScheduleEnd.setChecked(true);
     }
 
     private void onScheduleEnd(Intent data) {
         int minutes = data.getIntExtra("minutes", 0);
         tvScheduleEnd.setTag(minutes);
         tvScheduleEnd.setText(formatHour(getContext(), minutes));
+        cbScheduleEnd.setChecked(true);
     }
 
     private void loadRule() {
@@ -649,6 +661,7 @@ public class FragmentRule extends FragmentBase {
                         switch (type) {
                             case EntityRule.TYPE_SNOOZE:
                                 npDuration.setValue(jaction.getInt("duration"));
+                                cbScheduleEnd.setChecked(jaction.optBoolean("schedule_end", false));
                                 break;
 
                             case EntityRule.TYPE_FLAG:
@@ -919,6 +932,7 @@ public class FragmentRule extends FragmentBase {
             switch (action.type) {
                 case EntityRule.TYPE_SNOOZE:
                     jaction.put("duration", npDuration.getValue());
+                    jaction.put("schedule_end", cbScheduleEnd.isChecked());
                     break;
 
                 case EntityRule.TYPE_FLAG:

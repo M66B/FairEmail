@@ -620,6 +620,7 @@
     <string name="title_rule_action">Action</string>
     <string name="title_rule_action_remark">This action will be applied to new messages arriving in the folder %1$s</string>
     <string name="title_rule_hours">Hours</string>
+    <string name="title_rule_schedule_end">Until the end of the time condition</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_thread">All messages in same conversation and folder</string>
     <string name="title_rule_identity">Identity</string>

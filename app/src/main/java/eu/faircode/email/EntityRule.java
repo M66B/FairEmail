@@ -349,7 +349,30 @@ public class EntityRule {
 
     private boolean onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         int duration = jargs.getInt("duration");
-        long wakeup = message.received + duration * 3600 * 1000L;
+        boolean schedule_end = jargs.optBoolean("schedule_end", false);
+
+        long wakeup;
+        if (schedule_end) {
+            JSONObject jcondition = new JSONObject(condition);
+            JSONObject jschedule = jcondition.optJSONObject("schedule");
+
+            if (jschedule == null)
+                throw new IllegalArgumentException("Rule snooze schedule not found");
+
+            int start = jschedule.optInt("start", 0);
+            int end = jschedule.optInt("end", 0);
+            if (end <= start)
+                end += 24 * 60;
+
+            int hour = end / 60;
+            int minute = end % 60;
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.HOUR_OF_DAY, hour);
+            cal.set(Calendar.MINUTE, minute);
+            cal.set(Calendar.SECOND, 0);
+            wakeup = cal.getTimeInMillis();
+        } else
+            wakeup = message.received + duration * 3600 * 1000L;
 
         if (wakeup < new Date().getTime())
             return false;
