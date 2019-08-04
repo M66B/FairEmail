@@ -4,8 +4,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import static android.app.Activity.RESULT_CANCELED;
 
@@ -18,6 +20,17 @@ public class FragmentDialogEx extends DialogFragment {
             super.onStart();
         } catch (Throwable ex) {
             Log.e(ex);
+        }
+    }
+
+    @Override
+    public void show(@NonNull FragmentManager manager, @Nullable String tag) {
+        try {
+            super.show(manager, tag);
+        } catch (IllegalStateException ex) {
+            // Can not perform this action after onSaveInstanceState
+            // Should not happen, but still happened in AdapterMessage.onOpenLink
+            Log.w(ex);
         }
     }
 
