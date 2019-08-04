@@ -1919,7 +1919,7 @@ class Core {
         }
     }
 
-    static void notifyMessages(Context context, List<TupleMessageEx> messages) {
+    static void notifyMessages(Context context, List<TupleMessageEx> messages, Map<String, List<Long>> groupNotifying) {
         if (messages == null)
             messages = new ArrayList<>();
         Log.i("Notify messages=" + messages.size());
@@ -1934,7 +1934,6 @@ class Core {
 
         // Current
         int unseen = 0;
-        final Map<String, List<Long>> groupNotifying = new HashMap<>();
         Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
         for (TupleMessageEx message : messages) {
             if (!(message.ui_seen || message.ui_ignored || message.ui_hide != 0))
@@ -1981,7 +1980,7 @@ class Core {
             List<Notification> notifications = getNotificationUnseen(context, group, groupMessages.get(group));
 
             final List<Long> add = new ArrayList<>();
-            final List<Long> remove = groupNotifying.get(group);
+            final List<Long> remove = new ArrayList<>(groupNotifying.get(group));
 
             for (Notification notification : notifications) {
                 Long id = notification.extras.getLong("id", 0);
@@ -2023,10 +2022,14 @@ class Core {
 
             if (remove.size() + add.size() > 0) {
                 DB db = DB.getInstance(context);
-                for (long id : remove)
+                for (long id : remove) {
+                    groupNotifying.get(group).remove(id);
                     db.message().setMessageNotifying(Math.abs(id), 0);
-                for (long id : add)
+                }
+                for (long id : add) {
+                    groupNotifying.get(group).add(id);
                     db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
+                }
             }
         }
     }
