@@ -335,10 +335,10 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (prefs.getBoolean("play_store", true)) {
                 long cached = prefs.getLong(getSkuPro() + ".cached", 0);
                 if (cached + MAX_SKU_CACHE_DURATION < new Date().getTime()) {
-                    Log.i("IAB cache expired");
+                    Log.i("IAB cache expired=" + new Date(cached));
                     editor.remove("pro");
                 } else
-                    Log.i("IAB caching");
+                    Log.i("IAB caching until=" + new Date(cached + MAX_SKU_CACHE_DURATION));
             }
 
             for (Purchase purchase : purchases)
