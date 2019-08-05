@@ -1,41 +1,41 @@
-# Setup help
+# Installasjonshjelp
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Det er ganske enkelt å sette opp FairEmail. Du må legge til minst en konto for å motta e-post og minst en identitet hvis du vil sende e-post. Det raske oppsettet vil legge til en konto og en identitet på en gang for de fleste store leverandører.
 
-## Requirements
+## Krav
 
-An internet connection is required to setup accounts and identities.
+Det kreves en internettforbindelse for å konfigurere kontoer og identiteter.
 
-## Quick setup
+## Hurtig oppsett
 
-Just enter your name, email address and password and tap *Go*.
+Bare skriv inn navn, e-postadresse og passord og trykk *Gå*.
 
-This will work for most major email providers.
+Dette vil fungere for de fleste store e-postleverandører.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Hvis hurtigoppsettet ikke fungerer, må du konfigurere en konto og en identitet på en annen måte, se nedenfor for instruksjoner.
 
-## Setup account - to receive email
+## Oppsett av konto - for å motta e-post
 
-To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+For å legge til en konto, trykk på *Administrer kontoer* og trykk på den oransje *legg til* knappen nederst. Velg en leverandør fra listen, skriv inn brukernavnet, som for det meste er din e-postadresse, og skriv inn passordet ditt. Trykk på *Kontroller* for å la FairEmail koble til e-postserveren og hente en liste over systemmapper. Etter å ha gjennomgått valg av systemmappe, kan du legge til kontoen ved å trykke *Lagre*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Hvis leverandøren din ikke er på listen over leverandører, velger du *Tilpasset*. Skriv inn domenenavnet, for eksempel *gmail.com* og trykk *Hent innstillinger*. Hvis leverandøren din støtter [auto-oppdagelse](https://tools.ietf.org/html/rfc6186), vil FairEmail fylle ut vertsnavnet og portnummeret, ellers sjekk installasjonsinstruksjonene til leverandøren din for riktig IMAP-vertsnavn, portnummer og protokoll (SSL/TLS eller STARTTLS). For mer om dette, vennligst se [her](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Setup identity - to send email
+## Oppsett identitet - for å sende e-post
 
-Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+For å legge til en identitet, trykk på *Administrer identitet* og trykk på den oransje *legg til* -knappen nederst. Skriv inn navnet du vil skal vises i fra adressen til e-postene du sender, og velg en lenket konto. Trykk på *Lagre* for å legge til identiteten.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and protocol (SSL/TLS or STARTTLS).
+Hvis kontoen ble konfigurert manuelt, må du sannsynligvis konfigurere identiteten manuelt. Skriv inn domenenavnet, for eksempel *gmail.com* og trykk *Hent innstillinger*. Hvis leverandøren din støtter [auto-oppdagelse](https://tools.ietf.org/html/rfc6186), vil FairEmail fylle ut vertsnavnet og portnummeret, ellers sjekk installasjonsinstruksjonene til leverandøren din for riktig SMTP vertsnavn, portnummer og protokoll (SSL/TLS eller STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Se [denne FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) om bruk av aliaser.
 
-## Grant permissions - to access contact information
+## Gi tillatelser - for å få tilgang til kontaktinformasjon
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Hvis du vil slå opp e-postadresser, ha kontaktbilder vist osv., Må du gi tillatelse til å lese kontakter til FairEmail. Bare trykk på *Gi tillatelser* og velg *Tillat*.
 
-## Setup battery optimizations - to continuously receive email
+## Konfigurer batterioptimaliseringer - for kontinuerlig å motta e-post
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+På nyere Android-versjoner vil Android legge appene i dvale når skjermen er slått av en stund for å redusere batteribruken. Hvis du vil motta nye e-postmeldinger uten forsinkelser, bør du deaktivere batterioptimaliseringer for FairEmail. Trykk på *Deaktiver batterioptimaliseringer* og følg instruksjonene.
 
-## Questions or problems
+## Spørsmål eller problemer
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Hvis du har et spørsmål eller et problem, kan du [se her](https://github.com/M66B/FairEmail/blob/master/FAQ.md) eller bruk [dette kontaktskjemaet](https://contact.faircode.eu/?product=fairemailsupport) for å be om hjelp (du kan bruke transaksjonsnummeret "*konfigurasjonshjelp*").
