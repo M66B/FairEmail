@@ -538,11 +538,13 @@
     <string name="title_rule_recipient">Mottaker inneholder</string>
     <string name="title_rule_subject">Emne inneholder</string>
     <string name="title_rule_header">Overskriften inneholder</string>
+    <string name="title_rule_time">Tid mellom kl</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OG</string>
     <string name="title_rule_action">Handling</string>
     <string name="title_rule_action_remark">Denne handlingen vil bli brukt på nye meldinger som kommer inn i mappen %1$s</string>
     <string name="title_rule_hours">Timer</string>
+    <string name="title_rule_schedule_end">Fram til slutten av tidsforholdet</string>
     <string name="title_rule_folder">Mappe</string>
     <string name="title_rule_thread">Alle meldinger i samme samtale og mappe</string>
     <string name="title_rule_identity">Identitet</string>
@@ -668,6 +670,7 @@
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
     <string name="title_enable">Aktiver</string>
+    <string name="title_any">Noen</string>
     <string name="title_executing">Utfører</string>
     <string name="title_completed">Fullført</string>
     <string name="title_ask_what">Spør hva du skal gjøre</string>

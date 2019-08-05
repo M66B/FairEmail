@@ -537,11 +537,13 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_recipient">Empfänger enthält</string>
     <string name="title_rule_subject">Betreff enthält</string>
     <string name="title_rule_header">Kopfzeile enthält</string>
+    <string name="title_rule_time">Zeit zwischen</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
     <string name="title_rule_action">Aktion</string>
     <string name="title_rule_action_remark">Diese Aktion wird auf neue Mails im Ordner %1$s angewendet</string>
     <string name="title_rule_hours">Stunden</string>
+    <string name="title_rule_schedule_end">Bis zum Ende der Zeitbedingung</string>
     <string name="title_rule_folder">Ordner</string>
     <string name="title_rule_thread">Alle Nachrichten zum selben Thema und im selben Ordner</string>
     <string name="title_rule_identity">Identität</string>
@@ -667,6 +669,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
+    <string name="title_any">Jeder</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>

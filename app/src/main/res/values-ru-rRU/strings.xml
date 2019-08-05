@@ -556,11 +556,13 @@
     <string name="title_rule_recipient">Получатель содержит</string>
     <string name="title_rule_subject">\"Тема\" содержит</string>
     <string name="title_rule_header">Заголовок содержит</string>
+    <string name="title_rule_time">Время между</string>
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>
     <string name="title_rule_action_remark">Это действие будет применяться к новым сообщениям в папке %1$s</string>
     <string name="title_rule_hours">Часов</string>
+    <string name="title_rule_schedule_end">До конца срока</string>
     <string name="title_rule_folder">Папка</string>
     <string name="title_rule_thread">Все сообщения в одном диалоге и папке</string>
     <string name="title_rule_identity">Идентификатор</string>
@@ -686,6 +688,7 @@
     <string name="title_report">Отчет</string>
     <string name="title_fix">Исправить</string>
     <string name="title_enable">Включить</string>
+    <string name="title_any">Любой</string>
     <string name="title_executing">Выполнение</string>
     <string name="title_completed">Завершено</string>
     <string name="title_ask_what">Спросить, что делать</string>

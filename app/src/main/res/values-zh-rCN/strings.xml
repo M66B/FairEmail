@@ -528,11 +528,13 @@
     <string name="title_rule_recipient">收件人包含</string>
     <string name="title_rule_subject">主题包含</string>
     <string name="title_rule_header">邮件头包含</string>
+    <string name="title_rule_time">时间间隔</string>
     <string name="title_rule_regex">正则表达式</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">操作</string>
     <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
     <string name="title_rule_hours">小时</string>
+    <string name="title_rule_schedule_end">直到给定的时间结束</string>
     <string name="title_rule_folder">文件夹</string>
     <string name="title_rule_thread">在同一对话和文件夹中的所有消息</string>
     <string name="title_rule_identity">身份</string>
@@ -658,6 +660,7 @@
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
+    <string name="title_any">任意一天</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
     <string name="title_ask_what">询问做什么</string>

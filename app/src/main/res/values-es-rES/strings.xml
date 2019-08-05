@@ -538,11 +538,13 @@
     <string name="title_rule_recipient">El destinatario contiene</string>
     <string name="title_rule_subject">Asunto contiene</string>
     <string name="title_rule_header">Encabezado contiene</string>
+    <string name="title_rule_time">Tiempo entre</string>
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">Y</string>
     <string name="title_rule_action">Acción</string>
     <string name="title_rule_action_remark">Esta acción se aplicará a los nuevos mensajes que lleguen a la carpeta %1$s</string>
     <string name="title_rule_hours">Horas</string>
+    <string name="title_rule_schedule_end">Hasta el final de la condición de tiempo</string>
     <string name="title_rule_folder">Carpeta</string>
     <string name="title_rule_thread">Todos los mensajes en la misma conversación y carpeta</string>
     <string name="title_rule_identity">Identidad</string>
@@ -668,6 +670,7 @@
     <string name="title_report">Reportar</string>
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
+    <string name="title_any">Cualquier</string>
     <string name="title_executing">En ejecución</string>
     <string name="title_completed">Completado</string>
     <string name="title_ask_what">Preguntar qué hacer</string>

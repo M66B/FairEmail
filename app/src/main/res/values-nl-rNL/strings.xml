@@ -538,11 +538,13 @@
     <string name="title_rule_recipient">Ontvanger bevat</string>
     <string name="title_rule_subject">Onderwerp bevat</string>
     <string name="title_rule_header">De kop bevat</string>
+    <string name="title_rule_time">Tijd tussen</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Actie</string>
     <string name="title_rule_action_remark">Deze actie zal worden toegepast op nieuwe berichten die aankomen in de map %1$s</string>
     <string name="title_rule_hours">Uren</string>
+    <string name="title_rule_schedule_end">Tot het einde van de tijdsconditie</string>
     <string name="title_rule_folder">Map</string>
     <string name="title_rule_thread">Alle berichten in hetzelfde gesprek en dezelfde map</string>
     <string name="title_rule_identity">Identiteit</string>
@@ -668,6 +670,7 @@
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
+    <string name="title_any">Elke</string>
     <string name="title_executing">Aan het uitvoeren</string>
     <string name="title_completed">Voltooid</string>
     <string name="title_ask_what">Vraag wat te doen</string>

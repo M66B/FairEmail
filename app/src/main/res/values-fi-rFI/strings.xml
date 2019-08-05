@@ -668,6 +668,7 @@
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
     <string name="title_enable">Ota käyttöön</string>
+    <string name="title_any">Mikä tahansa</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
     <string name="title_ask_what">Kysy, mitä tehdään</string>
