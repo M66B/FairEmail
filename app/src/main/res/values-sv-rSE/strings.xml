@@ -39,6 +39,10 @@
         <item quantity="one">%1$d nytt</item>
         <item quantity="other">%1$d nya</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">Markerade %1$d meddelande</item>
+        <item quantity="other">Markerade %1$d meddelanden</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flytta %1$d meddelande till %2$s ?</item>
         <item quantity="other">Flytta %1$d meddelanden till %2$s ?</item>
@@ -115,9 +119,11 @@
     <string name="title_setup_done">Klar</string>
     <string name="title_setup_export">Exportera inställningar</string>
     <string name="title_setup_import">Importera inställningar</string>
+    <string name="title_setup_import_do">Importerade konton kommer att läggas till utan att skriva över några befintliga</string>
     <string name="title_setup_password">Lösenord</string>
     <string name="title_setup_password_repeat">Upprepa lösenord</string>
     <string name="title_setup_password_missing">Lösenord saknas</string>
+    <string name="title_setup_password_different">Lösenord matchar inte</string>
     <string name="title_setup_password_invalid">Ogiltigt lösenord</string>
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
@@ -196,6 +202,7 @@
     <string name="title_advanced_autoexpand">Utöka meddelanden automatiskt</string>
     <string name="title_advanced_collapse">Kollapsa meddelanden i konversationer på \"tillbaka\"</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
+    <string name="title_advanced_onclose">När du stänger en konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
@@ -226,6 +233,7 @@
     <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan. Detta synkroniserar meddelanden och utför operationer under en begränsad tid.</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
+    <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
@@ -355,6 +363,7 @@
     <string name="title_folder_thread">Konversation %1$s</string>
     <string name="title_folders_unified">Samlad inkorg mappar</string>
     <string name="title_no_messages">Inga meddelanden</string>
+    <string name="title_no_folders">Inga mappar</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
     <string name="title_seen">Märk som läst</string>
@@ -646,6 +655,7 @@
     <string name="title_report">Rapportera</string>
     <string name="title_fix">Åtgärda</string>
     <string name="title_enable">Aktivera</string>
+    <string name="title_any">Någon</string>
     <string name="title_executing">Kör</string>
     <string name="title_completed">Slutförd</string>
     <string name="title_ask_what">Fråga vad du ska göra</string>
@@ -674,6 +684,12 @@
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
+    <string name="title_search_special_prefix">speciell</string>
+    <string name="title_search_special_unseen">oläst</string>
+    <string name="title_search_special_flagged">stjärnmärkt</string>
+    <string name="title_search_special_snoozed">slumrade</string>
+    <string name="title_widget_unseen">Endast olästa meddelanden</string>
+    <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
     <string-array name="pollIntervalNames">
         <item>Alltid</item>
         <item>Varje 15 minuter</item>
@@ -707,6 +723,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Gör ingenting</item>
+        <item>Gå till föregående konversation</item>
+        <item>Gå till nästa konversation</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Liten</item>
