@@ -650,6 +650,8 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
+        boolean deleted = false;
+
         if (message.uid != null) {
             Message iexisting = ifolder.getMessageByUID(message.uid);
             if (iexisting == null)
@@ -658,12 +660,13 @@ class Core {
                 try {
                     Log.i(folder.name + " deleting uid=" + message.uid);
                     iexisting.setFlag(Flags.Flag.DELETED, true);
+                    deleted = true;
                 } catch (MessageRemovedException ignored) {
                     Log.w(folder.name + " existing gone uid=" + message.uid);
                 }
         }
 
-        if (!TextUtils.isEmpty(message.msgid)) {
+        if (!TextUtils.isEmpty(message.msgid) && !deleted) {
             Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
             if (imessages == null)
                 Log.w(folder.name + " search for msgid=" + message.msgid + " returned null");
