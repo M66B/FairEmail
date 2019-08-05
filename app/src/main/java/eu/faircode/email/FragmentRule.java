@@ -906,13 +906,14 @@ public class FragmentRule extends FragmentBase {
             jcondition.put("header", jheader);
         }
 
+        int day = spScheduleDay.getSelectedItemPosition();
         Object start = tvScheduleStart.getTag();
         Object end = tvScheduleEnd.getTag();
         if (start == null)
             start = 0;
         if (end == null)
             end = 0;
-        if (!start.equals(end)) {
+        if (!(day == 0 && start.equals(end))) {
             JSONObject jschedule = new JSONObject();
             jschedule.put("day", spScheduleDay.getSelectedItemPosition() - 1);
             jschedule.put("start", (int) start);
