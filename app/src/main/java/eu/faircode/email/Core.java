@@ -1985,23 +1985,28 @@ class Core {
 
         // Difference
         for (String group : groupMessages.keySet()) {
-            List<Notification> notifications = getNotificationUnseen(context, group, groupMessages.get(group));
-
+            // Difference
             final List<Long> add = new ArrayList<>();
             final List<Long> remove = new ArrayList<>(groupNotifying.get(group));
-
-            for (Notification notification : notifications) {
-                Long id = notification.extras.getLong("id", 0);
-                if (id != 0)
-                    if (remove.contains(id)) {
-                        remove.remove(id);
-                        Log.i("Notify existing=" + id);
-                    } else {
-                        remove.remove(-id);
-                        add.add(id);
-                        Log.i("Notify adding=" + id);
-                    }
+            for (TupleMessageEx message : groupMessages.get(group)) {
+                long id = (message.content ? message.id : -message.id);
+                if (remove.contains(id)) {
+                    remove.remove(id);
+                    Log.i("Notify existing=" + id);
+                } else {
+                    remove.remove(-id);
+                    add.add(id);
+                    Log.i("Notify adding=" + id);
+                }
             }
+
+            if (remove.size() + add.size() == 0) {
+                Log.i("Notify unchanged");
+                continue;
+            }
+
+            // Build notifications
+            List<Notification> notifications = getNotificationUnseen(context, group, groupMessages.get(group));
 
             Log.i("Notify group=" + group + " count=" + notifications.size() +
                     " added=" + add.size() + " removed=" + remove.size());
