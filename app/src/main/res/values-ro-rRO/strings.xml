@@ -547,11 +547,13 @@
     <string name="title_rule_recipient">Destinatarul conține</string>
     <string name="title_rule_subject">Subiectul conține</string>
     <string name="title_rule_header">Antetul conține</string>
+    <string name="title_rule_time">Interval de timp</string>
     <string name="title_rule_regex">Expresie regulată (regex)</string>
     <string name="title_rule_and">ȘI</string>
     <string name="title_rule_action">Acțiune</string>
     <string name="title_rule_action_remark">Această acțiune se va aplica mesajelor noi care sosesc în dosarul %1$s</string>
     <string name="title_rule_hours">Ore</string>
+    <string name="title_rule_schedule_end">Condiția până la terminarea timpului</string>
     <string name="title_rule_folder">Dosar</string>
     <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
@@ -677,6 +679,7 @@
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
     <string name="title_enable">Activează</string>
+    <string name="title_any">Oricare</string>
     <string name="title_executing">Se execută</string>
     <string name="title_completed">Finalizat</string>
     <string name="title_ask_what">Întreabă ce să faci</string>

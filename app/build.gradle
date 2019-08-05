@@ -130,6 +130,25 @@ task copyMarkdown(type: Copy) {
 }
 preBuild.dependsOn copyMarkdown
 
+task copySetup(type: Copy) {
+    from "src/main/res"
+    include '**/SETUP.md'
+    into "src/main/assets"
+    eachFile { file ->
+        file.relativePath = new RelativePath(true, "SETUP-${file.file.parentFile.name}.md")
+    }
+    includeEmptyDirs = false
+}
+preBuild.dependsOn copySetup
+
+task cleanCrowdin(type: Delete) {
+    delete fileTree("src/main/res").matching {
+        include "**/SETUP.md"
+    }
+}
+preBuild.dependsOn cleanCrowdin
+cleanCrowdin.shouldRunAfter copySetup
+
 repositories {
     google()
     jcenter()
