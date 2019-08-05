@@ -2764,7 +2764,7 @@ public class FragmentCompose extends FragmentBase {
 
             if (action == R.id.action_send && draft.ui_snoozed != null) {
                 Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
-                EntityMessage.snooze(getContext(), draft.id, draft.ui_snoozed);
+                EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
             }
 
             return draft;
