@@ -1986,8 +1986,9 @@ class Core {
         // Difference
         for (String group : groupMessages.keySet()) {
             // Difference
-            final List<Long> add = new ArrayList<>();
-            final List<Long> remove = new ArrayList<>(groupNotifying.get(group));
+            List<Long> add = new ArrayList<>();
+            List<Long> remove = new ArrayList<>(groupNotifying.get(group));
+            List<TupleMessageEx> notify = new ArrayList<>();
             for (TupleMessageEx message : groupMessages.get(group)) {
                 long id = (message.content ? message.id : -message.id);
                 if (remove.contains(id)) {
@@ -1996,6 +1997,7 @@ class Core {
                 } else {
                     remove.remove(-id);
                     add.add(id);
+                    notify.add(message);
                     Log.i("Notify adding=" + id);
                 }
             }
@@ -2006,7 +2008,7 @@ class Core {
             }
 
             // Build notifications
-            List<Notification> notifications = getNotificationUnseen(context, group, groupMessages.get(group));
+            List<Notification> notifications = getNotificationUnseen(context, group, notify);
 
             Log.i("Notify group=" + group + " count=" + notifications.size() +
                     " added=" + add.size() + " removed=" + remove.size());
@@ -2025,7 +2027,7 @@ class Core {
 
             for (Notification notification : notifications) {
                 long id = notification.extras.getLong("id", 0);
-                if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
+                if (id != 0 || add.size() + remove.size() > 0) {
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Log.i("Notifying tag=" + tag +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
