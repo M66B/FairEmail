@@ -437,6 +437,8 @@
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
     <string name="title_no_viewer">Brak aplikacji do podglądu %1$s</string>
     <string name="title_no_saf">Brak dostępu do plików</string>
+    <string name="title_no_stream">Nieaktualna aplikacja wysłała ścieżkę pliku zamiast strumienia pliku</string>
+    <string name="title_no_contacts">Wybór kontaktu nie jest dostępny</string>
     <string name="title_no_internet">Brak lub brak odpowiedniego połączenia internetowego</string>
     <string name="title_no_connection">Synchronizacja nastąpi podczas następnego połączenia z kontem</string>
     <string name="title_no_folder">Folder nie istnieje</string>
@@ -453,6 +455,7 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
+    <string name="title_ask_edit_ref">Edytować ponownie sformatowany tekst odpowiedzi/przekazanej wiadomości?</string>
     <string name="title_ask_sync_all">Synchronizować wszystkie wiadomości w %1$s?</string>
     <string name="title_ask_delete_local">Usunąć wiadomości lokalne? Wiadomości pozostaną na serwerze zdalnym.</string>
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
@@ -487,6 +490,8 @@
     <string name="title_attachment_photo">Zrób zdjęcie</string>
     <string name="title_attachment_audio">Nagraj dźwięk</string>
     <string name="title_show_addresses">Pokaż DW/UDW</string>
+    <string name="title_media_toolbar">Pasek mediów</string>
+    <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
     <string name="title_send_plain_text">Wyślij tylko zwykły tekst</string>
     <string name="title_from_missing">Brak nadawcy</string>
@@ -551,11 +556,13 @@
     <string name="title_rule_recipient">Odbiorca zawiera</string>
     <string name="title_rule_subject">Tytuł zawiera</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
+    <string name="title_rule_time">Czas pomiędzy</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcja</string>
     <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>
     <string name="title_rule_hours">Godzin</string>
+    <string name="title_rule_schedule_end">Do końca czasu warunku</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_thread">Wszystkie wiadomości w tej samej rozmowie i folderze</string>
     <string name="title_rule_identity">Tożsamość</string>
@@ -563,6 +570,7 @@
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>
+    <string name="title_rule_automation_hint">Zostanie wysłany zamiar (intent) \'%1$s\' z dodatkami (extras) \'%2$s\'</string>
     <string name="title_rule_execute">Wykonaj teraz</string>
     <string name="title_rule_applied">Problematycznych wiadomości: %1$d</string>
     <string name="title_rule_check">Sprawdź</string>
@@ -680,6 +688,7 @@
     <string name="title_report">Raport</string>
     <string name="title_fix">Popraw</string>
     <string name="title_enable">Włącz</string>
+    <string name="title_any">Dowolny</string>
     <string name="title_executing">Wykonywanie</string>
     <string name="title_completed">Ukończone</string>
     <string name="title_ask_what">Zapytaj co zrobić</string>

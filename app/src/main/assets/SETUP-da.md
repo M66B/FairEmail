@@ -1,26 +1,26 @@
-# Setup help
+# Opsætningshjælp
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+At opsætte FairEmail er ret enkelt. Du skal tilføje mindst én konto for at modtage e-mail og mindst én identitet for at sende e-mail. Den hurtige opsætning tilføjer på én gang en konto og en identitet for de fleste større udbydere.
 
-## Requirements
+## Forudsætninger
 
-An internet connection is required to setup accounts and identities.
+En Internetforbindelse kræves for at opsætte konti og identiteter.
 
-## Quick setup
+## Hurtig opsætning
 
-Just enter your name, email address and password and tap *Go*.
+Angiv blot dit navn, e-mail og adgangskode, og tryk på *Go*.
 
-This will work for most major email providers.
+Dette vil fungere for de fleste større udbydere.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Fungerer hurtig-opsætningen ikke, så opsæt på anden vis en konto og en identitet (se instruktioner nedenfor).
 
-## Setup account - to receive email
+## Opsæt konto - for at modtage e-mail
 
 To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
 
 If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Setup identity - to send email
+## Set up identity - to send email
 
 Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
 

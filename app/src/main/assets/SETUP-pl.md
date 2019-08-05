@@ -1,28 +1,28 @@
-# Setup help
+# Pomoc instalacyjna
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Konfiguracja FairEmail jest dość prosta. Musisz dodać co najmniej jedno konto, aby otrzymywać wiadomości email i przynajmniej jedną tożsamość, jeśli chcesz wysłać wiadomości email. Szybka konfiguracja doda konto i tożsamość za jednym razem dla większości głównych dostawców.
 
-## Requirements
+## Wymagania
 
-An internet connection is required to setup accounts and identities.
+Do skonfigurowania kont i tożsamości wymagane jest połączenie internetowe.
 
-## Quick setup
+## Szybka konfiguracja
 
-Just enter your name, email address and password and tap *Go*.
+Po prostu wpisz swoje imię i nazwisko, adres email i hasło, a następnie naciśnij przycisk *Idź*.
 
-This will work for most major email providers.
+To działa dla większości głównych dostawców poczty email.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Jeśli szybka konfiguracja nie zadziała, musisz skonfigurować konto i tożsamość w inny sposób, patrz poniżej, aby uzyskać instrukcje.
 
-## Setup account - to receive email
+## Konfiguracja konta - aby odbierać wiadomości email
 
-To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Aby dodać konto, naciśnij *Zarządzaj kontami* i naciśnij pomarańczowy przycisk *dodaj* na dole. Wybierz dostawcę z listy, wprowadź nazwę użytkownika, która jest najczęściej Twoim adresem email i wprowadź hasło. Naciśnij *Sprawdź*, aby FairEmail mógł połączyć się z serwerem email i pobrać listę folderów systemowych. Po zapoznaniu się z wyborem folderu systemowego możesz dodać konto, naciskając *Zapisz*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Jeśli Twój dostawca nie znajduje się na liście dostawców, wybierz *Własne*. Wprowadź nazwę domeny, na przykład *gmail.com* i naciśnij *Pobierz ustawienia*. Jeśli Twój dostawca obsługuje [automatyczne wykrywanie](https://tools.ietf.org/html/rfc6186), FairEmail wypełni nazwę hosta i numer portu, w przeciwnym razie sprawdź instrukcje instalacji swojego dostawcy, aby uzyskać prawidłową nazwę hosta IMAP, numer portu i protokół (SSL/TLS lub STARTTLS). Więcej informacji na ten temat można znaleźć [tutaj](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Setup identity - to send email
+## Konfiguracja tożsamości - aby wysyłać wiadomości email
 
-Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Podobnie, aby dodać tożsamość, naciśnij *Zarządzaj tożsamościami* i naciśnij pomarańczowy przycisk *dodaj* na dole. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
 
 If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and protocol (SSL/TLS or STARTTLS).
 

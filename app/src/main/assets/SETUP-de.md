@@ -1,26 +1,26 @@
-# Setup help
+# Setuphilfe
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+FairEmail einzurichten ist ziemlich einfach. Sie müssen mindestens ein Konto hinzufügen, um E-Mail zu erhalten, und mindestens eine Identität, wenn Sie E-Mail senden möchten. Die Schnelleinstellung wird ein Konto und eine Identität in einem Vorgang für die meisten großen Anbieter erstellen.
 
-## Requirements
+## Anforderungen
 
-An internet connection is required to setup accounts and identities.
+Für die Einrichtung von Konten und Identitäten ist eine Internetverbindung erforderlich.
 
-## Quick setup
+## Schnelleinrichtung
 
-Just enter your name, email address and password and tap *Go*.
+Geben Sie einfach Ihren Namen, Ihre E-Mail-Adresse und Ihr Passwort ein und tippen Sie auf *prüfen*.
 
-This will work for most major email providers.
+Dies funktioniert für die meisten großen E-Mail-Anbieter.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Wenn die Schnelleinrichtung nicht funktioniert, müssen Sie ein Konto und eine Identität auf andere Weise einrichten, siehe unten für Anweisungen dazu.
 
-## Setup account - to receive email
+## Konto einrichten - um E-Mail zu erhalten
 
-To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Um ein Konto hinzuzufügen, tippen Sie unter 'Konten einrichten' auf *verwalten* und tippen Sie dann auf die orange *Plus-Zeichen* Taste unten. Wählen Sie einen Anbieter aus der Liste, geben Sie den Benutzernamen ein, der meistens Ihre E-Mail-Adresse ist, und geben Sie Ihr Passwort ein. Tippen Sie auf *Prüfen* um FairEmail mit dem E-Mail-Server zu verbinden und eine Liste von Systemordnern zu laden. Nach der Überprüfung der Systemordner-Auswahl können Sie das Konto hinzufügen, indem Sie auf *Speichern*klicken.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Wenn Ihr Provider nicht in der Liste der Anbieter ist, wählen Sie *Benutzerdefiniert*. Geben Sie den Domain-Namen ein, zum Beispiel *gmail.com* und tippen Sie auf *Einstellungen abrufen*. Wenn Ihr Provider [Auto-discovery](https://tools.ietf.org/html/rfc6186)unterstützt, wird FairEmail den Hostnamen und die Portnummer ausfüllen, so dass Sie die Angaben Ihres Providers für den richtigen IMAP-Hostnamen, Port-Nummer und Protokoll (SSL/TLS oder STARTTLS) nur noch überprüfen müssen. Weitere Informationen dazu finden Sie [hier](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Setup identity - to send email
+## Identität einrichten - um E-Mail zu senden
 
 Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
 
