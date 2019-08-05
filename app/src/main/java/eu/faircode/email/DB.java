@@ -1075,13 +1075,12 @@ public abstract class DB extends RoomDatabase {
                 }
                 for (int i = 0; i < jaddresses.length(); i++) {
                     JSONObject jaddress = (JSONObject) jaddresses.get(i);
-                    if (jaddress.has("personal"))
-                        result.add(new InternetAddress(
-                                jaddress.getString("address"),
-                                jaddress.getString("personal")));
+                    String email = jaddress.getString("address");
+                    String personal = jaddress.optString("personal");
+                    if (TextUtils.isEmpty(personal))
+                        result.add(new InternetAddress(email));
                     else
-                        result.add(new InternetAddress(
-                                jaddress.getString("address")));
+                        result.add(new InternetAddress(email, personal));
                 }
             } catch (Throwable ex) {
                 // Compose can store invalid addresses
