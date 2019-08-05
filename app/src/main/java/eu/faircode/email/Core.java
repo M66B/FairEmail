@@ -39,6 +39,7 @@ import androidx.preference.PreferenceManager;
 
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
+import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.iap.Response;
@@ -265,7 +266,11 @@ class Core {
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
+                                ex.getCause() instanceof BadCommandException ||
                                 ex.getCause() instanceof CommandFailedException) {
+                            // com.sun.mail.iap.BadCommandException: B13 BAD [TOOBIG] Message too large
+                            // com.sun.mail.iap.CommandFailedException: AY3 NO [CANNOT] Cannot APPEND to a SPAM folder
+                            // com.sun.mail.iap.CommandFailedException: B16 NO [ALERT] Cannot MOVE messages out of the Drafts folder
                             Log.w("Unrecoverable");
 
                             // There is no use in repeating
