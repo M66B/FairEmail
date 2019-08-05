@@ -2218,7 +2218,10 @@ class Core {
                         .setSubText(message.accountName + " · " + folderName);
             }
 
-            if (notify_trash) {
+            DB db = DB.getInstance(context);
+
+            if (notify_trash &&
+                    db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null) {
                 Intent trash = new Intent(context, ServiceUI.class)
                         .setAction("trash:" + message.id)
                         .putExtra("group", group);
@@ -2230,7 +2233,8 @@ class Core {
                 mbuilder.addAction(actionTrash.build());
             }
 
-            if (notify_archive) {
+            if (notify_archive &&
+                    db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null) {
                 Intent archive = new Intent(context, ServiceUI.class)
                         .setAction("archive:" + message.id)
                         .putExtra("group", group);
@@ -2242,7 +2246,8 @@ class Core {
                 mbuilder.addAction(actionArchive.build());
             }
 
-            if (notify_reply && message.content) {
+            if (notify_reply && message.content &&
+                    db.identity().getComposableIdentities(message.account).size() > 0) {
                 Intent reply = new Intent(context, ActivityCompose.class)
                         .putExtra("action", "reply")
                         .putExtra("reference", message.id);
