@@ -53,11 +53,12 @@
 
             <ImageView
                 android:id="@+id/fast"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="@string/title_setup_quick"
                 android:src="@drawable/baseline_fast_forward_24"
+                android:tint="?android:attr/textColorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorWelcome" />
 
@@ -68,7 +69,7 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@string/title_setup_quick"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@id/fast"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="@string/title_setup_quick_remark"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fast" />
 
