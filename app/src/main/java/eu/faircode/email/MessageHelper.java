@@ -800,13 +800,11 @@ public class MessageHelper {
                 ContentType ct = new ContentType(part.getContentType());
                 String charset = ct.getParameter("charset");
 
-                String encoding = null;
-                try {
-                    String[] enc = part.getHeader("Content-Transfer-Encoding");
-                    if (enc != null && enc.length > 0)
-                        encoding = enc[0];
-                } catch (MessagingException ex) {
-                    Log.w(ex);
+                // Fix common mistakes
+                if (charset != null) {
+                    charset = charset.replace("\"", "");
+                    if ("ASCII".equals(charset.toUpperCase()))
+                        charset = "us-ascii";
                 }
 
                 if (TextUtils.isEmpty(charset) || "US-ASCII".equals(charset.toUpperCase())) {
