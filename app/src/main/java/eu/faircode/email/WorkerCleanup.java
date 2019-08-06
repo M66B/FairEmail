@@ -147,15 +147,16 @@ public class WorkerCleanup extends Worker {
             Log.i("Cleanup attachment files");
             File[] attachments = new File(context.getFilesDir(), "attachments").listFiles();
             if (attachments != null)
-                for (File file : attachments) {
-                    long id = Long.parseLong(file.getName().split("\\.")[0]);
-                    EntityAttachment attachment = db.attachment().getAttachment(id);
-                    if (attachment == null || !attachment.available) {
-                        Log.i("Deleting " + file);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
+                for (File file : attachments)
+                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
+                        long id = Long.parseLong(file.getName().split("\\.")[0]);
+                        EntityAttachment attachment = db.attachment().getAttachment(id);
+                        if (attachment == null || !attachment.available) {
+                            Log.i("Deleting " + file);
+                            if (!file.delete())
+                                Log.w("Error deleting " + file);
+                        }
                     }
-                }
 
             // Cleanup cached images
             Log.i("Cleanup cached image files");
