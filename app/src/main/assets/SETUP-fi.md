@@ -1,41 +1,41 @@
-# Setup help
+# Asetusohje
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+FairEmailin käyttöönotto on melko yksinkertaista. Tarvitset ainakin yhden tilin vastaanottaaksesi sähköpostia ja ainakin yhden tilin lähettääksesi sähköpostia. Pika-asennus lisää samalla kertaa tilin ja identiteetin useimmilla palveluntarjoajilla.
 
-## Requirements
+## Vaatimukset
 
-An internet connection is required to set up accounts and identities.
+Verkkoyhteys tarvitaan tilien ja identiteettien asettamiseksi.
 
-## Quick setup
+## Pika-asennus
 
-Just enter your name, email address and password and tap *Go*.
+Lisää vain nimesi, sähköpostiosoitteesi ja salasanasi sekä paina *Aloita*.
 
-This will work for most major email providers.
+Tämä toimii useimmille sähköpostipalveluntarjoajille.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Jos pika-asennus ei toimi, täytyy tili ja identiteetti asettaa erikseen, katso ohjeet alapuolelta.
 
-## Set up account - to receive email
+## Aseta tili - sähköpostien vastaanottamiseksi
 
-To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Tilin lisäämiseksi napauta *Aseta tilit* ja napauta alhaalla olevaa oranssia *lisää*-painiketta. Valitse palveluntarjoaja listasta, anna käyttäjätunnus, joka useimmiten on sähköpostiosoite, ja anna salasana. Napauta *Tarkista* antaaksesi FairEmailin yhdistää sähköpostipalvelimeen ja hakea listan järjestelmän kansioista. Järjestelmän kansiovalintojen tarkistuksen jälkeen voit lisätä tilin napauttamalla *Tallenna*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Jos palveluntarjoajasi ei ole palveluntarjoajalistalla, valitse *Mukautettu*. Lisää verkkotunnus, esimerkiksi *gmail.com*, ja napauta *Hae asetukset*. Jos palveluntarjoajasi tukee [auto-discoverya](https://tools.ietf.org/html/rfc6186), FairEmail täyttää verkko-osoitteen ja porttinumeron. Muussa tapauksessa tarkista palveluntarjoajasi asetusohjeista IMAP verkko-osoite, porttinumero ja protokolla (SSL/TLS tai STARTTLS). Katso [täältä](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) lisätietoja.
 
-## Set up identity - to send email
+## Aseta identiteetti - viestien lähettämiseksi
 
-Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Vastaavasti identiteetin lisäämiseksi napauta *Aseta identiteetit* ja napauta alhaalla olevaa oranssia *lisää*-painiketta. Anna nimi, jonka haluat näkyvän lähettämiesi viestien lähetysosoitteessa ja valitse siihen liittyvä tili. Napauta *Tallenna* lisätäksesi identiteetin.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and protocol (SSL/TLS or STARTTLS).
+Jos tili määritettiin manuaalisesti, luultavasti identiteettikin pitää asettaa manuaalisesti. Lisää verkkotunnus, esimerkiksi *gmail.com*, ja napauta *Hae asetukset*. Jos palveluntarjoajasi tukee [auto-discoverya](https://tools.ietf.org/html/rfc6186), FairEmail täyttää verkko-osoitteen ja porttinumeron. Muussa tapauksessa tarkista palveluntarjoajasi asetusohjeista IMAP verkko-osoite, porttinumero ja protokolla (SSL/TLS tai STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Lue [tämä usein kysytyt kysymykset](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) aliasten käytöstä.
 
-## Grant permissions - to access contact information
+## Myönnä käyttöoikeudet - yhteystietoihin pääsemiseksi
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+FairEmail tarvitsee käyttöoikeudet yhteystietoihin, jos haluat etsiä sähköpostiosoitteita, näyttää yhteystietojen kuvia, jne. Napauta vain *Myönnä käyttöoikeudet* ja valitse *Myönnä*.
 
-## Setup battery optimizations - to continuously receive email
+## Aseta akun käytön optimointi - sähköpostien vastaanottamiseksi ilman keskeytyksiä
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+Viimeisimmissä Android-versiossa sovellukset laitetaan lepotilaan akun käytön vähentämiseksi, kun näyttö on ollut jonkin aikaa pois päältä. Jos haluat vastaanottaa sähköposteja ilman keskeytyksiä, pitää akun käytön optimointi ottaa pois käytöstä FairEmailille. Napauta *Poista akun käytön optimoinnit* ua seuraa ohjeita.
 
-## Questions or problems
+## Kysymyksiä tai ongelmia
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Jos sinulla on kysymys tai ongelma, [katso täältä](https://github.com/M66B/FairEmail/blob/master/FAQ.md) tai käytä [tätä yhteydenotyolomaketta](https://contact.faircode.eu/?product=fairemailsupport) pyytääksesi apua (voit käyttää tapahtumanumeroa "*asetusohje*").

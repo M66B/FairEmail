@@ -87,10 +87,10 @@
     <string name="title_setup">Asetukset</string>
     <string name="title_setup_help">Ohje</string>
     <string name="title_setup_welcome">        Viestien vastaanottaminen ja lähettäminen vaatii tilin ja identiteetin asettamisen, kuten missä tahansa sähköpostisovelluksessa.
-        Pika-asetukset luo sekä tilin että identiteetin nimesi, sähköpostiosoitteesi, ja salasanasi perusteella.
+        Pika-asennus luo sekä tilin että identiteetin nimesi, sähköpostiosoitteesi, ja salasanasi perusteella.
         Tilit ja identiteetit (aliakset) voi asettaa tarvittaessa myös erikseen.
     </string>
-    <string name="title_setup_quick">Pika-asetukset</string>
+    <string name="title_setup_quick">Pika-asennus</string>
     <string name="title_setup_quick_remark">Tilin ja identiteetin nopeaan asettamiseen useimmille palveluntarjoajille</string>
     <string name="title_setup_quick_hint">Pika-asennus hakee asetustiedot osoitteesta autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-palvelin viestien vastaanottamiseen</string>
@@ -109,8 +109,8 @@
     <string name="title_setup_identity">Aseta identiteetit</string>
     <string name="title_setup_identity_remark">Sähköpostien lähettämiseen</string>
     <string name="title_setup_identity_hint">Lähettäjän nimen, värin, allekirjoituksen, jne. asettamiseen</string>
-    <string name="title_setup_permissions">Myönnä käyttöluvat</string>
-    <string name="title_setup_permissions_remark">Laitteen yhteystietojen lukemiseen (valinnainen)</string>
+    <string name="title_setup_permissions">Myönnä käyttöoikeudet</string>
+    <string name="title_setup_permissions_remark">Laitteen yhteystietoihin pääsemiseksi (valinnainen)</string>
     <string name="title_setup_doze">Akun käytön optimoinnin asettaminen</string>
     <string name="title_setup_doze_remark">Sähköpostien vastaanottamiseen ilman keskeytyksiä (valinnainen)</string>
     <string name="title_setup_doze_instructions">Seuraavassa valintaikkunassa valitse ylhäältä ”Kaikki sovellukset”, valitse tämä sovellus ja valitse sekä vahvista ”Älä optimoi”</string>
@@ -538,11 +538,13 @@
     <string name="title_rule_recipient">Vastaanottaja sisältää</string>
     <string name="title_rule_subject">Aihe sisältää</string>
     <string name="title_rule_header">Tunnistetiedot sisältävät</string>
+    <string name="title_rule_time">Aika välillä</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">JA</string>
     <string name="title_rule_action">Toiminto</string>
     <string name="title_rule_action_remark">Tätä toimintoa käytetään uusiin viesteihin, jotka saapuvat kansioon %1$s</string>
     <string name="title_rule_hours">Tuntia</string>
+    <string name="title_rule_schedule_end">Aikaehdon loppuun asti</string>
     <string name="title_rule_folder">Kansio</string>
     <string name="title_rule_thread">Kaikki viestit samassa keskustelussa ja kansiossa</string>
     <string name="title_rule_identity">Identiteetti</string>
@@ -668,7 +670,7 @@
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
     <string name="title_enable">Ota käyttöön</string>
-    <string name="title_any">Mikä tahansa</string>
+    <string name="title_any">Koska tahansa</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
     <string name="title_ask_what">Kysy, mitä tehdään</string>

@@ -16,26 +16,26 @@ Fungerer hurtig-opsætningen ikke, så opsæt på anden vis en konto og en ident
 
 ## Opsæt konto - for at modtage e-mail
 
-To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+For at tilføje en konto, så tryk på*Håndtér Konti* og tryk på orange knap *Tilføj* nederst. Vælg en udbyder på listen, angiv brugernavnet, som for det meste er din e-mail, og angiv dit adgangskode. Tryk *Tjek* for at lade FairEmail forbinde til e-mailserveren og hente en liste over systemmapper. Efter gennemgang af systemmappeudvalget kan du tilføje kontoen ved at trykke på*Gem*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right IMAP host name, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Er din udbyder ikke på listen over udbydere, så vælg *Tilpasset*. Angiv domænenavnet, f.eks. *gmail.com*, og tryk på *Hent indstillinger*. Understøtter din udbyder [auto-detektering](https://tools.ietf.org/html/rfc6186), udfylder FairEmail værtsnavnet og portnummeret, ellers tjek opsætningsvejledningen fra din udbyder vedr. korrekt IMAP-værtsnavn, portnummer og protokol (SSL/TLS eller STARTTLS). For mere om dette, se [hér](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Opsæt identitet - for at sende e-mail
 
-Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+På samme vis, så tryk på *Håndtér Identitet* for at tilføje en identitet og tryk på den orange knap *Tilføj* nederst. Angiv det navn, du ønsker vist i fra-adressen i e-mails, du sender, og vælg en tilknyttet konto. Tryk *Gem* for at tilføje identiteten.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and protocol (SSL/TLS or STARTTLS).
+Blev kontoen opsat manuelt, skal du sandsynligvis også opsætte identiteten manuelt. Angiv domænenavnet, f.eks. *gmail.com*, og tryk på *Hent indstillinger*. Understøtter din udbyder [auto-detektering](https://tools.ietf.org/html/rfc6186), udfylder FairEmail værtsnavnet og portnummeret, ellers tjek opsætningsvejledningen fra din udbyder vedr. korrekt SMTP-værtsnavn, portnummer og protokol (SSL/TLS eller STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Se [denne FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) vedr. brug af aliasser.
 
-## Grant permissions - to access contact information
+## Giv tilladelser - for at tilgå kontaktoplysninger
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Hvis du vil slå e-mailadresser op, få vist kontaktfotos mv., skal du give FairEmail læs kontakter-tilladelse. Tryk blot på *Giv tilladelse* og vælg *Tillad*.
 
-## Setup battery optimizations - to continuously receive email
+## Opsæt batterioptimeringer - til løbende modtagelse af e-mail
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+I nyere Android-versioner sættes apps i dvale for at reducere batteriforbruget, når skærmen har været slukket i nogen tid. Vil du gerne modtage nye e-mails uden forsinkelser, skal du deaktivere batterioptimeringer for FairEmail. Tryk på *Deaktivér Batterioptimeringer* og følg anvisningerne.
 
-## Questions or problems
+## Spørgsmål eller problemer
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Har du spørgsmål eller problemer, så [tjek hér](https://github.com/M66B/FairEmail/blob/master/FAQ.md) eller benyt [ denne kontaktformular](https://contact.faircode.eu/?product=fairemailsupport) til at bede om hjælp (du kan benytte transaktionsnummeret "*opsætningshjælp*").
