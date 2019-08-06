@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/etName"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
@@ -17,6 +17,7 @@
         android:imeOptions="actionNext"
         android:inputType="textCapSentences|textAutoCorrect"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +42,7 @@
 
     <EditText
         android:id="@+id/etText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="6dp"
         android:background="@null"
@@ -54,6 +55,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:windowSoftInputMode="adjustPan"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
