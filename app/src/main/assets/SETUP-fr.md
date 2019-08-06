@@ -14,7 +14,7 @@ Ceci fonctionnera pour la plupart des principaux fournisseurs de messagerie.
 
 Si la configuration rapide ne fonctionne pas, vous devez configurer un compte et une identité d'une autre manière, voir ci-dessous pour les instructions.
 
-## Configuration d'un compte - pour recevoir des e-mails
+## Configuration d'un compte - recevoir des e-mails
 
 Pour ajouter un compte, appuyez sur *Gérer les comptes* et appuyez sur le bouton orange *ajouter* en bas. Sélectionnez un fournisseur dans la liste, entrez le nom d'utilisateur, qui est principalement votre adresse e-mail et entrez votre mot de passe. Appuyez sur *Vérifier* pour permettre à FairEmail de se connecter au serveur de messagerie et de récupérer une liste de dossiers système. Après avoir examiné la sélection des dossiers système, vous pouvez ajouter le compte en appuyant sur *Enregistrer*.
 
@@ -28,11 +28,11 @@ Si le compte a été configuré manuellement, vous devez probablement configurer
 
 Voir [cette FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) sur l'utilisation des alias.
 
-## Accorder les permissions - pour accéder aux informations de contact
+## Accorder les permissions - accéder aux informations de contact
 
 Si vous souhaitez rechercher des adresses e-mail, avoir les photos de contact affichées, etc, vous devez accorder la permission de lire les contacts à FairEmail. Appuyez simplement sur *Accorder les autorisations* et sélectionnez *Autoriser*.
 
-## Configurer les optimisations de batterie - pour recevoir des e-mails en continu
+## Configurer les optimisations de batterie - recevoir des e-mails en continu
 
 Sur les versions récentes d'Android, Android mettra les applications en veille lorsque l'écran est éteint pendant un certain temps pour réduire l'utilisation de la batterie. Si vous souhaitez recevoir de nouveaux courriels sans retard, vous devez désactiver les optimisations de batterie pour FairEmail. Appuyez sur *Désactiver les optimisations de batterie* et suivez les instructions.
 
