@@ -874,7 +874,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ? message.color == null || !Helper.isPro(context)
                     ? colorAccent : message.color : textColorSecondary));
             ivFlagged.setVisibility(flags && !message.folderReadOnly
-                    ? message.uid == null ? View.INVISIBLE : View.VISIBLE
+                    ? (message.uid == null ? View.INVISIBLE : View.VISIBLE)
                     : View.GONE);
         }
 
