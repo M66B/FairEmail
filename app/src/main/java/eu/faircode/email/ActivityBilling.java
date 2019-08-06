@@ -175,8 +175,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             }
 
             BillingResult result = billingClient.launchBillingFlow(this, flowParams.build());
-            String text = getBillingResponseText(result);
-            Log.i("IAB launch billing flow response=" + text);
+            String text = getBillingResponseText(result, "IAB launch billing flow");
             if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
                 notifyError(text);
         } else
@@ -187,9 +186,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         billingClient.queryPurchaseHistoryAsync(BillingClient.SkuType.INAPP, new PurchaseHistoryResponseListener() {
             @Override
             public void onPurchaseHistoryResponse(BillingResult result, List<PurchaseHistoryRecord> records) {
-                String text = getBillingResponseText(result);
-                Log.i("IAB history response=" + text);
-
+                String text = getBillingResponseText(result, "IAB history");
                 if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     for (PurchaseHistoryRecord record : records)
                         Log.i("IAB history=" + record.toString());
@@ -234,9 +231,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
         @Override
         public void onBillingSetupFinished(BillingResult result) {
-            String text = getBillingResponseText(result);
-            Log.i("IAB connected response=" + text);
-
+            String text = getBillingResponseText(result, "IAB connected");
             if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                 for (IBillingListener listener : listeners)
                     listener.onConnected();
@@ -267,9 +262,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
     @Override
     public void onPurchasesUpdated(BillingResult result, @Nullable List<Purchase> purchases) {
-        String text = getBillingResponseText(result);
-        Log.i("IAB purchases updated response=" + text);
-
+        String text = getBillingResponseText(result, "IAB purchases updated");
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(purchases);
         else
@@ -278,9 +271,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
     private void queryPurchases() {
         Purchase.PurchasesResult result = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
-        String text = getBillingResponseText(result.getBillingResult());
-        Log.i("IAB query purchases response=" + text);
-
+        String text = getBillingResponseText(result.getBillingResult(), "IAB query purchases");
         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
             checkPurchases(result.getPurchasesList());
         else
@@ -407,8 +398,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 new SkuDetailsResponseListener() {
                     @Override
                     public void onSkuDetailsResponse(BillingResult result, List<SkuDetails> skuDetailsList) {
-                        String text = getBillingResponseText(result);
-                        Log.i("IAB query SKUs response=" + text);
+                        String text = getBillingResponseText(result, "IAB query SKUs");
                         if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                             for (SkuDetails skuDetail : skuDetailsList) {
                                 Log.i("IAB SKU detail=" + skuDetail);
@@ -416,7 +406,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                                 for (IBillingListener listener : listeners)
                                     listener.onSkuDetails(skuDetail.getSku(), skuDetail.getPrice());
                             }
-                        }
+                        } else
+                            notifyError(text);
                     }
                 });
     }
@@ -429,8 +420,9 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         billingClient.consumeAsync(params, new ConsumeResponseListener() {
             @Override
             public void onConsumeResponse(BillingResult result, String purchaseToken) {
-                String text = getBillingResponseText(result);
-                Log.i("IAB SKU=" + purchase.getSku() + " consumed response=" + text);
+                String text = getBillingResponseText(result, "IAB consumed SKU=" + purchase.getSku());
+                if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
+                    notifyError(text);
             }
         });
     }
@@ -444,8 +436,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         billingClient.acknowledgePurchase(params, new AcknowledgePurchaseResponseListener() {
             @Override
             public void onAcknowledgePurchaseResponse(BillingResult result) {
-                String text = getBillingResponseText(result);
-                Log.i("IAB acknowledged SKU=" + purchase.getSku() + " response=" + text);
+                String text = getBillingResponseText(result, "IAB acknowledged SKU=" + purchase.getSku());
                 if (result.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityBilling.this);
                     SharedPreferences.Editor editor = prefs.edit();
@@ -455,7 +446,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
                     for (IBillingListener listener : listeners)
                         listener.onPurchased(purchase.getSku());
-                }
+                } else
+                    notifyError(text);
             }
         });
     }
@@ -465,9 +457,14 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             listener.onError(message);
     }
 
-    private static String getBillingResponseText(BillingResult result) {
+    private static String getBillingResponseText(BillingResult result, String message) {
         String debug = result.getDebugMessage();
-        return _getBillingResponseText(result) + (debug == null ? "" : " " + debug);
+        String text = _getBillingResponseText(result) + (debug == null ? "" : " " + debug);
+        if (result.getResponseCode() == BillingClient.BillingResponseCode.OK)
+            Log.i(message + " response=" + text);
+        else
+            Log.e(message + " response=" + text);
+        return text;
     }
 
     private static String _getBillingResponseText(BillingResult result) {
