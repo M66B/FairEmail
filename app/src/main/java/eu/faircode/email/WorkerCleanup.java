@@ -107,7 +107,6 @@ public class WorkerCleanup extends Worker {
             File[] messages = new File(context.getFilesDir(), "messages").listFiles();
             File[] revision = new File(context.getFilesDir(), "revision").listFiles();
             File[] references = new File(context.getFilesDir(), "references").listFiles();
-            File[] raws = new File(context.getFilesDir(), "raw").listFiles();
 
             if (messages != null)
                 files.addAll(Arrays.asList(messages));
@@ -115,8 +114,6 @@ public class WorkerCleanup extends Worker {
                 files.addAll(Arrays.asList(revision));
             if (references != null)
                 files.addAll(Arrays.asList(references));
-            if (raws != null)
-                files.addAll(Arrays.asList(raws));
 
             // Cleanup message files
             Log.i("Cleanup message files");
@@ -130,6 +127,21 @@ public class WorkerCleanup extends Worker {
                             Log.w("Error deleting " + file);
                     }
                 }
+
+            // Cleanup message files
+            Log.i("Cleanup raw message files");
+            File[] raws = new File(context.getFilesDir(), "raw").listFiles();
+            if (raws != null)
+                for (File file : raws)
+                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
+                        long id = Long.parseLong(file.getName().split("\\.")[0]);
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null || message.raw == null || !message.raw) {
+                            Log.i("Deleting " + file);
+                            if (!file.delete())
+                                Log.w("Error deleting " + file);
+                        }
+                    }
 
             // Cleanup attachment files
             Log.i("Cleanup attachment files");
