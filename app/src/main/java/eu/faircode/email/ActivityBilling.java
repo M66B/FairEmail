@@ -214,8 +214,11 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                         .putBoolean("pro", true)
                         .putBoolean("play_store", false)
                         .apply();
+
                 Log.i("IAB response valid");
                 ToastEx.makeText(this, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
+
+                WidgetUnified.update(this);
             } else {
                 Log.i("IAB response invalid");
                 ToastEx.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
@@ -383,6 +386,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                 }
 
             editor.apply();
+
+            WidgetUnified.update(this);
         }
 
         if (query.size() > 0)
@@ -446,6 +451,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
 
                     for (IBillingListener listener : listeners)
                         listener.onPurchased(purchase.getSku());
+
+                    WidgetUnified.update(ActivityBilling.this);
                 } else
                     notifyError(text);
             }
