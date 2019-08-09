@@ -6,10 +6,8 @@
 
     <TextView
         android:id="@+id/tvTime"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ellipsize="start"
-        android:singleLine="true"
         android:text="12:34:56"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
