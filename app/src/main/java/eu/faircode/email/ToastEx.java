@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class ToastEx extends Toast {
     public ToastEx(Context context) {
-        super(context);
+        super(context.getApplicationContext());
     }
 
     public static ToastEx makeText(Context context, int resId, int duration) throws Resources.NotFoundException {
