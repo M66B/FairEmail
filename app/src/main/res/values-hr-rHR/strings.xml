@@ -44,6 +44,11 @@
         <item quantity="few">%1$d nove</item>
         <item quantity="other">%1$d novih</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">Odabrana je %1$d poruka</item>
+        <item quantity="few">Odabrane su %1$d poruke</item>
+        <item quantity="other">Odabrane su %1$d poruke</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Premjesti %1$d poruku u %2$s?</item>
         <item quantity="few">Premjesti %1$d poruke u %2$s?</item>
@@ -118,14 +123,17 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_doze_remark">Kontinuirano primanje e-pošte (izborno)</string>
     <string name="title_setup_doze_instructions">U sljedećem dijalogu odaberite \"sve aplikacije\" pri vrhu, odaberite ovu aplikaciju i odaberite i potvrdite \"ne optimiraj\"</string>
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
+    <string name="title_setup_data">Ušteda podataka je omogućena</string>
     <string name="title_setup_inbox">Idi na poruke</string>
     <string name="title_setup_to_do">Za napraviti</string>
     <string name="title_setup_done">Gotovo</string>
     <string name="title_setup_export">Izvezi postavke</string>
     <string name="title_setup_import">Uvezi postavke</string>
+    <string name="title_setup_import_do">Uvezeni računi bit će dodani bez prepisa postojećih</string>
     <string name="title_setup_password">Lozinka</string>
     <string name="title_setup_password_repeat">Ponovite lozinku</string>
     <string name="title_setup_password_missing">Nedostaje lozinka</string>
+    <string name="title_setup_password_different">Lozinke se ne podudaraju</string>
     <string name="title_setup_password_invalid">Neispravna lozinka</string>
     <string name="title_setup_exported">Postavke su izvezene</string>
     <string name="title_setup_imported">Postavke su uvezene</string>
@@ -234,10 +242,14 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_cleanup">Čišćenje</string>
     <string name="title_advanced_enabled_hint">Globalno onemogućiti ili omogućiti primanje poruka</string>
     <string name="title_advanced_manual_hint">Ako je sinkronizacija onemogućena, još uvijek je moguće ručno usklađivanje povlačenjem popisa poruka prema dolje. To će sinkronizirati poruke i izvršavati operacije na ograničeno vrijeme.</string>
+    <string name="title_advanced_poll_hint">Periodično sinkroniziranje će svaki put usporediti lokalne i udaljene poruke, što je skupa operacija koja može rezultirati dodatnom potrošnjom baterije, pogotovo ako postoji puno poruka za sinkronizaciju. Uvijek sinkroniziranje će ovo izbjeći neprekidnim nadgledanjem isključivo promjena.</string>
     <string name="title_advanced_schedule_hint">Dodirnite vrijeme za postavljanje vremena</string>
     <string name="title_advanced_check_mx">Provjerite adrese pošiljatelja pri sinkronizaciji poruka</string>
+    <string name="title_advanced_unseen_hint">Neki pružatelji usluga to ne podržavaju ispravno, što može, na primjer, rezultirati sinkronizacijom svih poruka</string>
+    <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i potrošiti dodatnu snagu baterije, posebno ako je na uređaju spremljeno puno poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
+    <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinkronizaciju poruka</string>
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>
@@ -247,6 +259,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_name_email_hint">Kada onemogućeno, samo će imena biti prikazana ako su dostupna</string>
     <string name="title_advanced_preview_hint">Dostupno samo kada je preuzet tekst poruke</string>
     <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>
+    <string name="title_advanced_permission_contacts_hint">Ovo zahtijeva odobrenje za čitanje kontakata</string>
     <string name="title_advanced_autoexpand_hint">Automatski otvori poruku ako postoji samo jedna poruka ili samo jedna nepročitana poruka u razgovoru</string>
     <string name="title_advanced_autocollapse_hint">Višestruke proširene poruke uvijek će biti zatvorene na \'natrag\'</string>
     <string name="title_advanced_autoclose_hint">Automatski zatvori razgovore kada su sve poruke arhivirane, poslane ili stavljene u otpad</string>
@@ -259,6 +272,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_select">Odaberi &#8230;</string>
     <string name="title_identity_name">Vaše ime</string>
     <string name="title_identity_email">Vaša adresa e-pošte</string>
+    <string name="title_identity_color_hint">Identity colors take precedence over account colors</string>
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljatelja</string>
     <string name="title_identity_reply_to">Odgovor na adresu</string>
     <string name="title_identity_encrypt">Zadano šifriranje</string>
@@ -367,6 +381,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_folder_thread">Konverzacija %1$s</string>
     <string name="title_folders_unified">Mape objedinjenog ulaznog spremnika</string>
     <string name="title_no_messages">Nema poruka</string>
+    <string name="title_no_folders">Nema mapa</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Npr: %1$s</string>
     <string name="title_seen">Označi pročitano</string>
@@ -531,11 +546,13 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_rule_recipient">Primatelj sadrži</string>
     <string name="title_rule_subject">Predmet sadrži</string>
     <string name="title_rule_header">Zaglavlje sadrži</string>
+    <string name="title_rule_time">Vrijeme između</string>
     <string name="title_rule_regex">Regularni izraz</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcija</string>
     <string name="title_rule_action_remark">Ta će se radnja primijeniti na nove poruke koje stižu u mapu %1$s</string>
     <string name="title_rule_hours">Sati</string>
+    <string name="title_rule_schedule_end">Do kraja vremenskog stanja</string>
     <string name="title_rule_folder">Mapa</string>
     <string name="title_rule_thread">Sve poruke u istom razgovoru i mapi</string>
     <string name="title_rule_identity">Identitet</string>
@@ -661,6 +678,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
     <string name="title_enable">Omogući</string>
+    <string name="title_any">Bilo koji</string>
     <string name="title_executing">Izvršava</string>
     <string name="title_completed">Završeno</string>
     <string name="title_ask_what">Pitati što učiniti</string>
@@ -693,6 +711,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_search_special_unseen">nepročitano</string>
     <string name="title_search_special_flagged">označeno</string>
     <string name="title_search_special_snoozed">odgođeno</string>
+    <string name="title_widget_unseen">Samo nepročitane poruke</string>
+    <string name="title_widget_flagged">Samo poruke označene zvjezdicom</string>
     <string-array name="pollIntervalNames">
         <item>Uvijek</item>
         <item>Svakih 15 minuta</item>

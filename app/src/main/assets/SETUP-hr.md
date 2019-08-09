@@ -1,41 +1,41 @@
-# Setup help
+# Pomoć pri postavljanju
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Postavljanje FairEmail-a prilično je jednostavno. Trebate dodati barem jedan račun da biste primili e-poštu i barem jedan identitet ako želite slati e-poštu. Brzo postavljanje dodat će račun i identitet većini glavnih dobavljača e-pošte.
 
-## Requirements
+## Zahtjevi
 
-An internet connection is required to set up accounts and identities.
+Za postavljanje računa i identiteta potrebna je internetska veza.
 
-## Quick setup
+## Brzo postavljanje
 
-Just enter your name, email address and password and tap *Go*.
+Samo unesite svoje ime, adresu e-pošte i lozinku i dodirnite *Idi*.
 
-This will work for most major email providers.
+Ovo će raditi za većinu glavnih pružatelja usluga e-pošte.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Ako brzo postavljanje ne uspije, morat ćete postaviti račun i identitet na drugi način, upute potražite u nastavku.
 
-## Set up account - to receive email
+## Postavljanje računa - za primanje e-pošte
 
-To add an account, tap on *Manage accounts* and tap on the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Da biste dodali račun, dodirnite *Upravljanje računima* i na dnu narančastog botuna *dodaj*. S popisa odaberite provajdera, unesite korisničko ime, koje je uglavnom vaša adresa e-pošte i unesite svoju lozinku. Dodirnite *Provjeri* da biste se omogućili da se FairEmail poveže s poslužiteljem e-pošte i preuzme popis sistemskih mapa. Nakon pregleda izbora mape sustava možete dodati račun dodirom na *Spremi*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ako vaš davatelj nije na popisu pružatelja usluga, odaberite *Custom*. Unesite ime domene, primjerice *gmail.com* i dodirnite *Dohvati postavke*. Ako vaš pružatelj usluga podržava [automatsko otkrivanje](https://tools.ietf.org/html/rfc6186), FairEmail će ispuniti ime računala i broj porta, osim toga, provjerite upute za postavljanje vašeg davatelja za pravo IMAP ime glavnog računala, broj porta i protokol (SSL / TLS ili STARTTLS). Više o ovome pogledajte [ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Postavljanje identiteta - za slanje e-pošte
 
-Similarly, to add an identity, tap on *Manage identity* and tap on the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Slično tome, da biste dodali identitet, dodirnite *Upravljanje identitetom* i dodirnite narančastu tipku *dodaj* na dnu. Unesite ime koje želite da se pojavi u adresi e-pošte koju šaljete i odaberite povezani račun. Dodirnite *Spremi* da biste dodali identitet.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Ako je račun konfiguriran ručno, vjerojatno ćete morati i ručno konfigurirati identitet. Unesite ime domene, primjerice *gmail.com* i dodirnite *Dohvati postavke*. Ako vaš pružatelj usluga podržava [automatsko otkrivanje](https://tools.ietf.org/html/rfc6186), FairEmail će ispuniti ime računala i broj porta, osim toga, provjerite upute za postavljanje vašeg davatelja za pravo IMAP ime glavnog računala, broj porta i protokol (SSL / TLS ili STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Pogledajte [ovaj FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) o korištenju aliasa.
 
-## Grant permissions - to access contact information
+## Davanje dozvola - za pristup podacima o kontaktima
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Ako želite pretraživati adrese e-pošte, prikazivati fotografije kontakata itd., Trebate odobriti FairEmailu dozvolu za čitanje kontakata. Samo dodirnite *Davanje dozvola* i odaberite *Dopusti*.
 
-## Setup battery optimizations - to continuously receive emails
+## Postavljanje optimizacija za baterije - za kontinuirano primanje e-poruka
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+Na novijim verzijama Androida Android će staviti uređaje za spavanje kad je ekran neko vrijeme isključen kako bi smanjio potrošnju baterije. Ako želite primati nove poruke e-pošte bez odgađanja, trebali biste onemogućiti optimizaciju baterije za FairEmail. Dodirnite *Onemogući optimizaciju baterije* i slijedite upute.
 
-## Questions or problems
+## Pitanja ili problemi
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Ako imate pitanje ili problem, molimo [pogledajte ovdje](https://github.com/M66B/FairEmail/blob/master/FAQ.md) ili tražite [ovaj obrazac za kontakt](https://contact.faircode.eu/?product=fairemailsupport) da biste zatražili pomoć (možete koristiti broj transakcije "*pomoć u postavljanju*").
