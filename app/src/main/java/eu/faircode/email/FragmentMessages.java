@@ -1726,7 +1726,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
         args.putBoolean("seen", seen);
 
-        selectionTracker.clearSelection();
+        if (selectionTracker != null)
+            selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
             @Override
