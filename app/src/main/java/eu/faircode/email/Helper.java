@@ -128,17 +128,6 @@ public class Helper {
         }
     };
 
-    static ThreadFactory foregroundThreadFactory = new ThreadFactory() {
-        private final AtomicInteger threadId = new AtomicInteger();
-
-        @Override
-        public Thread newThread(@NonNull Runnable runnable) {
-            Thread thread = new Thread(runnable);
-            thread.setName("FairEmail_fg_" + threadId.getAndIncrement());
-            return thread;
-        }
-    };
-
     private static final ExecutorService executor =
             Executors.newSingleThreadExecutor(backgroundThreadFactory);
 
