@@ -49,6 +49,7 @@ import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.UID;
+import com.sun.mail.util.MessageRemovedIOException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -263,6 +264,7 @@ class Core {
 
                         if (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
+                                ex instanceof MessageRemovedIOException ||
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
