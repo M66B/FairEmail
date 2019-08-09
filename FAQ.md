@@ -199,6 +199,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
 * [(119) Can you add colors to the unified inbox widget?](#user-content-faq119)
 * [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
+* [(121) How are messages grouped into a conversation?](#user-content-faq121)
 
 [I have another question.](#support)
 
@@ -2065,6 +2066,17 @@ Tapping on the summary notification will open the unified inbox.
 The summary notification can be expanded to view individual new message notifications.
 Tapping on an individual new message notification will open the conversation the message it is part of.
 See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+
+<br />
+
+<a name="faq121"></a>
+**(121) How are messages grouped into a conversation?**
+
+By default FairEmail groups messages in conversations. This can be turned of in the display settings.
+
+FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers.
+FairEmail does not group on other criteria, like the subject,
+because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
 
 <br />
 
