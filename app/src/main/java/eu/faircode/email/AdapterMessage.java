@@ -650,7 +650,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Line 1
             boolean outgoing = (viewType != ViewType.THREAD && EntityFolder.isOutgoing(message.folderType));
             Address[] addresses = (outgoing ? message.to : message.senders);
-            tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
+            tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             Long size = ("size".equals(sort) ? message.totalSize : message.size);
             tvSize.setText(size == null ? null : Helper.humanReadableByteCount(size, true));
             tvSize.setVisibility(size == null || (message.content && !"size".equals(sort)) ? View.GONE : View.VISIBLE);
@@ -756,7 +756,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected void onPreExecute(Bundle args) {
                         //Address[] addresses = (Address[]) args.getSerializable("addresses");
                         ivAvatar.setVisibility(View.GONE);
-                        //tvFrom.setText(MessageHelper.formatAddresses(addresses, !compact, false));
+                        //tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
                     }
 
                     @Override
