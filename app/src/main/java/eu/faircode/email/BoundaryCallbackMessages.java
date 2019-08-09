@@ -71,15 +71,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private Handler handler;
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    private boolean destroyed = false;
-    private boolean error = false;
-    private int index = 0;
-
-    private List<Long> messages = null;
-
-    private MailService iservice = null;
-    private IMAPFolder ifolder = null;
-    private Message[] imessages = null;
+    private State state;
 
     interface IBoundaryCallbackMessages {
         void onLoading();
@@ -100,11 +92,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     void setCallback(IBoundaryCallbackMessages intf) {
         this.handler = new Handler();
         this.intf = intf;
-
-        if (imessages == null)
-            index = 0;
-        else
-            index = imessages.length - 1;
+        this.state = new State();
     }
 
     @Override
@@ -114,19 +102,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     }
 
     @Override
-    public void onItemAtEndLoaded(final TupleMessageEx itemAtEnd) {
+    public void onItemAtEndLoaded(@NonNull final TupleMessageEx itemAtEnd) {
         Log.i("Boundary at end");
         queue_load(false);
     }
 
     private void queue_load(final boolean zero) {
+        final State state = this.state;
+
         executor.submit(new Runnable() {
             private int fetched;
 
             @Override
             public void run() {
                 try {
-                    if (destroyed || error)
+                    if (state.destroyed || state.error)
                         return;
 
                     fetched = 0;
@@ -138,9 +128,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             }
                         });
                     if (server)
-                        fetched = load_server();
+                        fetched = load_server(state);
                     else
-                        fetched = load_device();
+                        fetched = load_device(state);
                 } catch (final Throwable ex) {
                     Log.e("Boundary", ex);
                     if (intf != null)
@@ -163,12 +153,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         });
     }
 
-    private int load_device() {
+    private int load_device(State state) {
         DB db = DB.getInstance(context);
 
-        if (messages == null) {
-            messages = db.message().getMessageIdsByFolder(folder);
-            Log.i("Boundary device folder=" + folder + " query=" + query + " messages=" + messages.size());
+        if (state.messages == null) {
+            state.messages = db.message().getMessageIdsByFolder(folder);
+            Log.i("Boundary device folder=" + folder + " query=" + query + " messages=" + state.messages.size());
         }
 
         int found = 0;
@@ -176,10 +166,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             db.beginTransaction();
 
             String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase());
-            for (int i = index; i < messages.size() && found < pageSize && !destroyed; i++) {
-                index = i + 1;
+            for (int i = state.index; i < state.messages.size() && found < pageSize && !state.destroyed; i++) {
+                state.index = i + 1;
 
-                EntityMessage message = db.message().getMessage(messages.get(i));
+                EntityMessage message = db.message().getMessage(state.messages.get(i));
                 if (message == null)
                     continue;
 
@@ -243,7 +233,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    private int load_server() throws MessagingException, IOException {
+    private int load_server(State state) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
 
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
@@ -254,7 +244,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (account == null)
             return 0;
 
-        if (imessages == null)
+        if (state.imessages == null)
             try {
                 // Check connectivity
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
@@ -264,28 +254,28 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
                 Log.i("Boundary server connecting account=" + account.name);
-                iservice = new MailService(context, account.getProtocol(), account.realm, account.insecure, debug);
-                iservice.setPartialFetch(account.partial_fetch);
-                iservice.setSeparateStoreConnection();
-                iservice.connect(account);
+                state.iservice = new MailService(context, account.getProtocol(), account.realm, account.insecure, debug);
+                state.iservice.setPartialFetch(account.partial_fetch);
+                state.iservice.setSeparateStoreConnection();
+                state.iservice.connect(account);
 
                 Log.i("Boundary server opening folder=" + browsable.name);
-                ifolder = (IMAPFolder) iservice.getStore().getFolder(browsable.name);
-                ifolder.open(Folder.READ_WRITE);
+                state.ifolder = (IMAPFolder) state.iservice.getStore().getFolder(browsable.name);
+                state.ifolder.open(Folder.READ_WRITE);
 
                 Log.i("Boundary server query=" + query);
                 if (query == null)
-                    imessages = ifolder.getMessages();
+                    state.imessages = state.ifolder.getMessages();
                 else if (query.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
                     String special = query.split(":")[1];
                     if (context.getString(R.string.title_search_special_unseen).equals(special))
-                        imessages = ifolder.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+                        state.imessages = state.ifolder.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
                     else if (context.getString(R.string.title_search_special_flagged).equals(special))
-                        imessages = ifolder.search(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
+                        state.imessages = state.ifolder.search(new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
                     else
-                        imessages = new Message[0];
+                        state.imessages = new Message[0];
                 } else {
-                    Object result = ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
+                    Object result = state.ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                         @Override
                         public Object doCommand(IMAPProtocol protocol) {
                             // Yahoo! does not support keyword search, but uses the flags $Forwarded $Junk $NotJunk
@@ -299,7 +289,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             try {
                                 // https://tools.ietf.org/html/rfc3501#section-6.4.4
                                 Argument arg = new Argument();
-                                if (query.startsWith("raw:") && iservice.getStore().hasCapability("X-GM-EXT-1")) {
+                                if (query.startsWith("raw:") && state.iservice.getStore().hasCapability("X-GM-EXT-1")) {
                                     // https://support.google.com/mail/answer/7190
                                     // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
                                     arg.writeAtom("X-GM-RAW");
@@ -342,7 +332,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     Message[] imessages = new Message[msgnums.size()];
                                     for (int i = 0; i < msgnums.size(); i++)
-                                        imessages[i] = ifolder.getMessage(msgnums.get(i));
+                                        imessages[i] = state.ifolder.getMessage(msgnums.get(i));
 
                                     return imessages;
                                 } else {
@@ -367,7 +357,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                         term = new OrTerm(term, new FlagTerm(
                                                 new Flags(Helper.sanitizeKeyword(search)), true));
 
-                                    return ifolder.search(term);
+                                    return state.ifolder.search(term);
                                 }
 
                             } catch (MessagingException ex) {
@@ -380,13 +370,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     if (result instanceof MessagingException)
                         throw (MessagingException) result;
 
-                    imessages = (Message[]) result;
+                    state.imessages = (Message[]) result;
                 }
-                Log.i("Boundary server found messages=" + imessages.length);
+                Log.i("Boundary server found messages=" + state.imessages.length);
 
-                index = imessages.length - 1;
+                state.index = state.imessages.length - 1;
             } catch (Throwable ex) {
-                error = true;
+                state.error = true;
                 if (ex instanceof FolderClosedException)
                     Log.w("Search", ex);
                 else
@@ -397,11 +387,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         List<EntityRule> rules = db.rule().getEnabledRules(browsable.id);
 
         int found = 0;
-        while (index >= 0 && found < pageSize && !destroyed) {
-            Log.i("Boundary server index=" + index);
-            int from = Math.max(0, index - (pageSize - found) + 1);
-            Message[] isub = Arrays.copyOfRange(imessages, from, index + 1);
-            index -= (pageSize - found);
+        while (state.index >= 0 && found < pageSize && !state.destroyed) {
+            Log.i("Boundary server index=" + state.index);
+            int from = Math.max(0, state.index - (pageSize - found) + 1);
+            Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
+            state.index -= (pageSize - found);
 
             FetchProfile fp = new FetchProfile();
             fp.add(FetchProfile.Item.ENVELOPE);
@@ -411,20 +401,20 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             fp.add(IMAPFolder.FetchProfileItem.HEADERS);
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            ifolder.fetch(isub, fp);
+            state.ifolder.fetch(isub, fp);
 
             try {
                 db.beginTransaction();
 
-                for (int j = isub.length - 1; j >= 0 && found < pageSize && !destroyed; j--)
+                for (int j = isub.length - 1; j >= 0 && found < pageSize && !state.destroyed; j--)
                     try {
-                        long uid = ifolder.getUID(isub[j]);
+                        long uid = state.ifolder.getUID(isub[j]);
                         Log.i("Boundary server sync uid=" + uid);
                         EntityMessage message = db.message().getMessageByUid(browsable.id, uid);
                         if (message == null) {
                             message = Core.synchronizeMessage(context,
                                     account, browsable,
-                                    ifolder, (IMAPMessage) isub[j],
+                                    state.ifolder, (IMAPMessage) isub[j],
                                     true, true,
                                     rules, null);
                             found++;
@@ -457,20 +447,39 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         return found;
     }
 
-    void clear() {
-        destroyed = true;
+    void close() {
+        final State state = this.state;
+        this.state = new State();
+        state.destroyed = true;
 
         executor.submit(new Runnable() {
             @Override
             public void run() {
-                Log.i("Boundary destroy");
+                Log.i("Boundary close");
                 try {
-                    if (iservice != null)
-                        iservice.close();
+                    if (state.ifolder != null)
+                        state.ifolder.close();
+                } catch (Throwable ex) {
+                    Log.e("Boundary", ex);
+                }
+                try {
+                    if (state.iservice != null)
+                        state.iservice.close();
                 } catch (Throwable ex) {
                     Log.e("Boundary", ex);
                 }
             }
         });
+    }
+
+    private class State {
+        boolean destroyed = false;
+        boolean error = false;
+        int index = 0;
+        List<Long> messages = null;
+
+        MailService iservice = null;
+        IMAPFolder ifolder = null;
+        Message[] imessages = null;
     }
 }

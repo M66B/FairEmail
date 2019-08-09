@@ -2779,7 +2779,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 getContext(), getViewLifecycleOwner(),
                 viewType, type, account, folder, thread, id, query, server);
 
-        vmodel.setCallback(callback);
+        vmodel.setCallback(getViewLifecycleOwner(), callback);
         vmodel.setObserver(getViewLifecycleOwner(), observer);
     }
 
