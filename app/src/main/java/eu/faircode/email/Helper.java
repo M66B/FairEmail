@@ -538,7 +538,7 @@ public class Helper {
     }
 
     static String readStream(InputStream is, String charset) throws IOException {
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        ByteArrayOutputStream os = new ByteArrayOutputStream(Math.max(BUFFER_SIZE, is.available()));
         byte[] buffer = new byte[BUFFER_SIZE];
         for (int len = is.read(buffer); len != -1; len = is.read(buffer))
             os.write(buffer, 0, len);
