@@ -199,7 +199,10 @@ public class ApplicationEx extends Application {
 
                     if (ex instanceof MessagingException &&
                             ("connection failure".equals(ex.getMessage()) ||
-                                    "failed to create new store connection".equals(ex.getMessage())))
+                                    "failed to create new store connection".equals(ex.getMessage()) ||
+                                    "Failed to fetch headers".equals(ex.getMessage()) ||
+                                    "Failed to load IMAP envelope".equals(ex.getMessage()) ||
+                                    "Unable to load BODYSTRUCTURE".equals(ex.getMessage())))
                         return false;
 
                     if (ex instanceof IllegalStateException &&
