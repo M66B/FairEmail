@@ -1255,10 +1255,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             int flags = 0;
             if (swipes.swipe_left != null &&
-                    (swipes.swipe_left < 0 || !swipes.swipe_left.equals(message.folder)))
+                    (swipes.swipe_left < 0 ||
+                            (swipes.left_type != null && !swipes.swipe_left.equals(message.folder))))
                 flags |= ItemTouchHelper.LEFT;
             if (swipes.swipe_right != null &&
-                    (swipes.swipe_right < 0 || !swipes.swipe_right.equals(message.folder)))
+                    (swipes.swipe_right < 0 ||
+                            (swipes.right_type != null && !swipes.swipe_right.equals(message.folder))))
                 flags |= ItemTouchHelper.RIGHT;
 
             return makeMovementFlags(0, flags);
