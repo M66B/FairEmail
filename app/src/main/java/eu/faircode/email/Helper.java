@@ -114,7 +114,7 @@ public class Helper {
     static final int BUFFER_SIZE = 8192; // Same as in Files class
 
     static final String FAQ_URI = "https://github.com/M66B/FairEmail/blob/master/FAQ.md";
-    static final String XDA_URI = "https://forum.xda-developers.com/android/apps-games/source-email-t3824168";
+    static final String XDA_URI = "http://forum.xda-developers.com/showthread.php?t=3824168";
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
         private final AtomicInteger threadId = new AtomicInteger();
@@ -239,7 +239,7 @@ public class Helper {
     }
 
     static Intent getIntentIssue(Context context) {
-        if (BuildConfig.BETA_RELEASE) {
+        if (BuildConfig.BETA_RELEASE && hasValidFingerprint(context)) {
             String version = BuildConfig.VERSION_NAME + "/" +
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
                     (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
