@@ -1076,6 +1076,9 @@ public class ServiceSynchronize extends ServiceBase {
                                                                     iservice.getStore(), ifolder,
                                                                     state);
 
+                                                        } catch (FolderNotFoundException ex) {
+                                                            Log.w(ex);
+                                                            db.folder().deleteFolder(folder.id);
                                                         } catch (Throwable ex) {
                                                             Log.e(folder.name, ex);
                                                             EntityLog.log(
