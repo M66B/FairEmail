@@ -13,13 +13,13 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 641
-        versionName "1.641"
+        versionCode 642
+        versionName "1.642"
         archivesBaseName = "FairEmail-v$versionName"
 
         // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
-        // Hypsilophodon, Iguanodon
-        buildConfigField "String", "RELEASE_NAME", "\"Gastonia\""
+        // Iguanodon
+        buildConfigField "String", "RELEASE_NAME", "\"Hypsilophodon\""
 
         javaCompileOptions {
             annotationProcessorOptions {
