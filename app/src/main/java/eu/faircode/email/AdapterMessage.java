@@ -61,6 +61,7 @@ import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -218,8 +219,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener,
-            BottomNavigationView.OnNavigationItemSelectedListener, View.OnLongClickListener {
+            View.OnClickListener, View.OnLongClickListener, View.OnKeyListener,
+            BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
         private View vwColor;
         private ImageView ivExpander;
@@ -471,6 +472,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     view.setTouchDelegate(new TouchDelegate(rect, touch));
                 }
             });
+            view.setOnKeyListener(this);
 
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
@@ -499,11 +501,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void unwire() {
-            if (viewType == ViewType.THREAD) {
-                vwColor.setOnClickListener(null);
-                ivExpander.setOnClickListener(null);
-            } else
-                view.setOnClickListener(null);
+            final View touch = (viewType == ViewType.THREAD ? ivExpander : vwColor);
+            touch.setOnClickListener(null);
+            view.setOnKeyListener(null);
 
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
@@ -1538,6 +1538,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             return false;
+        }
+
+        @Override
+        public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
+            if (keyEvent.getAction() == KeyEvent.ACTION_DOWN &&
+                    (keyCode == KeyEvent.KEYCODE_ENTER ||
+                            keyCode == KeyEvent.KEYCODE_DPAD_CENTER ||
+                            keyCode == KeyEvent.KEYCODE_BUTTON_A)) {
+                onClick(view);
+                return true;
+            } else
+                return false;
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
