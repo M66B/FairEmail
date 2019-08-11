@@ -87,6 +87,10 @@ public class FragmentBase extends Fragment {
         crumb.put("name", this.getClass().getName());
         crumb.put("before", Integer.toString(before));
         crumb.put("after", Integer.toString(after));
+        for (String key : outState.keySet()) {
+            Object value = outState.get(key);
+            crumb.put(key, value == null ? "" : value.getClass().getName());
+        }
         Bugsnag.leaveBreadcrumb("onSaveInstanceState", BreadcrumbType.LOG, crumb);
 
         for (String key : outState.keySet())
