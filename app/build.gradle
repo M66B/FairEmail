@@ -168,7 +168,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     def appcompat_version = "1.1.0-rc01"
-    def recyclerview_version = "1.1.0-beta02"
+    def recyclerview_version = "1.1.0-beta01"
     def coordinatorlayout_version = "1.1.0-beta01"
     def constraintlayout_version = "2.0.0-beta2"
     def material_version = "1.1.0-alpha07"
