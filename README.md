@@ -137,7 +137,6 @@ I do not hand over the signing keys of my apps to Google.
 Note that F-Droid builds new versions irregularly and you'll need the F-Droid client to get update notifications.
 To get updates in a timely fashion you are advised to use the GitHub release.
 
-
 Because F-Droid builds and GitHub releases are signed differently, an F-Droid build needs to be uninstalled first to be able to update to a GitHub release.
 
 ## Privacy
