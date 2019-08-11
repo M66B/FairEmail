@@ -565,6 +565,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindTo(final TupleMessageEx message) {
             pbLoading.setVisibility(View.GONE);
 
+            boolean inbox = EntityFolder.INBOX.equals(message.folderType);
+            boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
+
             if (viewType == ViewType.THREAD)
                 view.setVisibility(!filter_duplicates || !message.duplicate ? View.VISIBLE : View.GONE);
 
@@ -675,7 +678,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivType.setImageResource(message.drafts > 0
                     ? R.drawable.baseline_edit_24 : EntityFolder.getIcon(message.folderType));
             ivType.setVisibility(message.drafts > 0 ||
-                    (viewType == ViewType.UNIFIED && type == null && !EntityFolder.INBOX.equals(message.folderType)) ||
+                    (viewType == ViewType.UNIFIED && type == null && !inbox) ||
                     (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
                     ? View.VISIBLE : View.GONE);
             ivAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
@@ -687,7 +690,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.FOLDER)
-                tvFolder.setText(message.accountName);
+                tvFolder.setText(outbox ? message.identityEmail : message.accountName);
             else if (type == null) {
                 String folderName = (message.folderDisplay == null
                         ? Helper.localizeFolderName(context, message.folderName)
@@ -700,8 +703,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setText(message.accountName + "/" + folderName);
             }
             tvFolder.setVisibility(compact &&
-                    (viewType == ViewType.FOLDER ||
-                            (viewType == ViewType.UNIFIED && type == null && EntityFolder.INBOX.equals(message.folderType)))
+                    ((viewType == ViewType.FOLDER && !outbox) || (viewType == ViewType.UNIFIED && type == null && inbox))
                     ? View.GONE : View.VISIBLE);
 
             if (viewType == ViewType.THREAD || !threading) {
