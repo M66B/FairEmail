@@ -2480,9 +2480,12 @@ public class FragmentCompose extends FragmentBase {
                 if (draft.account != aid && aid >= 0) {
                     Log.i("Account changed");
 
-                    // To prevent violating constraints
                     Long uid = draft.uid;
                     String msgid = draft.msgid;
+                    boolean content = draft.content;
+                    long ui_hide = draft.ui_hide;
+
+                    // To prevent violating constraints
                     draft.uid = null;
                     draft.msgid = null;
                     db.message().updateMessage(draft);
@@ -2494,7 +2497,7 @@ public class FragmentCompose extends FragmentBase {
                     draft.content = false;
                     draft.ui_hide = new Date().getTime();
                     draft.id = db.message().insertMessage(draft);
-                    EntityOperation.queue(context, draft, EntityOperation.DELETE); // by msgid
+                    EntityOperation.queue(context, draft, EntityOperation.DELETE);
 
                     // Restore original with new account, no uid and new msgid
                     draft.id = id;
@@ -2502,10 +2505,12 @@ public class FragmentCompose extends FragmentBase {
                     draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
                     draft.uid = null;
                     draft.msgid = EntityMessage.generateMessageId();
-                    draft.content = true;
-                    draft.ui_hide = 0L;
+                    draft.content = content;
+                    draft.ui_hide = ui_hide;
                     db.message().updateMessage(draft);
-                    EntityOperation.queue(context, draft, EntityOperation.ADD);
+
+                    if (content)
+                        EntityOperation.queue(context, draft, EntityOperation.ADD);
                 }
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
