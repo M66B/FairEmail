@@ -73,12 +73,15 @@ public class ApplicationEx extends Application {
 
         logMemory("App create version=" + BuildConfig.VERSION_NAME);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final boolean crash_reports = prefs.getBoolean("crash_reports", false);
+
         prev = Thread.getDefaultUncaughtExceptionHandler();
 
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
-                if (ownFault(ex)) {
+                if (!crash_reports && ownFault(ex)) {
                     Log.e(ex);
 
                     if (BuildConfig.BETA_RELEASE ||
