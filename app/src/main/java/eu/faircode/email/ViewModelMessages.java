@@ -265,7 +265,10 @@ public class ViewModelMessages extends ViewModel {
             protected List<Long> onExecute(Context context, Bundle args) {
                 List<Long> ids = new ArrayList<>();
 
-                LimitOffsetDataSource<TupleMessageEx> ds = (LimitOffsetDataSource<TupleMessageEx>) model.list.getValue().getDataSource();
+                PagedList<TupleMessageEx> plist = model.list.getValue();
+                if (plist == null)
+                    return ids;
+                LimitOffsetDataSource<TupleMessageEx> ds = (LimitOffsetDataSource<TupleMessageEx>) plist.getDataSource();
                 int count = ds.countItems();
                 for (int i = 0; i < count; i += 100)
                     for (TupleMessageEx message : ds.loadRange(i, Math.min(100, count - i)))
