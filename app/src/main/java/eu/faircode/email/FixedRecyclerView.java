@@ -30,14 +30,17 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FixedRecyclerView extends RecyclerView {
     public FixedRecyclerView(@NonNull Context context) {
         super(context);
+        setAccessibilityDelegateCompat(null);
     }
 
     public FixedRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        setAccessibilityDelegateCompat(null);
     }
 
     public FixedRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        setAccessibilityDelegateCompat(null);
     }
 
     @Override
