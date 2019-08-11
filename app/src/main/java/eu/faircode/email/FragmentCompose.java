@@ -104,6 +104,8 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bugsnag.android.BreadcrumbType;
+import com.bugsnag.android.Bugsnag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
@@ -129,8 +131,10 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.regex.Pattern;
@@ -1948,6 +1952,12 @@ public class FragmentCompose extends FragmentBase {
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
+            Map<String, String> crumb = new HashMap<>();
+            crumb.put("draft", Long.toString(id));
+            crumb.put("reference", Long.toString(reference));
+            crumb.put("action", action);
+            Bugsnag.leaveBreadcrumb("compose", BreadcrumbType.LOG, crumb);
+
             EntityMessage draft;
 
             DB db = DB.getInstance(context);
@@ -2512,6 +2522,13 @@ public class FragmentCompose extends FragmentBase {
                     if (content)
                         EntityOperation.queue(context, draft, EntityOperation.ADD);
                 }
+
+                Map<String, String> crumb = new HashMap<>();
+                crumb.put("draft", draft.folder + ":" + draft.id);
+                crumb.put("content", Boolean.toString(draft.content));
+                crumb.put("file", Boolean.toString(draft.getFile(context).exists()));
+                crumb.put("action", getActionName(action));
+                Bugsnag.leaveBreadcrumb("compose", BreadcrumbType.LOG, crumb);
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
 
