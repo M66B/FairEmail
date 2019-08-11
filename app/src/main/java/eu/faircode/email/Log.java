@@ -67,6 +67,13 @@ import javax.mail.internet.InternetAddress;
 public class Log {
     static final String TAG = "fairemail";
 
+    public static int d(String msg) {
+        if (BuildConfig.DEBUG)
+            return android.util.Log.d(TAG, msg);
+        else
+            return 0;
+    }
+
     public static int i(String msg) {
         if (BuildConfig.BETA_RELEASE)
             return android.util.Log.i(TAG, msg);

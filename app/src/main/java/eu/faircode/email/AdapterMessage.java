@@ -3380,7 +3380,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (int i = 0; i < messages.size(); i++) {
                 TupleMessageEx message = messages.get(i);
                 if (message != null && message.id.equals(key)) {
-                    Log.i("Position=" + i + " @Key=" + key);
+                    Log.d("Position=" + i + " @Key=" + key);
                     return i;
                 }
             }
@@ -3393,10 +3393,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (list != null && pos >= 0 && pos < list.size()) {
             TupleMessageEx message = list.get(pos);
             Long key = (message == null ? null : message.id);
-            Log.i("Item=" + key + " @Position=" + pos);
+            Log.d("Item=" + key + " @Position=" + pos);
             return message;
         } else {
-            Log.i("Item=" + null + " @Position=" + pos);
+            Log.d("Item=" + null + " @Position=" + pos);
             return null;
         }
     }
@@ -3407,18 +3407,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             for (int i = 0; i < messages.size(); i++) {
                 TupleMessageEx message = messages.get(i);
                 if (message != null && message.id.equals(key)) {
-                    Log.i("Item=" + message.id + " @Key=" + key);
+                    Log.d("Item=" + message.id + " @Key=" + key);
                     return message;
                 }
             }
-        Log.i("Item=" + null + " @Key=" + key);
+        Log.d("Item=" + null + " @Key=" + key);
         return null;
     }
 
     Long getKeyAtPosition(int pos) {
         TupleMessageEx message = getItemAtPosition(pos);
         Long key = (message == null ? null : message.id);
-        Log.i("Key=" + key + " @Position=" + pos);
+        Log.d("Key=" + key + " @Position=" + pos);
         return key;
     }
 
