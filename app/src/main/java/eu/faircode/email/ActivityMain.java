@@ -142,7 +142,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 start.execute(this, new Bundle(), "main:accounts");
         } else {
             // Enable compact view on small screens
-            if (!getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL))
+            if (!getResources().getConfiguration().isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_LARGE))
                 prefs.edit().putBoolean("compact", true).apply();
 
             setTheme(R.style.AppThemeLight);
