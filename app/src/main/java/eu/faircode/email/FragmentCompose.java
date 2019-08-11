@@ -2016,8 +2016,13 @@ public class FragmentCompose extends FragmentBase {
                         body = args.getString("body", "");
                         body = body.replaceAll("\\r?\\n", "<br />");
 
-                        if (answer > 0)
-                            body = EntityAnswer.getAnswerText(db, answer, null) + body;
+                        if (answer > 0) {
+                            EntityAnswer a = db.answer().getAnswer(answer);
+                            if (a != null) {
+                                draft.subject = a.name;
+                                body = EntityAnswer.getAnswerText(a, null) + body;
+                            }
+                        }
                     } else {
                         // Actions:
                         // - reply
@@ -2108,7 +2113,7 @@ public class FragmentCompose extends FragmentBase {
 
                         draft.plain_only = ref.plain_only;
                         if (answer > 0)
-                            body = EntityAnswer.getAnswerText(db, answer, draft.to) + body;
+                            body = EntityAnswer.getAnswerText(context, answer, draft.to) + body;
 
                         EntityOperation.queue(context, ref, EntityOperation.SEEN, true);
                     }

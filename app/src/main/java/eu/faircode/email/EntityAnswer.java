@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -52,11 +54,16 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public String text;
 
-    static String getAnswerText(DB db, long id, Address[] from) {
+    static String getAnswerText(Context context, long id, Address[] from) {
+        DB db = DB.getInstance(context);
         EntityAnswer answer = db.answer().getAnswer(id);
         if (answer == null)
             return null;
 
+        return getAnswerText(answer, from);
+    }
+
+    static String getAnswerText(EntityAnswer answer, Address[] from) {
         String name = null;
         String email = null;
         String first = null;

@@ -298,7 +298,7 @@ public class EntityRule {
         if (identity == null)
             throw new IllegalArgumentException("Rule identity not found");
 
-        String body = EntityAnswer.getAnswerText(db, aid, message.from);
+        String body = EntityAnswer.getAnswerText(context, aid, message.from);
         if (body == null)
             throw new IllegalArgumentException("Rule answer not found");
 
