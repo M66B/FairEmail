@@ -311,7 +311,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swUpdates.setVisibility(Helper.isPlayStoreInstall(getContext()) ? View.GONE : View.VISIBLE);
+        swUpdates.setVisibility(
+                Helper.isPlayStoreInstall(getContext()) || !Helper.hasValidFingerprint(getContext())
+                        ? View.GONE : View.VISIBLE);
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         swDebug.setChecked(prefs.getBoolean("debug", false));
 

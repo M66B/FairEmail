@@ -685,7 +685,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkUpdate(boolean always) {
-        if (Helper.isPlayStoreInstall(this))
+        if (Helper.isPlayStoreInstall(this) || !Helper.hasValidFingerprint(this))
             return;
 
         long now = new Date().getTime();
