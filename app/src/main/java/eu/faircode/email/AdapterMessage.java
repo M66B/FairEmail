@@ -128,7 +128,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.mail.Address;
@@ -191,6 +193,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int answers = -1;
     private boolean gotoTop = false;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
+    private Map<Long, Integer> keyPosition = new HashMap<>();
     private SelectionTracker<Long> selectionTracker = null;
 
     enum ViewType {UNIFIED, FOLDER, THREAD, SEARCH}
@@ -3015,6 +3018,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void submitList(PagedList<TupleMessageEx> list) {
+        keyPosition.clear();
         differ.submitList(list);
     }
 
@@ -3375,23 +3379,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     int getPositionForKey(long key) {
-        PagedList<TupleMessageEx> messages = getCurrentList();
-        if (messages != null)
-            for (int i = 0; i < messages.size(); i++) {
-                TupleMessageEx message = messages.get(i);
-                if (message != null && message.id.equals(key)) {
-                    Log.d("Position=" + i + " @Key=" + key);
-                    return i;
+        if (keyPosition.isEmpty()) {
+            PagedList<TupleMessageEx> messages = getCurrentList();
+            if (messages != null) {
+                for (int i = 0; i < messages.size(); i++) {
+                    TupleMessageEx message = messages.get(i);
+                    if (message != null)
+                        keyPosition.put(message.id, i);
                 }
+                Log.i("Mapped keys=" + keyPosition.size());
             }
+        }
+
+        if (keyPosition.containsKey(key)) {
+            int pos = keyPosition.get(key);
+            Log.d("Position=" + pos + " @Key=" + key);
+            return pos;
+        }
+
         Log.i("Position=" + RecyclerView.NO_POSITION + " @Key=" + key);
         return RecyclerView.NO_POSITION;
     }
 
     TupleMessageEx getItemAtPosition(int pos) {
-        PagedList<TupleMessageEx> list = getCurrentList();
-        if (list != null && pos >= 0 && pos < list.size()) {
-            TupleMessageEx message = list.get(pos);
+        PagedList<TupleMessageEx> messages = getCurrentList();
+        if (messages != null && pos >= 0 && pos < messages.size()) {
+            TupleMessageEx message = messages.get(pos);
             Long key = (message == null ? null : message.id);
             Log.d("Item=" + key + " @Position=" + pos);
             return message;
@@ -3402,17 +3415,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     TupleMessageEx getItemForKey(long key) {
-        PagedList<TupleMessageEx> messages = getCurrentList();
-        if (messages != null)
-            for (int i = 0; i < messages.size(); i++) {
-                TupleMessageEx message = messages.get(i);
-                if (message != null && message.id.equals(key)) {
-                    Log.d("Item=" + message.id + " @Key=" + key);
-                    return message;
-                }
-            }
-        Log.d("Item=" + null + " @Key=" + key);
-        return null;
+        int pos = getPositionForKey(key);
+        if (pos == RecyclerView.NO_POSITION) {
+            Log.d("Item=" + null + " @Key=" + key);
+            return null;
+        } else
+            return getItemAtPosition(pos);
     }
 
     Long getKeyAtPosition(int pos) {
