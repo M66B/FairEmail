@@ -191,10 +191,7 @@ public class Helper {
     static void view(Context context, Uri uri, boolean browse) {
         Log.i("View=" + uri);
 
-        if (!hasCustomTabs(context, uri))
-            browse = true;
-
-        if (browse) {
+        if (browse || !hasCustomTabs(context, uri)) {
             Intent view = new Intent(Intent.ACTION_VIEW, uri);
             context.startActivity(getChooser(context, view));
         } else {
