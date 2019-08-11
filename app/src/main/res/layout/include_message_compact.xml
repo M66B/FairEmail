@@ -257,7 +257,7 @@
         android:src="@drawable/baseline_star_24"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-        app:layout_constraintEnd_toEndOf="@id/paddingEnd"
+        app:layout_constraintEnd_toStartOf="@id/paddingEnd"
         app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
     <TextView
@@ -295,6 +295,7 @@
         android:layout_width="6dp"
         android:layout_height="0dp"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
