@@ -240,7 +240,32 @@ public class ServiceSynchronize extends ServiceBase {
 
         Core.notifyReset(this);
 
-        stopForeground(true);
+        try {
+            stopForeground(true);
+        } catch (Throwable ex) {
+            Log.e(ex);
+/*
+            OnePlus A6013 - Android 9
+
+            java.lang.RuntimeException: Unable to stop service eu.faircode.email.ServiceSynchronize@3995fc9: java.lang.NullPointerException: Attempt to invoke virtual method 'long java.lang.Long.longValue()' on a null object reference
+                    at android.app.ActivityThread.handleStopService(ActivityThread.java:3908)
+                    at android.app.ActivityThread.access$1900(ActivityThread.java:209)
+                    at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1826)
+                    at android.os.Handler.dispatchMessage(Handler.java:106)
+                    at android.os.Looper.loop(Looper.java:193)
+                    at android.app.ActivityThread.main(ActivityThread.java:6954)
+                    at java.lang.reflect.Method.invoke(Method.java:-2)
+                    at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:537)
+                    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:858)
+            Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'long java.lang.Long.longValue()' on a null object reference
+                    at android.os.Parcel.createException(Parcel.java:1956)
+                    at android.os.Parcel.readException(Parcel.java:1918)
+                    at android.os.Parcel.readException(Parcel.java:1868)
+                    at android.app.IActivityManager$Stub$Proxy.setServiceForeground(IActivityManager.java:5111)
+                    at android.app.Service.stopForeground(Service.java:724)
+                    at android.app.Service.stopForeground(Service.java:710)
+*/
+        }
 
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         nm.cancel(Helper.NOTIFICATION_SYNCHRONIZE);
