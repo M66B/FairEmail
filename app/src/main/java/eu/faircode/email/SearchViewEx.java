@@ -1,6 +1,7 @@
 package eu.faircode.email;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.SearchView;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.preference.PreferenceManager;
 
 public class SearchViewEx extends SearchView {
     private String _searching = null;
@@ -31,7 +33,6 @@ public class SearchViewEx extends SearchView {
 
     void setup(LifecycleOwner owner, MenuItem menuSearch, String searching, ISearch intf) {
         _searching = searching;
-        Log.i("SearchView searching=" + _searching);
 
         setQueryHint(getContext().getString(R.string.title_search));
 
@@ -43,6 +44,8 @@ public class SearchViewEx extends SearchView {
         AutoCompleteTextView autoCompleteTextView = findViewById(androidx.appcompat.R.id.search_src_text);
         autoCompleteTextView.setThreshold(0);
 
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String newText) {
@@ -51,10 +54,15 @@ public class SearchViewEx extends SearchView {
 
                 if (TextUtils.isEmpty(newText)) {
                     MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "suggestion"});
+
+                    String last_search = prefs.getString("last_search", null);
+                    if (!TextUtils.isEmpty(last_search))
+                        cursor.addRow(new Object[]{-1, last_search});
+
                     String prefix = getContext().getString(R.string.title_search_special_prefix);
-                    cursor.addRow(new Object[]{-1, prefix + ":" + getContext().getString(R.string.title_search_special_unseen)});
-                    cursor.addRow(new Object[]{-2, prefix + ":" + getContext().getString(R.string.title_search_special_flagged)});
-                    cursor.addRow(new Object[]{-3, prefix + ":" + getContext().getString(R.string.title_search_special_snoozed)});
+                    cursor.addRow(new Object[]{-2, prefix + ":" + getContext().getString(R.string.title_search_special_unseen)});
+                    cursor.addRow(new Object[]{-3, prefix + ":" + getContext().getString(R.string.title_search_special_flagged)});
+                    cursor.addRow(new Object[]{-4, prefix + ":" + getContext().getString(R.string.title_search_special_snoozed)});
                     SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                             getContext(),
                             R.layout.search_suggestion,
@@ -104,9 +112,10 @@ public class SearchViewEx extends SearchView {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 _searching = null;
-                intf.onSave(_searching);
+                intf.onSave(query);
                 menuSearch.collapseActionView();
                 intf.onSearch(query);
+                prefs.edit().putString("last_search", query).apply();
                 return true;
             }
         });
