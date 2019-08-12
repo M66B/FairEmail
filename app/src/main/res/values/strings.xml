@@ -220,10 +220,10 @@
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_circular">Show round icons</string>
     <string name="title_advanced_name_email">Show names and email addresses</string>
-    <string name="title_advanced_subject_italic">Show subject italic</string>
+    <string name="title_advanced_subject_italic">Show subject in italics</string>
     <string name="title_advanced_flags">Show stars</string>
     <string name="title_advanced_preview">Show message preview</string>
-    <string name="title_advanced_preview_italic">Show message preview italic</string>
+    <string name="title_advanced_preview_italic">Show message preview in italics</string>
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
