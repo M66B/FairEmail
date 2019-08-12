@@ -18,8 +18,7 @@ android {
         archivesBaseName = "FairEmail-v$versionName"
 
         // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
-        // Iguanodon
-        buildConfigField "String", "RELEASE_NAME", "\"Hypsilophodon\""
+        buildConfigField "String", "RELEASE_NAME", "\"Iguanodon\""
 
         javaCompileOptions {
             annotationProcessorOptions {
