@@ -31,7 +31,9 @@ import android.webkit.CookieManager;
 
 import androidx.preference.PreferenceManager;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class ApplicationEx extends Application {
     private Thread.UncaughtExceptionHandler prev = null;
@@ -90,12 +92,19 @@ public class ApplicationEx extends Application {
     @Override
     public void onTrimMemory(int level) {
         Log.logMemory(this, "Trim memory level=" + level);
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put("level", Integer.toString(level));
+        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+        Log.breadcrumb("trim", crumb);
         super.onTrimMemory(level);
     }
 
     @Override
     public void onLowMemory() {
         Log.logMemory(this, "Low memory");
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+        Log.breadcrumb("low", crumb);
         super.onLowMemory();
     }
 
