@@ -18,21 +18,7 @@
 
 *Open source, privacy friendly email app for Android*
 
-This open source, privacy friendly email app might be for you if your current email app:
-
-* takes long to receive or to show messages
-* can manage only one email address
-* cannot handle a large number of messages
-* cannot show conversations
-* cannot work offline
-* looks outdated
-* is not maintained and supported
-* stores your email on their servers
-* is closed source, potentially violating your privacy
-
-This app is minimalistic by design, so you can concentrate on reading and writing messages.
-
-This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
+This open source, privacy friendly email app might be for you if you value your privacy.
 
 ## Main features
 
@@ -50,6 +36,10 @@ This app starts a foreground service with a low priority status bar notification
 * Small (< 10 MB)
 * Material design (including dark theme)
 * Maintained and supported
+
+This app is minimalistic by design, so you can concentrate on reading and writing messages.
+
+This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
 
 ## Privacy features
 
