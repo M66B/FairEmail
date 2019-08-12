@@ -24,7 +24,6 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,7 +33,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
@@ -220,30 +218,19 @@ public class FragmentAccounts extends FragmentBase {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_accounts, menu);
 
-        final MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        SearchView searchView = (SearchView) menuSearch.getActionView();
-        searchView.setQueryHint(getString(R.string.title_search));
-
-        if (!TextUtils.isEmpty(searching)) {
-            menuSearch.expandActionView();
-            searchView.setQuery(searching, false);
-        }
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        MenuItem menuSearch = menu.findItem(R.id.menu_search);
+        SearchViewEx searchView = (SearchViewEx) menuSearch.getActionView();
+        searchView.setup(getViewLifecycleOwner(), menuSearch, searching, new SearchViewEx.ISearch() {
             @Override
-            public boolean onQueryTextChange(String newText) {
-                searching = newText;
-                return true;
+            public void onSave(String query) {
+                searching = query;
             }
 
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                searching = null;
-                menuSearch.collapseActionView();
+            public void onSearch(String query) {
                 FragmentMessages.search(
                         getContext(), getViewLifecycleOwner(), getFragmentManager(),
                         -1, false, query);
-                return true;
             }
         });
 
