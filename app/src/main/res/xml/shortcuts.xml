@@ -1,6 +1,18 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
         android:enabled="true"
+        android:icon="@drawable/ic_shortcut_refresh"
+        android:shortcutId="refresh"
+        android:shortcutShortLabel="@string/shortcut_refresh">
+        <intent
+            android:action="eu.faircode.email.REFRESH"
+            android:targetClass="eu.faircode.email.ActivityMain"
+            android:targetPackage="eu.faircode.email" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
         android:icon="@drawable/ic_shortcut_edit"
         android:shortcutId="compose"
         android:shortcutShortLabel="@string/shortcut_compose">
@@ -12,7 +24,7 @@
     </shortcut>
 
     <shortcut
-        android:enabled="true"
+        android:enabled="false"
         android:icon="@drawable/ic_shortcut_settings"
         android:shortcutId="setup"
         android:shortcutShortLabel="@string/shortcut_setup">

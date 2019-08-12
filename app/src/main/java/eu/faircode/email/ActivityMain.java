@@ -34,6 +34,8 @@ import androidx.preference.PreferenceManager;
 import java.util.List;
 
 public class ActivityMain extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
+    private static final String ACTION_REFRESH = BuildConfig.APPLICATION_ID + ".REFRESH";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportFragmentManager().addOnBackStackChangedListener(this);
@@ -83,7 +85,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
                     if (hasAccounts) {
                         startActivity(new Intent(ActivityMain.this, ActivityView.class));
-                        ServiceSynchronize.watchdog(ActivityMain.this);
+                        if (ACTION_REFRESH.equals(getIntent().getAction()))
+                            ServiceSynchronize.process(ActivityMain.this, true);
+                        else
+                            ServiceSynchronize.watchdog(ActivityMain.this);
                         ServiceSend.watchdog(ActivityMain.this);
                     } else
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));

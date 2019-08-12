@@ -64,15 +64,19 @@
             android:launchMode="singleInstance"
             android:theme="@style/Theme.AppCompat.Translucent">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="${applicationId}.REFRESH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -80,6 +84,7 @@
             android:exported="true"
             android:launchMode="singleInstance"
             android:parentActivityName=".ActivityMain">
+
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -89,6 +94,7 @@
         <activity
             android:name=".ActivityWidgetUnified"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
@@ -127,22 +133,23 @@
                 <action android:name="android.intent.action.SEND" />
                 <action android:name="android.intent.action.SEND_MULTIPLE" />
 
-                <data android:mimeType="*/*" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
             </intent-filter>
 
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
-                <data android:scheme="mailto" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="mailto" />
             </intent-filter>
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-                <data android:scheme="mailto" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="mailto" />
             </intent-filter>
         </activity>
 
@@ -213,6 +220,7 @@
         <service
             android:name=".ServiceExternal"
             android:foregroundServiceType="dataSync">
+
             <intent-filter>
                 <action android:name="${applicationId}.ENABLE" />
                 <action android:name="${applicationId}.DISABLE" />
@@ -224,6 +232,7 @@
             android:icon="@drawable/baseline_sync_disabled_24"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -234,6 +243,7 @@
             android:icon="@drawable/baseline_mail_outline_24"
             android:label="@string/tile_unseen"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -254,26 +264,26 @@
             android:name=".Widget"
             android:label="@string/tile_unseen">
 
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
         </receiver>
 
         <receiver
             android:name=".WidgetUnified"
             android:label="@string/title_folder_unified">
 
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_unified" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
         </receiver>
 
         <service
@@ -281,6 +291,7 @@
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <receiver android:name=".ReceiverAutoStart">
+
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

@@ -21,6 +21,7 @@
     <string name="tile_synchronize">Synchronize</string>
     <string name="tile_unseen">New messages</string>
 
+    <string name="shortcut_refresh">Refresh</string>
     <string name="shortcut_compose">Compose</string>
     <string name="shortcut_setup">Settings</string>
 
