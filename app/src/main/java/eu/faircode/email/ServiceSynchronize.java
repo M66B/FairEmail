@@ -506,7 +506,6 @@ public class ServiceSynchronize extends ServiceBase {
             private PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
             private PowerManager.WakeLock wl = pm.newWakeLock(
                     PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":main");
-            private List<Core.State> threadState = new ArrayList<>();
 
             @Override
             public void run() {
@@ -549,7 +548,7 @@ public class ServiceSynchronize extends ServiceBase {
                             }
                         }, "sync.account." + account.id);
                         astate.start();
-                        threadState.add(astate);
+                        state.childs.add(astate);
                     }
 
                     EntityLog.log(ServiceSynchronize.this, "Main started");
@@ -564,11 +563,11 @@ public class ServiceSynchronize extends ServiceBase {
                     }
 
                     // Stop monitoring accounts
-                    for (Core.State astate : threadState)
+                    for (Core.State astate : state.childs)
                         astate.stop();
-                    for (Core.State astate : threadState)
+                    for (Core.State astate : state.childs)
                         astate.join();
-                    threadState.clear();
+                    state.childs.clear();
 
                     EntityLog.log(ServiceSynchronize.this, "Main exited");
                 } catch (Throwable ex) {
