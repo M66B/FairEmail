@@ -1,6 +1,6 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
     <shortcut
-        android:enabled="true"
+        android:enabled="false"
         android:icon="@drawable/ic_shortcut_refresh"
         android:shortcutId="refresh"
         android:shortcutShortLabel="@string/shortcut_refresh">
