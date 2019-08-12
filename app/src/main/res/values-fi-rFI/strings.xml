@@ -188,6 +188,7 @@
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_flags">Näytä tähdet</string>
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
+    <string name="title_advanced_preview_italic">Näytä viestin esikatselu kursiivilla</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>

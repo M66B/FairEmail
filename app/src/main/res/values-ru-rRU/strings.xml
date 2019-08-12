@@ -205,7 +205,8 @@
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_flags">Показывать звёзды</string>
-    <string name="title_advanced_preview">Показать предварительный просмотр сообщения</string>
+    <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
+    <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
@@ -267,7 +268,7 @@
     <string name="title_advanced_browse_hint">Получите больше сообщений при прокрутке вниз</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
-    <string name="title_advanced_preview_hint">Доступно только когда был загружен текст сообщения</string>
+    <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, вложенные в сообщение</string>
     <string name="title_advanced_permission_contacts_hint">Это требует разрешения на чтение ваших контактов</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>

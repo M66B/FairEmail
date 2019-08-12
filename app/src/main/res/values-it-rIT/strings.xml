@@ -187,6 +187,7 @@
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_flags">Mostra stelle</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
+    <string name="title_advanced_preview_italic">Mostra anteprima messaggio corsivo</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>

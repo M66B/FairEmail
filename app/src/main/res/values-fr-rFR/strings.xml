@@ -188,6 +188,7 @@
     <string name="title_advanced_subject_italic">Afficher l\'objet en italique</string>
     <string name="title_advanced_flags">Afficher les messages suivis</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
+    <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italique</string>
     <string name="title_advanced_addresses">Afficher les détails de l\'adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>

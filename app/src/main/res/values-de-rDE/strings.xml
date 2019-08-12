@@ -187,6 +187,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_flags">Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
+    <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
