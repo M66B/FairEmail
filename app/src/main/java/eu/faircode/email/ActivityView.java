@@ -278,12 +278,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuSetup();
             }
-        }, new Runnable() {
-            @Override
-            public void run() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onReset();
-            }
         }));
 
         madapter.set(menus);
@@ -936,10 +930,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private void onMenuOtherApps() {
         Helper.view(this, getIntentOtherApps());
-    }
-
-    private void onReset() {
-        ServiceSynchronize.reset(this);
     }
 
     private void onDebugInfo() {

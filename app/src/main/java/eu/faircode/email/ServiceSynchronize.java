@@ -1554,6 +1554,13 @@ public class ServiceSynchronize extends ServiceBase {
     }
 
     static void reset(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = prefs.getBoolean("enabled", true);
+        int pollInterval = prefs.getInt("poll_interval", 0);
+        if (!enabled || pollInterval > 0) {
+            ServiceSynchronize.sync = true;
+            oneshot = true;
+        }
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reset"));

@@ -2488,6 +2488,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
 
+        menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
+
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -2560,6 +2562,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             case R.id.menu_select_all:
                 onMenuSelectAll();
+                return true;
+
+            case R.id.menu_force_sync:
+                onMenuForceSync();
                 return true;
 
             default:
@@ -2660,6 +2666,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void onMenuForceSync() {
+        ServiceSynchronize.reset(getContext());
+        ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 
     private void updateState(List<TupleFolderEx> folders) {
