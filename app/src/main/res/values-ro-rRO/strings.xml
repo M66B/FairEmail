@@ -197,6 +197,7 @@
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
     <string name="title_advanced_flags">Arată cu stea</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
+    <string name="title_advanced_preview_italic">Arată previzualizare mesaj cu aldin</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>

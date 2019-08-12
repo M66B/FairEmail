@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Kontakty</string>
     <string name="tile_synchronize">Synchronizuj</string>
     <string name="tile_unseen">Nowe wiadomości</string>
+    <string name="shortcut_refresh">Odśwież</string>
     <string name="shortcut_compose">Napisz</string>
     <string name="shortcut_setup">Ustawienia</string>
     <plurals name="title_notification_synchronizing">
@@ -206,6 +207,7 @@
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_flags">Oznacz gwiazdkami</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
+    <string name="title_advanced_preview_italic">Pokaż podgląd wiadomości kursywą</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>

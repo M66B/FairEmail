@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Contatti</string>
     <string name="tile_synchronize">Sincronizza</string>
     <string name="tile_unseen">Nuovi messaggi</string>
+    <string name="shortcut_refresh">Aggiorna</string>
     <string name="shortcut_compose">Scrivi</string>
     <string name="shortcut_setup">Impostazioni</string>
     <plurals name="title_notification_synchronizing">
@@ -511,6 +512,7 @@
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
     <string name="title_select_all">Seleziona tutti</string>
+    <string name="title_force_sync">Forza sincronizzazione</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>
     <string name="title_answer_caption">Modifica modello</string>

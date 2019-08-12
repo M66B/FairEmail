@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Contactos</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Mensajes nuevos</string>
+    <string name="shortcut_refresh">Actualizar</string>
     <string name="shortcut_compose">Redactar</string>
     <string name="shortcut_setup">Ajustes</string>
     <plurals name="title_notification_synchronizing">
@@ -188,6 +189,7 @@
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
     <string name="title_advanced_flags">Mostrar estrellas</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
+    <string name="title_advanced_preview_italic">Mostrar vista previa de mensaje en cursiva</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
@@ -511,6 +513,7 @@
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
     <string name="title_select_all">Seleccionar todo</string>
+    <string name="title_force_sync">Forzar sincronización</string>
     <string name="title_previous">Anterior</string>
     <string name="title_next">Siguiente</string>
     <string name="title_answer_caption">Editar plantilla</string>

@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Контакты</string>
     <string name="tile_synchronize">Синхронизация</string>
     <string name="tile_unseen">Новые сообщения</string>
+    <string name="shortcut_refresh">Обновить</string>
     <string name="shortcut_compose">Написать</string>
     <string name="shortcut_setup">Настройки</string>
     <plurals name="title_notification_synchronizing">
@@ -530,6 +531,7 @@
     <string name="title_compact">Компактный вид</string>
     <string name="title_zoom">Размер текста</string>
     <string name="title_select_all">Выбрать все</string>
+    <string name="title_force_sync">Синхронизировать принудительно</string>
     <string name="title_previous">Предыдущий шаг</string>
     <string name="title_next">Следующий</string>
     <string name="title_answer_caption">Изменить шаблон</string>

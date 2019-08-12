@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Kontakte</string>
     <string name="tile_synchronize">Synchronisieren</string>
     <string name="tile_unseen">Neue Nachrichten</string>
+    <string name="shortcut_refresh">Aktualisieren</string>
     <string name="shortcut_compose">Verfassen</string>
     <string name="shortcut_setup">Einstellungen</string>
     <plurals name="title_notification_synchronizing">
@@ -511,6 +512,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_compact">Kompaktansicht</string>
     <string name="title_zoom">Schriftgröße</string>
     <string name="title_select_all">Alle auswählen</string>
+    <string name="title_force_sync">Synchronisation erzwingen</string>
     <string name="title_previous">Vorherige</string>
     <string name="title_next">Nächste</string>
     <string name="title_answer_caption">Vorlage bearbeiten</string>

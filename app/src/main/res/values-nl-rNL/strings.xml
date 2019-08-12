@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Contacten</string>
     <string name="tile_synchronize">Synchroniseren</string>
     <string name="tile_unseen">Nieuwe berichten</string>
+    <string name="shortcut_refresh">Verversen</string>
     <string name="shortcut_compose">Opstellen</string>
     <string name="shortcut_setup">Instellingen</string>
     <plurals name="title_notification_synchronizing">
@@ -512,6 +513,7 @@
     <string name="title_compact">Compacte weergave</string>
     <string name="title_zoom">Tekstgrootte</string>
     <string name="title_select_all">Selecteer alles</string>
+    <string name="title_force_sync">Forceer verversen</string>
     <string name="title_previous">Vorige</string>
     <string name="title_next">Volgende</string>
     <string name="title_answer_caption">Bewerk sjabloon</string>

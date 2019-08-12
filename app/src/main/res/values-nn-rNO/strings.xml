@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Kontakter</string>
     <string name="tile_synchronize">Synkroniser</string>
     <string name="tile_unseen">Nye meldinger</string>
+    <string name="shortcut_refresh">Oppdater</string>
     <string name="shortcut_compose">Skriv</string>
     <string name="shortcut_setup">Innstillinger</string>
     <plurals name="title_notification_synchronizing">
@@ -188,6 +189,7 @@
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
     <string name="title_advanced_flags">Vis stjerner</string>
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
+    <string name="title_advanced_preview_italic">Vis forhåndsvisning av melding i kursiv</string>
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
@@ -511,6 +513,7 @@
     <string name="title_compact">Kompakt visning</string>
     <string name="title_zoom">Tekststørrelse</string>
     <string name="title_select_all">Velg alle</string>
+    <string name="title_force_sync">Tving synkronisering</string>
     <string name="title_previous">Forrige</string>
     <string name="title_next">Neste</string>
     <string name="title_answer_caption">Rediger mal</string>

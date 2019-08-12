@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Yhteystiedot</string>
     <string name="tile_synchronize">Synkronoi</string>
     <string name="tile_unseen">Uudet viestit</string>
+    <string name="shortcut_refresh">Päivitä</string>
     <string name="shortcut_compose">Kirjoita viesti</string>
     <string name="shortcut_setup">Asetukset</string>
     <plurals name="title_notification_synchronizing">
@@ -512,6 +513,7 @@
     <string name="title_compact">Tiivistetty näkymä</string>
     <string name="title_zoom">Tekstin koko</string>
     <string name="title_select_all">Valitse kaikki</string>
+    <string name="title_force_sync">Pakota synkronointi</string>
     <string name="title_previous">Edellinen</string>
     <string name="title_next">Seuraava</string>
     <string name="title_answer_caption">Muokkaa viestipohjaa</string>
