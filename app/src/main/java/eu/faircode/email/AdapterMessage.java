@@ -964,7 +964,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message.to != null) {
                         String v = MessageHelper.canonicalAddress(via.getAddress());
                         for (Address t : message.to) {
-                            if (v.equals(MessageHelper.canonicalAddress(((InternetAddress) t).getAddress()))) {
+                            if (EntityFolder.isOutgoing(message.folderType) ||
+                                    v.equals(MessageHelper.canonicalAddress(((InternetAddress) t).getAddress()))) {
                                 self = true;
                                 break;
                             }
