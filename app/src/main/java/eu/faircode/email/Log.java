@@ -83,7 +83,7 @@ import javax.mail.Part;
 import javax.mail.internet.InternetAddress;
 
 public class Log {
-    static final String TAG = "fairemail";
+    private static final String TAG = "fairemail";
 
     public static int d(String msg) {
         if (BuildConfig.DEBUG)
@@ -739,7 +739,7 @@ public class Log {
     }
 
 
-    static long getFreeMem() {
+    private static long getFreeMem() {
         Runtime rt = Runtime.getRuntime();
         long used = (rt.totalMemory() - rt.freeMemory());
         long max = rt.maxMemory();
