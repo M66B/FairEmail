@@ -188,6 +188,7 @@
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
     <string name="title_advanced_flags">Toon sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
+    <string name="title_advanced_preview_italic">Toon berichtvoorbeeld cursief</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>

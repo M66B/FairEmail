@@ -1,41 +1,41 @@
-# Setup help
+# Kurulum yardımı
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+FairEmail'i kurmak oldukça basittir. E-posta almak için en az bir hesap, e-posta göndermek istiyorsanız en az bir kimlik eklemeniz gerekir. Hızlı kurulum, çoğu büyük sağlayıcı için tek seferde bir hesap ve bir kimlik ekleyecektir.
 
-## Requirements
+## Gereksinimler
 
-An internet connection is required to set up accounts and identities.
+Hesapları ve kimlikleri ayarlamak için bir internet bağlantısı gereklidir.
 
-## Quick setup
+## Hızlı Kurulum
 
-Just enter your name, email address and password and tap *Go*.
+Sadece adınızı, e-posta adresinizi ve parolanızı girin ve *Devam* 'a dokunun.
 
-This will work for most major email providers.
+Bu, birçok büyük e-posta sağlayıcısı için işe yarar.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Hızlı kurulum işe yaramazsa, başka bir şekilde bir hesap ve kimlik kurmanız gerekir, yönergeler için aşağıya bakın.
 
-## Set up account - to receive email
+## Hesap kurulumu - e-posta almak için
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Bir hesap eklemek için *Hesapları yönet* ve alttaki turuncu *ekle* düğmesine dokunun. Listeden bir sağlayıcı seçin, çoğunlukla e-posta adresiniz olan kullanıcı adını ve şifrenizi girin. FairEmail'in e-posta sunucusuna bağlanmasını ve sistem klasörlerinin bir listesini almasını sağlamak için *Denetle* düğmesine dokunun. Sistem klasörü seçimini inceledikten sonra *Kaydet* düğmesine dokunarak hesabı ekleyebilirsiniz.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Eğer e-posta sağlayıcınız listede yoksa *Özel*'i seçin. Alan adını girin, örneğin *gmail.com* ve *Ayarları al* düğmesine dokunun. Eğer sağlayıcınız [otomatik tanıma](https://tools.ietf.org/html/rfc6186)'yı destekliyorsa FairEmail, ana bilgisayar adını ve bağlantı noktası numarasını dolduracak. Ayrıca doğru IMAP ana bilgisayar adı, bağlantı noktası numarası ve protokolü (SSL / TLS veya STARTTLS) için sağlayıcınızın kurulum yönergelerini inceleyin. Bunun hakkında daha fazlası için lütfen [burada](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)'ya bakın.
 
-## Set up identity - to send email
+## Kimlik kurulumu - e-posta göndermek için
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Benzer şekilde, bir kimlik eklemek için *Hesabı yönet* ve alttaki turuncu *ekle* düğmesine dokunun. Göndermek istediğiniz e-posta adresinden karşıda görünmesini istediğiniz adı girin ve bağlı bir hesap seçin. Kimliği eklemek için *Kaydet*'e dokunun.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Hesap elle yapılandırıldıysa, kimliği de elle yapılandırmanız gerekir. Alan adını girin, örneğin *gmail.com* ve *Ayarları al* düğmesine dokunun. Eğer sağlayıcınız [otomatik tanıma](https://tools.ietf.org/html/rfc6186)'yı destekliyorsa FairEmail, ana bilgisayar adını ve bağlantı noktası numarasını dolduracak. Ayrıca doğru IMAP ana bilgisayar adı, bağlantı noktası numarası ve protokolü (SSL / TLS veya STARTTLS) için sağlayıcınızın kurulum yönergelerini inceleyin.
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Takma ad kullanma hakkında [bu SSS](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9)'a bakın.
 
-## Grant permissions - to access contact information
+## Verilen izinler - kişi bilgilerine erişmek için
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+E-posta adreslerine bakmak, kişi fotoğraflarını göstermek vs. istiyorsanız, FairEmail'e kişileri okuma izni vermeniz gerekir. Sadece *Verilen izinler*'e dokunun ve *İzin ver*'i seçin.
 
-## Setup battery optimizations - to continuously receive emails
+## Pil eniyileştirme ayarları - sürekli e-posta almak için
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+Son Android sürümlerinde batarya kullanımını azaltmak için ekran bir süre kapalı kaldığında uygulamalar uyku moduna geçer. Gecikmesiz yeni e-postalar almak istiyorsanız, FairEmail için pil eniyileştirmelerini devre dışı bırakmalısınız. *Pil eniyileştirmeleri devre dışı* düğmesine dokunun ve yönergeleri izleyin.
 
-## Questions or problems
+## Sorular veya sorunlar
 
 If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").

@@ -39,6 +39,10 @@
         <item quantity="one">%1$d yeni</item>
         <item quantity="other">%1$d yeni</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">%1$d ileti seçildi</item>
+        <item quantity="other">%1$d ileti seçildi</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">%1$d iletiyi %2$s konumuna taşı?</item>
         <item quantity="other">%1$d iletiyi %2$s konumuna taşı?</item>
@@ -100,20 +104,24 @@
     <string name="title_setup_account_hint">Rengi değiştirmek için hedef klasörü sola/sağa kaydırın, vb</string>
     <string name="title_setup_identity">Kurulum kimlikleri</string>
     <string name="title_setup_identity_remark">E-posta göndermek için</string>
+    <string name="title_setup_identity_hint">Ad, renk, imza vb. değiştirmek için</string>
     <string name="title_setup_permissions">Verilen izinler</string>
     <string name="title_setup_permissions_remark">İletişim bilgilerine erişim için (isteğe bağlı)</string>
     <string name="title_setup_doze">Pil eniyileme ayarları</string>
     <string name="title_setup_doze_remark">Sürekli e-posta almak için (isteğe bağlı)</string>
     <string name="title_setup_doze_instructions">Sonraki iletişim kutusunda, en üstteki \"Tüm uygulamalar\" seçeneğini işaretleyin, bu uygulamayı seçin ve \"optimize etme\" seçeneğini onaylayın</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
+    <string name="title_setup_data">Veri koruyucu etkin</string>
     <string name="title_setup_inbox">İletilere git</string>
     <string name="title_setup_to_do">Yapılacak</string>
     <string name="title_setup_done">Bitti</string>
     <string name="title_setup_export">Ayarları dışa aktar</string>
     <string name="title_setup_import">Ayarları içe aktar</string>
+    <string name="title_setup_import_do">İçe aktarılan hesaplar varolan hesapların üzerine yazılmadan eklenecek</string>
     <string name="title_setup_password">Parola</string>
     <string name="title_setup_password_repeat">Parolayı tekrarla</string>
     <string name="title_setup_password_missing">Parola eksik</string>
+    <string name="title_setup_password_different">Parolalar eşleşmiyor</string>
     <string name="title_setup_password_invalid">Parola geçersiz</string>
     <string name="title_setup_exported">Ayarlar dışa aktarıldı</string>
     <string name="title_setup_imported">Ayarlar içe aktarıldı</string>
@@ -222,6 +230,7 @@
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
+    <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
     <string name="title_advanced_rlah_hint">AB içinde dolaşımda olmadığını varsayma</string>
@@ -346,6 +355,7 @@
     <string name="title_folder_thread">Söyleşi %1$s</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_no_messages">İleti yok</string>
+    <string name="title_no_folders">Klasör yok</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
     <string name="title_seen">Okundu olarak işaretle</string>
@@ -571,6 +581,7 @@
     <string name="title_legend_receipt">Alındı belgesi istendi</string>
     <string name="title_legend_attachment">Eki var</string>
     <string name="title_legend_contacts">Rehberi yönet</string>
+    <string name="title_legend_search">Göndereni ara</string>
     <string name="title_legend_view">İçeriği görüntüle</string>
     <string name="title_legend_hide">İçeriği gizle</string>
     <string name="title_legend_download">İçeriği indir</string>
@@ -633,6 +644,7 @@
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_enable">Etkin</string>
+    <string name="title_any">Herhangi Biri</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>
     <string name="title_ask_what">Ne yapılacağını sor</string>
@@ -661,6 +673,12 @@
     <string name="title_debug_info">Hata ayıklama bilgisi</string>
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
+    <string name="title_search_special_prefix">özel</string>
+    <string name="title_search_special_unseen">okunmamış</string>
+    <string name="title_search_special_flagged">yıldızlı</string>
+    <string name="title_search_special_snoozed">ertelendi</string>
+    <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
+    <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
     <string-array name="pollIntervalNames">
         <item>Her Zaman</item>
         <item>Her 15 dakikada</item>
@@ -694,6 +712,11 @@
         <item>1 MB</item>
         <item>2 MB</item>
         <item>&#8734;</item>
+    </string-array>
+    <string-array name="onCloseNames">
+        <item>Hiç bir şey yapma</item>
+        <item>Go to previous conversation</item>
+        <item>Go to next conversation</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Küçük</item>

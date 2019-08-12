@@ -406,8 +406,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_snooze">Zurückstellen &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
-    <string name="title_reply_to_sender">Nur dem Absender antworten</string>
-    <string name="title_reply_to_all">Allen Empfängern antworten</string>
+    <string name="title_reply_to_sender">Absender</string>
+    <string name="title_reply_to_all">Allen</string>
     <string name="title_reply_list">Liste</string>
     <string name="title_reply_receipt">Lesebestätigung</string>
     <string name="title_reply_template">Vorlage</string>
