@@ -181,6 +181,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean subject_italic;
     private boolean flags;
     private boolean preview;
+    private boolean preview_italic;
     private boolean attachments_alt;
     private boolean contrast;
     private boolean monospaced;
@@ -719,7 +720,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Message text preview
             tvPreview.setTextColor(contrast ? textColorPrimary : textColorSecondary);
-            tvPreview.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT, Typeface.ITALIC);
+            tvPreview.setTypeface(
+                    monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT,
+                    preview_italic ? Typeface.ITALIC : Typeface.NORMAL);
             tvPreview.setText(message.preview);
             tvPreview.setVisibility(preview && !TextUtils.isEmpty(message.preview) ? View.VISIBLE : View.GONE);
 
@@ -2982,6 +2985,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
+        this.preview_italic = prefs.getBoolean("preview_italic", true);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.contrast = prefs.getBoolean("contrast", false);
         this.monospaced = prefs.getBoolean("monospaced", false);

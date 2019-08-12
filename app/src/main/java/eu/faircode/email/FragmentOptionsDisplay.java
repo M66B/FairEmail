@@ -54,6 +54,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swSubjectItalic;
     private SwitchCompat swFlags;
     private SwitchCompat swPreview;
+    private SwitchCompat swPreviewItalic;
     private SwitchCompat swAddresses;
     private SwitchCompat swAttachmentsAlt;
 
@@ -68,7 +69,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "date", "threading", "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_italic",
-            "flags", "preview", "addresses", "attachments_alt",
+            "flags", "preview", "preview_italic", "addresses", "attachments_alt",
             "contrast", "monospaced", "inline_images", "contact_images", "all_images", "collapse_quotes", "autocontent", "actionbar",
     };
 
@@ -94,6 +95,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         swFlags = view.findViewById(R.id.swFlags);
         swPreview = view.findViewById(R.id.swPreview);
+        swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
         swAddresses = view.findViewById(R.id.swAddresses);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swContrast = view.findViewById(R.id.swContrast);
@@ -203,6 +205,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("preview", checked).apply();
+                swPreviewItalic.setEnabled(checked);
+            }
+        });
+
+        swPreviewItalic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("preview_italic", checked).apply();
             }
         });
 
@@ -342,6 +352,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swPreview.setChecked(prefs.getBoolean("preview", false));
+        swPreviewItalic.setChecked(prefs.getBoolean("preview_italic", true));
+        swPreviewItalic.setEnabled(swPreview.isChecked());
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swContrast.setChecked(prefs.getBoolean("contrast", false));
