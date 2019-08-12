@@ -55,6 +55,7 @@ public class Widget extends AppWidgetProvider {
     private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, int count) {
         Intent view = new Intent(context, ActivityView.class);
         view.setAction("unified");
+        view.putExtra("refresh", true);
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
