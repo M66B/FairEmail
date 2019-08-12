@@ -37,8 +37,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
@@ -149,7 +147,7 @@ class Core {
                     if (op.message != null)
                         crumb.put("message", Long.toString(op.message));
                     crumb.put("free", Integer.toString(Log.getFreeMemMb()));
-                    Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.LOG, crumb);
+                    Log.breadcrumb("operation", crumb);
 
                     // Fetch most recent copy of message
                     EntityMessage message = null;
@@ -1238,7 +1236,7 @@ class Core {
                 crumb.put("start", Integer.toString(from));
                 crumb.put("end", Integer.toString(i));
                 crumb.put("free", Integer.toString(free));
-                Bugsnag.leaveBreadcrumb("sync", BreadcrumbType.LOG, crumb);
+                Log.breadcrumb("sync", crumb);
                 Log.i("Sync " + from + ".." + i + " free=" + free);
 
                 for (int j = isub.length - 1; j >= 0 && state.running() && state.recoverable(); j--)
@@ -1317,7 +1315,7 @@ class Core {
                     crumb.put("start", Integer.toString(from));
                     crumb.put("end", Integer.toString(i));
                     crumb.put("free", Integer.toString(free));
-                    Bugsnag.leaveBreadcrumb("download", BreadcrumbType.LOG, crumb);
+                    Log.breadcrumb("download", crumb);
                     Log.i("Download " + from + ".." + i + " free=" + free);
 
                     for (int j = isub.length - 1; j >= 0 && state.running() && state.recoverable(); j--)

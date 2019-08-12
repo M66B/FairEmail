@@ -36,9 +36,6 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -144,7 +141,7 @@ public class ServiceSend extends ServiceBase {
                                             if (op.message != null)
                                                 crumb.put("message", Long.toString(op.message));
                                             crumb.put("free", Integer.toString(Log.getFreeMemMb()));
-                                            Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.LOG, crumb);
+                                            Log.breadcrumb("operation", crumb);
 
                                             switch (op.name) {
                                                 case EntityOperation.SYNC:

@@ -42,8 +42,6 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
 
@@ -445,7 +443,7 @@ public class ServiceSynchronize extends ServiceBase {
                         crumb.put("unmetered", Boolean.toString(networkState.isUnmetered()));
                         crumb.put("roaming", Boolean.toString(networkState.isRoaming()));
                         crumb.put("lastLost", new Date(lastLost).toString());
-                        Bugsnag.leaveBreadcrumb("reload", BreadcrumbType.LOG, crumb);
+                        Log.breadcrumb("reload", crumb);
 
                         if (doStop)
                             stop();

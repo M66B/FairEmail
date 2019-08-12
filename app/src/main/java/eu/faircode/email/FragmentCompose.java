@@ -104,8 +104,6 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
@@ -1956,7 +1954,7 @@ public class FragmentCompose extends FragmentBase {
             crumb.put("draft", Long.toString(id));
             crumb.put("reference", Long.toString(reference));
             crumb.put("action", action);
-            Bugsnag.leaveBreadcrumb("compose", BreadcrumbType.LOG, crumb);
+            Log.breadcrumb("compose", crumb);
 
             EntityMessage draft;
 
@@ -2528,7 +2526,7 @@ public class FragmentCompose extends FragmentBase {
                 crumb.put("content", Boolean.toString(draft.content));
                 crumb.put("file", Boolean.toString(draft.getFile(context).exists()));
                 crumb.put("action", getActionName(action));
-                Bugsnag.leaveBreadcrumb("compose", BreadcrumbType.LOG, crumb);
+                Log.breadcrumb("compose", crumb);
 
                 List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
 

@@ -39,6 +39,7 @@ import android.view.WindowManager;
 
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Severity;
 
@@ -115,6 +116,10 @@ public class Log {
         if (BuildConfig.BETA_RELEASE)
             Bugsnag.notify(ex, Severity.WARNING);
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
+    }
+
+    static void breadcrumb(String name, Map<String, String> crumb) {
+        Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.LOG, crumb);
     }
 
     static void logExtras(Intent intent) {

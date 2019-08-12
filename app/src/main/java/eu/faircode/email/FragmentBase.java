@@ -34,9 +34,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -91,7 +88,7 @@ public class FragmentBase extends Fragment {
             Object value = outState.get(key);
             crumb.put(key, value == null ? "" : value.getClass().getName());
         }
-        Bugsnag.leaveBreadcrumb("onSaveInstanceState", BreadcrumbType.LOG, crumb);
+        Log.breadcrumb("onSaveInstanceState", crumb);
 
         for (String key : outState.keySet())
             Log.i("Saved " + this + " " + key + "=" + outState.get(key));

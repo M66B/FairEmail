@@ -2,8 +2,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
@@ -185,7 +183,7 @@ public class MailService implements AutoCloseable {
                             crumb.put(key, sid.get(key));
                             EntityLog.log(context, "Server " + key + "=" + sid.get(key));
                         }
-                        Bugsnag.leaveBreadcrumb("server", BreadcrumbType.LOG, crumb);
+                        Log.breadcrumb("server", crumb);
                     }
                 } catch (MessagingException ex) {
                     Log.w(ex);

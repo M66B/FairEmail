@@ -24,9 +24,6 @@ import android.os.Bundle;
 
 import androidx.lifecycle.LifecycleService;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +32,7 @@ abstract class ServiceBase extends LifecycleService {
     public void onCreate() {
         Map<String, String> crumb = new HashMap<>();
         crumb.put("state", "create");
-        Bugsnag.leaveBreadcrumb(this.getClass().getSimpleName(), BreadcrumbType.STATE, crumb);
+        Log.breadcrumb(this.getClass().getSimpleName(), crumb);
 
         super.onCreate();
     }
@@ -52,7 +49,7 @@ abstract class ServiceBase extends LifecycleService {
                     crumb.put(key, value == null ? null : value.toString());
                 }
         }
-        Bugsnag.leaveBreadcrumb(this.getClass().getSimpleName(), BreadcrumbType.LOG, crumb);
+        Log.breadcrumb(this.getClass().getSimpleName(), crumb);
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -61,7 +58,7 @@ abstract class ServiceBase extends LifecycleService {
     public void onDestroy() {
         Map<String, String> crumb = new HashMap<>();
         crumb.put("state", "destroy");
-        Bugsnag.leaveBreadcrumb(this.getClass().getSimpleName(), BreadcrumbType.STATE, crumb);
+        Log.breadcrumb(this.getClass().getSimpleName(), crumb);
 
         super.onDestroy();
     }

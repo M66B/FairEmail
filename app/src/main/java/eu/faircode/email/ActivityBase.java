@@ -35,9 +35,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.BreadcrumbType;
-import com.bugsnag.android.Bugsnag;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -102,7 +99,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         crumb.put("name", this.getClass().getName());
         crumb.put("before", Integer.toString(before));
         crumb.put("after", Integer.toString(after));
-        Bugsnag.leaveBreadcrumb("onSaveInstanceState", BreadcrumbType.LOG, crumb);
+        Log.breadcrumb("onSaveInstanceState", crumb);
 
         for (String key : outState.keySet())
             Log.i("Saved " + this + " " + key + "=" + outState.get(key));
