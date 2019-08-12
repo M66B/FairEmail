@@ -827,11 +827,6 @@ public class FragmentIdentity extends FragmentBase {
                     etDisplay.setText(identity == null ? null : identity.display);
 
                     String signature = (identity == null ? null : identity.signature);
-                    if (identity == null) {
-                        CharSequence promote = getText(R.string.app_promote);
-                        if (promote instanceof Spanned)
-                            signature = HtmlHelper.toHtml((Spanned) promote);
-                    }
                     etSignature.setText(TextUtils.isEmpty(signature) ? null : HtmlHelper.fromHtml(signature));
                     etSignature.setTag(signature);
 
