@@ -175,7 +175,7 @@ public class ContactInfo {
         }
 
         boolean circular = prefs.getBoolean("circular", true);
-        if (info.bitmap != null && circular) {
+        if (info.bitmap != null) {
             int w = info.bitmap.getWidth();
             int h = info.bitmap.getHeight();
 
@@ -198,7 +198,12 @@ public class ContactInfo {
             paint.setAntiAlias(true);
             canvas.drawARGB(0, 0, 0, 0);
             paint.setColor(Color.GRAY);
-            canvas.drawOval(new RectF(dest), paint);
+            if (circular)
+                canvas.drawOval(new RectF(dest), paint);
+            else {
+                float radius = Helper.dp2pixels(context, 3);
+                canvas.drawRoundRect(new RectF(dest), radius, radius, paint);
+            }
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
             canvas.drawBitmap(info.bitmap, source, dest, paint);
 
