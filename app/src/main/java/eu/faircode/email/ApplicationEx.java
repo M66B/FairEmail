@@ -57,12 +57,12 @@ public class ApplicationEx extends Application {
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
             @Override
             public void uncaughtException(Thread thread, Throwable ex) {
-                if (!crash_reports && Log.ownFault(ex)) {
+                if (!crash_reports && Log.isOwnFault(ex)) {
                     Log.e(ex);
 
                     if (BuildConfig.BETA_RELEASE ||
                             !Helper.isPlayStoreInstall(ApplicationEx.this))
-                        Log.writeCrash(ApplicationEx.this, ex);
+                        Log.writeCrashLog(ApplicationEx.this, ex);
 
                     if (prev != null)
                         prev.uncaughtException(thread, ex);

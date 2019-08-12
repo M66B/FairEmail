@@ -322,7 +322,7 @@ public class Log {
         Log.i(message + " " + mb + " MB" + " " + perc + " %");
     }
 
-    static boolean ownFault(Throwable ex) {
+    static boolean isOwnFault(Throwable ex) {
         if (ex instanceof OutOfMemoryError)
             return false;
 
@@ -368,7 +368,7 @@ public class Log {
         return false;
     }
 
-    static void writeCrash(Context context, Throwable ex) {
+    static void writeCrashLog(Context context, Throwable ex) {
         File file = new File(context.getCacheDir(), "crash.log");
         Log.w("Writing exception to " + file);
 
