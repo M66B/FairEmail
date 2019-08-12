@@ -2315,6 +2315,7 @@ class Core {
                     } catch (IOException ex) {
                         Log.e(ex);
                         mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
+                        db.message().setMessageContent(message.id, false, null, null, null);
                     }
 
                 if (info.hasPhoto())
