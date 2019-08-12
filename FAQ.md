@@ -200,6 +200,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(119) Can you add colors to the unified inbox widget?](#user-content-faq119)
 * [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
 * [(121) How are messages grouped into a conversation?](#user-content-faq121)
+* [(122) Why is the recipient name/email address show with a warning color?](#user-content-faq122)
 
 [I have another question.](#support)
 
@@ -2077,6 +2078,15 @@ By default FairEmail groups messages in conversations. This can be turned of in 
 FairEmail groups messages based on the standard *Message-ID*, *In-Reply-To* and *References* headers.
 FairEmail does not group on other criteria, like the subject,
 because this could result in grouping unrelated messages and would be at the expense of increased battery usage.
+
+<br />
+
+<a name="faq122"></a>
+**(122) Why is the recipient name/email address show with a warning color?**
+
+The recipient name and/or email address in the addresses section will be shown in a warning color
+when the sender domain name and the domain name of the *to* address do not match.
+Mostly this indicates that the message was received *via* an account with another email address.
 
 <br />
 
