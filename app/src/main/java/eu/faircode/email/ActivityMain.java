@@ -180,7 +180,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
     }
 
     private boolean isSupportedDevice() {
-        if ("Amazon".equals(Build.BRAND) && Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        if (Helper.isPlayStoreInstall(this) &&
+                "Amazon".equals(Build.BRAND) && Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
         /*
             java.lang.IllegalArgumentException: Comparison method violates its general contract!
             java.lang.IllegalArgumentException: Comparison method violates its general contract!
