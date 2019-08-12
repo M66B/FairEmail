@@ -44,8 +44,6 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
-import com.bugsnag.android.Bugsnag;
-
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swBadge;
     private SwitchCompat swSubscriptions;
@@ -190,10 +188,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .remove("crash_reports_asked")
                         .putBoolean("crash_reports", checked)
                         .apply();
-                if (checked)
-                    Bugsnag.startSession();
-                else
-                    Bugsnag.stopSession();
+                Log.setCrashReporting(checked);
             }
         });
 

@@ -105,7 +105,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.bugsnag.android.Bugsnag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -4510,7 +4509,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             prefs.edit().putBoolean("crash_reports", true).apply();
                             if (cbNotAgain.isChecked())
                                 prefs.edit().putBoolean("crash_reports_asked", true).apply();
-                            Bugsnag.startSession();
+                            Log.setCrashReporting(true);
                         }
                     })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

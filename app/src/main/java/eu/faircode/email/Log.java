@@ -31,17 +31,27 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.DeadSystemException;
 import android.os.Debug;
 import android.os.PowerManager;
+import android.os.RemoteException;
 import android.text.TextUtils;
 import android.view.Display;
+import android.view.OrientationEventListener;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
+import com.bugsnag.android.BeforeNotify;
+import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
+import com.bugsnag.android.Client;
+import com.bugsnag.android.Error;
+import com.bugsnag.android.Report;
 import com.bugsnag.android.Severity;
+import com.sun.mail.iap.ProtocolException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,19 +59,26 @@ import org.json.JSONObject;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.TimeoutException;
 
 import javax.mail.Address;
+import javax.mail.MessagingException;
 import javax.mail.Part;
 import javax.mail.internet.InternetAddress;
 
@@ -118,8 +135,143 @@ public class Log {
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
 
+    static void setCrashReporting(boolean enabled) {
+        if (enabled)
+            Bugsnag.startSession();
+        else
+            Bugsnag.stopSession();
+    }
+
     static void breadcrumb(String name, Map<String, String> crumb) {
-        Bugsnag.leaveBreadcrumb("operation", BreadcrumbType.LOG, crumb);
+        Bugsnag.leaveBreadcrumb(name, BreadcrumbType.LOG, crumb);
+    }
+
+    static void setupBugsnag(Context context) {
+        // https://docs.bugsnag.com/platforms/android/sdk/
+        com.bugsnag.android.Configuration config =
+                new com.bugsnag.android.Configuration("9d2d57476a0614974449a3ec33f2604a");
+
+        if (BuildConfig.DEBUG)
+            config.setReleaseStage("debug");
+        else {
+            String type = "other";
+            if (Helper.hasValidFingerprint(context))
+                if (BuildConfig.PLAY_STORE_RELEASE)
+                    type = "play";
+                else
+                    type = "full";
+            config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
+        }
+
+        config.setAutoCaptureSessions(false);
+
+        config.setDetectAnrs(false);
+        config.setDetectNdkCrashes(false);
+
+        List<String> ignore = new ArrayList<>();
+
+        ignore.add("com.sun.mail.util.MailConnectException");
+
+        ignore.add("android.accounts.OperationCanceledException");
+        ignore.add("android.app.RemoteServiceException");
+
+        ignore.add("java.lang.NoClassDefFoundError");
+        ignore.add("java.lang.UnsatisfiedLinkError");
+
+        ignore.add("java.nio.charset.MalformedInputException");
+
+        ignore.add("java.net.ConnectException");
+        ignore.add("java.net.SocketException");
+        ignore.add("java.net.SocketTimeoutException");
+        ignore.add("java.net.UnknownHostException");
+
+        ignore.add("javax.mail.AuthenticationFailedException");
+        ignore.add("javax.mail.FolderClosedException");
+        ignore.add("javax.mail.internet.AddressException");
+        ignore.add("javax.mail.MessageRemovedException");
+        ignore.add("javax.mail.ReadOnlyFolderException");
+        ignore.add("javax.mail.StoreClosedException");
+
+        ignore.add("org.xmlpull.v1.XmlPullParserException");
+
+        config.setIgnoreClasses(ignore.toArray(new String[0]));
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        config.beforeSend(new BeforeSend() {
+            @Override
+            public boolean run(@NonNull Report report) {
+                Throwable ex = report.getError().getException();
+
+                if (ex instanceof MessagingException &&
+                        (ex.getCause() instanceof IOException ||
+                                ex.getCause() instanceof ProtocolException))
+                    // IOException includes SocketException, SocketTimeoutException
+                    // ProtocolException includes ConnectionException
+                    return false;
+
+                if (ex instanceof MessagingException &&
+                        ("connection failure".equals(ex.getMessage()) ||
+                                "failed to create new store connection".equals(ex.getMessage()) ||
+                                "Failed to fetch headers".equals(ex.getMessage()) ||
+                                "Failed to load IMAP envelope".equals(ex.getMessage()) ||
+                                "Unable to load BODYSTRUCTURE".equals(ex.getMessage())))
+                    return false;
+
+                if (ex instanceof IllegalStateException &&
+                        ("Not connected".equals(ex.getMessage()) ||
+                                "This operation is not allowed on a closed folder".equals(ex.getMessage())))
+                    return false;
+
+                if (ex instanceof FileNotFoundException &&
+                        ex.getMessage() != null &&
+                        (ex.getMessage().startsWith("Download image failed") ||
+                                ex.getMessage().startsWith("https://ipinfo.io/") ||
+                                ex.getMessage().startsWith("https://autoconfig.thunderbird.net/")))
+                    return false;
+
+                return prefs.getBoolean("crash_reports", false); // opt-in
+            }
+        });
+
+        Bugsnag.init(context, config);
+
+        Client client = Bugsnag.getClient();
+
+        try {
+            Log.i("Disabling orientation listener");
+            Field fOrientationListener = Client.class.getDeclaredField("orientationListener");
+            fOrientationListener.setAccessible(true);
+            OrientationEventListener orientationListener = (OrientationEventListener) fOrientationListener.get(client);
+            orientationListener.disable();
+            Log.i("Disabled orientation listener");
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        String uuid = prefs.getString("uuid", null);
+        if (uuid == null) {
+            uuid = UUID.randomUUID().toString();
+            prefs.edit().putString("uuid", uuid).apply();
+        }
+        Log.i("uuid=" + uuid);
+        client.setUserId(uuid);
+
+        if (prefs.getBoolean("crash_reports", false))
+            Bugsnag.startSession();
+
+        final String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        final boolean fingerprint = Helper.hasValidFingerprint(context);
+
+        Bugsnag.beforeNotify(new BeforeNotify() {
+            @Override
+            public boolean run(@NonNull Error error) {
+                error.addToTab("extra", "installer", installer == null ? "-" : installer);
+                error.addToTab("extra", "fingerprint", fingerprint);
+                error.addToTab("extra", "free", Log.getFreeMemMb());
+                return true;
+            }
+        });
     }
 
     static void logExtras(Intent intent) {
@@ -158,6 +310,73 @@ public class Log {
                         .append("\r\n");
             }
             i(stringBuilder.toString());
+        }
+    }
+
+    static void logMemory(Context context, String message) {
+        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        activityManager.getMemoryInfo(mi);
+        int mb = Math.round(mi.availMem / 0x100000L);
+        int perc = Math.round(mi.availMem / (float) mi.totalMem * 100.0f);
+        Log.i(message + " " + mb + " MB" + " " + perc + " %");
+    }
+
+    static boolean ownFault(Throwable ex) {
+        if (ex instanceof OutOfMemoryError)
+            return false;
+
+        if (ex instanceof RemoteException)
+            return false;
+
+        /*
+            java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
+            java.lang.NoSuchMethodError: No direct method ()V in class Landroid/security/IKeyChainService$Stub; or its super classes (declaration of 'android.security.IKeyChainService$Stub' appears in /system/framework/framework.jar!classes2.dex)
+            at com.android.keychain.KeyChainService$1.(KeyChainService.java:95)
+            at com.android.keychain.KeyChainService.(KeyChainService.java:95)
+            at java.lang.Class.newInstance(Native Method)
+            at android.app.AppComponentFactory.instantiateService(AppComponentFactory.java:103)
+         */
+        if (ex instanceof NoSuchMethodError)
+            return false;
+
+        if (ex.getMessage() != null &&
+                (ex.getMessage().startsWith("Bad notification posted") ||
+                        ex.getMessage().contains("ActivityRecord not found") ||
+                        ex.getMessage().startsWith("Unable to create layer")))
+            return false;
+
+        if (ex instanceof TimeoutException &&
+                ex.getMessage() != null &&
+                ex.getMessage().startsWith("com.sun.mail.imap.IMAPStore.finalize"))
+            return false;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            if (ex instanceof RuntimeException && ex.getCause() instanceof DeadSystemException)
+                return false;
+
+        if (BuildConfig.BETA_RELEASE)
+            return true;
+
+        while (ex != null) {
+            for (StackTraceElement ste : ex.getStackTrace())
+                if (ste.getClassName().startsWith(BuildConfig.APPLICATION_ID))
+                    return true;
+            ex = ex.getCause();
+        }
+
+        return false;
+    }
+
+    static void writeCrash(Context context, Throwable ex) {
+        File file = new File(context.getCacheDir(), "crash.log");
+        Log.w("Writing exception to " + file);
+
+        try (FileWriter out = new FileWriter(file, true)) {
+            out.write(BuildConfig.VERSION_NAME + " " + new Date() + "\r\n");
+            out.write(ex + "\r\n" + android.util.Log.getStackTraceString(ex) + "\r\n");
+        } catch (IOException e) {
+            Log.e(e);
         }
     }
 
