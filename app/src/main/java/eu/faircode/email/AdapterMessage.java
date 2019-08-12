@@ -87,6 +87,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
@@ -226,7 +227,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View.OnClickListener, View.OnLongClickListener, View.OnKeyListener,
             BottomNavigationView.OnNavigationItemSelectedListener {
         private View view;
-        private View vwColor;
+        private CardView vwColor;
         private ImageView ivExpander;
         private ImageView ivFlagged;
         private ImageView ivAvatar;
@@ -644,7 +645,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime.setTextColor(colorUnseen);
 
             // Account color
-            vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
+            vwColor.setCardBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(Helper.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             // Expander

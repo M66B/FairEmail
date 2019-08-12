@@ -5,11 +5,13 @@
     android:layout_height="wrap_content"
     android:paddingEnd="3dp">
 
-    <View
+    <androidx.cardview.widget.CardView
         android:id="@+id/vwColor"
         android:layout_width="6dp"
         android:layout_height="0dp"
-        android:background="?attr/colorAccent"
+        app:cardBackgroundColor="?attr/colorAccent"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
