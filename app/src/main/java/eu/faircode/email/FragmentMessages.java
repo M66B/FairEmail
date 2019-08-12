@@ -80,6 +80,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PersistentSearchView;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -2327,12 +2328,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         inflater.inflate(R.menu.menu_messages, menu);
 
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
-        final SearchView searchView = (SearchView) menuSearch.getActionView();
+        final PersistentSearchView searchView = (PersistentSearchView) menuSearch.getActionView();
         searchView.setQueryHint(getString(R.string.title_search));
 
         if (!TextUtils.isEmpty(searching)) {
             menuSearch.expandActionView();
             searchView.setQuery(searching, false);
+        } else {
+            searchView.lastQuery = query;
         }
 
         AutoCompleteTextView autoCompleteTextView = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
