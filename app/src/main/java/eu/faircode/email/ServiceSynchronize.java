@@ -618,7 +618,7 @@ public class ServiceSynchronize extends ServiceBase {
             final DB db = DB.getInstance(this);
 
             int backoff = CONNECT_BACKOFF_START;
-            while (state.running()) {
+            while (state.isRunning()) {
                 state.reset();
                 Log.i(account.name + " run");
 
@@ -1012,7 +1012,7 @@ public class ServiceSynchronize extends ServiceBase {
                                 public void run() {
                                     try {
                                         Log.i(folder.name + " start idle");
-                                        while (state.running() && state.recoverable()) {
+                                        while (state.isRunning() && state.isRecoverable()) {
                                             Log.i(folder.name + " do idle");
                                             ifolder.idle(false);
                                         }
@@ -1154,8 +1154,8 @@ public class ServiceSynchronize extends ServiceBase {
                     // Keep alive
                     AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                     try {
-                        while (state.running()) {
-                            if (!state.recoverable())
+                        while (state.isRunning()) {
+                            if (!state.isRecoverable())
                                 throw new StoreClosedException(iservice.getStore(), "Unrecoverable");
 
                             // Sends store NOOP
@@ -1259,7 +1259,7 @@ public class ServiceSynchronize extends ServiceBase {
                             db.folder().setFolderState(folder.id, null);
                 }
 
-                if (state.running())
+                if (state.isRunning())
                     try {
                         if (backoff <= CONNECT_BACKOFF_MAX) {
                             // Short back-off period, keep device awake
