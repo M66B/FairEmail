@@ -272,7 +272,7 @@
         android:layout_margin="@dimen/fab_padding"
         android:src="@drawable/baseline_youtube_searched_for_24"
         android:tint="@color/colorActionForeground"
-        android:tooltipText="@string/title_search"
+        android:tooltipText="@string/title_search_server"
         app:backgroundTint="?attr/colorAccent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

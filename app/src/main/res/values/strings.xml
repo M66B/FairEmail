@@ -564,6 +564,7 @@
     <string name="title_signature_invalid">Message signature invalid</string>
 
     <string name="title_search">Search</string>
+    <string name="title_search_server">Search on server</string>
     <string name="title_search_in">Search in</string>
     <string name="title_searching">Searching \'%1$s\'</string>
 
