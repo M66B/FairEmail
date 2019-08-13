@@ -308,7 +308,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                     onDebugInfo();
                 }
-            }));
+            }).setExternal(true));
 
         if (Helper.getIntentIssue(this).resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_feedback_24, R.string.menu_issue, new Runnable() {
@@ -317,7 +317,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuIssue();
                 }
-            }));
+            }).setExternal(true));
 
         extra.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
             @Override
@@ -357,7 +357,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuInvite();
                 }
-            }));
+            }).setExternal(true));
 
         if (getIntentRate(this).resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
@@ -366,7 +366,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuRate();
                 }
-            }));
+            }).setExternal(true));
 
         if (getIntentOtherApps().resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_get_app_24, R.string.menu_other, new Runnable() {
@@ -375,7 +375,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuOtherApps();
                 }
-            }));
+            }).setExternal(true));
 
         eadapter.set(extra);
 

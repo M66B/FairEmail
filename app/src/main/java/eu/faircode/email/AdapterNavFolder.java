@@ -61,6 +61,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         private ImageView ivItem;
         private TextView tvItem;
         private TextView tvItemExtra;
+        private ImageView ivExternal;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -70,6 +71,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
+            ivExternal = itemView.findViewById(R.id.ivExternal);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -121,6 +123,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             tvItemExtra.setText(folder.last_sync == null ? null : DTF.format(folder.last_sync));
             tvItemExtra.setVisibility(debug ? View.VISIBLE : View.GONE);
 
+            ivExternal.setVisibility(View.GONE);
             ivWarning.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
         }
 

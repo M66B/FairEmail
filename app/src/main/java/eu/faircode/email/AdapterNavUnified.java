@@ -54,6 +54,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         private ImageView ivItem;
         private TextView tvItem;
         private TextView tvItemExtra;
+        private ImageView ivExternal;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -63,6 +64,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
+            ivExternal = itemView.findViewById(R.id.ivExternal);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -87,6 +89,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                     folder.unseen == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
 
             tvItemExtra.setVisibility(View.GONE);
+            ivExternal.setVisibility(View.GONE);
             ivWarning.setVisibility(View.GONE);
         }
 

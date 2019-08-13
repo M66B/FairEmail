@@ -236,7 +236,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuFAQ();
                 }
-            }));
+            }).setExternal(true));
 
         menus.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
             @Override

@@ -23,6 +23,7 @@ public class NavMenuItem {
     private int icon;
     private int title;
     private Integer count = null;
+    private boolean external = false;
     private boolean warning = false;
     private boolean separated = false;
     private Runnable click;
@@ -45,6 +46,11 @@ public class NavMenuItem {
         if (count != null && count == 0)
             count = null;
         this.count = count;
+    }
+
+    NavMenuItem setExternal(boolean external) {
+        this.external = external;
+        return this;
     }
 
     void setWarning(boolean warning) {
@@ -70,6 +76,10 @@ public class NavMenuItem {
 
     boolean isSeparated() {
         return this.separated;
+    }
+
+    boolean isExternal() {
+        return this.external;
     }
 
     boolean hasWarning() {

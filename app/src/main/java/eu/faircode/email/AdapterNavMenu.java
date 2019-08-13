@@ -51,6 +51,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         private ImageView ivItem;
         private TextView tvItem;
         private TextView tvItemExtra;
+        private ImageView ivExternal;
         private ImageView ivWarning;
 
         ViewHolder(View itemView) {
@@ -60,6 +61,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
             ivItem = itemView.findViewById(R.id.ivItem);
             tvItem = itemView.findViewById(R.id.tvItem);
             tvItemExtra = itemView.findViewById(R.id.tvItemExtra);
+            ivExternal = itemView.findViewById(R.id.ivExternal);
             ivWarning = itemView.findViewById(R.id.ivWarning);
         }
 
@@ -87,6 +89,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
 
             tvItemExtra.setVisibility(View.GONE);
 
+            ivExternal.setVisibility(menu.isExternal() ? View.VISIBLE : View.GONE);
             ivWarning.setVisibility(menu.hasWarning() ? View.VISIBLE : View.GONE);
         }
 
