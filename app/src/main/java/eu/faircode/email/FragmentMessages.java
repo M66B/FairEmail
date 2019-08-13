@@ -3815,14 +3815,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         // Check signature status
                         OpenPgpSignatureResult sigResult = result.getParcelableExtra(OpenPgpApi.RESULT_SIGNATURE);
                         int sresult = (sigResult == null ? RESULT_NO_SIGNATURE : sigResult.getResult());
-                        int resid;
                         if (sresult == RESULT_NO_SIGNATURE)
-                            resid = R.string.title_signature_none;
+                            db.message().setMessageError(id, getString(R.string.title_signature_none));
                         else if (sresult == RESULT_VALID_KEY_CONFIRMED)
-                            resid = R.string.title_signature_valid;
+                            Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
                         else
-                            resid = R.string.title_signature_invalid;
-                        Snackbar.make(view, resid, Snackbar.LENGTH_LONG).show();
+                            db.message().setMessageError(id, getString(R.string.title_signature_invalid));
 
                         break;
 
