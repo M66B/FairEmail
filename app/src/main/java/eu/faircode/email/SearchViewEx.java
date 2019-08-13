@@ -129,8 +129,9 @@ public class SearchViewEx extends SearchView {
             @Override
             public boolean onSuggestionClick(int position) {
                 Cursor cursor = (Cursor) getSuggestionsAdapter().getItem(position);
-                setQuery(cursor.getString(1), true);
-                return false;
+                long id = cursor.getInt(0);
+                setQuery(cursor.getString(1), id != -1);
+                return (id == -1);
             }
         });
     }
