@@ -259,6 +259,25 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        etEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String email = editable.toString();
+                if (email.contains("@"))
+                    etDomain.setText(email.split("@")[1]);
+                else
+                    etDomain.setText(null);
+            }
+        });
+
         setColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
