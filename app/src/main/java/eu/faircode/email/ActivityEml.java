@@ -28,21 +28,32 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.sun.mail.imap.IMAPFolder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
+import javax.mail.Flags;
+import javax.mail.Folder;
+import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
 public class ActivityEml extends ActivityBase {
+    private Uri uri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +77,7 @@ public class ActivityEml extends ActivityBase {
 
         grpReady.setVisibility(View.GONE);
 
-        Uri uri = getIntent().getData();
+        uri = getIntent().getData();
         if (uri == null) {
             pbWait.setVisibility(View.GONE);
             return;
@@ -102,9 +113,9 @@ public class ActivityEml extends ActivityBase {
 
                     Properties props = MessageHelper.getSessionProperties();
                     Session isession = Session.getInstance(props, null);
-                    MimeMessage mmessage = new MimeMessage(isession, is);
+                    MimeMessage imessage = new MimeMessage(isession, is);
 
-                    MessageHelper helper = new MessageHelper(mmessage);
+                    MessageHelper helper = new MessageHelper(imessage);
 
                     result.from = MessageHelper.formatAddresses(helper.getFrom());
                     result.to = MessageHelper.formatAddresses(helper.getTo());
@@ -147,7 +158,7 @@ public class ActivityEml extends ActivityBase {
                         result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, result.html, false));
 
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    mmessage.writeTo(bos);
+                    imessage.writeTo(bos);
                     result.eml = new String(bos.toByteArray());
 
                     return result;
@@ -178,6 +189,82 @@ public class ActivityEml extends ActivityBase {
                     Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "eml:decode");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_eml, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_save:
+                onMenuSave();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void onMenuSave() {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
+
+        new SimpleTask<String>() {
+            @Override
+            protected String onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                DB db = DB.getInstance(context);
+                EntityAccount account = db.account().getPrimaryAccount();
+                if (account == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_account));
+                EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
+                if (inbox == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
+
+                ContentResolver resolver = context.getContentResolver();
+                AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
+                try (InputStream is = descriptor.createInputStream()) {
+
+                    Properties props = MessageHelper.getSessionProperties();
+                    Session isession = Session.getInstance(props, null);
+                    MimeMessage imessage = new MimeMessage(isession, is);
+
+                    try (MailService iservice = new MailService(context, account.getProtocol(), account.realm, account.insecure, true)) {
+                        iservice.setPartialFetch(account.partial_fetch);
+                        iservice.setSeparateStoreConnection();
+                        iservice.connect(account);
+
+                        IMAPFolder ifolder = (IMAPFolder) iservice.getStore().getFolder(inbox.name);
+                        ifolder.open(Folder.READ_WRITE);
+
+                        if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
+                            imessage.setFlag(Flags.Flag.DRAFT, false);
+
+                        ifolder.appendMessages(new Message[]{imessage});
+                    }
+                }
+
+                return account.name + "/" + inbox.name;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, String name) {
+                ToastEx.makeText(ActivityEml.this, name, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, args, "eml:send");
     }
 
     private class Result {
