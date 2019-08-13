@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Contacte</string>
     <string name="tile_synchronize">Sincronizare</string>
     <string name="tile_unseen">Mesaje noi</string>
+    <string name="shortcut_refresh">Actualizează</string>
     <string name="shortcut_compose">Compune</string>
     <string name="shortcut_setup">Setări</string>
     <plurals name="title_notification_synchronizing">
@@ -521,6 +522,7 @@
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_select_all">Selectează tot</string>
+    <string name="title_force_sync">Sincronizare forțată</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
     <string name="title_answer_caption">Editare șablon</string>

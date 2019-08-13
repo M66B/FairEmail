@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Kontakti</string>
     <string name="tile_synchronize">Sinkroniziraj</string>
     <string name="tile_unseen">Nove poruke</string>
+    <string name="shortcut_refresh">Osvježi</string>
     <string name="shortcut_compose">Sastavi</string>
     <string name="shortcut_setup">Postavke</string>
     <plurals name="title_notification_synchronizing">
@@ -196,6 +197,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_subject_italic">Prikaži predmet kurzivno</string>
     <string name="title_advanced_flags">Prikaži zvijezde</string>
     <string name="title_advanced_preview">Prikaži pregled poruke</string>
+    <string name="title_advanced_preview_italic">Prikaži pregled poruke u kurzivu</string>
     <string name="title_advanced_addresses">Prema zadanim postavkama prikazuje pojedinosti adrese</string>
     <string name="title_advanced_attachments_alt">Prikažite privitke nakon teksta poruke</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
@@ -519,6 +521,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_compact">Kompaktni pregled</string>
     <string name="title_zoom">Veličina teksta</string>
     <string name="title_select_all">Odaberi sve</string>
+    <string name="title_force_sync">Prisili sinkroniziranje</string>
     <string name="title_previous">Prethodno</string>
     <string name="title_next">Sljedeće</string>
     <string name="title_answer_caption">Uredi predložak</string>

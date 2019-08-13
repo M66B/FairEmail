@@ -342,7 +342,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>
     <string name="title_folder_name">Ordnername</string>
-    <string name="title_display_name">Name</string>
+    <string name="title_display_name">Anzeigename</string>
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
