@@ -49,7 +49,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -762,7 +761,7 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder left = (EntityFolder) args.getSerializable("left");
                 EntityFolder right = (EntityFolder) args.getSerializable("right");
 
-                boolean pro = Helper.isPro(context);
+                boolean pro = ActivityBilling.isPro(context);
                 boolean should = args.getBoolean("should");
 
                 if (host.contains(":")) {
@@ -1167,7 +1166,7 @@ public class FragmentAccount extends FragmentBase {
 
                     etName.setText(account == null ? null : account.name);
 
-                    boolean pro = Helper.isPro(getContext());
+                    boolean pro = ActivityBilling.isPro(getContext());
                     cbNotify.setChecked(account != null && account.notify && pro);
                     cbNotify.setEnabled(pro);
 
@@ -1292,11 +1291,11 @@ public class FragmentAccount extends FragmentBase {
             switch (requestCode) {
                 case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
-                        if (Helper.isPro(getContext())) {
+                        if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
                             setColor(args.getInt("color"));
                         } else
-                            ToastEx.makeText(getContext(), R.string.title_pro_feature, Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                     break;
                 case REQUEST_SAVE:

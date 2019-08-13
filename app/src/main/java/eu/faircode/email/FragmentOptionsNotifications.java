@@ -232,7 +232,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     }
 
     private void setOptions() {
-        boolean pro = Helper.isPro(getContext());
+        boolean pro = ActivityBilling.isPro(getContext());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));

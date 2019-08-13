@@ -184,7 +184,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_enabled, 1, R.string.title_rule_enabled)
                     .setCheckable(true).setChecked(rule.enabled);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
-                    .setEnabled(Helper.isPro(context));
+                    .setEnabled(ActivityBilling.isPro(context));
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override

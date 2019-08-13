@@ -82,6 +82,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -122,6 +123,7 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -646,7 +648,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Account color
             vwColor.setCardBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
-            vwColor.setVisibility(Helper.isPro(context) ? View.VISIBLE : View.INVISIBLE);
+            vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
@@ -881,7 +883,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int flagged = (message.count - message.unflagged);
             ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
-                    ? message.color == null || !Helper.isPro(context)
+                    ? message.color == null || !ActivityBilling.isPro(context)
                     ? colorAccent : message.color : textColorSecondary));
             ivFlagged.setVisibility(flags && !message.folderReadOnly
                     ? (message.uid == null ? View.INVISIBLE : View.VISIBLE)
@@ -1319,9 +1321,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionCalendar(TupleMessageEx message, int action) {
-            if (!Helper.isPro(context)) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+            if (!ActivityBilling.isPro(context)) {
+                context.startActivity(new Intent(context, ActivityBilling.class));
                 return;
             }
 
@@ -1709,9 +1710,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @TargetApi(Build.VERSION_CODES.O)
                 private void onActionCreateChannel() {
-                    if (!Helper.isPro(context)) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                    if (!ActivityBilling.isPro(context)) {
+                        context.startActivity(new Intent(context, ActivityBilling.class));
                         return;
                     }
 
@@ -2172,10 +2172,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Opening uri=" + uri);
 
             if (BuildConfig.APPLICATION_ID.equals(uri.getHost()) && "/activate/".equals(uri.getPath())) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                lbm.sendBroadcast(
-                        new Intent(ActivityView.ACTION_ACTIVATE_PRO)
-                                .putExtra("uri", uri));
+                try {
+                    if (ActivityBilling.activatePro(context, uri))
+                        ToastEx.makeText(context, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
+                    else
+                        ToastEx.makeText(context, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
+                } catch (NoSuchAlgorithmException ex) {
+                    Log.e(ex);
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                }
             } else {
                 if ("cid".equals(uri.getScheme()))
                     return;
@@ -2821,7 +2826,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (recipients.length == 0 &&
                             data.message.list_post == null &&
                             data.message.receipt_to == null &&
-                            (answers == 0 && Helper.isPro(context))) {
+                            (answers == 0 && ActivityBilling.isPro(context))) {
                         onMenuReply(data, "reply");
                         return;
                     }
@@ -2832,7 +2837,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
                     popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
                     popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !Helper.isPro(context));
+                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -2908,9 +2913,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
-                                if (!Helper.isPro(context)) {
-                                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                                    lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                                if (!ActivityBilling.isPro(context)) {
+                                    context.startActivity(new Intent(context, ActivityBilling.class));
                                     return true;
                                 }
 
@@ -3901,9 +3905,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (!Helper.isPro(getContext())) {
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                            if (!ActivityBilling.isPro(getContext())) {
+                                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
                                 return;
                             }
 
@@ -3978,9 +3981,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (!Helper.isPro(getContext())) {
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                            if (!ActivityBilling.isPro(getContext())) {
+                                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
                                 return;
                             }
 

@@ -1737,7 +1737,7 @@ class Core {
     }
 
     private static void runRules(Context context, Message imessage, EntityMessage message, List<EntityRule> rules) {
-        if (!Helper.isPro(context))
+        if (!ActivityBilling.isPro(context))
             return;
 
         DB db = DB.getInstance(context);
@@ -1938,7 +1938,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean badge = prefs.getBoolean("badge", true);
-        boolean pro = Helper.isPro(context);
+        boolean pro = ActivityBilling.isPro(context);
 
         // Current
         int unseen = 0;
@@ -2057,7 +2057,7 @@ class Core {
         if (messages == null || messages.size() == 0 || nm == null)
             return notifications;
 
-        boolean pro = Helper.isPro(context);
+        boolean pro = ActivityBilling.isPro(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);

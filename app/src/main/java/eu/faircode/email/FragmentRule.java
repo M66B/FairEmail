@@ -57,7 +57,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -494,9 +493,8 @@ public class FragmentRule extends FragmentBase {
                     break;
                 case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
-                        if (!Helper.isPro(getContext())) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                        if (!ActivityBilling.isPro(getContext())) {
+                            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
                             return;
                         }
 
@@ -770,9 +768,8 @@ public class FragmentRule extends FragmentBase {
     }
 
     private void onActionSave() {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+        if (!ActivityBilling.isPro(getContext())) {
+            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 

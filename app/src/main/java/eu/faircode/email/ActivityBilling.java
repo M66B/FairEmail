@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +34,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -67,20 +70,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener {
+public class ActivityBilling extends ActivityBase implements PurchasesUpdatedListener, FragmentManager.OnBackStackChangedListener {
     private BillingClient billingClient = null;
     private Map<String, SkuDetails> skuDetails = new HashMap<>();
     private List<IBillingListener> listeners = new ArrayList<>();
 
     static final String ACTION_PURCHASE = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE";
     static final String ACTION_PURCHASE_CHECK = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_CHECK";
-    static final String ACTION_ACTIVATE_PRO = BuildConfig.APPLICATION_ID + ".ACTIVATE_PRO";
 
     final static long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
 
     @Override
+    @SuppressLint("MissingSuperCall")
     protected void onCreate(Bundle savedInstanceState) {
+        onCreate(savedInstanceState, true);
+    }
+
+    protected void onCreate(Bundle savedInstanceState, boolean standalone) {
         super.onCreate(savedInstanceState);
+
+        if (standalone) {
+            setContentView(R.layout.activity_billing);
+
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
+            fragmentTransaction.commit();
+
+            getSupportFragmentManager().addOnBackStackChangedListener(this);
+        }
 
         if (Helper.isPlayStoreInstall(this)) {
             Log.i("IAB start");
@@ -93,6 +110,13 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     }
 
     @Override
+    public void onBackStackChanged() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if (count == 0)
+            finish();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
 
@@ -100,7 +124,6 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_PURCHASE);
         iff.addAction(ACTION_PURCHASE_CHECK);
-        iff.addAction(ACTION_ACTIVATE_PRO);
         lbm.registerReceiver(receiver, iff);
 
         if (billingClient != null && billingClient.isReady())
@@ -110,6 +133,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     @Override
     protected void onPause() {
         super.onPause();
+
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
     }
@@ -118,6 +142,7 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
     protected void onDestroy() {
         if (billingClient != null)
             billingClient.endConnection();
+
         super.onDestroy();
     }
 
@@ -129,27 +154,42 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             return BuildConfig.APPLICATION_ID + ".pro";
     }
 
-    protected Intent getIntentPro() {
-        if (Helper.isPlayStoreInstall(this))
-            return null;
-
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(BuildConfig.PRO_FEATURES_URI + "?challenge=" + getChallenge()));
-            return intent;
-        } catch (NoSuchAlgorithmException ex) {
-            Log.e(ex);
-            return null;
-        }
-    }
-
-    private String getChallenge() throws NoSuchAlgorithmException {
-        String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+    private static String getChallenge(Context context) throws NoSuchAlgorithmException {
+        String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         return Helper.sha256(android_id);
     }
 
-    private String getResponse() throws NoSuchAlgorithmException {
-        return Helper.sha256(BuildConfig.APPLICATION_ID + getChallenge());
+    private static String getResponse(Context context) throws NoSuchAlgorithmException {
+        return Helper.sha256(BuildConfig.APPLICATION_ID + getChallenge(context));
+    }
+
+    static boolean activatePro(Context context, Uri data) throws NoSuchAlgorithmException {
+        String challenge = getChallenge(context);
+        String response = data.getQueryParameter("response");
+        Log.i("IAB challenge=" + challenge);
+        Log.i("IAB response=" + response);
+        String expected = getResponse(context);
+        if (expected.equals(response)) {
+            Log.i("IAB response valid");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit()
+                    .putBoolean("pro", true)
+                    .putBoolean("play_store", false)
+                    .apply();
+
+            WidgetUnified.update(context);
+            return true;
+        } else {
+            Log.i("IAB response invalid");
+            return false;
+        }
+    }
+
+    static boolean isPro(Context context) {
+        if (false && BuildConfig.DEBUG)
+            return true;
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
     }
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -160,8 +200,6 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     onPurchase(intent);
                 else if (ACTION_PURCHASE_CHECK.equals(intent.getAction()))
                     onPurchaseCheck(intent);
-                else if (ACTION_ACTIVATE_PRO.equals(intent.getAction()))
-                    onActivatePro(intent);
             }
         }
     };
@@ -179,7 +217,14 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (result.getResponseCode() != BillingClient.BillingResponseCode.OK)
                 notifyError(text);
         } else
-            Helper.view(this, getIntentPro());
+            try {
+                Intent view = new Intent(Intent.ACTION_VIEW);
+                view.setData(Uri.parse(BuildConfig.PRO_FEATURES_URI + "?challenge=" + getChallenge(this)));
+                Helper.view(this, view);
+            } catch (NoSuchAlgorithmException ex) {
+                Log.e(ex);
+                Helper.unexpectedError(getSupportFragmentManager(), ex);
+            }
     }
 
     private void onPurchaseCheck(Intent intent) {
@@ -198,35 +243,6 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
                     notifyError(text);
             }
         });
-    }
-
-    private void onActivatePro(Intent intent) {
-        try {
-            Uri data = intent.getParcelableExtra("uri");
-            String challenge = getChallenge();
-            String response = data.getQueryParameter("response");
-            Log.i("IAB challenge=" + challenge);
-            Log.i("IAB response=" + response);
-            String expected = getResponse();
-            if (expected.equals(response)) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-                prefs.edit()
-                        .putBoolean("pro", true)
-                        .putBoolean("play_store", false)
-                        .apply();
-
-                Log.i("IAB response valid");
-                ToastEx.makeText(this, R.string.title_pro_valid, Toast.LENGTH_LONG).show();
-
-                WidgetUnified.update(this);
-            } else {
-                Log.i("IAB response invalid");
-                ToastEx.makeText(this, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
-            }
-        } catch (NoSuchAlgorithmException ex) {
-            Log.e(ex);
-            Helper.unexpectedError(getSupportFragmentManager(), ex);
-        }
     }
 
     private BillingClientStateListener billingClientStateListener = new BillingClientStateListener() {
@@ -303,10 +319,8 @@ abstract class ActivityBilling extends ActivityBase implements PurchasesUpdatedL
             if (billingClient.isReady()) {
                 listener.onConnected();
                 queryPurchases();
-            } else {
+            } else
                 listener.onDisconnected();
-                billingClient.startConnection(billingClientStateListener);
-            }
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)

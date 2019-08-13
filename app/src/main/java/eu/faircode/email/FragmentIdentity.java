@@ -31,7 +31,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
@@ -53,7 +52,6 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -594,7 +592,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (TextUtils.isEmpty(bcc))
                     bcc = null;
 
-                if (color == Color.TRANSPARENT || !Helper.isPro(context))
+                if (color == Color.TRANSPARENT || !ActivityBilling.isPro(context))
                     color = null;
                 if (TextUtils.isEmpty(signature))
                     signature = null;
@@ -1005,11 +1003,11 @@ public class FragmentIdentity extends FragmentBase {
             switch (requestCode) {
                 case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
-                        if (Helper.isPro(getContext())) {
+                        if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
                             setColor(args.getInt("color"));
                         } else
-                            ToastEx.makeText(getContext(), R.string.title_pro_feature, Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                     break;
                 case REQUEST_SAVE:

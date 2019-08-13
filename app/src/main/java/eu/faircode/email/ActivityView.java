@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -114,14 +115,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_ANSWER = BuildConfig.APPLICATION_ID + ".EDIT_ANSWER";
     static final String ACTION_EDIT_RULES = BuildConfig.APPLICATION_ID + ".EDIT_RULES";
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
-    static final String ACTION_SHOW_PRO = BuildConfig.APPLICATION_ID + ".SHOW_PRO";
 
     private static final long EXIT_DELAY = 2500L; // milliseconds
     static final long UPDATE_INTERVAL = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
 
     @Override
+    @SuppressLint("MissingSuperCall")
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState, false);
 
         if (savedInstanceState != null)
             searching = savedInstanceState.getBoolean("fair:searching");
@@ -341,14 +342,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }).setSeparated());
 
-        if (getIntentPro() == null || getIntentPro().resolveActivity(pm) != null)
-            extra.add(new NavMenuItem(R.drawable.baseline_monetization_on_24, R.string.menu_pro, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onShowPro(null);
-                }
-            }));
+        extra.add(new NavMenuItem(R.drawable.baseline_monetization_on_24, R.string.menu_pro, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                startActivity(new Intent(ActivityView.this, ActivityBilling.class));
+            }
+        }));
 
         if ((getIntentInvite(this).resolveActivity(pm) != null))
             extra.add(new NavMenuItem(R.drawable.baseline_people_24, R.string.menu_invite, new Runnable() {
@@ -560,7 +560,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         iff.addAction(ACTION_EDIT_ANSWER);
         iff.addAction(ACTION_EDIT_RULES);
         iff.addAction(ACTION_EDIT_RULE);
-        iff.addAction(ACTION_SHOW_PRO);
         lbm.registerReceiver(receiver, iff);
 
         checkUpdate(false);
@@ -990,8 +989,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     onEditRules(intent);
                 else if (ACTION_EDIT_RULE.equals(action))
                     onEditRule(intent);
-                else if (ACTION_SHOW_PRO.equals(action))
-                    onShowPro(intent);
             }
         }
     };
@@ -1090,15 +1087,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragment.setArguments(intent.getExtras());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
-        fragmentTransaction.commit();
-    }
-
-    private void onShowPro(Intent intent) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            getSupportFragmentManager().popBackStack("pro", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
         fragmentTransaction.commit();
     }
 

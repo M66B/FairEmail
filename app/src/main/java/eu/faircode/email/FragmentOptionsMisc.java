@@ -289,7 +289,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swBadge.setChecked(prefs.getBoolean("badge", true));
 
-        boolean pro = Helper.isPro(getContext());
+        boolean pro = ActivityBilling.isPro(getContext());
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false) && pro);
         swSubscriptions.setEnabled(pro);
         swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));

@@ -99,7 +99,6 @@ import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -903,9 +902,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuAnswer() {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
+        if (!ActivityBilling.isPro(getContext())) {
+            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
@@ -1542,9 +1540,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onSendAfter(long time) {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityCompose.ACTION_SHOW_PRO));
+        if (!ActivityBilling.isPro(getContext())) {
+            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
@@ -2499,7 +2496,7 @@ public class FragmentCompose extends FragmentBase {
                             }
                         });
                     }
-                }else {
+                } else {
                     // Move draft to new account
                     if (draft.account != aid && aid >= 0) {
                         Log.i("Account changed");

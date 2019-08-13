@@ -43,7 +43,7 @@ public class WidgetUnified extends AppWidgetProvider {
 
     static void update(Context context) {
         Log.i("Widget unified update");
-        if (Helper.isPro(context)) {
+        if (ActivityBilling.isPro(context)) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
@@ -56,7 +56,7 @@ public class WidgetUnified extends AppWidgetProvider {
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        boolean pro = Helper.isPro(context);
+        boolean pro = ActivityBilling.isPro(context);
         for (int id : appWidgetIds) {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 

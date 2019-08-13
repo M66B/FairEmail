@@ -101,7 +101,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                             ? R.drawable.baseline_folder_24
                             : R.drawable.baseline_folder_open_24);
 
-                if (folder.accountColor == null || !Helper.isPro(context))
+                if (folder.accountColor == null || !ActivityBilling.isPro(context))
                     ivItem.clearColorFilter();
                 else
                     ivItem.setColorFilter(folder.accountColor);

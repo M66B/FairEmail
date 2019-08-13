@@ -60,7 +60,7 @@ public class ServiceExternal extends Service {
             if (intent == null)
                 return START_NOT_STICKY;
 
-            if (!Helper.isPro(this))
+            if (!ActivityBilling.isPro(this))
                 return START_NOT_STICKY;
 
             final Boolean enabled;

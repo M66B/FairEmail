@@ -372,8 +372,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
             }
         });
 
@@ -3408,9 +3407,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_MESSAGES_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
-                        if (!Helper.isPro(getContext())) {
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                        if (!ActivityBilling.isPro(getContext())) {
+                            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
                             return;
                         }
 
@@ -4007,9 +4005,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onColor(long id, int color) {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+        if (!ActivityBilling.isPro(getContext())) {
+            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
@@ -4045,9 +4042,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSnooze(Bundle args) {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+        if (!ActivityBilling.isPro(getContext())) {
+            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
@@ -4099,9 +4095,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSnoozeSelection(Bundle args) {
-        if (!Helper.isPro(getContext())) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+        if (!ActivityBilling.isPro(getContext())) {
+            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
@@ -4322,9 +4317,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
             long folder, boolean server, String query) {
-        if (!Helper.isPro(context)) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+        if (!ActivityBilling.isPro(context)) {
+            context.startActivity(new Intent(context, ActivityBilling.class));
             return;
         }
 

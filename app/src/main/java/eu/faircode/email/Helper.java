@@ -230,7 +230,7 @@ public class Helper {
                     (Helper.hasValidFingerprint(context) ? "1" : "3") +
                     (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
                     (BuildConfig.DEBUG ? "d" : "") +
-                    (Helper.isPro(context) ? "+" : "");
+                    (ActivityBilling.isPro(context) ? "+" : "");
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setPackage(BuildConfig.APPLICATION_ID);
             intent.setType("text/plain");
@@ -812,27 +812,17 @@ public class Helper {
         return BuildConfig.PLAY_STORE_RELEASE;
     }
 
-    static boolean isPro(Context context) {
-        if (false && BuildConfig.DEBUG)
-            return true;
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
-    }
-
     static void linkPro(final TextView tv) {
-        if (isPro(tv.getContext()) && !BuildConfig.DEBUG)
+        if (ActivityBilling.isPro(tv.getContext()) && !BuildConfig.DEBUG)
             hide(tv);
         else {
-            final Intent pro = new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.PRO_FEATURES_URI));
-            PackageManager pm = tv.getContext().getPackageManager();
-            if (pro.resolveActivity(pm) != null) {
-                tv.getPaint().setUnderlineText(true);
-                tv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        tv.getContext().startActivity(pro);
-                    }
-                });
-            }
+            tv.getPaint().setUnderlineText(true);
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    tv.getContext().startActivity(new Intent(tv.getContext(), ActivityBilling.class));
+                }
+            });
         }
     }
 

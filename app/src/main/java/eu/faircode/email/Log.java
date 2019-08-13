@@ -459,7 +459,7 @@ public class Log {
                 Helper.hasValidFingerprint(context) ? "1" : "3",
                 BuildConfig.PLAY_STORE_RELEASE ? "p" : "",
                 BuildConfig.DEBUG ? "d" : "",
-                Helper.isPro(context) ? "+" : ""));
+                ActivityBilling.isPro(context) ? "+" : ""));
         sb.append(String.format("Android: %s (SDK %d)\r\n", Build.VERSION.RELEASE, Build.VERSION.SDK_INT));
         sb.append("\r\n");
 

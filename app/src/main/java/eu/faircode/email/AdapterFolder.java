@@ -167,7 +167,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             if (listener == null) {
                 vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
-                vwColor.setVisibility(account < 0 && Helper.isPro(context) ? View.VISIBLE : View.GONE);
+                vwColor.setVisibility(account < 0 && ActivityBilling.isPro(context) ? View.VISIBLE : View.GONE);
 
                 if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
                     if (folder.executing > 0)
@@ -600,9 +600,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 private void onActionCreateChannel() {
-                    if (!Helper.isPro(context)) {
-                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                        lbm.sendBroadcast(new Intent(ActivityView.ACTION_SHOW_PRO));
+                    if (!ActivityBilling.isPro(context)) {
+                        context.startActivity(new Intent(context, ActivityBilling.class));
                         return;
                     }
 

@@ -409,7 +409,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onMenuExport() {
-        if (Helper.isPro(this)) {
+        if (ActivityBilling.isPro(this)) {
             try {
                 askPassword(true);
             } catch (Throwable ex) {
@@ -417,7 +417,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         } else
-            ToastEx.makeText(this, R.string.title_pro_feature, Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, ActivityBilling.class));
     }
 
     private void onMenuImport() {
@@ -457,21 +457,20 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private void onMenuBiometrics() {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivitySetup.this);
         final boolean biometrics = prefs.getBoolean("biometrics", false);
-        final boolean pro = Helper.isPro(this);
+        final boolean pro = ActivityBilling.isPro(this);
 
         Helper.authenticate(this, biometrics, new Runnable() {
             @Override
             public void run() {
-                if (pro)
+                if (pro) {
                     prefs.edit().putBoolean("biometrics", !biometrics).apply();
-
-                ToastEx.makeText(ActivitySetup.this,
-                        pro
-                                ? biometrics
-                                ? R.string.title_setup_biometrics_disable
-                                : R.string.title_setup_biometrics_enable
-                                : R.string.title_pro_feature,
-                        Toast.LENGTH_LONG).show();
+                    ToastEx.makeText(ActivitySetup.this,
+                            biometrics
+                                    ? R.string.title_setup_biometrics_disable
+                                    : R.string.title_setup_biometrics_enable,
+                            Toast.LENGTH_LONG).show();
+                } else
+                    startActivity(new Intent(ActivitySetup.this, ActivityBilling.class));
             }
         }, new Runnable() {
             @Override

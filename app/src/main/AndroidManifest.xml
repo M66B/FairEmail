@@ -207,6 +207,12 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ActivityBilling"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" />
+
         <service
             android:name=".ServiceSynchronize"
             android:foregroundServiceType="dataSync" />

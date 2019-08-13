@@ -125,7 +125,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private void bindTo(TupleAccountEx account) {
             view.setActivated(account.tbd != null);
             vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
-            vwColor.setVisibility(Helper.isPro(context) ? View.VISIBLE : View.INVISIBLE);
+            vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             ivSync.setImageResource(account.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
 

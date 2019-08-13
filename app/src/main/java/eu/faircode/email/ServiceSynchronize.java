@@ -1488,7 +1488,7 @@ public class ServiceSynchronize extends ServiceBase {
         am.cancel(piAlarm);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (!prefs.getBoolean("schedule", false) || !Helper.isPro(context))
+        if (!prefs.getBoolean("schedule", false) || !ActivityBilling.isPro(context))
             return;
 
         int minuteStart = prefs.getInt("schedule_start", 0);

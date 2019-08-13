@@ -264,7 +264,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 break;
             }
 
-        boolean pro = Helper.isPro(getContext());
+        boolean pro = ActivityBilling.isPro(getContext());
         swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
         swSchedule.setEnabled(pro);
         tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
