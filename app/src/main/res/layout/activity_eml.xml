@@ -133,7 +133,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
             <View
-                android:id="@+id/vSeparatorParts"
+                android:id="@+id/vSeparatorHeaders"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginTop="3dp"
@@ -141,6 +141,28 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+
+            <TextView
+                android:id="@+id/tvHeaders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Headers"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorHeaders" />
+
+            <View
+                android:id="@+id/vSeparatorParts"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="3dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHeaders" />
 
             <TextView
                 android:id="@+id/tvParts"
@@ -228,16 +250,17 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-            tvFromTitle,tvFrom,
-            tvToTitle,tvTo,
-            tvReplyToTitle,tvReplyTo,
-            tvCcTitle,tvCc,
-            tvBccTitle,tvBcc,
-            tvSubject,
-            vSeparatorParts,tvParts,
-            vSeparatorBody,tvBody,
-            vSeparatorHtml,tvHtml,
-            vSeparatorEml,tvEml" />
+                    tvFromTitle,tvFrom,
+                    tvToTitle,tvTo,
+                    tvReplyToTitle,tvReplyTo,
+                    tvCcTitle,tvCc,
+                    tvBccTitle,tvBcc,
+                    tvSubject,
+                    vSeparatorHeaders,tvHeaders,
+                    vSeparatorParts,tvParts,
+                    vSeparatorBody,tvBody,
+                    vSeparatorHtml,tvHtml,
+                    vSeparatorEml,tvEml" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

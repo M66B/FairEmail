@@ -25,7 +25,9 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -54,6 +56,7 @@ public class ActivityEml extends ActivityBase {
         final TextView tvCc = findViewById(R.id.tvCc);
         final TextView tvBcc = findViewById(R.id.tvBcc);
         final TextView tvSubject = findViewById(R.id.tvSubject);
+        final TextView tvHeaders = findViewById(R.id.tvHeaders);
         final TextView tvParts = findViewById(R.id.tvParts);
         final TextView tvBody = findViewById(R.id.tvBody);
         final TextView tvHtml = findViewById(R.id.tvHtml);
@@ -110,6 +113,21 @@ public class ActivityEml extends ActivityBase {
                     result.bcc = MessageHelper.formatAddresses(helper.getBcc());
                     result.subject = helper.getSubject();
 
+                    String headers = helper.getHeaders();
+                    int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+                    SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
+                    int index = 0;
+                    for (String line : headers.split("\n")) {
+                        if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
+                            int colon = line.indexOf(':');
+                            if (colon > 0)
+                                ssb.setSpan(new ForegroundColorSpan(colorAccent), index, index + colon, 0);
+                        }
+                        index += line.length() + 1;
+                    }
+
+                    result.headers = ssb;
+
                     MessageHelper.MessageParts parts = helper.getMessageParts();
 
                     StringBuilder sb = new StringBuilder();
@@ -144,6 +162,7 @@ public class ActivityEml extends ActivityBase {
                 tvCc.setText(result.cc);
                 tvBcc.setText(result.bcc);
                 tvSubject.setText(result.subject);
+                tvHeaders.setText(result.headers);
                 tvParts.setText(result.parts);
                 tvBody.setText(result.body);
                 tvHtml.setText(result.html);
@@ -168,6 +187,7 @@ public class ActivityEml extends ActivityBase {
         String cc;
         String bcc;
         String subject;
+        Spanned headers;
         Spanned parts;
         Spanned body;
         String html;
