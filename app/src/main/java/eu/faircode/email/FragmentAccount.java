@@ -135,6 +135,7 @@ public class FragmentAccount extends FragmentBase {
     private Group grpFolders;
 
     private long id = -1;
+    private long copy = -1;
     private boolean saving = false;
     private int color = Color.TRANSPARENT;
 
@@ -151,7 +152,10 @@ public class FragmentAccount extends FragmentBase {
 
         // Get arguments
         Bundle args = getArguments();
-        id = args.getLong("id", -1);
+        if (args.getBoolean("copy"))
+            copy = args.getLong("id", -1);
+        else
+            id = args.getLong("id", -1);
     }
 
     @Override
@@ -1114,7 +1118,7 @@ public class FragmentAccount extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         Bundle args = new Bundle();
-        args.putLong("id", id);
+        args.putLong("id", copy < 0 ? id : copy);
 
         new SimpleTask<EntityAccount>() {
             @Override
@@ -1213,34 +1217,36 @@ public class FragmentAccount extends FragmentBase {
                 // Consider previous check/save/delete as cancelled
                 pbWait.setVisibility(View.GONE);
 
-                args.putLong("account", account == null ? -1 : account.id);
+                if (copy < 0) {
+                    args.putLong("account", account == null ? -1 : account.id);
 
-                new SimpleTask<List<EntityFolder>>() {
-                    @Override
-                    protected List<EntityFolder> onExecute(Context context, Bundle args) {
-                        long account = args.getLong("account");
+                    new SimpleTask<List<EntityFolder>>() {
+                        @Override
+                        protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                            long account = args.getLong("account");
 
-                        DB db = DB.getInstance(context);
-                        List<EntityFolder> folders = db.folder().getFolders(account, false, true);
+                            DB db = DB.getInstance(context);
+                            List<EntityFolder> folders = db.folder().getFolders(account, false, true);
 
-                        if (folders != null && folders.size() > 0)
-                            Collections.sort(folders, folders.get(0).getComparator(null));
+                            if (folders != null && folders.size() > 0)
+                                Collections.sort(folders, folders.get(0).getComparator(null));
 
-                        return folders;
-                    }
+                            return folders;
+                        }
 
-                    @Override
-                    protected void onExecuted(Bundle args, List<EntityFolder> folders) {
-                        if (folders == null)
-                            folders = new ArrayList<>();
-                        setFolders(folders, account);
-                    }
+                        @Override
+                        protected void onExecuted(Bundle args, List<EntityFolder> folders) {
+                            if (folders == null)
+                                folders = new ArrayList<>();
+                            setFolders(folders, account);
+                        }
 
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getFragmentManager(), ex);
-                    }
-                }.execute(FragmentAccount.this, args, "account:folders");
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getFragmentManager(), ex);
+                        }
+                    }.execute(FragmentAccount.this, args, "account:folders");
+                }
             }
 
             @Override

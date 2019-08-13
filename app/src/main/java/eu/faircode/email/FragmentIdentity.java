@@ -124,6 +124,7 @@ public class FragmentIdentity extends FragmentBase {
     private Group grpAdvanced;
 
     private long id = -1;
+    private long copy = -1;
     private boolean saving = false;
     private int color = Color.TRANSPARENT;
 
@@ -138,7 +139,10 @@ public class FragmentIdentity extends FragmentBase {
 
         // Get arguments
         Bundle args = getArguments();
-        id = args.getLong("id", -1);
+        if (args.getBoolean("copy"))
+            copy = args.getLong("id", -1);
+        else
+            id = args.getLong("id", -1);
     }
 
     @Override
@@ -826,7 +830,7 @@ public class FragmentIdentity extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         Bundle args = new Bundle();
-        args.putLong("id", id);
+        args.putLong("id", copy < 0 ? id : copy);
 
         new SimpleTask<EntityIdentity>() {
             @Override
@@ -867,7 +871,7 @@ public class FragmentIdentity extends FragmentBase {
 
                     color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 
-                    if (identity == null)
+                    if (identity == null || copy > 0)
                         new SimpleTask<Integer>() {
                             @Override
                             protected Integer onExecute(Context context, Bundle args) {

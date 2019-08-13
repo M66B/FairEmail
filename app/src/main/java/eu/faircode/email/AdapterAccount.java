@@ -214,6 +214,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 2, R.string.title_edit_channel);
             }
 
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
+
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
@@ -224,6 +226,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
                         case R.string.title_edit_channel:
                             onActionEditChannel();
+                            return true;
+
+                        case R.string.title_copy:
+                            onActionCopy();
                             return true;
 
                         default:
@@ -270,6 +276,14 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
                             .putExtra(Settings.EXTRA_CHANNEL_ID, EntityAccount.getNotificationChannelId(account.id));
                     context.startActivity(intent);
+                }
+
+                private void onActionCopy() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
+                                    .putExtra("id", account.id)
+                                    .putExtra("copy", true));
                 }
             });
 
