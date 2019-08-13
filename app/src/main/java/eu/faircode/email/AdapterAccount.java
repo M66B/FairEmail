@@ -214,7 +214,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 2, R.string.title_edit_channel);
             }
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
+            if (settings)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -281,7 +282,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 private void onActionCopy() {
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
-                            new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
+                            new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
                                     .putExtra("id", account.id)
                                     .putExtra("copy", true));
                 }
