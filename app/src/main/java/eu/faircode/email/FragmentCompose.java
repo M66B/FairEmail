@@ -2484,214 +2484,6 @@ public class FragmentCompose extends FragmentBase {
 
                 Log.i("Load action id=" + draft.id + " action=" + getActionName(action));
 
-                // Move draft to new account
-                if (draft.account != aid && aid >= 0) {
-                    Log.i("Account changed");
-
-                    Long uid = draft.uid;
-                    String msgid = draft.msgid;
-                    boolean content = draft.content;
-                    long ui_hide = draft.ui_hide;
-
-                    // To prevent violating constraints
-                    draft.uid = null;
-                    draft.msgid = null;
-                    db.message().updateMessage(draft);
-
-                    // Create copy to delete
-                    draft.id = null;
-                    draft.uid = uid;
-                    draft.msgid = msgid;
-                    draft.content = false;
-                    draft.ui_hide = new Date().getTime();
-                    draft.id = db.message().insertMessage(draft);
-                    EntityOperation.queue(context, draft, EntityOperation.DELETE);
-
-                    // Restore original with new account, no uid and new msgid
-                    draft.id = id;
-                    draft.account = aid;
-                    draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
-                    draft.uid = null;
-                    draft.msgid = EntityMessage.generateMessageId();
-                    draft.content = content;
-                    draft.ui_hide = ui_hide;
-                    db.message().updateMessage(draft);
-
-                    if (content)
-                        EntityOperation.queue(context, draft, EntityOperation.ADD);
-                }
-
-                Map<String, String> crumb = new HashMap<>();
-                crumb.put("draft", draft.folder + ":" + draft.id);
-                crumb.put("content", Boolean.toString(draft.content));
-                crumb.put("file", Boolean.toString(draft.getFile(context).exists()));
-                crumb.put("action", getActionName(action));
-                Log.breadcrumb("compose", crumb);
-
-                List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
-
-                // Get data
-                InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
-
-                InternetAddress ato[] = null;
-                InternetAddress acc[] = null;
-                InternetAddress abcc[] = null;
-
-                boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
-
-                if (!TextUtils.isEmpty(to))
-                    try {
-                        ato = InternetAddress.parse(to);
-                        if (action == R.id.action_send) {
-                            for (InternetAddress address : ato)
-                                address.validate();
-                            if (lookup_mx)
-                                ConnectionHelper.lookupMx(ato, context);
-                        }
-                    } catch (AddressException ex) {
-                        throw new AddressException(context.getString(R.string.title_address_parse_error,
-                                Helper.ellipsize(to, ADDRESS_ELLIPSIZE), ex.getMessage()));
-                    }
-
-                if (!TextUtils.isEmpty(cc))
-                    try {
-                        acc = InternetAddress.parse(cc);
-                        if (action == R.id.action_send) {
-                            for (InternetAddress address : acc)
-                                address.validate();
-                            if (lookup_mx)
-                                ConnectionHelper.lookupMx(acc, context);
-                        }
-                    } catch (AddressException ex) {
-                        throw new AddressException(context.getString(R.string.title_address_parse_error,
-                                Helper.ellipsize(cc, ADDRESS_ELLIPSIZE), ex.getMessage()));
-                    }
-
-                if (!TextUtils.isEmpty(bcc))
-                    try {
-                        abcc = InternetAddress.parse(bcc);
-                        if (action == R.id.action_send) {
-                            for (InternetAddress address : abcc)
-                                address.validate();
-                            if (lookup_mx)
-                                ConnectionHelper.lookupMx(abcc, context);
-                        }
-                    } catch (AddressException ex) {
-                        throw new AddressException(context.getString(R.string.title_address_parse_error,
-                                Helper.ellipsize(bcc, ADDRESS_ELLIPSIZE), ex.getMessage()));
-                    }
-
-                if (TextUtils.isEmpty(extra))
-                    extra = null;
-
-                int available = 0;
-                for (EntityAttachment attachment : attachments)
-                    if (attachment.available)
-                        available++;
-
-                Long ident = (identity == null ? null : identity.id);
-                boolean dirty = (!Objects.equals(draft.identity, ident) ||
-                        !Objects.equals(draft.extra, extra) ||
-                        !MessageHelper.equal(draft.from, afrom) ||
-                        !MessageHelper.equal(draft.to, ato) ||
-                        !MessageHelper.equal(draft.cc, acc) ||
-                        !MessageHelper.equal(draft.bcc, abcc) ||
-                        !Objects.equals(draft.subject, subject) ||
-                        ((draft.encrypt != null && draft.encrypt) != encrypt) ||
-                        last_available != available);
-
-                last_available = available;
-
-                if (dirty) {
-                    // Update draft
-                    draft.identity = ident;
-                    draft.extra = extra;
-                    draft.from = afrom;
-                    draft.to = ato;
-                    draft.cc = acc;
-                    draft.bcc = abcc;
-                    draft.subject = subject;
-                    draft.encrypt = encrypt;
-                    draft.received = new Date().getTime();
-                    draft.sender = MessageHelper.getSortKey(draft.from);
-                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
-                    draft.avatar = (lookupUri == null ? null : lookupUri.toString());
-                    db.message().updateMessage(draft);
-                }
-
-                if (action == R.id.action_undo || action == R.id.action_redo) {
-                    if (draft.revision != null && draft.revisions != null) {
-                        dirty = true;
-
-                        if (action == R.id.action_undo) {
-                            if (draft.revision > 1)
-                                draft.revision--;
-                        } else {
-                            if (draft.revision < draft.revisions)
-                                draft.revision++;
-                        }
-
-                        body = Helper.readText(draft.getFile(context, draft.revision));
-                        Helper.writeText(draft.getFile(context), body);
-
-                        db.message().setMessageRevision(draft.id, draft.revision);
-
-                        db.message().setMessageContent(draft.id,
-                                true,
-                                draft.plain_only, // unchanged
-                                HtmlHelper.getPreview(body),
-                                null);
-                    }
-                } else {
-                    File file = draft.getFile(context);
-                    if (!file.exists())
-                        Helper.writeText(file, body);
-                    String previous = Helper.readText(file);
-                    if (!body.equals(previous) ||
-                            plain_only != (draft.plain_only != null && draft.plain_only)) {
-                        dirty = true;
-
-                        if (draft.revisions == null)
-                            draft.revisions = 1;
-                        else
-                            draft.revisions++;
-                        draft.revision = draft.revisions;
-
-                        Helper.writeText(draft.getFile(context), body);
-                        Helper.writeText(draft.getFile(context, draft.revisions), body);
-
-                        db.message().setMessageRevision(draft.id, draft.revision);
-                        db.message().setMessageRevisions(draft.id, draft.revisions);
-
-                        draft.plain_only = plain_only;
-                        db.message().setMessageContent(draft.id,
-                                true,
-                                draft.plain_only,
-                                HtmlHelper.getPreview(body),
-                                null);
-                    }
-                }
-
-                // Remove unused inline images
-                StringBuilder sb = new StringBuilder();
-                sb.append(body);
-                File rfile = draft.getRefFile(context);
-                if (rfile.exists())
-                    sb.append(Helper.readText(rfile));
-                List<String> cids = new ArrayList<>();
-                for (Element element : Jsoup.parse(sb.toString()).select("img")) {
-                    String src = element.attr("src");
-                    if (src.startsWith("cid:"))
-                        cids.add("<" + src.substring(4) + ">");
-                }
-
-                for (EntityAttachment attachment : new ArrayList<>(attachments))
-                    if (attachment.isInline() && !cids.contains(attachment.cid)) {
-                        Log.i("Removing unused inline attachment cid=" + attachment.cid);
-                        db.attachment().deleteAttachment(attachment.id);
-                    }
-
-                // Execute action
                 if (action == R.id.action_delete) {
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
                     if (empty || trash == null)
@@ -2707,79 +2499,289 @@ public class FragmentCompose extends FragmentBase {
                             }
                         });
                     }
-                } else if (action == R.id.action_save ||
-                        action == R.id.action_undo ||
-                        action == R.id.action_redo ||
-                        action == R.id.menu_encrypt) {
-                    if (BuildConfig.DEBUG || dirty)
-                        EntityOperation.queue(context, draft, EntityOperation.ADD);
+                }else {
+                    // Move draft to new account
+                    if (draft.account != aid && aid >= 0) {
+                        Log.i("Account changed");
 
-                    Handler handler = new Handler(context.getMainLooper());
-                    handler.post(new Runnable() {
-                        public void run() {
-                            ToastEx.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                        Long uid = draft.uid;
+                        String msgid = draft.msgid;
+                        boolean content = draft.content;
+                        long ui_hide = draft.ui_hide;
+
+                        // To prevent violating constraints
+                        draft.uid = null;
+                        draft.msgid = null;
+                        db.message().updateMessage(draft);
+
+                        // Create copy to delete
+                        draft.id = null;
+                        draft.uid = uid;
+                        draft.msgid = msgid;
+                        draft.content = false;
+                        draft.ui_hide = new Date().getTime();
+                        draft.id = db.message().insertMessage(draft);
+                        EntityOperation.queue(context, draft, EntityOperation.DELETE);
+
+                        // Restore original with new account, no uid and new msgid
+                        draft.id = id;
+                        draft.account = aid;
+                        draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
+                        draft.uid = null;
+                        draft.msgid = EntityMessage.generateMessageId();
+                        draft.content = content;
+                        draft.ui_hide = ui_hide;
+                        db.message().updateMessage(draft);
+
+                        if (content)
+                            EntityOperation.queue(context, draft, EntityOperation.ADD);
+                    }
+
+                    Map<String, String> crumb = new HashMap<>();
+                    crumb.put("draft", draft.folder + ":" + draft.id);
+                    crumb.put("content", Boolean.toString(draft.content));
+                    crumb.put("file", Boolean.toString(draft.getFile(context).exists()));
+                    crumb.put("action", getActionName(action));
+                    Log.breadcrumb("compose", crumb);
+
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
+
+                    // Get data
+                    InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
+
+                    InternetAddress ato[] = null;
+                    InternetAddress acc[] = null;
+                    InternetAddress abcc[] = null;
+
+                    boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
+
+                    if (!TextUtils.isEmpty(to))
+                        try {
+                            ato = InternetAddress.parse(to);
+                            if (action == R.id.action_send) {
+                                for (InternetAddress address : ato)
+                                    address.validate();
+                                if (lookup_mx)
+                                    ConnectionHelper.lookupMx(ato, context);
+                            }
+                        } catch (AddressException ex) {
+                            throw new AddressException(context.getString(R.string.title_address_parse_error,
+                                    Helper.ellipsize(to, ADDRESS_ELLIPSIZE), ex.getMessage()));
                         }
-                    });
 
-                } else if (action == R.id.action_send) {
-                    // Check data
-                    if (draft.identity == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
-
-                    if (draft.to == null && draft.cc == null && draft.bcc == null)
-                        throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
-
-                    // Save attachments
-                    for (EntityAttachment attachment : attachments)
-                        if (!attachment.available)
-                            throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
-
-                    // Delete draft (cannot move to outbox)
-                    EntityOperation.queue(context, draft, EntityOperation.DELETE);
-
-                    File refDraftFile = draft.getRefFile(context);
-
-                    // Copy message to outbox
-                    draft.id = null;
-                    draft.folder = db.folder().getOutbox().id;
-                    draft.uid = null;
-                    draft.ui_hide = 0L;
-                    draft.id = db.message().insertMessage(draft);
-                    Helper.writeText(draft.getFile(context), body);
-                    if (refDraftFile.exists()) {
-                        File refFile = draft.getRefFile(context);
-                        refDraftFile.renameTo(refFile);
-                    }
-
-                    // Move attachments
-                    for (EntityAttachment attachment : attachments)
-                        db.attachment().setMessage(attachment.id, draft.id);
-
-                    // Delay sending message
-                    int send_delayed = prefs.getInt("send_delayed", 0);
-                    if (draft.ui_snoozed == null && send_delayed != 0) {
-                        draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
-                        db.message().setMessageSnoozed(draft.id, draft.ui_snoozed);
-                    }
-
-                    // Send message
-                    if (draft.ui_snoozed == null)
-                        EntityOperation.queue(context, draft, EntityOperation.SEND);
-
-                    final String feedback;
-                    if (draft.ui_snoozed == null)
-                        feedback = context.getString(R.string.title_queued);
-                    else {
-                        DateFormat DTF = Helper.getDateTimeInstance(context);
-                        feedback = context.getString(R.string.title_queued_at, DTF.format(draft.ui_snoozed));
-                    }
-
-                    Handler handler = new Handler(context.getMainLooper());
-                    handler.post(new Runnable() {
-                        public void run() {
-                            ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
+                    if (!TextUtils.isEmpty(cc))
+                        try {
+                            acc = InternetAddress.parse(cc);
+                            if (action == R.id.action_send) {
+                                for (InternetAddress address : acc)
+                                    address.validate();
+                                if (lookup_mx)
+                                    ConnectionHelper.lookupMx(acc, context);
+                            }
+                        } catch (AddressException ex) {
+                            throw new AddressException(context.getString(R.string.title_address_parse_error,
+                                    Helper.ellipsize(cc, ADDRESS_ELLIPSIZE), ex.getMessage()));
                         }
-                    });
+
+                    if (!TextUtils.isEmpty(bcc))
+                        try {
+                            abcc = InternetAddress.parse(bcc);
+                            if (action == R.id.action_send) {
+                                for (InternetAddress address : abcc)
+                                    address.validate();
+                                if (lookup_mx)
+                                    ConnectionHelper.lookupMx(abcc, context);
+                            }
+                        } catch (AddressException ex) {
+                            throw new AddressException(context.getString(R.string.title_address_parse_error,
+                                    Helper.ellipsize(bcc, ADDRESS_ELLIPSIZE), ex.getMessage()));
+                        }
+
+                    if (TextUtils.isEmpty(extra))
+                        extra = null;
+
+                    int available = 0;
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.available)
+                            available++;
+
+                    Long ident = (identity == null ? null : identity.id);
+                    boolean dirty = (!Objects.equals(draft.identity, ident) ||
+                            !Objects.equals(draft.extra, extra) ||
+                            !MessageHelper.equal(draft.from, afrom) ||
+                            !MessageHelper.equal(draft.to, ato) ||
+                            !MessageHelper.equal(draft.cc, acc) ||
+                            !MessageHelper.equal(draft.bcc, abcc) ||
+                            !Objects.equals(draft.subject, subject) ||
+                            ((draft.encrypt != null && draft.encrypt) != encrypt) ||
+                            last_available != available);
+
+                    last_available = available;
+
+                    if (dirty) {
+                        // Update draft
+                        draft.identity = ident;
+                        draft.extra = extra;
+                        draft.from = afrom;
+                        draft.to = ato;
+                        draft.cc = acc;
+                        draft.bcc = abcc;
+                        draft.subject = subject;
+                        draft.encrypt = encrypt;
+                        draft.received = new Date().getTime();
+                        draft.sender = MessageHelper.getSortKey(draft.from);
+                        Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
+                        draft.avatar = (lookupUri == null ? null : lookupUri.toString());
+                        db.message().updateMessage(draft);
+                    }
+
+                    if (action == R.id.action_undo || action == R.id.action_redo) {
+                        if (draft.revision != null && draft.revisions != null) {
+                            dirty = true;
+
+                            if (action == R.id.action_undo) {
+                                if (draft.revision > 1)
+                                    draft.revision--;
+                            } else {
+                                if (draft.revision < draft.revisions)
+                                    draft.revision++;
+                            }
+
+                            body = Helper.readText(draft.getFile(context, draft.revision));
+                            Helper.writeText(draft.getFile(context), body);
+
+                            db.message().setMessageRevision(draft.id, draft.revision);
+
+                            db.message().setMessageContent(draft.id,
+                                    true,
+                                    draft.plain_only, // unchanged
+                                    HtmlHelper.getPreview(body),
+                                    null);
+                        }
+                    } else {
+                        File file = draft.getFile(context);
+                        if (!file.exists())
+                            Helper.writeText(file, body);
+                        String previous = Helper.readText(file);
+                        if (!body.equals(previous) ||
+                                plain_only != (draft.plain_only != null && draft.plain_only)) {
+                            dirty = true;
+
+                            if (draft.revisions == null)
+                                draft.revisions = 1;
+                            else
+                                draft.revisions++;
+                            draft.revision = draft.revisions;
+
+                            Helper.writeText(draft.getFile(context), body);
+                            Helper.writeText(draft.getFile(context, draft.revisions), body);
+
+                            db.message().setMessageRevision(draft.id, draft.revision);
+                            db.message().setMessageRevisions(draft.id, draft.revisions);
+
+                            draft.plain_only = plain_only;
+                            db.message().setMessageContent(draft.id,
+                                    true,
+                                    draft.plain_only,
+                                    HtmlHelper.getPreview(body),
+                                    null);
+                        }
+                    }
+
+                    // Remove unused inline images
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(body);
+                    File rfile = draft.getRefFile(context);
+                    if (rfile.exists())
+                        sb.append(Helper.readText(rfile));
+                    List<String> cids = new ArrayList<>();
+                    for (Element element : Jsoup.parse(sb.toString()).select("img")) {
+                        String src = element.attr("src");
+                        if (src.startsWith("cid:"))
+                            cids.add("<" + src.substring(4) + ">");
+                    }
+
+                    for (EntityAttachment attachment : new ArrayList<>(attachments))
+                        if (attachment.isInline() && !cids.contains(attachment.cid)) {
+                            Log.i("Removing unused inline attachment cid=" + attachment.cid);
+                            db.attachment().deleteAttachment(attachment.id);
+                        }
+
+                    // Execute action
+                    if (action == R.id.action_save ||
+                            action == R.id.action_undo ||
+                            action == R.id.action_redo ||
+                            action == R.id.menu_encrypt) {
+                        if (BuildConfig.DEBUG || dirty)
+                            EntityOperation.queue(context, draft, EntityOperation.ADD);
+
+                        Handler handler = new Handler(context.getMainLooper());
+                        handler.post(new Runnable() {
+                            public void run() {
+                                ToastEx.makeText(context, R.string.title_draft_saved, Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                    } else if (action == R.id.action_send) {
+                        // Check data
+                        if (draft.identity == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
+
+                        if (draft.to == null && draft.cc == null && draft.bcc == null)
+                            throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
+
+                        // Save attachments
+                        for (EntityAttachment attachment : attachments)
+                            if (!attachment.available)
+                                throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
+
+                        // Delete draft (cannot move to outbox)
+                        EntityOperation.queue(context, draft, EntityOperation.DELETE);
+
+                        File refDraftFile = draft.getRefFile(context);
+
+                        // Copy message to outbox
+                        draft.id = null;
+                        draft.folder = db.folder().getOutbox().id;
+                        draft.uid = null;
+                        draft.ui_hide = 0L;
+                        draft.id = db.message().insertMessage(draft);
+                        Helper.writeText(draft.getFile(context), body);
+                        if (refDraftFile.exists()) {
+                            File refFile = draft.getRefFile(context);
+                            refDraftFile.renameTo(refFile);
+                        }
+
+                        // Move attachments
+                        for (EntityAttachment attachment : attachments)
+                            db.attachment().setMessage(attachment.id, draft.id);
+
+                        // Delay sending message
+                        int send_delayed = prefs.getInt("send_delayed", 0);
+                        if (draft.ui_snoozed == null && send_delayed != 0) {
+                            draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
+                            db.message().setMessageSnoozed(draft.id, draft.ui_snoozed);
+                        }
+
+                        // Send message
+                        if (draft.ui_snoozed == null)
+                            EntityOperation.queue(context, draft, EntityOperation.SEND);
+
+                        final String feedback;
+                        if (draft.ui_snoozed == null)
+                            feedback = context.getString(R.string.title_queued);
+                        else {
+                            DateFormat DTF = Helper.getDateTimeInstance(context);
+                            feedback = context.getString(R.string.title_queued_at, DTF.format(draft.ui_snoozed));
+                        }
+
+                        Handler handler = new Handler(context.getMainLooper());
+                        handler.post(new Runnable() {
+                            public void run() {
+                                ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
                 }
 
                 db.setTransactionSuccessful();
