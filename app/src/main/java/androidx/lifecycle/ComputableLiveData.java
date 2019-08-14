@@ -89,6 +89,7 @@ public abstract class ComputableLiveData<T> {
         @Override
         public void run() {
             boolean computed;
+            boolean once;
             long last;
             do {
                 computed = false;
@@ -96,12 +97,14 @@ public abstract class ComputableLiveData<T> {
                 if (mComputing.compareAndSet(false, true)) {
                     // as long as it is invalid, keep computing.
                     try {
+                        once = true;
                         last = android.os.SystemClock.elapsedRealtime();
                         T value = null;
                         while (mInvalid.compareAndSet(true, false)) {
                             long now = android.os.SystemClock.elapsedRealtime();
-                            if (last + 1500 < now && value != null) {
-                                eu.faircode.email.Log.i(mLiveData + " post age=" + (now - last));
+                            if (value != null && (once || last + 2500 < now)) {
+                                eu.faircode.email.Log.i(mLiveData + " post once=" + once + " age=" + (now - last) + " ms");
+                                once = false;
                                 last = now;
                                 mLiveData.postValue(value);
                             }
