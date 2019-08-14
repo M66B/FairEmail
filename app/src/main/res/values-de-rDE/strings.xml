@@ -494,7 +494,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
     <string name="title_search">Suche</string>
-    <string name="title_search_server">Auf Server suchen</string>
+    <string name="title_search_server">Auf dem Server suchen</string>
     <string name="title_search_in">Suchen in</string>
     <string name="title_searching">Suche „%1$s“</string>
     <string name="title_sort_on">Sortieren nach</string>
