@@ -480,7 +480,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         Rect getItemRect() {
             return new Rect(
                     super.itemView.getLeft(),
-                    super.itemView.getBottom() - vwColor.getHeight(),
+                    super.itemView.getTop(),
                     super.itemView.getRight(),
                     super.itemView.getBottom());
         }
