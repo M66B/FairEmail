@@ -274,11 +274,8 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                String email = editable.toString();
-                if (email.contains("@"))
-                    etDomain.setText(email.split("@")[1]);
-                else
-                    etDomain.setText(null);
+                String[] email = editable.toString().split("@");
+                etDomain.setText(email.length < 2 ? null : email[1]);
             }
         });
 
