@@ -79,6 +79,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -179,6 +180,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean contacts;
     private float textSize;
 
+    private boolean cards;
     private boolean date;
     private boolean threading;
     private boolean circular;
@@ -230,6 +232,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, View.OnLongClickListener, View.OnKeyListener,
             BottomNavigationView.OnNavigationItemSelectedListener {
+        private CardView card;
         private View view;
         private CardView vwColor;
         private ImageView ivExpander;
@@ -331,10 +334,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         ViewHolder(final View itemView) {
             super(itemView);
 
+            card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
 
             vwColor = itemView.findViewById(R.id.vwColor);
-            vwColor.setRadius(circular ? dp3 / 2f : 0f);
             ivExpander = itemView.findViewById(R.id.ivExpander);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
@@ -357,6 +360,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
             vwRipple = itemView.findViewById(R.id.vwRipple);
+
+            if (!cards) {
+                FrameLayout.LayoutParams lparam = (FrameLayout.LayoutParams) card.getLayoutParams();
+                lparam.setMargins(0, 0, 0, 0);
+                card.setLayoutParams(lparam);
+
+                card.setRadius(0);
+                card.setElevation(0);
+                card.setCardBackgroundColor(Color.TRANSPARENT);
+
+                view.setPadding(0, 0, 0, 0);
+            }
+
+            vwColor.setRadius(circular ? dp3 / 2f : 0f);
         }
 
         private void ensureExpanded() {
@@ -2989,6 +3006,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.textSize = Helper.getTextSize(context, zoom);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.cards = prefs.getBoolean("cards", true);
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
         this.circular = prefs.getBoolean("circular", true);

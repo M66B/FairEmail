@@ -6,6 +6,7 @@
     <attr name="colorDrawerScrim" format="reference" />
     <attr name="colorDrawerText" format="reference" />
     <attr name="colorDrawerBackground" format="reference" />
+    <attr name="colorCardBackground" format="reference" />
     <attr name="activatableItemBackground" format="reference" />
 
     <style name="AppThemeLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
@@ -23,6 +24,8 @@
         <item name="colorDrawerScrim">@color/lightColorDrawerScrim</item>
         <item name="colorDrawerText">@color/lightColorDrawerText</item>
         <item name="colorDrawerBackground">@color/lightColorDrawerBackground</item>
+
+        <item name="colorCardBackground">@color/lightColorCardBackground</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
 
@@ -49,6 +52,8 @@
         <item name="colorDrawerScrim">@color/darkColorDrawerScrim</item>
         <item name="colorDrawerText">@color/darkColorDrawerText</item>
         <item name="colorDrawerBackground">@color/darkColorDrawerBackground</item>
+
+        <item name="colorCardBackground">@color/darkColorCardBackground</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_dark</item>
 

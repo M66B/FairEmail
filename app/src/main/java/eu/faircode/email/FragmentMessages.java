@@ -191,6 +191,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private long attachment = -1;
     private OpenPgpServiceConnection pgpService;
 
+    private boolean cards;
     private boolean date;
     private boolean threading;
     private boolean swipenav;
@@ -311,6 +312,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         swipenav = prefs.getBoolean("swipenav", true);
         autoscroll = (prefs.getBoolean("autoscroll", false) || viewType == AdapterMessage.ViewType.THREAD);
+        cards = prefs.getBoolean("cards", true);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);
         actionbar = prefs.getBoolean("actionbar", true);
@@ -455,17 +457,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         };
         rvMessage.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
-                    outRect.setEmpty();
-                else
-                    super.getItemOffsets(outRect, view, parent, state);
-            }
-        };
-        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
-        rvMessage.addItemDecoration(itemDecorator);
+        if (!cards) {
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+                @Override
+                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                    if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
+                        outRect.setEmpty();
+                    else
+                        super.getItemOffsets(outRect, view, parent, state);
+                }
+            };
+            itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+            rvMessage.addItemDecoration(itemDecorator);
+        }
 
         DividerItemDecoration dateDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
             @Override
@@ -523,6 +527,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 View header = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_date, parent, false);
                 TextView tvDate = header.findViewById(R.id.tvDate);
                 tvDate.setTextSize(TypedValue.COMPLEX_UNIT_PX, Helper.getTextSize(parent.getContext(), adapter.getZoom()));
+
+                if (cards) {
+                    View vSeparatorDate = header.findViewById(R.id.vSeparatorDate);
+                    vSeparatorDate.setVisibility(View.GONE);
+                }
 
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(new Date());

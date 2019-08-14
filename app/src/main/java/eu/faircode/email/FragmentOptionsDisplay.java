@@ -44,6 +44,7 @@ import androidx.preference.PreferenceManager;
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Button btnTheme;
     private Spinner spStartup;
+    private SwitchCompat swCards;
     private SwitchCompat swDate;
     private SwitchCompat swThreading;
     private SwitchCompat swAvatars;
@@ -68,7 +69,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "startup", "date", "threading", "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_italic",
+            "theme", "startup", "cards", "date", "threading", "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_italic",
             "flags", "preview", "preview_italic", "addresses", "attachments_alt",
             "contrast", "monospaced", "inline_images", "contact_images", "all_images", "collapse_quotes", "autocontent", "actionbar",
     };
@@ -85,6 +86,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         btnTheme = view.findViewById(R.id.btnTheme);
         spStartup = view.findViewById(R.id.spStartup);
+        swCards = view.findViewById(R.id.swCards);
         swDate = view.findViewById(R.id.swDate);
         swThreading = view.findViewById(R.id.swThreading);
         swAvatars = view.findViewById(R.id.swAvatars);
@@ -130,6 +132,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("startup").apply();
+            }
+        });
+
+        swCards.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("cards", checked).apply();
             }
         });
 
@@ -341,6 +350,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 break;
             }
 
+        swCards.setChecked(prefs.getBoolean("cards", true));
         swDate.setChecked(prefs.getBoolean("date", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));

@@ -213,6 +213,7 @@
     <string name="title_advanced_browse">Browse messages on the server</string>
 
     <string name="title_advanced_startup">Show on start screen</string>
+    <string name="title_advanced_cards">Show cards</string>
     <string name="title_advanced_date_header">Group by date</string>
     <string name="title_advanced_threading">Conversation threading</string>
     <string name="title_advanced_avatars">Show contact photos</string>

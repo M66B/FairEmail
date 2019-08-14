@@ -4,29 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clItem"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/activatableItemBackground"
-        android:descendantFocusability="beforeDescendants"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:layout_margin="6dp"
+        app:cardBackgroundColor="?attr/colorCardBackground"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp">
 
-        <include
-            android:id="@+id/inHeader"
-            layout="@layout/include_message_compact"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="?attr/activatableItemBackground"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:padding="6dp">
 
-        <ViewStub
-            android:id="@+id/vsBody"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout="@layout/include_message_body"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inHeader" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                android:id="@+id/inHeader"
+                layout="@layout/include_message_compact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ViewStub
+                android:id="@+id/vsBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout="@layout/include_message_body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inHeader" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>
