@@ -165,7 +165,7 @@ public class Log {
 
         config.setAutoCaptureSessions(false);
 
-        config.setDetectAnrs(false);
+        config.setDetectAnrs(true);
         config.setDetectNdkCrashes(false);
 
         List<String> ignore = new ArrayList<>();
