@@ -1150,7 +1150,10 @@ The message action bar works on a single message and the bottom action bar works
 Since there is often more than one message in a conversation, this is not possible.
 Moreover, there are quite some message specific actions, like forwarding.
 
-You can use the *Home* button to quickly go to the top of the message.
+Moving the message action bar to the bottom of the message is visually not appealing because there is already a conversation action bar at the bottom of the screen.
+
+Note that there are not many, if any, email apps that display a conversation as a list of expandable messages.
+This has a lot of advantages, but the also causes the need for message specific actions.
 
 <br />
 
