@@ -197,7 +197,7 @@
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_startup">Показать на стартовом экране</string>
-    <string name="title_advanced_cards">Показывать карты</string>
+    <string name="title_advanced_cards">\"Карточная\" компоновка</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_avatars">Показать фотографии контакта</string>

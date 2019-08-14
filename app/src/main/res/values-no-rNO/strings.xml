@@ -179,6 +179,7 @@
     <string name="title_advanced_manage_connectivity">Administrer tilkobling</string>
     <string name="title_advanced_browse">Bla gjennom meldinger på serveren</string>
     <string name="title_advanced_startup">Vis på startskjermen</string>
+    <string name="title_advanced_cards">Vis kort</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>

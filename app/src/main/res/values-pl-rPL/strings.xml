@@ -197,6 +197,7 @@
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
+    <string name="title_advanced_cards">Pokaż karty</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
@@ -513,6 +514,7 @@
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
     <string name="title_search">Szukaj</string>
+    <string name="title_search_server">Szukaj na serwerze</string>
     <string name="title_search_in">Szukaj w</string>
     <string name="title_searching">Szukam \'%1$s\'</string>
     <string name="title_sort_on">Sortuj wg</string>
@@ -531,6 +533,7 @@
     <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>
     <string name="title_select_all">Wybierz wszystkie</string>
+    <string name="title_force_sync">Wymuś synchronizację</string>
     <string name="title_previous">Poprzedni</string>
     <string name="title_next">Następny</string>
     <string name="title_answer_caption">Edytuj szablon</string>

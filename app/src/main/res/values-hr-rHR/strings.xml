@@ -187,6 +187,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_manage_connectivity">Upravljanje povezivanjem</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>
+    <string name="title_advanced_cards">Prikaži kartice</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
     <string name="title_advanced_threading">Prikaz razgovora</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
@@ -503,6 +504,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_signature_valid">Potpis poruke vrijedi</string>
     <string name="title_signature_invalid">Nevažeći potpis poruke</string>
     <string name="title_search">Pretraživanje</string>
+    <string name="title_search_server">Traži na poslužitelju</string>
     <string name="title_search_in">Traži u</string>
     <string name="title_searching">Pretraživanje \'%1$s\'</string>
     <string name="title_sort_on">Poredaj na</string>
