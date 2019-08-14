@@ -50,6 +50,7 @@ For authorizing:
 * ~~Generic unified folders~~
 * ~~New message notification schedules per account~~ (implemented by added a time condition to rules, so messages can be snoozed in selected periods)
 * ~~Copy accounts and identities~~
+* Pinch zoom
 
 Anything on this list is in random order and *might* be added in the near future.
 
