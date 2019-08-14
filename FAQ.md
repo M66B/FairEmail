@@ -370,6 +370,8 @@ If you use multiple Gmail accounts, make sure you change the "less secure apps" 
 
 Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
 
+If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account.
+
 When "less secure apps" is not enabled,
 you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)
 and *Username and Password not accepted* for identities (SMTP).
