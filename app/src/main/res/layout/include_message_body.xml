@@ -195,13 +195,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="42dp"
         android:fontFamily="monospace"
         android:minHeight="396dp"
         android:paddingBottom="6dp"
         android:text="Body"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toStartOf="@id/ibReply"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvNoInternetBody" />
 

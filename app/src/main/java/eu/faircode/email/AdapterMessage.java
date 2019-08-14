@@ -960,14 +960,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             vSeparatorBody.setVisibility(View.VISIBLE);
 
-            ibFull.setVisibility(hasWebView ? View.INVISIBLE : View.GONE);
-            ibImages.setVisibility(View.INVISIBLE);
+            ibFull.setVisibility(View.GONE);
+            ibImages.setVisibility(View.GONE);
 
-            ibReply.setVisibility(View.INVISIBLE);
-            ibArchive.setVisibility(View.INVISIBLE);
-            ibMove.setVisibility(View.INVISIBLE);
-            ibDelete.setVisibility(View.INVISIBLE);
-            ibMove.setVisibility(View.INVISIBLE);
+            ibReply.setVisibility(View.GONE);
+            ibArchive.setVisibility(View.GONE);
+            ibMove.setVisibility(View.GONE);
+            ibDelete.setVisibility(View.GONE);
+            ibMove.setVisibility(View.GONE);
 
             if (textSize != 0)
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -1215,10 +1215,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
-            ibDecrypt.setVisibility(is_encrypted ? View.VISIBLE : View.GONE);
+
             btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
+
+            ibDecrypt.setVisibility(is_encrypted ? View.VISIBLE : View.GONE);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
