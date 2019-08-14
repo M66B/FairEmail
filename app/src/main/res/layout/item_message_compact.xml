@@ -31,6 +31,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <View
+                android:id="@+id/vwRipple"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="@id/inHeader"
+                app:layout_constraintEnd_toEndOf="@id/inHeader"
+                app:layout_constraintStart_toStartOf="@id/inHeader"
+                app:layout_constraintTop_toTopOf="@id/inHeader" />
+
             <ViewStub
                 android:id="@+id/vsBody"
                 android:layout_width="match_parent"

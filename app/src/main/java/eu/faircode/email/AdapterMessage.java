@@ -234,6 +234,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             BottomNavigationView.OnNavigationItemSelectedListener {
         private CardView card;
         private View view;
+        private View vwRipple;
+
         private CardView vwColor;
         private ImageView ivExpander;
         private ImageView ivFlagged;
@@ -256,7 +258,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvPreview;
         private TextView tvError;
         private ContentLoadingProgressBar pbLoading;
-        private View vwRipple;
 
         private View vsBody;
 
@@ -336,6 +337,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
+            vwRipple = itemView.findViewById(R.id.vwRipple);
 
             vwColor = itemView.findViewById(R.id.vwColor);
             ivExpander = itemView.findViewById(R.id.ivExpander);
@@ -359,7 +361,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
-            vwRipple = itemView.findViewById(R.id.vwRipple);
 
             if (!cards) {
                 FrameLayout.LayoutParams lparam = (FrameLayout.LayoutParams) card.getLayoutParams();
