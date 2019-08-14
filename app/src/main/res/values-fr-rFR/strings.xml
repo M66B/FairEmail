@@ -179,6 +179,7 @@
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
+    <string name="title_advanced_cards">Afficher les cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>

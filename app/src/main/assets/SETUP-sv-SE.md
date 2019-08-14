@@ -1,41 +1,41 @@
-# Setup help
+# Hjälp med installation
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Att ställa in FairEmail är ganska enkelt. Du måste lägga till minst ett konto för att få e-post och minst en identitet om du vill skicka e-post. Snabbinstallationen kommer att lägga till ett konto och en identitet på en gång för de flesta stora leverantörer.
 
-## Requirements
+## Krav
 
-An internet connection is required to set up accounts and identities.
+En Internetanslutning krävs för att ställa in konton och identiteter.
 
-## Quick setup
+## Snabbinstallation
 
-Just enter your name, email address and password and tap *Go*.
+Skriv bara in ditt namn, e-postadress och lösenord och tryck på *Kör*.
 
-This will work for most major email providers.
+Detta kommer att fungera för de flesta stora e-postleverantörer.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Om snabbinstallationen inte fungerar måste du konfigurera ett konto och en identitet på ett annat sätt, se nedan för instruktioner.
 
-## Set up account - to receive email
+## Ställ in konto - för att ta emot e-post
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Om du vill lägga till ett konto trycker du på *Hantera konton* och trycker på den orange knappen *lägg till* längst ner. Välj en leverantör från listan, ange användarnamnet, vilket är mestadels din e-postadress och ange ditt lösenord. Tryck på *Kontrollera* för att låta FairEmail ansluta till e-postservern och hämta en lista över systemmappar. Efter att ha granskat valet av systemmapp kan du lägga till kontot genom att trycka på *Spara*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Om din leverantör inte finns i listan över leverantörer väljer du *Anpassad*. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. Om din leverantör stöder [automatisk upptäckt](https://tools.ietf.org/html/rfc6186), fyller FairEmail i värdnamnet och portnumret, annars kontrollerar du installationsinstruktionerna för din leverantör för rätt IMAP-värdnamn, portnummer och protokoll (SSL/TLS eller STARTTLS). För mer information om detta, vänligen se [här](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Ställ in identitet - för att skicka e-post
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+På samma sätt trycker du på *Hantera identitet* om du vill lägga till en identitet och trycker på den orange knappen *lägg till* längst ner. Ange det namn du vill visa i de från adressen till de e-postmeddelanden du skickar och välj ett länkat konto. Tryck på *Spara* för att lägga till identiteten.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Om kontot konfigurerades manuellt behöver du troligen också konfigurera identiteten manuellt. Ange domännamnet, till exempel *gmail.com* och tryck på *Hämta inställningar*. Om din leverantör stöder [automatisk upptäckt](https://tools.ietf.org/html/rfc6186), fyller FairEmail i värdnamnet och portnumret, annars kontrollerar du installationsinstruktionerna för din leverantör för rätt SMTP-värdnamn, portnummer och protokoll (SSL/TLS eller STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Se [Vanliga frågor](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) om hur du använder alias.
 
-## Grant permissions - to access contact information
+## Bevilja behörigheter - för att få tillgång till kontaktinformation
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Om du vill slå upp e-postadresser, att kontaktfoton visas, o.s.v, måste du bevilja tillstånd för läsning av kontakter av FairEmail. Tryck bara på *Bevilja behörigheter* och välj *Tillåt*.
 
-## Setup battery optimizations - to continuously receive emails
+## Ställ in batterioptimeringar - för att kontinuerligt ta emot e-post
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+På de senaste Android-versionerna kommer Android att sätta appar i viloläge när skärmen är avstängd under en tid för att minska batterianvändningen. Om du vill ta emot nya e-postmeddelanden utan förseningar bör du inaktivera batterioptimeringar för FairEmail. Tryck på *Inaktivera batterioptimeringar* och följ instruktionerna.
 
-## Questions or problems
+## Frågor eller problem
 
 If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").

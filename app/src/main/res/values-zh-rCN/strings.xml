@@ -169,6 +169,7 @@
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
+    <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
