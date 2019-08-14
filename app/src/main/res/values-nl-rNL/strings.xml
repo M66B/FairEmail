@@ -495,6 +495,7 @@
     <string name="title_signature_valid">Handtekening bericht geldig</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
     <string name="title_search">Zoek</string>
+    <string name="title_search_server">Zoek op server</string>
     <string name="title_search_in">Zoeken in</string>
     <string name="title_searching">Zoeken naar \'%1$s\'</string>
     <string name="title_sort_on">Sorteer op</string>

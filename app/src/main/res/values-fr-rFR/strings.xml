@@ -495,6 +495,7 @@
     <string name="title_signature_valid">Signature de message valide</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
     <string name="title_search">Rechercher</string>
+    <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_in">Rechercher dans</string>
     <string name="title_searching">Recherche de \'%1$s\'</string>
     <string name="title_sort_on">Trier par</string>

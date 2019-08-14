@@ -513,6 +513,7 @@
     <string name="title_signature_valid">Подпись сообщения действительна</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
     <string name="title_search">Поиск</string>
+    <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_in">Поиск в</string>
     <string name="title_searching">Поиск \'%1$s\'</string>
     <string name="title_sort_on">Сортировать по</string>

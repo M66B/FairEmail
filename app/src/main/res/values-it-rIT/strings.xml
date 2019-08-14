@@ -494,6 +494,7 @@
     <string name="title_signature_valid">Firma messaggio valida</string>
     <string name="title_signature_invalid">Firma messaggio non valida</string>
     <string name="title_search">Cerca</string>
+    <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
     <string name="title_searching">Ricerca di \'%1$s\'</string>
     <string name="title_sort_on">Ordina per</string>

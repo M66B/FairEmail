@@ -494,6 +494,7 @@
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
     <string name="title_search">Søg</string>
+    <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>
     <string name="title_searching">Gennemsøger \'%1$s \'</string>
     <string name="title_sort_on">Sortér efter</string>
