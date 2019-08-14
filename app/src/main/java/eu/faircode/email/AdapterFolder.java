@@ -37,12 +37,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -73,8 +75,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private boolean cards;
+    private boolean circular;
     private boolean subscriptions;
     private boolean debug;
+
+    private int dp3;
     private int dp12;
     private float textSize;
     private int colorUnread;
@@ -87,8 +93,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+        private CardView card;
         private View view;
-        private View vwColor;
+        private CardView vwColor;
+
         private ImageView ivState;
         private ImageView ivReadOnly;
 
@@ -117,8 +125,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         ViewHolder(View itemView) {
             super(itemView);
 
+            card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
             vwColor = itemView.findViewById(R.id.vwColor);
+
             ivState = itemView.findViewById(R.id.ivState);
             ivReadOnly = itemView.findViewById(R.id.ivReadOnly);
 
@@ -141,6 +151,22 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
+
+            if (listener == null) {
+                if (!cards) {
+                    FrameLayout.LayoutParams lparam = (FrameLayout.LayoutParams) card.getLayoutParams();
+                    lparam.setMargins(0, 0, 0, 0);
+                    card.setLayoutParams(lparam);
+
+                    card.setRadius(0);
+                    card.setElevation(0);
+                    card.setCardBackgroundColor(Color.TRANSPARENT);
+
+                    view.setPadding(0, 0, 0, 0);
+                }
+
+                vwColor.setRadius(circular ? dp3 / 2f : 0f);
+            }
         }
 
         private void wire() {
@@ -657,9 +683,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (zoom == 0)
             zoom = 1;
 
+        this.circular = prefs.getBoolean("circular", true);
+        this.cards = prefs.getBoolean("cards", true);
         this.subscriptions = prefs.getBoolean("subscriptions", false);
         this.debug = prefs.getBoolean("debug", false);
 
+        this.dp3 = Helper.dp2pixels(context, 12);
         this.dp12 = Helper.dp2pixels(context, 12);
         this.textSize = Helper.getTextSize(context, zoom);
         this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);

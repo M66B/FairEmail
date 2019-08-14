@@ -4,245 +4,258 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clItem"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/activatableItemBackground"
-        android:foreground="?attr/selectableItemBackground">
+        android:layout_margin="6dp"
+        app:cardBackgroundColor="?attr/colorCardBackground"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="6dp">
 
-        <View
-            android:id="@+id/vwColor"
-            android:layout_width="6dp"
-            android:layout_height="0dp"
-            android:background="?attr/colorAccent"
-            app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/ivState"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="6dp"
-            android:contentDescription="@string/title_legend_connection_state"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_cloud_off_24" />
-
-        <ImageView
-            android:id="@+id/ivReadOnly"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="6dp"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toTopOf="@+id/tvType"
-            app:srcCompat="@drawable/baseline_visibility_24" />
-
-        <View
-            android:id="@+id/vwLevel"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvKeywords"
-            app:layout_constraintStart_toEndOf="@id/ivState"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/ivExpander"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_legend_expander"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
-            app:layout_constraintStart_toEndOf="@+id/vwLevel"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/expander" />
-
-        <ImageView
-            android:id="@+id/ivUnified"
-            android:layout_width="30dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/title_unified_folder"
-            android:paddingEnd="6dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
-            app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_folder_special_24" />
-
-        <ImageView
-            android:id="@+id/ivSubscribed"
-            android:layout_width="30dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_notify"
-            android:paddingEnd="6dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/ivUnified"
-            app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_bookmark_24" />
-
-        <ImageView
-            android:id="@+id/ivRule"
-            android:layout_width="30dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/title_edit_rules"
-            android:paddingEnd="6dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/ivSubscribed"
-            app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_filter_list_24" />
-
-        <ImageView
-            android:id="@+id/ivNotify"
-            android:layout_width="30dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_notify"
-            android:paddingEnd="6dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintStart_toEndOf="@id/ivRule"
-            app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_notifications_24" />
-
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
-            android:minHeight="24dp"
-            android:singleLine="true"
-            android:text="Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toStartOf="@+id/tvMessages"
-            app:layout_constraintStart_toEndOf="@id/ivNotify"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvMessages"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_marginEnd="6dp"
-            android:gravity="center_vertical"
-            android:text="123"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintEnd_toStartOf="@+id/ivMessages"
-            app:layout_constraintTop_toTopOf="@+id/tvName" />
-
-        <ImageView
-            android:id="@+id/ivMessages"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="12dp"
-            android:contentDescription="@string/title_legend_count"
-            app:layout_constraintBottom_toBottomOf="@+id/tvName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvName"
-            app:srcCompat="@drawable/baseline_mail_outline_24" />
-
-        <ImageView
-            android:id="@+id/ivType"
-            android:layout_width="30dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_folder_type"
-            android:paddingEnd="6dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvType"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
-            app:layout_constraintTop_toTopOf="@+id/tvType"
-            app:srcCompat="@drawable/baseline_inbox_24" />
-
-        <TextView
-            android:id="@+id/tvType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:minHeight="24dp"
-            android:text="type"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toEndOf="@id/ivType"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
-
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="6dp"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:minHeight="24dp"
-            android:text="12,345"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/tvAfter"
-            app:layout_constraintStart_toEndOf="@id/tvType"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
-
-        <TextView
-            android:id="@+id/tvAfter"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_marginEnd="6dp"
-            android:gravity="center_vertical"
-            android:text="30"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            app:layout_constraintBottom_toBottomOf="@id/tvType"
-            app:layout_constraintEnd_toStartOf="@+id/ivSync"
-            app:layout_constraintTop_toTopOf="@+id/tvType" />
-
-        <ImageView
-            android:id="@+id/ivSync"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="12dp"
-            android:contentDescription="@string/title_legend_sync_state"
-            app:layout_constraintBottom_toBottomOf="@id/tvType"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvType"
-            app:srcCompat="@drawable/baseline_sync_24" />
-
-        <TextView
-            android:id="@+id/tvKeywords"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="12dp"
-            android:gravity="center_vertical"
-            android:text="Keywords"
-            android:textAppearance="@android:style/TextAppearance.Small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
-            app:layout_constraintTop_toBottomOf="@id/tvType" />
-
-        <TextView
-            android:id="@+id/tvError"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="12dp"
-            android:text="error"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?attr/colorWarning"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivExpander"
-            app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
-
-        <View
-            android:id="@+id/paddingBottom"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clItem"
             android:layout_width="match_parent"
-            android:layout_height="6dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvError" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:background="?attr/activatableItemBackground"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="6dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/vwColor"
+                android:layout_width="6dp"
+                android:layout_height="0dp"
+                app:cardBackgroundColor="?attr/colorAccent"
+                app:cardCornerRadius="1.5dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivState"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/title_legend_connection_state"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@id/vwColor"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_cloud_off_24" />
+
+            <ImageView
+                android:id="@+id/ivReadOnly"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="6dp"
+                app:layout_constraintStart_toEndOf="@id/vwColor"
+                app:layout_constraintTop_toTopOf="@+id/tvType"
+                app:srcCompat="@drawable/baseline_visibility_24" />
+
+            <View
+                android:id="@+id/vwLevel"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvKeywords"
+                app:layout_constraintStart_toEndOf="@id/ivState"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivExpander"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_legend_expander"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
+                app:layout_constraintStart_toEndOf="@+id/vwLevel"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/expander" />
+
+            <ImageView
+                android:id="@+id/ivUnified"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_unified_folder"
+                android:paddingEnd="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@id/ivExpander"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_folder_special_24" />
+
+            <ImageView
+                android:id="@+id/ivSubscribed"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_legend_notify"
+                android:paddingEnd="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@id/ivUnified"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_bookmark_24" />
+
+            <ImageView
+                android:id="@+id/ivRule"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_edit_rules"
+                android:paddingEnd="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@id/ivSubscribed"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_filter_list_24" />
+
+            <ImageView
+                android:id="@+id/ivNotify"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_legend_notify"
+                android:paddingEnd="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintStart_toEndOf="@id/ivRule"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_notifications_24" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:minHeight="24dp"
+                android:singleLine="true"
+                android:text="Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toStartOf="@+id/tvMessages"
+                app:layout_constraintStart_toEndOf="@id/ivNotify"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvMessages"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center_vertical"
+                android:text="123"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintEnd_toStartOf="@+id/ivMessages"
+                app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+            <ImageView
+                android:id="@+id/ivMessages"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/title_legend_count"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_mail_outline_24" />
+
+            <ImageView
+                android:id="@+id/ivType"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_legend_folder_type"
+                android:paddingEnd="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvType"
+                app:layout_constraintStart_toEndOf="@id/ivExpander"
+                app:layout_constraintTop_toTopOf="@+id/tvType"
+                app:srcCompat="@drawable/baseline_inbox_24" />
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:minHeight="24dp"
+                android:text="type"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toEndOf="@id/ivType"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:minHeight="24dp"
+                android:text="12,345"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toStartOf="@+id/tvAfter"
+                app:layout_constraintStart_toEndOf="@id/tvType"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <TextView
+                android:id="@+id/tvAfter"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center_vertical"
+                android:text="30"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                app:layout_constraintBottom_toBottomOf="@id/tvType"
+                app:layout_constraintEnd_toStartOf="@+id/ivSync"
+                app:layout_constraintTop_toTopOf="@+id/tvType" />
+
+            <ImageView
+                android:id="@+id/ivSync"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/title_legend_sync_state"
+                app:layout_constraintBottom_toBottomOf="@id/tvType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvType"
+                app:srcCompat="@drawable/baseline_sync_24" />
+
+            <TextView
+                android:id="@+id/tvKeywords"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center_vertical"
+                android:text="Keywords"
+                android:textAppearance="@android:style/TextAppearance.Small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivExpander"
+                app:layout_constraintTop_toBottomOf="@id/tvType" />
+
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:text="error"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?attr/colorWarning"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivExpander"
+                app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
+
+            <View
+                android:id="@+id/paddingBottom"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvError" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

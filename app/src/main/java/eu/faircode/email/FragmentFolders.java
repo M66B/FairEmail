@@ -66,6 +66,8 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fab;
     private FloatingActionButton fabError;
 
+    private boolean cards;
+
     private long account;
     private boolean show_hidden = false;
     private String searching = null;
@@ -82,6 +84,9 @@ public class FragmentFolders extends FragmentBase {
         // Get arguments
         Bundle args = getArguments();
         account = args.getLong("account", -1);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        cards = prefs.getBoolean("cards", true);
     }
 
     @Override
@@ -137,17 +142,19 @@ public class FragmentFolders extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
-            @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
-                    outRect.setEmpty();
-                else
-                    super.getItemOffsets(outRect, view, parent, state);
-            }
-        };
-        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
-        rvFolder.addItemDecoration(itemDecorator);
+        if (!cards) {
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+                @Override
+                public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                    if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
+                        outRect.setEmpty();
+                    else
+                        super.getItemOffsets(outRect, view, parent, state);
+                }
+            };
+            itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+            rvFolder.addItemDecoration(itemDecorator);
+        }
 
         adapter = new AdapterFolder(this, account, show_hidden, null);
         rvFolder.setAdapter(adapter);
