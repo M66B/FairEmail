@@ -49,16 +49,17 @@ public class ViewCardOptional extends CardView {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean cards = prefs.getBoolean("cards", true);
+        boolean compact = prefs.getBoolean("compact", false);
         if (cards) {
             int dp6 = Helper.dp2pixels(getContext(), 6);
             int color = Helper.resolveColor(getContext(), R.attr.colorCardBackground);
 
             FrameLayout.LayoutParams lparam = (FrameLayout.LayoutParams) getLayoutParams();
-            lparam.setMargins(dp6, dp6, dp6, dp6);
+            lparam.setMargins(dp6, compact ? 0 : dp6, dp6, dp6);
             setLayoutParams(lparam);
 
             setRadius(dp6);
-            setElevation(dp6);
+            setElevation(compact ? dp6 / 2f : dp6);
             setCardBackgroundColor(color);
 
             getChildAt(0).setPadding(dp6, dp6, dp6, dp6);
