@@ -222,7 +222,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="6dp"
-        android:gravity="end|center_vertical"
+        android:gravity="start|center_vertical"
         android:minHeight="21dp"
         android:text="folder"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
