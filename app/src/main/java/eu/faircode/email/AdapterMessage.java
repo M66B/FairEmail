@@ -111,8 +111,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.github.chrisbanes.photoview.PhotoView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
@@ -225,8 +223,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, View.OnLongClickListener, View.OnKeyListener,
-            BottomNavigationView.OnNavigationItemSelectedListener {
+            View.OnClickListener, View.OnLongClickListener, View.OnKeyListener {
         private View view;
         private View vwRipple;
 
@@ -293,11 +290,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnSaveAttachments;
         private TextView tvNoInternetAttachments;
 
-        private BottomNavigationView bnvActions;
+        private View vSeparatorBody;
 
-        private ImageButton ibDecrypt;
-        private ImageButton ibImages;
         private ImageButton ibFull;
+        private ImageButton ibImages;
+        private ImageButton ibDecrypt;
+
+        private ImageButton ibReply;
+        private ImageButton ibArchive;
+        private ImageButton ibMove;
+        private ImageButton ibDelete;
+        private ImageButton ibMore;
+
         private TextView tvBody;
         private ContentLoadingProgressBar pbBody;
         private TextView tvNoInternetBody;
@@ -325,6 +329,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private TwoStateOwner cowner = new TwoStateOwner(owner, "MessageAttachments");
         private TwoStateOwner powner = new TwoStateOwner(owner, "MessagePopup");
+
+        private boolean hasJunk;
+        private boolean delete;
 
         ViewHolder(final View itemView) {
             super(itemView);
@@ -423,17 +430,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
             tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
-            bnvActions = vsBody.findViewById(R.id.bnvActions);
-            if (compact) {
-                bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
-                ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
-                lparam.height = dp36;
-                bnvActions.setLayoutParams(lparam);
-            }
+            vSeparatorBody = vsBody.findViewById(R.id.vSeparatorBody);
 
-            ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
-            ibImages = vsBody.findViewById(R.id.ibImages);
             ibFull = vsBody.findViewById(R.id.ibFull);
+            ibImages = vsBody.findViewById(R.id.ibImages);
+            ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
+
+            ibReply = vsBody.findViewById(R.id.ibReply);
+            ibArchive = vsBody.findViewById(R.id.ibArchive);
+            ibMove = vsBody.findViewById(R.id.ibMove);
+            ibDelete = vsBody.findViewById(R.id.ibDelete);
+            ibMore = vsBody.findViewById(R.id.ibMore);
+
             tvBody = vsBody.findViewById(R.id.tvBody);
             pbBody = vsBody.findViewById(R.id.pbBody);
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
@@ -492,18 +500,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
 
-                ibDecrypt.setOnClickListener(this);
                 btnDownloadAttachments.setOnClickListener(this);
                 btnSaveAttachments.setOnClickListener(this);
 
-                ibImages.setOnClickListener(this);
                 ibFull.setOnClickListener(this);
+                ibImages.setOnClickListener(this);
+                ibDecrypt.setOnClickListener(this);
+
+                ibReply.setOnClickListener(this);
+                ibArchive.setOnClickListener(this);
+                ibMove.setOnClickListener(this);
+                ibDelete.setOnClickListener(this);
+                ibMore.setOnClickListener(this);
 
                 btnCalendarAccept.setOnClickListener(this);
                 btnCalendarDecline.setOnClickListener(this);
                 btnCalendarMaybe.setOnClickListener(this);
-
-                bnvActions.setOnNavigationItemSelectedListener(this);
             }
         }
 
@@ -523,18 +535,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
 
-                ibDecrypt.setOnClickListener(null);
                 btnDownloadAttachments.setOnClickListener(null);
                 btnSaveAttachments.setOnClickListener(null);
 
-                ibImages.setOnClickListener(null);
                 ibFull.setOnClickListener(null);
+                ibImages.setOnClickListener(null);
+                ibDecrypt.setOnClickListener(null);
+
+                ibReply.setOnClickListener(null);
+                ibArchive.setOnClickListener(null);
+                ibMove.setOnClickListener(null);
+                ibDelete.setOnClickListener(null);
+                ibMore.setOnClickListener(null);
 
                 btnCalendarAccept.setOnClickListener(null);
                 btnCalendarDecline.setOnClickListener(null);
                 btnCalendarMaybe.setOnClickListener(null);
-
-                bnvActions.setOnNavigationItemSelectedListener(null);
             }
         }
 
@@ -869,11 +885,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnSaveAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
-            bnvActions.setVisibility(View.GONE);
+            vSeparatorBody.setVisibility(View.GONE);
 
-            ibDecrypt.setVisibility(View.GONE);
-            ibImages.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
+            ibImages.setVisibility(View.GONE);
+            ibDecrypt.setVisibility(View.GONE);
+
+            ibReply.setVisibility(View.GONE);
+            ibArchive.setVisibility(View.GONE);
+            ibMove.setVisibility(View.GONE);
+            ibDelete.setVisibility(View.GONE);
+            ibMore.setVisibility(View.GONE);
+
             tvBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
@@ -935,13 +958,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
-            bnvActions.setVisibility(View.VISIBLE);
-            bnvActions.setTag(null);
-            for (int i = 0; i < bnvActions.getMenu().size(); i++)
-                bnvActions.getMenu().getItem(i).setVisible(false);
+            vSeparatorBody.setVisibility(View.VISIBLE);
 
-            ibImages.setVisibility(View.INVISIBLE);
             ibFull.setVisibility(hasWebView ? View.INVISIBLE : View.GONE);
+            ibImages.setVisibility(View.INVISIBLE);
+
+            ibReply.setVisibility(View.INVISIBLE);
+            ibArchive.setVisibility(View.INVISIBLE);
+            ibMove.setVisibility(View.INVISIBLE);
+            ibDelete.setVisibility(View.INVISIBLE);
+            ibMove.setVisibility(View.INVISIBLE);
 
             if (textSize != 0)
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -1078,7 +1104,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean hasArchive = false;
                     boolean hasTrash = false;
-                    boolean hasJunk = false;
+                    hasJunk = false;
                     if (folders != null)
                         for (EntityFolder folder : folders) {
                             if (EntityFolder.ARCHIVE.equals(folder.type))
@@ -1094,38 +1120,31 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean inTrash = EntityFolder.TRASH.equals(message.folderType);
                     boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
 
-                    ActionData data = new ActionData();
-                    data.hasJunk = hasJunk;
-                    data.delete = (inTrash || !hasTrash || inOutbox);
-                    data.message = message;
-                    bnvActions.setTag(data);
+                    delete = (inTrash || !hasTrash || inOutbox);
 
-                    bnvActions.getMenu().findItem(R.id.action_more).setVisible(!inOutbox);
+                    ibReply.setEnabled(message.content);
+                    ibReply.setVisibility(!inOutbox ? View.VISIBLE : View.GONE);
 
                     if (!message.folderReadOnly) {
-                        bnvActions.getMenu().findItem(R.id.action_delete).setVisible(debug ||
-                                (inTrash && (message.uid != null || message.msgid != null)) ||
-                                (!inTrash && hasTrash && message.uid != null));
-                        bnvActions.getMenu().findItem(R.id.action_delete).setTitle(
-                                data.delete ? R.string.title_delete : R.string.title_trash);
+                        ibArchive.setVisibility(
+                                message.uid != null && (inJunk || (!inArchive && hasArchive))
+                                        ? View.VISIBLE : View.GONE);
+                        ibArchive.setImageResource(
+                                inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
 
-                        bnvActions.getMenu().findItem(R.id.action_move).setVisible(
-                                message.uid != null || inOutbox);
-                        bnvActions.getMenu().findItem(R.id.action_move).setTitle(
-                                inOutbox ? R.string.title_folder_drafts : R.string.title_move);
-                        bnvActions.getMenu().findItem(R.id.action_move).setIcon(
+                        ibMove.setVisibility(
+                                message.uid != null || inOutbox
+                                        ? View.VISIBLE : View.GONE);
+                        ibMove.setImageResource(
                                 inOutbox ? R.drawable.baseline_drafts_24 : R.drawable.baseline_folder_24);
 
-                        bnvActions.getMenu().findItem(R.id.action_archive).setVisible(
-                                message.uid != null && (inJunk || (!inArchive && hasArchive)));
-                        bnvActions.getMenu().findItem(R.id.action_archive).setTitle(
-                                inJunk ? R.string.title_folder_inbox : R.string.title_archive);
-                        bnvActions.getMenu().findItem(R.id.action_archive).setIcon(
-                                inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
+                        ibDelete.setVisibility(debug ||
+                                (inTrash && (message.uid != null || message.msgid != null)) ||
+                                (!inTrash && hasTrash && message.uid != null)
+                                ? View.VISIBLE : View.GONE);
                     }
 
-                    bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
-                    bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
+                    ibMore.setVisibility(!inOutbox ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
@@ -1444,15 +1463,39 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.btnSaveAttachments:
                         onSaveAttachments(message);
                         break;
-                    case R.id.ibDecrypt:
-                        onMenuDecrypt(message);
+
+                    case R.id.ibFull:
+                        onShowFull(message);
                         break;
                     case R.id.ibImages:
                         onShowImages(message);
                         break;
-                    case R.id.ibFull:
-                        onShowFull(message);
+                    case R.id.ibDecrypt:
+                        onActionDecrypt(message);
                         break;
+
+                    case R.id.ibReply:
+                        onActionReplyMenu(message);
+                        break;
+                    case R.id.ibArchive:
+                        if (EntityFolder.JUNK.equals(message.folderType))
+                            onActionMoveJunk(message);
+                        else
+                            onActionArchive(message);
+                        break;
+                    case R.id.ibMove:
+                        if (EntityFolder.OUTBOX.equals(message.folderType))
+                            onActionMoveOutbox(message);
+                        else
+                            onActionMove(message, false);
+                        break;
+                    case R.id.ibDelete:
+                        onActionDelete(message);
+                        break;
+                    case R.id.ibMore:
+                        onActionMore(message);
+                        break;
+
                     case R.id.btnCalendarAccept:
                     case R.id.btnCalendarDecline:
                     case R.id.btnCalendarMaybe:
@@ -1960,6 +2003,347 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "show:images");
         }
 
+        private void onActionDecrypt(TupleMessageEx message) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(FragmentMessages.ACTION_DECRYPT)
+                            .putExtra("id", message.id));
+        }
+
+        private void onActionReplyMenu(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putSerializable("message", message);
+
+            new SimpleTask<EntityIdentity>() {
+                @Override
+                protected EntityIdentity onExecute(Context context, Bundle args) {
+                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                    if (message.identity == null)
+                        return null;
+
+                    DB db = DB.getInstance(context);
+                    return db.identity().getIdentity(message.identity);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityIdentity identity) {
+                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+
+                    TupleMessageEx amessage = getMessage();
+                    if (amessage == null || !amessage.id.equals(message.id))
+                        return;
+
+                    String via = (identity == null ? null : MessageHelper.canonicalAddress(identity.email));
+                    Address[] recipients = message.getAllRecipients(via);
+
+                    if (recipients.length == 0 &&
+                            message.list_post == null &&
+                            message.receipt_to == null &&
+                            (answers == 0 && ActivityBilling.isPro(context))) {
+                        onMenuReply(message, "reply");
+                        return;
+                    }
+
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibReply);
+                    popupMenu.inflate(R.menu.menu_reply);
+                    popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
+                    popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
+                    popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
+                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem target) {
+                            switch (target.getItemId()) {
+                                case R.id.menu_reply_to_sender:
+                                    onMenuReply(message, "reply");
+                                    return true;
+                                case R.id.menu_reply_to_all:
+                                    onMenuReply(message, "reply_all");
+                                    return true;
+                                case R.id.menu_reply_list:
+                                    onMenuReply(message, "list");
+                                    return true;
+                                case R.id.menu_reply_receipt:
+                                    onMenuReply(message, "receipt");
+                                    return true;
+                                case R.id.menu_reply_answer:
+                                    onMenuAnswer(message);
+                                    return true;
+                                default:
+                                    return false;
+                            }
+                        }
+                    });
+                    popupMenu.show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:reply");
+        }
+
+        private void onMenuReply(TupleMessageEx message, String action) {
+            Intent reply = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", action)
+                    .putExtra("reference", message.id);
+            context.startActivity(reply);
+        }
+
+        private void onMenuAnswer(TupleMessageEx message) {
+            new SimpleTask<List<EntityAnswer>>() {
+                @Override
+                protected List<EntityAnswer> onExecute(Context context, Bundle args) {
+                    return DB.getInstance(context).answer().getAnswers(false);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
+                    if (answers == null || answers.size() == 0) {
+                        Snackbar snackbar = Snackbar.make(
+                                parentFragment.getView(),
+                                context.getString(R.string.title_no_answers),
+                                Snackbar.LENGTH_LONG);
+                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_EDIT_ANSWERS));
+                            }
+                        });
+                        snackbar.show();
+                    } else {
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibReply);
+
+                        int order = 0;
+                        for (EntityAnswer answer : answers)
+                            popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.name);
+
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem target) {
+                                if (!ActivityBilling.isPro(context)) {
+                                    context.startActivity(new Intent(context, ActivityBilling.class));
+                                    return true;
+                                }
+
+                                context.startActivity(new Intent(context, ActivityCompose.class)
+                                        .putExtra("action", "reply")
+                                        .putExtra("reference", message.id)
+                                        .putExtra("answer", (long) target.getItemId()));
+                                return true;
+                            }
+                        });
+
+                        popupMenu.show();
+                    }
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                }
+            }.execute(context, owner, new Bundle(), "message:answer");
+        }
+
+        private void onActionArchive(TupleMessageEx message) {
+            properties.move(message.id, EntityFolder.ARCHIVE);
+        }
+
+        private void onActionMove(TupleMessageEx message, final boolean copy) {
+            Bundle args = new Bundle();
+            args.putString("title", context.getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
+            args.putLong("account", message.account);
+            args.putLongArray("disabled", new long[]{message.folder});
+            args.putLong("message", message.id);
+            args.putBoolean("copy", copy);
+            args.putBoolean("similar", false);
+
+            FragmentDialogFolder fragment = new FragmentDialogFolder();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
+            fragment.show(parentFragment.getFragmentManager(), "message:move");
+        }
+
+        private void onActionMoveOutbox(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    EntityMessage message;
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        db.folder().setFolderError(message.folder, null);
+
+                        File source = message.getFile(context);
+
+                        // Insert into drafts
+                        EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
+                        message.id = null;
+                        message.folder = drafts.id;
+                        message.ui_snoozed = null;
+                        message.error = null;
+                        message.id = db.message().insertMessage(message);
+
+                        File target = message.getFile(context);
+                        source.renameTo(target);
+
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                        for (EntityAttachment attachment : attachments)
+                            db.attachment().setMessage(attachment.id, message.id);
+
+                        EntityOperation.queue(context, message, EntityOperation.ADD);
+
+                        // Delete from outbox
+                        db.message().deleteMessage(id); // will delete operation too
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    if (message.identity != null) {
+                        // Identity can be deleted
+                        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                        nm.cancel("send:" + message.identity, 1);
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:move:draft");
+        }
+
+        private void onActionMoveJunk(TupleMessageEx message) {
+            properties.move(message.id, EntityFolder.INBOX);
+        }
+
+        private void onActionDelete(TupleMessageEx message) {
+            if (delete) {
+                Bundle aargs = new Bundle();
+                aargs.putString("question", context.getString(R.string.title_ask_delete));
+                aargs.putLong("id", message.id);
+
+                FragmentDialogAsk ask = new FragmentDialogAsk();
+                ask.setArguments(aargs);
+                ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
+                ask.show(parentFragment.getFragmentManager(), "message:delete");
+            } else
+                properties.move(message.id, EntityFolder.TRASH);
+        }
+
+        private void onActionMore(TupleMessageEx message) {
+            boolean show_headers = properties.getValue("headers", message.id);
+
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
+            popupMenu.inflate(R.menu.menu_message);
+
+            popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
+            popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
+
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(message.uid != null && !message.folderReadOnly);
+
+            popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
+
+            popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(hasJunk && !EntityFolder.JUNK.equals(message.folderType));
+
+            popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
+            popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && message.content);
+            popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
+
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
+
+            popupMenu.getMenu().findItem(R.id.menu_raw).setEnabled(
+                    message.uid != null && (message.raw == null || message.raw));
+            popupMenu.getMenu().findItem(R.id.menu_raw).setTitle(
+                    message.raw == null || !message.raw ? R.string.title_raw_download : R.string.title_raw_save);
+
+            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
+
+            popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(
+                    message.content && message.to != null && message.to.length > 0);
+
+            popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem target) {
+                    switch (target.getItemId()) {
+                        case R.id.menu_forward:
+                            onMenuForward(message);
+                            return true;
+                        case R.id.menu_editasnew:
+                            onMenuEditAsNew(message);
+                            return true;
+                        case R.id.menu_unseen:
+                            onMenuUnseen(message);
+                            return true;
+                        case R.id.menu_flag_color:
+                            onMenuColoredStar(message);
+                            return true;
+                        case R.id.menu_copy:
+                            onActionMove(message, true);
+                            return true;
+                        case R.id.menu_delete:
+                            // For emergencies
+                            onMenuDelete(message);
+                            return true;
+                        case R.id.menu_junk:
+                            onMenuJunk(message);
+                            return true;
+                        case R.id.menu_decrypt:
+                            onActionDecrypt(message);
+                            return true;
+                        case R.id.menu_resync:
+                            onMenuResync(message);
+                            return true;
+                        case R.id.menu_create_rule:
+                            onMenuCreateRule(message);
+                            return true;
+                        case R.id.menu_manage_keywords:
+                            onMenuManageKeywords(message);
+                            return true;
+                        case R.id.menu_share:
+                            onMenuShare(message);
+                            return true;
+                        case R.id.menu_print:
+                            onMenuPrint(message);
+                            return true;
+                        case R.id.menu_show_headers:
+                            onMenuShowHeaders(message);
+                            return true;
+                        case R.id.menu_raw:
+                            onMenuRaw(message);
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+            });
+            popupMenu.show();
+        }
+
         private void loadText(TupleMessageEx message) {
             if (message.content) {
                 boolean show_images = properties.getValue("images", message.id);
@@ -2207,39 +2591,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             fragment.show(parentFragment.getFragmentManager(), "view:image");
         }
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            ActionData data = (ActionData) bnvActions.getTag();
-            if (data == null)
-                return false;
-
-            switch (item.getItemId()) {
-                case R.id.action_more:
-                    onActionMore(data);
-                    return true;
-                case R.id.action_delete:
-                    onActionDelete(data);
-                    return true;
-                case R.id.action_move:
-                    if (EntityFolder.OUTBOX.equals(data.message.folderType))
-                        onActionMoveOutbox(data);
-                    else
-                        onActionMove(data.message, false);
-                    return true;
-                case R.id.action_archive:
-                    if (EntityFolder.JUNK.equals(data.message.folderType))
-                        onActionMoveJunk(data);
-                    else
-                        onActionArchive(data);
-                    return true;
-                case R.id.action_reply:
-                    onActionReplyMenu(data);
-                    return true;
-                default:
-                    return false;
-            }
-        }
-
         private void onMenuForward(final TupleMessageEx message) {
             Intent forward = new Intent(context, ActivityCompose.class)
                     .putExtra("action", "forward")
@@ -2338,13 +2689,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ask.setArguments(aargs);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
             ask.show(parentFragment.getFragmentManager(), "message:junk");
-        }
-
-        private void onMenuDecrypt(TupleMessageEx message) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(FragmentMessages.ACTION_DECRYPT)
-                            .putExtra("id", message.id));
         }
 
         private void onMenuResync(TupleMessageEx message) {
@@ -2599,356 +2943,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void onActionMore(final ActionData data) {
-            boolean show_headers = properties.getValue("headers", data.message.id);
-
-            View anchor = bnvActions.findViewById(R.id.action_more);
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
-            popupMenu.inflate(R.menu.menu_message);
-
-            popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(data.message.content);
-
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
-
-            popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
-
-            popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(
-                    data.hasJunk && !EntityFolder.JUNK.equals(data.message.folderType));
-
-            popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && data.message.content);
-            popupMenu.getMenu().findItem(R.id.menu_print).setVisible(Helper.canPrint(context));
-
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(data.message.uid != null);
-
-            popupMenu.getMenu().findItem(R.id.menu_raw).setEnabled(
-                    data.message.uid != null && (data.message.raw == null || data.message.raw));
-            popupMenu.getMenu().findItem(R.id.menu_raw).setTitle(
-                    data.message.raw == null || !data.message.raw ? R.string.title_raw_download : R.string.title_raw_save);
-
-            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(data.message.uid != null && !data.message.folderReadOnly);
-
-            popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(
-                    data.message.content && data.message.to != null && data.message.to.length > 0);
-
-            popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(data.message.uid != null);
-
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem target) {
-                    switch (target.getItemId()) {
-                        case R.id.menu_forward:
-                            onMenuForward(data.message);
-                            return true;
-                        case R.id.menu_editasnew:
-                            onMenuEditAsNew(data.message);
-                            return true;
-                        case R.id.menu_unseen:
-                            onMenuUnseen(data.message);
-                            return true;
-                        case R.id.menu_flag_color:
-                            onMenuColoredStar(data.message);
-                            return true;
-                        case R.id.menu_copy:
-                            onActionMove(data.message, true);
-                            return true;
-                        case R.id.menu_delete:
-                            // For emergencies
-                            onMenuDelete(data.message);
-                            return true;
-                        case R.id.menu_junk:
-                            onMenuJunk(data.message);
-                            return true;
-                        case R.id.menu_decrypt:
-                            onMenuDecrypt(data.message);
-                            return true;
-                        case R.id.menu_resync:
-                            onMenuResync(data.message);
-                            return true;
-                        case R.id.menu_create_rule:
-                            onMenuCreateRule(data.message);
-                            return true;
-                        case R.id.menu_manage_keywords:
-                            onMenuManageKeywords(data.message);
-                            return true;
-                        case R.id.menu_share:
-                            onMenuShare(data.message);
-                            return true;
-                        case R.id.menu_print:
-                            onMenuPrint(data.message);
-                            return true;
-                        case R.id.menu_show_headers:
-                            onMenuShowHeaders(data.message);
-                            return true;
-                        case R.id.menu_raw:
-                            onMenuRaw(data.message);
-                            return true;
-                        default:
-                            return false;
-                    }
-                }
-            });
-            popupMenu.show();
-        }
-
-        private void onActionDelete(final ActionData data) {
-            if (data.delete) {
-                Bundle aargs = new Bundle();
-                aargs.putString("question", context.getString(R.string.title_ask_delete));
-                aargs.putLong("id", data.message.id);
-
-                FragmentDialogAsk ask = new FragmentDialogAsk();
-                ask.setArguments(aargs);
-                ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
-                ask.show(parentFragment.getFragmentManager(), "message:delete");
-            } else
-                properties.move(data.message.id, EntityFolder.TRASH);
-        }
-
-        private void onActionMove(final TupleMessageEx message, final boolean copy) {
-            Bundle args = new Bundle();
-            args.putString("title", context.getString(copy ? R.string.title_copy_to : R.string.title_move_to_folder));
-            args.putLong("account", message.account);
-            args.putLongArray("disabled", new long[]{message.folder});
-            args.putLong("message", message.id);
-            args.putBoolean("copy", copy);
-            args.putBoolean("similar", false);
-
-            FragmentDialogFolder fragment = new FragmentDialogFolder();
-            fragment.setArguments(args);
-            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
-            fragment.show(parentFragment.getFragmentManager(), "message:move");
-        }
-
-        private void onActionMoveOutbox(ActionData data) {
-            Bundle args = new Bundle();
-            args.putLong("id", data.message.id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    EntityMessage message;
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        message = db.message().getMessage(id);
-                        if (message == null)
-                            return null;
-
-                        db.folder().setFolderError(message.folder, null);
-
-                        File source = message.getFile(context);
-
-                        // Insert into drafts
-                        EntityFolder drafts = db.folder().getFolderByType(message.account, EntityFolder.DRAFTS);
-                        message.id = null;
-                        message.folder = drafts.id;
-                        message.ui_snoozed = null;
-                        message.error = null;
-                        message.id = db.message().insertMessage(message);
-
-                        File target = message.getFile(context);
-                        source.renameTo(target);
-
-                        List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                        for (EntityAttachment attachment : attachments)
-                            db.attachment().setMessage(attachment.id, message.id);
-
-                        EntityOperation.queue(context, message, EntityOperation.ADD);
-
-                        // Delete from outbox
-                        db.message().deleteMessage(id); // will delete operation too
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    if (message.identity != null) {
-                        // Identity can be deleted
-                        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                        nm.cancel("send:" + message.identity, 1);
-                    }
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:move:draft");
-        }
-
-        private void onActionArchive(ActionData data) {
-            properties.move(data.message.id, EntityFolder.ARCHIVE);
-        }
-
-        private void onActionMoveJunk(ActionData data) {
-            properties.move(data.message.id, EntityFolder.INBOX);
-        }
-
-        private void onActionReplyMenu(final ActionData data) {
-            Bundle args = new Bundle();
-            args.putSerializable("message", data.message);
-
-            new SimpleTask<EntityIdentity>() {
-                @Override
-                protected EntityIdentity onExecute(Context context, Bundle args) {
-                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                    if (message.identity == null)
-                        return null;
-
-                    DB db = DB.getInstance(context);
-                    return db.identity().getIdentity(message.identity);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, EntityIdentity identity) {
-                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-
-                    TupleMessageEx amessage = getMessage();
-                    if (amessage == null || !amessage.id.equals(message.id))
-                        return;
-
-                    String via = (identity == null ? null : MessageHelper.canonicalAddress(identity.email));
-                    Address[] recipients = data.message.getAllRecipients(via);
-
-                    if (recipients.length == 0 &&
-                            data.message.list_post == null &&
-                            data.message.receipt_to == null &&
-                            (answers == 0 && ActivityBilling.isPro(context))) {
-                        onMenuReply(data, "reply");
-                        return;
-                    }
-
-                    View anchor = bnvActions.findViewById(R.id.action_reply);
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
-                    popupMenu.inflate(R.menu.menu_reply);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(data.message.list_post != null);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(data.message.receipt_to != null);
-                    popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
-
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem target) {
-                            switch (target.getItemId()) {
-                                case R.id.menu_reply_to_sender:
-                                    onMenuReply(data, "reply");
-                                    return true;
-                                case R.id.menu_reply_to_all:
-                                    onMenuReply(data, "reply_all");
-                                    return true;
-                                case R.id.menu_reply_list:
-                                    onMenuReply(data, "list");
-                                    return true;
-                                case R.id.menu_reply_receipt:
-                                    onMenuReply(data, "receipt");
-                                    return true;
-                                case R.id.menu_reply_answer:
-                                    onMenuAnswer(data);
-                                    return true;
-                                default:
-                                    return false;
-                            }
-                        }
-                    });
-                    popupMenu.show();
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:reply");
-        }
-
-        private void onMenuReply(final ActionData data, String action) {
-            Intent reply = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", action)
-                    .putExtra("reference", data.message.id);
-            context.startActivity(reply);
-        }
-
-        private void onMenuAnswer(final ActionData data) {
-            new SimpleTask<List<EntityAnswer>>() {
-                @Override
-                protected List<EntityAnswer> onExecute(Context context, Bundle args) {
-                    return DB.getInstance(context).answer().getAnswers(false);
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<EntityAnswer> answers) {
-                    if (answers == null || answers.size() == 0) {
-                        Snackbar snackbar = Snackbar.make(
-                                parentFragment.getView(),
-                                context.getString(R.string.title_no_answers),
-                                Snackbar.LENGTH_LONG);
-                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                                lbm.sendBroadcast(new Intent(ActivityView.ACTION_EDIT_ANSWERS));
-                            }
-                        });
-                        snackbar.show();
-                    } else {
-                        View anchor = bnvActions.findViewById(R.id.action_reply);
-                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
-
-                        int order = 0;
-                        for (EntityAnswer answer : answers)
-                            popupMenu.getMenu().add(Menu.NONE, answer.id.intValue(), order++, answer.name);
-
-                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                            @Override
-                            public boolean onMenuItemClick(MenuItem target) {
-                                if (!ActivityBilling.isPro(context)) {
-                                    context.startActivity(new Intent(context, ActivityBilling.class));
-                                    return true;
-                                }
-
-                                context.startActivity(new Intent(context, ActivityCompose.class)
-                                        .putExtra("action", "reply")
-                                        .putExtra("reference", data.message.id)
-                                        .putExtra("answer", (long) target.getItemId()));
-                                return true;
-                            }
-                        });
-
-                        popupMenu.show();
-                    }
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
-                }
-            }.execute(context, owner, new Bundle(), "message:answer");
-        }
-
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {
             return new ItemDetailsMessage(this);
         }
 
         Long getKey() {
             return getKeyAtPosition(getAdapterPosition());
-        }
-
-        private class ActionData {
-            boolean hasJunk;
-            boolean delete;
-            TupleMessageEx message;
         }
     }
 
