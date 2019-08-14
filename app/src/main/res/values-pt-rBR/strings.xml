@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Contatos</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Novas mensagens</string>
+    <string name="shortcut_refresh">Atualizar</string>
     <string name="shortcut_compose">Escrever</string>
     <string name="shortcut_setup">Configurações</string>
     <plurals name="title_notification_synchronizing">
@@ -39,13 +40,17 @@
         <item quantity="one">%1$d nova</item>
         <item quantity="other">%1$d novas</item>
     </plurals>
+    <plurals name="title_selected_messages">
+        <item quantity="one">%1$d mensagem selecionada</item>
+        <item quantity="other">%1$d mensagens selecionadas</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Mover a mensagem de %1$d para %2$s?</item>
         <item quantity="other">Mover as mensagens de %1$d para %2$s?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Excluir a mensagem %1$d permanentemente?</item>
-        <item quantity="other">Excluir as mensagens %1$d permanentemente?</item>
+        <item quantity="other">Excluir %1$d mensagens permanentemente?</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Tratar %1$d mensagem como spam?</item>
@@ -174,6 +179,7 @@
     <string name="title_advanced_manage_connectivity">Gerenciar conectividade</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
+    <string name="title_advanced_cards">Mostrar cartões</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
@@ -184,6 +190,7 @@
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_flags">Mostrar estrelas</string>
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
+    <string name="title_advanced_preview_italic">Mostrar visualização de mensagem em itálicos</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
@@ -489,6 +496,7 @@
     <string name="title_signature_valid">Assinatura de mensagem válida</string>
     <string name="title_signature_invalid">Assinatura de mensagem inválida</string>
     <string name="title_search">Pesquisar</string>
+    <string name="title_search_server">Pesquisar no servidor</string>
     <string name="title_search_in">Procurar em</string>
     <string name="title_searching">Pesquisando \'%1$s\'</string>
     <string name="title_sort_on">Ordenar por</string>
@@ -507,6 +515,7 @@
     <string name="title_compact">Visualização compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
     <string name="title_select_all">Selecionar todos</string>
+    <string name="title_force_sync">Forçar sincronização</string>
     <string name="title_previous">Voltar</string>
     <string name="title_next">Avançar</string>
     <string name="title_answer_caption">Editar template</string>
@@ -534,11 +543,13 @@
     <string name="title_rule_recipient">Destinatário contém</string>
     <string name="title_rule_subject">Assunto contém</string>
     <string name="title_rule_header">Cabeçalho contém</string>
+    <string name="title_rule_time">Tempo entre</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Ação</string>
     <string name="title_rule_action_remark">Esta ação será aplicada a novas mensagens que chegam no pasta %1$s</string>
     <string name="title_rule_hours">Horas</string>
+    <string name="title_rule_schedule_end">Até o final da condição de tempo</string>
     <string name="title_rule_folder">Pasta</string>
     <string name="title_rule_thread">Todas as mensagens na mesma conversa e pasta</string>
     <string name="title_rule_identity">Identidade</string>
@@ -664,6 +675,7 @@
     <string name="title_report">Reportar</string>
     <string name="title_fix">Corrigir</string>
     <string name="title_enable">Habilitar</string>
+    <string name="title_any">Qualquer um</string>
     <string name="title_executing">Executando</string>
     <string name="title_completed">Concluído</string>
     <string name="title_ask_what">Perguntar o que fazer</string>
@@ -696,6 +708,8 @@
     <string name="title_search_special_unseen">não_lida</string>
     <string name="title_search_special_flagged">favorito</string>
     <string name="title_search_special_snoozed">adiado</string>
+    <string name="title_widget_unseen">Apenas mensagens não lidas</string>
+    <string name="title_widget_flagged">Apenas mensagens com estrela</string>
     <string-array name="pollIntervalNames">
         <item>Sempre</item>
         <item>A cada 15 minutos</item>

@@ -178,6 +178,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_manage_connectivity">Verbindungsfähigkeiten verwalten</string>
     <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_startup">Zum Start anzeigen</string>
+    <string name="title_advanced_cards">Mails auf Karten anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
