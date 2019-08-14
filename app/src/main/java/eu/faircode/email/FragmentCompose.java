@@ -1779,8 +1779,12 @@ public class FragmentCompose extends FragmentBase {
 
         try (Cursor cursor = context.getContentResolver().query(uri, null, null, null, null, null)) {
             if (cursor != null && cursor.moveToFirst()) {
-                name = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                s = cursor.getString(cursor.getColumnIndex(OpenableColumns.SIZE));
+                int colName = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                int colSize = cursor.getColumnIndex(OpenableColumns.SIZE);
+                if (colName >= 0)
+                    name = cursor.getString(colName);
+                if (colSize >= 0)
+                    s = cursor.getString(colSize);
             }
 
         }
