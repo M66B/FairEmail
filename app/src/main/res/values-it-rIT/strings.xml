@@ -178,6 +178,7 @@
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
+    <string name="title_advanced_cards">Mostra carte</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>

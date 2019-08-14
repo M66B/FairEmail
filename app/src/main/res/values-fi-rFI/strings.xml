@@ -179,6 +179,7 @@
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
+    <string name="title_advanced_cards">Näytä kortit</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
