@@ -4,66 +4,70 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clItem"
+    <eu.faircode.email.ViewCardOptional
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/activatableItemBackground"
-        android:foreground="?attr/selectableItemBackground"
-        android:padding="6dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clItem"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="6dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@+id/ivStop"
-            app:layout_constraintEnd_toStartOf="@+id/tvOrder"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivStop" />
+            android:background="?attr/activatableItemBackground"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="6dp">
 
-        <TextView
-            android:id="@+id/tvOrder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="Order"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@+id/ivStop"
-            app:layout_constraintEnd_toStartOf="@+id/ivStop"
-            app:layout_constraintTop_toTopOf="@+id/ivStop" />
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@+id/ivStop"
+                app:layout_constraintEnd_toStartOf="@+id/tvOrder"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivStop" />
 
-        <ImageView
-            android:id="@+id/ivStop"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/title_legend_stop"
-            android:src="@drawable/baseline_stop_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tvOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:text="Order"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@+id/ivStop"
+                app:layout_constraintEnd_toStartOf="@+id/ivStop"
+                app:layout_constraintTop_toTopOf="@+id/ivStop" />
 
-        <TextView
-            android:id="@+id/tvCondition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Condition"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvName" />
+            <ImageView
+                android:id="@+id/ivStop"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_legend_stop"
+                android:src="@drawable/baseline_stop_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvAction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Action"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCondition" />
+            <TextView
+                android:id="@+id/tvCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Condition"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tvAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Action"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCondition" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </eu.faircode.email.ViewCardOptional>
 </FrameLayout>

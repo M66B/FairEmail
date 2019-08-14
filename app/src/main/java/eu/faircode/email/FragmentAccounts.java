@@ -23,6 +23,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -37,6 +38,7 @@ import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +50,9 @@ import java.util.List;
 
 public class FragmentAccounts extends FragmentBase {
     private boolean settings;
+
+    private boolean cards;
+
     private RecyclerView rvAccount;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -61,8 +66,12 @@ public class FragmentAccounts extends FragmentBase {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Bundle args = getArguments();
         settings = (args == null || args.getBoolean("settings", true));
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        cards = prefs.getBoolean("cards", true);
     }
 
     @Override
@@ -86,9 +95,11 @@ public class FragmentAccounts extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAccount.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
-        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
-        rvAccount.addItemDecoration(itemDecorator);
+        if (!cards) {
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
+            itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+            rvAccount.addItemDecoration(itemDecorator);
+        }
 
         adapter = new AdapterAccount(this, settings);
         rvAccount.setAdapter(adapter);

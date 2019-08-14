@@ -79,7 +79,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -89,7 +88,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.Fragment;
@@ -167,7 +165,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private LayoutInflater inflater;
     private boolean suitable;
 
-    private int dp3;
     private int dp36;
     private int colorPrimary;
     private int colorAccent;
@@ -180,10 +177,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean contacts;
     private float textSize;
 
-    private boolean cards;
     private boolean date;
     private boolean threading;
-    private boolean circular;
     private boolean name_email;
     private boolean subject_italic;
     private boolean flags;
@@ -232,11 +227,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener, View.OnLongClickListener, View.OnKeyListener,
             BottomNavigationView.OnNavigationItemSelectedListener {
-        private CardView card;
         private View view;
         private View vwRipple;
 
-        private CardView vwColor;
+        private View vwColor;
         private ImageView ivExpander;
         private ImageView ivFlagged;
         private ImageView ivAvatar;
@@ -335,7 +329,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         ViewHolder(final View itemView) {
             super(itemView);
 
-            card = itemView.findViewById(R.id.card);
             view = itemView.findViewById(R.id.clItem);
             vwRipple = itemView.findViewById(R.id.vwRipple);
 
@@ -361,20 +354,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
             pbLoading = itemView.findViewById(R.id.pbLoading);
-
-            if (!cards) {
-                FrameLayout.LayoutParams lparam = (FrameLayout.LayoutParams) card.getLayoutParams();
-                lparam.setMargins(0, 0, 0, 0);
-                card.setLayoutParams(lparam);
-
-                card.setRadius(0);
-                card.setElevation(0);
-                card.setCardBackgroundColor(Color.TRANSPARENT);
-
-                view.setPadding(0, 0, 0, 0);
-            }
-
-            vwColor.setRadius(circular ? dp3 / 2f : 0f);
         }
 
         private void ensureExpanded() {
@@ -668,7 +647,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime.setTextColor(colorUnseen);
 
             // Account color
-            vwColor.setCardBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
+            vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
             vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
 
             // Expander
@@ -2993,7 +2972,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
         this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
-        this.dp3 = Helper.dp2pixels(context, 3);
         this.dp36 = Helper.dp2pixels(context, 36);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
         this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
@@ -3007,10 +2985,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.textSize = Helper.getTextSize(context, zoom);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.cards = prefs.getBoolean("cards", true);
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
-        this.circular = prefs.getBoolean("circular", true);
         this.name_email = prefs.getBoolean("name_email", !compact);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.flags = prefs.getBoolean("flags", true);

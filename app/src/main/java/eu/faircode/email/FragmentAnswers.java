@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,12 +41,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentAnswers extends FragmentBase {
+    private boolean cards;
+
     private RecyclerView rvAnswer;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
     private FloatingActionButton fab;
 
     private AdapterAnswer adapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        cards = prefs.getBoolean("cards", true);
+    }
 
     @Override
     @Nullable
@@ -66,9 +78,11 @@ public class FragmentAnswers extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvAnswer.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
-        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
-        rvAnswer.addItemDecoration(itemDecorator);
+        if (!cards) {
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
+            itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+            rvAnswer.addItemDecoration(itemDecorator);
+        }
 
         adapter = new AdapterAnswer(this);
         rvAnswer.setAdapter(adapter);

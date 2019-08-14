@@ -3,13 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
+    <eu.faircode.email.ViewStripe
         android:id="@+id/vwColor"
         android:layout_width="6dp"
         android:layout_height="0dp"
-        app:cardBackgroundColor="?attr/colorAccent"
-        app:cardCornerRadius="1.5dp"
-        app:cardElevation="0dp"
+        android:background="?attr/colorAccent"
         app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

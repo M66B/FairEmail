@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,6 +43,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentIdentities extends FragmentBase {
+    private boolean cards;
+
     private RecyclerView rvIdentity;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -48,6 +52,14 @@ public class FragmentIdentities extends FragmentBase {
     private ObjectAnimator animator;
 
     private AdapterIdentity adapter;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        cards = prefs.getBoolean("cards", true);
+    }
 
     @Override
     @Nullable
@@ -68,9 +80,11 @@ public class FragmentIdentities extends FragmentBase {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvIdentity.setLayoutManager(llm);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
-        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
-        rvIdentity.addItemDecoration(itemDecorator);
+        if (!cards) {
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
+            itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+            rvIdentity.addItemDecoration(itemDecorator);
+        }
 
         adapter = new AdapterIdentity(this);
         rvIdentity.setAdapter(adapter);

@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,15 +41,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentRules extends FragmentBase {
+    private long account;
+    private long folder;
+
+    private boolean cards;
+
     private RecyclerView rvRule;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
     private FloatingActionButton fab;
 
     private AdapterRule adapter;
-
-    private long account;
-    private long folder;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ public class FragmentRules extends FragmentBase {
         Bundle args = getArguments();
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        cards = prefs.getBoolean("cards", true);
     }
 
     @Override
@@ -81,9 +88,11 @@ public class FragmentRules extends FragmentBase {
         adapter = new AdapterRule(this);
         rvRule.setAdapter(adapter);
 
-        DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
-        itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
-        rvRule.addItemDecoration(itemDecorator);
+        if (!cards) {
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
+            itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
+            rvRule.addItemDecoration(itemDecorator);
+        }
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
