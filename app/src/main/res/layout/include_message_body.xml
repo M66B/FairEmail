@@ -38,135 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inAttachments" />
 
-    <ImageButton
-        android:id="@+id/ibFull"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_legend_show_full"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_fullscreen_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_legend_show_full"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvBody" />
-
-    <ImageButton
-        android:id="@+id/ibImages"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_legend_show_images"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_image_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_legend_show_images"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibFull" />
-
-    <ImageButton
-        android:id="@+id/ibDecrypt"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_decrypt"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_no_encryption_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_decrypt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibImages" />
-
-    <ImageButton
-        android:id="@+id/ibReply"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="6dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_reply"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_reply_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_reply"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibDecrypt" />
-
-    <ImageButton
-        android:id="@+id/ibArchive"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_archive"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_archive_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_archive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibReply" />
-
-    <ImageButton
-        android:id="@+id/ibMove"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_move"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_folder_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_move"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibArchive" />
-
-    <ImageButton
-        android:id="@+id/ibDelete"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_trash"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_delete_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_trash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibMove" />
-
-    <ImageButton
-        android:id="@+id/ibMore"
-        android:layout_width="36dp"
-        android:layout_height="48dp"
-        android:background="?attr/colorSeparator"
-        android:contentDescription="@string/title_more"
-        android:paddingStart="6dp"
-        android:paddingTop="12dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="12dp"
-        android:src="@drawable/baseline_more_horiz_24"
-        android:tint="@color/bottomnav_foreground"
-        android:tooltipText="@string/title_more"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ibDelete" />
-
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbBody"
         style="@style/Base.Widget.AppCompat.ProgressBar"
@@ -204,6 +75,135 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvNoInternetBody" />
+
+    <ImageButton
+        android:id="@+id/ibFull"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_legend_show_full"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_fullscreen_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_legend_show_full"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvBody" />
+
+    <ImageButton
+        android:id="@+id/ibImages"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_legend_show_images"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_image_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_legend_show_images"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibFull" />
+
+    <ImageButton
+        android:id="@+id/ibDecrypt"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_decrypt"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_no_encryption_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_decrypt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibImages" />
+
+    <ImageButton
+        android:id="@+id/ibMore"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_more"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_more_horiz_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibDecrypt" />
+
+    <ImageButton
+        android:id="@+id/ibDelete"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_trash"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_delete_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_trash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibMore" />
+
+    <ImageButton
+        android:id="@+id/ibMove"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_move"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_folder_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_move"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibDelete" />
+
+    <ImageButton
+        android:id="@+id/ibArchive"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_archive"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_archive_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_archive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibMove" />
+
+    <ImageButton
+        android:id="@+id/ibReply"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_reply"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_reply_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_reply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibArchive" />
 
     <include
         android:id="@+id/InCalendar"
