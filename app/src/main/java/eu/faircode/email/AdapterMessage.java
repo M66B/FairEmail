@@ -1890,23 +1890,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void initToolbar() {
-            ibExpander.setVisibility(View.VISIBLE);
-
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean toolbar = prefs.getBoolean("toolbar", true);
+            boolean cards = prefs.getBoolean("cards", true);
+
+            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) ibExpander.getLayoutParams();
+            lparam.setMarginEnd(cards ? 0 : Helper.dp2pixels(ibExpander.getContext(), 6));
+            ibExpander.setLayoutParams(lparam);
+
+            ibExpander.setImageLevel(toolbar ? 0 /* less */ : 1 /* more */);
+            ibExpander.setVisibility(View.VISIBLE);
+
             if (toolbar) {
-                ibExpander.setImageLevel(0 /* less */);
-                expand(ibFull);
-                expand(ibImages);
-                expand(ibDecrypt);
-                expand(ibMore);
-                expand(ibDelete);
-                expand(ibMove);
-                expand(ibArchive);
-                expand(ibForward);
-                expand(ibReply);
+                expand(ibFull, cards);
+                expand(ibImages, cards);
+                expand(ibDecrypt, cards);
+                expand(ibMore, cards);
+                expand(ibDelete, cards);
+                expand(ibMove, cards);
+                expand(ibArchive, cards);
+                expand(ibForward, cards);
+                expand(ibReply, cards);
             } else {
-                ibExpander.setImageLevel(1 /* more */);
                 collapse(ibFull);
                 collapse(ibImages);
                 collapse(ibDecrypt);
@@ -1919,21 +1924,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void expand(View view) {
+        private void expand(View view, boolean cards) {
             int dp6 = Helper.dp2pixels(view.getContext(), 6);
             int dp36 = Helper.dp2pixels(view.getContext(), 36);
             view.setPadding(dp6, dp6, dp6, dp6);
-            ViewGroup.LayoutParams lparam = view.getLayoutParams();
+            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) view.getLayoutParams();
             lparam.width = dp36;
             lparam.height = dp36;
+            lparam.setMarginEnd(cards ? 0 : dp6);
             view.setLayoutParams(lparam);
         }
 
         private void collapse(View view) {
             view.setPadding(0, 0, 0, 0);
-            ViewGroup.LayoutParams lparam = view.getLayoutParams();
+            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) view.getLayoutParams();
             lparam.width = 0;
             lparam.height = 0;
+            lparam.setMarginEnd(0);
             view.setLayoutParams(lparam);
         }
 
