@@ -68,7 +68,7 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="6dp"
         android:fontFamily="monospace"
-        android:minHeight="432dp"
+        android:minHeight="60dp"
         android:paddingBottom="6dp"
         android:text="Body"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -233,6 +233,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibForward" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tvBody,ibReply" />
+
     <include
         android:id="@+id/InCalendar"
         layout="@layout/include_message_calendar"
@@ -240,7 +247,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvBody" />
+        app:layout_constraintTop_toBottomOf="@id/barrier_body" />
 
     <include
         android:id="@+id/inAttachmentsAlt"
