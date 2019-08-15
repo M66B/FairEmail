@@ -39,6 +39,8 @@ import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -52,9 +54,11 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.UIDFolder;
 import javax.mail.search.BodyTerm;
+import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
+import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.RecipientStringTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
@@ -264,9 +268,32 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 state.ifolder.open(Folder.READ_WRITE);
 
                 Log.i("Boundary server query=" + query);
-                if (query == null)
-                    state.imessages = state.ifolder.getMessages();
-                else if (query.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
+                if (query == null) {
+                    Calendar cal_browse = Calendar.getInstance();
+                    if (browsable.synchronize)
+                        cal_browse.add(Calendar.DAY_OF_MONTH, -browsable.keep_days);
+                    else {
+                        Long oldest = db.message().getMessageOldest(browsable.id);
+                        Log.i("Boundary oldest=" + oldest);
+                        if (oldest != null)
+                            cal_browse.setTimeInMillis(oldest);
+                    }
+
+                    cal_browse.set(Calendar.HOUR_OF_DAY, 0);
+                    cal_browse.set(Calendar.MINUTE, 0);
+                    cal_browse.set(Calendar.SECOND, 0);
+                    cal_browse.set(Calendar.MILLISECOND, 0);
+
+                    cal_browse.add(Calendar.DAY_OF_MONTH, 1);
+
+                    long browse_time = cal_browse.getTimeInMillis();
+                    if (browse_time < 0)
+                        browse_time = 0;
+
+                    Log.i("Boundary browse after=" + new Date(browse_time));
+
+                    state.imessages = state.ifolder.search(new ReceivedDateTerm(ComparisonTerm.LE, new Date(browse_time)));
+                } else if (query.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
                     String special = query.split(":")[1];
                     if (context.getString(R.string.title_search_special_unseen).equals(special))
                         state.imessages = state.ifolder.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
