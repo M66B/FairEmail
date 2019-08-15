@@ -970,7 +970,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             vSeparatorBody.setVisibility(View.VISIBLE);
 
-            initToolbar();
+            initToolbar(message);
 
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
@@ -1483,16 +1483,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
 
                     case R.id.ibExpander:
-                        onToggleToolbar();
+                        onToggleToolbar(message);
                         break;
                     case R.id.ibFull:
                         onShowFull(message);
+                        autoToolbar(message);
                         break;
                     case R.id.ibImages:
                         onShowImages(message);
+                        autoToolbar(message);
                         break;
                     case R.id.ibDecrypt:
                         onActionDecrypt(message);
+                        autoToolbar(message);
                         break;
 
                     case R.id.ibReply:
@@ -1500,21 +1503,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
                     case R.id.ibForward:
                         onActionForward(message);
+                        autoToolbar(message);
                         break;
                     case R.id.ibArchive:
                         if (EntityFolder.JUNK.equals(message.folderType))
                             onActionMoveJunk(message);
                         else
                             onActionArchive(message);
+                        autoToolbar(message);
                         break;
                     case R.id.ibMove:
                         if (EntityFolder.OUTBOX.equals(message.folderType))
                             onActionMoveOutbox(message);
                         else
                             onActionMove(message, false);
+                        autoToolbar(message);
                         break;
                     case R.id.ibDelete:
                         onActionDelete(message);
+                        autoToolbar(message);
                         break;
                     case R.id.ibMore:
                         onActionMore(message);
@@ -1882,17 +1889,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bindExpanded(message);
         }
 
-        private void onToggleToolbar() {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean toolbar = prefs.getBoolean("toolbar", true);
-            prefs.edit().putBoolean("toolbar", !toolbar).apply();
-            initToolbar();
+        private void onToggleToolbar(TupleMessageEx message) {
+            boolean toolbar = !properties.getValue("toolbar", message.id);
+            properties.setValue("toolbar", message.id, toolbar);
+            initToolbar(message);
         }
 
-        private void initToolbar() {
+        private void initToolbar(TupleMessageEx message) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean toolbar = prefs.getBoolean("toolbar", true);
             boolean cards = prefs.getBoolean("cards", true);
+
+            boolean toolbar = properties.getValue("toolbar", message.id);
 
             ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) ibExpander.getLayoutParams();
             lparam.setMarginEnd(cards ? 0 : Helper.dp2pixels(ibExpander.getContext(), 6));
@@ -1921,6 +1928,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 collapse(ibArchive);
                 collapse(ibForward);
                 collapse(ibReply);
+            }
+        }
+
+        private void autoToolbar(TupleMessageEx message) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean autotoolbar = prefs.getBoolean("autotoolbar", false);
+            if (autotoolbar) {
+                properties.setValue("toolbar", message.id, false);
+                initToolbar(message);
             }
         }
 
@@ -2140,6 +2156,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem target) {
+                            autoToolbar(message);
                             switch (target.getItemId()) {
                                 case R.id.menu_reply_to_sender:
                                     onMenuReply(message, "reply");
@@ -2381,6 +2398,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
+                    autoToolbar(message);
                     switch (target.getItemId()) {
                         case R.id.menu_editasnew:
                             onMenuEditAsNew(message);
