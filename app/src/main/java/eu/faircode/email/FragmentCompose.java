@@ -108,7 +108,6 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -2102,9 +2101,7 @@ public class FragmentCompose extends FragmentBase {
                             draft.subject = ref.subject;
                             if (ref.content) {
                                 String html = Helper.readText(ref.getFile(context));
-                                Document document = Jsoup.parse(html);
-                                if (document.body() != null)
-                                    body = document.body().html();
+                                body = HtmlHelper.sanitize(context, html, true);
                             }
                         } else if ("list".equals(action)) {
                             draft.subject = ref.subject;
