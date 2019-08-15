@@ -97,8 +97,7 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoLog log();
 
     private static DB sInstance;
-    private static final ExecutorService executor = Executors.newFixedThreadPool(
-            Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
+    private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final String DB_NAME = "fairemail";
     private static final long VACUUM_INTERVAL = 24 * 3600 * 1000L;
