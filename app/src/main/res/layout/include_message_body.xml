@@ -66,15 +66,27 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="42dp"
+        android:layout_marginEnd="6dp"
         android:fontFamily="monospace"
-        android:minHeight="396dp"
+        android:minHeight="432dp"
         android:paddingBottom="6dp"
         android:text="Body"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ibFull"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvNoInternetBody" />
+
+    <ImageButton
+        android:id="@+id/ibExpander"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/title_legend_expander"
+        android:padding="6dp"
+        android:rotation="90"
+        android:src="@drawable/expander"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvBody" />
 
     <ImageButton
         android:id="@+id/ibFull"
@@ -90,7 +102,7 @@
         android:tint="@color/bottomnav_foreground"
         android:tooltipText="@string/title_legend_show_full"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvBody" />
+        app:layout_constraintTop_toBottomOf="@id/ibExpander" />
 
     <ImageButton
         android:id="@+id/ibImages"

@@ -292,6 +292,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private View vSeparatorBody;
 
+        private ImageButton ibExpander;
         private ImageButton ibFull;
         private ImageButton ibImages;
         private ImageButton ibDecrypt;
@@ -433,6 +434,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             vSeparatorBody = vsBody.findViewById(R.id.vSeparatorBody);
 
+            ibExpander = vsBody.findViewById(R.id.ibExpander);
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
@@ -505,6 +507,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnDownloadAttachments.setOnClickListener(this);
                 btnSaveAttachments.setOnClickListener(this);
 
+                ibExpander.setOnClickListener(this);
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
@@ -541,6 +544,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnDownloadAttachments.setOnClickListener(null);
                 btnSaveAttachments.setOnClickListener(null);
 
+                ibExpander.setOnClickListener(null);
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
@@ -891,6 +895,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             vSeparatorBody.setVisibility(View.GONE);
 
+            ibExpander.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
@@ -964,6 +969,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
             vSeparatorBody.setVisibility(View.VISIBLE);
+
+            initToolbar();
 
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
@@ -1475,6 +1482,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onSaveAttachments(message);
                         break;
 
+                    case R.id.ibExpander:
+                        onToggleToolbar();
+                        break;
                     case R.id.ibFull:
                         onShowFull(message);
                         break;
@@ -1870,6 +1880,61 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean addresses = !properties.getValue("addresses", message.id);
             properties.setValue("addresses", message.id, addresses);
             bindExpanded(message);
+        }
+
+        private void onToggleToolbar() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean toolbar = prefs.getBoolean("toolbar", true);
+            prefs.edit().putBoolean("toolbar", !toolbar).apply();
+            initToolbar();
+        }
+
+        private void initToolbar() {
+            ibExpander.setVisibility(View.VISIBLE);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean toolbar = prefs.getBoolean("toolbar", true);
+            if (toolbar) {
+                ibExpander.setImageLevel(0 /* less */);
+                expand(ibFull);
+                expand(ibImages);
+                expand(ibDecrypt);
+                expand(ibMore);
+                expand(ibDelete);
+                expand(ibMove);
+                expand(ibArchive);
+                expand(ibForward);
+                expand(ibReply);
+            } else {
+                ibExpander.setImageLevel(1 /* more */);
+                collapse(ibFull);
+                collapse(ibImages);
+                collapse(ibDecrypt);
+                collapse(ibMore);
+                collapse(ibDelete);
+                collapse(ibMove);
+                collapse(ibArchive);
+                collapse(ibForward);
+                collapse(ibReply);
+            }
+        }
+
+        private void expand(View view) {
+            int dp6 = Helper.dp2pixels(view.getContext(), 6);
+            int dp36 = Helper.dp2pixels(view.getContext(), 36);
+            view.setPadding(dp6, dp6, dp6, dp6);
+            ViewGroup.LayoutParams lparam = view.getLayoutParams();
+            lparam.width = dp36;
+            lparam.height = dp36;
+            view.setLayoutParams(lparam);
+        }
+
+        private void collapse(View view) {
+            view.setPadding(0, 0, 0, 0);
+            ViewGroup.LayoutParams lparam = view.getLayoutParams();
+            lparam.width = 0;
+            lparam.height = 0;
+            view.setLayoutParams(lparam);
         }
 
         private void onDownloadAttachments(final TupleMessageEx message) {
