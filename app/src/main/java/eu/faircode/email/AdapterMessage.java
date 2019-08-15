@@ -286,8 +286,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private RecyclerView rvAttachment;
         private CheckBox cbInline;
-        private Button btnDownloadAttachments;
         private Button btnSaveAttachments;
+        private Button btnDownloadAttachments;
         private TextView tvNoInternetAttachments;
 
         private View vSeparatorBody;
@@ -428,8 +428,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             rvAttachment.setAdapter(adapterAttachment);
 
             cbInline = attachments.findViewById(R.id.cbInline);
-            btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
             btnSaveAttachments = attachments.findViewById(R.id.btnSaveAttachments);
+            btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
             tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
             vSeparatorBody = vsBody.findViewById(R.id.vSeparatorBody);
@@ -505,8 +505,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
 
-                btnDownloadAttachments.setOnClickListener(this);
                 btnSaveAttachments.setOnClickListener(this);
+                btnDownloadAttachments.setOnClickListener(this);
 
                 ibExpander.setOnClickListener(this);
                 ibFull.setOnClickListener(this);
@@ -543,8 +543,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibNotifyContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
 
-                btnDownloadAttachments.setOnClickListener(null);
                 btnSaveAttachments.setOnClickListener(null);
+                btnDownloadAttachments.setOnClickListener(null);
 
                 ibExpander.setOnClickListener(null);
                 ibFull.setOnClickListener(null);
@@ -891,8 +891,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             pbCalendarWait.setVisibility(View.GONE);
 
             cbInline.setVisibility(View.GONE);
-            btnDownloadAttachments.setVisibility(View.GONE);
             btnSaveAttachments.setVisibility(View.GONE);
+            btnDownloadAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
             vSeparatorBody.setVisibility(View.GONE);
@@ -1221,8 +1221,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
 
-            btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             btnSaveAttachments.setVisibility(save ? View.VISIBLE : View.GONE);
+            btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
             ibDecrypt.setVisibility(is_encrypted ? View.VISIBLE : View.GONE);
@@ -1466,11 +1466,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ivExpanderAddress:
                         onToggleAddresses(message);
                         break;
-                    case R.id.btnDownloadAttachments:
-                        onDownloadAttachments(message);
-                        break;
+
                     case R.id.btnSaveAttachments:
                         onSaveAttachments(message);
+                        break;
+                    case R.id.btnDownloadAttachments:
+                        onDownloadAttachments(message);
                         break;
 
                     case R.id.ibExpander:
