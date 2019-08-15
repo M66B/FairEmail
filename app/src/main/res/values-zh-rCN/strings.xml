@@ -408,6 +408,7 @@
     <string name="title_reply_template">模板</string>
     <string name="title_moving">移动到%1$s</string>
     <string name="title_open_with">打开方式</string>
+    <string name="title_authentication_failed">%1$s 验证失败</string>
     <string name="title_receipt_subject">读取回执: %1$s</string>
     <string name="title_receipt_text">此读取回执仅确认已显示该邮件。不能保证收件人已阅读邮件内容。</string>
     <string name="title_no_answers">未定义回复模板</string>

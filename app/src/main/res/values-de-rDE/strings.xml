@@ -204,7 +204,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autoscroll">Nach oben blättern, um neue Nachrichten abzurufen</string>
     <string name="title_advanced_swipenav">Wische nach links/rechts, um zum nächsten/vorherigen Gespräch zu gehen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
-    <string name="title_advanced_autotoolbar">Nachrichtenaktions-Bar automatisch ausblenden</string>
+    <string name="title_advanced_autotoolbar">Nachrichten-Aktions-Leiste standardmäßig ausblenden</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
@@ -417,6 +417,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_reply_template">Vorlage</string>
     <string name="title_moving">Verschiebe nach %1$s</string>
     <string name="title_open_with">Öffnen mit</string>
+    <string name="title_authentication_failed">%1$s Authentifizierung fehlgeschlagen</string>
     <string name="title_receipt_subject">Lesebestätigung: %1$s</string>
     <string name="title_receipt_text">Diese Lesebestätigung bestätigt nur, dass die Nachricht angezeigt wurde. Es gibt keine Garantie, dass der Empfänger den Nachrichteninhalt gelesen hat.</string>
     <string name="title_no_answers">Keine Antwortvorlagen definiert</string>

@@ -205,6 +205,7 @@
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
     <string name="title_advanced_swipenav">Balayez vers la gauche/droite pour passer à la conversation suivante/précédente</string>
     <string name="title_advanced_double_tap">Appuyez deux fois pour marquer le message lu/non lu</string>
+    <string name="title_advanced_autotoolbar">Masquer automatiquement les actions de message</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
@@ -417,6 +418,7 @@
     <string name="title_reply_template">Modèle</string>
     <string name="title_moving">Déplacement vers %1$s</string>
     <string name="title_open_with">Ouvrir avec</string>
+    <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
     <string name="title_receipt_subject">Accusé de réception : %1$s</string>
     <string name="title_receipt_text">Cet accusé de réception atteste seulement que le message a été affiché. Il n\'y a aucune garantie que le destinataire ait lu le contenu du message.</string>
     <string name="title_no_answers">Aucun modèle de réponse défini</string>

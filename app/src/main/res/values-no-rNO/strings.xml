@@ -205,6 +205,7 @@
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
+    <string name="title_advanced_autotoolbar">Skjul automatisk meldingshandlinger</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
     <string name="title_advanced_autoclose">Lukk samtaler automatisk</string>
@@ -417,6 +418,7 @@
     <string name="title_reply_template">Mal</string>
     <string name="title_moving">Flytter til %1$s</string>
     <string name="title_open_with">Åpne med</string>
+    <string name="title_authentication_failed">%1$s godkjenning mislyktes</string>
     <string name="title_receipt_subject">Lesebekreftelse: %1$s</string>
     <string name="title_receipt_text">Denne lesekvitteringen bekrefter bare at meldingen ble vist. Det er ingen garanti for at mottakeren har lest meldings innholdet.</string>
     <string name="title_no_answers">Ingen svarmaler definert</string>

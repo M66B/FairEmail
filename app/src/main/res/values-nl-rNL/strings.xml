@@ -418,6 +418,7 @@
     <string name="title_reply_template">Sjabloon</string>
     <string name="title_moving">Verplaatsen naar %1$s</string>
     <string name="title_open_with">Openen met</string>
+    <string name="title_authentication_failed">%1$s authenticatie mislukt</string>
     <string name="title_receipt_subject">Leesbevestiging: %1$s</string>
     <string name="title_receipt_text">Deze leesbevestiging erkent alleen dat het bericht is weergegeven. Er is geen garantie dat de ontvanger de inhoud van het bericht heeft gelezen.</string>
     <string name="title_no_answers">Geen sjablonen gedefinieerd</string>

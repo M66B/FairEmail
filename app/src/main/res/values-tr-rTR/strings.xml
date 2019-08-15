@@ -17,6 +17,7 @@
     <string name="channel_group_contacts">Rehber</string>
     <string name="tile_synchronize">Eşzamanlama</string>
     <string name="tile_unseen">Yeni iletiler</string>
+    <string name="shortcut_refresh">Yenile</string>
     <string name="shortcut_compose">Eposta Oluştur</string>
     <string name="shortcut_setup">Ayarlar</string>
     <plurals name="title_notification_synchronizing">
@@ -172,6 +173,7 @@
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
+    <string name="title_advanced_cards">Kartları göster</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
@@ -182,6 +184,7 @@
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_flags">Yıldızları göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
+    <string name="title_advanced_preview_italic">İleti önizlemesini italik olarak göster</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
@@ -196,6 +199,7 @@
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
     <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
+    <string name="title_advanced_autotoolbar">İleti işlemlerini otomatik olarak gizle</string>
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
@@ -226,8 +230,10 @@
     <string name="title_advanced_cleanup">Temizle</string>
     <string name="title_advanced_enabled_hint">İleti alımını tamamen aç ya da kapat</string>
     <string name="title_advanced_manual_hint">Eşitleme kapalıysa, mesaj listesini aşağı çekerek elle eşitleme hala yapılabilir. Bu eylem iletileri eşitleyecek ve işlemleri kısıtlı bir süre için uygulayacaktır.</string>
+    <string name="title_advanced_poll_hint">Belli aralıklarala eşitleme yerel ve uzak sunucudaki iletileri her defasında karşılaştıracak, bu da özellikle eşitlenecek ileti sayısı fazla olduğunda, fazladan pil kullanımına neden olan maliyetli bir işlem olacaktır. Sürekli eşitleme sadece değişiklikleri izleyerek bu durumu önleyecektir.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
+    <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
     <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
@@ -245,6 +251,7 @@
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_subscribed_only_hint">Bunu etkinleştirmek aboneliği olmayan tüm yerel klasörleri siler</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
+    <string name="title_advanced_cleanup_hint">Bu bütün geçici dosyaları silecek</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
@@ -396,6 +403,7 @@
     <string name="title_reply_template">Kalıp</string>
     <string name="title_moving">%1$s\'e taşınıyor</string>
     <string name="title_open_with">Birlikte aç</string>
+    <string name="title_authentication_failed">%1$s kimlik doğrulama başarısız</string>
     <string name="title_receipt_subject">Okundu bilgisi:%1$s</string>
     <string name="title_receipt_text">Bu okundu bilgisi yalnızca iletinin görüntülendiğini onaylar. Alıcının ileti içeriğini okuduğu garanti edilmez.</string>
     <string name="title_no_answers">Tanımlanmış yanıt kalıbı yok</string>
@@ -492,6 +500,7 @@
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
     <string name="title_select_all">Hepsini seç</string>
+    <string name="title_force_sync">Eşzamanlamaya zorla</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>
     <string name="title_answer_caption">Kalıbı Düzenle</string>

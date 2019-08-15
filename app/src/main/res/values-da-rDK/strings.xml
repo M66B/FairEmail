@@ -203,6 +203,7 @@
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
+    <string name="title_advanced_autotoolbar">Skjul automatisk bekedhandlinger</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_collapse">Sammenfold beskeder i samtaler ved tryk på Tilbage</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>

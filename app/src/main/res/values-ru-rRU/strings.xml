@@ -223,6 +223,7 @@
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_swipenav">Свайп влево/вправо, чтобы перейти к следующему/предыдущему диалогу</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
+    <string name="title_advanced_autotoolbar">Автоматически скрывать панель сообщения</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
@@ -435,6 +436,7 @@
     <string name="title_reply_template">Шаблон</string>
     <string name="title_moving">Переместить в %1$s</string>
     <string name="title_open_with">Открыть с помощью</string>
+    <string name="title_authentication_failed">%1$s ошибка аутентификации</string>
     <string name="title_receipt_subject">Отчеты о прочтении: %1$s</string>
     <string name="title_receipt_text">Это уведомление о прочтении подтверждает только тот факт, что сообщение было открыто. Нет гарантии, что получатель прочёл содержимое сообщения.</string>
     <string name="title_no_answers">Шаблоны ответов не определены</string>

@@ -417,6 +417,7 @@
     <string name="title_reply_template">Modello</string>
     <string name="title_moving">Spostamento in %1$s</string>
     <string name="title_open_with">Apri con</string>
+    <string name="title_authentication_failed">%1$s autenticazione fallita</string>
     <string name="title_receipt_subject">Conferma di lettura: %1$s</string>
     <string name="title_receipt_text">Questa conferma di lettura riconosce solo se il messaggio è stato visualizzato. Non c\'è garanzia che il destinatario abbia letto il contenuto del messaggio.</string>
     <string name="title_no_answers">Nessun modello di risposta definito</string>
