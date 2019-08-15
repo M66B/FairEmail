@@ -478,6 +478,7 @@
     <string name="title_reply_template">Template</string>
     <string name="title_moving">Moving to %1$s</string>
     <string name="title_open_with">Open with</string>
+    <string name="title_authentication_failed">%1$s authentication failed</string>
 
     <string name="title_receipt_subject">Read receipt: %1$s</string>
     <string name="title_receipt_text">This read receipt only acknowledges that the message was displayed. There is no guarantee that the recipient has read the message contents.</string>

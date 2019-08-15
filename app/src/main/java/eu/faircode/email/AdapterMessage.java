@@ -493,6 +493,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
             view.setOnKeyListener(this);
 
+            ivAuth.setOnClickListener(this);
             ivSnoozed.setOnClickListener(this);
             ivFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD)
@@ -530,6 +531,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             touch.setOnClickListener(null);
             view.setOnKeyListener(null);
 
+            ivAuth.setOnClickListener(null);
             ivSnoozed.setOnClickListener(null);
             ivFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD)
@@ -998,24 +1000,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             String cc = MessageHelper.formatAddresses(message.cc);
             String bcc = MessageHelper.formatAddresses(message.bcc);
 
-            boolean self = false;
-            InternetAddress via = null;
-            if (message.identityEmail != null)
-                try {
-                    via = new InternetAddress(message.identityEmail, message.identityName);
-                    if (message.to != null) {
-                        String v = MessageHelper.canonicalAddress(via.getAddress());
-                        for (Address t : message.to) {
-                            if (EntityFolder.isOutgoing(message.folderType) ||
-                                    v.equals(MessageHelper.canonicalAddress(((InternetAddress) t).getAddress()))) {
-                                self = true;
-                                break;
-                            }
-                        }
-                    }
-                } catch (UnsupportedEncodingException ignored) {
-                }
-
             tvFromExTitle.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setVisibility(show_addresses && !TextUtils.isEmpty(from) ? View.VISIBLE : View.GONE);
             tvFromEx.setText(from);
@@ -1023,8 +1007,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
             tvTo.setVisibility(show_addresses && !TextUtils.isEmpty(to) ? View.VISIBLE : View.GONE);
             tvTo.setText(to);
-            tvToTitle.setTextColor(self ? textColorSecondary : colorWarning);
-            tvTo.setTextColor(self ? textColorSecondary : colorWarning);
 
             tvReplyToTitle.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
             tvReplyTo.setVisibility(show_addresses && !TextUtils.isEmpty(replyto) ? View.VISIBLE : View.GONE);
@@ -1037,6 +1019,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBccTitle.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
             tvBcc.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
             tvBcc.setText(bcc);
+
+            InternetAddress via = null;
+            if (message.identityEmail != null)
+                try {
+                    via = new InternetAddress(message.identityEmail, message.identityName);
+                } catch (UnsupportedEncodingException ignored) {
+                }
 
             tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
@@ -1460,7 +1449,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null)
                 return;
 
-            if (view.getId() == R.id.ivSnoozed)
+            if (view.getId() == R.id.ivAuth)
+                onShowAuth(message);
+            else if (view.getId() == R.id.ivSnoozed)
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ivFlagged)
                 onToggleFlag(message);
@@ -1635,6 +1626,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return true;
             } else
                 return false;
+        }
+
+        private void onShowAuth(TupleMessageEx message) {
+            List<String> result = new ArrayList<>();
+            if (Boolean.FALSE.equals(message.dkim))
+                result.add("DKIM");
+            if (Boolean.FALSE.equals(message.spf))
+                result.add("SPF");
+            if (Boolean.FALSE.equals(message.dmarc))
+                result.add("DMARC");
+            if (Boolean.FALSE.equals(message.mx))
+                result.add("MX");
+
+            ToastEx.makeText(context,
+                    context.getString(R.string.title_authentication_failed, TextUtils.join(", ", result)),
+                    Toast.LENGTH_LONG)
+                    .show();
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
