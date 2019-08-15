@@ -2415,22 +2415,14 @@ public class FragmentCompose extends FragmentBase {
     };
 
     private void handleFileShare() {
-        final Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq49"));
-        boolean resolves = (intent.resolveActivity(getContext().getPackageManager()) != null);
-
-        Snackbar sb = Snackbar.make(view,
-                R.string.title_no_stream,
-                resolves ? Snackbar.LENGTH_INDEFINITE : Snackbar.LENGTH_LONG);
-        if (resolves)
-            sb.setAction(R.string.title_info, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(intent);
-                    finish();
-                }
-            });
+        Snackbar sb = Snackbar.make(view, R.string.title_no_stream, Snackbar.LENGTH_INDEFINITE);
+        sb.setAction(R.string.title_info, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(getContext(), 49);
+                finish();
+            }
+        });
         sb.show();
     }
 

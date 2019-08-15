@@ -7,11 +7,6 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/menu_issue"
-        android:title="@string/menu_issue"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/menu_attribution"
         android:title="@string/menu_attribution"
         app:showAsAction="never" />

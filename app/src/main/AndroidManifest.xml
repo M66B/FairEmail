@@ -82,7 +82,7 @@
         <activity
             android:name=".ActivitySetup"
             android:exported="true"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTop"
             android:parentActivityName=".ActivityMain">
 
             <intent-filter>
@@ -157,7 +157,8 @@
             android:name=".ActivityEml"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -191,7 +192,8 @@
             android:name=".ActivityDSN"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -211,7 +213,7 @@
             android:name=".ActivityBilling"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:launchMode="singleInstance" />
+            android:launchMode="singleTop" />
 
         <service
             android:name=".ServiceSynchronize"

@@ -4415,17 +4415,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             final Button btnInfo = dview.findViewById(R.id.btnInfo);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            final Intent info = new Intent(Intent.ACTION_VIEW);
-            info.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq104"));
-            info.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            btnInfo.setVisibility(
-                    info.resolveActivity(getContext().getPackageManager()) == null ? View.GONE : View.VISIBLE);
-
             btnInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(info);
+                    Helper.viewFAQ(getContext(), 104);
                 }
             });
 

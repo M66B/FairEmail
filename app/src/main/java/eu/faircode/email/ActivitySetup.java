@@ -229,14 +229,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        if (Helper.getIntentFAQ().resolveActivity(pm) != null)
-            menus.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onMenuFAQ();
-                }
-            }).setExternal(true));
+        menus.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuFAQ();
+            }
+        }).setExternal(true));
 
         menus.add(new NavMenuItem(R.drawable.baseline_account_box_24, R.string.menu_privacy, new Runnable() {
             @Override
@@ -499,7 +498,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onMenuFAQ() {
-        Helper.view(this, Helper.getIntentFAQ());
+        Helper.viewFAQ(this, 0);
     }
 
     private void onMenuPrivacy() {

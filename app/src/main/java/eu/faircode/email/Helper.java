@@ -115,6 +115,10 @@ public class Helper {
 
     static final String FAQ_URI = "https://github.com/M66B/FairEmail/blob/master/FAQ.md";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
+    static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
+    static final String PGP_URI = "https://f-droid.org/en/packages/org.sufficientlysecure.keychain/";
+    static final String PLAY_APPS_URI = "https://play.google.com/store/apps/dev?id=8420080860664580239";
+    static final String XDA_APPS_URI = "https://forum.xda-developers.com/search.php?searchid=457176824";
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
         private final AtomicInteger threadId = new AtomicInteger();
@@ -212,15 +216,16 @@ public class Helper {
         }
     }
 
-    static Intent getIntentFAQ() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(Helper.FAQ_URI));
-        return intent;
+    static void viewFAQ(Context context, int question) {
+        if (question == 0)
+            view(context, Uri.parse(FAQ_URI), false);
+        else
+            view(context, Uri.parse(Helper.FAQ_URI + "#user-content-faq" + question), false);
     }
 
     static Intent getIntentOpenKeychain() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://f-droid.org/en/packages/org.sufficientlysecure.keychain/"));
+        intent.setData(Uri.parse(PGP_URI));
         return intent;
     }
 

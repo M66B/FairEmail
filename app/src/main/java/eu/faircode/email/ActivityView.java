@@ -295,20 +295,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        if (Helper.getIntentFAQ().resolveActivity(pm) != null)
-            extra.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onMenuFAQ();
-                }
-            }, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onDebugInfo();
-                }
-            }).setExternal(true));
+        extra.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onMenuFAQ();
+            }
+        }, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer);
+                onDebugInfo();
+            }
+        }).setExternal(true));
 
         if (Helper.getIntentIssue(this).resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_feedback_24, R.string.menu_issue, new Runnable() {
@@ -359,7 +358,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }).setExternal(true));
 
-        if (getIntentRate(this).resolveActivity(pm) != null)
+        if ((Helper.isPlayStoreInstall(this) || BuildConfig.DEBUG) &&
+                getIntentRate(this).resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
                 public void run() {
@@ -489,14 +489,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
                 boolean why = prefs.getBoolean("why", false);
-                if (!why) {
+                if (!why || BuildConfig.DEBUG) {
                     prefs.edit().putBoolean("why", true).apply();
-
-                    Intent iwhy = new Intent(Intent.ACTION_VIEW);
-                    iwhy.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq2"));
-                    iwhy.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    if (iwhy.resolveActivity(getPackageManager()) != null)
-                        startActivity(iwhy);
+                    Helper.viewFAQ(this, 2);
                 }
 
             } else if ("outbox".equals(action))
@@ -810,7 +805,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private Intent getIntentOtherApps() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://play.google.com/store/apps/dev?id=8420080860664580239"));
+        intent.setData(Uri.parse(Helper.isPlayStoreInstall(this)
+                ? Helper.PLAY_APPS_URI : Helper.XDA_APPS_URI));
         return intent;
     }
 
@@ -891,7 +887,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuFAQ() {
-        Helper.view(this, Helper.getIntentFAQ());
+        Helper.viewFAQ(this, 0);
     }
 
     private void onMenuIssue() {
@@ -920,11 +916,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onMenuRate() {
-        Intent faq = Helper.getIntentFAQ();
-        if (faq.resolveActivity(getPackageManager()) == null)
-            Helper.view(this, getIntentRate(this));
-        else
-            new FragmentDialogRate().show(getSupportFragmentManager(), "rate");
+        new FragmentDialogRate().show(getSupportFragmentManager(), "rate");
     }
 
     private void onMenuOtherApps() {
@@ -1140,7 +1132,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(getContext(), Helper.getIntentFAQ());
+                            Helper.viewFAQ(getContext(), 0);
                         }
                     })
                     .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {

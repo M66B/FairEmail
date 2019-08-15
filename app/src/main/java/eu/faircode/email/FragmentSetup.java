@@ -28,7 +28,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
@@ -185,12 +184,10 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        final Intent faq = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.FAQ_URI + "#user-content-faq39"));
-        btnBattery.setVisibility(faq.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
         btnBattery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(faq);
+                Helper.viewFAQ(getContext(), 39);
             }
         });
 

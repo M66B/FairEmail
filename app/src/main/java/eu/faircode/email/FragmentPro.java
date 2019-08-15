@@ -21,9 +21,9 @@ package eu.faircode.email;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,9 +65,13 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         btnCheck = view.findViewById(R.id.btnCheck);
 
-        tvList.setText(HtmlHelper.fromHtml(
-                "<a href=\"" + BuildConfig.PRO_FEATURES_URI + "\">" + Html.escapeHtml(getString(R.string.title_pro_list)) + "</a>"));
-        tvList.setMovementMethod(LinkMovementMethod.getInstance());
+        tvList.setPaintFlags(tvList.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.view(getContext(), Uri.parse(BuildConfig.PRO_FEATURES_URI), false);
+            }
+        });
 
         btnPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,9 +142,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
             @Override
             public void onError(String message) {
-                final Intent support = new Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse("https://contact.faircode.eu/?product=fairemailsupport"));
+                final Intent support = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.SUPPORT_URI));
                 Snackbar snackbar = Snackbar.make(getView(), message, Snackbar.LENGTH_LONG);
                 if (support.resolveActivity(getContext().getPackageManager()) != null)
                     snackbar.setAction(R.string.title_setup_help, new View.OnClickListener() {

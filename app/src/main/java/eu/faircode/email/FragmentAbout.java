@@ -19,11 +19,11 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -64,11 +64,7 @@ public class FragmentAbout extends FragmentBase {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         PackageManager pm = getContext().getPackageManager();
-        menu.findItem(R.id.menu_changelog).setVisible(
-                !Helper.isPlayStoreInstall(getContext()) &&
-                        getIntentChangelog().resolveActivity(pm) != null);
-        menu.findItem(R.id.menu_issue).setVisible(
-                Helper.getIntentIssue(getContext()).resolveActivity(pm) != null);
+        menu.findItem(R.id.menu_changelog).setVisible(!TextUtils.isEmpty(BuildConfig.CHANGELOG));
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -77,9 +73,6 @@ public class FragmentAbout extends FragmentBase {
         switch (item.getItemId()) {
             case R.id.menu_changelog:
                 onMenuChangelog();
-                return true;
-            case R.id.menu_issue:
-                onMenuIssue();
                 return true;
             case R.id.menu_attribution:
                 onMenuAttribution();
@@ -90,11 +83,7 @@ public class FragmentAbout extends FragmentBase {
     }
 
     private void onMenuChangelog() {
-        startActivity(getIntentChangelog());
-    }
-
-    private void onMenuIssue() {
-        startActivity(Helper.getIntentIssue(getContext()));
+        Helper.view(getContext(), Uri.parse(BuildConfig.CHANGELOG), false);
     }
 
     private void onMenuAttribution() {
@@ -103,11 +92,5 @@ public class FragmentAbout extends FragmentBase {
         FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
         fragment.setArguments(args);
         fragment.show(getFragmentManager(), "privacy");
-    }
-
-    private Intent getIntentChangelog() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(BuildConfig.CHANGELOG));
-        return intent;
     }
 }

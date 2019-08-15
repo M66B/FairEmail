@@ -22,9 +22,6 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -111,13 +108,6 @@ public class FragmentOperations extends FragmentBase {
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        PackageManager pm = getContext().getPackageManager();
-        menu.findItem(R.id.menu_help).setVisible(getFAQIntent().resolveActivity(pm) != null);
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_help:
@@ -133,13 +123,7 @@ public class FragmentOperations extends FragmentBase {
     }
 
     private void onMenuHelp() {
-        startActivity(getFAQIntent());
-    }
-
-    private Intent getFAQIntent() {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(Helper.FAQ_URI + "#user-content-faq3"));
-        return intent;
+        Helper.viewFAQ(getContext(), 3);
     }
 
     public static class DialogDelete extends FragmentDialogEx {
