@@ -52,6 +52,7 @@ For authorizing:
 * ~~Copy accounts and identities~~
 * Pinch zoom
 * Send as attachment
+* Themes
 
 Anything on this list is in random order and *might* be added in the near future.
 
