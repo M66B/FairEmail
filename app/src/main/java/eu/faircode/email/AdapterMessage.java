@@ -297,6 +297,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibDecrypt;
 
         private ImageButton ibReply;
+        private ImageButton ibForward;
         private ImageButton ibArchive;
         private ImageButton ibMove;
         private ImageButton ibDelete;
@@ -437,6 +438,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
 
             ibReply = vsBody.findViewById(R.id.ibReply);
+            ibForward = vsBody.findViewById(R.id.ibForward);
             ibArchive = vsBody.findViewById(R.id.ibArchive);
             ibMove = vsBody.findViewById(R.id.ibMove);
             ibDelete = vsBody.findViewById(R.id.ibDelete);
@@ -508,6 +510,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibDecrypt.setOnClickListener(this);
 
                 ibReply.setOnClickListener(this);
+                ibForward.setOnClickListener(this);
                 ibArchive.setOnClickListener(this);
                 ibMove.setOnClickListener(this);
                 ibDelete.setOnClickListener(this);
@@ -543,6 +546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibDecrypt.setOnClickListener(null);
 
                 ibReply.setOnClickListener(null);
+                ibForward.setOnClickListener(null);
                 ibArchive.setOnClickListener(null);
                 ibMove.setOnClickListener(null);
                 ibDelete.setOnClickListener(null);
@@ -892,6 +896,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibDecrypt.setVisibility(View.GONE);
 
             ibReply.setVisibility(View.GONE);
+            ibForward.setVisibility(View.GONE);
             ibArchive.setVisibility(View.GONE);
             ibMove.setVisibility(View.GONE);
             ibDelete.setVisibility(View.GONE);
@@ -964,6 +969,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibImages.setVisibility(View.GONE);
 
             ibReply.setVisibility(View.GONE);
+            ibForward.setVisibility(View.GONE);
             ibArchive.setVisibility(View.GONE);
             ibMove.setVisibility(View.GONE);
             ibDelete.setVisibility(View.GONE);
@@ -1124,6 +1130,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     ibReply.setEnabled(message.content);
                     ibReply.setVisibility(!inOutbox ? View.VISIBLE : View.GONE);
+
+                    ibForward.setEnabled(message.content);
+                    ibForward.setVisibility(!inOutbox ? View.VISIBLE : View.GONE);
 
                     if (!message.folderReadOnly) {
                         ibArchive.setVisibility(
@@ -1478,6 +1487,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     case R.id.ibReply:
                         onActionReplyMenu(message);
+                        break;
+                    case R.id.ibForward:
+                        onActionForward(message);
                         break;
                     case R.id.ibArchive:
                         if (EntityFolder.JUNK.equals(message.folderType))
@@ -2150,6 +2162,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, new Bundle(), "message:answer");
         }
 
+        private void onActionForward(final TupleMessageEx message) {
+            Intent forward = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", "forward")
+                    .putExtra("reference", message.id);
+            context.startActivity(forward);
+        }
+
         private void onActionArchive(TupleMessageEx message) {
             properties.move(message.id, EntityFolder.ARCHIVE);
         }
@@ -2257,7 +2276,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.menu_message);
 
-            popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
@@ -2292,9 +2310,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
-                        case R.id.menu_forward:
-                            onMenuForward(message);
-                            return true;
                         case R.id.menu_editasnew:
                             onMenuEditAsNew(message);
                             return true;
@@ -2591,13 +2606,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogImage fragment = new FragmentDialogImage();
             fragment.setArguments(args);
             fragment.show(parentFragment.getFragmentManager(), "view:image");
-        }
-
-        private void onMenuForward(final TupleMessageEx message) {
-            Intent forward = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "forward")
-                    .putExtra("reference", message.id);
-            context.startActivity(forward);
         }
 
         private void onMenuEditAsNew(final TupleMessageEx message) {

@@ -190,6 +190,22 @@
         app:layout_constraintTop_toBottomOf="@id/ibMove" />
 
     <ImageButton
+        android:id="@+id/ibForward"
+        android:layout_width="36dp"
+        android:layout_height="48dp"
+        android:background="?attr/colorSeparator"
+        android:contentDescription="@string/title_forward"
+        android:paddingStart="6dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="6dp"
+        android:paddingBottom="12dp"
+        android:src="@drawable/baseline_forward_24"
+        android:tint="@color/bottomnav_foreground"
+        android:tooltipText="@string/title_forward"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibArchive" />
+
+    <ImageButton
         android:id="@+id/ibReply"
         android:layout_width="36dp"
         android:layout_height="48dp"
@@ -203,7 +219,7 @@
         android:tint="@color/bottomnav_foreground"
         android:tooltipText="@string/title_reply"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibArchive" />
+        app:layout_constraintTop_toBottomOf="@+id/ibForward" />
 
     <include
         android:id="@+id/InCalendar"
