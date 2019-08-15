@@ -87,7 +87,7 @@
     <string name="title_edit_folder">Ordner bearbeiten</string>
     <string name="title_setup">Einstellungen</string>
     <string name="title_setup_help">Hilfe</string>
-    <string name="title_setup_welcome">Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer Identität wie in jeder anderen E-Mail-Anwendung..
+    <string name="title_setup_welcome">Das Empfangen und Senden von Nachrichten erfordert die Einrichtung eines Kontos und einer Identität wie in jeder anderen E-Mail-Anwendung.
 Die Schnelleinrichtung erstellt sowohl ein Konto als auch eine Identität, indem sie lediglich nach Ihrem Namen, Ihrer E-Mail-Adresse und Ihrem Passwort fragt.
 Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet werden.    </string>
     <string name="title_setup_quick">Schnelleinrichtung</string>
@@ -204,6 +204,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autoscroll">Nach oben blättern, um neue Nachrichten abzurufen</string>
     <string name="title_advanced_swipenav">Wische nach links/rechts, um zum nächsten/vorherigen Gespräch zu gehen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
+    <string name="title_advanced_autotoolbar">Nachrichtenaktions-Bar automatisch ausblenden</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
@@ -690,7 +691,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_pro_list">Liste der Pro-Funktionen</string>
     <string name="title_pro_purchase">Kaufen</string>
     <string name="title_pro_once">Nur einmal</string>
-    <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App</string>
+    <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Informationen zum Preis der Pro-Funktionen finden Sie in der <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">Hilfe</a></string>
     <string name="title_pro_pending">Kauf ausstehend</string>
     <string name="title_pro_activated">Alle Pro-Funktionen sind aktiviert</string>
