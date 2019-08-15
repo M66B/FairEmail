@@ -1898,6 +1898,49 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bindExpanded(message);
         }
 
+        private void onDownloadAttachments(final TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage msg = db.message().getMessage(id);
+                        if (msg != null)
+                            for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
+                                if (attachment.progress == null && !attachment.available) {
+                                    db.attachment().setProgress(attachment.id, 0);
+                                    EntityOperation.queue(context, msg, EntityOperation.ATTACHMENT, attachment.id);
+                                }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:attachment:download");
+        }
+
+        private void onSaveAttachments(TupleMessageEx message) {
+            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+            lbm.sendBroadcast(
+                    new Intent(FragmentMessages.ACTION_STORE_ATTACHMENTS)
+                            .putExtra("id", message.id));
+        }
+
         private void onToggleToolbar(TupleMessageEx message) {
             boolean toolbar = !properties.getValue("toolbar", message.id);
             properties.setValue("toolbar", message.id, toolbar);
@@ -1967,49 +2010,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             lparam.height = 0;
             lparam.setMarginEnd(0);
             view.setLayoutParams(lparam);
-        }
-
-        private void onDownloadAttachments(final TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    try {
-                        db.beginTransaction();
-
-                        EntityMessage msg = db.message().getMessage(id);
-                        if (msg != null)
-                            for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
-                                if (attachment.progress == null && !attachment.available) {
-                                    db.attachment().setProgress(attachment.id, 0);
-                                    EntityOperation.queue(context, msg, EntityOperation.ATTACHMENT, attachment.id);
-                                }
-
-                        db.setTransactionSuccessful();
-                    } finally {
-                        db.endTransaction();
-                    }
-
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:attachment:download");
-        }
-
-        private void onSaveAttachments(TupleMessageEx message) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(FragmentMessages.ACTION_STORE_ATTACHMENTS)
-                            .putExtra("id", message.id));
         }
 
         private void onShowFull(final TupleMessageEx message) {
