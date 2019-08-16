@@ -1943,7 +1943,7 @@ class Core {
         int unseen = 0;
         Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
         for (TupleMessageEx message : messages) {
-            if (!(message.ui_seen || message.ui_ignored || message.ui_hide != 0))
+            if (!message.ui_seen && message.ui_hide == 0)
                 unseen++;
 
             // Check if notification channel enabled

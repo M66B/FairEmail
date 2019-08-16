@@ -265,7 +265,7 @@ public interface DaoMessage {
             " WHERE account.`synchronize`" +
             " AND folder.notify" +
             " AND (account.created IS NULL OR message.received > account.created)" +
-            " AND (notifying <> 0 OR NOT (message.ui_seen OR message.ui_ignored OR message.ui_hide <> 0))" +
+            " AND (notifying <> 0 OR NOT (message.ui_seen OR message.ui_hide <> 0))" +
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
