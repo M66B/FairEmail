@@ -232,7 +232,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View view;
 
         private View vwColor;
-        private ImageView ivExpander;
+        private ImageButton ivExpander;
         private ImageView ivFlagged;
         private ImageView ivAvatar;
         private TextView tvFrom;
@@ -256,7 +256,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private View vsBody;
 
-        private ImageView ivExpanderAddress;
+        private ImageButton ivExpanderAddress;
 
         private ImageButton ibSearchContact;
         private ImageButton ibNotifyContact;

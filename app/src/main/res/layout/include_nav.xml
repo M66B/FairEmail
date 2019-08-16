@@ -20,10 +20,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvAccount" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/ivExpanderUnified"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/title_legend_expander"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount"
@@ -77,10 +78,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvMenu" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/ivExpanderExtra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/title_legend_expander"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorMenu"

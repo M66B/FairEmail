@@ -37,6 +37,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -95,7 +96,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivReadOnly;
 
         private View vwLevel;
-        private ImageView ivExpander;
+        private ImageButton ivExpander;
 
         private ImageView ivUnified;
         private ImageView ivSubscribed;

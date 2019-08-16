@@ -40,7 +40,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -87,11 +87,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
     private RecyclerView rvAccount;
-    private ImageView ivExpanderUnified;
+    private ImageButton ivExpanderUnified;
     private RecyclerView rvUnified;
     private RecyclerView rvFolder;
     private RecyclerView rvMenu;
-    private ImageView ivExpanderExtra;
+    private ImageButton ivExpanderExtra;
     private RecyclerView rvMenuExtra;
     private Group grpUnified;
 
