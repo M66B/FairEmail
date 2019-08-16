@@ -53,7 +53,7 @@ For authorizing:
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * Send as attachment
 * Themes
-* Compact view folders
+* ~~More compact folder view~~
 * Compose lists
 
 Anything on this list is in random order and *might* be added in the near future.
