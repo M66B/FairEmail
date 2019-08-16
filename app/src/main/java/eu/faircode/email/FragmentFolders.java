@@ -37,6 +37,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -218,6 +219,10 @@ public class FragmentFolders extends FragmentBase {
             });
 
         // Initialize
+
+        if (cards && !Helper.isDarkTheme(getContext()))
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
+
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
         fab.hide();

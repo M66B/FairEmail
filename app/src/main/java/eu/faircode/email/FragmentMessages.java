@@ -80,6 +80,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -817,6 +818,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         addBackPressedListener(onBackPressedListener);
 
         // Initialize
+
+        if (cards && !Helper.isDarkTheme(getContext()))
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
+
         tvNoEmail.setVisibility(View.GONE);
         seekBar.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);

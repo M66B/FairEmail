@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
@@ -112,6 +113,10 @@ public class FragmentIdentities extends FragmentBase {
         });
 
         // Initialize
+
+        if (cards && !Helper.isDarkTheme(getContext()))
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
+
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
