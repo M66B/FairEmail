@@ -654,7 +654,6 @@
     <string name="title_hint_sync">Nedlasting av meldinger kan ta litt tid, avhengig av leverandørens hastighet, internettforbindelse og enhet og antall meldinger. Mens du laster ned meldinger, kan appen reagere langsommere.</string>
     <string name="title_hint_image_link">Bildelink</string>
     <string name="title_hint_tracking_image">Sporer bilde %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Langt trykk på en kontakt for å aldri betrakte den som favoritt</string>
     <string name="title_open_link">Åpne link</string>
     <string name="title_secure_link">Gjør koblingen sikker</string>
     <string name="title_link_secured">Koblingen er sikker</string>

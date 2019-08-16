@@ -634,7 +634,6 @@
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_hint_image_link">Görsel bağlantısı</string>
     <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Bir kişiyi sık kullanılanlarda istemiyorsanız uzun basın</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_secure_link">Bağlantıyı güvenli hale getir</string>
     <string name="title_link_secured">Bağlantı güvenli</string>

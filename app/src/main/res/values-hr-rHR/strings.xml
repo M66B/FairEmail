@@ -661,7 +661,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
     <string name="title_hint_image_link">Link slike</string>
     <string name="title_hint_tracking_image">Slika za praćenje %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Dugo pritisnite kontakt da ga nikada ne biste smatrali favoritom</string>
     <string name="title_open_link">Otvori link</string>
     <string name="title_secure_link">Osiguraj vezu</string>
     <string name="title_link_secured">Veza je sigurna</string>

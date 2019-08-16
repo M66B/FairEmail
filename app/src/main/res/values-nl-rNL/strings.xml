@@ -264,6 +264,7 @@
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
+    <string name="title_advanced_never_favorite">Nooit favoriet</string>
     <string name="title_select">Selecteer &#8230;</string>
     <string name="title_identity_name">Uw naam</string>
     <string name="title_identity_email">Uw e-mailadres</string>
@@ -654,7 +655,7 @@
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_image_link">Afbeeldingskoppeling</string>
     <string name="title_hint_tracking_image">Tracking afbeelding %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Druk lang op een contact om het nooit als een favoriet te beschouwen</string>
+    <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_open_link">Koppeling openen</string>
     <string name="title_secure_link">Maak koppeling veilig</string>
     <string name="title_link_secured">Link is veilig</string>

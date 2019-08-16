@@ -660,7 +660,6 @@
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_image_link">Legătură imagine</string>
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Apăsați lung pe un contact pentru a nu-l lua niciodată în considerare ca favorit</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_secure_link">Securizează adresa</string>
     <string name="title_link_secured">Adresa este sigură</string>

@@ -641,7 +641,6 @@
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_hint_image_link">Bildlänk</string>
     <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Långt tryck på en kontakt för att aldrig betrakta den som en favorit</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_secure_link">Gör länken säker</string>
     <string name="title_link_secured">Länken är säker</string>

@@ -653,7 +653,6 @@
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
     <string name="title_hint_image_link">Link da imagem</string>
     <string name="title_hint_tracking_image">Imagem de rastreamento %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Pressione e segure um contato para nunca considerá-lo como favorito</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_secure_link">Tornar o link seguro</string>
     <string name="title_link_secured">Link seguro</string>

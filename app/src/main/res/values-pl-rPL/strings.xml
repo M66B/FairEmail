@@ -672,7 +672,6 @@
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_image_link">Adres obrazka</string>
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Długo naciśnij kontakt, aby nigdy nie uznać go za ulubiony</string>
     <string name="title_open_link">Otwórz link</string>
     <string name="title_secure_link">Utwórz bezpieczny link</string>
     <string name="title_link_secured">Link jest bezpieczny</string>

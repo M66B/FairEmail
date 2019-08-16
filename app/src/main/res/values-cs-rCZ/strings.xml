@@ -646,7 +646,6 @@
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_image_link">Odkaz obrázku</string>
     <string name="title_hint_tracking_image">Sledovací obrázek %1$sx%2$s px</string>
-    <string name="title_hint_ignore_contact">Dlouhé podržení kontaktu = nikdy jej nepovažovat za oblíbený</string>
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_secure_link">Učinit odkaz bezpečným</string>
     <string name="title_link_secured">Odkaz je bezpečný</string>

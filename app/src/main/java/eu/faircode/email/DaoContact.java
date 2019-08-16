@@ -76,6 +76,9 @@ public interface DaoContact {
     @Update
     int updateContact(EntityContact contact);
 
+    @Query("DELETE FROM contact WHERE id = :id")
+    int deleteContact(long id);
+
     @Query("UPDATE contact SET state = :state WHERE id = :id")
     int setContactState(long id, int state);
 

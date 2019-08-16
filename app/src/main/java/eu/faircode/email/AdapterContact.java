@@ -27,12 +27,15 @@ import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
@@ -71,6 +74,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         private TextView tvTimes;
         private TextView tvLast;
         private ImageView ivFavorite;
+
+        private TwoStateOwner powner = new TwoStateOwner(owner, "ContactPopup");
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -202,30 +207,84 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
             TupleContactEx contact = selected.get(pos);
 
-            Bundle args = new Bundle();
-            args.putLong("id", contact.id);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            new SimpleTask<Void>() {
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, contact.email).setEnabled(false);
+            if (contact.state != EntityContact.STATE_IGNORE)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, 1, R.string.title_advanced_never_favorite);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 2, R.string.title_delete);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    db.contact().setContactState(id, EntityContact.STATE_IGNORE);
-
-                    return null;
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.string.title_advanced_never_favorite:
+                            onActionNeverFavorite();
+                            return true;
+                        case R.string.title_delete:
+                            onActionDelete();
+                            return true;
+                        default:
+                            return false;
+                    }
                 }
 
-                @Override
-                protected void onExecuted(Bundle args, Void data) {
-                    Shortcuts.update(context, owner);
+                private void onActionNeverFavorite() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", contact.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.contact().setContactState(id, EntityContact.STATE_IGNORE);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            Shortcuts.update(context, owner);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "contact:favorite");
                 }
 
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                private void onActionDelete() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", contact.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.contact().deleteContact(id);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            Shortcuts.update(context, owner);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "contact:delete");
                 }
-            }.execute(context, owner, args, "contact:delete");
+            });
+
+            popupMenu.show();
 
             return true;
         }
@@ -359,5 +418,10 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         TupleContactEx contact = selected.get(position);
         holder.bindTo(contact);
         holder.wire();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 }

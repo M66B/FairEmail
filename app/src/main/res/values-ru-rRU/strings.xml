@@ -672,7 +672,6 @@
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время, в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_image_link">Ссылка на изображение</string>
     <string name="title_hint_tracking_image">Отслеживающее изображение %1$sx%2$s</string>
-    <string name="title_hint_ignore_contact">Удерживайте контакт, чтобы никогда не считать его избранным</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_secure_link">Сделать ссылку безопасной</string>
     <string name="title_link_secured">Ссылка безопасна</string>
