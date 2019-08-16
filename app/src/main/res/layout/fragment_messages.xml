@@ -185,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="@dimen/fab_padding"
-                android:src="@drawable/baseline_reply_24"
+                android:src="@drawable/baseline_reply_all_24"
                 android:tint="@color/colorActionForeground"
                 app:layout_constraintBottom_toTopOf="@+id/seekBar"
                 app:layout_constraintEnd_toEndOf="parent" />

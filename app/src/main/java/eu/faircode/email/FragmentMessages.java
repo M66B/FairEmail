@@ -702,7 +702,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
                     long id = values.get("expanded").get(0);
                     Intent reply = new Intent(getContext(), ActivityCompose.class)
-                            .putExtra("action", "reply")
+                            .putExtra("action", "reply_all")
                             .putExtra("reference", id);
                     startActivity(reply);
                 }
