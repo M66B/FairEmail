@@ -173,7 +173,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Group grpHintSwipe;
     private Group grpHintSelect;
     private Group grpReady;
-    private FloatingActionButton fab;
+    private FloatingActionButton fabReply;
+    private FloatingActionButton fabCompose;
     private FloatingActionButton fabMore;
     private FloatingActionButton fabSearch;
     private FloatingActionButton fabError;
@@ -353,9 +354,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
         grpReady = view.findViewById(R.id.grpReady);
-        fab = view.findViewById(R.id.fab);
-        fabSearch = view.findViewById(R.id.fabSearch);
+
+        fabReply = view.findViewById(R.id.fabReply);
+        fabCompose = view.findViewById(R.id.fabCompose);
         fabMore = view.findViewById(R.id.fabMore);
+        fabSearch = view.findViewById(R.id.fabSearch);
         fabError = view.findViewById(R.id.fabError);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -693,7 +696,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        fabReply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
+                    long id = values.get("expanded").get(0);
+                    Intent reply = new Intent(getContext(), ActivityCompose.class)
+                            .putExtra("action", "reply")
+                            .putExtra("reference", id);
+                    startActivity(reply);
+                }
+            }
+        });
+
+        fabCompose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), ActivityCompose.class)
@@ -703,7 +719,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        fab.setOnLongClickListener(new View.OnLongClickListener() {
+        fabCompose.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 Bundle args = new Bundle();
@@ -737,6 +753,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }.execute(FragmentMessages.this, args, "messages:drafts");
 
                 return true;
+            }
+        });
+
+        fabMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMore();
             }
         });
 
@@ -801,13 +824,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        fabMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onMore();
-            }
-        });
-
         fabError.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -828,11 +844,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibUp.setVisibility(View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
-        bottom_navigation.setVisibility(View.GONE);
+        bottom_navigation.setVisibility(actionbar ? View.INVISIBLE : View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
-        fab.hide();
+        fabReply.hide();
+        fabCompose.hide();
         if (viewType == AdapterMessage.ViewType.SEARCH && !server)
             fabSearch.show();
         else
@@ -2213,9 +2230,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         @Override
                         public void onChanged(List<TupleIdentityEx> identities) {
                             if (identities == null || identities.size() == 0)
-                                fab.hide();
+                                fabCompose.hide();
                             else
-                                fab.show();
+                                fabCompose.show();
                         }
                     });
         }
@@ -2782,6 +2799,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
 
+            updateExpanded();
+
             // This is to workaround not drawing when the search is expanded
             new Handler().post(new Runnable() {
                 @Override
@@ -2984,9 +3003,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void updateExpanded() {
-        boolean expanded = (values.containsKey("expanded") && values.get("expanded").size() > 0);
-        ibDown.setVisibility(expanded ? View.VISIBLE : View.GONE);
-        ibUp.setVisibility(expanded ? View.VISIBLE : View.GONE);
+        int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
+
+        if (expanded == 1) {
+            long id = values.get("expanded").get(0);
+            int pos = adapter.getPositionForKey(id);
+            TupleMessageEx message = adapter.getItemAtPosition(pos);
+            if (message != null && message.content && !EntityFolder.OUTBOX.equals(message.folderType))
+                fabReply.show();
+            else
+                fabReply.hide();
+        } else
+            fabReply.hide();
+
+        ibDown.setVisibility(expanded > 0 ? View.VISIBLE : View.GONE);
+        ibUp.setVisibility(expanded > 0 ? View.VISIBLE : View.GONE);
     }
 
     private void handleExpand(long id) {

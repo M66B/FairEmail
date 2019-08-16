@@ -179,13 +179,16 @@
                 app:layout_constraintStart_toStartOf="@id/rvMessage"
                 app:layout_constraintTop_toTopOf="@id/rvMessage" />
 
-            <SeekBar
-                android:id="@+id/seekBar"
-                android:layout_width="match_parent"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabReply"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_gravity="end|bottom"
+                android:layout_margin="@dimen/fab_padding"
+                android:src="@drawable/baseline_reply_24"
+                android:tint="@color/colorActionForeground"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageButton
                 android:id="@+id/ibDown"
@@ -194,8 +197,11 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:src="@drawable/baseline_vertical_align_bottom_24"
-                app:layout_constraintBottom_toTopOf="@id/seekBar"
-                app:layout_constraintEnd_toStartOf="@id/ibUp" />
+                android:tint="?attr/colorSeparator"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintEnd_toStartOf="@+id/ibUp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageButton
                 android:id="@+id/ibUp"
@@ -204,8 +210,19 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:src="@drawable/baseline_vertical_align_top_24"
-                app:layout_constraintBottom_toTopOf="@id/seekBar"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:tint="?attr/colorSeparator"
+                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/ibDown" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation"
@@ -276,7 +293,7 @@
         app:backgroundTint="?attr/colorAccent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fabCompose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
