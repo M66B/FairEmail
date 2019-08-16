@@ -50,6 +50,7 @@ import androidx.preference.PreferenceManager;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private SwitchCompat swBadge;
     private SwitchCompat swNotifyPreview;
     private CheckBox cbNotifyActionTrash;
     private CheckBox cbNotifyActionArchive;
@@ -66,7 +67,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Group grpNotification;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "light", "sound"
+            "badge", "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "light", "sound"
     };
 
     @Override
@@ -79,6 +80,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         // Get controls
 
+        swBadge = view.findViewById(R.id.swBadge);
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
         cbNotifyActionArchive = view.findViewById(R.id.cbNotifyActionArchive);
@@ -100,6 +102,14 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swBadge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("badge", checked).apply();
+                ServiceSynchronize.reload(getContext(), "badge");
+            }
+        });
 
         swNotifyPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -235,6 +245,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         boolean pro = ActivityBilling.isPro(getContext());
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swBadge.setChecked(prefs.getBoolean("badge", true));
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
 
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);

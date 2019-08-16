@@ -249,6 +249,7 @@
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
 
+    <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
     <string name="title_advanced_notify_preview">Show message preview in notifications</string>
     <string name="title_advanced_notify_actions">Notification actions</string>
     <string name="title_advanced_notify_action_trash">Trash</string>
@@ -256,12 +257,13 @@
     <string name="title_advanced_notify_action_reply">Reply</string>
     <string name="title_advanced_notify_action_flag">Star</string>
     <string name="title_advanced_notify_action_seen">Read</string>
-    <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
-    <string name="title_advanced_notify_manage_hint">Tap on the channel name \'Notifications\' to set the default notification sound, etc</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
 
-    <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
+    <string name="title_advanced_badge_hint">Only available on supported launchers</string>
+    <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
+    <string name="title_advanced_notify_manage_hint">Tap on the channel name \'Notifications\' to set the default notification sound, etc</string>
+
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
     <string name="title_advanced_sync_subscribed">Synchronize subscribed folders only</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
@@ -305,7 +307,6 @@
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
 
-    <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
     <string name="title_advanced_debug_hint">Enable extra logging and show debug information at various places</string>

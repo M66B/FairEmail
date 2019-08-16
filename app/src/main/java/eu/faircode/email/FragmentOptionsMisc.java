@@ -45,7 +45,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private SwitchCompat swBadge;
     private SwitchCompat swSubscriptions;
     private TextView tvSubscriptionPro;
     private SwitchCompat swSubscribedOnly;
@@ -66,7 +65,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "subscriptions", "subscribed_only", "biometrics_timeout", "double_back", "english", "watchdog", "updates", "crash_reports", "debug"
+            "subscriptions", "subscribed_only", "biometrics_timeout", "double_back", "english", "watchdog", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -83,7 +82,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         // Get controls
 
-        swBadge = view.findViewById(R.id.swBadge);
         swSubscriptions = view.findViewById(R.id.swSubscriptions);
         tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
         swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
@@ -108,14 +106,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        swBadge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("badge", checked).apply();
-                ServiceSynchronize.reload(getContext(), "badge");
-            }
-        });
 
         swSubscriptions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -286,8 +276,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        swBadge.setChecked(prefs.getBoolean("badge", true));
 
         boolean pro = ActivityBilling.isPro(getContext());
         swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false) && pro);
