@@ -213,6 +213,7 @@
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_tracking">Reconhecer e desativar automaticamente as imagens de rastreamento</string>
+    <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixeira</string>
@@ -220,11 +221,11 @@
     <string name="title_advanced_notify_action_reply">Responder</string>
     <string name="title_advanced_notify_action_flag">Estrela</string>
     <string name="title_advanced_notify_action_seen">Ler</string>
-    <string name="title_advanced_notify_action_hint">No máximo três ações serão mostradas</string>
-    <string name="title_advanced_notify_manage_hint">Toque no nome do canal \'Notificações\' para definir o som de notificação padrão, etc</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
-    <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
+    <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
+    <string name="title_advanced_notify_action_hint">No máximo três ações serão mostradas</string>
+    <string name="title_advanced_notify_manage_hint">Toque no nome do canal \'Notificações\' para definir o som de notificação padrão, etc</string>
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
     <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
@@ -259,7 +260,6 @@
     <string name="title_advanced_autocollapse_hint">Várias mensagens expandidas serão sempre fechadas ao \'voltar\'</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
-    <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
     <string name="title_advanced_subscribed_only_hint">Habilitando isto irá apagar todas as pastas locais sem assinatura</string>
     <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
     <string name="title_advanced_debug_hint">Habilitar o log extra e mostrar informações de depuração em vários lugares</string>

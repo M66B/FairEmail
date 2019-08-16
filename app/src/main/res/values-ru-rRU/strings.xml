@@ -231,6 +231,7 @@
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
+    <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
@@ -238,11 +239,11 @@
     <string name="title_advanced_notify_action_reply">Ответить</string>
     <string name="title_advanced_notify_action_flag">В избранное</string>
     <string name="title_advanced_notify_action_seen">Прочитанное</string>
-    <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
-    <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \'Уведомления\' для установки звука уведомлений по умолчанию и т. д.</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
-    <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
+    <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
+    <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
+    <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \'Уведомления\' для установки звука уведомлений по умолчанию и т. д.</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
     <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
@@ -277,7 +278,6 @@
     <string name="title_advanced_autocollapse_hint">Несколько развёрнутых сообщений всегда будут закрыты по кнопке \'назад\'</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
-    <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_subscribed_only_hint">Включение этого режима удалит все локальные папки без подписки</string>
     <string name="title_advanced_english_hint">Это перезапустит приложение</string>
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>

@@ -182,6 +182,7 @@
     <string name="title_advanced_cards">Afficher sous forme de cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Fil de conversation</string>
+    <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
@@ -213,6 +214,7 @@
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
+    <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
     <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
     <string name="title_advanced_notify_action_trash">Supprimer</string>
@@ -220,11 +222,11 @@
     <string name="title_advanced_notify_action_reply">Répondre</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
-    <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
-    <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
-    <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
+    <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
+    <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
+    <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
     <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
     <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
@@ -259,7 +261,6 @@
     <string name="title_advanced_autocollapse_hint">Les messages multiples étendus seront toujours fermés par « Retour »</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
-    <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>

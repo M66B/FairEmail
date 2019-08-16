@@ -212,6 +212,7 @@
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
+    <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
@@ -219,11 +220,11 @@
     <string name="title_advanced_notify_action_reply">Rispondi</string>
     <string name="title_advanced_notify_action_flag">Stella</string>
     <string name="title_advanced_notify_action_seen">Letto</string>
-    <string name="title_advanced_notify_action_hint">Verranno mostrate al massimo tre azioni</string>
-    <string name="title_advanced_notify_manage_hint">Tocca il nome del canale \'Notifiche\' per impostare il suono di notifica predefinito, ecc</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
-    <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
+    <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
+    <string name="title_advanced_notify_action_hint">Verranno mostrate al massimo tre azioni</string>
+    <string name="title_advanced_notify_manage_hint">Tocca il nome del canale \'Notifiche\' per impostare il suono di notifica predefinito, ecc</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_sync_subscribed">Sincronizza solo le cartelle sottoscritte</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
@@ -258,7 +259,6 @@
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
-    <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_subscribed_only_hint">Abilitando questa opzione verranno eliminate tutte le cartelle locali senza abbonamento</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>

@@ -210,6 +210,7 @@
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
+    <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
@@ -217,11 +218,11 @@
     <string name="title_advanced_notify_action_reply">Svara</string>
     <string name="title_advanced_notify_action_flag">Stjärna</string>
     <string name="title_advanced_notify_action_seen">Läst</string>
-    <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
-    <string name="title_advanced_notify_manage_hint">Tryck på kanalnamnet \"meddelanden\" för att ställa in standardmeddelande ljud, o.s.v.</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
-    <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
+    <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
+    <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
+    <string name="title_advanced_notify_manage_hint">Tryck på kanalnamnet \"meddelanden\" för att ställa in standardmeddelande ljud, o.s.v.</string>
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
     <string name="title_advanced_sync_subscribed">Synkronisera abonnerade mappar bara</string>
     <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
@@ -253,7 +254,6 @@
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
-    <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
     <string name="title_advanced_subscribed_only_hint">Om du aktiverar detta tas alla lokala mappar utan abonnemang bort</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>

@@ -222,6 +222,7 @@
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
+    <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
@@ -229,11 +230,11 @@
     <string name="title_advanced_notify_action_reply">Răspunde</string>
     <string name="title_advanced_notify_action_flag">Stea</string>
     <string name="title_advanced_notify_action_seen">Citit</string>
-    <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
-    <string name="title_advanced_notify_manage_hint">Atingeți numele canalului \'Notificări\' pentru a configura sunetul implicit, etc</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
-    <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
+    <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
+    <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
+    <string name="title_advanced_notify_manage_hint">Atingeți numele canalului \'Notificări\' pentru a configura sunetul implicit, etc</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
@@ -268,7 +269,6 @@
     <string name="title_advanced_autocollapse_hint">Mesajele multiple vor fi mereu plate când se apasă \'înapoi\'</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
-    <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_subscribed_only_hint">La activare se vor șterge toate dosarele locale fără abonament</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_debug_hint">Activați înregistrări suplimentare în jurnalul aplicației și afișați informații de depanare în diferite locuri</string>

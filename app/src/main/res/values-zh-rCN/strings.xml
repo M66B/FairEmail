@@ -203,6 +203,7 @@
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
+    <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
@@ -210,11 +211,11 @@
     <string name="title_advanced_notify_action_reply">回复</string>
     <string name="title_advanced_notify_action_flag">标星</string>
     <string name="title_advanced_notify_action_seen">已读</string>
-    <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
-    <string name="title_advanced_notify_manage_hint">点击频道名称“通知”设置默认通知声音等</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
-    <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
+    <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
+    <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
+    <string name="title_advanced_notify_manage_hint">点击频道名称“通知”设置默认通知声音等</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时</string>
@@ -249,7 +250,6 @@
     <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
-    <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
