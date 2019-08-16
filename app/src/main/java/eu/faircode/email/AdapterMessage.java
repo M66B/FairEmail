@@ -1384,10 +1384,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, File ics) {
+                    String status = null;
+                    switch (action) {
+                        case R.id.btnCalendarAccept:
+                            status = context.getString(R.string.title_icalendar_accept);
+                            break;
+                        case R.id.btnCalendarDecline:
+                            status = context.getString(R.string.title_icalendar_decline);
+                            break;
+                        case R.id.btnCalendarMaybe:
+                            status = context.getString(R.string.title_icalendar_maybe);
+                            break;
+                    }
+
                     Intent reply = new Intent(context, ActivityCompose.class)
                             .putExtra("action", "participation")
                             .putExtra("reference", args.getLong("id"))
-                            .putExtra("ics", ics);
+                            .putExtra("ics", ics)
+                            .putExtra("status", status);
                     context.startActivity(reply);
                 }
 
