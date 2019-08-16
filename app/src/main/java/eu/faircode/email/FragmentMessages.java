@@ -2140,7 +2140,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         updateState(folders);
 
-                        boolean outbox = EntityFolder.OUTBOX.equals(folder.type);
+                        boolean outbox = (folder != null && EntityFolder.OUTBOX.equals(folder.type));
                         if (FragmentMessages.this.outbox != outbox) {
                             FragmentMessages.this.outbox = outbox;
                             getActivity().invalidateOptionsMenu();
