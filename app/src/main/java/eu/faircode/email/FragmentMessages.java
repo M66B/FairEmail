@@ -1127,10 +1127,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return values.get(name).contains(id);
             else if ("addresses".equals(name))
                 return !addresses;
-            else if ("toolbar".equals(name)) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                return !prefs.getBoolean("autotoolbar", false);
-            }
             return false;
         }
 

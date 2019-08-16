@@ -111,6 +111,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.github.chrisbanes.photoview.PhotoView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
@@ -223,7 +225,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, View.OnLongClickListener, View.OnKeyListener {
+            View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener, View.OnKeyListener {
         private View view;
         private View vwRipple;
 
@@ -290,19 +292,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnDownloadAttachments;
         private TextView tvNoInternetAttachments;
 
-        private View vSeparatorBody;
+        private BottomNavigationView bnvActions;
 
-        private ImageButton ibExpander;
         private ImageButton ibFull;
         private ImageButton ibImages;
         private ImageButton ibDecrypt;
-
-        private ImageButton ibReply;
-        private ImageButton ibForward;
-        private ImageButton ibArchive;
-        private ImageButton ibMove;
-        private ImageButton ibDelete;
-        private ImageButton ibMore;
 
         private TextView tvBody;
         private ContentLoadingProgressBar pbBody;
@@ -432,19 +426,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments = attachments.findViewById(R.id.btnDownloadAttachments);
             tvNoInternetAttachments = attachments.findViewById(R.id.tvNoInternetAttachments);
 
-            vSeparatorBody = vsBody.findViewById(R.id.vSeparatorBody);
+            bnvActions = vsBody.findViewById(R.id.bnvActions);
+            if (compact) {
+                bnvActions.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
+                ViewGroup.LayoutParams lparam = bnvActions.getLayoutParams();
+                lparam.height = dp36;
+                bnvActions.setLayoutParams(lparam);
+            }
 
-            ibExpander = vsBody.findViewById(R.id.ibExpander);
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
-
-            ibReply = vsBody.findViewById(R.id.ibReply);
-            ibForward = vsBody.findViewById(R.id.ibForward);
-            ibArchive = vsBody.findViewById(R.id.ibArchive);
-            ibMove = vsBody.findViewById(R.id.ibMove);
-            ibDelete = vsBody.findViewById(R.id.ibDelete);
-            ibMore = vsBody.findViewById(R.id.ibMore);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
             pbBody = vsBody.findViewById(R.id.pbBody);
@@ -508,17 +500,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnSaveAttachments.setOnClickListener(this);
                 btnDownloadAttachments.setOnClickListener(this);
 
-                ibExpander.setOnClickListener(this);
+                bnvActions.setOnNavigationItemSelectedListener(this);
+
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
-
-                ibReply.setOnClickListener(this);
-                ibForward.setOnClickListener(this);
-                ibArchive.setOnClickListener(this);
-                ibMove.setOnClickListener(this);
-                ibDelete.setOnClickListener(this);
-                ibMore.setOnClickListener(this);
 
                 btnCalendarAccept.setOnClickListener(this);
                 btnCalendarDecline.setOnClickListener(this);
@@ -546,17 +532,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnSaveAttachments.setOnClickListener(null);
                 btnDownloadAttachments.setOnClickListener(null);
 
-                ibExpander.setOnClickListener(null);
+                bnvActions.setOnNavigationItemSelectedListener(null);
+
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
-
-                ibReply.setOnClickListener(null);
-                ibForward.setOnClickListener(null);
-                ibArchive.setOnClickListener(null);
-                ibMove.setOnClickListener(null);
-                ibDelete.setOnClickListener(null);
-                ibMore.setOnClickListener(null);
 
                 btnCalendarAccept.setOnClickListener(null);
                 btnCalendarDecline.setOnClickListener(null);
@@ -895,19 +875,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments.setVisibility(View.GONE);
             tvNoInternetAttachments.setVisibility(View.GONE);
 
-            vSeparatorBody.setVisibility(View.GONE);
+            bnvActions.setVisibility(View.GONE);
 
-            ibExpander.setVisibility(View.GONE);
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
-
-            ibReply.setVisibility(View.GONE);
-            ibForward.setVisibility(View.GONE);
-            ibArchive.setVisibility(View.GONE);
-            ibMove.setVisibility(View.GONE);
-            ibDelete.setVisibility(View.GONE);
-            ibMore.setVisibility(View.GONE);
 
             tvBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
@@ -970,19 +942,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
-            vSeparatorBody.setVisibility(View.VISIBLE);
-
-            initToolbar(message);
+            bnvActions.setVisibility(View.VISIBLE);
+            for (int i = 0; i < bnvActions.getMenu().size(); i++)
+                bnvActions.getMenu().getItem(i).setVisible(false);
 
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
-
-            ibReply.setVisibility(View.GONE);
-            ibForward.setVisibility(View.GONE);
-            ibArchive.setVisibility(View.GONE);
-            ibMove.setVisibility(View.GONE);
-            ibDelete.setVisibility(View.GONE);
-            ibMove.setVisibility(View.GONE);
 
             if (textSize != 0)
                 tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -1124,32 +1089,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     delete = (inTrash || !hasTrash || inOutbox);
 
-                    ibReply.setEnabled(message.content);
-                    ibReply.setVisibility(!inOutbox ? View.VISIBLE : View.GONE);
-
-                    ibForward.setEnabled(message.content);
-                    ibForward.setVisibility(!inOutbox ? View.VISIBLE : View.GONE);
+                    bnvActions.getMenu().findItem(R.id.action_more).setVisible(!inOutbox);
 
                     if (!message.folderReadOnly) {
-                        ibArchive.setVisibility(
-                                message.uid != null && (inJunk || (!inArchive && hasArchive))
-                                        ? View.VISIBLE : View.GONE);
-                        ibArchive.setImageResource(
-                                inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
+                        bnvActions.getMenu().findItem(R.id.action_delete).setVisible(debug ||
+                                (inTrash && (message.uid != null || message.msgid != null)) ||
+                                (!inTrash && hasTrash && message.uid != null));
+                        bnvActions.getMenu().findItem(R.id.action_delete).setTitle(
+                                delete ? R.string.title_delete : R.string.title_trash);
 
-                        ibMove.setVisibility(
-                                message.uid != null || inOutbox
-                                        ? View.VISIBLE : View.GONE);
-                        ibMove.setImageResource(
+                        bnvActions.getMenu().findItem(R.id.action_move).setVisible(
+                                message.uid != null || inOutbox);
+                        bnvActions.getMenu().findItem(R.id.action_move).setTitle(
+                                inOutbox ? R.string.title_folder_drafts : R.string.title_move);
+                        bnvActions.getMenu().findItem(R.id.action_move).setIcon(
                                 inOutbox ? R.drawable.baseline_drafts_24 : R.drawable.baseline_folder_24);
 
-                        ibDelete.setVisibility(debug ||
-                                (inTrash && (message.uid != null || message.msgid != null)) ||
-                                (!inTrash && hasTrash && message.uid != null)
-                                ? View.VISIBLE : View.GONE);
+                        bnvActions.getMenu().findItem(R.id.action_archive).setVisible(
+                                message.uid != null && (inJunk || (!inArchive && hasArchive)));
+                        bnvActions.getMenu().findItem(R.id.action_archive).setTitle(
+                                inJunk ? R.string.title_folder_inbox : R.string.title_archive);
+                        bnvActions.getMenu().findItem(R.id.action_archive).setIcon(
+                                inJunk ? R.drawable.baseline_inbox_24 : R.drawable.baseline_archive_24);
                     }
 
-                    ibMore.setVisibility(!inOutbox ? View.VISIBLE : View.GONE);
+                    bnvActions.getMenu().findItem(R.id.action_reply).setEnabled(message.content);
+                    bnvActions.getMenu().findItem(R.id.action_reply).setVisible(!inOutbox);
                 }
 
                 @Override
@@ -1474,49 +1439,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onDownloadAttachments(message);
                         break;
 
-                    case R.id.ibExpander:
-                        onToggleToolbar(message);
-                        break;
                     case R.id.ibFull:
                         onShowFull(message);
-                        autoToolbar(message);
                         break;
                     case R.id.ibImages:
                         onShowImages(message);
-                        autoToolbar(message);
                         break;
                     case R.id.ibDecrypt:
                         onActionDecrypt(message);
-                        autoToolbar(message);
-                        break;
-
-                    case R.id.ibReply:
-                        onActionReplyMenu(message);
-                        break;
-                    case R.id.ibForward:
-                        onActionForward(message);
-                        autoToolbar(message);
-                        break;
-                    case R.id.ibArchive:
-                        if (EntityFolder.JUNK.equals(message.folderType))
-                            onActionMoveJunk(message);
-                        else
-                            onActionArchive(message);
-                        autoToolbar(message);
-                        break;
-                    case R.id.ibMove:
-                        if (EntityFolder.OUTBOX.equals(message.folderType))
-                            onActionMoveOutbox(message);
-                        else
-                            onActionMove(message, false);
-                        autoToolbar(message);
-                        break;
-                    case R.id.ibDelete:
-                        onActionDelete(message);
-                        autoToolbar(message);
-                        break;
-                    case R.id.ibMore:
-                        onActionMore(message);
                         break;
 
                     case R.id.btnCalendarAccept:
@@ -1600,6 +1530,39 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }.execute(context, owner, args, "message:seen");
                     }
                 }
+            }
+        }
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            final TupleMessageEx message = getMessage();
+            if (message == null)
+                return false;
+
+            switch (item.getItemId()) {
+                case R.id.action_more:
+                    onActionMore(message);
+                    return true;
+                case R.id.action_delete:
+                    onActionDelete(message);
+                    return true;
+                case R.id.action_move:
+                    if (EntityFolder.OUTBOX.equals(message.folderType))
+                        onActionMoveOutbox(message);
+                    else
+                        onActionMove(message, false);
+                    return true;
+                case R.id.action_archive:
+                    if (EntityFolder.JUNK.equals(message.folderType))
+                        onActionMoveJunk(message);
+                    else
+                        onActionArchive(message);
+                    return true;
+                case R.id.action_reply:
+                    onActionReplyMenu(message);
+                    return true;
+                default:
+                    return false;
             }
         }
 
@@ -1941,77 +1904,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("id", message.id));
         }
 
-        private void onToggleToolbar(TupleMessageEx message) {
-            boolean toolbar = !properties.getValue("toolbar", message.id);
-            properties.setValue("toolbar", message.id, toolbar);
-            initToolbar(message);
-        }
-
-        private void initToolbar(TupleMessageEx message) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean cards = prefs.getBoolean("cards", true);
-
-            boolean toolbar = properties.getValue("toolbar", message.id);
-
-            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) ibExpander.getLayoutParams();
-            lparam.setMarginEnd(cards ? 0 : Helper.dp2pixels(ibExpander.getContext(), 6));
-            ibExpander.setLayoutParams(lparam);
-
-            ibExpander.setImageLevel(toolbar ? 0 /* less */ : 1 /* more */);
-            ibExpander.setVisibility(View.VISIBLE);
-
-            if (toolbar) {
-                expand(ibFull, cards);
-                expand(ibImages, cards);
-                expand(ibDecrypt, cards);
-                expand(ibMore, cards);
-                expand(ibDelete, cards);
-                expand(ibMove, cards);
-                expand(ibArchive, cards);
-                expand(ibForward, cards);
-                expand(ibReply, cards);
-            } else {
-                collapse(ibFull);
-                collapse(ibImages);
-                collapse(ibDecrypt);
-                collapse(ibMore);
-                collapse(ibDelete);
-                collapse(ibMove);
-                collapse(ibArchive);
-                collapse(ibForward);
-                collapse(ibReply);
-            }
-        }
-
-        private void autoToolbar(TupleMessageEx message) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean autotoolbar = prefs.getBoolean("autotoolbar", false);
-            if (autotoolbar) {
-                properties.setValue("toolbar", message.id, false);
-                initToolbar(message);
-            }
-        }
-
-        private void expand(View view, boolean cards) {
-            int dp6 = Helper.dp2pixels(view.getContext(), 6);
-            int dp36 = Helper.dp2pixels(view.getContext(), 36);
-            view.setPadding(dp6, dp6, dp6, dp6);
-            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) view.getLayoutParams();
-            lparam.width = dp36;
-            lparam.height = dp36;
-            lparam.setMarginEnd(cards ? 0 : dp6);
-            view.setLayoutParams(lparam);
-        }
-
-        private void collapse(View view) {
-            view.setPadding(0, 0, 0, 0);
-            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) view.getLayoutParams();
-            lparam.width = 0;
-            lparam.height = 0;
-            lparam.setMarginEnd(0);
-            view.setLayoutParams(lparam);
-        }
-
         private void onShowFull(final TupleMessageEx message) {
             boolean show_images = properties.getValue("images", message.id);
 
@@ -2155,7 +2047,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
                     }
 
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibReply);
+                    View anchor = bnvActions.findViewById(R.id.action_reply);
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
                     popupMenu.inflate(R.menu.menu_reply);
                     popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
                     popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
@@ -2165,7 +2058,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem target) {
-                            autoToolbar(message);
                             switch (target.getItemId()) {
                                 case R.id.menu_reply_to_sender:
                                     onMenuReply(message, "reply");
@@ -2227,7 +2119,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         });
                         snackbar.show();
                     } else {
-                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibReply);
+                        View anchor = bnvActions.findViewById(R.id.action_reply);
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
 
                         int order = 0;
                         for (EntityAnswer answer : answers)
@@ -2371,9 +2264,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onActionMore(TupleMessageEx message) {
             boolean show_headers = properties.getValue("headers", message.id);
 
-            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
+            View anchor = bnvActions.findViewById(R.id.action_more);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_message);
 
+            popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
@@ -2407,8 +2302,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
-                    autoToolbar(message);
                     switch (target.getItemId()) {
+                        case R.id.menu_forward:
+                            onActionForward(message);
+                            return true;
                         case R.id.menu_editasnew:
                             onMenuEditAsNew(message);
                             return true;
