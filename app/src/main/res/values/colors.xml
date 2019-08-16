@@ -19,7 +19,7 @@
     <color name="colorWidgetForeground">#fff</color>
     <color name="colorWidgetBackground">#7f000000</color>
 
-    <color name="lightColorUnread">#000</color>
+    <color name="lightColorUnread">#b27d00</color>
     <color name="lightColorItemSelected">#ccc</color>
     <color name="lightColorSeparator">#ccc</color>
     <color name="lightColorWarning">#ffff0000</color>
@@ -30,7 +30,7 @@
 
     <color name="lightColorBackground_cards">#eee</color>
 
-    <color name="darkColorUnread">#fff</color>
+    <color name="darkColorUnread">#ffb300</color>
     <color name="darkColorItemSelected">#444</color>
     <color name="darkColorSeparator">#444</color>
     <color name="darkColorWarning">#ffffb300</color>

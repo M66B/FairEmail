@@ -78,7 +78,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
     private int dp12;
     private float textSize;
-    private int colorUnread;
+    private int textColorPrimary;
     private int textColorSecondary;
 
     private List<Long> disabledIds = new ArrayList<>();
@@ -228,7 +228,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvName.setText(folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref));
 
             tvName.setTypeface(folder.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
+            tvName.setTextColor(folder.unseen > 0 ? textColorPrimary : textColorSecondary);
 
             if (listener == null && folder.selectable) {
                 StringBuilder sb = new StringBuilder();
@@ -275,7 +275,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
                 ivSync.setImageTintList(ColorStateList.valueOf(
                         folder.synchronize && folder.initialize != 0 && !EntityFolder.OUTBOX.equals(folder.type)
-                                ? colorUnread : textColorSecondary));
+                                ? textColorPrimary : textColorSecondary));
 
                 tvKeywords.setText(TextUtils.join(" ", folder.keywords));
                 tvKeywords.setVisibility(debug && folder.keywords.length > 0 ? View.VISIBLE : View.GONE);
@@ -665,7 +665,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         this.dp12 = Helper.dp2pixels(context, 12);
         this.textSize = Helper.getTextSize(context, zoom);
-        this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
+        this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);

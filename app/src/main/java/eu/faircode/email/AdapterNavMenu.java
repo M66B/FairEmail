@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,7 +86,8 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
                         context.getString(menu.getTitle()), NF.format(menu.getCount())));
 
             tvItem.setTextColor(Helper.resolveColor(context,
-                    menu.getCount() == null ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+                    menu.getCount() == null ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTypeface(menu.getCount() == null ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setVisibility(View.GONE);
 

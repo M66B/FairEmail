@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,7 +97,8 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
                         account.name, NF.format(account.unseen)));
 
             tvItem.setTextColor(Helper.resolveColor(context,
-                    account.unseen == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+                    account.unseen == 0 ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTypeface(account.unseen == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setText(account.last_connected == null ? null : DTF.format(account.last_connected));
 

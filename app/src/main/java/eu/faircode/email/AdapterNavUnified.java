@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,7 +87,8 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                         Helper.localizeFolderType(context, folder.type), NF.format(folder.unseen)));
 
             tvItem.setTextColor(Helper.resolveColor(context,
-                    folder.unseen == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+                    folder.unseen == 0 ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTypeface(folder.unseen == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setVisibility(View.GONE);
             ivExternal.setVisibility(View.GONE);

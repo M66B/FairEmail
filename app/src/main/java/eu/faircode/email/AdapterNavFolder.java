@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,7 +119,8 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                         folder.getDisplayName(context), NF.format(count)));
 
             tvItem.setTextColor(Helper.resolveColor(context,
-                    count == 0 ? android.R.attr.textColorSecondary : R.attr.colorUnread));
+                    count == 0 ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setText(folder.last_sync == null ? null : DTF.format(folder.last_sync));
             tvItemExtra.setVisibility(debug ? View.VISIBLE : View.GONE);
