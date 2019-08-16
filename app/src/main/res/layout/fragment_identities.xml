@@ -15,6 +15,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:clipToPadding="false"
+            android:paddingTop="6dp"
             android:paddingBottom="90dp"
             android:scrollbarStyle="outsideOverlay"
             android:scrollbars="vertical"
@@ -47,8 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        app:srcCompat="@drawable/baseline_add_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_add"
-        app:backgroundTint="?attr/colorAccent" />
+        app:backgroundTint="?attr/colorAccent"
+        app:srcCompat="@drawable/baseline_add_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -8,7 +8,6 @@
         android:id="@+id/tvDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
         android:gravity="center_horizontal"
         android:padding="6dp"
         android:text="Today"

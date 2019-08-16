@@ -90,6 +90,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:clipToPadding="false"
+                android:paddingTop="6dp"
                 android:paddingBottom="90dp"
                 android:scrollbarStyle="outsideOverlay"
                 android:scrollbars="vertical"
