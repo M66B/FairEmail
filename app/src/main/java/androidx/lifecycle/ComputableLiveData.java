@@ -89,17 +89,15 @@ public abstract class ComputableLiveData<T> {
         @Override
         public void run() {
             boolean computed;
-            boolean once;
-            long last;
             do {
                 computed = false;
                 // compute can happen only in 1 thread but no reason to lock others.
                 if (mComputing.compareAndSet(false, true)) {
                     // as long as it is invalid, keep computing.
                     try {
-                        once = true;
-                        last = android.os.SystemClock.elapsedRealtime();
                         T value = null;
+                        boolean once = true;
+                        long last = android.os.SystemClock.elapsedRealtime();
                         while (mInvalid.compareAndSet(true, false)) {
                             long now = android.os.SystemClock.elapsedRealtime();
                             if (value != null && (once || last + 2500 < now)) {
