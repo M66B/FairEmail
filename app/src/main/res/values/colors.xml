@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- https://material-ui.com/customization/color/#color-palette -->
+
+    <!-- shade 600 -->
     <color name="colorPrimary">#039be5</color>
-    <color name="colorPrimaryDark">#006db3</color>
+    <color name="colorPrimaryDark">#026ca0</color>
     <color name="colorAccent">#ffb300</color>
+
+    <color name="colorPrimaryLight">#35afea</color>
+    <color name="colorAccentLight">#ffc233</color>
     <color name="colorAccentDark">#b27d00</color>
 
     <color name="colorError">#ff0000</color>
 
-    <color name="blackPrimary">#026ca0</color>
-    <color name="blackPrimaryDark">#004c7d</color>
+    <!-- shade 900 -->
+    <color name="blackPrimary">#01579b</color>
+    <color name="blackPrimaryDark">#003c6c</color>
 
     <color name="colorActionForeground">#fff</color>
     <color name="colorActionForegroundDisabled">#ccc</color>
 
     <color name="colorToastForeground">#fff</color>
-    <color name="colorToastBackground">#006db3</color>
+    <color name="colorToastBackground">#026ca0</color>
 
     <color name="colorWidgetForeground">#fff</color>
     <color name="colorWidgetBackground">#7f000000</color>
 
-    <color name="lightColorUnread">#b27d00</color>
     <color name="lightColorItemSelected">#ccc</color>
     <color name="lightColorSeparator">#ccc</color>
     <color name="lightColorWarning">#ffff0000</color>
@@ -30,7 +36,6 @@
 
     <color name="lightColorBackground_cards">#eee</color>
 
-    <color name="darkColorUnread">#ffb300</color>
     <color name="darkColorItemSelected">#444</color>
     <color name="darkColorSeparator">#444</color>
     <color name="darkColorWarning">#ffffb300</color>

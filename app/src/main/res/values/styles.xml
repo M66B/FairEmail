@@ -17,7 +17,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="colorUnread">@color/lightColorUnread</item>
+        <item name="colorUnread">@color/colorAccentDark</item>
         <item name="colorSeparator">@color/lightColorSeparator</item>
         <item name="colorWarning">@color/lightColorWarning</item>
 
@@ -45,7 +45,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="colorUnread">@color/darkColorUnread</item>
+        <item name="colorUnread">@color/colorAccent</item>
         <item name="colorSeparator">@color/darkColorSeparator</item>
         <item name="colorWarning">@color/darkColorWarning</item>
 
