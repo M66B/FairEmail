@@ -203,7 +203,6 @@
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
-    <string name="title_advanced_autotoolbar">Skjul automatisk bekedhandlinger</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_collapse">Sammenfold beskeder i samtaler ved tryk på Tilbage</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
@@ -416,6 +415,7 @@
     <string name="title_reply_template">Skabelon</string>
     <string name="title_moving">Flytter til %1$s</string>
     <string name="title_open_with">Åbn med</string>
+    <string name="title_authentication_failed">%1$s-godkendelse mislykkedes</string>
     <string name="title_receipt_subject">Læsningskvittering: %1$s</string>
     <string name="title_receipt_text">Denne læsekvittering bekræfter kun, at beskeden er blevet vist. Der er ingen garanti for, at modtageren også har læst beskedindholdet.</string>
     <string name="title_no_answers">Ingen svarskabeloner defineret</string>

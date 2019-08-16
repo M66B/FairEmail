@@ -435,6 +435,7 @@
     <string name="title_reply_template">Szablon</string>
     <string name="title_moving">Przenoszę do %1$s</string>
     <string name="title_open_with">Otwórz z</string>
+    <string name="title_authentication_failed">%1$s uwierzytelnianie nie powiodło się</string>
     <string name="title_receipt_subject">Potwierdzenie: %1$s</string>
     <string name="title_receipt_text">To potwierdzenie odczytu potwierdza tylko, że wiadomość została wyświetlona. Nie ma gwarancji, że odbiorca przeczytał treść wiadomości.</string>
     <string name="title_no_answers">Brak zdefiniowanych szablonów odpowiedzi</string>
