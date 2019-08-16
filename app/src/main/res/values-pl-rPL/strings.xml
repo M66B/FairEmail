@@ -124,10 +124,10 @@
     <string name="title_setup_grant">Zezwól</string>
     <string name="title_setup_account">Skonfiguruj konta</string>
     <string name="title_setup_account_remark">Do odebrania poczty</string>
-    <string name="title_setup_account_hint">Aby zmienić kolor, przesuń lewy/prawy folder docelowy, itp</string>
+    <string name="title_setup_account_hint">Aby zmienić kolor, przesuń lewy/prawy folder docelowy, itp.</string>
     <string name="title_setup_identity">Skonfiguruj tożsamości</string>
     <string name="title_setup_identity_remark">Do wysłania poczty</string>
-    <string name="title_setup_identity_hint">Aby zmienić nazwę, kolor, podpis, itp</string>
+    <string name="title_setup_identity_hint">Aby zmienić nazwę, kolor, podpis, itp.</string>
     <string name="title_setup_permissions">Przyznaj uprawnienia</string>
     <string name="title_setup_permissions_remark">Do dostępu do informacji kontaktowych (opcjonalnie)</string>
     <string name="title_setup_doze">Skonfiguruj optymalizacje baterii</string>
@@ -213,7 +213,7 @@
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
-    <string name="title_advanced_images_inline">Obrazy wstawione to obrazy zawarte w wiadomości</string>
+    <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_images">Automatycznie wyświetlaj zdjęcia dla znanych kontaktów</string>
     <string name="title_advanced_images_all">Automatycznie pokazuj wszystkie obrazy</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
@@ -271,7 +271,7 @@
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
-    <string name="title_advanced_inline_hint">Obrazy wbudowane są obrazami zawartymi w wiadomości</string>
+    <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_permission_contacts_hint">Wymaga to przyznania pozwolenia na odczyt kontaktów</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autocollapse_hint">Rozwinięte wiadomości zostaną zawsze zamknięte przy \'cofnij\'</string>
@@ -282,6 +282,7 @@
     <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
     <string name="title_advanced_debug_hint">Włącz dodatkowe rejestrowanie i wyświetlaj informacje debugowania w różnych miejscach</string>
     <string name="title_advanced_cleanup_hint">Spowoduje to usunięcie wszystkich plików tymczasowych</string>
+    <string name="title_advanced_never_favorite">Nigdy ulubiony</string>
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
@@ -365,7 +366,7 @@
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_show_folders">Pokaż ukryte foldery</string>
     <string name="title_hide_folder">Ukryj folder</string>
-    <string name="title_unified_folder">Pokaż we wspólnej skrzynce odbiorczej</string>
+    <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
@@ -380,7 +381,7 @@
     <string name="title_folder_name_missing">Brak nazwy folderu</string>
     <string name="title_folder_exists">Folder %1$s istnieje</string>
     <string name="title_folder_delete">Usunąć bezpowrotnie ten folder i wszystkie wiadomości, które zawiera?</string>
-    <string name="title_folder_unified">Wspólna skrzynka odbiorcza</string>
+    <string name="title_folder_unified">Wspólna skrzynka</string>
     <string name="title_folder_inbox">Odebrane</string>
     <string name="title_folder_outbox">Wysyłane</string>
     <string name="title_folder_all">Archiwum</string>
@@ -392,7 +393,7 @@
     <string name="title_folder_user">Użytkownik</string>
     <string name="title_folder_primary">Podstawowe konto folderów</string>
     <string name="title_folder_thread">Rozmowa %1$s</string>
-    <string name="title_folders_unified">Wspólne foldery odbiorcze</string>
+    <string name="title_folders_unified">Wspólne foldery</string>
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_no_folders">Brak folderów</string>
     <string name="title_subject_reply">Odp: %1$s</string>
@@ -412,7 +413,7 @@
     <string name="title_raw_save">Zapisz wiadomość źródłową</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
     <string name="title_add_keyword">Dodaj słowo kluczowe</string>
-    <string name="title_show_inline">Pokaż wbudowane załączniki</string>
+    <string name="title_show_inline">Pokaż wstawione załączniki</string>
     <string name="title_download_all">Pobierz wszystkie</string>
     <string name="title_save_all">Zapisz wszystkie</string>
     <string name="title_trash">Kosz</string>
@@ -520,15 +521,15 @@
     <string name="title_searching">Szukam \'%1$s\'</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
-    <string name="title_sort_on_unread">Nieprzeczytane</string>
-    <string name="title_sort_on_starred">Ulubione</string>
+    <string name="title_sort_on_unread">Nieprzeczytana</string>
+    <string name="title_sort_on_starred">Oznaczona</string>
     <string name="title_sort_on_sender">Nadawca</string>
     <string name="title_sort_on_subject">Temat</string>
     <string name="title_sort_on_size">Rozmiar</string>
     <string name="title_sort_on_snoozed">Odłożona</string>
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
-    <string name="title_filter_unflagged">Nie oznaczone gwiazdką</string>
+    <string name="title_filter_unflagged">Nie oznaczona</string>
     <string name="title_filter_snoozed">Odłożona</string>
     <string name="title_filter_duplicates">Duplikaty</string>
     <string name="title_compact">Widok kompaktowy</string>
@@ -601,7 +602,7 @@
     <string name="title_legend_downloading">Pobieranie</string>
     <string name="title_legend_closing">Zamykanie</string>
     <string name="title_legend_waiting">Oczekiwanie na następną synchronizację</string>
-    <string name="title_legend_unified">Wspólna skrzynka odbiorcza / konto podstawowe</string>
+    <string name="title_legend_unified">Wspólna skrzynka / konto podstawowe</string>
     <string name="title_legend_inbox">Odebrane</string>
     <string name="title_legend_drafts">Szkice</string>
     <string name="title_legend_sent">Wysłane</string>
@@ -631,8 +632,8 @@
     <string name="title_legend_view">Zobacz zawartość</string>
     <string name="title_legend_hide">Ukryj zawartość</string>
     <string name="title_legend_download">Pobierz zawartość</string>
-    <string name="title_legend_external_image">Zewnętrzny symbol zastępczy obrazu</string>
-    <string name="title_legend_embedded_image">Wbudowany symbol zastępczy obrazu</string>
+    <string name="title_legend_external_image">Symbol zastępczy obrazu zewnętrznego</string>
+    <string name="title_legend_embedded_image">Symbol zastępczy obrazu wstawionego</string>
     <string name="title_legend_broken_image">Uszkodzony obraz</string>
     <string name="title_legend_pick">Wybierz kontakt</string>
     <string name="title_legend_cc">Pokaż DW/UDW</string>
@@ -672,6 +673,7 @@
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_image_link">Adres obrazka</string>
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_open_link">Otwórz link</string>
     <string name="title_secure_link">Utwórz bezpieczny link</string>
     <string name="title_link_secured">Link jest bezpieczny</string>
@@ -727,7 +729,7 @@
     <string name="title_search_special_flagged">oznaczona</string>
     <string name="title_search_special_snoozed">odłożona</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
-    <string name="title_widget_flagged">Tylko oznaczone gwiazdką</string>
+    <string name="title_widget_flagged">Tylko oznaczone</string>
     <string-array name="pollIntervalNames">
         <item>Zawsze</item>
         <item>Co 15 minut</item>
@@ -747,7 +749,7 @@
         <item>10 minut</item>
     </string-array>
     <string-array name="startupNames">
-        <item>Wspólna skrzynka odbiorcza</item>
+        <item>Wspólna skrzynka</item>
         <item>Wspólne foldery</item>
         <item>Konta</item>
     </string-array>

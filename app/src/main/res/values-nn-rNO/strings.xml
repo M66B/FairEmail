@@ -264,6 +264,7 @@
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_debug_hint">Aktivere ekstra logging og vis feilsøkingsinformasjon på forskjellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
+    <string name="title_advanced_never_favorite">Aldri favoritt</string>
     <string name="title_select">Velg &#8230;</string>
     <string name="title_identity_name">Ditt navn</string>
     <string name="title_identity_email">Din e-postadresse</string>
@@ -654,6 +655,7 @@
     <string name="title_hint_sync">Nedlasting av meldinger kan ta litt tid, avhengig av leverandørens hastighet, internettforbindelse og enhet og antall meldinger. Mens du laster ned meldinger, kan appen reagere langsommere.</string>
     <string name="title_hint_image_link">Bildelink</string>
     <string name="title_hint_tracking_image">Sporer bilde %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Langt trykk for flere instillinger</string>
     <string name="title_open_link">Åpne link</string>
     <string name="title_secure_link">Gjør koblingen sikker</string>
     <string name="title_link_secured">Koblingen er sikker</string>
