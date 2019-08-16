@@ -54,6 +54,7 @@ For authorizing:
 * Send as attachment
 * Themes
 * Compact view folders
+* Compose lists
 
 Anything on this list is in random order and *might* be added in the near future.
 
