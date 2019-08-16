@@ -254,6 +254,7 @@
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
+    <string name="title_advanced_never_favorite">永不收藏</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
@@ -644,6 +645,7 @@
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_image_link">图片链接</string>
     <string name="title_hint_tracking_image">跟踪图像%1$sx%2$s</string>
+    <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_secure_link">确保链接安全</string>
     <string name="title_link_secured">链接安全</string>

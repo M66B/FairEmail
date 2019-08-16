@@ -264,6 +264,7 @@
     <string name="title_advanced_english_hint">Esto reiniciará la app</string>
     <string name="title_advanced_debug_hint">Habilitar registro adicional y mostrar información de depuración en varios lugares</string>
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
+    <string name="title_advanced_never_favorite">Nunca favorito</string>
     <string name="title_select">Seleccione &#8230;</string>
     <string name="title_identity_name">Su nombre</string>
     <string name="title_identity_email">Su dirección de correo electrónico</string>
@@ -654,6 +655,7 @@
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_image_link">Enlace de imagen</string>
     <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_open_link">Abrir enlace</string>
     <string name="title_secure_link">Hacer enlace seguro</string>
     <string name="title_link_secured">El enlace es seguro</string>

@@ -188,6 +188,7 @@
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
+    <string name="title_advanced_cards">Arată carduri</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
@@ -272,6 +273,7 @@
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_debug_hint">Activați înregistrări suplimentare în jurnalul aplicației și afișați informații de depanare în diferite locuri</string>
     <string name="title_advanced_cleanup_hint">Se vor șterge toate fișierele temporare</string>
+    <string name="title_advanced_never_favorite">Niciodată favorit</string>
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
@@ -425,6 +427,7 @@
     <string name="title_reply_template">Șablon</string>
     <string name="title_moving">Mutare în %1$s</string>
     <string name="title_open_with">Deschide cu</string>
+    <string name="title_authentication_failed">Autentificare %1$s eșuată</string>
     <string name="title_receipt_subject">Confirmare de citire: %1$s</string>
     <string name="title_receipt_text">Confirmarea de citire doar arată că mesajul a fost afișat. Nu există garanția că destinatarul a citit conținutul mesajului.</string>
     <string name="title_no_answers">Nici un șablon de răspuns definit</string>
@@ -504,6 +507,7 @@
     <string name="title_signature_valid">Semnătura mesaj validă</string>
     <string name="title_signature_invalid">Semnătura mesaj invalidă</string>
     <string name="title_search">Caută</string>
+    <string name="title_search_server">Căutare pe server</string>
     <string name="title_search_in">Căutare în</string>
     <string name="title_searching">Se caută \'%1$s\'</string>
     <string name="title_sort_on">Sortare</string>
@@ -660,6 +664,7 @@
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_image_link">Legătură imagine</string>
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_secure_link">Securizează adresa</string>
     <string name="title_link_secured">Adresa este sigură</string>

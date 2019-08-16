@@ -236,7 +236,7 @@
     <string name="title_advanced_notify_action_trash">Корзина</string>
     <string name="title_advanced_notify_action_archive">Архив</string>
     <string name="title_advanced_notify_action_reply">Ответить</string>
-    <string name="title_advanced_notify_action_flag">Избранное</string>
+    <string name="title_advanced_notify_action_flag">В избранное</string>
     <string name="title_advanced_notify_action_seen">Прочитанное</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \'Уведомления\' для установки звука уведомлений по умолчанию и т. д.</string>
@@ -282,6 +282,7 @@
     <string name="title_advanced_english_hint">Это перезапустит приложение</string>
     <string name="title_advanced_debug_hint">Включить дополнительное журналирование и показывать отладочную информацию в различных местах</string>
     <string name="title_advanced_cleanup_hint">Это удалит все временные файлы</string>
+    <string name="title_advanced_never_favorite">Никогда не помечать избранным</string>
     <string name="title_select">Выбор &#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш эл. адрес</string>
@@ -521,7 +522,7 @@
     <string name="title_sort_on">Сортировать по</string>
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>
-    <string name="title_sort_on_starred">Избранное</string>
+    <string name="title_sort_on_starred">Избранные</string>
     <string name="title_sort_on_sender">Отправитель</string>
     <string name="title_sort_on_subject">Тема</string>
     <string name="title_sort_on_size">Размер</string>
@@ -664,7 +665,7 @@
     <string name="title_legend_delete">Удалить</string>
     <string name="title_legend_count">Количество</string>
     <string name="title_legend_folder_type">Тип папки</string>
-    <string name="title_hint_folder_actions">Длительно нажмите для вариантов</string>
+    <string name="title_hint_folder_actions">Длительно нажмите для опций</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика не все папки и сообщения синхронизируются по умолчанию</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи</string>
     <string name="title_hint_message_actions">Свайп влево - в корзину; Свайп вправо - в Архив (если доступно)</string>
@@ -672,6 +673,7 @@
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время, в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_image_link">Ссылка на изображение</string>
     <string name="title_hint_tracking_image">Отслеживающее изображение %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Длительно нажмите для опций</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_secure_link">Сделать ссылку безопасной</string>
     <string name="title_link_secured">Ссылка безопасна</string>

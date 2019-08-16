@@ -264,6 +264,7 @@
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
+    <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
@@ -417,6 +418,7 @@
     <string name="title_reply_template">Viestipohja</string>
     <string name="title_moving">Siirretään kansioon %1$s</string>
     <string name="title_open_with">Avaa sovelluksessa</string>
+    <string name="title_authentication_failed">%1$s tunnistautuminen epäonnistui</string>
     <string name="title_receipt_subject">Vastaanottokuittaus: %1$s</string>
     <string name="title_receipt_text">Tämä vastaanottokuittaus tarkoittaa, että viesti on näytetty. Ei ole varmuutta, että vastaanottaja on lukenut viestin sisällön.</string>
     <string name="title_no_answers">Vastausviestipohjia ei ole määritetty</string>
@@ -653,6 +655,7 @@
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_image_link">Kuvalinkki</string>
     <string name="title_hint_tracking_image">Seurantakuva %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_open_link">Avaa linkki</string>
     <string name="title_secure_link">Tee linkistä turvallinen</string>
     <string name="title_link_secured">Linkki on turvallinen</string>

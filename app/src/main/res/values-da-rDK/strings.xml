@@ -262,6 +262,7 @@
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
+    <string name="title_advanced_never_favorite">Gør aldrig til favorit</string>
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
@@ -651,6 +652,7 @@
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
     <string name="title_hint_image_link">Billed-link</string>
     <string name="title_hint_tracking_image">Sporingsbillede %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Langt tryk for valgmuligheder</string>
     <string name="title_open_link">Åbn link</string>
     <string name="title_secure_link">Gør forbindelse sikker</string>
     <string name="title_link_secured">Forbindelse er sikker</string>

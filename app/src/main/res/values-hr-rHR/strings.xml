@@ -272,6 +272,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_english_hint">To će ponovno pokrenuti aplikaciju</string>
     <string name="title_advanced_debug_hint">Omogućite dodatno bilježenje i prikaz informacija za uklanjanje pogrešaka na različitim mjestima</string>
     <string name="title_advanced_cleanup_hint">Ovo će izbrisati sve privremene datoteke</string>
+    <string name="title_advanced_never_favorite">Nikada favorit</string>
     <string name="title_select">Odaberi &#8230;</string>
     <string name="title_identity_name">Vaše ime</string>
     <string name="title_identity_email">Vaša adresa e-pošte</string>
@@ -425,6 +426,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_reply_template">Predložak</string>
     <string name="title_moving">Premjesti u %1$s</string>
     <string name="title_open_with">Otvori sa</string>
+    <string name="title_authentication_failed">%1$s provjera autentičnosti nije uspjela</string>
     <string name="title_receipt_subject">Potvrda o čitanju: %1$s</string>
     <string name="title_receipt_text">Ova potvrda o čitanju samo potvrđuje da je poruka prikazana. Nema jamstva da je primatelj pročitao sadržaj poruke.</string>
     <string name="title_no_answers">Nema definiranih predložaka odgovora</string>
@@ -661,6 +663,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
     <string name="title_hint_image_link">Link slike</string>
     <string name="title_hint_tracking_image">Slika za praćenje %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Dugo pritisni za opcije</string>
     <string name="title_open_link">Otvori link</string>
     <string name="title_secure_link">Osiguraj vezu</string>
     <string name="title_link_secured">Veza je sigurna</string>

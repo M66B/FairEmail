@@ -263,6 +263,7 @@
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
+    <string name="title_advanced_never_favorite">Mai preferito</string>
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
@@ -653,6 +654,7 @@
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_hint_image_link">Link Immagine</string>
     <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_secure_link">Rendi il link sicuro</string>
     <string name="title_link_secured">Il link è sicuro</string>

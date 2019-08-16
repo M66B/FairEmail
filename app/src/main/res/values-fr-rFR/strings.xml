@@ -264,6 +264,7 @@
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
+    <string name="title_advanced_never_favorite">Jamais favori</string>
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
@@ -654,6 +655,7 @@
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
     <string name="title_hint_image_link">Lien de l\'image</string>
     <string name="title_hint_tracking_image">Image de suivi %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_secure_link">Sécuriser le lien</string>
     <string name="title_link_secured">Le lien est sécurisé</string>
