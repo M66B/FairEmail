@@ -18,6 +18,14 @@
     <string name="channel_error">Errors</string>
     <string name="channel_group_contacts">Contacts</string>
 
+    <plurals name="page_conversation">
+        <item quantity="one">Conversation</item>
+        <item quantity="other">Conversations</item>
+    </plurals>
+
+    <string name="page_folders">Folders</string>
+    <string name="page_compose">Compose</string>
+
     <string name="tile_synchronize">Synchronize</string>
     <string name="tile_unseen">New messages</string>
 
