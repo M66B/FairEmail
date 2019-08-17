@@ -92,6 +92,7 @@ public class FragmentIdentity extends FragmentBase {
     private Spinner spProvider;
     private EditText etDomain;
     private Button btnAutoConfig;
+    private ContentLoadingProgressBar pbAutoConfig;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -171,6 +172,7 @@ public class FragmentIdentity extends FragmentBase {
 
         etDomain = view.findViewById(R.id.etDomain);
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
+        pbAutoConfig = view.findViewById(R.id.pbAutoConfig);
 
         etHost = view.findViewById(R.id.etHost);
         rgEncryption = view.findViewById(R.id.rgEncryption);
@@ -430,6 +432,7 @@ public class FragmentIdentity extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
         btnAutoConfig.setEnabled(false);
+        pbAutoConfig.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
@@ -461,12 +464,14 @@ public class FragmentIdentity extends FragmentBase {
             protected void onPreExecute(Bundle args) {
                 etDomain.setEnabled(false);
                 btnAutoConfig.setEnabled(false);
+                pbAutoConfig.setVisibility(View.VISIBLE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 etDomain.setEnabled(true);
                 btnAutoConfig.setEnabled(true);
+                pbAutoConfig.setVisibility(View.GONE);
             }
 
             @Override

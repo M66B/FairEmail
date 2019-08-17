@@ -81,6 +81,7 @@ public class FragmentAccount extends FragmentBase {
 
     private EditText etDomain;
     private Button btnAutoConfig;
+    private ContentLoadingProgressBar pbAutoConfig;
 
     private EditText etHost;
     private RadioGroup rgEncryption;
@@ -172,6 +173,7 @@ public class FragmentAccount extends FragmentBase {
 
         etDomain = view.findViewById(R.id.etDomain);
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
+        pbAutoConfig = view.findViewById(R.id.pbAutoConfig);
 
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
@@ -394,6 +396,7 @@ public class FragmentAccount extends FragmentBase {
         Helper.setViewsEnabled(view, false);
 
         btnAutoConfig.setEnabled(false);
+        pbAutoConfig.setVisibility(View.GONE);
 
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
@@ -432,12 +435,14 @@ public class FragmentAccount extends FragmentBase {
             protected void onPreExecute(Bundle args) {
                 etDomain.setEnabled(false);
                 btnAutoConfig.setEnabled(false);
+                pbAutoConfig.setVisibility(View.VISIBLE);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 etDomain.setEnabled(true);
                 btnAutoConfig.setEnabled(true);
+                pbAutoConfig.setVisibility(View.GONE);
             }
 
             @Override
