@@ -3095,6 +3095,9 @@ public class FragmentCompose extends FragmentBase {
 
             TupleIdentityEx identity = identities.get(position);
 
+            View vwColor = view.findViewById(R.id.vwColor);
+            vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
+
             TextView text1 = view.findViewById(android.R.id.text1);
             text1.setText(identity.accountName + "/" + identity.getDisplayName() + (identity.primary ? " ★" : ""));
 
