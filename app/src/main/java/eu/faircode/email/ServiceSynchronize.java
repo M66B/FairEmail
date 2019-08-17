@@ -115,7 +115,7 @@ public class ServiceSynchronize extends ServiceBase {
 
     @Override
     public void onCreate() {
-        Log.i("Service create version=" + BuildConfig.VERSION_NAME);
+        EntityLog.log(this, "Service create version=" + BuildConfig.VERSION_NAME);
         super.onCreate();
         startForeground(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(null).build());
 

@@ -72,7 +72,7 @@ public class ServiceSend extends ServiceBase {
 
     @Override
     public void onCreate() {
-        Log.i("Service send create");
+        EntityLog.log(this, "Service send create");
         super.onCreate();
         startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null, null).build());
 
@@ -220,7 +220,7 @@ public class ServiceSend extends ServiceBase {
 
     @Override
     public void onDestroy() {
-        Log.i("Service send destroy");
+        EntityLog.log(this, "Service send destroy");
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
