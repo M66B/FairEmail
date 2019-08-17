@@ -59,11 +59,14 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private SwitchCompat swDeleteUnseen;
     private SwitchCompat swSyncKept;
     private SwitchCompat swSyncFolders;
+    private SwitchCompat swSubscriptions;
+    private TextView tvSubscriptionPro;
+    private SwitchCompat swSubscribedOnly;
     private SwitchCompat swCheckMx;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "enabled", "poll_interval", "schedule", "schedule_start", "schedule_end",
-            "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders", "check_mx"
+            "sync_unseen", "sync_flagged", "delete_unseen", "sync_kept", "sync_folders", "subscriptions", "subscribed_only", "check_mx"
     };
 
     @Override
@@ -87,6 +90,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swDeleteUnseen = view.findViewById(R.id.swDeleteUnseen);
         swSyncKept = view.findViewById(R.id.swSyncKept);
         swSyncFolders = view.findViewById(R.id.swSyncFolders);
+        swSubscriptions = view.findViewById(R.id.swSubscriptions);
+        tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
+        swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
         swCheckMx = view.findViewById(R.id.swCheckMx);
 
         setOptions();
@@ -201,6 +207,23 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             }
         });
 
+        swSubscriptions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subscriptions", checked).apply();
+            }
+        });
+
+        Helper.linkPro(tvSubscriptionPro);
+
+        swSubscribedOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subscribed_only", checked).apply();
+                ServiceSynchronize.reload(getContext(), "subscribed_only");
+            }
+        });
+
         swCheckMx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -252,6 +275,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean pro = ActivityBilling.isPro(getContext());
 
         swEnabled.setChecked(prefs.getBoolean("enabled", true));
 
@@ -264,7 +288,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 break;
             }
 
-        boolean pro = ActivityBilling.isPro(getContext());
         swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
         swSchedule.setEnabled(pro);
         tvScheduleStart.setText(formatHour(getContext(), prefs.getInt("schedule_start", 0)));
@@ -275,6 +298,9 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
         swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
         swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
+        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false) && pro);
+        swSubscriptions.setEnabled(pro);
+        swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));
         swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
     }
 

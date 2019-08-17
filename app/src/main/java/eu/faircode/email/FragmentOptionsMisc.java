@@ -45,9 +45,6 @@ import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private SwitchCompat swSubscriptions;
-    private TextView tvSubscriptionPro;
-    private SwitchCompat swSubscribedOnly;
     private Spinner spBiometricsTimeout;
     private SwitchCompat swDoubleBack;
     private SwitchCompat swEnglish;
@@ -65,7 +62,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "subscriptions", "subscribed_only", "biometrics_timeout", "double_back", "english", "watchdog", "updates", "crash_reports", "debug"
+            "biometrics_timeout", "double_back", "english", "watchdog", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -82,9 +79,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         // Get controls
 
-        swSubscriptions = view.findViewById(R.id.swSubscriptions);
-        tvSubscriptionPro = view.findViewById(R.id.tvSubscriptionPro);
-        swSubscribedOnly = view.findViewById(R.id.swSubscribedOnly);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swEnglish = view.findViewById(R.id.swEnglish);
@@ -106,23 +100,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        swSubscriptions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("subscriptions", checked).apply();
-            }
-        });
-
-        Helper.linkPro(tvSubscriptionPro);
-
-        swSubscribedOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("subscribed_only", checked).apply();
-                ServiceSynchronize.reload(getContext(), "subscribed_only");
-            }
-        });
 
         spBiometricsTimeout.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -276,11 +253,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        boolean pro = ActivityBilling.isPro(getContext());
-        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false) && pro);
-        swSubscriptions.setEnabled(pro);
-        swSubscribedOnly.setChecked(prefs.getBoolean("subscribed_only", false));
 
         int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);
         int[] biometricTimeoutValues = getResources().getIntArray(R.array.biometricsTimeoutValues);
