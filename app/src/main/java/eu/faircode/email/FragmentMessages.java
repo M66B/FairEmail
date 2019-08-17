@@ -699,13 +699,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabReply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
-                    long id = values.get("expanded").get(0);
-                    Intent reply = new Intent(getContext(), ActivityCompose.class)
-                            .putExtra("action", "reply_all")
-                            .putExtra("reference", id);
-                    startActivity(reply);
-                }
+                onReply("reply");
+            }
+        });
+
+        fabReply.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                return onReply("reply_all");
             }
         });
 
@@ -1573,6 +1574,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }.execute(FragmentMessages.this, args, "messages:swipe");
         }
     };
+
+    private boolean onReply(String action) {
+        if (values.containsKey("expanded") && values.get("expanded").size() > 0) {
+            long id = values.get("expanded").get(0);
+            Intent reply = new Intent(getContext(), ActivityCompose.class)
+                    .putExtra("action", action)
+                    .putExtra("reference", id);
+            startActivity(reply);
+            return true;
+        } else
+            return false;
+    }
 
     private void onMore() {
         Bundle args = new Bundle();
