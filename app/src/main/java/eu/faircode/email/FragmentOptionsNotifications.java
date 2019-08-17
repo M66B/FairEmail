@@ -51,6 +51,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swBadge;
+    private SwitchCompat swUnseenIgnored;
     private SwitchCompat swNotifyPreview;
     private CheckBox cbNotifyActionTrash;
     private CheckBox cbNotifyActionArchive;
@@ -67,7 +68,9 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private Group grpNotification;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "badge", "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "light", "sound"
+            "badge", "unseen_ignored",
+            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen",
+            "light", "sound"
     };
 
     @Override
@@ -81,6 +84,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         // Get controls
 
         swBadge = view.findViewById(R.id.swBadge);
+        swUnseenIgnored = view.findViewById(R.id.swUnseenIgnored);
         swNotifyPreview = view.findViewById(R.id.swNotifyPreview);
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
         cbNotifyActionArchive = view.findViewById(R.id.cbNotifyActionArchive);
@@ -108,6 +112,14 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("badge", checked).apply();
                 ServiceSynchronize.reload(getContext(), "badge");
+            }
+        });
+
+        swUnseenIgnored.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("unseen_ignored", checked).apply();
+                ServiceSynchronize.reload(getContext(), "unseen_ignored");
             }
         });
 
@@ -246,6 +258,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swBadge.setChecked(prefs.getBoolean("badge", true));
+        swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
 
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);

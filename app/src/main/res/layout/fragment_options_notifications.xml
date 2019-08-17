@@ -43,6 +43,17 @@
                 app:layout_constraintTop_toBottomOf="@id/swBadge" />
 
             <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swUnseenIgnored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_advanced_unseen_ignored"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBadgeHint"
+                app:switchPadding="12dp" />
+
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swNotifyPreview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -51,7 +62,7 @@
                 android:text="@string/title_advanced_notify_preview"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvBadgeHint"
+                app:layout_constraintTop_toBottomOf="@id/swUnseenIgnored"
                 app:switchPadding="12dp" />
 
             <TextView
