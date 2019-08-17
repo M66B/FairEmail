@@ -68,6 +68,8 @@ public class EmailProvider {
     public UserType user = UserType.EMAIL;
     public StringBuilder documentation; // html
 
+    enum Discover {ALL, IMAP, SMTP}
+
     enum UserType {LOCAL, EMAIL}
 
     private static final int DNS_TIMEOUT = 5 * 1000; // milliseconds
@@ -143,8 +145,8 @@ public class EmailProvider {
         return result;
     }
 
-    static EmailProvider fromDomain(Context context, String domain) throws IOException {
-        EmailProvider autoconfig = _fromDomain(context, domain);
+    static EmailProvider fromDomain(Context context, String domain, Discover discover) throws IOException {
+        EmailProvider autoconfig = _fromDomain(context, domain, discover);
 
         // Always prefer built-in profiles
         // - ISPDB is not always correct
@@ -160,11 +162,11 @@ public class EmailProvider {
         return autoconfig;
     }
 
-    private static EmailProvider _fromDomain(Context context, String domain) throws IOException {
+    private static EmailProvider _fromDomain(Context context, String domain, Discover discover) throws IOException {
         try {
             // Assume the provider knows best
             Log.i("Provider from DNS domain=" + domain);
-            return fromDNS(context, domain);
+            return fromDNS(context, domain, discover);
         } catch (Throwable ex) {
             Log.w(ex);
             try {
@@ -176,7 +178,7 @@ public class EmailProvider {
                 try {
                     // Scan ports
                     Log.i("Provider from template domain=" + domain);
-                    return fromTemplate(context, domain);
+                    return fromTemplate(context, domain, discover);
                 } catch (Throwable ex2) {
                     Log.w(ex2);
                     throw new UnknownHostException(context.getString(R.string.title_setup_no_settings, domain));
@@ -365,38 +367,43 @@ public class EmailProvider {
         return provider;
     }
 
-    private static EmailProvider fromDNS(Context context, String domain) throws TextParseException, UnknownHostException {
+    private static EmailProvider fromDNS(Context context, String domain, Discover discover) throws TextParseException, UnknownHostException {
         // https://tools.ietf.org/html/rfc6186
-        SRVRecord imap;
-        boolean starttls;
-        try {
-            // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
-            imap = lookup(context, "_imaps._tcp." + domain);
-            // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
-            if (TextUtils.isEmpty(imap.getTarget().toString(true)))
-                throw new UnknownHostException(imap.toString());
-            starttls = false;
-        } catch (UnknownHostException ex) {
-            // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
-            imap = lookup(context, "_imap._tcp." + domain);
-            if (TextUtils.isEmpty(imap.getTarget().toString(true)))
-                throw new UnknownHostException(imap.toString());
-            starttls = (imap.getPort() == 143);
+        EmailProvider provider = new EmailProvider(domain);
+
+        if (discover == Discover.ALL || discover == Discover.IMAP) {
+            SRVRecord imap;
+            boolean starttls;
+            try {
+                // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
+                imap = lookup(context, "_imaps._tcp." + domain);
+                // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
+                if (TextUtils.isEmpty(imap.getTarget().toString(true)))
+                    throw new UnknownHostException(imap.toString());
+                starttls = false;
+            } catch (UnknownHostException ex) {
+                // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
+                imap = lookup(context, "_imap._tcp." + domain);
+                if (TextUtils.isEmpty(imap.getTarget().toString(true)))
+                    throw new UnknownHostException(imap.toString());
+                starttls = (imap.getPort() == 143);
+            }
+
+            provider.imap_host = imap.getTarget().toString(true);
+            provider.imap_port = imap.getPort();
+            provider.imap_starttls = starttls;
         }
 
-        // Note that this covers connections both with and without Transport Layer Security (TLS)
-        SRVRecord smtp = lookup(context, "_submission._tcp." + domain);
-        if (TextUtils.isEmpty(smtp.getTarget().toString(true)))
-            throw new UnknownHostException(smtp.toString());
+        if (discover == Discover.ALL || discover == Discover.SMTP) {
+            // Note that this covers connections both with and without Transport Layer Security (TLS)
+            SRVRecord smtp = lookup(context, "_submission._tcp." + domain);
+            if (TextUtils.isEmpty(smtp.getTarget().toString(true)))
+                throw new UnknownHostException(smtp.toString());
 
-        EmailProvider provider = new EmailProvider(domain);
-        provider.imap_host = imap.getTarget().toString(true);
-        provider.imap_port = imap.getPort();
-        provider.imap_starttls = starttls;
-
-        provider.smtp_host = smtp.getTarget().toString(true);
-        provider.smtp_port = smtp.getPort();
-        provider.smtp_starttls = (provider.smtp_port == 587);
+            provider.smtp_host = smtp.getTarget().toString(true);
+            provider.smtp_port = smtp.getPort();
+            provider.smtp_starttls = (provider.smtp_port == 587);
+        }
 
         return provider;
     }
@@ -444,52 +451,74 @@ public class EmailProvider {
         }
     }
 
-    private static EmailProvider fromTemplate(Context context, String domain)
+    private static EmailProvider fromTemplate(Context context, String domain, Discover discover)
             throws ExecutionException, InterruptedException, UnknownHostException {
-        List<Server> imaps = new ArrayList<>();
-        List<Server> smtps = new ArrayList<>();
+        Server imap = null;
+        Server smtp = null;
 
-        // SSL
-        imaps.add(new Server(domain, null, 993));
-        imaps.add(new Server(domain, "imap", 993));
-        imaps.add(new Server(domain, "mail", 993));
-        imaps.add(new Server(domain, "mx", 993));
-        // STARTTLS
-        imaps.add(new Server(domain, null, 143));
-        imaps.add(new Server(domain, "imap", 143));
-        imaps.add(new Server(domain, "mail", 143));
-        imaps.add(new Server(domain, "mx", 143));
+        if (discover == Discover.ALL || discover == Discover.IMAP) {
+            List<Server> imaps = new ArrayList<>();
+            // SSL
+            imaps.add(new Server(domain, null, 993));
+            imaps.add(new Server(domain, "imap", 993));
+            imaps.add(new Server(domain, "mail", 993));
+            imaps.add(new Server(domain, "mx", 993));
+            // STARTTLS
+            imaps.add(new Server(domain, null, 143));
+            imaps.add(new Server(domain, "imap", 143));
+            imaps.add(new Server(domain, "mail", 143));
+            imaps.add(new Server(domain, "mx", 143));
 
-        // SSL
-        smtps.add(new Server(domain, null, 465));
-        smtps.add(new Server(domain, "smtp", 465));
-        smtps.add(new Server(domain, "mail", 465));
-        smtps.add(new Server(domain, "mx", 465));
-        // STARTTLS
-        smtps.add(new Server(domain, null, 587));
-        smtps.add(new Server(domain, "smtp", 587));
-        smtps.add(new Server(domain, "mail", 587));
-        smtps.add(new Server(domain, "mx", 587));
+            for (Server server : imaps)
+                if (server.reachable.get()) {
+                    imap = server;
+                    break;
+                }
 
-        for (Server imap : imaps)
-            if (imap.reachable.get())
-                for (Server smtp : smtps)
-                    if (smtp.reachable.get()) {
-                        EmailProvider provider = new EmailProvider();
-                        provider.name = domain;
+            if (imap == null)
+                throw new UnknownHostException(domain + " template");
+        }
 
-                        provider.imap_host = imap.host;
-                        provider.imap_port = imap.port;
-                        provider.imap_starttls = (imap.port == 143);
+        if (discover == Discover.ALL || discover == Discover.SMTP) {
+            List<Server> smtps = new ArrayList<>();
+            // SSL
+            smtps.add(new Server(domain, null, 465));
+            smtps.add(new Server(domain, "smtp", 465));
+            smtps.add(new Server(domain, "mail", 465));
+            smtps.add(new Server(domain, "mx", 465));
+            // STARTTLS
+            smtps.add(new Server(domain, null, 587));
+            smtps.add(new Server(domain, "smtp", 587));
+            smtps.add(new Server(domain, "mail", 587));
+            smtps.add(new Server(domain, "mx", 587));
 
-                        provider.smtp_host = smtp.host;
-                        provider.smtp_port = smtp.port;
-                        provider.smtp_starttls = (smtp.port == 587);
+            for (Server server : smtps)
+                if (server.reachable.get()) {
+                    smtp = server;
+                    break;
+                }
 
-                        return provider;
-                    }
+            if (smtp == null)
+                throw new UnknownHostException(domain + " template");
+        }
 
-        throw new UnknownHostException(domain + " template");
+
+        EmailProvider provider = new EmailProvider();
+        provider.name = domain;
+
+        if (imap != null) {
+            provider.imap_host = imap.host;
+            provider.imap_port = imap.port;
+            provider.imap_starttls = (imap.port == 143);
+        }
+
+        if (smtp != null) {
+            provider.smtp_host = smtp.host;
+            provider.smtp_port = smtp.port;
+            provider.smtp_starttls = (smtp.port == 587);
+        }
+
+        return provider;
     }
 
     private static void addDocumentation(EmailProvider provider, String href, String title) {

@@ -235,7 +235,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
 
                 String[] dparts = email.split("@");
-                EmailProvider provider = EmailProvider.fromDomain(context, dparts[1]);
+                EmailProvider provider = EmailProvider.fromDomain(context, dparts[1], EmailProvider.Discover.ALL);
 
                 if (provider.link != null)
                     args.putString("link", provider.link);
