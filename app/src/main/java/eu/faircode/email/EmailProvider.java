@@ -59,12 +59,8 @@ public class EmailProvider {
     public int order;
     public String type;
     public int keepalive;
-    public String imap_host;
-    public boolean imap_starttls;
-    public int imap_port;
-    public String smtp_host;
-    public int smtp_port;
-    public boolean smtp_starttls;
+    public Server imap = new Server();
+    public Server smtp = new Server();
     public UserType user = UserType.EMAIL;
     public StringBuilder documentation; // html
 
@@ -75,6 +71,9 @@ public class EmailProvider {
     private static final int DNS_TIMEOUT = 5 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 20 * 1000; // milliseconds
 
+    private static final ExecutorService executor =
+            Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
+
     private EmailProvider() {
     }
 
@@ -83,8 +82,8 @@ public class EmailProvider {
     }
 
     private void checkValid() throws UnknownHostException {
-        if (this.imap_host == null || this.imap_port == 0 ||
-                this.smtp_host == null || this.smtp_port == 0)
+        if (this.imap.host == null || this.imap.port == 0 ||
+                this.smtp.host == null || this.smtp.port == 0)
             throw new UnknownHostException(this.name + " invalid");
     }
 
@@ -107,13 +106,13 @@ public class EmailProvider {
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
                     } else if ("imap".equals(name)) {
-                        provider.imap_host = xml.getAttributeValue(null, "host");
-                        provider.imap_port = xml.getAttributeIntValue(null, "port", 0);
-                        provider.imap_starttls = xml.getAttributeBooleanValue(null, "starttls", false);
+                        provider.imap.host = xml.getAttributeValue(null, "host");
+                        provider.imap.port = xml.getAttributeIntValue(null, "port", 0);
+                        provider.imap.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
                     } else if ("smtp".equals(name)) {
-                        provider.smtp_host = xml.getAttributeValue(null, "host");
-                        provider.smtp_port = xml.getAttributeIntValue(null, "port", 0);
-                        provider.smtp_starttls = xml.getAttributeBooleanValue(null, "starttls", false);
+                        provider.smtp.host = xml.getAttributeValue(null, "host");
+                        provider.smtp.port = xml.getAttributeIntValue(null, "port", 0);
+                        provider.smtp.starttls = xml.getAttributeBooleanValue(null, "starttls", false);
                     } else
                         throw new IllegalAccessException(name);
                 } else if (eventType == XmlPullParser.END_TAG) {
@@ -153,8 +152,8 @@ public class EmailProvider {
         // - documentation links
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
-            if (provider.imap_host.equals(autoconfig.imap_host) ||
-                    provider.smtp_host.equals(autoconfig.smtp_host)) {
+            if (provider.imap.host.equals(autoconfig.imap.host) ||
+                    provider.smtp.host.equals(autoconfig.smtp.host)) {
                 Log.i("Replacing autoconfig by profile " + provider.name);
                 return provider;
             }
@@ -252,9 +251,9 @@ public class EmailProvider {
                         String host = xml.getText();
                         Log.i("Host=" + host);
                         if (imap)
-                            provider.imap_host = host;
+                            provider.imap.host = host;
                         else if (smtp)
-                            provider.smtp_host = host;
+                            provider.smtp.host = host;
                     }
                     continue;
 
@@ -264,11 +263,11 @@ public class EmailProvider {
                         String port = xml.getText();
                         Log.i("Port=" + port);
                         if (imap) {
-                            provider.imap_port = Integer.parseInt(port);
-                            provider.imap_starttls = (provider.imap_port == 143);
+                            provider.imap.port = Integer.parseInt(port);
+                            provider.imap.starttls = (provider.imap.port == 143);
                         } else if (smtp) {
-                            provider.smtp_port = Integer.parseInt(port);
-                            provider.smtp_starttls = (provider.smtp_port == 587);
+                            provider.smtp.port = Integer.parseInt(port);
+                            provider.smtp.starttls = (provider.smtp.port == 587);
                         }
                     }
                     continue;
@@ -280,14 +279,14 @@ public class EmailProvider {
                         Log.i("Socket=" + socket);
                         if ("SSL".equals(socket)) {
                             if (imap)
-                                provider.imap_starttls = false;
+                                provider.imap.starttls = false;
                             else if (smtp)
-                                provider.smtp_starttls = false;
+                                provider.smtp.starttls = false;
                         } else if ("STARTTLS".equals(socket)) {
                             if (imap)
-                                provider.imap_starttls = true;
+                                provider.imap.starttls = true;
                             else if (smtp)
-                                provider.smtp_starttls = true;
+                                provider.smtp.starttls = true;
                         } else
                             Log.w("Unknown socket type=" + socket);
                     }
@@ -359,8 +358,8 @@ public class EmailProvider {
 
         request.disconnect();
 
-        Log.i("imap=" + provider.imap_host + ":" + provider.imap_port + ":" + provider.imap_starttls);
-        Log.i("smtp=" + provider.smtp_host + ":" + provider.smtp_port + ":" + provider.smtp_starttls);
+        Log.i("imap=" + provider.imap.host + ":" + provider.imap.port + ":" + provider.imap.starttls);
+        Log.i("smtp=" + provider.smtp.host + ":" + provider.smtp.port + ":" + provider.smtp.starttls);
 
         provider.checkValid();
 
@@ -389,9 +388,9 @@ public class EmailProvider {
                 starttls = (imap.getPort() == 143);
             }
 
-            provider.imap_host = imap.getTarget().toString(true);
-            provider.imap_port = imap.getPort();
-            provider.imap_starttls = starttls;
+            provider.imap.host = imap.getTarget().toString(true);
+            provider.imap.port = imap.getPort();
+            provider.imap.starttls = starttls;
         }
 
         if (discover == Discover.ALL || discover == Discover.SMTP) {
@@ -400,55 +399,12 @@ public class EmailProvider {
             if (TextUtils.isEmpty(smtp.getTarget().toString(true)))
                 throw new UnknownHostException(smtp.toString());
 
-            provider.smtp_host = smtp.getTarget().toString(true);
-            provider.smtp_port = smtp.getPort();
-            provider.smtp_starttls = (provider.smtp_port == 587);
+            provider.smtp.host = smtp.getTarget().toString(true);
+            provider.smtp.port = smtp.getPort();
+            provider.smtp.starttls = (provider.smtp.port == 587);
         }
 
         return provider;
-    }
-
-    private static final ExecutorService executor =
-            Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
-
-    private static class Server {
-        String host;
-        int port;
-        Future<Boolean> reachable;
-
-        Server(String domain, String prefix, int port) {
-            this.host = (prefix == null ? "" : prefix + ".") + domain;
-            this.port = port;
-
-            Log.i("Scanning " + host + ":" + port);
-            this.reachable = executor.submit(new Callable<Boolean>() {
-                @Override
-                public Boolean call() {
-                    try (Socket socket = new Socket()) {
-                        InetAddress[] iaddr = InetAddress.getAllByName(host);
-                        for (int i = 0; i < iaddr.length; i++)
-                            try {
-                                Log.i("Connecting to " + iaddr[i]);
-                                InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr[i], Server.this.port);
-                                socket.connect(inetSocketAddress, DNS_TIMEOUT);
-                            } catch (Throwable ex) {
-                                if (i + 1 == iaddr.length)
-                                    throw ex;
-                            }
-                        Log.i("Reachable " + Server.this);
-                        return true;
-                    } catch (IOException ex) {
-                        Log.i("Unreachable " + Server.this + ": " + Helper.formatThrowable(ex));
-                        return false;
-                    }
-                }
-            });
-        }
-
-        @Override
-        public String toString() {
-            return host + ":" + port;
-        }
     }
 
     private static EmailProvider fromTemplate(Context context, String domain, Discover discover)
@@ -507,15 +463,15 @@ public class EmailProvider {
         provider.name = domain;
 
         if (imap != null) {
-            provider.imap_host = imap.host;
-            provider.imap_port = imap.port;
-            provider.imap_starttls = (imap.port == 143);
+            provider.imap.host = imap.host;
+            provider.imap.port = imap.port;
+            provider.imap.starttls = (imap.port == 143);
         }
 
         if (smtp != null) {
-            provider.smtp_host = smtp.host;
-            provider.smtp_port = smtp.port;
-            provider.smtp_starttls = (smtp.port == 587);
+            provider.smtp.host = smtp.host;
+            provider.smtp.port = smtp.port;
+            provider.smtp.starttls = (smtp.port == 587);
         }
 
         return provider;
@@ -554,5 +510,50 @@ public class EmailProvider {
     @Override
     public String toString() {
         return name;
+    }
+
+    public static class Server {
+        public String host;
+        public int port;
+        public boolean starttls;
+
+        private Future<Boolean> reachable;
+
+        private Server() {
+        }
+
+        private Server(String domain, String prefix, int port) {
+            this.host = (prefix == null ? "" : prefix + ".") + domain;
+            this.port = port;
+
+            Log.i("Scanning " + host + ":" + port);
+            this.reachable = executor.submit(new Callable<Boolean>() {
+                @Override
+                public Boolean call() {
+                    try (Socket socket = new Socket()) {
+                        InetAddress[] iaddr = InetAddress.getAllByName(host);
+                        for (int i = 0; i < iaddr.length; i++)
+                            try {
+                                Log.i("Connecting to " + iaddr[i]);
+                                InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr[i], Server.this.port);
+                                socket.connect(inetSocketAddress, DNS_TIMEOUT);
+                            } catch (Throwable ex) {
+                                if (i + 1 == iaddr.length)
+                                    throw ex;
+                            }
+                        Log.i("Reachable " + Server.this);
+                        return true;
+                    } catch (IOException ex) {
+                        Log.i("Unreachable " + Server.this + ": " + Helper.formatThrowable(ex));
+                        return false;
+                    }
+                }
+            });
+        }
+
+        @Override
+        public String toString() {
+            return host + ":" + port;
+        }
     }
 }

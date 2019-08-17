@@ -248,9 +248,9 @@ public class FragmentQuickSetup extends FragmentBase {
                 long now = new Date().getTime();
 
                 {
-                    String protocol = provider.imap_starttls ? "imap" : "imaps";
+                    String protocol = provider.imap.starttls ? "imap" : "imaps";
                     try (MailService iservice = new MailService(context, protocol, null, false, true)) {
-                        iservice.connect(provider.imap_host, provider.imap_port, user, password);
+                        iservice.connect(provider.imap.host, provider.imap.port, user, password);
 
                         boolean inbox = false;
                         boolean drafts = false;
@@ -310,9 +310,9 @@ public class FragmentQuickSetup extends FragmentBase {
                 }
 
                 {
-                    String protocol = provider.smtp_starttls ? "smtp" : "smtps";
+                    String protocol = provider.smtp.starttls ? "smtp" : "smtps";
                     try (MailService iservice = new MailService(context, protocol, null, false, true)) {
-                        iservice.connect(provider.smtp_host, provider.smtp_port, user, password);
+                        iservice.connect(provider.smtp.host, provider.smtp.port, user, password);
                     }
                 }
 
@@ -328,10 +328,10 @@ public class FragmentQuickSetup extends FragmentBase {
                     EntityAccount account = new EntityAccount();
 
                     account.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
-                    account.host = provider.imap_host;
-                    account.starttls = provider.imap_starttls;
+                    account.host = provider.imap.host;
+                    account.starttls = provider.imap.starttls;
                     account.insecure = false;
-                    account.port = provider.imap_port;
+                    account.port = provider.imap.port;
                     account.user = user;
                     account.password = password;
 
@@ -382,10 +382,10 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.signature = null;
 
                     identity.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
-                    identity.host = provider.smtp_host;
-                    identity.starttls = provider.smtp_starttls;
+                    identity.host = provider.smtp.host;
+                    identity.starttls = provider.smtp.starttls;
                     identity.insecure = false;
-                    identity.port = provider.smtp_port;
+                    identity.port = provider.smtp.port;
                     identity.user = user;
                     identity.password = password;
                     identity.synchronize = true;
@@ -415,9 +415,9 @@ public class FragmentQuickSetup extends FragmentBase {
                 boolean check = args.getBoolean("check");
                 if (check) {
                     tvImap.setText(result == null ? null
-                            : result.imap_host + ":" + result.imap_port + (result.imap_starttls ? " starttls" : " ssl"));
+                            : result.imap.host + ":" + result.imap.port + (result.imap.starttls ? " starttls" : " ssl"));
                     tvSmtp.setText(result == null ? null
-                            : result.smtp_host + ":" + result.smtp_port + (result.smtp_starttls ? " starttls" : " ssl"));
+                            : result.smtp.host + ":" + result.smtp.port + (result.smtp.starttls ? " starttls" : " ssl"));
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
                     FragmentDialogDone fragment = new FragmentDialogDone();

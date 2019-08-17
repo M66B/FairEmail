@@ -246,9 +246,9 @@ public class FragmentAccount extends FragmentBase {
                     return;
                 adapterView.setTag(position);
 
-                etHost.setText(provider.imap_host);
-                etPort.setText(provider.imap_host == null ? null : Integer.toString(provider.imap_port));
-                rgEncryption.check(provider.imap_starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                etHost.setText(provider.imap.host);
+                etPort.setText(provider.imap.host == null ? null : Integer.toString(provider.imap.port));
+                rgEncryption.check(provider.imap.starttls ? R.id.radio_starttls : R.id.radio_ssl);
 
                 etUser.setTag(null);
                 etUser.setText(null);
@@ -448,9 +448,9 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EmailProvider provider) {
-                etHost.setText(provider.imap_host);
-                etPort.setText(Integer.toString(provider.imap_port));
-                rgEncryption.check(provider.imap_starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                etHost.setText(provider.imap.host);
+                etPort.setText(Integer.toString(provider.imap.port));
+                rgEncryption.check(provider.imap.starttls ? R.id.radio_starttls : R.id.radio_ssl);
             }
 
             @Override
@@ -1144,9 +1144,9 @@ public class FragmentAccount extends FragmentBase {
                         boolean found = false;
                         for (int pos = 2; pos < providers.size(); pos++) {
                             EmailProvider provider = providers.get(pos);
-                            if (provider.imap_host.equals(account.host) &&
-                                    provider.imap_port == account.port &&
-                                    provider.imap_starttls == account.starttls) {
+                            if (provider.imap.host.equals(account.host) &&
+                                    provider.imap.port == account.port &&
+                                    provider.imap.starttls == account.starttls) {
                                 found = true;
                                 spProvider.setTag(pos);
                                 spProvider.setSelection(pos);

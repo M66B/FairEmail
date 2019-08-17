@@ -232,17 +232,17 @@ public class FragmentIdentity extends FragmentBase {
                     boolean found = false;
                     for (int pos = 1; pos < spProvider.getAdapter().getCount(); pos++) {
                         EmailProvider provider = (EmailProvider) spProvider.getItemAtPosition(pos);
-                        if (provider.imap_host.equals(account.host) &&
-                                provider.imap_port == account.port &&
-                                provider.imap_starttls == account.starttls) {
+                        if (provider.imap.host.equals(account.host) &&
+                                provider.imap.port == account.port &&
+                                provider.imap.starttls == account.starttls) {
                             found = true;
 
                             spProvider.setSelection(pos);
 
                             // This is needed because the spinner might be invisible
-                            etHost.setText(provider.smtp_host);
-                            etPort.setText(Integer.toString(provider.smtp_port));
-                            rgEncryption.check(provider.smtp_starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                            etHost.setText(provider.smtp.host);
+                            etPort.setText(Integer.toString(provider.smtp.port));
+                            rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
 
                             break;
                         }
@@ -358,9 +358,9 @@ public class FragmentIdentity extends FragmentBase {
                 EmailProvider provider = (EmailProvider) adapterView.getSelectedItem();
 
                 // Set associated host/port/starttls
-                etHost.setText(provider.smtp_host);
-                etPort.setText(position == 0 ? null : Integer.toString(provider.smtp_port));
-                rgEncryption.check(provider.smtp_starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                etHost.setText(provider.smtp.host);
+                etPort.setText(position == 0 ? null : Integer.toString(provider.smtp.port));
+                rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
             }
 
             @Override
@@ -477,9 +477,9 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EmailProvider provider) {
-                etHost.setText(provider.smtp_host);
-                etPort.setText(Integer.toString(provider.smtp_port));
-                rgEncryption.check(provider.smtp_starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                etHost.setText(provider.smtp.host);
+                etPort.setText(Integer.toString(provider.smtp.port));
+                rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
             }
 
             @Override
@@ -938,9 +938,9 @@ public class FragmentIdentity extends FragmentBase {
                             if (identity != null)
                                 for (int pos = 1; pos < providers.size(); pos++) {
                                     EmailProvider provider = providers.get(pos);
-                                    if (provider.smtp_host.equals(identity.host) &&
-                                            provider.smtp_port == identity.port &&
-                                            provider.smtp_starttls == identity.starttls) {
+                                    if (provider.smtp.host.equals(identity.host) &&
+                                            provider.smtp.port == identity.port &&
+                                            provider.smtp.starttls == identity.starttls) {
                                         spProvider.setTag(pos);
                                         spProvider.setSelection(pos);
                                         break;
