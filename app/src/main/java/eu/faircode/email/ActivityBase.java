@@ -20,12 +20,14 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -186,16 +188,26 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     public void startActivity(Intent intent) {
-        if (Helper.hasAuthentication(this))
-            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        super.startActivity(intent);
+        try {
+            if (Helper.hasAuthentication(this))
+                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            super.startActivity(intent);
+        } catch (ActivityNotFoundException ex) {
+            Log.e(ex);
+            ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
-        if (Helper.hasAuthentication(this))
-            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        super.startActivityForResult(intent, requestCode);
+        try {
+            if (Helper.hasAuthentication(this))
+                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            super.startActivityForResult(intent, requestCode);
+        } catch (ActivityNotFoundException ex) {
+            Log.e(ex);
+            ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
