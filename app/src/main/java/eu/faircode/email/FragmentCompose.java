@@ -41,6 +41,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.net.ConnectivityManager;
@@ -68,6 +69,7 @@ import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -2993,6 +2995,7 @@ public class FragmentCompose extends FragmentBase {
     private Html.ImageGetter cidGetter = new Html.ImageGetter() {
         @Override
         public Drawable getDrawable(final String source) {
+            Log.i("Loading source=" + source);
             final LevelListDrawable lld = new LevelListDrawable();
 
             Resources res = getContext().getResources();
@@ -3019,12 +3022,14 @@ public class FragmentCompose extends FragmentBase {
                         Bundle args = new Bundle();
                         args.putLong("id", working);
                         args.putString("cid", "<" + source.substring(4) + ">");
+                        args.putInt("scaleToPixels", res.getDisplayMetrics().widthPixels);
 
-                        new SimpleTask<Drawable>() {
+                        new SimpleTask<Bitmap>() {
                             @Override
-                            protected Drawable onExecute(Context context, Bundle args) {
+                            protected Bitmap onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
                                 String cid = args.getString("cid");
+                                int scaleToPixels = args.getInt("scaleToPixels");
 
                                 DB db = DB.getInstance(context);
                                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
@@ -3032,14 +3037,20 @@ public class FragmentCompose extends FragmentBase {
                                     return null;
 
                                 File file = attachment.getFile(context);
-                                return Drawable.createFromPath(file.getAbsolutePath());
+                                return Helper.decodeImage(file, scaleToPixels);
                             }
 
                             @Override
-                            protected void onExecuted(Bundle args, Drawable image) {
-                                if (image == null)
+                            protected void onExecuted(Bundle args, Bitmap bm) {
+                                if (bm == null)
                                     lld.setLevel(0); // broken
                                 else {
+                                    Drawable image = new BitmapDrawable(res, bm);
+                                    DisplayMetrics dm = res.getDisplayMetrics();
+                                    image.setBounds(0, 0,
+                                            Math.round(bm.getWidth() * dm.density),
+                                            Math.round(bm.getHeight() * dm.density));
+
                                     lld.addLevel(2, 2, image);
                                     lld.setLevel(2); // image
 
