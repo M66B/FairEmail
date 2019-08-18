@@ -358,7 +358,6 @@
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">Kullanıcı</string>
     <string name="title_folder_primary">Klasörler birincil hesap</string>
-    <string name="title_folder_thread">Söyleşi %1$s</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_no_messages">İleti yok</string>
     <string name="title_no_folders">Klasör yok</string>
@@ -482,7 +481,6 @@
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
     <string name="title_search">Ara</string>
     <string name="title_search_in">İçinde ara</string>
-    <string name="title_searching">\'%1$s\' aranıyor</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Zaman</string>
     <string name="title_sort_on_unread">Okunmadı</string>

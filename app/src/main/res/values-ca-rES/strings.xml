@@ -142,7 +142,6 @@
     <string name="title_draft_saved">Esborrany desat</string>
     <string name="title_queued">Enviant missatge</string>
     <string name="title_search">Cerca</string>
-    <string name="title_searching">Cercant \'%1$s\'</string>
     <string name="title_sort_on">Ordena per</string>
     <string name="title_sort_on_time">Data</string>
     <string name="title_sort_on_unread">Sense llegir</string>

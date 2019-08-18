@@ -15,6 +15,7 @@
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
     <string name="channel_group_contacts">Kontakty</string>
+    <string name="page_folders">Foldery</string>
     <string name="tile_synchronize">Synchronizuj</string>
     <string name="tile_unseen">Nowe wiadomości</string>
     <string name="shortcut_refresh">Odśwież</string>
@@ -393,7 +394,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Użytkownik</string>
     <string name="title_folder_primary">Podstawowe konto folderów</string>
-    <string name="title_folder_thread">Rozmowa %1$s</string>
     <string name="title_folders_unified">Wspólne foldery</string>
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_no_folders">Brak folderów</string>
@@ -519,7 +519,6 @@
     <string name="title_search">Szukaj</string>
     <string name="title_search_server">Szukaj na serwerze</string>
     <string name="title_search_in">Szukaj w</string>
-    <string name="title_searching">Szukam \'%1$s\'</string>
     <string name="title_sort_on">Sortuj wg</string>
     <string name="title_sort_on_time">Czas</string>
     <string name="title_sort_on_unread">Nieprzeczytana</string>

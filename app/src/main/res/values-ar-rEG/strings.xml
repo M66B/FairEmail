@@ -195,7 +195,6 @@
     <string name="title_folder_system">النظام</string>
     <string name="title_folder_user">المستخدم</string>
     <string name="title_folder_primary">تعيين كحساب رئيسي</string>
-    <string name="title_folder_thread">المحادثة %1$s</string>
     <string name="title_no_messages">لا توجد رسائل</string>
     <string name="title_subject_reply">رد: %1$s</string>
     <string name="title_subject_forward">إعادة توجيه: %1$s</string>
@@ -269,7 +268,6 @@
     <string name="title_no_openpgp">لم يتم العثور على OpenKeychain</string>
     <string name="title_not_encrypted">الرسالة غير مُعمّاة</string>
     <string name="title_search">بحث</string>
-    <string name="title_searching">جارٍ البحث عن \'%1$s\'</string>
     <string name="title_sort_on">الفرز حسب</string>
     <string name="title_sort_on_time">التاريخ</string>
     <string name="title_sort_on_unread">غير مقروءة</string>

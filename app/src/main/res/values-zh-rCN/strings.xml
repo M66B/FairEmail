@@ -15,6 +15,12 @@
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
     <string name="channel_group_contacts">联系人</string>
+    <plurals name="page_conversation">
+        <item quantity="other">会话</item>
+    </plurals>
+    <string name="page_folders">文件夹</string>
+    <string name="page_compose">撰写</string>
+    <string name="page_compose_message">消息</string>
     <string name="tile_synchronize">同步</string>
     <string name="tile_unseen">新邮件</string>
     <string name="shortcut_refresh">刷新</string>
@@ -172,6 +178,7 @@
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
+    <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -204,6 +211,7 @@
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
+    <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
@@ -364,7 +372,6 @@
     <string name="title_folder_system">系统</string>
     <string name="title_folder_user">用户</string>
     <string name="title_folder_primary">文件夹主账户</string>
-    <string name="title_folder_thread">会话%1$s</string>
     <string name="title_folders_unified">聚合收件箱文件夹</string>
     <string name="title_no_messages">没有邮件</string>
     <string name="title_no_folders">无文件夹</string>
@@ -490,7 +497,6 @@
     <string name="title_search">搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_in">搜索范围</string>
-    <string name="title_searching">搜索 “%1$s”</string>
     <string name="title_sort_on">分类方式</string>
     <string name="title_sort_on_time">时间</string>
     <string name="title_sort_on_unread">未读</string>

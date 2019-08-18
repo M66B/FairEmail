@@ -319,7 +319,6 @@
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
     <string name="title_not_encrypted">Mesaj şifrəli deyil</string>
     <string name="title_search">Axtar</string>
-    <string name="title_searching">\'%1$s\' axtarılır</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Vaxt</string>
     <string name="title_sort_on_unread">Oxunmadı</string>

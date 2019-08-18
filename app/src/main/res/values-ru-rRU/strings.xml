@@ -15,6 +15,15 @@
     <string name="channel_warning">Предупреждения</string>
     <string name="channel_error">Ошибки</string>
     <string name="channel_group_contacts">Контакты</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Диалог</item>
+        <item quantity="few">Диалоги</item>
+        <item quantity="many">Диалоги</item>
+        <item quantity="other">Диалоги</item>
+    </plurals>
+    <string name="page_folders">Папки</string>
+    <string name="page_compose">Написать</string>
+    <string name="page_compose_message">Сообщение</string>
     <string name="tile_synchronize">Синхронизация</string>
     <string name="tile_unseen">Новые сообщения</string>
     <string name="shortcut_refresh">Обновить</string>
@@ -200,6 +209,7 @@
     <string name="title_advanced_cards">\"Карточная\" компоновка</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
+    <string name="title_advanced_highlight_unread">Выделить непрочитанные сообщения</string>
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показать сгенерированные иконки</string>
     <string name="title_advanced_identicons">Показать идентики</string>
@@ -232,6 +242,7 @@
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
+    <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
@@ -392,7 +403,6 @@
     <string name="title_folder_system">Система</string>
     <string name="title_folder_user">Пользователь</string>
     <string name="title_folder_primary">Папки основной учетной записи</string>
-    <string name="title_folder_thread">Диалог %1$s</string>
     <string name="title_folders_unified">Папки единого почтового ящика</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_no_folders">Нет папок</string>
@@ -518,7 +528,6 @@
     <string name="title_search">Поиск</string>
     <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_in">Поиск в</string>
-    <string name="title_searching">Поиск \'%1$s\'</string>
     <string name="title_sort_on">Сортировать по</string>
     <string name="title_sort_on_time">Время</string>
     <string name="title_sort_on_unread">Не прочитано</string>

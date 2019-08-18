@@ -364,7 +364,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Användare</string>
     <string name="title_folder_primary">Mappar primärt konto</string>
-    <string name="title_folder_thread">Konversation %1$s</string>
     <string name="title_folders_unified">Samlad inkorg mappar</string>
     <string name="title_no_messages">Inga meddelanden</string>
     <string name="title_no_folders">Inga mappar</string>
@@ -486,7 +485,6 @@
     <string name="title_search">Sök</string>
     <string name="title_search_server">Sök på servern</string>
     <string name="title_search_in">Sök i</string>
-    <string name="title_searching">Söker \'%1$s\'</string>
     <string name="title_sort_on">Sortera på</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Olästa</string>

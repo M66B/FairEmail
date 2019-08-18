@@ -15,6 +15,13 @@
     <string name="channel_warning">Waarschuwingen</string>
     <string name="channel_error">Foutmeldingen</string>
     <string name="channel_group_contacts">Contacten</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Gesprek</item>
+        <item quantity="other">Gesprekken</item>
+    </plurals>
+    <string name="page_folders">Mappen</string>
+    <string name="page_compose">Opstellen</string>
+    <string name="page_compose_message">Bericht</string>
     <string name="tile_synchronize">Synchroniseren</string>
     <string name="tile_unseen">Nieuwe berichten</string>
     <string name="shortcut_refresh">Verversen</string>
@@ -215,6 +222,7 @@
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking afbeeldingen</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
+    <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
     <string name="title_advanced_notify_action_trash">Weggooien</string>
@@ -375,7 +383,6 @@
     <string name="title_folder_system">Systeem</string>
     <string name="title_folder_user">Gebruiker</string>
     <string name="title_folder_primary">Mappen primaire account</string>
-    <string name="title_folder_thread">Gesprek %1$s</string>
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
     <string name="title_no_messages">Geen berichten</string>
     <string name="title_no_folders">Geen mappen</string>
@@ -501,7 +508,6 @@
     <string name="title_search">Zoek</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_in">Zoeken in</string>
-    <string name="title_searching">Zoeken naar \'%1$s\'</string>
     <string name="title_sort_on">Sorteer op</string>
     <string name="title_sort_on_time">Tijd</string>
     <string name="title_sort_on_unread">Ongelezen</string>

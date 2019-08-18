@@ -15,6 +15,13 @@
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Feil</string>
     <string name="channel_group_contacts">Kontakter</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Samtale</item>
+        <item quantity="other">Samtaler</item>
+    </plurals>
+    <string name="page_folders">Mapper</string>
+    <string name="page_compose">Skriv</string>
+    <string name="page_compose_message">Melding</string>
     <string name="tile_synchronize">Synkroniser</string>
     <string name="tile_unseen">Nye meldinger</string>
     <string name="shortcut_refresh">Oppdater</string>
@@ -182,6 +189,7 @@
     <string name="title_advanced_cards">Vis kort</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
+    <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
     <string name="title_advanced_generated_icons">Vis genererte ikoner</string>
     <string name="title_advanced_identicons">Vis identicons</string>
@@ -214,6 +222,7 @@
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
+    <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
     <string name="title_advanced_notify_action_trash">Søppel</string>
@@ -374,7 +383,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Bruker</string>
     <string name="title_folder_primary">Mapper primærkonto</string>
-    <string name="title_folder_thread">Samtale %1$s</string>
     <string name="title_folders_unified">Enhetlig Innboks mapper</string>
     <string name="title_no_messages">Ingen meldinger</string>
     <string name="title_no_folders">Ingen mapper</string>
@@ -500,7 +508,6 @@
     <string name="title_search">Søk</string>
     <string name="title_search_server">Søk på server</string>
     <string name="title_search_in">Søk i</string>
-    <string name="title_searching">Søker \'%1$s \'</string>
     <string name="title_sort_on">Sorter på</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulest</string>

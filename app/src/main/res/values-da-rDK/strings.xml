@@ -15,6 +15,12 @@
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Fejl</string>
     <string name="channel_group_contacts">Kontakter</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Samtale</item>
+        <item quantity="other">Samtaler</item>
+    </plurals>
+    <string name="page_folders">Mapper</string>
+    <string name="page_compose">Skriv</string>
     <string name="tile_synchronize">Synkronisér</string>
     <string name="tile_unseen">Nye beskeder</string>
     <string name="shortcut_refresh">Opfrisk</string>
@@ -212,6 +218,7 @@
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
+    <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_actions">Notifikationshandlinger</string>
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
@@ -372,7 +379,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Bruger</string>
     <string name="title_folder_primary">Primærkontomapper</string>
-    <string name="title_folder_thread">Samtale %1$s</string>
     <string name="title_folders_unified">Saml indbakkemapper</string>
     <string name="title_no_messages">Ingen beskeder</string>
     <string name="title_no_folders">Ingen mapper</string>
@@ -498,7 +504,6 @@
     <string name="title_search">Søg</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>
-    <string name="title_searching">Gennemsøger \'%1$s \'</string>
     <string name="title_sort_on">Sortér efter</string>
     <string name="title_sort_on_time">Tid</string>
     <string name="title_sort_on_unread">Ulæst</string>

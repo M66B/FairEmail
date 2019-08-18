@@ -371,7 +371,6 @@
     <string name="title_folder_system">Systém</string>
     <string name="title_folder_user">Uživatel</string>
     <string name="title_folder_primary">Hlavní účet složky</string>
-    <string name="title_folder_thread">Konverzace %1$s</string>
     <string name="title_folders_unified">Složky sjednocené doručené pošty</string>
     <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_subject_reply">Re: %1$s</string>
@@ -494,7 +493,6 @@
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_in">Hledat v</string>
-    <string name="title_searching">Hledám \"%1$s\"</string>
     <string name="title_sort_on">Řadit dle</string>
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Nepřečteno</string>

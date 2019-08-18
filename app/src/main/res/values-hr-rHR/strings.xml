@@ -382,7 +382,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_folder_system">Sustav</string>
     <string name="title_folder_user">Korisnik</string>
     <string name="title_folder_primary">Mapa primarnog računa</string>
-    <string name="title_folder_thread">Konverzacija %1$s</string>
     <string name="title_folders_unified">Mape objedinjenog ulaznog spremnika</string>
     <string name="title_no_messages">Nema poruka</string>
     <string name="title_no_folders">Nema mapa</string>
@@ -508,7 +507,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_search">Pretraživanje</string>
     <string name="title_search_server">Traži na poslužitelju</string>
     <string name="title_search_in">Traži u</string>
-    <string name="title_searching">Pretraživanje \'%1$s\'</string>
     <string name="title_sort_on">Poredaj na</string>
     <string name="title_sort_on_time">Vrijeme</string>
     <string name="title_sort_on_unread">Nepročitano</string>

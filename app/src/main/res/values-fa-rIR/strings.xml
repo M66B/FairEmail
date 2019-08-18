@@ -185,7 +185,6 @@
     <string name="title_folder_system">سیستم</string>
     <string name="title_folder_user">کاربر</string>
     <string name="title_folder_primary">پوشه‌های حساب اصلی</string>
-    <string name="title_folder_thread">مکالمه %1$s</string>
     <string name="title_folders_unified">پوشه های صندوق پستی یکپارچه</string>
     <string name="title_no_messages">پیامی موجود نیست</string>
     <string name="title_subject_reply">پاسخ: %1$s</string>
@@ -265,7 +264,6 @@
     <string name="title_no_openpgp">OpenKeychain یافت نشد</string>
     <string name="title_not_encrypted">پیام رمزگذاری نشده است</string>
     <string name="title_search">جستجو</string>
-    <string name="title_searching">جستجوی %1$s</string>
     <string name="title_sort_on">مرتب سازی در</string>
     <string name="title_sort_on_time">زمان</string>
     <string name="title_sort_on_unread">خوانده نشده</string>

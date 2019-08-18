@@ -15,6 +15,13 @@
     <string name="channel_warning">Avvisi</string>
     <string name="channel_error">Errori</string>
     <string name="channel_group_contacts">Contatti</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Conversazione</item>
+        <item quantity="other">Conversazioni</item>
+    </plurals>
+    <string name="page_folders">Cartelle</string>
+    <string name="page_compose">Scrivi</string>
+    <string name="page_compose_message">Messaggio</string>
     <string name="tile_synchronize">Sincronizza</string>
     <string name="tile_unseen">Nuovi messaggi</string>
     <string name="shortcut_refresh">Aggiorna</string>
@@ -181,6 +188,7 @@
     <string name="title_advanced_cards">Mostra carte</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
+    <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
@@ -213,6 +221,7 @@
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
+    <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
@@ -373,7 +382,6 @@
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Utente</string>
     <string name="title_folder_primary">Cartelle account principale</string>
-    <string name="title_folder_thread">Conversazione %1$s</string>
     <string name="title_folders_unified">Cartella posta in arrivo unificata</string>
     <string name="title_no_messages">Nessun messaggio</string>
     <string name="title_no_folders">Nessuna cartella</string>
@@ -499,7 +507,6 @@
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
-    <string name="title_searching">Ricerca di \'%1$s\'</string>
     <string name="title_sort_on">Ordina per</string>
     <string name="title_sort_on_time">Ora</string>
     <string name="title_sort_on_unread">Non letti</string>

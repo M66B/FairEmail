@@ -15,6 +15,13 @@
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
     <string name="channel_group_contacts">Contacte</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Conversație</item>
+        <item quantity="few">Conversații</item>
+        <item quantity="other">Conversații</item>
+    </plurals>
+    <string name="page_folders">Dosare</string>
+    <string name="page_compose">Compune</string>
     <string name="tile_synchronize">Sincronizare</string>
     <string name="tile_unseen">Mesaje noi</string>
     <string name="shortcut_refresh">Actualizează</string>
@@ -191,6 +198,7 @@
     <string name="title_advanced_cards">Arată carduri</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
+    <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
@@ -223,6 +231,7 @@
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
+    <string name="title_advanced_unseen_ignored">Fie ca numărul de mesaje noi să corespundă cu numărul de notificări</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
@@ -383,7 +392,6 @@
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">Utilizator</string>
     <string name="title_folder_primary">Dosare cont primar</string>
-    <string name="title_folder_thread">Conversație %1$s</string>
     <string name="title_folders_unified">Director unificat de mesaje primite</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_no_folders">Nici un dosar</string>
@@ -509,7 +517,6 @@
     <string name="title_search">Caută</string>
     <string name="title_search_server">Căutare pe server</string>
     <string name="title_search_in">Căutare în</string>
-    <string name="title_searching">Se caută \'%1$s\'</string>
     <string name="title_sort_on">Sortare</string>
     <string name="title_sort_on_time">Dată</string>
     <string name="title_sort_on_unread">Necitit</string>

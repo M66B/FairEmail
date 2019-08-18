@@ -15,6 +15,13 @@
     <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
     <string name="channel_group_contacts">Contacts</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Fil de discussion</item>
+        <item quantity="other">Fils de discussion</item>
+    </plurals>
+    <string name="page_folders">Dossiers</string>
+    <string name="page_compose">Rédiger</string>
+    <string name="page_compose_message">Message</string>
     <string name="tile_synchronize">Synchroniser</string>
     <string name="tile_unseen">Nouveaux messages</string>
     <string name="shortcut_refresh">Actualiser</string>
@@ -215,6 +222,7 @@
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
+    <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
     <string name="title_advanced_notify_preview">Afficher l\'aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
     <string name="title_advanced_notify_action_trash">Supprimer</string>
@@ -375,7 +383,6 @@
     <string name="title_folder_system">Système</string>
     <string name="title_folder_user">Utilisateur</string>
     <string name="title_folder_primary">Dossiers du compte principal</string>
-    <string name="title_folder_thread">Fil de discussion %1$s</string>
     <string name="title_folders_unified">Dossiers de la boîte de réception unifiée</string>
     <string name="title_no_messages">Aucun message</string>
     <string name="title_no_folders">Aucun dossier</string>
@@ -501,7 +508,6 @@
     <string name="title_search">Rechercher</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_in">Rechercher dans</string>
-    <string name="title_searching">Recherche de \'%1$s\'</string>
     <string name="title_sort_on">Trier par</string>
     <string name="title_sort_on_time">Date</string>
     <string name="title_sort_on_unread">Non lu(s)</string>
