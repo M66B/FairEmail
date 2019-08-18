@@ -167,7 +167,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         itemDecorator.setDrawable(d);
         rvMenu.addItemDecoration(itemDecorator);
 
-        PackageManager pm = getPackageManager();
         final List<NavMenuItem> menus = new ArrayList<>();
 
         menus.add(new NavMenuItem(R.drawable.baseline_archive_24, R.string.title_setup_export, new Runnable() {
