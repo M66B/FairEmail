@@ -140,12 +140,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name) {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                getSupportActionBar().setTitle(getString(R.string.app_name));
             }
 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                getSupportActionBar().setTitle(getString(R.string.app_name));
             }
         };
         drawerLayout.addDrawerListener(drawerToggle);

@@ -157,7 +157,6 @@
             android:name=".ActivityEml"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
             android:launchMode="singleTop">
 
             <intent-filter>
@@ -192,7 +191,6 @@
             android:name=".ActivityDSN"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
             android:launchMode="singleTop">
 
             <intent-filter>
@@ -212,7 +210,6 @@
         <activity
             android:name=".ActivityBilling"
             android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
             android:launchMode="singleTop" />
 
         <service
