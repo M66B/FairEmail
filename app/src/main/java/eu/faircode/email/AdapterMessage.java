@@ -1487,6 +1487,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // selectableItemBackground
                     card.setClickable(true);
                     card.setPressed(true);
+                    card.setPressed(false);
+                    card.setClickable(false);
                 }
 
                 if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1)
