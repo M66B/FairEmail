@@ -40,8 +40,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FragmentBase extends Fragment {
+    private String title = null;
     private String subtitle = " ";
     private boolean finish = false;
+
+    protected void setTitle(int resid) {
+        setTitle(getString(resid));
+    }
+
+    protected void setTitle(String title) {
+        this.title = title;
+        updateSubtitle();
+    }
 
     protected void setSubtitle(int resid) {
         setSubtitle(getString(resid));
@@ -182,8 +192,10 @@ public class FragmentBase extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null && !isPane()) {
             ActionBar actionbar = activity.getSupportActionBar();
-            if (actionbar != null)
+            if (actionbar != null) {
+                actionbar.setTitle(title == null ? getString(R.string.app_name) : title);
                 actionbar.setSubtitle(subtitle);
+            }
         }
     }
 

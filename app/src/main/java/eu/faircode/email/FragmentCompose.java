@@ -232,6 +232,9 @@ public class FragmentCompose extends FragmentBase {
         prefix_once = prefs.getBoolean("prefix_once", true);
         monospaced = prefs.getBoolean("monospaced", false);
         style = prefs.getBoolean("style_toolbar", true);
+
+        setTitle(R.string.page_compose);
+        setSubtitle(R.string.page_compose_message);
     }
 
     @Override
@@ -409,7 +412,6 @@ public class FragmentCompose extends FragmentBase {
         addBackPressedListener(onBackPressedListener);
 
         // Initialize
-        setSubtitle(R.string.title_compose);
         setHasOptionsMenu(true);
 
         etExtra.setHint("");

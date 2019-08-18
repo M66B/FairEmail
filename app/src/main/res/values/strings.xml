@@ -25,6 +25,7 @@
 
     <string name="page_folders">Folders</string>
     <string name="page_compose">Compose</string>
+    <string name="page_compose_message">Message</string>
 
     <string name="tile_synchronize">Synchronize</string>
     <string name="tile_unseen">New messages</string>
@@ -443,7 +444,6 @@
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">User</string>
     <string name="title_folder_primary">Folders primary account</string>
-    <string name="title_folder_thread">Conversation %1$s</string>
     <string name="title_folders_unified">Unified inbox folders</string>
     <string name="title_no_messages">No messages</string>
     <string name="title_no_folders">No folders</string>
@@ -581,7 +581,6 @@
     <string name="title_search">Search</string>
     <string name="title_search_server">Search on server</string>
     <string name="title_search_in">Search in</string>
-    <string name="title_searching">Searching \'%1$s\'</string>
 
     <string name="title_sort_on">Sort on</string>
     <string name="title_sort_on_time">Time</string>

@@ -300,15 +300,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         connected = args.getBoolean("connected", false);
 
         if (TextUtils.isEmpty(query))
-            if (thread == null)
+            if (thread == null) {
                 if (folder < 0)
                     viewType = AdapterMessage.ViewType.UNIFIED;
                 else
                     viewType = AdapterMessage.ViewType.FOLDER;
-            else
+                setTitle(getResources().getQuantityString(R.plurals.page_conversation, 10));
+            } else {
                 viewType = AdapterMessage.ViewType.THREAD;
-        else
+                setTitle(getResources().getQuantityString(R.plurals.page_conversation, 1));
+            }
+        else {
             viewType = AdapterMessage.ViewType.SEARCH;
+            setTitle(R.string.title_search);
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -2193,8 +2198,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     public void onChanged(TupleThreadStats stats) {
-                        setSubtitle(getString(R.string.title_folder_thread,
-                                stats == null || stats.accountName == null ? "" : stats.accountName));
+                        setSubtitle(stats == null || stats.accountName == null ? "" : stats.accountName);
 
                         if (stats != null && stats.count != null && stats.seen != null) {
                             int unseen = stats.count - stats.seen;
@@ -2224,7 +2228,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 break;
 
             case SEARCH:
-                setSubtitle(getString(R.string.title_searching, query));
+                setSubtitle(query);
                 break;
         }
 

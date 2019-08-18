@@ -88,6 +88,8 @@ public class FragmentFolders extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+
+        setTitle(R.string.page_folders);
     }
 
     @Override
