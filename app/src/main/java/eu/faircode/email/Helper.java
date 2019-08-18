@@ -586,7 +586,7 @@ public class Helper {
             options.inSampleSize = factor;
             Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
 
-            if (rotation != null) {
+            if (scaled != null && rotation != null) {
                 Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
                 scaled.recycle();
                 scaled = rotated;
