@@ -40,7 +40,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -143,6 +142,7 @@ public class FragmentRule extends FragmentBase {
     private ArrayAdapter<EntityAnswer> adapterAnswer;
 
     private long id = -1;
+    private long copy = -1;
     private long account = -1;
     private long folder = -1;
     private int color = Color.TRANSPARENT;
@@ -162,7 +162,10 @@ public class FragmentRule extends FragmentBase {
 
         // Get arguments
         Bundle args = getArguments();
-        id = args.getLong("id", -1);
+        if (args.getBoolean("copy"))
+            copy = args.getLong("id", -1);
+        else
+            id = args.getLong("id", -1);
         account = args.getLong("account", -1);
         folder = args.getLong("folder", -1);
     }
@@ -591,7 +594,7 @@ public class FragmentRule extends FragmentBase {
 
     private void loadRule() {
         Bundle rargs = new Bundle();
-        rargs.putLong("id", id);
+        rargs.putLong("id", copy < 0 ? id : copy);
         rargs.putString("sender", getArguments().getString("sender"));
         rargs.putString("recipient", getArguments().getString("recipient"));
         rargs.putString("subject", getArguments().getString("subject"));

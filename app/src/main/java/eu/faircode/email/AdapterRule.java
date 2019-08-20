@@ -185,6 +185,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     .setCheckable(true).setChecked(rule.enabled);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
                     .setEnabled(ActivityBilling.isPro(context));
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -193,9 +194,15 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                         case R.string.title_rule_enabled:
                             onActionEnabled(!item.isChecked());
                             return true;
+
                         case R.string.title_rule_execute:
                             onActionExecute();
                             return true;
+
+                        case R.string.title_copy:
+                            onActionCopy();
+                            return true;
+
                         default:
                             return false;
                     }
@@ -277,6 +284,16 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "rule:execute");
+                }
+
+                private void onActionCopy() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_RULE)
+                                    .putExtra("id", rule.id)
+                                    .putExtra("account", rule.account)
+                                    .putExtra("folder", rule.folder)
+                                    .putExtra("copy", true));
                 }
             });
 
