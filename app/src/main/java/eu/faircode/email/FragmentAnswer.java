@@ -53,6 +53,7 @@ public class FragmentAnswer extends FragmentBase {
     private Group grpReady;
 
     private long id = -1;
+    private long copy = -1;
 
     private final static int REQUEST_DELETE = 1;
 
@@ -62,7 +63,10 @@ public class FragmentAnswer extends FragmentBase {
 
         // Get arguments
         Bundle args = getArguments();
-        id = (args == null ? -1 : args.getLong("id", -1));
+        if (args.getBoolean("copy"))
+            copy = args.getLong("id", -1);
+        else
+            id = args.getLong("id", -1);
     }
 
     @Override
@@ -118,7 +122,7 @@ public class FragmentAnswer extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         Bundle args = new Bundle();
-        args.putLong("id", id);
+        args.putLong("id", copy < 0 ? id : copy);
 
         new SimpleTask<EntityAnswer>() {
             @Override

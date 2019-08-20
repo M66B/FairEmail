@@ -113,6 +113,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_compose, 1, R.string.title_compose);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_answer_hide, 2, R.string.title_answer_hide)
                     .setCheckable(true).setChecked(answer.hide);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -121,9 +122,15 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                         case R.string.title_compose:
                             onActionCompose();
                             return true;
+
                         case R.string.title_answer_hide:
                             onActionHide(!item.isChecked());
                             return true;
+
+                        case R.string.title_copy:
+                            onActionCopy();
+                            return true;
+
                         default:
                             return false;
                     }
@@ -157,6 +164,14 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                             Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "rule:enable");
+                }
+
+                private void onActionCopy() {
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(
+                            new Intent(ActivityView.ACTION_EDIT_ANSWER)
+                                    .putExtra("id", answer.id)
+                                    .putExtra("copy", true));
                 }
             });
 
