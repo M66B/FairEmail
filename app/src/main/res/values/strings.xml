@@ -23,9 +23,13 @@
         <item quantity="other">Conversations</item>
     </plurals>
 
+    <plurals name="page_message">
+        <item quantity="one">Message</item>
+        <item quantity="other">Messages</item>
+    </plurals>
+
     <string name="page_folders">Folders</string>
     <string name="page_compose">Compose</string>
-    <string name="page_compose_message">Message</string>
 
     <string name="tile_synchronize">Synchronize</string>
     <string name="tile_unseen">New messages</string>

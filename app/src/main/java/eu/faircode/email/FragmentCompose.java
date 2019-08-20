@@ -234,7 +234,7 @@ public class FragmentCompose extends FragmentBase {
         style = prefs.getBoolean("style_toolbar", true);
 
         setTitle(R.string.page_compose);
-        setSubtitle(R.string.page_compose_message);
+        setSubtitle(getResources().getQuantityString(R.plurals.page_message, 1));
     }
 
     @Override
