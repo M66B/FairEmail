@@ -397,7 +397,13 @@ public class ServiceSend extends ServiceBase {
             // Update message with signature / referenced text for sent orphans
             MessageHelper helper = new MessageHelper(imessage);
             MessageHelper.MessageParts parts = helper.getMessageParts();
-            Helper.writeText(message.getFile(this), parts.getHtml(this));
+            String body = parts.getHtml(this);
+            Helper.writeText(message.getFile(this), body);
+            db.message().setMessageContent(message.id,
+                    true,
+                    parts.isPlainOnly(),
+                    HtmlHelper.getPreview(body),
+                    parts.getWarnings(message.warning));
 
             db.identity().setIdentityConnected(ident.id, new Date().getTime());
             db.identity().setIdentityError(ident.id, null);
