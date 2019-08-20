@@ -2480,8 +2480,9 @@ public class FragmentCompose extends FragmentBase {
                 Log.i("Load action id=" + draft.id + " action=" + getActionName(action));
 
                 if (action == R.id.action_delete) {
+                    boolean discard_delete = prefs.getBoolean("discard_delete", false);
                     EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
-                    if (empty || trash == null)
+                    if (empty || trash == null || discard_delete)
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
                     else
                         EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
