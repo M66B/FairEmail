@@ -2017,7 +2017,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                         for (EntityAttachment attachment : attachments)
-                            if (!attachment.available && !TextUtils.isEmpty(attachment.cid))
+                            if (!attachment.available && attachment.isInline() && attachment.isImage())
                                 EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
 
                         db.setTransactionSuccessful();

@@ -3057,6 +3057,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean inline_images = prefs.getBoolean("inline_images", false);
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -3072,6 +3075,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message.uid != null) {
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
+
+                        if (inline_images) {
+                            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                            for (EntityAttachment attachment : attachments)
+                                if (!attachment.available && attachment.isInline() && attachment.isImage())
+                                    EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
+                        }
+
                         if (!message.ui_seen && !folder.read_only)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
