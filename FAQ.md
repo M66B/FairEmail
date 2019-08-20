@@ -1735,7 +1735,10 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
 
-However, FairEmail will show a small red warning flag
+Of course you can report messages as spam with FairEmail,
+which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
+
+Also, FairEmail can show a small red warning flag
 when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
 You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the behavior settings.
 
