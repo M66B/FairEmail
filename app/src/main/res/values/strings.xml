@@ -280,10 +280,9 @@
     <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name \'Notifications\' to set the default notification sound, etc</string>
 
-    <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
-    <string name="title_advanced_sync_subscribed">Synchronize subscribed folders only</string>
-    <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
+    <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
+    <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
@@ -302,6 +301,8 @@
     <string name="title_advanced_unseen_hint">Some providers don\'t support this properly, which, for example, may result in all messages being synchronized</string>
     <string name="title_advanced_sync_kept_hint">This will transfer extra data and consume extra battery power, especially if a lot of messages are stored on the device</string>
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
+    <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
+    <string name="title_advanced_sync_subscribed">Synchronize subscribed folders only</string>
 
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
