@@ -1028,32 +1028,37 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void scrollToVisibleItem(LinearLayoutManager llm, boolean bottom) {
-        int pos = llm.findLastVisibleItemPosition();
-        if (pos == RecyclerView.NO_POSITION)
+        int first = llm.findFirstVisibleItemPosition();
+        int last = llm.findLastVisibleItemPosition();
+        if (first == RecyclerView.NO_POSITION || last == RecyclerView.NO_POSITION)
             return;
 
+        int pos = (bottom ? last : first);
         do {
             Long key = adapter.getKeyAtPosition(pos);
             if (key != null && iProperties.getValue("expanded", key)) {
-                int first = llm.findFirstVisibleItemPosition();
-                View child = rvMessage.getChildAt(pos - (first < 0 ? 0 : first));
-
+                View child = llm.findViewByPosition(pos);
                 if (child != null) {
                     TranslateAnimation bounce = new TranslateAnimation(
-                            0, 0, Helper.dp2pixels(getContext(), bottom ? -12 : 12), 0);
+                            0, 0, Helper.dp2pixels(getContext(), bottom ? -6 : 6), 0);
                     bounce.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
                     child.startAnimation(bounce);
+
+                    if (bottom)
+                        llm.scrollToPositionWithOffset(pos,
+                                rvMessage.getHeight() - llm.getDecoratedMeasuredHeight(child) + child.getPaddingBottom());
+                    else
+                        llm.scrollToPositionWithOffset(pos, -child.getPaddingTop());
+
+                    break;
                 }
-
-                if (bottom && child != null)
-                    llm.scrollToPositionWithOffset(pos, rvMessage.getHeight() - llm.getDecoratedMeasuredHeight(child));
-                else
-                    rvMessage.scrollToPosition(pos);
-
-                break;
             }
-            pos--;
-        } while (pos >= 0);
+
+            if (bottom)
+                pos--;
+            else
+                pos++;
+        } while (pos >= first && pos <= last);
     }
 
     private void onSwipeRefresh() {
