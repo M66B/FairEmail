@@ -256,13 +256,19 @@ only suggesting contacts won't work without contacts permissions.
 <a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
 
-A permanent status bar notification with the number of accounts being synchronized and the number of operations pending (see next question) is shown
+A low priority permanent status bar notification with the number of accounts being synchronized and the number of operations pending (see next question) is shown
 to prevent Android from killing the service that takes care of receiving and sending email.
+
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
 
 Most, if not all, other email apps don't show a notification
 with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
 Background: this is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
+
+Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification,
+but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages.
+The first is not going to happen and the last would have significant privacy implications.
 
 If you came here by clicking on the notification, you should known that the next click will open the unified inbox.
 
@@ -1582,6 +1588,8 @@ for example to mark a message read, move a message or store a draft.
 This is to keep the local and remote message store synchronized.
 
 If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
+
+You'll likely want to disabled [browse on server](#user-content-faq24) too.
 
 <br />
 
