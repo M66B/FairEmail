@@ -62,7 +62,7 @@ All pro features are convenience or advanced features.
 * Reply templates
 * Accept/decline calendar invitations
 * Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
-* Search on device or server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
+* Search on server ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
 * Keyword management
 * Biometric authentication ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq113))
 * Unified inbox widget

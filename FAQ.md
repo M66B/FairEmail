@@ -531,7 +531,7 @@ Searching local messages is case insensitive and on partial text.
 The message text of local messages will not be searched if the message text was not downloaded yet.
 Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 
-Searching messages is a pro feature.
+Searching messages on the device is a free feature, searching messages on the server is a pro feature.
 
 <br />
 
