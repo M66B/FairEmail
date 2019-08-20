@@ -332,6 +332,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             viewType = AdapterMessage.ViewType.SEARCH;
             setTitle(R.string.title_search);
         }
+
+        outbox = (viewType == AdapterMessage.ViewType.FOLDER);
     }
 
     @Override
