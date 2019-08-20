@@ -347,15 +347,8 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
-        npDuration.setMinValue(1);
-        npDuration.setMaxValue(99);
-
-        cbScheduleEnd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                npDuration.setEnabled(!checked);
-            }
-        });
+        npDuration.setMinValue(0);
+        npDuration.setMaxValue(999);
 
         tvActionRemark.setVisibility(View.GONE);
 

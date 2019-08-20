@@ -370,7 +370,7 @@ public class EntityRule {
             cal.set(Calendar.HOUR_OF_DAY, hour);
             cal.set(Calendar.MINUTE, minute);
             cal.set(Calendar.SECOND, 0);
-            wakeup = cal.getTimeInMillis();
+            wakeup = cal.getTimeInMillis() + duration * 3600 * 1000L;
         } else
             wakeup = message.received + duration * 3600 * 1000L;
 
