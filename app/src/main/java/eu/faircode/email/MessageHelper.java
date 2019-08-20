@@ -475,6 +475,7 @@ public class MessageHelper {
             return null;
 
         header = new String(header.getBytes(StandardCharsets.ISO_8859_1));
+        header = decodeMime(header);
         return InternetAddress.parseHeader(header, false);
     }
 
