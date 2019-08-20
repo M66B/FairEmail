@@ -2423,7 +2423,6 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(getContext(), 49);
-                finish();
             }
         });
         sb.show();
