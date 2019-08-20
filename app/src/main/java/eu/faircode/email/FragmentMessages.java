@@ -2347,21 +2347,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     };
 
     private void checkReporting() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (prefs.getBoolean("crash_reports", false) ||
-                prefs.getBoolean("crash_reports_asked", false))
-            return;
+        if (viewType == AdapterMessage.ViewType.UNIFIED) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            if (prefs.getBoolean("crash_reports", false) ||
+                    prefs.getBoolean("crash_reports_asked", false))
+                return;
 
-        final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_help, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.title_info, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                snackbar.dismiss();
-                new FragmentDialogReporting().show(getFragmentManager(), "reporting");
-            }
-        });
+            final Snackbar snackbar = Snackbar.make(view, R.string.title_ask_help, Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(R.string.title_info, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    snackbar.dismiss();
+                    new FragmentDialogReporting().show(getFragmentManager(), "reporting");
+                }
+            });
 
-        snackbar.show();
+            snackbar.show();
+        }
     }
 
     @Override
