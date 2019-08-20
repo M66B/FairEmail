@@ -131,6 +131,11 @@ public class EntityOperation {
                 if (source.id.equals(target.id))
                     return;
 
+                EntityLog.log(context, "Move message=" + message.id + ":" + message.subject +
+                        " source=" + source.id + ":" + source.name + "" +
+                        " target=" + target.id + ":" + target.name +
+                        " autoread=" + autoread);
+
                 if (!EntityFolder.ARCHIVE.equals(source.type) ||
                         EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type))
                     db.message().setMessageUiHide(message.id, new Date().getTime());
