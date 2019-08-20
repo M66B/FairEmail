@@ -30,4 +30,10 @@ public class ToastEx extends Toast {
         toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, dp);
         return toast;
     }
+
+    @Override
+    public void show() {
+        // https://stackoverflow.com/questions/56017928/toast-not-showing-in-android-q
+        super.show();
+    }
 }
