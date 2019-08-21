@@ -2386,8 +2386,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private SimpleTask<SpannableStringBuilder> bodyTask = new SimpleTask<SpannableStringBuilder>() {
             @Override
             protected SpannableStringBuilder onExecute(final Context context, final Bundle args) throws IOException {
-                final TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                final boolean show_images = args.getBoolean("show_images");
+                TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                boolean show_images = args.getBoolean("show_images");
                 boolean show_quotes = args.getBoolean("show_quotes");
                 int zoom = args.getInt("zoom");
 
@@ -2399,9 +2399,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return null;
 
                 String body = Helper.readText(file);
+                Document document = Jsoup.parse(body);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean inline = prefs.getBoolean("inline_images", false);
+
+                boolean has_images = false;
+                for (Element img : document.select("img")) {
+                    if (inline) {
+                        String src = img.attr("src");
+                        if (!src.startsWith("cid:")) {
+                            has_images = true;
+                            break;
+                        }
+                    } else {
+                        has_images = true;
+                        break;
+                    }
+                }
+                args.putBoolean("has_images", has_images);
 
                 if (!show_quotes) {
-                    Document document = Jsoup.parse(body);
                     for (Element quote : document.select("blockquote"))
                         quote.html("&#8230;");
                     body = document.html();
@@ -2447,25 +2465,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 builder.getSpanEnd(squote),
                                 builder.getSpanFlags(squote));
                 }
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean inline = prefs.getBoolean("inline_images", false);
-
-                boolean has_images;
-                ImageSpan[] spans = builder.getSpans(0, body.length(), ImageSpan.class);
-                if (inline) {
-                    has_images = false;
-                    for (ImageSpan span : spans) {
-                        String source = span.getSource();
-                        if (source == null || !source.startsWith("cid:")) {
-                            has_images = true;
-                            break;
-                        }
-                    }
-                } else
-                    has_images = spans.length > 0;
-
-                args.putBoolean("has_images", has_images);
 
                 return builder;
             }
