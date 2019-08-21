@@ -19,9 +19,12 @@
         <item quantity="one">Samtale</item>
         <item quantity="other">Samtaler</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Melding</item>
+        <item quantity="other">Meldinger</item>
+    </plurals>
     <string name="page_folders">Mapper</string>
     <string name="page_compose">Skriv</string>
-    <string name="page_compose_message">Melding</string>
     <string name="tile_synchronize">Synkroniser</string>
     <string name="tile_unseen">Nye meldinger</string>
     <string name="shortcut_refresh">Oppdater</string>
@@ -219,6 +222,7 @@
     <string name="title_advanced_onclose">Når du avslutter en samtale</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
+    <string name="title_advanced_discard_delete">Ved å kaste utkast permanent slett utkast</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
@@ -235,10 +239,9 @@
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet \'Varsler\' for å angi standard varslings lyd, osv</string>
-    <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
-    <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
-    <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
+    <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
+    <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
@@ -253,6 +256,8 @@
     <string name="title_advanced_unseen_hint">Noen leverandører støtter ikke dette ordentlig, noe som for eksempel kan føre til at alle meldinger blir synkronisert</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og bruke ekstra batteristrøm, spesielt hvis det er lagret mange meldinger på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
+    <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
+    <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
     <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
     <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
@@ -558,7 +563,7 @@
     <string name="title_rule_action">Handling</string>
     <string name="title_rule_action_remark">Denne handlingen vil bli brukt på nye meldinger som kommer inn i mappen %1$s</string>
     <string name="title_rule_hours">Timer</string>
-    <string name="title_rule_schedule_end">Fram til slutten av tidsforholdet</string>
+    <string name="title_rule_schedule_end">Fra slutten av tidsforholdet</string>
     <string name="title_rule_folder">Mappe</string>
     <string name="title_rule_thread">Alle meldinger i samme samtale og mappe</string>
     <string name="title_rule_identity">Identitet</string>
@@ -661,6 +666,7 @@
     <string name="title_hint_message_selection">Langt trykk på en melding for å begynne å velge flere meldinger</string>
     <string name="title_hint_sync">Nedlasting av meldinger kan ta litt tid, avhengig av leverandørens hastighet, internettforbindelse og enhet og antall meldinger. Mens du laster ned meldinger, kan appen reagere langsommere.</string>
     <string name="title_hint_image_link">Bildelink</string>
+    <string name="title_hint_too_complex">Meldingen er for stor eller for kompleks til å vises</string>
     <string name="title_hint_tracking_image">Sporer bilde %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Langt trykk for flere instillinger</string>
     <string name="title_open_link">Åpne link</string>
@@ -684,7 +690,6 @@
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
     <string name="title_enable">Aktiver</string>
-    <string name="title_any">Noen</string>
     <string name="title_executing">Utfører</string>
     <string name="title_completed">Fullført</string>
     <string name="title_ask_what">Spør hva du skal gjøre</string>

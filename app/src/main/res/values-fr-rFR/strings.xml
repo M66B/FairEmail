@@ -19,9 +19,12 @@
         <item quantity="one">Fil de discussion</item>
         <item quantity="other">Fils de discussion</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Message</item>
+        <item quantity="other">Messages</item>
+    </plurals>
     <string name="page_folders">Dossiers</string>
     <string name="page_compose">Rédiger</string>
-    <string name="page_compose_message">Message</string>
     <string name="tile_synchronize">Synchroniser</string>
     <string name="tile_unseen">Nouveaux messages</string>
     <string name="shortcut_refresh">Actualiser</string>
@@ -219,6 +222,7 @@
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
+    <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
@@ -235,10 +239,9 @@
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
-    <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
-    <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
-    <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
     <string name="title_advanced_double_back">\'Retour\' deux fois pour quitter</string>
+    <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
+    <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
@@ -253,6 +256,8 @@
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne supportent pas ceci correctement, ce qui pourrait par exemple entraîner la synchronisation de tous les messages</string>
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la batterie supplémentaires, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l\'utilisation des données et de la batterie mais désactivera également la mise à jour de la liste des dossiers</string>
+    <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
+    <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_sync_delay_hint">Cela ralentira la synchronisation des messages</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
@@ -558,7 +563,7 @@
     <string name="title_rule_action">Action</string>
     <string name="title_rule_action_remark">Cette action sera appliquée aux nouveaux messages qui arrivent dans le dossier %1$s</string>
     <string name="title_rule_hours">Heures</string>
-    <string name="title_rule_schedule_end">Jusqu\'à la fin de la condition de temps</string>
+    <string name="title_rule_schedule_end">A partir de la fin de la condition de temps</string>
     <string name="title_rule_folder">Dossier</string>
     <string name="title_rule_thread">Tous les messages dans la même conversation et le même dossier</string>
     <string name="title_rule_identity">Identité</string>
@@ -661,6 +666,7 @@
     <string name="title_hint_message_selection">Appuyer longtemps sur un message pour commencer à en sélectionner plusieurs</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
     <string name="title_hint_image_link">Lien de l\'image</string>
+    <string name="title_hint_too_complex">Message trop grand ou trop complexe pour affichage</string>
     <string name="title_hint_tracking_image">Image de suivi %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_open_link">Ouvrir le lien</string>
@@ -684,7 +690,6 @@
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
-    <string name="title_any">N\'importe laquelle</string>
     <string name="title_executing">Exécution en cours</string>
     <string name="title_completed">Terminé</string>
     <string name="title_ask_what">Demander ce qu\'il faut faire</string>

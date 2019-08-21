@@ -15,6 +15,12 @@
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
     <string name="channel_group_contacts">Rehber</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Sohbet</item>
+        <item quantity="other">Sohbetler</item>
+    </plurals>
+    <string name="page_folders">Klasörler</string>
+    <string name="page_compose">Eposta Oluştur</string>
     <string name="tile_synchronize">Eşzamanlama</string>
     <string name="tile_unseen">Yeni iletiler</string>
     <string name="shortcut_refresh">Yenile</string>
@@ -87,6 +93,10 @@
     <string name="title_edit_folder">Klasörü düzenle</string>
     <string name="title_setup">Ayarlar</string>
     <string name="title_setup_help">Yardım</string>
+    <string name="title_setup_welcome">Mesaj alma ve gönderme, başka bir e-posta uygulamasında olduğu gibi bir hesap ve kimlik kurmayı gerektirir.
+        Hızlı Kurulum, adınızı, e-posta adresinizi ve şifrenizi sorarak hem bir hesap hem de kimlik oluşturacaktır.
+        Hesaplar ve kimlikler (diğer adlar) gerekirse manüel olarak de kurulabilir.
+    </string>
     <string name="title_setup_quick">Hızlı Kurulum</string>
     <string name="title_setup_quick_remark">Bir hesabı çabucak kurmak için ve çoğu e posta sağlayıcı için kimlik ayarları</string>
     <string name="title_setup_quick_hint">Hızlı kurulum, yapılandırma bilgilerini autoconfig.thunderbird.net adresinden alır</string>
@@ -160,6 +170,7 @@
     <string name="title_advanced_kept_removed">Eski iletilerin sunucudan kaldırılıp kaldırılmadığını denetleyin</string>
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
+    <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
@@ -176,6 +187,7 @@
     <string name="title_advanced_cards">Kartları göster</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
+    <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
@@ -218,10 +230,8 @@
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
     <string name="title_advanced_notify_manage_hint">Öntanımlı bildirim sesi vs. ayarlamak için \'Bildirimler\' yazan yere dokunun</string>
-    <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
-    <string name="title_advanced_sync_subscribed">Yalnızca aboneliği olan dizinleri eşitle</string>
-    <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
     <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
+    <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -235,6 +245,8 @@
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
+    <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
+    <string name="title_advanced_sync_subscribed">Yalnızca aboneliği olan dizinleri eşitle</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
     <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
@@ -480,6 +492,7 @@
     <string name="title_signature_valid">İleti imzası geçerli</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
     <string name="title_search">Ara</string>
+    <string name="title_search_server">Sunucuda ara</string>
     <string name="title_search_in">İçinde ara</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Zaman</string>
@@ -649,7 +662,6 @@
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_enable">Etkin</string>
-    <string name="title_any">Herhangi Biri</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>
     <string name="title_ask_what">Ne yapılacağını sor</string>

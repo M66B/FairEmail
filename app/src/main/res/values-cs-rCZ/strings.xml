@@ -230,10 +230,8 @@
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
     <string name="title_advanced_notify_manage_hint">Stiskněte název kanálu \"Oznámení\" pro nastavení výchozího zvuku oznámení, atd</string>
-    <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
-    <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
-    <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
+    <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
@@ -245,6 +243,8 @@
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_check_mx">Zkontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí této volby o něco sníží využití dat a baterie, zároveň však znemožní aktualizovat seznam složek</string>
+    <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
+    <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>

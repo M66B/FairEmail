@@ -15,7 +15,20 @@
     <string name="channel_warning">Ostrzeżenia</string>
     <string name="channel_error">Błędy</string>
     <string name="channel_group_contacts">Kontakty</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Wątek</item>
+        <item quantity="few">Wątki</item>
+        <item quantity="many">Wątki</item>
+        <item quantity="other">Wątki</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Wiadomość</item>
+        <item quantity="few">Wiadomości</item>
+        <item quantity="many">Wiadomości</item>
+        <item quantity="other">Wiadomości</item>
+    </plurals>
     <string name="page_folders">Foldery</string>
+    <string name="page_compose">Napisz</string>
     <string name="tile_synchronize">Synchronizuj</string>
     <string name="tile_unseen">Nowe wiadomości</string>
     <string name="shortcut_refresh">Odśwież</string>
@@ -231,9 +244,11 @@
     <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
+    <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej trwale usuń wersję roboczą</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
+    <string name="title_advanced_unseen_ignored">Niech liczba nowych wiadomości odpowiada liczbie powiadomień</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
     <string name="title_advanced_notify_action_trash">Kosz</string>
@@ -246,10 +261,9 @@
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału \'Powiadomienia\', aby ustawić domyślny dźwięk powiadomienia, itd.</string>
-    <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
-    <string name="title_advanced_sync_subscribed">Synchronizuj tylko subskrybowane foldery</string>
-    <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
+    <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
+    <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
@@ -264,6 +278,8 @@
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co na przykład może spowodować synchronizację wszystkich wiadomości</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
+    <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
+    <string name="title_advanced_sync_subscribed">Synchronizuj tylko subskrybowane foldery</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
@@ -569,7 +585,7 @@
     <string name="title_rule_action">Akcja</string>
     <string name="title_rule_action_remark">Ta akcja zostanie zastosowana do nowych wiadomości przychodzących do folderu %1$s</string>
     <string name="title_rule_hours">Godzin</string>
-    <string name="title_rule_schedule_end">Do końca czasu warunku</string>
+    <string name="title_rule_schedule_end">Od końca warunku czasu</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_thread">Wszystkie wiadomości w tej samej rozmowie i folderze</string>
     <string name="title_rule_identity">Tożsamość</string>
@@ -672,6 +688,7 @@
     <string name="title_hint_message_selection">Przytrzymaj wiadomość, aby zacząć zaznaczanie wielu wiadomości</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_image_link">Adres obrazka</string>
+    <string name="title_hint_too_complex">Wiadomość jest zbyt duża lub zbyt złożona, aby ją wyświetlić</string>
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_open_link">Otwórz link</string>
@@ -695,7 +712,6 @@
     <string name="title_report">Raport</string>
     <string name="title_fix">Popraw</string>
     <string name="title_enable">Włącz</string>
-    <string name="title_any">Dowolny</string>
     <string name="title_executing">Wykonywanie</string>
     <string name="title_completed">Ukończone</string>
     <string name="title_ask_what">Zapytaj co zrobić</string>

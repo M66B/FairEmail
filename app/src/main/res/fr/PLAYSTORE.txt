@@ -1,0 +1,80 @@
+Cette application de messagerie open source, conviviale et respectueuse de la vie privée, est peut-être faite pour vous si vous accordez de l'importance à votre vie privée.
+
+<b>Principales fonctionnalités</b>
+
+* 100% open source
+* Respectueuse de la vie privée
+* Plusieurs comptes
+* Plusieurs adresses e-mail
+* Boîte de réception unifiée
+* Fils de conversation
+* Synchronisation dans les deux sens
+* Stockage et opérations hors ligne
+* Chiffrement/déchiffrement (OpenPGP)
+* Utilisation faible de la batterie
+* Utilisation faible des données
+* Petite (< 10 Mo)
+* Material Design (y compris le thème sombre)
+* Maintenue et supportée
+
+Cette application est minimaliste par conception, ainsi vous pouvez vous concentrer sur la lecture et l'écriture de messages.
+
+Cette application démarre un service en premier plan avec une notification en barre d'état de faible priorité pour vous assurer que vous ne manquerez jamais de nouveaux e-mails.
+
+<b>Fonctionnalités sur la vie privée</b>
+
+* Reformatage des messages pour empêcher le phishing
+* Confirmation de l'affichage des images pour empêcher le suivi
+* Confirmation de l'ouverture des liens pour empêcher le suivi et le phishing
+* Reconnaissance automatique et désactivation des images de suivi
+* Avertissement si des messages ne peuvent pas être authentifiés
+
+<b>Fonctionnalités Pro</b>
+
+Toutes les fonctionnalités Pro sont des fonctionnalités pratiques ou avancées.
+
+* Couleurs de compte/identité
+* Couleurs de suivi
+* Paramètres de notification (sons) par compte/dossier/expéditeur (nécessite Android 8 Oreo)
+* Actions de notification configurables
+* Différer les messages
+* Envoyer des messages après l'heure sélectionnée
+* Planification de synchronisation
+* Modèles de réponse
+* Accepter/refuser les invitations de calendrier
+* Règles de filtrage
+* Recherche sur l'appareil ou le serveur
+* Gestion des mots clés
+* Authentification biométrique
+* Widget de boîte de réception unifiée
+* Exportation des paramètres
+
+<b>Simple</b>
+
+* Configuration rapide
+* Navigation facile
+* Pas de sons et de bruits inutiles
+* Pas de fioritures inutiles
+
+<b>Sécurisée</b>
+
+* Pas de stockage de données sur des serveurs tiers
+* Affichage sécurisé des messages (style, scripts et HTML non sûr supprimés)
+* Confirmation d'ouverture des liens, des images et des pièces jointes
+* Pas d'autorisation spéciale requise
+* Pas de publicités
+* Pas d'analyse d'utilisation et pas de suivi
+* Pas de sauvegarde Google
+* FairEmail est un logiciel original, pas une copie ou un clone
+
+<b>Efficace</b>
+
+* IDLE IMAP (messages push) pris en charge
+* Fabriqué avec les derniers outils de développement et bibliothèques
+
+<b>Support</b>
+
+Si vous avez une question ou un problème, veuillez d'abord vérifier ici :
+https://github.com/M66B/open-source-email/blob/master/FAQ.md
+
+Si vous ne trouvez pas ce que vous cherchez, veuillez me contacter à marcel+fairemail@faircode.eu et j'essaierai de vous aider.

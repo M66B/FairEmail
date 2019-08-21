@@ -18,9 +18,11 @@
     <plurals name="page_conversation">
         <item quantity="other">会话</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="other">消息</item>
+    </plurals>
     <string name="page_folders">文件夹</string>
     <string name="page_compose">撰写</string>
-    <string name="page_compose_message">消息</string>
     <string name="tile_synchronize">同步</string>
     <string name="tile_unseen">新邮件</string>
     <string name="shortcut_refresh">刷新</string>
@@ -208,6 +210,7 @@
     <string name="title_advanced_onclose">关闭对话时</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_automove">确认移动邮件</string>
+    <string name="title_advanced_discard_delete">丢弃草稿时永久删除草稿</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
@@ -224,10 +227,9 @@
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称“通知”设置默认通知声音等</string>
-    <string name="title_advanced_subscriptions">管理文件夹订阅</string>
-    <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
-    <string name="title_advanced_biometrics_timeout">生物认证超时</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
+    <string name="title_advanced_biometrics_timeout">生物认证超时</string>
+    <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -242,6 +244,8 @@
     <string name="title_advanced_unseen_hint">一些提供商未正确支持支持该功能，这可能导致同步所有信息。</string>
     <string name="title_advanced_sync_kept_hint">这将传输额外数据，消耗额外的电池电量，特别是如果有许多消息存储在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能会降低数据和电池使用量，但也会禁用更新文件夹列表</string>
+    <string name="title_advanced_subscriptions">管理文件夹订阅</string>
+    <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
@@ -547,7 +551,7 @@
     <string name="title_rule_action">操作</string>
     <string name="title_rule_action_remark">此操作将被应用于抵达文件夹 %1$s 的新消息</string>
     <string name="title_rule_hours">小时</string>
-    <string name="title_rule_schedule_end">直到给定的时间结束</string>
+    <string name="title_rule_schedule_end">从时间条件结束开始</string>
     <string name="title_rule_folder">文件夹</string>
     <string name="title_rule_thread">在同一对话和文件夹中的所有消息</string>
     <string name="title_rule_identity">身份</string>
@@ -650,6 +654,7 @@
     <string name="title_hint_message_selection">长按一则邮件以开始选择多则邮件</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_image_link">图片链接</string>
+    <string name="title_hint_too_complex">消息太大或太复杂，以致无法显示</string>
     <string name="title_hint_tracking_image">跟踪图像%1$sx%2$s</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_open_link">打开链接</string>
@@ -673,7 +678,6 @@
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
-    <string name="title_any">任意一天</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
     <string name="title_ask_what">询问做什么</string>

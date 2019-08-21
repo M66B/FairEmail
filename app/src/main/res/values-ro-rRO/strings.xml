@@ -20,6 +20,11 @@
         <item quantity="few">Conversații</item>
         <item quantity="other">Conversații</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Mesaj</item>
+        <item quantity="few">Mesaje</item>
+        <item quantity="other">Mesaje</item>
+    </plurals>
     <string name="page_folders">Dosare</string>
     <string name="page_compose">Compune</string>
     <string name="tile_synchronize">Sincronizare</string>
@@ -228,6 +233,7 @@
     <string name="title_advanced_onclose">La închiderea conversației</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
+    <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
@@ -244,10 +250,9 @@
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
     <string name="title_advanced_notify_manage_hint">Atingeți numele canalului \'Notificări\' pentru a configura sunetul implicit, etc</string>
-    <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
-    <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
-    <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
+    <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
+    <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
@@ -262,6 +267,8 @@
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă aceasta în mod corect, și asta, de exemplu, poate duce la sincronizarea tuturor mesajelor</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
+    <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
+    <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
@@ -567,7 +574,7 @@
     <string name="title_rule_action">Acțiune</string>
     <string name="title_rule_action_remark">Această acțiune se va aplica mesajelor noi care sosesc în dosarul %1$s</string>
     <string name="title_rule_hours">Ore</string>
-    <string name="title_rule_schedule_end">Condiția până la terminarea timpului</string>
+    <string name="title_rule_schedule_end">Condiția de la terminarea timpului</string>
     <string name="title_rule_folder">Dosar</string>
     <string name="title_rule_thread">Toate mesajele în aceeași conversație și dosar</string>
     <string name="title_rule_identity">Identitate</string>
@@ -670,6 +677,7 @@
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_image_link">Legătură imagine</string>
+    <string name="title_hint_too_complex">Mesajul este prea mare sau prea complex pentru a putea fi afișat</string>
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_open_link">Deschide legătura</string>
@@ -693,7 +701,6 @@
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
     <string name="title_enable">Activează</string>
-    <string name="title_any">Oricare</string>
     <string name="title_executing">Se execută</string>
     <string name="title_completed">Finalizat</string>
     <string name="title_ask_what">Întreabă ce să faci</string>

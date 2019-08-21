@@ -19,9 +19,12 @@
         <item quantity="one">Unterhaltung</item>
         <item quantity="other">Unterhaltungen</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Nachricht</item>
+        <item quantity="other">Nachrichten</item>
+    </plurals>
     <string name="page_folders">Ordner</string>
     <string name="page_compose">Verfassen</string>
-    <string name="page_compose_message">Nachricht</string>
     <string name="tile_synchronize">Synchronisieren</string>
     <string name="tile_unseen">Neue Nachrichten</string>
     <string name="shortcut_refresh">Aktualisieren</string>
@@ -218,10 +221,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
+    <string name="title_advanced_discard_delete">Nach Verwerfen eines Mail-Entwurfes diesen Entwurf dauerhaft löschen</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
-    <string name="title_advanced_unseen_ignored">Lässt die Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen übereinstimmen</string>
+    <string name="title_advanced_unseen_ignored">Lässt die Anzahl der neuen Nachrichten (im Widget) mit der Anzahl der Mails in den Benachrichtigungen übereinstimmen</string>
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Löschen</string>
@@ -234,10 +238,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_manage_hint">„Benachrichtigungen” antippen, um den Standard-Benachrichtigungston usw. einzustellen</string>
-    <string name="title_advanced_subscriptions">Ihre Abonnements verwalten</string>
-    <string name="title_advanced_sync_subscribed">Nur abonnierte Ordner synchronisieren</string>
-    <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_double_back">Doppelt „Zurück” drücken zum Beenden</string>
+    <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
+    <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -252,6 +255,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht korrekt, was zum Beispiel dazu führen könnte, dass alle Nachrichten synchronisiert werden</string>
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_sync_folders_hint">Wenn Sie dies deaktivieren, wird der Daten- und Akkubedarf etwas reduziert, aber auch die Aktualisierung der Ordnerliste deaktiviert.</string>
+    <string name="title_advanced_subscriptions">Ihre Abonnements verwalten</string>
+    <string name="title_advanced_sync_subscribed">Nur abonnierte Ordner synchronisieren</string>
     <string name="title_advanced_lookup_mx_hint">Dies wird überprüfen, ob DNS MX-Einträge existieren</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
@@ -557,7 +562,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_action">Aktion</string>
     <string name="title_rule_action_remark">Diese Aktion wird auf neue Mails im Ordner %1$s angewendet</string>
     <string name="title_rule_hours">Stunden</string>
-    <string name="title_rule_schedule_end">Bis zum Ende der Zeitbedingung</string>
+    <string name="title_rule_schedule_end">Vom Ende der Zeitbedingung</string>
     <string name="title_rule_folder">Ordner</string>
     <string name="title_rule_thread">Alle Nachrichten zum selben Thema und im selben Ordner</string>
     <string name="title_rule_identity">Identität</string>
@@ -660,6 +665,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_hint_image_link">Bildlink</string>
+    <string name="title_hint_too_complex">Nachricht zu groß oder zu komplex zum Anzeigen</string>
     <string name="title_hint_tracking_image">Tracking-Bild %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_open_link">Link öffnen</string>
@@ -683,7 +689,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
-    <string name="title_any">An jedem Tag</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>

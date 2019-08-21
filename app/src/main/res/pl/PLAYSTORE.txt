@@ -1,0 +1,80 @@
+Ta przyjazna dla prywatności aplikacja open source może być dla Ciebie, jeśli cenisz swoją prywatność.
+
+<b>Główne funkcje</b>
+
+* 100 % open source
+* Przyjazny dla prywatności
+* Wiele kont
+* Wiele adresów e-mail
+* Wspólna skrzynka
+* Płaskie wątki konwersacji
+* Dwukierunkowa synchronizacja
+* Operacje i przechowywanie offline
+* Szyfrowanie/deszyfrowanie (OpenPGP)
+* Przyjazny dla baterii
+* Niskie użycie danych
+* Mały (<10 MB)
+* Material design (włączając ciemny motyw)
+* Utrzymywany i wspierany
+
+Ta aplikacja jest zaprojektowana minimalistycznie, więc możesz skoncentrować się na czytaniu i pisaniu wiadomości.
+
+Ta aplikacja uruchamia usługę pierwszego planu z powiadomieniem na pasku stanu o niskim priorytecie, aby upewnić się, że nigdy nie przegapisz nowych wiadomości e-mail.
+
+<b>Funkcje Prywatności</b>
+
+* formatuj wiadomości, aby zapobiec phishingowi
+* Potwierdź wyświetlanie zdjęć, aby zapobiec śledzeniu
+* Potwierdź otwieranie linków, aby zapobiec śledzeniu i phishingowi
+* Automatyczne rozpoznawanie i wyłączanie śledzących obrazków
+* Ostrzeżenie, jeśli wiadomości nie można uwierzytelnić
+
+<b>Funkcje Pro</b>
+
+Wszystkie funkcje pro są wygodnymi lub zaawansowanymi funkcjami.
+
+* Kolory konta/tożsamości
+* Kolorowe gwiazdki
+* Ustawienia powiadomień (dźwięki) dla konta/folderu/nadawcy (wymaga Androida 8 Oreo)
+* Konfigurowalne akcje powiadomień
+* Odkładaj wiadomości
+* Wysyłaj wiadomości po wybranym czasie
+* Planowanie synchronizacji
+* Szablony odpowiedzi
+* Akceptuj/odrzucaj zaproszenia kalendarza
+* Zasady filtrowania
+* Wyszukaj na urządzeniu lub serwerze
+* Zarządzanie słowami kluczowymi
+* Uwierzytelnianie biometryczne
+* Widżet wspólnej skrzynki odbiorczej
+* Eksportuj ustawienia
+
+<b>Prosty</b>
+
+* Szybkie ustawienie
+* Łatwa nawigacja
+* Brak dzwonków i gwizdków
+* Brak rozpraszających "cukierków"
+
+<b>Bezpieczny</b>
+
+* Brak przechowywania danych na serwerach firm trzecich
+* Bezpieczny podgląd wiadomości (usuwa styl, skrypty i niebezpieczne kody HTML)
+* Potwierdź otwieranie linków, zdjęć i załączników
+* Nie wymaga żadnych specjalnych uprawnień
+* Brak reklam
+* Bez analiz i bez śledzenia
+* Bez kopii zapasowej Google
+* FairEmail to oryginalne dzieło, a nie fork czy klon
+
+<b>Wydajny</b>
+
+* Obsługa IMAP IDLE (wiadomości push)
+* Zbudowany przy użyciu najnowszych narzędzi programistycznych i bibliotek
+
+<b>Wsparcie</b>
+
+Jeśli masz pytanie lub problem, sprawdź najpierw:
+https://github.com/M66B/open-source-email/blob/master/FAQ.md
+
+Jeśli nie możesz znaleźć tego, czego szukasz, skontaktuj się ze mną pod adresem marcel+fairemail@faircode.eu, a postaram się Ci pomóc.

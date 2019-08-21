@@ -1,0 +1,80 @@
+Denne open source, personvernvennlige epost-appen kan være noe for deg hvis du setter pris på personvernet ditt.
+
+<b>Hoved funksjoner</b>
+
+* 100% åpen kildekode
+* Personvern vennlig
+* Flere kontoer
+* Flere e-postadresser
+* Enhetlig innboks
+* Flat konversasjonstråder
+* Synkronisering to veier
+* Frakoblet lagring og drift
+* Kryptering/dekryptering (OpenPGP)
+* Batterivennlig
+* Lav databruk
+* Liten (<10 MB)
+* Materiell design (inkludert mørkt tema)
+* Vedlikeholdt og støttet
+
+Denne appen er minimalistisk etter design, slik at du kan konsentrere deg om å lese og skrive meldinger.
+
+Denne appen starter en forgrunnstjeneste med en status bar varsel med lav prioritet for å sikre at du aldri går glipp av nye e-poster.
+
+<b>Personvernfunksjoner</b>
+
+* Omformater meldinger for å forhindre phishing
+* Bekreft å vise bilder for å forhindre sporing
+* Bekreft åpning av lenker for å forhindre sporing og phishing
+* Gjenkjenne og deaktivere sporingsbilder automatisk
+* Advarsel hvis meldinger ikke kunne autentiseres
+
+<b>Pro-funksjoner</b>
+
+Alle pro-funksjonene er bekvemmelighets- eller avanserte funksjoner.
+
+* Konto/identitetsfarger
+* Fargede stjerner
+* Varslingsinnstillinger (lyder) per konto/mappe/avsender (krever Android 8 Oreo)
+* Konfigurerbare varslingshandlinger
+* Slumre meldinger
+* Send meldinger etter valgt tid
+* Synkroniseringsplanlegging
+* Svarmaler
+* Godta/avvis kalenderinvitasjoner
+* Filterregler
+* Søk på enhet eller server
+* Søkeordstyring
+* Biometrisk autentisering
+* Enhetlig innbokswidget
+* Eksporter innstillinger
+
+<b>Enkel</b>
+
+* Hurtig oppsett
+* Enkel navigering
+* Ingen bjeller og fløyter
+* Ingen distraherende "eye candy"
+
+<b>Sikre</b>
+
+* Ingen datalagring på tredjepartsservere
+* Sikker meldingvisning (styling, scripting og usikker HTML fjernet)
+* Bekreft åpning av linker, bilder og vedlegg
+* Ingen spesielle tillatelser kreves
+* Ingen annonser
+* Ingen analyser og ingen sporing
+* Ingen sikkerhetskopiering fra Google
+* FairEmail er et originalt verk, ikke en klone
+
+<b>Effektiv</b>
+
+* IMAP IDLE (push-meldinger) støttet
+* Bygget med nyeste utviklingsverktøy og biblioteker
+
+<b>Support</b>
+
+Hvis du har spørsmål eller problem, vennligst sjekk her først:
+https://github.com/M66B/open-source-email/blob/master/FAQ.md
+
+Hvis du ikke finner det du leter etter, kan du kontakte meg på marcel+fairemail@faircode.eu, så prøver jeg å hjelpe deg.

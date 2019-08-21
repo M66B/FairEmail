@@ -1,0 +1,80 @@
+Tämä yksityisyyttä kunnioittava avoimen lähdekoodin sähköpostisovellus voi olla sinua varten, jos arvostat yksityisyyttäsi.
+
+<b>Keskeisimmät ominaisuudet</b>
+
+* 100-prosenttisen avoin lähdekoodi
+* Yksityisyyttä kunnioittava tietojen käsittely
+* Monta tiliä
+* Monta sähköpostiosoitetta
+* Yhdistetty saapuneet-kansio
+* Litteä keskustelujen ketjuttaminen
+* Kaksisuuntainen synkronointi
+* Offline-tallennustila ja viestien käsittely ilman verkkoyhteyttä
+* Salaaminen/salauksen purku (OpenPGP)
+* Akkua säästävä toteutus
+* Vähäinen datan käyttö
+* Pieni koko (< 10 MB)
+* Material design -käyttöliittymä (sisältäen tumman väriteeman)
+* Ylläpidetty ja tuettu sovellus
+
+Tämä sovellus on suunniteltu minimalistiseksi, jotta voit keskittyä lukemaan ja kirjoittamaan viestejä.
+
+Tämä sovellus varmistaa, etteivät uudet sähköpostit jää koskaan huomaamatta käynnistämällä etualalle palvelun, jolla on alhaisen prioriteetin ilmoitus tilapalkissa.
+
+<b>Yksityisyysominaisuudet</b>
+
+* Viestien uudelleenmuotoilu tietojenkalastelun estämiseksi
+* Vahvistus ennen kuin kuvia näytetään käyttäjän seurannan estämiseksi
+* Vahvistus linkkejä avattaessa seurannan ja tietojen kalastelun estämiseksi
+* Seurantakuvien automaattinen tunnistus ja käytöstä poisto
+* Varoitus, jos viestejä ei voida varmentaa
+
+<b>Pro-ominaisuudet</b>
+
+Kaikki Pro-ominaisuudet lisäävät käyttömukavuutta tai edistyneitä ominaisuuksia.
+
+* Tilien/identiteettien värit
+* Värilliset tähdet
+* Ilmoitusasetukset (äänet) tili-/kansio-/lähettäjäkohtaisesti (vaatii Android 8 Oreon)
+* Muokattavat ilmoitustoiminnot
+* Viestien torkutus
+* Ajastettu viestien lähetys
+* Synkronoinnin aikatauluttaminen
+* Vastausviestipohjat
+* Kalenterikutsujen hyväksyminen/hylkääminen
+* Suodatussäännöt
+* Haku laitteesta tai palvelimelta
+* Avainsanojen hallinta
+* Biometrinen tunnistautuminen
+* Widget yhdistetylle saapuneet-kansiolle
+* Asetusten vienti
+
+<b>Yksinkertainen</b>
+
+* Pika-asennus
+* Helppo käyttöliittymä
+* Ei ylimääräisiä kilkkeitä
+* Ei häiritsevää "silmäkarkkia"
+
+<b>Turvallinen</b>
+
+* Ei datan tallennusta kolmannen osapuolten palvelimille
+* Turvallinen viestien katselu (tyylit, skriptit ja epäluotettava HTML-koodi poistettu)
+* Vahvistus ennen linkkien, kuvien ja liitteiden avaamista
+* Ei vaadi erityisiä käyttöoikeuksia
+* Ei mainoksia
+* Ei analytiikkaa eikä käyttäjän seurantaa
+* Ei varmuuskopiointia Googlen palvelimille
+* FairEmail on kehitetty alusta lähtien eikä haarautettu tai kloonattu olemassa olevista ohjelmistoista
+
+<b>Tehokas</b>
+
+* IMAP IDLE -tuki (push-viestit)
+* Luotu uusimmilla kehitystyökaluilla ja -kirjastoilla
+
+<b>Tuki</b>
+
+Jos sinulla on kysymys tai ongelma, etsi ensin täältä:
+https://github.com/M66B/open-source-email/blob/master/FAQ.md
+
+Jos et löydä, mitä etsit, ota yhteyttä marcel+fairemail@faircode.eu ja yritän auttaa.

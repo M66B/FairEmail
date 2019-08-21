@@ -21,9 +21,14 @@
         <item quantity="many">Диалоги</item>
         <item quantity="other">Диалоги</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Сообщение</item>
+        <item quantity="few">Сообщения</item>
+        <item quantity="many">Сообщения</item>
+        <item quantity="other">Сообщения</item>
+    </plurals>
     <string name="page_folders">Папки</string>
     <string name="page_compose">Написать</string>
-    <string name="page_compose_message">Сообщение</string>
     <string name="tile_synchronize">Синхронизация</string>
     <string name="tile_unseen">Новые сообщения</string>
     <string name="shortcut_refresh">Обновить</string>
@@ -239,6 +244,7 @@
     <string name="title_advanced_onclose">При закрытии диалога</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
+    <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
@@ -255,10 +261,9 @@
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \'Уведомления\' для установки звука уведомлений по умолчанию и т. д.</string>
-    <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
-    <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
-    <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
     <string name="title_advanced_double_back">Двойное \'назад\' для выхода</string>
+    <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
+    <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>
@@ -273,6 +278,8 @@
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают это правильно, что, например, может привести к синхронизации всех сообщений</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_sync_folders_hint">Отключение этого уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
+    <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
+    <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
     <string name="title_advanced_lookup_mx_hint">Это проверит наличие DNS MX записей</string>
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
@@ -578,7 +585,7 @@
     <string name="title_rule_action">Действие</string>
     <string name="title_rule_action_remark">Это действие будет применяться к новым сообщениям в папке %1$s</string>
     <string name="title_rule_hours">Часов</string>
-    <string name="title_rule_schedule_end">До конца срока</string>
+    <string name="title_rule_schedule_end">С конца срока</string>
     <string name="title_rule_folder">Папка</string>
     <string name="title_rule_thread">Все сообщения в одном диалоге и папке</string>
     <string name="title_rule_identity">Идентификатор</string>
@@ -681,6 +688,7 @@
     <string name="title_hint_message_selection">Длительное нажатие для выбора нескольких сообщений</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время, в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_image_link">Ссылка на изображение</string>
+    <string name="title_hint_too_complex">Сообщение слишком большое или слишком сложное для отображения</string>
     <string name="title_hint_tracking_image">Отслеживающее изображение %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Длительно нажмите для опций</string>
     <string name="title_open_link">Открыть ссылку</string>
@@ -704,7 +712,6 @@
     <string name="title_report">Отчет</string>
     <string name="title_fix">Исправить</string>
     <string name="title_enable">Включить</string>
-    <string name="title_any">Любой</string>
     <string name="title_executing">Выполнение</string>
     <string name="title_completed">Завершено</string>
     <string name="title_ask_what">Спросить, что делать</string>

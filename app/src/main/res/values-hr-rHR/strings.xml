@@ -15,6 +15,18 @@
     <string name="channel_warning">Upozorenja</string>
     <string name="channel_error">Greške</string>
     <string name="channel_group_contacts">Kontakti</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Konverzacija</item>
+        <item quantity="few">Konverzacije</item>
+        <item quantity="other">Konverzacija</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Poruka</item>
+        <item quantity="few">Poruke</item>
+        <item quantity="other">Poruka</item>
+    </plurals>
+    <string name="page_folders">Mape</string>
+    <string name="page_compose">Sastavi</string>
     <string name="tile_synchronize">Sinkroniziraj</string>
     <string name="tile_unseen">Nove poruke</string>
     <string name="shortcut_refresh">Osvježi</string>
@@ -190,6 +202,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_cards">Prikaži kartice</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
     <string name="title_advanced_threading">Prikaz razgovora</string>
+    <string name="title_advanced_highlight_unread">Označiti nepročitane poruke</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
     <string name="title_advanced_identicons">Pokaži identitete</string>
@@ -219,9 +232,11 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_onclose">Na zatvaranje konverzacije</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
+    <string name="title_advanced_discard_delete">Pri odbacivanju skice trajno izbrisati skicu</string>
     <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
     <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
+    <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara sa brojem obavijesti</string>
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavijestima</string>
     <string name="title_advanced_notify_actions">Akcije za Obavijesti</string>
     <string name="title_advanced_notify_action_trash">Otpad</string>
@@ -234,10 +249,9 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite kanal s nazivom \"Obavijesti\" da biste postavili zadani zvuk obavijesti, itd</string>
-    <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
-    <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
-    <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
     <string name="title_advanced_double_back">Dvaput \'natrag\' za izlaz</string>
+    <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
+    <string name="title_advanced_biometrics_notify">Prikažite sadržaj obavijesti kada koristite biometrijsku provjeru autentičnosti</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>
@@ -252,6 +266,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_unseen_hint">Neki pružatelji usluga to ne podržavaju ispravno, što može, na primjer, rezultirati sinkronizacijom svih poruka</string>
     <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i potrošiti dodatnu snagu baterije, posebno ako je na uređaju spremljeno puno poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
+    <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
+    <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
     <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinkronizaciju poruka</string>
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
@@ -557,7 +573,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_rule_action">Akcija</string>
     <string name="title_rule_action_remark">Ta će se radnja primijeniti na nove poruke koje stižu u mapu %1$s</string>
     <string name="title_rule_hours">Sati</string>
-    <string name="title_rule_schedule_end">Do kraja vremenskog stanja</string>
+    <string name="title_rule_schedule_end">Od kraja vremenskog stanja</string>
     <string name="title_rule_folder">Mapa</string>
     <string name="title_rule_thread">Sve poruke u istom razgovoru i mapi</string>
     <string name="title_rule_identity">Identitet</string>
@@ -660,6 +676,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_hint_message_selection">Dugo pritisnite poruku za početak odabiranja više poruka</string>
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
     <string name="title_hint_image_link">Link slike</string>
+    <string name="title_hint_too_complex">Poruka je prevelika ili previše složena za prikaz</string>
     <string name="title_hint_tracking_image">Slika za praćenje %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Dugo pritisni za opcije</string>
     <string name="title_open_link">Otvori link</string>
@@ -683,7 +700,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
     <string name="title_enable">Omogući</string>
-    <string name="title_any">Bilo koji</string>
     <string name="title_executing">Izvršava</string>
     <string name="title_completed">Završeno</string>
     <string name="title_ask_what">Pitati što učiniti</string>

@@ -19,9 +19,12 @@
         <item quantity="one">Gesprek</item>
         <item quantity="other">Gesprekken</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Bericht</item>
+        <item quantity="other">Berichten</item>
+    </plurals>
     <string name="page_folders">Mappen</string>
     <string name="page_compose">Opstellen</string>
-    <string name="page_compose_message">Bericht</string>
     <string name="tile_synchronize">Synchroniseren</string>
     <string name="tile_unseen">Nieuwe berichten</string>
     <string name="shortcut_refresh">Verversen</string>
@@ -219,6 +222,7 @@
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
+    <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept permanent verwijderen</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking afbeeldingen</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
@@ -235,10 +239,9 @@
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
     <string name="title_advanced_notify_manage_hint">Tik op de naam van het kanaal \'Meldingen\' om het standaard meldingsgeluid in te stellen, etc</string>
-    <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
-    <string name="title_advanced_sync_subscribed">Alleen geabonneerde mappen synchroniseren</string>
-    <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
+    <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
+    <string name="title_advanced_biometrics_notify">Toon notificatie inhoud bij het gebruik van biometrische verificatie</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
@@ -253,6 +256,8 @@
     <string name="title_advanced_unseen_hint">Sommige aanbieders ondersteunen dit niet goed, wat bijvoorbeeld kan leiden tot synchronisatie van alle berichten</string>
     <string name="title_advanced_sync_kept_hint">Dit zal extra gegevens en extra batterijvermogen gebruiken, vooral als er veel berichten op het apparaat zijn opgeslagen</string>
     <string name="title_advanced_sync_folders_hint">Dit uitschakelen zal het gebruik van gegevens en batterij enigszins verminderen, maar zal ook het bijwerken van de lijst met mappen uitschakelen</string>
+    <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
+    <string name="title_advanced_sync_subscribed">Alleen geabonneerde mappen synchroniseren</string>
     <string name="title_advanced_lookup_mx_hint">Dit zal controleren of DNS MX records bestaan</string>
     <string name="title_advanced_sync_delay_hint">Dit zal de synchronisatie van berichten vertragen</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
@@ -558,7 +563,7 @@
     <string name="title_rule_action">Actie</string>
     <string name="title_rule_action_remark">Deze actie zal worden toegepast op nieuwe berichten die aankomen in de map %1$s</string>
     <string name="title_rule_hours">Uren</string>
-    <string name="title_rule_schedule_end">Tot het einde van de tijdsconditie</string>
+    <string name="title_rule_schedule_end">Vanaf het einde van de tijdsconditie</string>
     <string name="title_rule_folder">Map</string>
     <string name="title_rule_thread">Alle berichten in hetzelfde gesprek en dezelfde map</string>
     <string name="title_rule_identity">Identiteit</string>
@@ -661,6 +666,7 @@
     <string name="title_hint_message_selection">Druk lang op een bericht om te beginnen met het selecteren van meerdere berichten</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_image_link">Afbeeldingskoppeling</string>
+    <string name="title_hint_too_complex">Bericht te groot of te complex om weer te geven</string>
     <string name="title_hint_tracking_image">Tracking afbeelding %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_open_link">Koppeling openen</string>
@@ -684,7 +690,6 @@
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
-    <string name="title_any">Elke</string>
     <string name="title_executing">Aan het uitvoeren</string>
     <string name="title_completed">Voltooid</string>
     <string name="title_ask_what">Vraag wat te doen</string>

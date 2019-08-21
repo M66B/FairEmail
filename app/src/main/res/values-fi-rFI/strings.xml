@@ -6,7 +6,7 @@
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimivat eri tavalla kuin mitä olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
-    <string name="app_promote">Lähetetty <a href="https://email.faircode.eu/">FairEmaililla</a>, avoimen lähdekoodin yksityisyyttä kunnioittavalla sähköpostisovelluksella Androidille</string>
+    <string name="app_promote">Lähetetty <a href="https://email.faircode.eu/">FairEmaililla</a>, yksityisyyttä kunnioittavalla avoimen lähdekoodin sähköpostisovelluksella Androidille</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="channel_service">Palvelu</string>
     <string name="channel_send">Lähettäminen</string>
@@ -19,9 +19,12 @@
         <item quantity="one">Keskustelu</item>
         <item quantity="other">Keskustelut</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Viesti</item>
+        <item quantity="other">Viestit</item>
+    </plurals>
     <string name="page_folders">Kansiot</string>
     <string name="page_compose">Kirjoita viesti</string>
-    <string name="page_compose_message">Viesti</string>
     <string name="tile_synchronize">Synkronoi</string>
     <string name="tile_unseen">Uudet viestit</string>
     <string name="shortcut_refresh">Päivitä</string>
@@ -219,6 +222,7 @@
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
+    <string name="title_advanced_discard_delete">Luonnosta hylättäessä poista se pysyvästi</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
@@ -235,10 +239,9 @@
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
     <string name="title_advanced_notify_manage_hint">Näpäytä kanavan nimeä \'Ilmoitukset\' asettaaksesi oletusilmoitusäänen yms.</string>
-    <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
-    <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
-    <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
+    <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
+    <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -253,6 +256,8 @@
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa esimerkiksi kaikkien viestien synkronoinnin</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
+    <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
+    <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
@@ -558,7 +563,7 @@
     <string name="title_rule_action">Toiminto</string>
     <string name="title_rule_action_remark">Tätä toimintoa käytetään uusiin viesteihin, jotka saapuvat kansioon %1$s</string>
     <string name="title_rule_hours">Tuntia</string>
-    <string name="title_rule_schedule_end">Aikaehdon loppuun asti</string>
+    <string name="title_rule_schedule_end">Aikaehdon lopusta</string>
     <string name="title_rule_folder">Kansio</string>
     <string name="title_rule_thread">Kaikki viestit samassa keskustelussa ja kansiossa</string>
     <string name="title_rule_identity">Identiteetti</string>
@@ -661,6 +666,7 @@
     <string name="title_hint_message_selection">Paina viestiä pitkään aloittaaksesi useamman viestin valinnan</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_image_link">Kuvalinkki</string>
+    <string name="title_hint_too_complex">Viesti liian suuri tai monimutkainen näytettäväksi</string>
     <string name="title_hint_tracking_image">Seurantakuva %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_open_link">Avaa linkki</string>
@@ -684,7 +690,6 @@
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
     <string name="title_enable">Ota käyttöön</string>
-    <string name="title_any">Koska tahansa</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
     <string name="title_ask_what">Kysy, mitä tehdään</string>
@@ -695,7 +700,7 @@
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>
-    <string name="title_try">Kokeile FairEmailia, avoimen lähdekoodin yksityisyyden huomioivaa sähköpostisovellusta Androidille</string>
+    <string name="title_try">Kokeile FairEmailia, yksityisyyttä kunnioittavaa avoimen lähdekoodin sähköpostisovellusta Androidille</string>
     <string name="title_pro_feature">Tämä on pro-ominaisuus</string>
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>
     <string name="title_pro_purchase">Osta</string>

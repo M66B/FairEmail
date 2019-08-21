@@ -19,9 +19,12 @@
         <item quantity="one">Conversación</item>
         <item quantity="other">Conversaciones</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Mensaje</item>
+        <item quantity="other">Mensajes</item>
+    </plurals>
     <string name="page_folders">Carpetas</string>
     <string name="page_compose">Redactar</string>
-    <string name="page_compose_message">Mensaje</string>
     <string name="tile_synchronize">Sincronizar</string>
     <string name="tile_unseen">Mensajes nuevos</string>
     <string name="shortcut_refresh">Actualizar</string>
@@ -219,6 +222,7 @@
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
+    <string name="title_advanced_discard_delete">Al descartar borrador eliminarlo permanentemente</string>
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
@@ -235,10 +239,9 @@
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
     <string name="title_advanced_notify_manage_hint">Pulse el nombre del canal \"Notificaciones\" para establecer el sonido de notificación por defecto, etc</string>
-    <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
-    <string name="title_advanced_sync_subscribed">Sincronizar solo carpetas suscritas</string>
-    <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
+    <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
+    <string name="title_advanced_biometrics_notify">Mostrar contenido de notificación al usar autenticación biométrica</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
@@ -253,6 +256,8 @@
     <string name="title_advanced_unseen_hint">Algunos proveedores no soportan esto correctamente, lo que puede resultar, por ejemplo, en que todos los mensajes se sincronicen</string>
     <string name="title_advanced_sync_kept_hint">Esto transferirá datos adicionales y consumirá energía adicional de batería, especialmente si hay muchos mensajes almacenados en el dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desactivar esto reducirá el uso de datos y batería, pero también desactivará la actualización de la lista de carpetas</string>
+    <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
+    <string name="title_advanced_sync_subscribed">Sincronizar solo carpetas suscritas</string>
     <string name="title_advanced_lookup_mx_hint">Esto comprobará si existen registros DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Esto ralentizará la sincronización de mensajes</string>
     <string name="title_advanced_metered_hint">Las conexiones medidas son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
@@ -558,7 +563,7 @@
     <string name="title_rule_action">Acción</string>
     <string name="title_rule_action_remark">Esta acción se aplicará a los nuevos mensajes que lleguen a la carpeta %1$s</string>
     <string name="title_rule_hours">Horas</string>
-    <string name="title_rule_schedule_end">Hasta el final de la condición de tiempo</string>
+    <string name="title_rule_schedule_end">Desde el final de la condición de tiempo</string>
     <string name="title_rule_folder">Carpeta</string>
     <string name="title_rule_thread">Todos los mensajes en la misma conversación y carpeta</string>
     <string name="title_rule_identity">Identidad</string>
@@ -661,6 +666,7 @@
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_image_link">Enlace de imagen</string>
+    <string name="title_hint_too_complex">Mensaje demasiado grande o demasiado complejo para mostrar</string>
     <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_open_link">Abrir enlace</string>
@@ -684,7 +690,6 @@
     <string name="title_report">Reportar</string>
     <string name="title_fix">Reparar</string>
     <string name="title_enable">Activar</string>
-    <string name="title_any">Cualquier</string>
     <string name="title_executing">En ejecución</string>
     <string name="title_completed">Completado</string>
     <string name="title_ask_what">Preguntar qué hacer</string>

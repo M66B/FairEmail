@@ -1,0 +1,80 @@
+Diese Open Source und Privatsphäre freundliche E-Mail-App könnte das Richtige für Sie sein, wenn Sie Ihre Privatsphäre hoch schätzen.
+
+<b>Hauptfunktionen</b>
+
+* 100 % Open Source
+* Datenschutzfreundlich
+* Mehrere Konten
+* Mehrere E-Mail-Adressen
+* Gemeinsamer Posteingang möglich
+* Konversationsansicht
+* Zwei-Wege-Synchronisation
+* Offline-Speicher und Operationen
+* Verschlüsselung/Entschlüsselung (OpenPGP)
+• Akkuschonend
+* Kaum Datenverbrauch
+* Klein (< 10 MB)
+* Material Design (inklusive dunkles Theme)
+* Gepflegt und unterstützt
+
+Diese App ist minimalistisch vom Design, so dass Sie sich auf das Lesen und Schreiben von Nachrichten konzentrieren können.
+
+Diese App startet einen Vordergrund-Service mit einer Benachrichtigung mit niedriger Priorität, um sicherzustellen, dass Sie keine neue E-Mail verpassen.
+
+<b>Datenschutzfunktionen</b>
+
+* Reformiert die Nachrichten, um Phishing zu verhindern
+* Bestätigen Sie die Anzeige von Bildern, um Tracking zu verhindern
+* Bestätigen Sie Links, um Tracking und Phishing zu verhindern
+* Tracking-Bilder werden automatisch erkannt und deaktiviert
+* Zeigt eine Warnung, wenn Nachrichten nicht authentifiziert werden konnten
+
+<b>Pro-Funktionen</b>
+
+Alle Pro-Funktionen sind Komfort- oder erweiterte Funktionen.
+
+* Unterschiedliche Faben pro Account und Identität festlegbar
+* Farbige Kennzeichnung
+* Benachrichtigungseinstellungen (Töne) pro Konto/Ordner/Sender (erfordert Android 8 Oreo)
+* Konfigurierbare Benachrichtigungsaktionen
+* Nachrichten zurückstellen
+* Nachrichten zu einer späteren gewählten Zeit senden
+* zeitliche Synchronisationsplanung
+* Antwortvorlagen
+* Kalendereinladungen akzeptieren/ablehnen
+* Filterregeln
+* Suche auf Gerät oder Server
+* Schlagwort-Verwaltung
+* Biometrische Authentifizierung
+* Sammeleingangsordner als Widget
+* Einstellungen exportieren
+
+<b>Einfach</b>
+
+* Schnelleinrichtung
+* Einfache Navigation
+* Kein Läuten und Pfeifen
+* Kein ablenkendes "Augencandy"
+
+<b>Sicher</b>
+
+* Kein Datenspeicher auf Drittanbieter-Servern
+* Sichere Nachrichtenansicht (Styling, Scripting und unsicheres HTML entfernt)
+* Bestätigung vor dem Öffnen von Links, Bildern und Anhängen
+* Keine speziellen Berechtigungen erforderlich
+* Keine Werbung
+* Keine Analyse und keine Tracking
+* Keine Google-Sicherung
+* FairEmail ist das originale Werk, keine Kopie und kein Klon
+
+<b>Effizient</b>
+
+* IMAP IDLE (Push-Nachrichten) unterstützt
+* Mit neuesten Entwicklungstools und Bibliotheken gebaut
+
+<b>Unterstützung</b>
+
+Wenn Sie Fragen oder Probleme haben, bitte überprüfen Sie zuerst hier:
+https://github.com/M66B/Open-Source-E-Mail/blob/master/FAQ.md
+
+Wenn Sie nicht finden, was Sie suchen, kontaktieren Sie mich bitte unter marcel+fairemail@faircode.eu und ich werde versuchen, Ihnen zu helfen.

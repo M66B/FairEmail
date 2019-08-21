@@ -19,6 +19,10 @@
         <item quantity="one">Samtale</item>
         <item quantity="other">Samtaler</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Besked</item>
+        <item quantity="other">Beskeder</item>
+    </plurals>
     <string name="page_folders">Mapper</string>
     <string name="page_compose">Skriv</string>
     <string name="tile_synchronize">Synkronisér</string>
@@ -215,6 +219,7 @@
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_automove">Bekræft flytning af beskeder</string>
+    <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
@@ -231,10 +236,9 @@
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>
     <string name="title_advanced_notify_action_hint">Maksimalt tre handlinger vises</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet \'Notifikationer\' for at opsætte standardnotifikationslyd mv.</string>
-    <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
-    <string name="title_advanced_sync_subscribed">Synkronisér kun abonnerede mapper</string>
-    <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
+    <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
+    <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
@@ -249,6 +253,8 @@
     <string name="title_advanced_unseen_hint">Visse udbydere understøtter ikke dette korrekt, hvilket f.eks. kan resultere i, at alle beskeder synkroniseres</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
+    <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
+    <string name="title_advanced_sync_subscribed">Synkronisér kun abonnerede mapper</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
@@ -553,7 +559,7 @@
     <string name="title_rule_action">Handling</string>
     <string name="title_rule_action_remark">Denne handling effektueres for nye beskeder modtaget i mappen %1$s</string>
     <string name="title_rule_hours">Timer</string>
-    <string name="title_rule_schedule_end">Indtil afslutningen af tidsbetingelsen</string>
+    <string name="title_rule_schedule_end">Fra slutpunktet af tidsbetingelsen</string>
     <string name="title_rule_folder">Mappe</string>
     <string name="title_rule_thread">Alle beskeder i samme samtale og mappe</string>
     <string name="title_rule_identity">Identitet</string>
@@ -656,6 +662,7 @@
     <string name="title_hint_message_selection">Langt tryk på en besked for markering af flere</string>
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
     <string name="title_hint_image_link">Billed-link</string>
+    <string name="title_hint_too_complex">Besked er for stor eller kompleks til at vise</string>
     <string name="title_hint_tracking_image">Sporingsbillede %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Langt tryk for valgmuligheder</string>
     <string name="title_open_link">Åbn link</string>
@@ -679,7 +686,6 @@
     <string name="title_report">Rapportér</string>
     <string name="title_fix">Ret</string>
     <string name="title_enable">Aktivér</string>
-    <string name="title_any">Enhver</string>
     <string name="title_executing">Eksekverer</string>
     <string name="title_completed">Fuldført</string>
     <string name="title_ask_what">Spørg, hvad der skal ske</string>

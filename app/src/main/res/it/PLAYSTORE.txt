@@ -1,0 +1,80 @@
+Questa app open source e privacy friendly potrebbe fare al caso tuo se ci tieni alla privacy.
+
+<b>funzionalità principali</b>
+
+* 100 % open source
+*Privacy friendly
+* Account multipli
+* Indirizzi email multipli
+* Posta in arrivo unificata
+Threading di conversazione
+* Sincronizzazione a due vie
+* Archivio e operazioni offline
+* Crittografia/decrittografia (OpenPGP)
+* Battery friendly
+* Basso utilizzo dati
+* Piccolo (< 10 MB)
+* Design materiale (incluso il tema scuro)
+* Mantenuto e supportato
+
+Questa app è minimalista per progettazione, così puoi concentrarti sulla lettura e scrittura dei messaggi.
+
+Questa app avvia un servizio in primo piano con una notifica della barra di stato a bassa priorità per assicurarsi di non perdere mai una nuova email.
+
+<b>Funzioni sulla Privacy</b>
+
+* Riformatta i messaggi per prevenire il phishing
+* Chiedi conferma per la visualizzazione delle immagini per prevenire il tracciamento
+* Conferma l'apertura dei link per prevenire il tracciamento e il phishing
+* Riconoscere e disabilitare automaticamente le immagini di tracciamento
+* Avvisare se i messaggi non possono essere autenticati
+
+<b>Funzioni pro</b>
+
+Tutte le funzioni pro sono comodità o funzionalità avanzate.
+
+* Colori di account/identità
+* Stelle colorate
+* Impostazioni di notifica (suoni) per account/cartella/mittente (richiede Android 8 Oreo)
+* Azioni di notifica configurabili
+* Sospendi i messaggi
+* Invia messaggi dopo un tempo selezionato
+* Programmazione di sincronizzazione
+* Modelli di risposta
+* Accetta/rifiuta inviti del calendario
+* Regole filtro
+* Ricerca sul dispositivo o sul server
+* Gestione parole chiave
+* Autenticazione biometrica
+* Widget inbox unificato
+* Esporta impostazioni
+
+<b>Semplice</b>
+
+* Configurazione rapida
+* Navigazione facile
+No campane e fischi
+* No "eye candy" che distraggono
+
+<b>Sicuro</b>
+
+* Nessuna archiviazione dati sui server di terze parti
+* Vista sicura dei messaggi (stili, scripting e HTML non sicuri rimossi)
+* Conferma l'apertura di link, immagini e allegati
+* Non sono richiesti permessi speciali
+* Nessuna pubblicità
+* Nessuna analisi e nessun tracciamento
+* Nessun backup Google
+* FairEmail è un lavoro originale, non un fork o un clone
+
+<b>Efficiente</b>
+
+* IMAP IDLE (messaggi push) supportato
+* Costruito con gli ultimi strumenti di sviluppo e le ultime librerie
+
+<b>Supporto</b>
+
+Se hai una domanda o un problema, per favore controlla prima qui:
+https://github.com/M66B/open-source-email/blob/master/FAQ.md
+
+Se non riesci a trovare ciò che stai cercando, contattami a marcel+fairemail@faircode.eu e cercherò di aiutarti.
