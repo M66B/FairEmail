@@ -47,7 +47,6 @@ import androidx.preference.PreferenceManager;
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDoubleBack;
     private Spinner spBiometricsTimeout;
-    private SwitchCompat swBiometricsNotify;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
@@ -63,7 +62,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "biometrics_timeout", "biometrics_notify", "english", "watchdog", "updates", "crash_reports", "debug"
+            "double_back", "biometrics_timeout", "english", "watchdog", "updates", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -82,7 +81,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
-        swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
@@ -120,13 +118,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("biometrics_timeout").apply();
-            }
-        });
-
-        swBiometricsNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("biometrics_notify", checked).apply();
             }
         });
 
@@ -272,8 +263,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 spBiometricsTimeout.setSelection(pos);
                 break;
             }
-
-        swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", false));
 
         swEnglish.setChecked(prefs.getBoolean("english", false));
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));

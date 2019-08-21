@@ -160,6 +160,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsHint" />
 
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swBiometricsNotify"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/title_advanced_biometrics_notify"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro"
+                app:switchPadding="12dp" />
+
             <Button
                 android:id="@+id/btnManage"
                 style="?android:attr/buttonStyleSmall"
@@ -170,7 +181,7 @@
                 android:minHeight="0dp"
                 android:text="@string/title_setup_notifications"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro" />
+                app:layout_constraintTop_toBottomOf="@id/swBiometricsNotify" />
 
             <TextView
                 android:id="@+id/tvManageHint"

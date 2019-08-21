@@ -273,6 +273,7 @@
     <string name="title_advanced_notify_action_reply">Reply</string>
     <string name="title_advanced_notify_action_flag">Star</string>
     <string name="title_advanced_notify_action_seen">Read</string>
+    <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
 
@@ -282,7 +283,6 @@
 
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
-    <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
