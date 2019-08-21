@@ -136,6 +136,7 @@ public class FragmentFolder extends FragmentBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbPoll.setEnabled(isChecked);
+                cbDownload.setEnabled(isChecked);
             }
         });
 
