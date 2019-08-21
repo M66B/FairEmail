@@ -2068,14 +2068,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     String via = (identity == null ? null : MessageHelper.canonicalAddress(identity.email));
                     Address[] recipients = message.getAllRecipients(via);
 
-                    if (recipients.length == 0 &&
-                            message.list_post == null &&
-                            message.receipt_to == null &&
-                            (answers == 0 && ActivityBilling.isPro(context))) {
-                        onMenuReply(message, "reply");
-                        return;
-                    }
-
                     View anchor = bnvActions.findViewById(R.id.action_reply);
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
                     popupMenu.inflate(R.menu.menu_reply);
@@ -2103,6 +2095,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 case R.id.menu_reply_answer:
                                     onMenuAnswer(message);
                                     return true;
+                                case R.id.menu_forward:
+                                    onMenuReply(message, "forward");
                                 default:
                                     return false;
                             }
@@ -2180,13 +2174,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, new Bundle(), "message:answer");
-        }
-
-        private void onActionForward(final TupleMessageEx message) {
-            Intent forward = new Intent(context, ActivityCompose.class)
-                    .putExtra("action", "forward")
-                    .putExtra("reference", message.id);
-            context.startActivity(forward);
         }
 
         private void onActionArchive(TupleMessageEx message) {
@@ -2297,7 +2284,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
             popupMenu.inflate(R.menu.menu_message);
 
-            popupMenu.getMenu().findItem(R.id.menu_forward).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
@@ -2332,9 +2318,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem target) {
                     switch (target.getItemId()) {
-                        case R.id.menu_forward:
-                            onActionForward(message);
-                            return true;
                         case R.id.menu_editasnew:
                             onMenuEditAsNew(message);
                             return true;

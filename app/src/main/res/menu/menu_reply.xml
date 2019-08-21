@@ -19,4 +19,8 @@
     <item
         android:id="@+id/menu_reply_answer"
         android:title="@string/title_reply_template" />
+
+    <item
+        android:id="@+id/menu_forward"
+        android:title="@string/title_forward" />
 </menu>
