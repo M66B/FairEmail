@@ -208,6 +208,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private int colorAccent;
 
     private long primary;
+    private boolean trash = false;
     private boolean outbox = false;
     private boolean connected;
     private boolean reset = false;
@@ -259,6 +260,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_SEARCH = 18;
     private static final int REQUEST_ACCOUNT = 19;
     static final int REQUEST_MESSAGE_PROPERTY = 20;
+    private static final int REQUEST_EMPTY_TRASH = 21;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
@@ -2184,8 +2186,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         updateState(folders);
 
+                        boolean trash = (folder != null && EntityFolder.TRASH.equals(folder.type));
                         boolean outbox = (folder != null && EntityFolder.OUTBOX.equals(folder.type));
-                        if (FragmentMessages.this.outbox != outbox) {
+                        if (FragmentMessages.this.trash != trash || FragmentMessages.this.outbox != outbox) {
+                            FragmentMessages.this.trash = trash;
                             FragmentMessages.this.outbox = outbox;
                             getActivity().invalidateOptionsMenu();
                         }
@@ -2462,6 +2466,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
+        menu.findItem(R.id.menu_empty_trash).setVisible(trash);
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
@@ -2537,6 +2542,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             case R.id.menu_select_all:
                 onMenuSelectAll();
+                return true;
+
+            case R.id.menu_empty_trash:
+                onMenuEmptyTrash();
                 return true;
 
             case R.id.menu_force_sync:
@@ -2641,6 +2650,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void onMenuEmptyTrash() {
+        Bundle aargs = new Bundle();
+        aargs.putString("question", getString(R.string.title_empty_trash_ask));
+
+        FragmentDialogAsk ask = new FragmentDialogAsk();
+        ask.setArguments(aargs);
+        ask.setTargetFragment(this, FragmentMessages.REQUEST_EMPTY_TRASH);
+        ask.show(getFragmentManager(), "messages:empty_trash");
     }
 
     private void onMenuForceSync() {
@@ -3540,6 +3559,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (resultCode == RESULT_OK)
                         onPropertySet(data.getBundleExtra("args"));
                     break;
+                case REQUEST_EMPTY_TRASH:
+                    if (resultCode == RESULT_OK)
+                        onEmptyTrash();
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -4394,6 +4417,41 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean value = args.getBoolean("value");
         Log.i("Set property " + name + "=" + value + " id=" + id);
         iProperties.setValue(name, id, value);
+    }
+
+    private void onEmptyTrash() {
+        Bundle args = new Bundle();
+        args.putLong("folder", folder);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long folder = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    List<Long> ids = db.message().getMessageByFolder(folder);
+                    for (Long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message.msgid != null || message.uid != null)
+                            EntityOperation.queue(context, message, EntityOperation.DELETE);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(this, args, "folder:delete");
     }
 
     static void search(
