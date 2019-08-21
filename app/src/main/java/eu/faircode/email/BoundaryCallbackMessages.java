@@ -267,6 +267,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 state.ifolder = (IMAPFolder) state.iservice.getStore().getFolder(browsable.name);
                 state.ifolder.open(Folder.READ_WRITE);
 
+                int count = state.ifolder.getMessageCount();
+                db.folder().setFolderTotal(browsable.id, count < 0 ? null : count);
+
                 Log.i("Boundary server query=" + query);
                 if (query == null) {
                     Calendar cal_browse = Calendar.getInstance();
