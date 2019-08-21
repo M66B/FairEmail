@@ -143,6 +143,7 @@ preBuild.dependsOn copySetup
 task cleanCrowdin(type: Delete) {
     delete fileTree("src/main/res").matching {
         include "**/SETUP.md"
+        include "**/PLAYSTORE.txt"
     }
 }
 preBuild.dependsOn cleanCrowdin
