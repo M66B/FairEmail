@@ -40,7 +40,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.TimeZone;
@@ -876,9 +878,15 @@ public class MessageHelper {
             }
 
             if (!found) {
+                Map<String, String> crumb = new HashMap<>();
+                crumb.put("local", local.toString());
                 Log.w("Attachment not found local=" + local);
-                for (EntityAttachment remote : remotes)
+                for (int i = 0; i < remotes.size(); i++) {
+                    EntityAttachment remote = remotes.get(i);
+                    crumb.put("remote:" + i, remote.toString());
                     Log.w("Attachment remote=" + remote);
+                }
+                Log.breadcrumb("attachments", crumb);
                 throw new IllegalArgumentException("Attachment not found");
             }
         }
