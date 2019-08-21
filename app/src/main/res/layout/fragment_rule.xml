@@ -617,7 +617,7 @@
                 vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ivRecipient,tvAndRecipient,
                 vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
                 vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,
-                vSeparatorSchedule,spScheduleDay,tvScheduleStart,tvScheduleSeparator,tvScheduleEnd,
+                vSeparatorSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
                 vSeparatorAction,tvAction,spAction,tvActionRemark,
                 vSeparatorParameters" />
 
