@@ -38,7 +38,7 @@ This open source, privacy friendly email app might be for you if you value your 
 
 This app is minimalistic by design, so you can concentrate on reading and writing messages.
 
-This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new email.
+This app starts a foreground service with a low priority status bar notification to make sure you'll never miss new emails.
 
 ## Privacy features
 
