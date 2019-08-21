@@ -82,7 +82,7 @@
                   <XML_NAMESPACE>^$</XML_NAMESPACE>
                 </AND>
               </match>
-              <order>BY_NAME</order>
+              <!--order>BY_NAME</order-->
             </rule>
           </section>
           <section>
