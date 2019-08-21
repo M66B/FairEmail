@@ -99,9 +99,10 @@ public class FragmentRule extends FragmentBase {
     private EditText etHeader;
     private CheckBox cbHeader;
 
-    private Spinner spScheduleDay;
-    private TextView tvScheduleStart;
-    private TextView tvScheduleEnd;
+    private Spinner spScheduleDayStart;
+    private Spinner spScheduleDayEnd;
+    private TextView tvScheduleHourStart;
+    private TextView tvScheduleHourEnd;
 
     private Spinner spAction;
     private TextView tvActionRemark;
@@ -201,9 +202,10 @@ public class FragmentRule extends FragmentBase {
         etHeader = view.findViewById(R.id.etHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
 
-        spScheduleDay = view.findViewById(R.id.spScheduleDay);
-        tvScheduleStart = view.findViewById(R.id.tvScheduleStart);
-        tvScheduleEnd = view.findViewById(R.id.tvScheduleEnd);
+        spScheduleDayStart = view.findViewById(R.id.spScheduleDayStart);
+        spScheduleDayEnd = view.findViewById(R.id.spScheduleDayEnd);
+        tvScheduleHourStart = view.findViewById(R.id.tvScheduleHourStart);
+        tvScheduleHourEnd = view.findViewById(R.id.tvScheduleHourEnd);
 
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
@@ -262,7 +264,8 @@ public class FragmentRule extends FragmentBase {
 
         adapterDay = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<String>());
         adapterDay.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-        spScheduleDay.setAdapter(adapterDay);
+        spScheduleDayStart.setAdapter(adapterDay);
+        spScheduleDayEnd.setAdapter(adapterDay);
 
         adapterAction = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<Action>());
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
@@ -280,12 +283,11 @@ public class FragmentRule extends FragmentBase {
         adapterAnswer.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAnswer.setAdapter(adapterAnswer);
 
-        adapterDay.add(getString(R.string.title_any));
         String[] dayNames = DateFormatSymbols.getInstance().getWeekdays();
         for (int day = Calendar.SUNDAY; day <= Calendar.SATURDAY; day++)
             adapterDay.add(dayNames[day]);
 
-        tvScheduleStart.setOnClickListener(new View.OnClickListener() {
+        tvScheduleHourStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Object time = v.getTag();
@@ -298,7 +300,7 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
-        tvScheduleEnd.setOnClickListener(new View.OnClickListener() {
+        tvScheduleHourEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Object time = v.getTag();
@@ -580,15 +582,15 @@ public class FragmentRule extends FragmentBase {
 
     private void onScheduleStart(Intent data) {
         int minutes = data.getIntExtra("minutes", 0);
-        tvScheduleStart.setTag(minutes);
-        tvScheduleStart.setText(formatHour(getContext(), minutes));
+        tvScheduleHourStart.setTag(minutes);
+        tvScheduleHourStart.setText(formatHour(getContext(), minutes));
         cbScheduleEnd.setChecked(true);
     }
 
     private void onScheduleEnd(Intent data) {
         int minutes = data.getIntExtra("minutes", 0);
-        tvScheduleEnd.setTag(minutes);
-        tvScheduleEnd.setText(formatHour(getContext(), minutes));
+        tvScheduleHourEnd.setTag(minutes);
+        tvScheduleHourEnd.setText(formatHour(getContext(), minutes));
         cbScheduleEnd.setChecked(true);
     }
 
@@ -635,14 +637,17 @@ public class FragmentRule extends FragmentBase {
                     etHeader.setText(jheader == null ? null : jheader.getString("value"));
                     cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
-                    if (jschedule != null && jschedule.has("day"))
-                        spScheduleDay.setSelection(jschedule.getInt("day") + 1);
                     int start = (jschedule != null && jschedule.has("start") ? jschedule.getInt("start") : 0);
-                    tvScheduleStart.setTag(start);
-                    tvScheduleStart.setText(formatHour(getContext(), start));
                     int end = (jschedule != null && jschedule.has("end") ? jschedule.getInt("end") : 0);
-                    tvScheduleEnd.setTag(end);
-                    tvScheduleEnd.setText(formatHour(getContext(), end));
+
+                    spScheduleDayStart.setSelection(start / (24 * 60));
+                    spScheduleDayEnd.setSelection(end / (24 * 60));
+
+                    tvScheduleHourStart.setTag(start % (24 * 60));
+                    tvScheduleHourStart.setText(formatHour(getContext(), start % (24 * 60)));
+
+                    tvScheduleHourEnd.setTag(end % (24 * 60));
+                    tvScheduleHourEnd.setText(formatHour(getContext(), end % (24 * 60)));
 
                     if (rule == null) {
                         for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
@@ -899,18 +904,22 @@ public class FragmentRule extends FragmentBase {
             jcondition.put("header", jheader);
         }
 
-        int day = spScheduleDay.getSelectedItemPosition();
-        Object start = tvScheduleStart.getTag();
-        Object end = tvScheduleEnd.getTag();
-        if (start == null)
-            start = 0;
-        if (end == null)
-            end = 0;
-        if (!(day == 0 && start.equals(end))) {
+        int dstart = spScheduleDayStart.getSelectedItemPosition();
+        int dend = spScheduleDayEnd.getSelectedItemPosition();
+        Object hstart = tvScheduleHourStart.getTag();
+        Object hend = tvScheduleHourEnd.getTag();
+        if (hstart == null)
+            hstart = 0;
+        if (hend == null)
+            hend = 0;
+
+        int start = dstart * 24 * 60 + (int) hstart;
+        int end = dend * 24 * 60 + (int) hend;
+
+        if (start != end) {
             JSONObject jschedule = new JSONObject();
-            jschedule.put("day", spScheduleDay.getSelectedItemPosition() - 1);
-            jschedule.put("start", (int) start);
-            jschedule.put("end", (int) end);
+            jschedule.put("start", start);
+            jschedule.put("end", end);
             jcondition.put("schedule", jschedule);
         }
 

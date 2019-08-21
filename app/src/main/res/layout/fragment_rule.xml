@@ -360,45 +360,44 @@
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorSchedule" />
 
             <Spinner
-                android:id="@+id/spScheduleDay"
+                android:id="@+id/spScheduleDayStart"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/tvScheduleHourStart"
+                app:layout_constraintEnd_toStartOf="@+id/tvScheduleHourStart"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvScheduleHourStart" />
+
+            <Spinner
+                android:id="@+id/spScheduleDayEnd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tvScheduleHourEnd"
+                app:layout_constraintEnd_toStartOf="@+id/tvScheduleHourEnd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvScheduleHourEnd" />
+
+            <TextView
+                android:id="@+id/tvScheduleHourStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="00:00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSchedule" />
 
             <TextView
-                android:id="@+id/tvScheduleStart"
+                android:id="@+id/tvScheduleHourEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:text="00:00"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spScheduleDay" />
-
-            <TextView
-                android:id="@+id/tvScheduleSeparator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="—"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintBottom_toBottomOf="@+id/tvScheduleStart"
-                app:layout_constraintStart_toEndOf="@id/tvScheduleStart"
-                app:layout_constraintTop_toTopOf="@id/tvScheduleStart" />
-
-            <TextView
-                android:id="@+id/tvScheduleEnd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:text="00:00"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintStart_toEndOf="@id/tvScheduleSeparator"
-                app:layout_constraintTop_toTopOf="@id/tvScheduleStart" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvScheduleHourStart" />
 
             <View
                 android:id="@+id/vSeparatorAction"
@@ -407,7 +406,7 @@
                 android:layout_marginTop="24dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvScheduleStart" />
+                app:layout_constraintTop_toBottomOf="@id/tvScheduleHourEnd" />
 
             <TextView
                 android:id="@+id/tvAction"

@@ -177,21 +177,19 @@ public class EntityRule {
             // Schedule
             JSONObject jschedule = jcondition.optJSONObject("schedule");
             if (jschedule != null) {
-                int day = jschedule.optInt("day", -1) + 1;
                 int start = jschedule.optInt("start", 0);
                 int end = jschedule.optInt("end", 0);
+
                 if (end <= start)
-                    end += 24 * 60;
+                    end += 7 * 24 * 60;
 
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(new Date(message.received));
-                int mday = cal.get(Calendar.DAY_OF_WEEK);
+                int mday = cal.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY;
                 int mhour = cal.get(Calendar.HOUR_OF_DAY);
                 int mminute = cal.get(Calendar.MINUTE);
-                int minutes = mhour * 60 + mminute;
+                int minutes = mday * 24 * 60 + mhour * 60 + mminute;
 
-                if (day > 0 && mday != day)
-                    return false;
                 if (minutes < start || minutes > end)
                     return false;
             }
@@ -359,14 +357,13 @@ public class EntityRule {
             if (jschedule == null)
                 throw new IllegalArgumentException("Rule snooze schedule not found");
 
-            int start = jschedule.optInt("start", 0);
             int end = jschedule.optInt("end", 0);
-            if (end <= start)
-                end += 24 * 60;
-
-            int hour = end / 60;
+            int day = end / (24 * 60);
+            int hour = end / 60 % 24;
             int minute = end % 60;
+
             Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + day);
             cal.set(Calendar.HOUR_OF_DAY, hour);
             cal.set(Calendar.MINUTE, minute);
             cal.set(Calendar.SECOND, 0);
