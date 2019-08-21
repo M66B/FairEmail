@@ -1020,6 +1020,8 @@ public class MessageHelper {
                 String filename;
                 try {
                     filename = part.getFileName();
+                    if (filename != null)
+                        filename = decodeMime(filename);
                 } catch (MessagingException ex) {
                     Log.w(ex);
                     parts.warnings.add(Helper.formatThrowable(ex, false));
