@@ -197,6 +197,7 @@ dependencies {
     // https://developer.android.com/jetpack/androidx/releases/
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
+    // https://mvnrepository.com/artifact/androidx.fragment/fragment
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.fragment:fragment:$fragment_version"
 
