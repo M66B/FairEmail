@@ -885,7 +885,8 @@ class Core {
             boolean subscribed = subscription.contains(fullName);
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attr, fullName, false);
-            boolean selectable = !Arrays.asList(attr).contains("\\Noselect");
+            boolean selectable = !Arrays.asList(attr).contains("\\Noselect") &&
+                    ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
 
             if (EntityFolder.INBOX.equals(type) || fullName.equals(childName))
                 childName = null;
