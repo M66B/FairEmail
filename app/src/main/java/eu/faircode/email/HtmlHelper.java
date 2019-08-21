@@ -76,8 +76,8 @@ import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 250; // characters
 
-    private static final int MAX_LINKS = 50;
-    private static final int MAX_SIZE = 50 * 1024; // characters
+    private static final int MAX_SIZE = 100 * 1024; // characters
+    private static final int MAX_LINKS = 500;
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
 
     private static final List<String> heads = Collections.unmodifiableList(Arrays.asList(
@@ -126,9 +126,12 @@ public class HtmlHelper {
             }
         }
 
+        int size = parsed.text().length();
         int links = parsed.select("a").size();
-        if (links > MAX_LINKS || parsed.text().length() > MAX_SIZE)
+        if (size > MAX_SIZE || links > MAX_LINKS) {
+            Log.i("Message size=" + size + " links=" + links);
             return "<strong>" + context.getString(R.string.title_hint_too_complex) + "</strong>";
+        }
 
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr")
