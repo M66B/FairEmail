@@ -50,7 +50,7 @@ public interface DaoMessage {
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.size) AS totalSize" +
             ", MAX(CASE WHEN" +
-            "   ((:found AND folder.type <> '" + EntityFolder.DRAFTS + "')" +
+            "   ((:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND folder.type <> '" + EntityFolder.DRAFTS + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type))" +
             "   THEN message.received ELSE 0 END) AS dummy" +
