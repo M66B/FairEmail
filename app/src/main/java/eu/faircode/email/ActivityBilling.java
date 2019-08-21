@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.Base64;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -96,6 +97,8 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             fragmentTransaction.replace(R.id.content_frame, new FragmentPro()).addToBackStack("pro");
             fragmentTransaction.commit();
 
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
             getSupportFragmentManager().addOnBackStackChangedListener(this);
         }
 
@@ -111,8 +114,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
     @Override
     public void onBackStackChanged() {
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-        if (count == 0)
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0)
             finish();
     }
 
@@ -144,6 +146,18 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             billingClient.endConnection();
 
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    onBackPressed();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @NonNull
