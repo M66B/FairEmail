@@ -51,10 +51,10 @@ For authorizing:
 * ~~New message notification schedules per account~~ (implemented by added a time condition to rules, so messages can be snoozed in selected periods)
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
+* ~~More compact folder view~~
 * Send as attachment
 * Themes
-* ~~More compact folder view~~
-* Compose lists
+* Search options
 
 Anything on this list is in random order and *might* be added in the near future.
 
