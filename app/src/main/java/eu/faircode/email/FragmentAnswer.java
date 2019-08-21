@@ -63,10 +63,11 @@ public class FragmentAnswer extends FragmentBase {
 
         // Get arguments
         Bundle args = getArguments();
-        if (args.getBoolean("copy"))
-            copy = args.getLong("id", -1);
-        else
-            id = args.getLong("id", -1);
+        if (args != null)
+            if (args.getBoolean("copy"))
+                copy = args.getLong("id", -1);
+            else
+                id = args.getLong("id", -1);
     }
 
     @Override
