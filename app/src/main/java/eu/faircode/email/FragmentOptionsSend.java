@@ -42,6 +42,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swKeyboard;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPlainOnly;
+    private SwitchCompat swUsenetSignature;
     private SwitchCompat swAutoResize;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
@@ -50,7 +51,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "prefix_once", "plain_only", "autoresize", "resize", "lookup_mx", "autosend", "send_delayed"
+            "keyboard", "prefix_once", "plain_only", "usenet_signature", "autoresize", "resize", "lookup_mx", "autosend", "send_delayed"
     };
 
     @Override
@@ -66,6 +67,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swKeyboard = view.findViewById(R.id.swKeyboard);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
+        swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
         swAutoResize = view.findViewById(R.id.swAutoResize);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
@@ -97,6 +99,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("plain_only", checked).apply();
+            }
+        });
+
+        swUsenetSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("usenet_signature", checked).apply();
             }
         });
 
@@ -197,6 +206,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
+        swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
 
         swAutoResize.setChecked(prefs.getBoolean("autoresize", true));
 

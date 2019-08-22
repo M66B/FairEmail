@@ -20,9 +20,12 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
+
+import androidx.preference.PreferenceManager;
 
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
@@ -213,6 +216,9 @@ public class MessageHelper {
     }
 
     static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean usenet = prefs.getBoolean("usenet_signature", false);
+
         if (message.receipt_request != null && message.receipt_request) {
             // https://www.ietf.org/rfc/rfc3798.txt
             Multipart report = new MimeMultipart("report; report-type=disposition-notification");
@@ -249,8 +255,11 @@ public class MessageHelper {
         if (identity != null) {
             if (!TextUtils.isEmpty(identity.signature)) {
                 Document sdoc = Jsoup.parse(identity.signature);
-                if (sdoc.body() != null)
+                if (sdoc.body() != null) {
+                    if (usenet) // https://www.ietf.org/rfc/rfc3676.txt
+                        body.append("<span>-- <br></span>");
                     body.append(sdoc.body().html());
+                }
             }
 
             File refFile = message.getRefFile(context);

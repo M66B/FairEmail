@@ -110,6 +110,7 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -2226,10 +2227,39 @@ public class FragmentCompose extends FragmentBase {
                             !"editasnew".equals(action) &&
                             !"list".equals(action) &&
                             !"receipt".equals(action)) {
+                        String refText = Helper.readText(ref.getFile(context));
+
+                        boolean usenet = prefs.getBoolean("usenet_signature", false);
+                        if (usenet) {
+                            Document rdoc = Jsoup.parse(refText);
+
+                            Element signature = null;
+                            for (Element e : rdoc.select("*"))
+                                if ("-- ".equals(e.wholeText()))
+                                    signature = e;
+
+                            if (signature != null) {
+                                List<Element> tbd = new ArrayList<>();
+                                tbd.add(signature);
+
+                                Element next = signature.nextElementSibling();
+                                while (next != null) {
+                                    tbd.add(0, next);
+                                    next = next.nextElementSibling();
+                                }
+
+                                for (Element e : tbd)
+                                    e.remove();
+
+                                if (rdoc.body() != null)
+                                    refText = rdoc.body().html();
+                            }
+                        }
+
                         String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
                                 Html.escapeHtml(new Date(ref.received).toString()),
                                 Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),
-                                Helper.readText(ref.getFile(context)));
+                                refText);
                         Helper.writeText(draft.getRefFile(context), refBody);
                     }
 
