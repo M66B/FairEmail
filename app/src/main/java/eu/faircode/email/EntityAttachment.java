@@ -92,8 +92,6 @@ public class EntityAttachment {
     public String error;
 
     boolean isInline() {
-        if (encryption != null)
-            return true;
         return (disposition != null && disposition.equalsIgnoreCase(Part.INLINE) && cid != null);
     }
 
