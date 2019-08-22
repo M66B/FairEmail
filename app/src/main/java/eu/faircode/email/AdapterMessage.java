@@ -987,12 +987,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBcc.setVisibility(show_addresses && !TextUtils.isEmpty(bcc) ? View.VISIBLE : View.GONE);
             tvBcc.setText(bcc);
 
-            InternetAddress via = null;
-            if (message.identityEmail != null)
-                try {
-                    via = new InternetAddress(message.identityEmail, message.identityName);
-                } catch (UnsupportedEncodingException ignored) {
-                }
+            Address via = message.getVia();
 
             tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);

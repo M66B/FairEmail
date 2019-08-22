@@ -67,6 +67,7 @@ import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddressImpl;
 import javax.mail.internet.MailDateFormat;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
@@ -553,7 +554,7 @@ public class MessageHelper {
                     try {
                         MailTo mailto = MailTo.parse(to.substring(lt + 1, gt));
                         if (mailto.getTo() != null)
-                            return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
+                            return new Address[]{new InternetAddressImpl(mailto.getTo().split(",")[0])};
                     } catch (android.net.ParseException ex) {
                         Log.i(ex);
                     }
@@ -1138,9 +1139,14 @@ public class MessageHelper {
         if (a1.length != a2.length)
             return false;
 
-        for (int i = 0; i < a1.length; i++)
-            if (!a1[i].toString().equals(a2[i].toString()))
+        Address address1;
+        Address address2;
+        for (int i = 0; i < a1.length; i++) {
+            address1 = a1[i];
+            address2 = a2[i];
+            if (!address1.equals(address2))
                 return false;
+        }
 
         return true;
     }

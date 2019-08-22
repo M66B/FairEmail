@@ -72,6 +72,8 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -876,4 +878,18 @@ public class Helper {
         bundle.writeToParcel(p, 0);
         return p.dataSize();
     }
+
+    public static int computeAddressHashcode(JSONObject jsonObject) {
+        int ia = 0;
+        int ip = 0;
+        String address = null;
+        try {
+            ia = jsonObject.getString("address").hashCode();
+            if (jsonObject.has("personal")) {
+                ip = jsonObject.getString("personal").hashCode();
+            }
+        } catch (JSONException ignored) { }
+        return ia*2 + ip*8;
+    }
+
 }

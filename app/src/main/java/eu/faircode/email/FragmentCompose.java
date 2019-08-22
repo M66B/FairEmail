@@ -143,6 +143,7 @@ import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddressImpl;
 import javax.mail.internet.MimeMessage;
 
 import static android.app.Activity.RESULT_OK;
@@ -1240,7 +1241,7 @@ public class FragmentCompose extends FragmentBase {
                             if (address != null)
                                 list.addAll(Arrays.asList(address));
 
-                            list.add(new InternetAddress(email, name));
+                            list.add(new InternetAddressImpl(email, name));
 
                             if (requestCode == REQUEST_CONTACT_TO)
                                 draft.to = list.toArray(new Address[0]);
@@ -1622,7 +1623,7 @@ public class FragmentCompose extends FragmentBase {
                             if (contact != null && contact.moveToNext()) {
                                 String name = contact.getString(0);
                                 String email = contact.getString(1);
-                                selected.add(new InternetAddress(email, name));
+                                selected.add(new InternetAddressImpl(email, name));
                             }
                         }
                     }
@@ -2078,7 +2079,7 @@ public class FragmentCompose extends FragmentBase {
                             String via = null;
                             if (ref.identity != null) {
                                 EntityIdentity identity = db.identity().getIdentity(ref.identity);
-                                draft.from = new Address[]{new InternetAddress(identity.email, identity.name)};
+                                draft.from = new Address[]{new InternetAddressImpl(identity.email, identity.name)};
                                 via = MessageHelper.canonicalAddress(identity.email);
                             }
 
@@ -2162,7 +2163,7 @@ public class FragmentCompose extends FragmentBase {
                             String email = MessageHelper.canonicalAddress(identity.email);
                             if (email.equals(from)) {
                                 draft.identity = identity.id;
-                                draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+                                draft.from = new InternetAddressImpl[]{new InternetAddressImpl(identity.email, identity.name)};
                                 break;
                             }
                             if (identity.account.equals(draft.account)) {
@@ -2183,10 +2184,10 @@ public class FragmentCompose extends FragmentBase {
                     if (draft.identity == null) {
                         if (primary != null) {
                             draft.identity = primary.id;
-                            draft.from = new InternetAddress[]{new InternetAddress(primary.email, primary.name)};
+                            draft.from = new InternetAddressImpl[]{new InternetAddressImpl(primary.email, primary.name)};
                         } else if (first != null && icount == 1) {
                             draft.identity = first.id;
-                            draft.from = new InternetAddress[]{new InternetAddress(first.email, first.name)};
+                            draft.from = new InternetAddressImpl[]{new InternetAddressImpl(first.email, first.name)};
                         }
                     }
 
@@ -2557,11 +2558,11 @@ public class FragmentCompose extends FragmentBase {
                     List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
 
                     // Get data
-                    InternetAddress afrom[] = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name)});
+                    InternetAddressImpl afrom[] = (identity == null ? null : new InternetAddressImpl[]{new InternetAddressImpl(identity.email, identity.name)});
 
-                    InternetAddress ato[] = null;
-                    InternetAddress acc[] = null;
-                    InternetAddress abcc[] = null;
+                    InternetAddress[] ato = null;
+                    InternetAddress[] acc = null;
+                    InternetAddress[] abcc = null;
 
                     boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
 

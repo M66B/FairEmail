@@ -20,10 +20,16 @@ package eu.faircode.email;
 */
 
 import androidx.room.Ignore;
+import org.json.JSONAddress;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
 import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddressImpl;
 
 public class TupleMessageEx extends EntityMessage {
     public String accountName;
@@ -46,6 +52,11 @@ public class TupleMessageEx extends EntityMessage {
 
     @Ignore
     public boolean duplicate;
+
+    @Ignore
+    public boolean calculatedVia = false;
+    @Ignore
+    public Address via = null;
 
     @Override
     public boolean equals(Object obj) {
@@ -71,5 +82,33 @@ public class TupleMessageEx extends EntityMessage {
                     this.duplicate == other.duplicate);
         }
         return false;
+    }
+
+    public Address getVia() {
+        if (!calculatedVia && identityEmail != null) {
+            JSONObject jaddress = new JSONObject();
+            JSONAddress key = null;
+            try {
+                jaddress.put("address", identityEmail);
+                jaddress.put("personal", identityName);
+                key = new JSONAddress(jaddress);
+                via = DB.addressCache.get(key);
+            } catch (JSONException e) {
+            }
+            if (via == null) {
+                try {
+                    via = new InternetAddressImpl(identityEmail, identityName);
+                    if (key != null) {
+                        synchronized (DB.addressCache) {
+                            DB.inverseAddressCache.put(via, key);
+                            DB.addressCache.put(key, via);
+                        }
+                    }
+                } catch (UnsupportedEncodingException ignored) {
+                }
+            }
+            calculatedVia = true;
+        }
+        return via;
     }
 }

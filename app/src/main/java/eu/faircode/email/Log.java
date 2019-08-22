@@ -80,7 +80,7 @@ import java.util.concurrent.TimeoutException;
 import javax.mail.Address;
 import javax.mail.MessagingException;
 import javax.mail.Part;
-import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddressImpl;
 
 public class Log {
     private static final String TAG = "fairemail";
@@ -750,7 +750,7 @@ public class Log {
         return (int) (getFreeMem() / 1024L / 1024L);
     }
 
-    static InternetAddress myAddress() throws UnsupportedEncodingException {
-        return new InternetAddress("marcel+fairemail@faircode.eu", "FairCode");
+    static InternetAddressImpl myAddress() throws UnsupportedEncodingException {
+        return new InternetAddressImpl("marcel+fairemail@faircode.eu", "FairCode");
     }
 }

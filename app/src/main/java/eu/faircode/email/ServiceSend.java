@@ -55,7 +55,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddressImpl;
 import javax.mail.internet.MimeMessage;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -326,7 +326,7 @@ public class ServiceSend extends ServiceBase {
 
         // Add reply to
         if (ident.replyto != null)
-            imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto)});
+            imessage.setReplyTo(new Address[]{new InternetAddressImpl(ident.replyto)});
 
         // Add bcc
         if (ident.bcc != null) {
@@ -334,7 +334,7 @@ public class ServiceSend extends ServiceBase {
             Address[] existing = imessage.getRecipients(Message.RecipientType.BCC);
             if (existing != null)
                 bcc.addAll(Arrays.asList(existing));
-            bcc.add(new InternetAddress(ident.bcc));
+            bcc.add(new InternetAddressImpl(ident.bcc));
             imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
         }
 

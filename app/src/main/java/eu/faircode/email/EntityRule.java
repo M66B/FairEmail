@@ -46,6 +46,7 @@ import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddressImpl;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -323,7 +324,7 @@ public class EntityRule {
         reply.inreplyto = message.msgid;
         reply.thread = message.thread;
         reply.to = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
-        reply.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
+        reply.from = new InternetAddressImpl[]{new InternetAddressImpl(identity.email, identity.name)};
         if (cc)
             reply.cc = message.cc;
         reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);

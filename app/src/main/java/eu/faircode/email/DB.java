@@ -18,20 +18,27 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.getkeepsafe.relinker.ReLinker;
 
+import org.json.JSONAddress;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import javax.mail.Address;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.InternetAddressImpl;
 
 import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 
@@ -76,6 +83,15 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 
 @TypeConverters({DB.Converters.class})
 public abstract class DB extends RoomDatabase {
+
+    protected static final ConcurrentHashMap<JSONAddress, Address> addressCache = new ConcurrentHashMap<>();
+    protected static final ConcurrentHashMap<Address, JSONAddress> inverseAddressCache = new ConcurrentHashMap<>();
+
+    public static String getCacheStats() {
+        return "AddressCache: " + addressCache.mappingCount() + System.lineSeparator() +
+               "inverseCache: " + inverseAddressCache.mappingCount();
+    }
+
     public abstract DaoAccount account();
 
     public abstract DaoIdentity identity();
@@ -1034,25 +1050,39 @@ public abstract class DB extends RoomDatabase {
             if (addresses == null)
                 return null;
             JSONArray jaddresses = new JSONArray();
-            for (Address address : addresses)
-                try {
-                    if (address instanceof InternetAddress) {
-                        String a = ((InternetAddress) address).getAddress();
-                        String p = ((InternetAddress) address).getPersonal();
-                        JSONObject jaddress = new JSONObject();
-                        if (a != null)
-                            jaddress.put("address", a);
-                        if (p != null)
-                            jaddress.put("personal", p);
-                        jaddresses.put(jaddress);
-                    } else {
-                        JSONObject jaddress = new JSONObject();
-                        jaddress.put("address", address.toString());
-                        jaddresses.put(jaddress);
+            for (Address address : addresses) {
+                JSONObject jaddress = inverseAddressCache.get(address);
+                if (jaddress == null) {
+                    try {
+                        jaddress = new JSONObject();
+                        InternetAddress internetAddress = null;
+                        if (address instanceof InternetAddress) {
+                            internetAddress = (InternetAddress) address;
+                            String a = internetAddress.getAddress();
+                            String p = internetAddress.getPersonal();
+                            if (a != null)
+                                jaddress.put("address", a);
+                            if (p != null)
+                                jaddress.put("personal", p);
+                        } else {
+                            jaddress.put("address", address.toString());
+                        }
+                        JSONAddress key = new JSONAddress(jaddress);
+                        if (!(internetAddress instanceof InternetAddressImpl)) {
+                            address = new InternetAddressImpl(internetAddress);
+                        }
+                        synchronized (addressCache) {
+                            addressCache.put(key, address);
+                            inverseAddressCache.put(address, key);
+                        }
+                    } catch (JSONException | UnsupportedEncodingException ex) {
+                        Log.e(ex);
                     }
-                } catch (JSONException ex) {
-                    Log.e(ex);
+                } else {
+                    jaddress = ((JSONAddress) jaddress).jsonObject;
                 }
+                jaddresses.put(jaddress);
+            }
             return jaddresses.toString();
         }
 
@@ -1074,12 +1104,21 @@ public abstract class DB extends RoomDatabase {
                 }
                 for (int i = 0; i < jaddresses.length(); i++) {
                     JSONObject jaddress = (JSONObject) jaddresses.get(i);
-                    String email = jaddress.getString("address");
-                    String personal = jaddress.optString("personal");
-                    if (TextUtils.isEmpty(personal))
-                        result.add(new InternetAddress(email));
-                    else
-                        result.add(new InternetAddress(email, personal));
+                    JSONAddress key = new JSONAddress(jaddress);
+                    Address address = addressCache.get(key);
+                    if (address == null) {
+                        String email = jaddress.getString("address");
+                        String personal = jaddress.optString("personal");
+                        if (TextUtils.isEmpty(personal))
+                            address = new InternetAddressImpl(email);
+                        else
+                            address = new InternetAddressImpl(email, personal);
+                        synchronized (addressCache) {
+                            addressCache.put(key, address);
+                            inverseAddressCache.put(address, key);
+                        }
+                    }
+                    result.add(address);
                 }
             } catch (Throwable ex) {
                 // Compose can store invalid addresses
