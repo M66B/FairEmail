@@ -199,7 +199,7 @@
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
-    <string name="title_advanced_usenet_signature">Соглашение о подписи Usenet</string>
+    <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
     <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_lookup_mx">Проверить адрес электронной почты получателя перед отправкой</string>
