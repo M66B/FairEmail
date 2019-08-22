@@ -63,6 +63,7 @@ public class FragmentFolder extends FragmentBase {
     private CheckBox cbSynchronize;
     private CheckBox cbPoll;
     private CheckBox cbDownload;
+    private Button btnHelp;
     private EditText etSyncDays;
     private EditText etKeepDays;
     private CheckBox cbKeepAll;
@@ -112,6 +113,7 @@ public class FragmentFolder extends FragmentBase {
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPoll = view.findViewById(R.id.cbPoll);
         cbDownload = view.findViewById(R.id.cbDownload);
+        btnHelp = view.findViewById(R.id.btnHelp);
         etSyncDays = view.findViewById(R.id.etSyncDays);
         etKeepDays = view.findViewById(R.id.etKeepDays);
         cbKeepAll = view.findViewById(R.id.cbKeepAll);
@@ -137,6 +139,13 @@ public class FragmentFolder extends FragmentBase {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 cbPoll.setEnabled(isChecked);
                 cbDownload.setEnabled(isChecked);
+            }
+        });
+
+        btnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 39);
             }
         });
 

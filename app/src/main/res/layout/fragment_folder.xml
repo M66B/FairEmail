@@ -157,14 +157,27 @@
 
             <TextView
                 android:id="@+id/tvSyncDaysRemark"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="@string/title_sync_days_remark"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textStyle="italic"
+                app:layout_constraintEnd_toStartOf="@+id/btnHelp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSyncDays" />
+
+            <Button
+                android:id="@+id/btnHelp"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/title_setup_help"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSyncDaysRemark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvSyncDaysRemark" />
 
             <EditText
                 android:id="@+id/etSyncDays"
@@ -174,7 +187,7 @@
                 android:inputType="number"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSyncDaysRemark" />
+                app:layout_constraintTop_toBottomOf="@id/btnHelp" />
 
             <TextView
                 android:id="@+id/tvKeepDays"
