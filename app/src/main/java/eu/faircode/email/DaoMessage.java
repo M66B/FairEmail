@@ -183,6 +183,22 @@ public interface DaoMessage {
             " WHERE id = :id")
     EntityMessage getMessage(long id);
 
+    @Query("SELECT content" +
+            " FROM message" +
+            " WHERE id = :id")
+    Boolean getMessageByIdHasContent(long id);
+
+    @Query("SELECT raw" +
+            " FROM message" +
+            " WHERE id = :id")
+    Boolean getMessageByIdHasRaw(long id);
+
+    @Query("SELECT uid" +
+            " FROM message" +
+            " WHERE folder = :folder" +
+            " AND uid = :uid")
+    Long getMessageByUidExists(long folder, long uid);
+
     @Query("SELECT *" +
             " FROM message" +
             " WHERE folder = :folder" +

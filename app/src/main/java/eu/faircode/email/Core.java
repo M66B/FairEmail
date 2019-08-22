@@ -1236,7 +1236,7 @@ class Core {
                 List<Message> full = new ArrayList<>();
                 for (Message imessage : isub) {
                     long uid = ifolder.getUID(imessage); // already fetched
-                    EntityMessage message = db.message().getMessageByUid(folder.id, uid);
+                    Long message = db.message().getMessageByUidExists(folder.id, uid);
                     if (message == null)
                         full.add(imessage);
                 }

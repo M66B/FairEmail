@@ -70,14 +70,14 @@ public class WorkerCleanup extends Worker {
                 // Check message files
                 Log.i("Checking message files");
                 List<Long> mids = db.message().getMessageWithContent();
+                File dir = new File(context.getFilesDir(), "messages");
+                if (!dir.exists())
+                    dir.mkdir();
                 for (Long mid : mids) {
-                    EntityMessage message = db.message().getMessage(mid);
-                    if (message != null) {
-                        File file = message.getFile(context);
-                        if (!file.exists()) {
-                            Log.w("Message file missing id=" + mid);
-                            db.message().setMessageContent(mid, false);
-                        }
+                    File file = new File(dir, mid.toString());
+                    if (!file.exists()) {
+                        Log.w("Message file missing id=" + mid);
+                        db.message().setMessageContent(mid, false);
                     }
                 }
 
@@ -119,8 +119,8 @@ public class WorkerCleanup extends Worker {
             for (File file : files)
                 if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
                     long id = Long.parseLong(file.getName().split("\\.")[0]);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null || !message.content) {
+                    Boolean content = db.message().getMessageByIdHasContent(id);
+                    if (content == null || !content) {
                         Log.i("Deleting " + file);
                         if (!file.delete())
                             Log.w("Error deleting " + file);
@@ -134,8 +134,8 @@ public class WorkerCleanup extends Worker {
                 for (File file : raws)
                     if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
                         long id = Long.parseLong(file.getName().split("\\.")[0]);
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null || message.raw == null || !message.raw) {
+                        Boolean raw = db.message().getMessageByIdHasRaw(id);
+                        if (raw == null || !raw) {
                             Log.i("Deleting " + file);
                             if (!file.delete())
                                 Log.w("Error deleting " + file);
