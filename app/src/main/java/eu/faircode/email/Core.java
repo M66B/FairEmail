@@ -122,6 +122,8 @@ class Core {
     private static final long YIELD_DURATION = 200L; // milliseconds
     private static final long MIN_HIDE = 60 * 1000L; // milliseconds
 
+    private static final FlagTerm FLAGGED = new FlagTerm(new Flags(Flags.Flag.FLAGGED), true);
+
     static void processOperations(
             Context context,
             EntityAccount account, EntityFolder folder,
@@ -1050,24 +1052,29 @@ class Core {
             if (keep_time < 0)
                 keep_time = 0;
 
-            Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
+            Date syncDate = new Date(sync_time);
+            if (folder.keep_days == Integer.MAX_VALUE) {
+                Log.i(folder.name + " sync=" + syncDate + " keep=∞");
+            } else {
+                Log.i(folder.name + " sync=" + syncDate + " keep=" + new Date(keep_time));
 
-            // Delete old local messages
-            if (auto_delete) {
-                List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, delete_unseen);
-                Log.i(folder.name + " local tbd=" + tbds.size());
-                EntityFolder trash = db.folder().getFolderByType(folder.account, EntityFolder.TRASH);
-                for (Long tbd : tbds) {
-                    EntityMessage message = db.message().getMessage(tbd);
-                    if (message != null && trash != null)
+                // Delete old local messages
+                if (auto_delete) {
+                    List<Long> tbds = db.message().getMessagesBefore(folder.id, keep_time, delete_unseen);
+                    Log.i(folder.name + " local tbd=" + tbds.size());
+                    EntityFolder trash = db.folder().getFolderByType(folder.account, EntityFolder.TRASH);
+                    for (Long tbd : tbds) {
+                        EntityMessage message = db.message().getMessage(tbd);
+                        if (message != null && trash != null)
                         if (EntityFolder.TRASH.equals(folder.type))
                             EntityOperation.queue(context, message, EntityOperation.DELETE);
                         else
                             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
+                    }
+                } else {
+                    int old = db.message().deleteMessagesBefore(folder.id, keep_time, delete_unseen);
+                    Log.i(folder.name + " local old=" + old);
                 }
-            } else {
-                int old = db.message().deleteMessagesBefore(folder.id, keep_time, delete_unseen);
-                Log.i(folder.name + " local old=" + old);
             }
 
             // Get list of local uids
@@ -1075,12 +1082,14 @@ class Core {
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
-            SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
+            ReceivedDateTerm receivedDateSyncTerm = new ReceivedDateTerm(ComparisonTerm.GE, syncDate);
+            SearchTerm searchTerm = receivedDateSyncTerm;
             if (sync_unseen)
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
             if (sync_flagged && ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
-                searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
+                searchTerm = new OrTerm(searchTerm, FLAGGED);
 
+            // Get messages to sync from remote
             long search = SystemClock.elapsedRealtime();
             Message[] imessages;
             try {
@@ -1088,11 +1097,12 @@ class Core {
             } catch (MessagingException ex) {
                 Log.w(ex.getMessage());
                 // Fallback to date only search
-                imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
+                imessages = ifolder.search(receivedDateSyncTerm);
             }
             Log.i(folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 
+            // Prefetch UIDs and FLAGS of messages to sync
             FetchProfile fp = new FetchProfile();
             fp.add(UIDFolder.FetchProfileItem.UID); // To check if message exists
             fp.add(FetchProfile.Item.FLAGS); // To update existing messages
@@ -1113,6 +1123,7 @@ class Core {
                 }
             });
 
+            // remove messages to be synced from local list? so we get the list of messages to keep
             for (int i = 0; i < imessages.length && state.isRunning() && state.isRecoverable(); i++)
                 try {
                     uids.remove(ifolder.getUID(imessages[i]));
@@ -1125,6 +1136,7 @@ class Core {
                 }
 
             if (uids.size() > 0) {
+                // fetch uids of messages to keep
                 // This is done outside of JavaMail to prevent changed notifications
                 if (!ifolder.isOpen())
                     throw new FolderClosedException(ifolder, "UID FETCH");
@@ -1173,7 +1185,7 @@ class Core {
                                         FetchResponse fr = (FetchResponse) response;
                                         UID uid = fr.getItem(UID.class);
                                         if (uid != null)
-                                            uids.remove(uid.uid);
+                                            uids.remove(uid.uid); // remove message from list if on remote
                                     }
                             } else {
                                 for (Response response : responses)
