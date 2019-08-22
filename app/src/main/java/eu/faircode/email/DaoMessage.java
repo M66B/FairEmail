@@ -484,6 +484,11 @@ public interface DaoMessage {
     int deleteMessage(long folder, long uid);
 
     @Query("DELETE FROM message" +
+           " WHERE folder = :folder" +
+           " AND uid IN(:uids)")
+    int deleteMessages(long folder, long[] uids);
+
+    @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
             " AND NOT uid IS NULL")
     int deleteLocalMessages(long folder);

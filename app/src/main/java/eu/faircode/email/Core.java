@@ -82,6 +82,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 import javax.mail.Address;
 import javax.mail.FetchProfile;
@@ -1209,9 +1210,11 @@ class Core {
 
             // Delete local messages not at remote
             Log.i(folder.name + " delete=" + uids.size());
-            for (Long uid : uids) {
-                int count = db.message().deleteMessage(folder.id, uid);
-                Log.i(folder.name + " delete local uid=" + uid + " count=" + count);
+            for (int i = 0; i < uids.size(); i += SYNC_BATCH_SIZE) {
+                int to = Math.min(uids.size(), i + SYNC_BATCH_SIZE);
+                long[] isub = IntStream.range(i, to).mapToLong(l -> uids.get(l)).toArray();
+                int count = db.message().deleteMessages(folder.id, isub);
+                Log.i(folder.name + " delete local uid=" + Arrays.toString(isub) + " count=" + count);
             }
 
             List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
