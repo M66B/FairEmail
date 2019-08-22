@@ -182,6 +182,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean date;
     private boolean threading;
     private boolean name_email;
+    private boolean subject_top;
     private boolean subject_italic;
     private boolean flags;
     private boolean preview;
@@ -341,7 +342,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivExpander = itemView.findViewById(R.id.ivExpander);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
-            tvFrom = itemView.findViewById(R.id.tvFrom);
+            tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivType = itemView.findViewById(R.id.ivType);
@@ -352,7 +353,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivPlain = itemView.findViewById(R.id.ivPlain);
             ivReceipt = itemView.findViewById(R.id.ivReceipt);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
-            tvSubject = itemView.findViewById(R.id.tvSubject);
+            tvSubject = itemView.findViewById(subject_top ? R.id.tvFrom : R.id.tvSubject);
             tvPreview = itemView.findViewById(R.id.tvPreview);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvCount = itemView.findViewById(R.id.tvCount);
@@ -3010,6 +3011,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
         this.name_email = prefs.getBoolean("name_email", !compact);
+        this.subject_top = prefs.getBoolean("subject_top", false);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);

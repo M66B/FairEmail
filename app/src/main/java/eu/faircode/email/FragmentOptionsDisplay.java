@@ -53,6 +53,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swIdenticons;
     private SwitchCompat swCircular;
     private SwitchCompat swNameEmail;
+    private SwitchCompat swSubjectTop;
     private SwitchCompat swSubjectItalic;
     private SwitchCompat swFlags;
     private SwitchCompat swPreview;
@@ -70,7 +71,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "startup", "cards", "date", "threading", "highlight_unread", "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_italic",
+            "theme", "startup", "cards", "date", "threading", "highlight_unread",
+            "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_top", "subject_italic",
             "flags", "preview", "preview_italic", "addresses", "attachments_alt",
             "contrast", "monospaced", "inline_images", "contact_images", "all_images", "collapse_quotes", "autocontent", "actionbar",
     };
@@ -96,6 +98,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
         swNameEmail = view.findViewById(R.id.swNameEmail);
+        swSubjectTop = view.findViewById(R.id.swSubjectTop);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         swFlags = view.findViewById(R.id.swFlags);
         swPreview = view.findViewById(R.id.swPreview);
@@ -202,6 +205,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("name_email", checked).apply();
+            }
+        });
+
+        swSubjectTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subject_top", checked).apply();
             }
         });
 
@@ -369,6 +379,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());
         swCircular.setChecked(prefs.getBoolean("circular", true));
         swNameEmail.setChecked(prefs.getBoolean("name_email", !compact));
+        swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swPreview.setChecked(prefs.getBoolean("preview", false));
