@@ -183,6 +183,11 @@ public interface DaoMessage {
             " WHERE id = :id")
     EntityMessage getMessage(long id);
 
+    @Query("SELECT id,size,content,warning" +
+            " FROM message" +
+            " WHERE id = :id")
+    DownloadMessage getDownloadMessageById(long id);
+
     @Query("SELECT content" +
             " FROM message" +
             " WHERE id = :id")

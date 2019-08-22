@@ -1844,7 +1844,7 @@ class Core {
             return;
 
         DB db = DB.getInstance(context);
-        EntityMessage message = db.message().getMessage(id);
+        DownloadMessage message = db.message().getDownloadMessageById(id);
         if (message == null)
             return;
 

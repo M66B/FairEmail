@@ -75,11 +75,9 @@ import static androidx.room.ForeignKey.SET_NULL;
                 @Index(value = {"ui_snoozed"})
         }
 )
-public class EntityMessage implements Serializable {
+public class EntityMessage extends DownloadMessage implements Serializable {
     static final String TABLE_NAME = "message";
 
-    @PrimaryKey(autoGenerate = true)
-    public Long id;
     @NonNull
     public Long account; // performance
     @NonNull
@@ -111,11 +109,8 @@ public class EntityMessage implements Serializable {
     public String headers;
     public Boolean raw;
     public String subject;
-    public Long size;
     @NonNull
     public Integer attachments = 0; // performance
-    @NonNull
-    public Boolean content = false;
     public Boolean plain_only = null;
     public Boolean encrypt = null;
     public String preview;
@@ -152,7 +147,6 @@ public class EntityMessage implements Serializable {
     public Integer color;
     public Integer revision; // compose
     public Integer revisions; // compose
-    public String warning; // persistent
     public String error; // volatile
     public Long last_attempt; // send
 
@@ -192,13 +186,6 @@ public class EntityMessage implements Serializable {
         }
 
         return addresses.toArray(new Address[0]);
-    }
-
-    File getFile(Context context) {
-        File dir = new File(context.getFilesDir(), "messages");
-        if (!dir.exists())
-            dir.mkdir();
-        return new File(dir, id.toString());
     }
 
     File getFile(Context context, int revision) {
