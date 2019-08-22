@@ -55,7 +55,8 @@ For authorizing:
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * Send as attachment
 * Themes
-* Search options
+* Search for settings
+* Select any day for time conditions
 
 Anything on this list is in random order and *might* be added in the near future.
 
