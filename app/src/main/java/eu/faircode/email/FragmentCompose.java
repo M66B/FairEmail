@@ -599,7 +599,7 @@ public class FragmentCompose extends FragmentBase {
 
                 String ref = Helper.readText(refFile);
                 String plain = HtmlHelper.getText(ref);
-                String html = "<p>" + plain.replaceAll("\\r?\\n", "<br />" + "</p>");
+                String html = "<p>" + plain.replaceAll("\\r?\\n", "<br />") + "</p>";
 
                 try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
                     out.write(body);
