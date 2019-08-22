@@ -388,7 +388,7 @@ public class Log {
             sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
         if (log != null)
             sb.append(log);
-        String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br />") + "</pre>";
+        String body = "<pre>" + sb.toString().replaceAll("\\r?\\n", "<br>") + "</pre>";
 
         EntityMessage draft;
 

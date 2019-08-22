@@ -327,7 +327,7 @@ public class EmailProvider {
                             if (title == null)
                                 title = "";
                             else
-                                title += "<br />";
+                                title += "<br>";
                             title += xml.getText();
                         }
                         continue;
@@ -481,7 +481,7 @@ public class EmailProvider {
         if (provider.documentation == null)
             provider.documentation = new StringBuilder();
         else
-            provider.documentation.append("<br /><br />");
+            provider.documentation.append("<br><br>");
 
         provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
     }

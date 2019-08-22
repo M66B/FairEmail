@@ -152,7 +152,7 @@ public class HtmlHelper {
 
         // Pre formatted text
         for (Element code : document.select("pre")) {
-            code.html(code.html().replaceAll("\\r?\\n", "<br />"));
+            code.html(code.html().replaceAll("\\r?\\n", "<br>"));
             code.tagName("div");
         }
 

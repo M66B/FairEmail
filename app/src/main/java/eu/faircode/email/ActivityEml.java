@@ -148,7 +148,7 @@ public class ActivityEml extends ActivityBase {
                     StringBuilder sb = new StringBuilder();
                     for (MessageHelper.AttachmentPart apart : parts.getAttachmentParts()) {
                         if (sb.length() > 0)
-                            sb.append("<br />");
+                            sb.append("<br>");
                         sb.append(apart.part.getContentType());
                         if (apart.disposition != null)
                             sb.append(' ').append(apart.disposition);

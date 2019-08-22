@@ -3829,7 +3829,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             int end = body.indexOf(PGP_END_MESSAGE);
                             if (begin >= 0 && begin < end) {
                                 String section = body.substring(begin, end + PGP_END_MESSAGE.length());
-                                String[] lines = section.split("<br />");
+                                String[] lines = section.split("<br>");
                                 List<String> disarmored = new ArrayList<>();
                                 for (String line : lines)
                                     if (!TextUtils.isEmpty(line) && !line.contains(": "))
