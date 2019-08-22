@@ -181,6 +181,7 @@
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
+    <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -222,6 +223,7 @@
     <string name="title_advanced_notify_action_reply">回复</string>
     <string name="title_advanced_notify_action_flag">标星</string>
     <string name="title_advanced_notify_action_seen">已读</string>
+    <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
@@ -229,7 +231,6 @@
     <string name="title_advanced_notify_manage_hint">点击频道名称“通知”设置默认通知声音等</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时</string>
-    <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>

@@ -193,6 +193,7 @@
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
+    <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
     <string name="title_advanced_generated_icons">Vis genererte ikoner</string>
     <string name="title_advanced_identicons">Vis identicons</string>
@@ -234,6 +235,7 @@
     <string name="title_advanced_notify_action_reply">Besvar</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Les</string>
+    <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
     <string name="title_advanced_light">Bruk meldingslys</string>
     <string name="title_advanced_sound">Velg varslingslyd</string>
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
@@ -241,7 +243,6 @@
     <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet \'Varsler\' for å angi standard varslings lyd, osv</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
-    <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>

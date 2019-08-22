@@ -215,6 +215,7 @@
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_highlight_unread">Выделить непрочитанные сообщения</string>
+    <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показать сгенерированные иконки</string>
     <string name="title_advanced_identicons">Показать идентики</string>
@@ -256,6 +257,7 @@
     <string name="title_advanced_notify_action_reply">Ответить</string>
     <string name="title_advanced_notify_action_flag">В избранное</string>
     <string name="title_advanced_notify_action_seen">Прочитанное</string>
+    <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
@@ -263,7 +265,6 @@
     <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \'Уведомления\' для установки звука уведомлений по умолчанию и т. д.</string>
     <string name="title_advanced_double_back">Двойное \'назад\' для выхода</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
-    <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_updates">Проверить наличие обновлений</string>

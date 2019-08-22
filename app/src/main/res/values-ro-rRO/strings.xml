@@ -204,6 +204,7 @@
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
+    <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
@@ -245,6 +246,7 @@
     <string name="title_advanced_notify_action_reply">Răspunde</string>
     <string name="title_advanced_notify_action_flag">Stea</string>
     <string name="title_advanced_notify_action_seen">Citit</string>
+    <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
@@ -252,7 +254,6 @@
     <string name="title_advanced_notify_manage_hint">Atingeți numele canalului \'Notificări\' pentru a configura sunetul implicit, etc</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
-    <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>

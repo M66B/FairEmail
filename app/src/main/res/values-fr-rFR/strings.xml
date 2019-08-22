@@ -193,6 +193,7 @@
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
+    <string name="title_advanced_subject_top">Afficher le sujet au dessus de l\'expéditeur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
@@ -234,6 +235,7 @@
     <string name="title_advanced_notify_action_reply">Répondre</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
+    <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
@@ -241,7 +243,6 @@
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
     <string name="title_advanced_double_back">\'Retour\' deux fois pour quitter</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
-    <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>

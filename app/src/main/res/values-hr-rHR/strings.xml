@@ -244,6 +244,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_notify_action_reply">Odgovor</string>
     <string name="title_advanced_notify_action_flag">Zvijezda</string>
     <string name="title_advanced_notify_action_seen">Pročitaj</string>
+    <string name="title_advanced_biometrics_notify">Prikažite sadržaj obavijesti kada koristite biometrijsku provjeru autentičnosti</string>
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
@@ -251,7 +252,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_notify_manage_hint">Dodirnite kanal s nazivom \"Obavijesti\" da biste postavili zadani zvuk obavijesti, itd</string>
     <string name="title_advanced_double_back">Dvaput \'natrag\' za izlaz</string>
     <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
-    <string name="title_advanced_biometrics_notify">Prikažite sadržaj obavijesti kada koristite biometrijsku provjeru autentičnosti</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>
