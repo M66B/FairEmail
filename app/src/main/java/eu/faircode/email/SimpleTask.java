@@ -35,7 +35,9 @@ import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -44,6 +46,7 @@ import java.util.concurrent.Executors;
 // Results will not be delivered to destroyed fragments
 
 public abstract class SimpleTask<T> implements LifecycleObserver {
+    private boolean log = true;
     private boolean count = true;
     private int executing = 0;
 
@@ -53,6 +56,11 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
             Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
+
+    public SimpleTask<T> setLog(boolean log) {
+        this.log = log;
+        return this;
+    }
 
     public SimpleTask<T> setCount(boolean count) {
         this.count = count;
@@ -158,9 +166,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             Log.e(ex);
                         } finally {
                             try {
-                                if (ex == null)
+                                if (ex == null) {
+                                    if (log && BuildConfig.BETA_RELEASE) {
+                                        Log.i("Crumb " + name);
+                                        Map<String, String> crumb = new HashMap<>();
+                                        crumb.put("name", name);
+                                        Log.breadcrumb("task", crumb);
+                                    }
+
                                     onExecuted(args, (T) data);
-                                else
+                                } else
                                     onException(args, ex);
                             } catch (Throwable ex) {
                                 onException(args, ex);

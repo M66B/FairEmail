@@ -3044,7 +3044,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getFragmentManager(), ex);
                 }
-            }.execute(this, args, "messages:navigation");
+            }.setLog(false).execute(this, args, "messages:navigation");
         }
         return false;
     }
@@ -3118,7 +3118,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(this, args, "messages:expand");
+        }.setLog(false).execute(this, args, "messages:expand");
     }
 
     private void handleAutoClose() {

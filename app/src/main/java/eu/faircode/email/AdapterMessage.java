@@ -799,7 +799,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                     }
-                }.execute(context, owner, aargs, "message:avatar");
+                }.setLog(false).execute(context, owner, aargs, "message:avatar");
             } else
                 bindContactInfo(info, message);
 
@@ -1122,7 +1122,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
-            }.execute(context, owner, sargs, "message:actions");
+            }.setLog(false).execute(context, owner, sargs, "message:actions");
 
             // Message text
             pbBody.setVisibility(suitable || message.content ? View.VISIBLE : View.GONE);
@@ -1309,7 +1309,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
-            }.execute(context, owner, args, "message:calendar");
+            }.setLog(false).execute(context, owner, args, "message:calendar");
         }
 
         private void onActionCalendar(TupleMessageEx message, int action) {
@@ -2379,7 +2379,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 args.putBoolean("show_images", show_images);
                 args.putBoolean("show_quotes", show_quotes);
                 args.putInt("zoom", zoom);
-                bodyTask.setCount(false).execute(context, owner, args, "message:body");
+                bodyTask.setLog(false).setCount(false).execute(context, owner, args, "message:body");
             }
         }
 
