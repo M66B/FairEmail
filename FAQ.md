@@ -52,6 +52,7 @@ For authorizing:
 * ~~Copy accounts and identities~~
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
+* ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * Send as attachment
 * Themes
 * Search options
@@ -1435,7 +1436,7 @@ You can select one of these actions to apply to matching messages:
 * Automation
 
 Filter rules are applied direct after the message header has been fetched, before the message text has been downloaded,
-so it is not possible to apply filter rules to the message text.
+so it is not possible to apply filter conditions and actions to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save data.
 
 To debug rules you can long press *Operations* to see logging about the evaluation of rule conditions.
