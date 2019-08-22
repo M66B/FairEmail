@@ -27,6 +27,9 @@ import android.webkit.MimeTypeMap;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -234,23 +237,28 @@ public class MessageHelper {
             return;
         }
 
+        // Build html body
         StringBuilder body = new StringBuilder();
-        body.append(Helper.readText(message.getFile(context)));
+        body.append("<html><body>");
+
+        Document mdoc = Jsoup.parse(Helper.readText(message.getFile(context)));
+        if (mdoc.body() != null)
+            body.append(mdoc.body().html());
 
         // When sending message
         if (identity != null) {
-            if (!TextUtils.isEmpty(identity.signature))
-                body.append(identity.signature);
+            if (!TextUtils.isEmpty(identity.signature)) {
+                Document sdoc = Jsoup.parse(identity.signature);
+                if (sdoc.body() != null)
+                    body.append(sdoc.body().html());
+            }
 
             File refFile = message.getRefFile(context);
             if (refFile.exists())
                 body.append(Helper.readText(refFile));
         }
 
-        String plainContent = HtmlHelper.getText(body.toString());
-
-        StringBuilder htmlContent = new StringBuilder();
-        htmlContent.append(body.toString()).append("\n");
+        body.append("</body></html>");
 
         // multipart/mixed
         //   multipart/related
@@ -260,11 +268,14 @@ public class MessageHelper {
         //     inlines
         //  attachments
 
+        String htmlContent = body.toString();
+        String plainContent = HtmlHelper.getText(htmlContent);
+
         BodyPart plainPart = new MimeBodyPart();
         plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
 
         BodyPart htmlPart = new MimeBodyPart();
-        htmlPart.setContent(htmlContent.toString(), "text/html; charset=" + Charset.defaultCharset().name());
+        htmlPart.setContent(htmlContent, "text/html; charset=" + Charset.defaultCharset().name());
 
         Multipart altMultiPart = new MimeMultipart("alternative");
         altMultiPart.addBodyPart(plainPart);
