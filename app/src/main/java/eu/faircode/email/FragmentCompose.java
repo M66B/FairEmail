@@ -2050,11 +2050,13 @@ public class FragmentCompose extends FragmentBase {
                                 "list".equals(action) ||
                                 "receipt".equals(action) ||
                                 "participation".equals(action)) {
-                            if (ref.to != null && ref.to.length > 0) {
-                                String to = ((InternetAddress) ref.to[0]).getAddress();
-                                int at = to.indexOf('@');
+                            EntityFolder rfolder = db.folder().getFolder(ref.folder);
+                            Address[] sender = (rfolder != null && EntityFolder.isOutgoing(rfolder.type) ? ref.from : ref.to);
+                            if (sender != null && sender.length > 0) {
+                                String s = ((InternetAddress) sender[0]).getAddress();
+                                int at = s.indexOf('@');
                                 if (at > 0)
-                                    draft.extra = to.substring(0, at);
+                                    draft.extra = s.substring(0, at);
                             }
 
                             draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
