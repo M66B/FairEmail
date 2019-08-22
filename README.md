@@ -140,7 +140,7 @@ because earlier Android versions do not support notification grouping.
 
 FairEmail will work properly on devices without any Google service installed.
 
-See [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#known-problems) for known problems.
+See [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-known-problems) for known problems.
 
 ## Support
 
