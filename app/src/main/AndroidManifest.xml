@@ -210,7 +210,7 @@
         <activity
             android:name=".ActivityBilling"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTop" />
+            android:launchMode="singleInstance" />
 
         <service
             android:name=".ServiceSynchronize"
