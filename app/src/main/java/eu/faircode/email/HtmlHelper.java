@@ -615,6 +615,8 @@ public class HtmlHelper {
     static String getText(String html) {
         final StringBuilder sb = new StringBuilder();
 
+        html = html.replace("<br> ", "<br>");
+
         NodeTraversor.traverse(new NodeVisitor() {
             private int qlevel = 0;
             private int tlevel = 0;
