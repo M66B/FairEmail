@@ -37,10 +37,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_close_hint"
-                android:src="@drawable/baseline_close_24"
                 app:layout_constraintBottom_toBottomOf="@id/tvWelcome"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvWelcome" />
+                app:layout_constraintTop_toTopOf="@id/tvWelcome"
+                app:srcCompat="@drawable/baseline_close_24" />
 
             <View
                 android:id="@+id/vSeparatorWelcome"
@@ -57,10 +57,10 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="@string/title_setup_quick"
-                android:src="@drawable/baseline_fast_forward_24"
                 android:tint="?android:attr/textColorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorWelcome" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorWelcome"
+                app:srcCompat="@drawable/baseline_fast_forward_24" />
 
             <TextView
                 android:layout_width="0dp"
@@ -129,9 +129,9 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="1"
-                android:src="@drawable/baseline_looks_one_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount"
+                app:srcCompat="@drawable/baseline_looks_one_24" />
 
             <TextView
                 android:layout_width="0dp"
@@ -227,9 +227,9 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="2"
-                android:src="@drawable/baseline_looks_two_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorIdentity" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorIdentity"
+                app:srcCompat="@drawable/baseline_looks_two_24" />
 
             <TextView
                 android:layout_width="0dp"
@@ -325,9 +325,9 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="3"
-                android:src="@drawable/baseline_looks_3_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorPermissions"
+                app:srcCompat="@drawable/baseline_looks_3_24" />
 
             <TextView
                 android:layout_width="0dp"
@@ -390,9 +390,9 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="4"
-                android:src="@drawable/baseline_looks_4_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorDoze"
+                app:srcCompat="@drawable/baseline_looks_4_24" />
 
             <TextView
                 android:layout_width="0dp"
@@ -468,9 +468,9 @@
                 android:layout_height="24dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="5"
-                android:src="@drawable/baseline_looks_5_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorInbox" />
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorInbox"
+                app:srcCompat="@drawable/baseline_looks_5_24" />
 
             <TextView
                 android:layout_width="0dp"

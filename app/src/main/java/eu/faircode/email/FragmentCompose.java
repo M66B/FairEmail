@@ -168,6 +168,7 @@ public class FragmentCompose extends FragmentBase {
     private TextView tvNoInternet;
     private TextView tvSignature;
     private TextView tvReference;
+    private ImageButton ibCloseRefHint;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private BottomNavigationView edit_bar;
@@ -179,7 +180,7 @@ public class FragmentCompose extends FragmentBase {
     private Group grpAttachments;
     private Group grpBody;
     private Group grpSignature;
-    private Group grpReference;
+    private Group grpReferenceHint;
 
     private ContentResolver resolver;
     private AdapterAttachment adapter;
@@ -260,6 +261,7 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
         tvReference = view.findViewById(R.id.tvReference);
+        ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         edit_bar = view.findViewById(R.id.edit_bar);
@@ -272,7 +274,7 @@ public class FragmentCompose extends FragmentBase {
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpBody = view.findViewById(R.id.grpBody);
         grpSignature = view.findViewById(R.id.grpSignature);
-        grpReference = view.findViewById(R.id.grpReference);
+        grpReferenceHint = view.findViewById(R.id.grpReferenceHint);
 
         resolver = getContext().getContentResolver();
 
@@ -336,6 +338,15 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onInputContent(Uri uri) {
                 onAddAttachment(uri, true);
+            }
+        });
+
+        ibCloseRefHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                prefs.edit().putBoolean("compose_reference", false).apply();
+                grpReferenceHint.setVisibility(View.GONE);
             }
         });
 
@@ -425,9 +436,10 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternet.setVisibility(View.GONE);
         grpBody.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
-        grpReference.setVisibility(View.GONE);
+        grpReferenceHint.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
+        tvReference.setVisibility(View.GONE);
         edit_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -2957,8 +2969,12 @@ public class FragmentCompose extends FragmentBase {
 
                 boolean ref_has_images = args.getBoolean("ref_has_images");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean ref_hint = prefs.getBoolean("compose_reference", true);
+
                 tvReference.setText(text[1]);
-                grpReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
+                tvReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
+                grpReferenceHint.setVisibility(text[1] == null || !ref_hint ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 

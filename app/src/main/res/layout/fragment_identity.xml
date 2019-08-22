@@ -147,10 +147,10 @@
                 android:layout_marginStart="12dp"
                 android:background="@null"
                 android:contentDescription="@string/title_legend_default_color"
-                android:src="@drawable/baseline_delete_24"
                 app:layout_constraintBottom_toBottomOf="@id/btnColor"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
-                app:layout_constraintTop_toTopOf="@id/btnColor" />
+                app:layout_constraintTop_toTopOf="@id/btnColor"
+                app:srcCompat="@drawable/baseline_delete_24" />
 
             <TextView
                 android:id="@+id/tvColorHint"

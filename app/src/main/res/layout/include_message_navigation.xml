@@ -25,10 +25,10 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="6dp"
         android:contentDescription="@string/title_decrypt"
-        android:src="@drawable/baseline_no_encryption_24"
         android:tint="@color/bottomnav_foreground"
         app:layout_constraintEnd_toStartOf="@+id/ibImages"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:srcCompat="@drawable/baseline_no_encryption_24" />
 
     <ImageButton
         android:id="@+id/ibImages"
@@ -37,10 +37,10 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="6dp"
         android:contentDescription="@string/title_legend_show_images"
-        android:src="@drawable/baseline_image_24"
         android:tint="@color/bottomnav_foreground"
         app:layout_constraintEnd_toStartOf="@+id/ibFull"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:srcCompat="@drawable/baseline_image_24" />
 
     <ImageButton
         android:id="@+id/ibFull"
@@ -48,8 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:contentDescription="@string/title_legend_show_full"
-        android:src="@drawable/baseline_fullscreen_24"
         android:tint="@color/bottomnav_foreground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions" />
+        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:srcCompat="@drawable/baseline_fullscreen_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

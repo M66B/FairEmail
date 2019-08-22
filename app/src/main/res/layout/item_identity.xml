@@ -38,10 +38,10 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_connection_state"
-                android:src="@drawable/baseline_cloud_off_24"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
-                app:layout_constraintTop_toTopOf="@+id/tvName" />
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_cloud_off_24" />
 
             <ImageView
                 android:id="@+id/ivPrimary"
@@ -49,10 +49,10 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:contentDescription="@string/title_legend_primary"
-                android:src="@drawable/baseline_star_24"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@id/ivState"
-                app:layout_constraintTop_toTopOf="@+id/tvName" />
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_star_24" />
 
             <TextView
                 android:id="@+id/tvName"
@@ -76,10 +76,10 @@
                 android:layout_height="24dp"
                 android:layout_marginEnd="6dp"
                 android:contentDescription="@string/title_legend_sync_state"
-                android:src="@drawable/baseline_sync_24"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvName" />
+                app:layout_constraintTop_toTopOf="@+id/tvName"
+                app:srcCompat="@drawable/baseline_sync_24" />
 
             <TextView
                 android:id="@+id/tvUser"

@@ -64,9 +64,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/title_setup_help"
-        android:src="@drawable/baseline_info_24"
         app:layout_constraintBottom_toBottomOf="@id/etText"
-        app:layout_constraintEnd_toEndOf="@id/etText" />
+        app:layout_constraintEnd_toEndOf="@id/etText"
+        app:srcCompat="@drawable/baseline_info_24" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

@@ -19,11 +19,11 @@
         android:layout_height="24dp"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/title_legend_expander"
-        android:src="@drawable/expander"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress" />
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorAddress"
+        app:srcCompat="@drawable/expander" />
 
     <ImageButton
         android:id="@+id/ibSearchContact"
@@ -31,9 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/baseline_search_24"
         app:layout_constraintEnd_toStartOf="@+id/ibNotifyContact"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
+        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress"
+        app:srcCompat="@drawable/baseline_search_24" />
 
     <ImageButton
         android:id="@+id/ibNotifyContact"
@@ -42,9 +42,9 @@
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_notify"
-        android:src="@drawable/baseline_notifications_24"
         app:layout_constraintEnd_toStartOf="@+id/ibAddContact"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
+        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress"
+        app:srcCompat="@drawable/baseline_notifications_24" />
 
     <ImageButton
         android:id="@+id/ibAddContact"
@@ -53,9 +53,9 @@
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_contacts"
-        android:src="@drawable/baseline_import_contacts_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress" />
+        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress"
+        app:srcCompat="@drawable/baseline_import_contacts_24" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_action"

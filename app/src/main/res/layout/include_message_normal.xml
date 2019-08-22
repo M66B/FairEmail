@@ -28,11 +28,11 @@
         android:layout_marginStart="6dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_expander"
-        android:src="@drawable/expander"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
         app:layout_constraintStart_toEndOf="@id/vwColor"
-        app:layout_constraintTop_toTopOf="@id/paddingTop" />
+        app:layout_constraintTop_toTopOf="@id/paddingTop"
+        app:srcCompat="@drawable/expander" />
 
     <View
         android:id="@+id/paddingStart"
@@ -49,11 +49,11 @@
         android:contentDescription="@string/title_legend_avatar"
         android:paddingStart="6dp"
         android:paddingEnd="6dp"
-        android:src="@drawable/baseline_person_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
-        app:layout_constraintTop_toBottomOf="@id/paddingTop" />
+        app:layout_constraintTop_toBottomOf="@id/paddingTop"
+        app:srcCompat="@drawable/baseline_person_24" />
 
     <TextView
         android:id="@+id/tvFrom"
@@ -118,11 +118,11 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_flagged"
         android:padding="6dp"
-        android:src="@drawable/baseline_star_24"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintEnd_toStartOf="@id/paddingEnd"
-        app:layout_constraintTop_toBottomOf="@id/paddingTop" />
+        app:layout_constraintTop_toBottomOf="@id/paddingTop"
+        app:srcCompat="@drawable/baseline_star_24" />
 
     <ImageView
         android:id="@+id/ivType"
@@ -130,10 +130,10 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_folder_type"
-        android:src="@drawable/baseline_edit_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_edit_24" />
 
     <ImageView
         android:id="@+id/ivAuth"
@@ -141,11 +141,11 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_auth"
-        android:src="@drawable/baseline_flag_24"
         android:tint="@color/colorError"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivType"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_flag_24" />
 
     <ImageView
         android:id="@+id/ivSnoozed"
@@ -153,10 +153,10 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_snoozed"
-        android:src="@drawable/baseline_timelapse_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivAuth"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_timelapse_24" />
 
     <ImageView
         android:id="@+id/ivBrowsed"
@@ -164,10 +164,10 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_browsed"
-        android:src="@drawable/baseline_playlist_add_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivSnoozed"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_playlist_add_24" />
 
     <ImageView
         android:id="@+id/ivAnswered"
@@ -175,10 +175,10 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_answered"
-        android:src="@drawable/baseline_reply_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivBrowsed"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_reply_24" />
 
     <ImageView
         android:id="@+id/ivPlain"
@@ -186,10 +186,10 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_plain_only"
-        android:src="@drawable/baseline_notes_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivAnswered"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_notes_24" />
 
     <ImageView
         android:id="@+id/ivReceipt"
@@ -197,10 +197,10 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_receipt"
-        android:src="@drawable/baseline_playlist_add_check_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivPlain"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_playlist_add_check_24" />
 
     <ImageView
         android:id="@+id/ivAttachments"
@@ -208,10 +208,10 @@
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_attachment"
-        android:src="@drawable/baseline_attachment_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintStart_toEndOf="@id/ivReceipt"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_attachment_24" />
 
     <TextView
         android:id="@+id/tvFolder"
@@ -247,10 +247,10 @@
         android:layout_height="15dp"
         android:layout_marginEnd="6dp"
         android:contentDescription="@string/title_legend_thread"
-        android:src="@drawable/baseline_message_24"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder" />
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_message_24" />
 
     <TextView
         android:id="@+id/tvPreview"

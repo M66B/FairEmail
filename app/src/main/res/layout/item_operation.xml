@@ -19,9 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_synchronizing"
-            android:src="@drawable/baseline_compare_arrows_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_compare_arrows_24" />
 
         <TextView
             android:id="@+id/tvFolder"

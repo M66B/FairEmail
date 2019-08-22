@@ -55,10 +55,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_close_hint"
-                android:src="@drawable/baseline_close_24"
                 app:layout_constraintBottom_toBottomOf="@id/tvHintSupport"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvHintSupport" />
+                app:layout_constraintTop_toTopOf="@id/tvHintSupport"
+                app:srcCompat="@drawable/baseline_close_24" />
 
             <View
                 android:id="@+id/vSeparatorHintSupport"
@@ -87,10 +87,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_close_hint"
-                android:src="@drawable/baseline_close_24"
                 app:layout_constraintBottom_toBottomOf="@id/tvHintSwipe"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvHintSwipe" />
+                app:layout_constraintTop_toTopOf="@id/tvHintSwipe"
+                app:srcCompat="@drawable/baseline_close_24" />
 
             <View
                 android:id="@+id/vSeparatorHintSwipe"
@@ -119,10 +119,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_close_hint"
-                android:src="@drawable/baseline_close_24"
                 app:layout_constraintBottom_toBottomOf="@id/tvHintSelect"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvHintSelect" />
+                app:layout_constraintTop_toTopOf="@id/tvHintSelect"
+                app:srcCompat="@drawable/baseline_close_24" />
 
             <View
                 android:id="@+id/vSeparatorHintSelect"
@@ -186,10 +186,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="@dimen/fab_padding"
-                android:src="@drawable/baseline_reply_24"
                 android:tint="@color/colorActionForeground"
                 app:layout_constraintBottom_toTopOf="@+id/seekBar"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/baseline_reply_24" />
 
             <ImageButton
                 android:id="@+id/ibDown"
@@ -197,12 +197,12 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
-                android:src="@drawable/baseline_vertical_align_bottom_24"
                 android:tint="?attr/colorSeparator"
                 app:layout_constraintBottom_toTopOf="@+id/seekBar"
                 app:layout_constraintEnd_toStartOf="@+id/ibUp"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/baseline_vertical_align_bottom_24" />
 
             <ImageButton
                 android:id="@+id/ibUp"
@@ -210,12 +210,12 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
-                android:src="@drawable/baseline_vertical_align_top_24"
                 android:tint="?attr/colorSeparator"
                 app:layout_constraintBottom_toTopOf="@+id/seekBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toEndOf="@+id/ibDown" />
+                app:layout_constraintStart_toEndOf="@+id/ibDown"
+                app:srcCompat="@drawable/baseline_vertical_align_top_24" />
 
             <SeekBar
                 android:id="@+id/seekBar"
@@ -277,10 +277,10 @@
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="@dimen/fab_padding"
         android:layout_marginBottom="90dp"
-        android:src="@drawable/baseline_more_vert_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_more"
-        app:backgroundTint="?attr/colorAccent" />
+        app:backgroundTint="?attr/colorAccent"
+        app:srcCompat="@drawable/baseline_more_vert_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSearch"
@@ -288,10 +288,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:src="@drawable/baseline_youtube_searched_for_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_search_server"
-        app:backgroundTint="?attr/colorAccent" />
+        app:backgroundTint="?attr/colorAccent"
+        app:srcCompat="@drawable/baseline_youtube_searched_for_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCompose"
@@ -299,10 +299,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:src="@drawable/baseline_edit_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_compose"
-        app:backgroundTint="?attr/colorAccent" />
+        app:backgroundTint="?attr/colorAccent"
+        app:srcCompat="@drawable/baseline_edit_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabError"
@@ -310,8 +310,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:src="@drawable/baseline_warning_24"
         android:tint="@color/colorActionForeground"
         android:tooltipText="@string/title_compose"
-        app:backgroundTint="@color/colorError" />
+        app:backgroundTint="@color/colorError"
+        app:srcCompat="@drawable/baseline_warning_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

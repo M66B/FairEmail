@@ -47,9 +47,9 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@string/title_legend_stop"
-                android:src="@drawable/baseline_stop_24"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_stop_24" />
 
             <TextView
                 android:id="@+id/tvCondition"
