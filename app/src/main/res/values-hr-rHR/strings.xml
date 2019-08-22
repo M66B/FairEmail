@@ -203,12 +203,12 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
     <string name="title_advanced_threading">Prikaz razgovora</string>
     <string name="title_advanced_highlight_unread">Označiti nepročitane poruke</string>
-    <string name="title_advanced_subject_top">Pokaži predmet iznad pošiljatelja</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
     <string name="title_advanced_identicons">Pokaži identitete</string>
     <string name="title_advanced_circular">Pokaži okrugle ikone</string>
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
+    <string name="title_advanced_subject_top">Pokaži predmet iznad pošiljatelja</string>
     <string name="title_advanced_subject_italic">Prikaži predmet kurzivno</string>
     <string name="title_advanced_flags">Prikaži zvijezde</string>
     <string name="title_advanced_preview">Prikaži pregled poruke</string>

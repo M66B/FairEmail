@@ -177,6 +177,7 @@
     <string name="title_advanced_keyboard">Toon standaard het toetsenbord</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
+    <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
@@ -193,12 +194,12 @@
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
-    <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_circular">Toon ronde iconen</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
+    <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
     <string name="title_advanced_flags">Toon sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>

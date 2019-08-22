@@ -215,12 +215,12 @@
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
-    <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
+    <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_flags">Oznacz gwiazdkami</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>

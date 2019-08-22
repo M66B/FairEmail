@@ -177,6 +177,7 @@
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
+    <string name="title_advanced_usenet_signature">Convention de signature Usenet</string>
     <string name="title_advanced_autoresize">Redimensionner automatiquement les images jointes et incluses</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Vérifier les adresses e-mail du destinataire avant d\'envoyer</string>
@@ -193,12 +194,12 @@
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Fil de conversation</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
-    <string name="title_advanced_subject_top">Afficher le sujet au dessus de l\'expéditeur</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_circular">Afficher des icônes rondes</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
+    <string name="title_advanced_subject_top">Afficher le sujet au dessus de l\'expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l\'objet en italiques</string>
     <string name="title_advanced_flags">Afficher les messages suivis</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>

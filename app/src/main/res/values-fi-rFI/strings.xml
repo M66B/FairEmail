@@ -193,12 +193,12 @@
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
-    <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
+    <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_flags">Näytä tähdet</string>
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>

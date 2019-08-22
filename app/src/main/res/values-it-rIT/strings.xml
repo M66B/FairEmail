@@ -176,6 +176,7 @@
     <string name="title_advanced_keyboard">Mostra tastiera di default</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_plain_only">Invia testo semplice solo per impostazione predefinita</string>
+    <string name="title_advanced_usenet_signature">Convenzione firma usenet</string>
     <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini allegate e incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
@@ -192,12 +193,12 @@
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
-    <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
+    <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_flags">Mostra stelle</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>

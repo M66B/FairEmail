@@ -165,6 +165,7 @@
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
+    <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
     <string name="title_advanced_autoresize">自动调整附加和嵌入图像大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
@@ -181,12 +182,12 @@
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
-    <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
+    <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_flags">显示星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>

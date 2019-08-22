@@ -192,12 +192,12 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten in heller Schrift anzeigen</string>
-    <string name="title_advanced_subject_top">Zeige Betreff oberhalb des Absenders</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole benutzen</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
+    <string name="title_advanced_subject_top">Zeige Betreff oberhalb des Absenders</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_flags">Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>

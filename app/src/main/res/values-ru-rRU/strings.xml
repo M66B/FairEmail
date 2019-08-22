@@ -199,6 +199,7 @@
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
+    <string name="title_advanced_usenet_signature">Соглашение о подписи Usenet</string>
     <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_lookup_mx">Проверить адрес электронной почты получателя перед отправкой</string>
@@ -215,12 +216,12 @@
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_highlight_unread">Выделить непрочитанные сообщения</string>
-    <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_avatars">Показать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показать сгенерированные иконки</string>
     <string name="title_advanced_identicons">Показать идентики</string>
     <string name="title_advanced_circular">Использовать круглые иконки</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
+    <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_flags">Показывать звёзды</string>
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>

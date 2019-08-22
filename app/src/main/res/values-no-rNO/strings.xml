@@ -177,6 +177,7 @@
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
+    <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
     <string name="title_advanced_autoresize">Endre størrelsen på vedlagte og innebygde bilder automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
     <string name="title_advanced_lookup_mx">Sjekk mottakerens e-postadresser før du sender</string>
@@ -193,12 +194,12 @@
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
-    <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
     <string name="title_advanced_generated_icons">Vis genererte ikoner</string>
     <string name="title_advanced_identicons">Vis identicons</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
+    <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
     <string name="title_advanced_flags">Vis stjerner</string>
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
