@@ -112,6 +112,8 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -2233,23 +2235,25 @@ public class FragmentCompose extends FragmentBase {
                         if (usenet) {
                             Document rdoc = Jsoup.parse(refText);
 
-                            Element signature = null;
+                            Node signature = null;
                             for (Element e : rdoc.select("*"))
-                                if ("-- ".equals(e.wholeText()))
-                                    signature = e;
+                                for (Node node : e.childNodes())
+                                    if (node instanceof TextNode &&
+                                            "--".equals(((TextNode) node).text().trim()))
+                                        signature = node;
 
                             if (signature != null) {
-                                List<Element> tbd = new ArrayList<>();
+                                List<Node> tbd = new ArrayList<>();
                                 tbd.add(signature);
 
-                                Element next = signature.nextElementSibling();
+                                Node next = signature.nextSibling();
                                 while (next != null) {
                                     tbd.add(0, next);
-                                    next = next.nextElementSibling();
+                                    next = next.nextSibling();
                                 }
 
-                                for (Element e : tbd)
-                                    e.remove();
+                                for (Node n : tbd)
+                                    n.remove();
 
                                 if (rdoc.body() != null)
                                     refText = rdoc.body().html();
