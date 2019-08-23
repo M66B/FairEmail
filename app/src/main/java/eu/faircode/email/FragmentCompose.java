@@ -35,7 +35,8 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.database.CursorWrapper;
+import android.database.MatrixCursor;
+import android.database.MergeCursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -453,24 +454,19 @@ public class FragmentCompose extends FragmentBase {
         Helper.setViewsEnabled(view, false);
 
         final DB db = DB.getInstance(getContext());
-        final boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
 
         SimpleCursorAdapter cadapter = new SimpleCursorAdapter(
                 getContext(),
                 R.layout.spinner_item2_dropdown,
                 null,
-                contacts
-                        ? new String[]{
-                        ContactsContract.Contacts.DISPLAY_NAME,
-                        ContactsContract.CommonDataKinds.Email.DATA}
-                        : new String[]{"name", "email"},
+                new String[]{"name", "email"},
                 new int[]{android.R.id.text1, android.R.id.text2},
                 0);
 
         cadapter.setCursorToStringConverter(new SimpleCursorAdapter.CursorToStringConverter() {
             public CharSequence convertToString(Cursor cursor) {
-                int colName = cursor.getColumnIndex(contacts ? ContactsContract.Contacts.DISPLAY_NAME : "name");
-                int colEmail = cursor.getColumnIndex(contacts ? ContactsContract.CommonDataKinds.Email.DATA : "email");
+                int colName = cursor.getColumnIndex("name");
+                int colEmail = cursor.getColumnIndex("email");
                 String name = cursor.getString(colName);
                 String email = cursor.getString(colEmail);
                 StringBuilder sb = new StringBuilder();
@@ -484,20 +480,19 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        etTo.setAdapter(cadapter);
-        etCc.setAdapter(cadapter);
-        etBcc.setAdapter(cadapter);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean suggest_local = prefs.getBoolean("suggest_local", false);
 
-        etTo.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-        etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-        etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        cadapter.setFilterQueryProvider(new FilterQueryProvider() {
+            public Cursor runQuery(CharSequence typed) {
+                Log.i("Searching provided contact=" + typed);
 
-        if (contacts)
-            cadapter.setFilterQueryProvider(new FilterQueryProvider() {
-                public Cursor runQuery(CharSequence typed) {
-                    Log.i("Searching provided contact=" + typed);
-                    String wildcard = "%" + typed + "%";
-                    return new CursorWrapper(resolver.query(
+                String wildcard = "%" + typed + "%";
+                boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
+                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email"});
+
+                if (contacts) {
+                    Cursor cursor = resolver.query(
                             ContactsContract.CommonDataKinds.Email.CONTENT_URI,
                             new String[]{
                                     ContactsContract.CommonDataKinds.Email.CONTACT_ID,
@@ -510,47 +505,29 @@ public class FragmentCompose extends FragmentBase {
                             new String[]{wildcard, wildcard},
                             "CASE WHEN " + ContactsContract.Contacts.DISPLAY_NAME + " NOT LIKE '%@%' THEN 0 ELSE 1 END" +
                                     ", " + ContactsContract.Contacts.DISPLAY_NAME + " COLLATE NOCASE" +
-                                    ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE")) {
+                                    ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
+                    while (cursor != null && cursor.moveToNext())
+                        provided.newRow()
+                                .add(cursor.getLong(0))
+                                .add(cursor.getString(1))
+                                .add(cursor.getString(2));
 
-                        @Override
-                        public String[] getColumnNames() {
-                            String[] names = super.getColumnNames();
-                            names[0] = "_id";
-                            return names;
-                        }
-
-                        @Override
-                        public String getColumnName(int index) {
-                            if (index == 0)
-                                return "_id";
-                            return super.getColumnName(index);
-                        }
-
-                        @Override
-                        public int getColumnIndex(String name) {
-                            if ("_id".equals(name))
-                                return 0;
-                            return super.getColumnIndex(name);
-                        }
-
-                        @Override
-                        public int getColumnIndexOrThrow(String name) throws IllegalArgumentException {
-                            if ("_id".equals(name))
-                                return 0;
-                            return super.getColumnIndexOrThrow(name);
-                        }
-                    };
+                    if (!suggest_local)
+                        return provided;
                 }
-            });
-        else
-            cadapter.setFilterQueryProvider(new FilterQueryProvider() {
-                @Override
-                public Cursor runQuery(CharSequence typed) {
-                    Log.i("Searching local contact=" + typed);
-                    String wildcard = "%" + typed + "%";
-                    return db.contact().searchContacts(null, null, wildcard);
-                }
-            });
+
+                Cursor local = db.contact().searchContacts(null, null, wildcard);
+                return new MergeCursor(new Cursor[]{provided, local});
+            }
+        });
+
+        etTo.setAdapter(cadapter);
+        etCc.setAdapter(cadapter);
+        etBcc.setAdapter(cadapter);
+
+        etTo.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
 
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());

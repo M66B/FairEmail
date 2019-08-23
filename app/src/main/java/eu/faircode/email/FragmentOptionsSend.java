@@ -40,6 +40,7 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swKeyboard;
+    private SwitchCompat swSuggestLocal;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPlainOnly;
     private SwitchCompat swUsenetSignature;
@@ -51,7 +52,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "prefix_once", "plain_only", "usenet_signature", "autoresize", "resize", "lookup_mx", "autosend", "send_delayed"
+            "keyboard", "suggest_local", "prefix_once", "plain_only", "usenet_signature", "autoresize", "resize", "lookup_mx", "autosend", "send_delayed"
     };
 
     @Override
@@ -65,6 +66,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         // Get controls
 
         swKeyboard = view.findViewById(R.id.swKeyboard);
+        swSuggestLocal = view.findViewById(R.id.swSuggestLocal);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
@@ -85,6 +87,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("keyboard", checked).apply();
+            }
+        });
+
+        swSuggestLocal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("suggest_local", checked).apply();
             }
         });
 
@@ -204,6 +213,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
+        swSuggestLocal.setChecked(prefs.getBoolean("suggest_local", false));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
