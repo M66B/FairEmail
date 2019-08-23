@@ -1942,9 +1942,12 @@ class Core {
         boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
         boolean pro = ActivityBilling.isPro(context);
 
-        // Current
         int unseen = 0;
         Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
+        for (String group : groupNotifying.keySet())
+            groupMessages.put(group, new ArrayList<>());
+
+        // Current
         for (TupleMessageEx message : messages) {
             if (!message.ui_seen && (!unseen_ignored || !message.ui_ignored) && message.ui_hide == 0)
                 unseen++;
