@@ -1640,6 +1640,8 @@ So, double check the password or reduce the number of folders to synchronize.
 <a name="faq84"></a>
 **(84) What are local contacts for?**
 
+Local contact information is based on names and addresses found in incoming and outgoing messages.
+
 The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FairEmail.
 
 Another use is to generate [shortcuts](#user-content-faq31) on recent Android versions to quickly send a message to frequently contacted people.
