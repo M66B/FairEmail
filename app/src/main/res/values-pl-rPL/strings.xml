@@ -196,9 +196,12 @@
     <string name="title_advanced_delete_unseen">Usuń stare nieprzeczytane wiadomości</string>
     <string name="title_advanced_kept_removed">Sprawdź, czy stare wiadomości zostały usunięte z serwera</string>
     <string name="title_advanced_sync_folders">Synchronizuj listę folderów</string>
+    <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
+    <string name="title_advanced_sync_subscribed">Synchronizuj tylko subskrybowane foldery</string>
     <string name="title_advanced_keyboard">Domyślnie pokaż klawiaturę</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
+    <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
@@ -279,10 +282,8 @@
     <string name="title_advanced_unseen_hint">Niektórzy dostawcy nie obsługują tego poprawnie, co na przykład może spowodować synchronizację wszystkich wiadomości</string>
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
-    <string name="title_advanced_subscriptions">Zarządzaj subskrypcjami folderów</string>
-    <string name="title_advanced_sync_subscribed">Synchronizuj tylko subskrybowane foldery</string>
-    <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
+    <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>

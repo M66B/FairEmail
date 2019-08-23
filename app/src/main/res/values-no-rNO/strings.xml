@@ -174,7 +174,10 @@
     <string name="title_advanced_delete_unseen">Slett gamle uleste meldinger</string>
     <string name="title_advanced_kept_removed">Sjekk om gamle meldinger ble fjernet fra serveren</string>
     <string name="title_advanced_sync_folders">Synkroniser mappeliste</string>
+    <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
+    <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
+    <string name="title_advanced_suggest_local">Foreslå lokalt lagrede kontakter</string>
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
@@ -258,10 +261,9 @@
     <string name="title_advanced_unseen_hint">Noen leverandører støtter ikke dette ordentlig, noe som for eksempel kan føre til at alle meldinger blir synkronisert</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og bruke ekstra batteristrøm, spesielt hvis det er lagret mange meldinger på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
-    <string name="title_advanced_subscriptions">Administrere mappeabonnementer</string>
-    <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
-    <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
     <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
+    <string name="title_advanced_suggest_local_hint">I tillegg til kontakter levert av Android</string>
+    <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
     <string name="title_advanced_rlah_hint">Forutsatt ingen roaming i EU</string>

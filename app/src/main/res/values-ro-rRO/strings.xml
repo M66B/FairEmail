@@ -185,9 +185,12 @@
     <string name="title_advanced_delete_unseen">Șterge mesajele vechi necitite</string>
     <string name="title_advanced_kept_removed">Verifică dacă mesajele vechi au fost înlăturate de pe server</string>
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
+    <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
+    <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
+    <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
     <string name="title_advanced_autoresize">Redimensionează automat imaginile atașate și incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
@@ -268,10 +271,8 @@
     <string name="title_advanced_unseen_hint">Unii furnizori nu suportă aceasta în mod corect, și asta, de exemplu, poate duce la sincronizarea tuturor mesajelor</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
-    <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
-    <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
-    <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
+    <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>

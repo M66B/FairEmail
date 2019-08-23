@@ -188,6 +188,8 @@
     <string name="title_advanced_delete_unseen">Smazat staré nepřečtené zprávy</string>
     <string name="title_advanced_kept_removed">Kontrolovat zda byly staré zprávy odstraněny ze serveru</string>
     <string name="title_advanced_sync_folders">Synchronizovat seznam složek</string>
+    <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
+    <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
     <string name="title_advanced_plain_only">Odeslat pouze prostý text jako výchozí</string>
@@ -262,8 +264,6 @@
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_check_mx">Zkontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí této volby o něco sníží využití dat a baterie, zároveň však znemožní aktualizovat seznam složek</string>
-    <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
-    <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
     <string name="title_advanced_metered_warning">Vypnutí této volby zakáže přijímání a odesílání zpráv při mobilních datových přenosech</string>

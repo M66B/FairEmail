@@ -174,7 +174,10 @@
     <string name="title_advanced_delete_unseen">Supprimer les anciens messages non lus</string>
     <string name="title_advanced_kept_removed">Vérifier si les anciens messages ont été supprimés du serveur</string>
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
+    <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
+    <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
+    <string name="title_advanced_suggest_local">Suggérer les contacts stockés localement</string>
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
     <string name="title_advanced_usenet_signature">Convention de signature Usenet</string>
@@ -258,10 +261,9 @@
     <string name="title_advanced_unseen_hint">Certains fournisseurs ne supportent pas ceci correctement, ce qui pourrait par exemple entraîner la synchronisation de tous les messages</string>
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la batterie supplémentaires, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l\'utilisation des données et de la batterie mais désactivera également la mise à jour de la liste des dossiers</string>
-    <string name="title_advanced_subscriptions">Gérer les abonnements de dossier</string>
-    <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
-    <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_sync_delay_hint">Cela ralentira la synchronisation des messages</string>
+    <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android</string>
+    <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
     <string name="title_advanced_metered_warning">Désactiver cette option désactivera la réception et l\'envoi de messages sur les connexions Internet mobiles</string>
     <string name="title_advanced_rlah_hint">On considère qu\'il n\'y a pas d\'itinérance au sein de l\'UE (roam like at home)</string>

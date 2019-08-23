@@ -184,6 +184,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_delete_unseen">Izbriši stare nepročitane poruke</string>
     <string name="title_advanced_kept_removed">Provjerite jesu li stare poruke uklonjene sa servera</string>
     <string name="title_advanced_sync_folders">Sinkroniziraj popis mapa</string>
+    <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
+    <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
     <string name="title_advanced_keyboard">Standardno pokaži tastaturu</string>
     <string name="title_advanced_prefix_once">Dodati predmet samo jednom prilikom odgovaranja ili prosljeđivanja</string>
     <string name="title_advanced_plain_only">Standardno šaljite samo običan tekst</string>
@@ -267,10 +269,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_unseen_hint">Neki pružatelji usluga to ne podržavaju ispravno, što može, na primjer, rezultirati sinkronizacijom svih poruka</string>
     <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i potrošiti dodatnu snagu baterije, posebno ako je na uređaju spremljeno puno poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
-    <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
-    <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
-    <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
     <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinkronizaciju poruka</string>
+    <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>

@@ -15,6 +15,10 @@
     <string name="channel_warning">Varningar</string>
     <string name="channel_error">Fel</string>
     <string name="channel_group_contacts">Kontakter</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Konversation</item>
+        <item quantity="other">Konversationer</item>
+    </plurals>
     <string name="tile_synchronize">Synkronisera</string>
     <string name="tile_unseen">Nya meddelanden</string>
     <string name="shortcut_refresh">Uppdatera</string>
@@ -163,6 +167,8 @@
     <string name="title_advanced_delete_unseen">Ta bort gamla olästa meddelanden</string>
     <string name="title_advanced_kept_removed">Kontrollera om gamla meddelanden har tagits bort från servern</string>
     <string name="title_advanced_sync_folders">Synkronisera mapplistan</string>
+    <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
+    <string name="title_advanced_sync_subscribed">Synkronisera abonnerade mappar bara</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_autoresize">Ändra storlek automatiskt på bifogade och inbäddade bilder</string>
@@ -238,8 +244,6 @@
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
-    <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
-    <string name="title_advanced_sync_subscribed">Synkronisera abonnerade mappar bara</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>

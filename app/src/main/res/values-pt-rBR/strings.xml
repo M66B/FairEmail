@@ -166,6 +166,8 @@
     <string name="title_advanced_delete_unseen">Excluir mensagens não lidas antigas</string>
     <string name="title_advanced_kept_removed">Verificar se as mensagens antigas foram removidas do servidor</string>
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
+    <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
+    <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
@@ -246,10 +248,8 @@
     <string name="title_advanced_unseen_hint">Alguns provedores de e-mail não suportam isso corretamente, o que, por exemplo, pode resultar em todas as mensagens sendo sincronizadas</string>
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e consumir energia extra da bateria, especialmente se uma série de mensagens forem armazenadas no dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
-    <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
-    <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
-    <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
+    <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
     <string name="title_advanced_rlah_hint">Não assumindo roaming na UE</string>

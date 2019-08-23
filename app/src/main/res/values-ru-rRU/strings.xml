@@ -196,6 +196,8 @@
     <string name="title_advanced_delete_unseen">Удалить старые непрочитанные сообщения</string>
     <string name="title_advanced_kept_removed">Проверить, были ли удалены старые сообщения с сервера</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
+    <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
+    <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
     <string name="title_advanced_keyboard">Показывать клавиатуру по умолчанию</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
@@ -280,10 +282,8 @@
     <string name="title_advanced_unseen_hint">Некоторые провайдеры не поддерживают это правильно, что, например, может привести к синхронизации всех сообщений</string>
     <string name="title_advanced_sync_kept_hint">Это приведёт к большему потреблению трафика и заряда батареи, особенно если на устройстве хранится много сообщений</string>
     <string name="title_advanced_sync_folders_hint">Отключение этого уменьшит потребление трафика и заряда батареи, но также отключит обновление списка папок</string>
-    <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
-    <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
-    <string name="title_advanced_lookup_mx_hint">Это проверит наличие DNS MX записей</string>
     <string name="title_advanced_sync_delay_hint">Это замедлит синхронизацию сообщений</string>
+    <string name="title_advanced_lookup_mx_hint">Это проверит наличие DNS MX записей</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения - это обычно мобильные сети или платные Wi-Fi</string>
     <string name="title_advanced_metered_warning">Отключение этой опции отключит получение и отправку сообщений при мобильном подключении к интернету</string>
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>

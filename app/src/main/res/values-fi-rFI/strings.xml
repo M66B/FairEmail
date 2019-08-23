@@ -174,6 +174,8 @@
     <string name="title_advanced_delete_unseen">Poista vanhat lukemattomat viestit</string>
     <string name="title_advanced_kept_removed">Tarkista onko vanhoja viestejä poistettu palvelimelta</string>
     <string name="title_advanced_sync_folders">Synkronoi kansiolista</string>
+    <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
+    <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
@@ -258,10 +260,8 @@
     <string name="title_advanced_unseen_hint">Jotkin palveluntarjoajat eivät tue tätä kunnolla, mikä voi aiheuttaa esimerkiksi kaikkien viestien synkronoinnin</string>
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
-    <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
-    <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
-    <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
+    <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
