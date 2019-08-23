@@ -1077,9 +1077,8 @@ public abstract class DB extends RoomDatabase {
                     String email = jaddress.getString("address");
                     String personal = jaddress.optString("personal");
                     if (TextUtils.isEmpty(personal))
-                        result.add(new InternetAddress(email));
-                    else
-                        result.add(new InternetAddress(email, personal));
+                        personal = null;
+                    result.add(new InternetAddress(email, personal));
                 }
             } catch (Throwable ex) {
                 // Compose can store invalid addresses
