@@ -83,6 +83,7 @@ import javax.mail.Part;
 import javax.mail.internet.InternetAddress;
 
 public class Log {
+    private static final int MAX_CRASH_REPORTS = 5;
     private static final String TAG = "fairemail";
 
     public static int d(String msg) {
@@ -201,6 +202,12 @@ public class Log {
         config.beforeSend(new BeforeSend() {
             @Override
             public boolean run(@NonNull Report report) {
+                int count = prefs.getInt("crash_report_count", 0);
+                count++;
+                prefs.edit().putInt("crash_report_count", count).apply();
+                if (count > MAX_CRASH_REPORTS)
+                    return false;
+
                 Throwable ex = report.getError().getException();
 
                 if (ex instanceof MessagingException &&
