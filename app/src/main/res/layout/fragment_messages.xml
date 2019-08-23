@@ -217,6 +217,18 @@
                 app:layout_constraintStart_toEndOf="@+id/ibDown"
                 app:srcCompat="@drawable/baseline_vertical_align_top_24" />
 
+            <ImageButton
+                android:id="@+id/ibSnoozed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="12dp"
+                android:tint="?attr/colorSeparator"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/baseline_timelapse_24" />
+
             <SeekBar
                 android:id="@+id/seekBar"
                 android:layout_width="match_parent"
