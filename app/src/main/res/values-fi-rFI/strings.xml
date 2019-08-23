@@ -177,6 +177,7 @@
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
     <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
+    <string name="title_advanced_suggest_local">Ehdota paikallisesti tallennettuja yhteystietoja</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
@@ -261,6 +262,7 @@
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
+    <string name="title_advanced_suggest_local_hint">Androidin tarjoamien yhteystietojen lisäksi</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
