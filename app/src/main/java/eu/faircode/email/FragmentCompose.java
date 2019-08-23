@@ -2239,7 +2239,9 @@ public class FragmentCompose extends FragmentBase {
                             for (Element e : rdoc.select("*"))
                                 for (Node node : e.childNodes())
                                     if (node instanceof TextNode &&
-                                            "--".equals(((TextNode) node).text().trim()))
+                                            "--".equals(((TextNode) node).text().trim()) &&
+                                            node.nextSibling() != null &&
+                                            "br".equals(node.nextSibling().nodeName()))
                                         signature = node;
 
                             if (signature != null) {
