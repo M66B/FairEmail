@@ -1807,7 +1807,8 @@ class Core {
                             contact.id = db.contact().insertContact(contact);
                             Log.i("Inserted contact=" + contact + " type=" + type);
                         } else {
-                            contact.name = name;
+                            if (!TextUtils.isEmpty(name))
+                                contact.name = name;
                             contact.avatar = (avatar == null ? null : avatar.toString());
                             contact.times_contacted++;
                             contact.first_contacted = Math.min(contact.first_contacted, message.received);
