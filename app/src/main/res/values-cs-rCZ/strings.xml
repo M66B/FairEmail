@@ -15,8 +15,23 @@
     <string name="channel_warning">Upozornění</string>
     <string name="channel_error">Chyby</string>
     <string name="channel_group_contacts">Kontakty</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Konverzace</item>
+        <item quantity="few">Konverzace</item>
+        <item quantity="many">Konverzace</item>
+        <item quantity="other">Konverzace</item>
+    </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Zpráva</item>
+        <item quantity="few">Zprávy</item>
+        <item quantity="many">Zpráv</item>
+        <item quantity="other">Zpráv</item>
+    </plurals>
+    <string name="page_folders">Složky</string>
+    <string name="page_compose">Napsat zprávu</string>
     <string name="tile_synchronize">Synchronizovat</string>
     <string name="tile_unseen">Nové zprávy</string>
+    <string name="shortcut_refresh">Načíst znovu</string>
     <string name="shortcut_compose">Napsat zprávu</string>
     <string name="shortcut_setup">Nastavení</string>
     <plurals name="title_notification_synchronizing">
@@ -79,6 +94,7 @@
     <string name="menu_legend">Legenda</string>
     <string name="menu_faq">Podpora</string>
     <string name="menu_issue">Nahlásit problém</string>
+    <string name="menu_attribution">Zásluhy</string>
     <string name="menu_privacy">Soukromí</string>
     <string name="menu_about">O aplikaci</string>
     <string name="menu_pro">Pro funkce</string>
@@ -134,6 +150,7 @@
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_repeat">Zopakujte heslo</string>
     <string name="title_setup_password_missing">Chybí heslo</string>
+    <string name="title_setup_password_different">Hesla se neshodují</string>
     <string name="title_setup_password_invalid">Heslo není platné</string>
     <string name="title_setup_exported">Nastavení exportována</string>
     <string name="title_setup_imported">Nastavení importována</string>
@@ -186,8 +203,10 @@
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_startup">Zobrazit na úvodní obrazovce</string>
+    <string name="title_advanced_cards">Zobrazit karty</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
+    <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
@@ -509,6 +528,7 @@
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>
     <string name="title_select_all">Vybrat vše</string>
+    <string name="title_force_sync">Vynutit synchronizaci</string>
     <string name="title_previous">Předchozí</string>
     <string name="title_next">Další</string>
     <string name="title_answer_caption">Upravit šablonu</string>
@@ -693,6 +713,9 @@
     <string name="title_debug_info">Ladící Informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím co jste dělali když došlo k pádu aplikace:</string>
+    <string name="title_search_special_unseen">nepřečteno</string>
+    <string name="title_search_special_flagged">hvězdička</string>
+    <string name="title_search_special_snoozed">odloženo</string>
     <string-array name="pollIntervalNames">
         <item>Nepřetržitě</item>
         <item>Každých 15 minut</item>
