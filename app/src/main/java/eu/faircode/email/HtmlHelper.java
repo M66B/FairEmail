@@ -620,15 +620,15 @@ public class HtmlHelper {
         NodeTraversor.traverse(new NodeVisitor() {
             private int qlevel = 0;
             private int tlevel = 0;
+            private boolean nl = true;
 
             public void head(Node node, int depth) {
-                if (node instanceof TextNode) {
+                if (node instanceof TextNode)
                     append(((TextNode) node).text());
-                    append(" ");
-                } else {
+                else {
                     String name = node.nodeName();
                     if ("li".equals(name))
-                        append("* ");
+                        append("*");
                     else if ("blockquote".equals(name))
                         qlevel++;
 
@@ -639,15 +639,11 @@ public class HtmlHelper {
 
             public void tail(Node node, int depth) {
                 String name = node.nodeName();
-                if ("a".equals(name)) {
-                    append("[");
-                    append(node.absUrl("href"));
-                    append("] ");
-                } else if ("img".equals(name)) {
-                    append("[");
-                    append(node.absUrl("src"));
-                    append("] ");
-                } else if ("th".equals(name) || "td".equals(name)) {
+                if ("a".equals(name))
+                    append("[" + node.absUrl("href") + "] ");
+                else if ("img".equals(name))
+                    append("[" + node.absUrl("src") + "] ");
+                else if ("th".equals(name) || "td".equals(name)) {
                     Node next = node.nextSibling();
                     if (next == null || !("th".equals(next.nodeName()) || "td".equals(next.nodeName())))
                         newline();
@@ -663,20 +659,22 @@ public class HtmlHelper {
                     newline();
                     tlevel = qlevel;
                 }
+                if (!nl)
+                    sb.append(" ");
                 sb.append(text);
+                nl = false;
             }
 
             private void newline() {
-                trimEnd(sb);
                 sb.append("\n");
                 for (int i = 0; i < qlevel; i++)
                     sb.append('>');
                 if (qlevel > 0)
                     sb.append(' ');
+                nl = true;
             }
         }, Jsoup.parse(html));
 
-        trimEnd(sb);
         sb.append("\n");
 
         return sb.toString();
@@ -728,13 +726,6 @@ public class HtmlHelper {
         } catch (NumberFormatException ignored) {
             return false;
         }
-    }
-
-    private static void trimEnd(StringBuilder sb) {
-        int length = sb.length();
-        while (length > 0 && sb.charAt(length - 1) == ' ')
-            length--;
-        sb.setLength(length);
     }
 
     static Spanned fromHtml(@NonNull String html) {
