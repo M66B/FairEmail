@@ -885,19 +885,32 @@ public class MessageHelper {
         void downloadAttachment(Context context, EntityAttachment local) throws IOException, MessagingException {
             List<EntityAttachment> remotes = getAttachments();
 
-            // Match attachment by attributes
             // Some servers order attachments randomly
-            boolean found = false;
+            int index = -1;
+
+            // Match attachment by name/cid
             for (int i = 0; i < remotes.size(); i++) {
                 EntityAttachment remote = remotes.get(i);
                 if (Objects.equals(remote.name, local.name) &&
                         Objects.equals(remote.cid, local.cid)) {
-                    found = true;
-                    downloadAttachment(context, i, local);
+                    index = i;
+                    break;
                 }
             }
 
-            if (!found) {
+            // Match attachment by type/size
+            if (index < 0)
+                for (int i = 0; i < remotes.size(); i++) {
+                    EntityAttachment remote = remotes.get(i);
+                    if (remote.name == null && remote.cid == null &&
+                            Objects.equals(remote.type, local.type) &&
+                            Objects.equals(remote.size, local.size)) {
+                        index = i;
+                        break;
+                    }
+                }
+
+            if (index < 0) {
                 Map<String, String> crumb = new HashMap<>();
                 crumb.put("local", local.toString());
                 Log.w("Attachment not found local=" + local);
@@ -909,10 +922,12 @@ public class MessageHelper {
                 Log.breadcrumb("attachments", crumb);
                 throw new IllegalArgumentException("Attachment not found");
             }
+
+            downloadAttachment(context, index, local);
         }
 
         void downloadAttachment(Context context, int index, EntityAttachment local) throws MessagingException, IOException {
-            Log.i("downloading attachment id=" + local.id);
+            Log.i("downloading attachment id=" + local.id + " index=" + index + " " + local);
 
             DB db = DB.getInstance(context);
 
