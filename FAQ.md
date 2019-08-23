@@ -210,6 +210,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(121) How are messages grouped into a conversation?](#user-content-faq121)
 * [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
 * [(123) What does 'force sync'?](#user-content-faq123)
+* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
 
 [I have another question.](#support)
 
@@ -2126,6 +2127,14 @@ FairEmail will wait a fixed time after connectivity changes
 and will use a logarithmic back-off time after failing to connect to an account to prevent from being locked out.
 *Force sync* will reset all timers and restart the synchronization service.
 This should not normally be used.
+
+<br />
+
+<a name="faq124"></a>
+**(124) Why do I get 'Message too large or too complex to display'?**
+
+The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message.
+Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
 
 <br />
 
