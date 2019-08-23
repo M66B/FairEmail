@@ -870,7 +870,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         ? View.VISIBLE : View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
-        bottom_navigation.setVisibility(actionbar ? View.INVISIBLE : View.GONE);
+        bottom_navigation.setVisibility(actionbar && viewType == AdapterMessage.ViewType.THREAD ? View.INVISIBLE : View.GONE);
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
