@@ -114,6 +114,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
+import org.jsoup.select.NodeTraversor;
+import org.jsoup.select.NodeVisitor;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -2235,30 +2237,31 @@ public class FragmentCompose extends FragmentBase {
                         if (usenet) {
                             Document rdoc = Jsoup.parse(refText);
 
-                            Node signature = null;
-                            for (Element e : rdoc.select("*"))
-                                for (Node node : e.childNodes())
+                            List<Node> tbd = new ArrayList<>();
+
+                            NodeTraversor.traverse(new NodeVisitor() {
+                                boolean found = false;
+
+                                public void head(Node node, int depth) {
                                     if (node instanceof TextNode &&
-                                            "--".equals(((TextNode) node).text().trim()) &&
+                                            "-- ".equals(((TextNode) node).getWholeText()) &&
                                             node.nextSibling() != null &&
                                             "br".equals(node.nextSibling().nodeName()))
-                                        signature = node;
-
-                            if (signature != null) {
-                                List<Node> tbd = new ArrayList<>();
-                                tbd.add(signature);
-
-                                Node next = signature.nextSibling();
-                                while (next != null) {
-                                    tbd.add(0, next);
-                                    next = next.nextSibling();
+                                        found = true;
+                                    if (found)
+                                        tbd.add(node);
                                 }
 
-                                for (Node n : tbd)
-                                    n.remove();
+                                public void tail(Node node, int depth) {
+                                    // Do nothing
+                                }
+                            }, rdoc);
 
-                                if (rdoc.body() != null)
-                                    refText = rdoc.body().html();
+                            if (tbd.size() > 0) {
+                                for (Node node : tbd)
+                                    node.remove();
+
+                                refText = (rdoc.body() == null ? "" : rdoc.body().html());
                             }
                         }
 
