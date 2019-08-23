@@ -180,25 +180,8 @@ public class EntityRule {
                 int start = jschedule.optInt("start", 0);
                 int end = jschedule.optInt("end", 0);
 
-                int dstart = start / (24 * 60);
-                int hstart = start / 60 % 24;
-                int mstart = start % 60;
-
-                int dend = end / (24 * 60);
-                int hend = end / 60 % 24;
-                int mend = end % 60;
-
-                Calendar cal_start = Calendar.getInstance();
-                cal_start.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + dstart);
-                cal_start.set(Calendar.HOUR_OF_DAY, hstart);
-                cal_start.set(Calendar.MINUTE, mstart);
-                cal_start.set(Calendar.SECOND, 0);
-
-                Calendar cal_end = Calendar.getInstance();
-                cal_end.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + dend);
-                cal_end.set(Calendar.HOUR_OF_DAY, hend);
-                cal_end.set(Calendar.MINUTE, mend);
-                cal_end.set(Calendar.SECOND, 0);
+                Calendar cal_start = getRelativeCalendar(start);
+                Calendar cal_end = getRelativeCalendar(end);
 
                 if (cal_start.getTimeInMillis() > cal_end.getTimeInMillis())
                     cal_start.add(Calendar.HOUR_OF_DAY, -7 * 24);
@@ -372,15 +355,7 @@ public class EntityRule {
                 throw new IllegalArgumentException("Rule snooze schedule not found");
 
             int end = jschedule.optInt("end", 0);
-            int day = end / (24 * 60);
-            int hour = end / 60 % 24;
-            int minute = end % 60;
-
-            Calendar cal = Calendar.getInstance();
-            cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + day);
-            cal.set(Calendar.HOUR_OF_DAY, hour);
-            cal.set(Calendar.MINUTE, minute);
-            cal.set(Calendar.SECOND, 0);
+            Calendar cal = getRelativeCalendar(end);
             wakeup = cal.getTimeInMillis() + duration * 3600 * 1000L;
         } else
             wakeup = message.received + duration * 3600 * 1000L;
@@ -401,6 +376,25 @@ public class EntityRule {
                 ? jargs.getInt("color") : null);
         EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
         return true;
+    }
+
+    private static Calendar getRelativeCalendar(int minutes) {
+        int d = minutes / (24 * 60);
+        int h = minutes / 60 % 24;
+        int m = minutes % 60;
+
+        Calendar cal = Calendar.getInstance();
+        long now = cal.getTimeInMillis();
+
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + d);
+        if (cal.getTimeInMillis() < now)
+            cal.add(Calendar.HOUR_OF_DAY, 7 * 24);
+
+        cal.set(Calendar.HOUR_OF_DAY, h);
+        cal.set(Calendar.MINUTE, m);
+        cal.set(Calendar.SECOND, 0);
+
+        return cal;
     }
 
     @Override
