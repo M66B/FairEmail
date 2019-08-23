@@ -65,7 +65,6 @@ public class ServiceSend extends ServiceBase {
     private boolean lastSuitable = false;
     private TwoStateOwner cowner;
 
-    private static boolean booted = false;
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
