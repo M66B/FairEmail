@@ -281,6 +281,7 @@
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
+    <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
     <string name="title_advanced_debug_hint">Activer la journalisation supplémentaire et afficher les informations de débogage à différents endroits</string>
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_advanced_never_favorite">Jamais favori</string>

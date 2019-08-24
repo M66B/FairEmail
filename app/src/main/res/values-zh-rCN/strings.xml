@@ -225,6 +225,7 @@
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
     <string name="title_advanced_notify_action_archive">存档</string>
     <string name="title_advanced_notify_action_reply">回复</string>
+    <string name="title_advanced_notify_action_reply_direct">直接回复</string>
     <string name="title_advanced_notify_action_flag">标星</string>
     <string name="title_advanced_notify_action_seen">已读</string>
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
@@ -269,6 +270,7 @@
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
+    <string name="title_advanced_experiments_hint">当前实验功能列表</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>

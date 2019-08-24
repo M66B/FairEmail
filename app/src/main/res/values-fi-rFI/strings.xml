@@ -237,6 +237,7 @@
     <string name="title_advanced_notify_action_trash">Roskakoriin</string>
     <string name="title_advanced_notify_action_archive">Arkistoi</string>
     <string name="title_advanced_notify_action_reply">Vastaa</string>
+    <string name="title_advanced_notify_action_reply_direct">Vastaa</string>
     <string name="title_advanced_notify_action_flag">Lisää tähti</string>
     <string name="title_advanced_notify_action_seen">Lue</string>
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
@@ -281,6 +282,7 @@
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
     <string name="title_advanced_english_hint">Tämä käynnistää sovelluksen uudelleen</string>
+    <string name="title_advanced_experiments_hint">Lista kokeellisista ominaisuuksista</string>
     <string name="title_advanced_debug_hint">Salli ylimääräinen lokitietojen tallennus ja näytä debug-tietoja</string>
     <string name="title_advanced_cleanup_hint">Tämä poistaa kaikki väliaikaiset tiedostot</string>
     <string name="title_advanced_never_favorite">Ei koskaan suosikiksi</string>

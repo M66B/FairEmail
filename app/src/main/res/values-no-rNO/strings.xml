@@ -237,6 +237,7 @@
     <string name="title_advanced_notify_action_trash">Søppel</string>
     <string name="title_advanced_notify_action_archive">Arkiver</string>
     <string name="title_advanced_notify_action_reply">Besvar</string>
+    <string name="title_advanced_notify_action_reply_direct">Direkte svar</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Les</string>
     <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
@@ -250,6 +251,7 @@
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
+    <string name="title_advanced_experiments">Prøv eksperimentelle funksjoner</string>
     <string name="title_advanced_crash_reports">Send feilrapporter</string>
     <string name="title_advanced_debug">Feilsøkingsmodus</string>
     <string name="title_advanced_cleanup">Rydd opp</string>
@@ -280,6 +282,7 @@
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
+    <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funksjoner</string>
     <string name="title_advanced_debug_hint">Aktivere ekstra logging og vis feilsøkingsinformasjon på forskjellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Aldri favoritt</string>
@@ -344,6 +347,7 @@
     <string name="title_identity_delete">Slett denne identiteten permanent?</string>
     <string name="title_edit_html">Rediger som HTML</string>
     <string name="title_last_connected">Sist tilkoblet: %1$s</string>
+    <string name="title_pop3_support">POP3 støttes ikke</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
     <string name="title_synchronize_all">Synkroniser alle meldinger</string>
     <string name="title_synchronize_enabled">Synkroniser</string>

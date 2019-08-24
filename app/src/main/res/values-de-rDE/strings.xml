@@ -236,6 +236,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_notify_action_trash">Löschen</string>
     <string name="title_advanced_notify_action_archive">Archivieren</string>
     <string name="title_advanced_notify_action_reply">Antworten</string>
+    <string name="title_advanced_notify_action_reply_direct">Direktantwort</string>
     <string name="title_advanced_notify_action_flag">Kennzeichnen</string>
     <string name="title_advanced_notify_action_seen">Gelesen</string>
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
@@ -249,6 +250,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
+    <string name="title_advanced_experiments">Versuchen Sie experimentelle Funktionen</string>
     <string name="title_advanced_crash_reports">Fehlerbericht senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_cleanup">Bereinigen</string>
@@ -279,6 +281,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_subscribed_only_hint">Wenn aktiviert, werden alle lokalen Ordner ohne Abonnement gelöscht</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
+    <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
     <string name="title_advanced_debug_hint">Aktiviert zusätzliche Protokollierung und zeigt Fehlerbehebungsinformationen an verschiedenen Stellen an</string>
     <string name="title_advanced_cleanup_hint">Dies löscht alle temporären Dateien</string>
     <string name="title_advanced_never_favorite">Niemals favorisiert</string>
