@@ -98,7 +98,6 @@ public class ServiceSynchronize extends ServiceBase {
     private TupleAccountStats lastStats = new TupleAccountStats();
     private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    private static boolean booted = false;
     private static boolean sync = true;
     private static boolean oneshot = false;
 
@@ -826,7 +825,7 @@ public class ServiceSynchronize extends ServiceBase {
                     });
 
                     for (final EntityFolder folder : folders) {
-                        if (folder.synchronize && !folder.poll && capIdle) {
+                        if (folder.synchronize && !folder.poll && capIdle && sync) {
                             Log.i(account.name + " sync folder " + folder.name);
 
                             db.folder().setFolderState(folder.id, "connecting");
@@ -1186,7 +1185,7 @@ public class ServiceSynchronize extends ServiceBase {
                                 throw new StoreClosedException(iservice.getStore(), "NOOP");
 
                             for (EntityFolder folder : mapFolders.keySet())
-                                if (folder.synchronize)
+                                if (folder.synchronize && mapFolders.get(folder) != null)
                                     if (!folder.poll && capIdle) {
                                         // Sends folder NOOP
                                         if (!mapFolders.get(folder).isOpen())
@@ -1256,7 +1255,7 @@ public class ServiceSynchronize extends ServiceBase {
                     EntityLog.log(this, account.name + " closing");
                     db.account().setAccountState(account.id, "closing");
                     for (EntityFolder folder : mapFolders.keySet())
-                        if (folder.synchronize && !folder.poll)
+                        if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null)
                             db.folder().setFolderState(folder.id, "closing");
 
                     // Close store
@@ -1278,7 +1277,7 @@ public class ServiceSynchronize extends ServiceBase {
 
                     // Update state
                     for (EntityFolder folder : mapFolders.keySet())
-                        if (folder.synchronize && !folder.poll)
+                        if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null)
                             db.folder().setFolderState(folder.id, null);
                 }
 
@@ -1582,7 +1581,7 @@ public class ServiceSynchronize extends ServiceBase {
         int pollInterval = prefs.getInt("poll_interval", 0);
         if (!enabled || pollInterval > 0) {
             ServiceSynchronize.sync = true;
-            oneshot = true;
+            ServiceSynchronize.oneshot = true;
         }
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
@@ -1595,7 +1594,7 @@ public class ServiceSynchronize extends ServiceBase {
         int pollInterval = prefs.getInt("poll_interval", 0);
         if (!enabled || pollInterval > 0) {
             ServiceSynchronize.sync = sync;
-            oneshot = true;
+            ServiceSynchronize.oneshot = true;
             ContextCompat.startForegroundService(context,
                     new Intent(context, ServiceSynchronize.class)
                             .setAction("oneshot_start"));
