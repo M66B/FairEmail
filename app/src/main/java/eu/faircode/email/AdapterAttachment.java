@@ -218,11 +218,11 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private void onShare(EntityAttachment attachment) {
             // https://developer.android.com/reference/android/support/v4/content/FileProvider
             File file = attachment.getFile(context);
-            final Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+            Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
             Log.i("uri=" + uri);
 
             // Build intent
-            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setDataAndType(uri, attachment.type);
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             if (!TextUtils.isEmpty(attachment.name))
