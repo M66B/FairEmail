@@ -211,6 +211,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
 * [(123) What does 'force sync'?](#user-content-faq123)
 * [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
+* [(125) What are the current experimental features?](#user-content-faq125)
 
 [I have another question.](#support)
 
@@ -2136,6 +2137,15 @@ This should not normally be used.
 
 The message *Message too large or too complex to display* will be shown if there are more than 100,000 characters or more than 500 links in a message.
 Reformatting and displaying such messages will take too long. You can try to use the original message view, powered by the browser, instead.
+
+<br />
+
+<a name="faq125"></a>
+**(125) What are the current experimental features?**
+
+The current experimental features are:
+
+* Small, dimmed infinite / timelapse icon at the bottom of the messages to quicly toggle filtering of snoozed messages
 
 <br />
 

@@ -24,6 +24,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,6 +52,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
     private SwitchCompat swExperiments;
+    private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
     private SwitchCompat swDebug;
     private Button btnCleanup;
@@ -86,6 +88,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
         swExperiments = view.findViewById(R.id.swExperiments);
+        tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         swDebug = view.findViewById(R.id.swDebug);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -147,6 +150,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel(Helper.NOTIFICATION_UPDATE);
                 }
+            }
+        });
+
+        tvExperimentsHint.setPaintFlags(tvExperimentsHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvExperimentsHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 125);
             }
         });
 
