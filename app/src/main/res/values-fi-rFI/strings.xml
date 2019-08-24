@@ -250,6 +250,7 @@
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
+    <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_debug">Debug-tila</string>
     <string name="title_advanced_cleanup">Siistiminen</string>
@@ -344,8 +345,7 @@
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
-    <string name="title_pop3_hint">POP3-protokollalla on merkittäviä rajoituksia, joten käytä IMAP:ia mahdollisuuksien mukaan</string>
-    <string name="title_pop3_support">POP3 ei ole tuettu, katso myös usein kysytyt kysymykset</string>
+    <string name="title_pop3_support">POP3 ei ole tuettu</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_all">Synkronoi kaikki viestit</string>
     <string name="title_synchronize_enabled">Synkronoi</string>

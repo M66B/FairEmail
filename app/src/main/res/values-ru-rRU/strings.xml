@@ -366,8 +366,7 @@
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
-    <string name="title_pop3_hint">POP3 имеет значительные ограничения, поэтому используйте IMAP, когда это возможно</string>
-    <string name="title_pop3_support">POP3 не поддерживается, см. также FAQ</string>
+    <string name="title_pop3_support">POP3 не поддерживается</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_synchronize_all">Синхронизировать все сообщения</string>
     <string name="title_synchronize_enabled">Синхронизировать</string>

@@ -340,8 +340,6 @@
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
-    <string name="title_pop3_hint">POP3 har markante begrænsninger, så brug IMAP hvor det er muligt</string>
-    <string name="title_pop3_support">POP3 er ikke understøttet, se også FAQ\'en</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
     <string name="title_synchronize_all">Synkronisér alle beskeder</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>

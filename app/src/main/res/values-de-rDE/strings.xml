@@ -343,8 +343,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
-    <string name="title_pop3_hint">POP3 hat erhebliche Einschränkungen, daher verwenden Sie bitte IMAP, falls möglich</string>
-    <string name="title_pop3_support">POP3 wird nicht unterstützt, siehe auch die FAQ</string>
+    <string name="title_pop3_support">POP3 wird nicht unterstützt</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_all">Alle Nachrichten synchronisieren</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>

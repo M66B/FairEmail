@@ -326,8 +326,6 @@
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
-    <string name="title_pop3_hint">POP3\'ün önemli sınırlamaları var, mümkünse IMAP kullanın</string>
-    <string name="title_pop3_support">POP3 desteklenmiyor, ayrıca SSS bölümüne bakınız</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
     <string name="title_synchronize_all">Tüm iletileri eşzamanla</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>

@@ -329,8 +329,6 @@
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última vez conectado: %1$s</string>
-    <string name="title_pop3_hint">POP3 tem limitações significativas, então use IMAP sempre que possível</string>
-    <string name="title_pop3_support">POP3 não é suportado, veja também o FAQ</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
     <string name="title_synchronize_all">Sincronizar todas as mensagens</string>
     <string name="title_synchronize_enabled">Sincronizar</string>

@@ -250,6 +250,7 @@
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
+    <string name="title_advanced_experiments">Probeer experimentele functies</string>
     <string name="title_advanced_crash_reports">Foutrapporten verzenden</string>
     <string name="title_advanced_debug">Foutopsporing modus</string>
     <string name="title_advanced_cleanup">Opruimen</string>
@@ -280,6 +281,7 @@
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_subscribed_only_hint">Dit inschakelen zal alle lokale mappen zonder abonnement verwijderen</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
+    <string name="title_advanced_experiments_hint">Lijst van huidige experimentele functies</string>
     <string name="title_advanced_debug_hint">Extra logging inschakelen en debug informatie tonen op verschillende plaatsen</string>
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
     <string name="title_advanced_never_favorite">Nooit favoriet</string>
@@ -344,8 +346,7 @@
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_edit_html">Bewerk HTML</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
-    <string name="title_pop3_hint">POP3 heeft aanzienlijke beperkingen, dus gebruik IMAP indien mogelijk</string>
-    <string name="title_pop3_support">POP3 wordt niet ondersteund, zie ook de FAQ</string>
+    <string name="title_pop3_support">POP wordt niet ondersteund</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_synchronize_all">Alle berichten synchroniseren</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>
