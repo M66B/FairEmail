@@ -50,6 +50,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
     private SwitchCompat swUpdates;
+    private SwitchCompat swExperiments;
     private SwitchCompat swCrashReports;
     private SwitchCompat swDebug;
     private Button btnCleanup;
@@ -62,7 +63,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpDebug;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "double_back", "biometrics_timeout", "english", "watchdog", "updates", "crash_reports", "debug"
+            "double_back", "biometrics_timeout", "english", "watchdog", "updates", "experiments", "crash_reports", "debug"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -84,6 +85,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swUpdates = view.findViewById(R.id.swUpdates);
+        swExperiments = view.findViewById(R.id.swExperiments);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         swDebug = view.findViewById(R.id.swDebug);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -145,6 +147,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     NotificationManager nm = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
                     nm.cancel(Helper.NOTIFICATION_UPDATE);
                 }
+            }
+        });
+
+        swExperiments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("experiments", checked).apply();
             }
         });
 
@@ -270,6 +279,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swUpdates.setVisibility(
                 Helper.isPlayStoreInstall(getContext()) || !Helper.hasValidFingerprint(getContext())
                         ? View.GONE : View.VISIBLE);
+        swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
         swDebug.setChecked(prefs.getBoolean("debug", false));
 
