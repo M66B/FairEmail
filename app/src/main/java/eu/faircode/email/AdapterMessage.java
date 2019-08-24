@@ -2403,7 +2403,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Document document = Jsoup.parse(body);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean inline = prefs.getBoolean("inline_images", true);
+                boolean inline = prefs.getBoolean("inline_images", false);
 
                 boolean has_images = false;
                 for (Element img : document.select("img")) {
@@ -3743,7 +3743,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean inline = prefs.getBoolean("inline_images", true);
+            boolean inline = prefs.getBoolean("inline_images", false);
             boolean autocontent = prefs.getBoolean("autocontent", false);
 
             setupWebView(webView);
