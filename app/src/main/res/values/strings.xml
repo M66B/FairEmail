@@ -276,6 +276,7 @@
     <string name="title_advanced_notify_action_trash">Trash</string>
     <string name="title_advanced_notify_action_archive">Archive</string>
     <string name="title_advanced_notify_action_reply">Reply</string>
+    <string name="title_advanced_notify_action_reply_direct">Direct reply</string>
     <string name="title_advanced_notify_action_flag">Star</string>
     <string name="title_advanced_notify_action_seen">Read</string>
     <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>

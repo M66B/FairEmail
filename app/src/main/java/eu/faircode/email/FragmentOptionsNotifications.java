@@ -56,6 +56,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionTrash;
     private CheckBox cbNotifyActionArchive;
     private CheckBox cbNotifyActionReply;
+    private CheckBox cbNotifyActionReplyDirect;
     private CheckBox cbNotifyActionFlag;
     private CheckBox cbNotifyActionSeen;
     private TextView tvNotifyActionsPro;
@@ -70,7 +71,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     private final static String[] RESET_OPTIONS = new String[]{
             "badge", "unseen_ignored",
-            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_flag", "notify_seen", "biometrics_notify",
+            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_reply_direct", "notify_flag", "notify_seen", "biometrics_notify",
             "light", "sound"
     };
 
@@ -90,6 +91,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionTrash = view.findViewById(R.id.cbNotifyActionTrash);
         cbNotifyActionArchive = view.findViewById(R.id.cbNotifyActionArchive);
         cbNotifyActionReply = view.findViewById(R.id.cbNotifyActionReply);
+        cbNotifyActionReplyDirect = view.findViewById(R.id.cbNotifyActionReplyDirect);
         cbNotifyActionFlag = view.findViewById(R.id.cbNotifyActionFlag);
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
         tvNotifyActionsPro = view.findViewById(R.id.tvNotifyActionsPro);
@@ -150,6 +152,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
                 prefs.edit().putBoolean("notify_reply", checked).apply();
+            }
+        });
+
+        cbNotifyActionReplyDirect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                prefs.edit().putBoolean("notify_reply_direct", checked).apply();
             }
         });
 
@@ -273,6 +282,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);
         cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true) || !pro);
         cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false) && pro);
+        cbNotifyActionReplyDirect.setChecked(prefs.getBoolean("notify_reply_direct", false) && pro);
         cbNotifyActionFlag.setChecked(prefs.getBoolean("notify_flag", false) && pro);
         cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true) || !pro);
 

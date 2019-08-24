@@ -24,20 +24,30 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.RemoteInput;
 import androidx.preference.PreferenceManager;
 
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 public class ServiceUI extends IntentService {
     static final int PI_CLEAR = 1;
     static final int PI_TRASH = 2;
     static final int PI_ARCHIVE = 3;
-    static final int PI_FLAG = 4;
-    static final int PI_SEEN = 5;
-    static final int PI_IGNORED = 6;
-    static final int PI_SNOOZED = 7;
+    static final int PI_REPLY_DIRECT = 4;
+    static final int PI_FLAG = 5;
+    static final int PI_SEEN = 6;
+    static final int PI_IGNORED = 7;
+    static final int PI_SNOOZED = 8;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -74,47 +84,58 @@ public class ServiceUI extends IntentService {
         if (action == null)
             return;
 
-        String[] parts = action.split(":");
-        long id = (parts.length > 1 ? Long.parseLong(parts[1]) : -1);
+        try {
+            String[] parts = action.split(":");
+            long id = (parts.length > 1 ? Long.parseLong(parts[1]) : -1);
+            String group = intent.getStringExtra("group");
 
-        switch (parts[0]) {
-            case "clear":
-                onClear();
-                break;
+            switch (parts[0]) {
+                case "clear":
+                    onClear();
+                    break;
 
-            case "trash":
-                cancel(intent.getStringExtra("group"), id);
-                onTrash(id);
-                break;
+                case "trash":
+                    cancel(group, id);
+                    onTrash(id);
+                    break;
 
-            case "archive":
-                cancel(intent.getStringExtra("group"), id);
-                onArchive(id);
-                break;
+                case "archive":
+                    cancel(group, id);
+                    onArchive(id);
+                    break;
 
-            case "flag":
-                cancel(intent.getStringExtra("group"), id);
-                onFlag(id);
-                break;
+                case "reply":
+                    onReplyDirect(id, intent);
+                    cancel(group, id);
+                    onSeen(id);
+                    break;
 
-            case "seen":
-                cancel(intent.getStringExtra("group"), id);
-                onSeen(id);
-                break;
+                case "flag":
+                    cancel(group, id);
+                    onFlag(id);
+                    break;
 
-            case "ignore":
-                onIgnore(id);
-                break;
+                case "seen":
+                    cancel(group, id);
+                    onSeen(id);
+                    break;
 
-            case "snooze":
-                // AlarmManager.RTC_WAKEUP
-                // When the alarm is dispatched, the app will also be added to the system's temporary whitelist
-                // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
-                // https://developer.android.com/reference/android/app/AlarmManager
-                onSnooze(id);
-                break;
-            default:
-                Log.w("Unknown action: " + parts[0]);
+                case "ignore":
+                    onIgnore(id);
+                    break;
+
+                case "snooze":
+                    // AlarmManager.RTC_WAKEUP
+                    // When the alarm is dispatched, the app will also be added to the system's temporary whitelist
+                    // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
+                    // https://developer.android.com/reference/android/app/AlarmManager
+                    onSnooze(id);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unknown UI action: " + parts[0]);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 
@@ -162,6 +183,67 @@ public class ServiceUI extends IntentService {
             }
 
             db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    private void onReplyDirect(long id, Intent intent) throws IOException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean prefix_once = prefs.getBoolean("prefix_once", true);
+        boolean plain_only = prefs.getBoolean("plain_only", false);
+
+        Bundle results = RemoteInput.getResultsFromIntent(intent);
+        String text = results.getString("text");
+
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            EntityMessage ref = db.message().getMessage(id);
+            if (ref == null)
+                throw new IllegalArgumentException("message not found");
+
+            EntityIdentity identity = db.identity().getIdentity(ref.identity);
+            if (identity == null)
+                throw new IllegalArgumentException("identity not found");
+
+            EntityFolder outbox = db.folder().getOutbox();
+            if (outbox == null)
+                throw new IllegalArgumentException("outbox not found");
+
+            String subject = (ref.subject == null ? "" : ref.subject);
+            if (prefix_once) {
+                String re = getString(R.string.title_subject_reply, "");
+                subject = subject.replaceAll("(?i)" + Pattern.quote(re.trim()), "").trim();
+            }
+
+            EntityMessage reply = new EntityMessage();
+            reply.account = identity.account;
+            reply.folder = outbox.id;
+            reply.identity = identity.id;
+            reply.msgid = EntityMessage.generateMessageId();
+            reply.inreplyto = ref.msgid;
+            reply.thread = ref.thread;
+            reply.to = ref.from;
+            reply.from = new Address[]{new InternetAddress(identity.email, identity.name)};
+            reply.subject = getString(R.string.title_subject_reply, subject);
+            reply.received = new Date().getTime();
+            reply.seen = true;
+            reply.ui_seen = true;
+            reply.id = db.message().insertMessage(reply);
+            Helper.writeText(reply.getFile(this), text);
+            db.message().setMessageContent(reply.id,
+                    true,
+                    plain_only || ref.plain_only,
+                    HtmlHelper.getPreview(text),
+                    null);
+
+            EntityOperation.queue(this, reply, EntityOperation.SEND);
+
+            db.setTransactionSuccessful();
+
+            ToastEx.makeText(this, R.string.title_queued, Toast.LENGTH_LONG).show();
         } finally {
             db.endTransaction();
         }

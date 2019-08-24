@@ -35,6 +35,7 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.RemoteInput;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.iap.BadCommandException;
@@ -2080,6 +2081,7 @@ class Core {
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
         boolean notify_archive = (prefs.getBoolean("notify_archive", true) || !pro);
         boolean notify_reply = (prefs.getBoolean("notify_reply", false) && pro);
+        boolean notify_reply_direct = (prefs.getBoolean("notify_reply_direct", false) && pro);
         boolean notify_flag = (prefs.getBoolean("notify_flag", false) && flags && pro);
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
         boolean light = prefs.getBoolean("light", false);
@@ -2276,6 +2278,25 @@ class Core {
                         R.drawable.baseline_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply),
                         piReply);
+                mbuilder.addAction(actionReply.build());
+            }
+
+            if (notify_reply_direct &&
+                    message.content &&
+                    message.identity != null &&
+                    message.from != null && message.from.length > 0 &&
+                    db.folder().getOutbox() != null) {
+                Intent reply = new Intent(context, ServiceUI.class)
+                        .setAction("reply:" + message.id)
+                        .putExtra("group", group);
+                PendingIntent piReply = PendingIntent.getService(context, ServiceUI.PI_REPLY_DIRECT, reply, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_reply_24,
+                        context.getString(R.string.title_advanced_notify_action_reply_direct),
+                        piReply);
+                RemoteInput.Builder input = new RemoteInput.Builder("text")
+                        .setLabel(context.getString(R.string.title_advanced_notify_action_reply));
+                actionReply.addRemoteInput(input.build()).setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionReply.build());
             }
 

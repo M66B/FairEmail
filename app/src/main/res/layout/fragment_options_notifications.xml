@@ -118,13 +118,22 @@
                 app:layout_constraintTop_toBottomOf="@id/cbNotifyActionArchive" />
 
             <CheckBox
+                android:id="@+id/cbNotifyActionReplyDirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/title_advanced_notify_action_reply_direct"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReply" />
+
+            <CheckBox
                 android:id="@+id/cbNotifyActionFlag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="@string/title_advanced_notify_action_flag"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReply" />
+                app:layout_constraintTop_toBottomOf="@id/cbNotifyActionReplyDirect" />
 
             <CheckBox
                 android:id="@+id/cbNotifyActionSeen"
