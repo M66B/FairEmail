@@ -250,7 +250,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
-    <string name="title_advanced_experiments">Versuchen Sie experimentelle Funktionen</string>
+    <string name="title_advanced_experiments">Experimentelle Funktionen ermöglichen</string>
     <string name="title_advanced_crash_reports">Fehlerbericht senden</string>
     <string name="title_advanced_debug">Debugmodus</string>
     <string name="title_advanced_cleanup">Bereinigen</string>

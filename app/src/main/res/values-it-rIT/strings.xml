@@ -236,6 +236,7 @@
     <string name="title_advanced_notify_action_trash">Cestino</string>
     <string name="title_advanced_notify_action_archive">Archivio</string>
     <string name="title_advanced_notify_action_reply">Rispondi</string>
+    <string name="title_advanced_notify_action_reply_direct">Risposta diretta</string>
     <string name="title_advanced_notify_action_flag">Stella</string>
     <string name="title_advanced_notify_action_seen">Letto</string>
     <string name="title_advanced_biometrics_notify">Mostra il contenuto delle notifiche quando si utilizza l\'autenticazione biometrica</string>
@@ -249,6 +250,7 @@
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
+    <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_crash_reports">Invia rapporti di errore</string>
     <string name="title_advanced_debug">Debug</string>
     <string name="title_advanced_cleanup">Pulizia</string>
@@ -279,6 +281,7 @@
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_advanced_subscribed_only_hint">Abilitando questa opzione verranno eliminate tutte le cartelle locali senza abbonamento</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
+    <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
     <string name="title_advanced_debug_hint">Abilita il log extra e mostra le informazioni di debug in vari luoghi</string>
     <string name="title_advanced_cleanup_hint">Questo cancellerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
@@ -343,6 +346,7 @@
     <string name="title_identity_delete">Eliminare questa identità permanentemente?</string>
     <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_last_connected">Ultima connessione:%1$s</string>
+    <string name="title_pop3_support">POP3 non è supportato</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_all">Sincronizza tutti i messaggi</string>
     <string name="title_synchronize_enabled">Sincronizza</string>

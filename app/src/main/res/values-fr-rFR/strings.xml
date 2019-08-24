@@ -237,6 +237,7 @@
     <string name="title_advanced_notify_action_trash">Supprimer</string>
     <string name="title_advanced_notify_action_archive">Archiver</string>
     <string name="title_advanced_notify_action_reply">Répondre</string>
+    <string name="title_advanced_notify_action_reply_direct">Répondre directement</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
