@@ -195,6 +195,8 @@ public class ServiceUI extends IntentService {
 
         Bundle results = RemoteInput.getResultsFromIntent(intent);
         String text = results.getString("text");
+        if (text != null)
+            text = "<p>" + text.replaceAll("\\r?\\n", "<br>") + "</p>";
 
         DB db = DB.getInstance(this);
         try {
