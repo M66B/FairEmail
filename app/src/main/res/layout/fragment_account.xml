@@ -115,7 +115,7 @@
                 android:layout_marginTop="6dp"
                 android:text="@string/title_pop3_support"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
+                android:textColor="?android:attr/textColorLink"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvImap" />
 

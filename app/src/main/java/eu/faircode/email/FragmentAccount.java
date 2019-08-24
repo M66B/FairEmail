@@ -23,6 +23,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -83,6 +84,7 @@ public class FragmentAccount extends FragmentBase {
     private Button btnAutoConfig;
     private ContentLoadingProgressBar pbAutoConfig;
 
+    private TextView tvPopSupport;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -175,6 +177,7 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
         pbAutoConfig = view.findViewById(R.id.pbAutoConfig);
 
+        tvPopSupport = view.findViewById(R.id.tvPopSupport);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
@@ -266,6 +269,14 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        tvPopSupport.setPaintFlags(tvPopSupport.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPopSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 11);
             }
         });
 
