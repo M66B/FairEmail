@@ -3098,7 +3098,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long id = args.getLong("id");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean inline_images = prefs.getBoolean("inline_images", false);
+                boolean inline_images = prefs.getBoolean("inline_images", true);
 
                 DB db = DB.getInstance(context);
                 try {
