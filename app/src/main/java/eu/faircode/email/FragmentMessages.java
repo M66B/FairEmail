@@ -856,7 +856,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         addBackPressedListener(onBackPressedListener);
 
         // Initialize
-
         if (cards && !Helper.isDarkTheme(getContext()))
             view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
 
@@ -864,10 +863,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         seekBar.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
-        ibSnoozed.setVisibility(
-                BuildConfig.DEBUG &&
-                        (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
-                        ? View.VISIBLE : View.GONE);
+        ibSnoozed.setVisibility(View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
         bottom_navigation.setVisibility(actionbar && viewType == AdapterMessage.ViewType.THREAD ? View.INVISIBLE : View.GONE);
@@ -2438,6 +2434,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String sort = prefs.getString("sort", "time");
+        boolean filter_seen = prefs.getBoolean("filter_seen", false);
+        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+        boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
+        boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
+        boolean compact = prefs.getBoolean("compact", false);
+        boolean experiments = prefs.getBoolean("experiments", false);
 
         menu.findItem(R.id.menu_search).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
@@ -2450,7 +2453,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_sort_on).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
-        String sort = prefs.getString("sort", "time");
         if ("time".equals(sort))
             menu.findItem(R.id.menu_sort_on_time).setChecked(true);
         else if ("unread".equals(sort))
@@ -2471,18 +2473,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter_unflagged).setVisible(viewType != AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_snoozed).setVisible(viewType != AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
-        menu.findItem(R.id.menu_filter_seen).setChecked(prefs.getBoolean("filter_seen", false));
-        menu.findItem(R.id.menu_filter_unflagged).setChecked(prefs.getBoolean("filter_unflagged", false));
-        menu.findItem(R.id.menu_filter_snoozed).setChecked(prefs.getBoolean("filter_snoozed", true));
-        menu.findItem(R.id.menu_filter_duplicates).setChecked(prefs.getBoolean("filter_duplicates", false));
+        menu.findItem(R.id.menu_filter_seen).setChecked(filter_seen);
+        menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
+        menu.findItem(R.id.menu_filter_snoozed).setChecked(filter_snoozed);
+        menu.findItem(R.id.menu_filter_duplicates).setChecked(filter_duplicates);
 
-        menu.findItem(R.id.menu_compact).setChecked(prefs.getBoolean("compact", false));
+        menu.findItem(R.id.menu_compact).setChecked(compact);
 
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
         menu.findItem(R.id.menu_empty_trash).setVisible(trash);
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
+
+        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_all_inclusive_24 : R.drawable.baseline_timelapse_24);
+        ibSnoozed.setVisibility(experiments &&
+                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
+                ? View.VISIBLE : View.GONE);
 
         super.onPrepareOptionsMenu(menu);
     }
