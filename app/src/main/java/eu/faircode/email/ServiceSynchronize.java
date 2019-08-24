@@ -34,6 +34,7 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.service.notification.StatusBarNotification;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.AlarmManagerCompat;
@@ -165,8 +166,30 @@ public class ServiceSynchronize extends ServiceBase {
             }
         });
 
+        Map<String, List<Long>> groupNotifying = new HashMap<>();
+
+        // Get existing notifications
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            for (StatusBarNotification sbn : nm.getActiveNotifications()) {
+                String tag = sbn.getTag();
+                if (tag != null && tag.startsWith("unseen.")) {
+                    String[] p = tag.split(("\\."));
+                    String group = p[1];
+                    long id = Long.parseLong(p[2]);
+
+                    if (!groupNotifying.containsKey(group))
+                        groupNotifying.put(group, new ArrayList<>());
+
+                    if (id > 0) {
+                        Log.i("Notify restore " + tag);
+                        groupNotifying.get(group).add(id);
+                    }
+                }
+            }
+        }
+
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
-            private Map<String, List<Long>> groupNotifying = new HashMap<>();
             private ExecutorService executor =
                     Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 

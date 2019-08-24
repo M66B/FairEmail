@@ -1967,8 +1967,11 @@ class Core {
                 groupMessages.put(group, new ArrayList<TupleMessageEx>());
             }
 
-            if (message.notifying != 0)
-                groupNotifying.get(group).add(message.id * message.notifying);
+            if (message.notifying != 0) {
+                long id = message.id * message.notifying;
+                if (!groupNotifying.get(group).contains(id))
+                    groupNotifying.get(group).add(id);
+            }
 
             if (!(message.ui_seen || message.ui_ignored || message.ui_hide != 0)) {
                 // This assumes the messages are properly ordered
@@ -2050,6 +2053,8 @@ class Core {
                 }
             }
         }
+
+        groupNotifying.clear();
     }
 
     private static List<Notification> getNotificationUnseen(Context context, String group, List<TupleMessageEx> messages) {
