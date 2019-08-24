@@ -3195,9 +3195,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 fragment.setArguments(nargs);
 
                 int res = (pane ? R.id.content_pane : R.id.content_frame);
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(res, fragment).addToBackStack("thread");
-                fragmentTransaction.commit();
+                if (getActivity() != null && getActivity().findViewById(res) != null) {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(res, fragment).addToBackStack("thread");
+                    fragmentTransaction.commit();
+                }
             }
 
             @Override
