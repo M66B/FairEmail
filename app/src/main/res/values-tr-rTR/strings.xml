@@ -19,6 +19,10 @@
         <item quantity="one">Sohbet</item>
         <item quantity="other">Sohbetler</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">İleti</item>
+        <item quantity="other">İletiler</item>
+    </plurals>
     <string name="page_folders">Klasörler</string>
     <string name="page_compose">Eposta Oluştur</string>
     <string name="tile_synchronize">Eşzamanlama</string>
@@ -645,6 +649,7 @@
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_hint_image_link">Görsel bağlantısı</string>
     <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Seçenekler için uzun basın</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_secure_link">Bağlantıyı güvenli hale getir</string>
     <string name="title_link_secured">Bağlantı güvenli</string>

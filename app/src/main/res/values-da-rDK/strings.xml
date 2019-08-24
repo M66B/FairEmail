@@ -176,6 +176,7 @@
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_sync_subscribed">Synkronisér kun abonnerede mapper</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
+    <string name="title_advanced_suggest_local">Foreslår lokalt lagrede kontakter</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
@@ -257,6 +258,7 @@
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og forbruge ekstra strøm, især hvis der er mange beskeder lagret på enheden</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering af dette reducerer data- og strømforbruget noget, men deaktiverer også mappelisteopdatering</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
+    <string name="title_advanced_suggest_local_hint">Ud over kontakter leveret af Android</string>
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering af denne indstilling vil ikke gøre det muligt at modtage og sende meddelelser på mobildataforbindelser</string>

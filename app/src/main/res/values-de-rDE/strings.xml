@@ -176,6 +176,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_subscriptions">Ihre Abonnements verwalten</string>
     <string name="title_advanced_sync_subscribed">Nur abonnierte Ordner synchronisieren</string>
     <string name="title_advanced_keyboard">Tastatur immer anzeigen</string>
+    <string name="title_advanced_suggest_local">Lokal gespeicherte Kontakte vorschlagen</string>
     <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden</string>
     <string name="title_advanced_usenet_signature">Usenet Signatur-Konvention</string>
@@ -260,6 +261,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_sync_folders_hint">Wenn Sie dies deaktivieren, wird der Daten- und Akkubedarf etwas reduziert, aber auch die Aktualisierung der Ordnerliste deaktiviert.</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
+    <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten</string>
     <string name="title_advanced_lookup_mx_hint">Dies wird überprüfen, ob DNS MX-Einträge existieren</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte Wi-Fi Hotspots</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>

@@ -176,6 +176,7 @@
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_sync_subscribed">Sincronizza solo le cartelle sottoscritte</string>
     <string name="title_advanced_keyboard">Mostra tastiera di default</string>
+    <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_plain_only">Invia testo semplice solo per impostazione predefinita</string>
     <string name="title_advanced_usenet_signature">Convenzione firma Usenet</string>
@@ -260,6 +261,7 @@
     <string name="title_advanced_sync_kept_hint">Questo trasferirà dati aggiuntivi e consumerà energia batteria extra, specialmente se molti messaggi vengono memorizzati sul dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Disabilitando questa opzione si ridurranno in qualche modo i dati e l\'utilizzo della batteria, ma disattiverà anche l\'aggiornamento della lista delle cartelle</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
+    <string name="title_advanced_suggest_local_hint">Oltre ai contatti forniti da Android</string>
     <string name="title_advanced_lookup_mx_hint">Questo controllerà se esistono record DNS MX</string>
     <string name="title_advanced_metered_hint">Le connessioni a consumo sono generalmente connessioni mobili o hotspot Wi-Fi a pagamento</string>
     <string name="title_advanced_metered_warning">Disabilitando questa opzione disattiverai la ricezione e l\'invio di messaggi sulle connessioni internet mobili</string>

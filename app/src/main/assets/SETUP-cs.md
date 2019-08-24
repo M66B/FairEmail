@@ -1,6 +1,6 @@
-# Setup help
+# Nápověda k nastavení
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Nastavení FairEmailu je poměrně jednoduché. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Požadavky
 
