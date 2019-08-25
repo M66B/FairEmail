@@ -318,6 +318,9 @@ public class ServiceSend extends ServiceBase {
         if (ident == null)
             throw new IllegalArgumentException("Identity not found");
 
+        if (!message.content)
+            throw new IllegalArgumentException("Message body missing");
+
         // Create message
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
