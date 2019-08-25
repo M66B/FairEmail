@@ -166,7 +166,7 @@ It is expected that you can solve build problems yourself, so there is no suppor
 Source code contributions are preferred in the form of [pull requests](https://help.github.com/articles/creating-a-pull-request/).
 Please [contact me](https://contact.faircode.eu/?product=other) first to tell me what your plans are.
 
-Please note that you agree to the license below by contributing, including the copyright.
+Please note that by contributing you agree to the license below, including the copyright, without any additional terms or conditions.
 
 ## Attribution
 
