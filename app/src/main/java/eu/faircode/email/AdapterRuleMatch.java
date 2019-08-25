@@ -46,6 +46,7 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
 
     private List<EntityMessage> items = new ArrayList<>();
 
+    private DateFormat D;
     private DateFormat DTF;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,7 +69,7 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
         }
 
         private void bindTo(EntityMessage message) {
-            tvTime.setText(DTF.format(message.received));
+            tvTime.setText(D.format(message.received) + " " + DTF.format(message.received));
             tvSubject.setText(message.subject);
         }
     }
@@ -78,6 +79,7 @@ public class AdapterRuleMatch extends RecyclerView.Adapter<AdapterRuleMatch.View
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
 
+        this.D = new SimpleDateFormat("E");
         this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
 
         setHasStableIds(true);
