@@ -3010,7 +3010,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
-        this.name_email = prefs.getBoolean("name_email", !compact);
+        this.name_email = prefs.getBoolean("name_email", false);
         this.subject_top = prefs.getBoolean("subject_top", false);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.flags = prefs.getBoolean("flags", true);
@@ -3064,9 +3064,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     void setCompact(boolean compact) {
         if (this.compact != compact) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             this.compact = compact;
-            this.name_email = prefs.getBoolean("name_email", !compact);
             notifyDataSetChanged();
         }
     }
