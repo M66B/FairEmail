@@ -1168,7 +1168,8 @@ class Core {
                                 else
                                     sb.append(range.first).append(':').append(range.second);
                             }
-                            Response[] responses = protocol.command("UID FETCH " + sb + " (UID FLAGS)", null);
+                            String command = "UID FETCH " + sb + " (UID FLAGS)";
+                            Response[] responses = protocol.command(command, null);
 
                             if (responses.length > 0 && responses[responses.length - 1].isOK()) {
                                 for (Response response : responses)
