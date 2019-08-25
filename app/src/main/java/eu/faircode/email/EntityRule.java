@@ -180,8 +180,8 @@ public class EntityRule {
                 int start = jschedule.optInt("start", 0);
                 int end = jschedule.optInt("end", 0);
 
-                Calendar cal_start = getRelativeCalendar(start);
-                Calendar cal_end = getRelativeCalendar(end);
+                Calendar cal_start = getRelativeCalendar(start, message.received);
+                Calendar cal_end = getRelativeCalendar(end, message.received);
 
                 if (cal_start.getTimeInMillis() > cal_end.getTimeInMillis())
                     cal_start.add(Calendar.HOUR_OF_DAY, -7 * 24);
@@ -355,7 +355,7 @@ public class EntityRule {
                 throw new IllegalArgumentException("Rule snooze schedule not found");
 
             int end = jschedule.optInt("end", 0);
-            Calendar cal = getRelativeCalendar(end);
+            Calendar cal = getRelativeCalendar(end, message.received);
             wakeup = cal.getTimeInMillis() + duration * 3600 * 1000L;
         } else
             wakeup = message.received + duration * 3600 * 1000L;
@@ -378,16 +378,18 @@ public class EntityRule {
         return true;
     }
 
-    private static Calendar getRelativeCalendar(int minutes) {
+    private static Calendar getRelativeCalendar(int minutes, long reference) {
         int d = minutes / (24 * 60);
         int h = minutes / 60 % 24;
         int m = minutes % 60;
 
         Calendar cal = Calendar.getInstance();
-        long now = cal.getTimeInMillis();
+        if (reference > cal.getTimeInMillis() - 7 * 24 * 3600 * 1000L)
+            cal.setTimeInMillis(reference);
+        long time = cal.getTimeInMillis();
 
         cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + d);
-        if (cal.getTimeInMillis() < now)
+        if (cal.getTimeInMillis() < time)
             cal.add(Calendar.HOUR_OF_DAY, 7 * 24);
 
         cal.set(Calendar.HOUR_OF_DAY, h);
