@@ -202,6 +202,10 @@ public class Log {
         config.beforeSend(new BeforeSend() {
             @Override
             public boolean run(@NonNull Report report) {
+                boolean crash_reports = prefs.getBoolean("crash_reports", false); // opt-in
+                if (!crash_reports)
+                    return false;
+
                 int count = prefs.getInt("crash_report_count", 0);
                 count++;
                 prefs.edit().putInt("crash_report_count", count).apply();
@@ -237,7 +241,7 @@ public class Log {
                                 ex.getMessage().startsWith("https://autoconfig.thunderbird.net/")))
                     return false;
 
-                return prefs.getBoolean("crash_reports", false); // opt-in
+                return true;
             }
         });
 
