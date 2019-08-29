@@ -214,6 +214,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
 * [(125) What are the current experimental features?](#user-content-faq125)
 * [(126) What does 'User is authenticated but not connected' mean?](#user-content-faq126)
+* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 
 [I have another question.](#support)
 
@@ -2159,6 +2160,12 @@ This message in fact means that the password was invalid, likely because it was 
 
 <br />
 
+<a name="faq127"></a>
+**(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
+
+You can likely fix the error *Syntactically invalid HELO argument(s)* by disabling the advanced indentity option *Use local IP address instead of host name*.
+
+<br />
 
 ## Support
 
