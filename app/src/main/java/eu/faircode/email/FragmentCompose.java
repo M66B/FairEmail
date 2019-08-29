@@ -1697,10 +1697,18 @@ public class FragmentCompose extends FragmentBase {
 
         SpannableString ss = new SpannableString(etBody.getText());
 
-        for (URLSpan span : ss.getSpans(start, end, URLSpan.class))
+        List<Object> spans = new ArrayList<>();
+        for (Object span : ss.getSpans(start, end, Object.class)) {
+            if (!(span instanceof URLSpan))
+                spans.add(span);
             ss.removeSpan(span);
+        }
 
         ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        for (Object span : spans)
+            ss.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         etBody.setText(ss);
         etBody.setSelection(end, end);
     }
