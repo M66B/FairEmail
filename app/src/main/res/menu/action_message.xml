@@ -23,6 +23,6 @@
 
     <item
         android:id="@+id/action_reply"
-        android:icon="@drawable/baseline_reply_24"
+        android:icon="@drawable/baseline_reply_all_24"
         android:title="@string/title_reply" />
 </menu>
