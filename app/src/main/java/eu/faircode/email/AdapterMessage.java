@@ -809,7 +809,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (viewType == ViewType.THREAD) {
                 if (expanded)
-                    bindExpanded(message);
+                    bindExpanded(message, false);
                 else {
                     clearExpanded(message);
                     properties.setBody(message.id, null);
@@ -908,7 +908,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             //tvFrom.setText(info.getDisplayName(name_email));
         }
 
-        private void bindExpanded(final TupleMessageEx message) {
+        private void bindExpanded(final TupleMessageEx message, boolean scroll) {
             DB db = DB.getInstance(context);
 
             boolean show_addresses = !properties.getValue("addresses", message.id);
@@ -1048,7 +1048,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
                     bindAttachments(message, attachments);
-                    loadText(message);
+                    loadText(message, false);
                 }
             });
 
@@ -1134,7 +1134,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBody.setMovementMethod(null);
             tvBody.setVisibility(View.VISIBLE);
 
-            loadText(message);
+            if (scroll && body != null) {
+                properties.scrollTo(getAdapterPosition());
+                scroll = false;
+            }
+
+            loadText(message, scroll);
         }
 
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
@@ -1877,10 +1882,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ivExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
 
-                if (expanded) {
-                    bindExpanded(message);
-                    properties.scrollTo(getAdapterPosition());
-                } else
+                if (expanded)
+                    bindExpanded(message, true);
+                else
                     clearExpanded(message);
             }
         }
@@ -1888,7 +1892,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onToggleAddresses(TupleMessageEx message) {
             boolean addresses = !properties.getValue("addresses", message.id);
             properties.setValue("addresses", message.id, addresses);
-            bindExpanded(message);
+            bindExpanded(message, false);
         }
 
         private void onDownloadAttachments(final TupleMessageEx message) {
@@ -2001,7 +2005,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibImages.setVisibility(View.GONE);
 
-            loadText(message);
+            loadText(message, false);
 
             // Download inline images
             Bundle args = new Bundle();
@@ -2370,13 +2374,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.show();
         }
 
-        private void loadText(TupleMessageEx message) {
+        private void loadText(TupleMessageEx message, boolean scroll) {
             if (message.content) {
                 boolean show_images = properties.getValue("images", message.id);
                 boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
 
                 Bundle args = new Bundle();
                 args.putSerializable("message", message);
+                args.putBoolean("scroll", scroll);
                 args.putBoolean("show_images", show_images);
                 args.putBoolean("show_quotes", show_quotes);
                 args.putInt("zoom", zoom);
@@ -2483,6 +2488,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!show_expanded)
                     return;
 
+                boolean scroll = args.getBoolean("scroll");
                 boolean has_images = args.getBoolean("has_images");
                 boolean show_images = properties.getValue("images", message.id);
 
@@ -2493,6 +2499,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.setTextIsSelectable(false);
                 tvBody.setTextIsSelectable(true);
                 tvBody.setMovementMethod(new TouchHandler(message));
+
+                if (scroll)
+                    properties.scrollTo(getAdapterPosition());
 
                 pbBody.setVisibility(View.GONE);
             }
@@ -2569,7 +2578,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
                     if (ddss.length > 0) {
                         properties.setValue("quotes", message.id, true);
-                        loadText(message);
+                        loadText(message, false);
                     }
                 }
 
