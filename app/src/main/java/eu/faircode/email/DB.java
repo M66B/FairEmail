@@ -23,6 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -1078,7 +1079,7 @@ public abstract class DB extends RoomDatabase {
                     String personal = jaddress.optString("personal");
                     if (TextUtils.isEmpty(personal))
                         personal = null;
-                    result.add(new InternetAddress(email, personal));
+                    result.add(new InternetAddress(email, personal, StandardCharsets.UTF_8.name()));
                 }
             } catch (Throwable ex) {
                 // Compose can store invalid addresses
