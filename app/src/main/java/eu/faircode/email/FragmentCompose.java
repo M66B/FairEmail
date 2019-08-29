@@ -3370,7 +3370,8 @@ public class FragmentCompose extends FragmentBase {
                             ContactsContract.Groups._ID,
                             ContactsContract.Groups.TITLE
                     },
-                    null, null, ContactsContract.Groups.TITLE
+                    ContactsContract.Groups.GROUP_VISIBLE + " = 1", null,
+                    ContactsContract.Groups.TITLE
             );
 
             final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
