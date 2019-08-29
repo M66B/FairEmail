@@ -89,6 +89,11 @@ public class HtmlHelper {
             Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static String sanitize(Context context, String html, boolean show_images) {
+        if (html.length() > MAX_SIZE) {
+            Log.i("Message size=" + html.length());
+            return "<strong>" + context.getString(R.string.title_hint_too_complex) + "</strong>";
+        }
+
         Document parsed = Jsoup.parse(html);
 
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
@@ -126,10 +131,9 @@ public class HtmlHelper {
             }
         }
 
-        int size = parsed.text().length();
         int links = parsed.select("a").size();
-        if (size > MAX_SIZE || links > MAX_LINKS) {
-            Log.i("Message size=" + size + " links=" + links);
+        if (links > MAX_LINKS) {
+            Log.i("Message links=" + links);
             return "<strong>" + context.getString(R.string.title_hint_too_complex) + "</strong>";
         }
 
@@ -279,7 +283,7 @@ public class HtmlHelper {
 
             @Override
             public void head(Node node, int depth) {
-                if (node instanceof TextNode) {
+                if (alinks < MAX_LINKS && node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
                     String text = tnode.text();
 
@@ -305,7 +309,7 @@ public class HtmlHelper {
                                         " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
                                         " linked=" + linked + " email=" + email);
 
-                            if (linked || alinks >= MAX_LINKS)
+                            if (linked)
                                 span.appendText(text.substring(pos, matcher.end()));
                             else {
                                 span.appendText(text.substring(pos, matcher.start()));
@@ -319,7 +323,7 @@ public class HtmlHelper {
                             }
 
                             pos = matcher.end();
-                        } while (matcher.find());
+                        } while (alinks < MAX_LINKS && matcher.find());
 
                         span.appendText(text.substring(pos));
 
