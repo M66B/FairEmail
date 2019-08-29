@@ -44,7 +44,6 @@ import androidx.constraintlayout.widget.Group;
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
 
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
@@ -75,7 +74,6 @@ public class ActivityEml extends ActivityBase {
         final TextView tvParts = findViewById(R.id.tvParts);
         final TextView tvBody = findViewById(R.id.tvBody);
         final TextView tvHtml = findViewById(R.id.tvHtml);
-        final TextView tvEml = findViewById(R.id.tvEml);
         final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
         final Group grpReady = findViewById(R.id.grpReady);
 
@@ -158,12 +156,11 @@ public class ActivityEml extends ActivityBase {
                     result.parts = HtmlHelper.fromHtml(sb.toString());
 
                     result.html = parts.getHtml(context);
-                    if (result.html != null)
+                    if (result.html != null) {
                         result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, result.html, false));
-
-                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    imessage.writeTo(bos);
-                    result.eml = new String(bos.toByteArray());
+                        if (result.html.length() > 100 * 1024)
+                            result.html = null;
+                    }
 
                     return result;
                 }
@@ -181,7 +178,6 @@ public class ActivityEml extends ActivityBase {
                 tvParts.setText(result.parts);
                 tvBody.setText(result.body);
                 tvHtml.setText(result.html);
-                tvEml.setText(result.eml.substring(0, Math.min(10 * 1024, result.eml.length()))); // prevent ANR
                 grpReady.setVisibility(View.VISIBLE);
             }
 
@@ -318,6 +314,5 @@ public class ActivityEml extends ActivityBase {
         Spanned parts;
         Spanned body;
         String html;
-        String eml;
     }
 }
