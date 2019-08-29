@@ -1440,11 +1440,6 @@ class Core {
                                 dup.sent = helper.getSent();
                             }
 
-                            // Download message again to get signature / quoted message
-                            // This will propagate any modifications by the server locally as well
-                            if (EntityFolder.SENT.equals(folder.type))
-                                dup.content = false;
-
                             dup.error = null;
 
                             message = dup;
