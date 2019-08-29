@@ -1444,8 +1444,7 @@ class Core {
 
                             message = dup;
                             process = true;
-                        } else if (dup.uid < 0)
-                            throw new MessageRemovedException();
+                        }
                     }
                 }
             }
