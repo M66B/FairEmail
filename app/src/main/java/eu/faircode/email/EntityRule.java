@@ -351,10 +351,7 @@ public class EntityRule {
             JSONObject jcondition = new JSONObject(condition);
             JSONObject jschedule = jcondition.optJSONObject("schedule");
 
-            if (jschedule == null)
-                throw new IllegalArgumentException("Rule snooze schedule not found");
-
-            int end = jschedule.optInt("end", 0);
+            int end = (jschedule == null ? 0 : jschedule.optInt("end", 0));
             Calendar cal = getRelativeCalendar(end, message.received);
             wakeup = cal.getTimeInMillis() + duration * 3600 * 1000L;
         } else
