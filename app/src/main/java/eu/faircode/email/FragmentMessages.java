@@ -3098,6 +3098,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 long id = args.getLong("id");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean expand_read = prefs.getBoolean("expand_read", true);
                 boolean inline_images = prefs.getBoolean("inline_images", false);
 
                 DB db = DB.getInstance(context);
@@ -3123,7 +3124,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
                         }
 
-                        if (!message.ui_seen && !folder.read_only)
+                        if (expand_read && !message.ui_seen && !folder.read_only)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
 

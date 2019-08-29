@@ -2291,6 +2291,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
 
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(message.uid != null && !message.folderReadOnly);
 
@@ -2635,11 +2636,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuUnseen(final TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
+            args.putBoolean("seen", !message.ui_seen);
 
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
+                    boolean seen = args.getBoolean("seen");
 
                     DB db = DB.getInstance(context);
                     try {
@@ -2649,7 +2652,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
-                        EntityOperation.queue(context, message, EntityOperation.SEEN, false);
+                        EntityOperation.queue(context, message, EntityOperation.SEEN, seen);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -2661,7 +2664,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, Void ignored) {
-                    properties.setValue("expanded", message.id, false);
+                    boolean seen = args.getBoolean("seen");
+                    if (!seen)
+                        properties.setValue("expanded", message.id, false);
                     notifyDataSetChanged();
                 }
 

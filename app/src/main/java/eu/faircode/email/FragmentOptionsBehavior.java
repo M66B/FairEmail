@@ -43,6 +43,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoScroll;
     private SwitchCompat swSwipeNav;
     private SwitchCompat swDoubleTap;
+    private SwitchCompat swExpandRead;
     private SwitchCompat swAutoExpand;
     private SwitchCompat swAutoClose;
     private Spinner spOnClose;
@@ -54,7 +55,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swDisableTracking;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "pull", "autoscroll", "swipenav", "doubletap", "autoexpand", "autoclose", "onclose",
+            "pull", "autoscroll", "swipenav", "doubletap", "expand_read", "autoexpand", "autoclose", "onclose",
             "collapse", "autoread", "automove", "discard_delete", "authentication", "disable_tracking"
     };
 
@@ -72,6 +73,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
         swDoubleTap = view.findViewById(R.id.swDoubleTap);
+        swExpandRead = view.findViewById(R.id.swExpandRead);
         swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swAutoClose = view.findViewById(R.id.swAutoClose);
         spOnClose = view.findViewById(R.id.spOnClose);
@@ -113,6 +115,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("doubletap", checked).apply();
+            }
+        });
+
+        swExpandRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("expand_read", checked).apply();
             }
         });
 
@@ -239,6 +248,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
+        swExpandRead.setChecked(prefs.getBoolean("expand_read", true));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
 
