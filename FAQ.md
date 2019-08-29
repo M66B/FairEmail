@@ -213,6 +213,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(123) What does 'force sync'?](#user-content-faq123)
 * [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
 * [(125) What are the current experimental features?](#user-content-faq125)
+* [(126) What does 'User is authenticated but not connected' mean?](#user-content-faq126)
 
 [I have another question.](#support)
 
@@ -2149,6 +2150,15 @@ The current experimental features are:
 * Small, dimmed infinite / timelapse icon at the bottom of the messages to quicly toggle filtering of snoozed messages
 
 <br />
+
+<a name="faq126"></a>
+**(126) What does 'User is authenticated but not connected' mean?**
+
+The message *User is authenticated but not connected* is caused by a bug in older versions of Microsoft's Exchange server.
+This message in fact means that the password was invalid, likely because it was changed.
+
+<br />
+
 
 ## Support
 
