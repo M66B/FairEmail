@@ -68,6 +68,7 @@ public class ServiceSend extends ServiceBase {
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
+    private static final long AFTER_SEND_DELAY = 10 * 1000L; // milliseconds
 
     @Override
     public void onCreate() {
@@ -382,8 +383,17 @@ public class ServiceSend extends ServiceBase {
                     db.message().setMessageUiHide(message.id, new Date().getTime());
 
                 EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
-                if (sent != null)
+                if (sent != null) {
+                    // Give server time to store message into the sent folder
+                    try {
+                        Thread.sleep(AFTER_SEND_DELAY);
+                    } catch (InterruptedException ex) {
+                        Log.w(ex);
+                    }
+
+                    // Check for sent orphans
                     EntityOperation.sync(this, sent.id, false);
+                }
 
                 if (message.inreplyto != null) {
                     List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
