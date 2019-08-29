@@ -179,13 +179,10 @@ public interface DaoFolder {
 
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " WHERE `primary` AND type = '" + EntityFolder.DRAFTS + "'")
+            " WHERE account.synchronize" +
+            " AND account.`primary`" +
+            " AND type = '" + EntityFolder.DRAFTS + "'")
     EntityFolder getPrimaryDrafts();
-
-    @Query("SELECT folder.* FROM folder" +
-            " JOIN account ON account.id = folder.account" +
-            " WHERE `primary` AND type = '" + EntityFolder.ARCHIVE + "'")
-    EntityFolder getPrimaryArchive();
 
     @Query("SELECT * FROM folder WHERE type = '" + EntityFolder.OUTBOX + "'")
     EntityFolder getOutbox();
