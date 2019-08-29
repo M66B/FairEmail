@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
     <string name="app_limitations">Örneğin, güvenli olmayan öğeleri çıkarmak ve okunabilirliği arttırmak için, iletiler daima tekrardan düzenlenecektir ve bağlantıları açmak güvenlik açısından doğrulama gerektirecektir.</string>
     <string name="app_crash">FairEmail bu aygıtı desteklemiyor. Çünkü Androiddeki hatalar çökmelere neden oluyor</string>
-    <string name="app_promote"><a href="https://email.faircode.eu/">FairEmail</a> ile gönderildi, açık kaynaklı, Android için gizlilik dostu bir e-posta uygulaması</string>
     <string name="app_exit">Çıkmak için tekrar \'Geri\'yi tıklayın</string>
     <string name="channel_service">Hizmet</string>
     <string name="channel_send">Gönder</string>
@@ -176,6 +175,7 @@
     <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
     <string name="title_advanced_sync_subscribed">Yalnızca aboneliği olan dizinleri eşitle</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
+    <string name="title_advanced_suggest_local">Yerel olarak depolanmış kişileri öner</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
@@ -220,17 +220,22 @@
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
+    <string name="title_advanced_onclose">Bir konuşmayı kapatırken</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
+    <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
+    <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
     <string name="title_advanced_notify_action_archive">Arşiv</string>
     <string name="title_advanced_notify_action_reply">Yanıtla</string>
+    <string name="title_advanced_notify_action_reply_direct">Doğrudan yanıt</string>
     <string name="title_advanced_notify_action_flag">Yıldız</string>
     <string name="title_advanced_notify_action_seen">Oku</string>
+    <string name="title_advanced_biometrics_notify">Biyometrik kimlik doğrulamayı kullanırken bildirim içeriğini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
@@ -241,6 +246,7 @@
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
+    <string name="title_advanced_experiments">Deneysel özellikleri deneyin</string>
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
     <string name="title_advanced_debug">Hata ayıklama</string>
     <string name="title_advanced_cleanup">Temizle</string>
@@ -260,16 +266,21 @@
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
+    <string name="title_advanced_permission_contacts_hint">Bu, kişilerinizi okumak için izin vermenizi gerektirir</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_autocollapse_hint">Çoklu genişletilmiş mesajlar her zaman \'geri\' komutuyla kapatılacak</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_subscribed_only_hint">Bunu etkinleştirmek aboneliği olmayan tüm yerel klasörleri siler</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
+    <string name="title_advanced_experiments_hint">Güncel deneysel özelliklerin listesi</string>
+    <string name="title_advanced_debug_hint">Fazladan günlük kaydını etkinleştir ve çeşitli yerlerdeki hata ayıklama bilgisini göster</string>
     <string name="title_advanced_cleanup_hint">Bu bütün geçici dosyaları silecek</string>
+    <string name="title_advanced_never_favorite">Asla sık kullanılan değil</string>
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
+    <string name="title_identity_color_hint">Kimlik renkleri öncelikle hesap rengini alır</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_encrypt">Öntanımlı olarak şifrele</string>
@@ -602,6 +613,7 @@
     <string name="title_legend_plain_only">Sadece düz metin mi</string>
     <string name="title_legend_receipt">Alındı belgesi istendi</string>
     <string name="title_legend_attachment">Eki var</string>
+    <string name="title_legend_flagged">Sık kullanılan</string>
     <string name="title_legend_contacts">Rehberi yönet</string>
     <string name="title_legend_search">Göndereni ara</string>
     <string name="title_legend_view">İçeriği görüntüle</string>
@@ -647,12 +659,17 @@
     <string name="title_hint_message_selection">Çoklu ileti seçmeye başlamak için bir mesaja uzun basın</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_hint_image_link">Görsel bağlantısı</string>
+    <string name="title_hint_too_complex">İleti görüntülenemeyecek kadar büyük veya çok karmaşık</string>
     <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Seçenekler için uzun basın</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_secure_link">Bağlantıyı güvenli hale getir</string>
     <string name="title_link_secured">Bağlantı güvenli</string>
+    <string name="title_sanitize_link">İzleme etkenlerini kaldır</string>
     <string name="title_insecure_link">Bu bağlantı güvensiz</string>
+    <string name="title_check_owner">Sahibini denetle</string>
+    <string name="title_remark_owner">Bilgi <a href="https://ipinfo.io/">ipinfo.io</a>\'dan alınacak</string>
+    <string name="title_ip_owner">Sahibinin İP adresi</string>
     <string name="title_select_app">Uygulama seçin</string>
     <string name="title_updated">Sürüm %1$s için bir güncelleme mevcut</string>
     <string name="title_issue">Bir sorunuz ya da probleminiz mi var?</string>
@@ -736,8 +753,8 @@
     </string-array>
     <string-array name="onCloseNames">
         <item>Hiç bir şey yapma</item>
-        <item>Go to previous conversation</item>
-        <item>Go to next conversation</item>
+        <item>Önceki konuşmaya git</item>
+        <item>Sonraki konuşmaya git</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Küçük</item>

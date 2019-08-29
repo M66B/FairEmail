@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail on avoimen lähdekoodin sähköpostiohjelma, joka on keskittynyt yksityisyyteen ja turvallisuuteen. Tästä syystä jotkin ominaisuudet saattavat toimivat eri tavalla kuin mitä olet tottunut.</string>
     <string name="app_limitations">Esimerkiksi viestit muotoillaan aina uudelleen vaarallisten elementtien poistamiseksi ja luettavuuden parantamiseksi, ja linkkien avaaminen pitää turvallisuuden takia erikseen vahvistaa.</string>
     <string name="app_crash">FairEmailia ei tueta tässä laitteessa, koska bugit Androidissa aiheuttavat kaatumisia</string>
-    <string name="app_promote">Lähetetty <a href="https://email.faircode.eu/">FairEmaililla</a>, yksityisyyttä kunnioittavalla avoimen lähdekoodin sähköpostisovelluksella Androidille</string>
     <string name="app_exit">Mene \'takaisin\' uudelleen poistuaksesi</string>
     <string name="channel_service">Palvelu</string>
     <string name="channel_send">Lähettäminen</string>
@@ -221,6 +220,7 @@
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
+    <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_collapse">Tiivistä viestit keskusteluissa takaisin-painikkeella</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>

@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail er en open source e-mail app med fokus på privatliv og sikkerhed. Derfor vil visse funktioner muligvis fungere anderledes, end hvad du er vant til.</string>
     <string name="app_limitations">Eksempelvis vil beskeder altid blive omformateret for at fjerne usikre elementer samt for at øge læsbarheden, og åbning af links skal af sikkerhedsårsager bekræftes.</string>
     <string name="app_crash">FairEmail er ikke understøttet på denne enhed, da fejl i Android forårsager nedbrud</string>
-    <string name="app_promote">Sendt med <a href="https://email.faircode.eu/">FairEmail</a>, en open source, privatlivsvenlig e-mail app til Android</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Send</string>
@@ -192,13 +191,16 @@
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
+    <string name="title_advanced_cards">Vis Kort</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
+    <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
+    <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
     <string name="title_advanced_flags">Vis stjernemarkeringer</string>
     <string name="title_advanced_preview">Forhåndsvisning af beskeder</string>
@@ -233,6 +235,7 @@
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
     <string name="title_advanced_notify_action_archive">Arkiv</string>
     <string name="title_advanced_notify_action_reply">Besvar</string>
+    <string name="title_advanced_notify_action_reply_direct">Direkte besvarelse</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Læs</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
@@ -246,6 +249,7 @@
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
+    <string name="title_advanced_experiments">Prøv eksperimentelle funktioner</string>
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
     <string name="title_advanced_cleanup">Oprydning</string>
@@ -276,6 +280,7 @@
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering af dette vil slette alle lokale mapper uden abonnering</string>
     <string name="title_advanced_english_hint">Dette vil genstarte app\'en</string>
+    <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funktioner</string>
     <string name="title_advanced_debug_hint">Aktivér ekstra logning og vis fejlretningsoplysninger forskellige steder</string>
     <string name="title_advanced_cleanup_hint">Dette vil slette alle midlertidige filer</string>
     <string name="title_advanced_never_favorite">Gør aldrig til favorit</string>
@@ -340,6 +345,7 @@
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
+    <string name="title_pop3_support">POP3 understøttes ikke</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
     <string name="title_synchronize_all">Synkronisér alle beskeder</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
@@ -527,6 +533,7 @@
     <string name="title_compact">Kompaktvisning</string>
     <string name="title_zoom">Tekststørrelse</string>
     <string name="title_select_all">Markér alle</string>
+    <string name="title_force_sync">Gennemtving synk</string>
     <string name="title_previous">Foregående</string>
     <string name="title_next">Næste</string>
     <string name="title_answer_caption">Redigér skabelon</string>

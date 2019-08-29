@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail é um aplicativo de e-mail de código aberto focado em privacidade e segurança. Por esse motivo, alguns recursos podem funcionar de maneira diferente do que você está acostumado.</string>
     <string name="app_limitations">Por exemplo, as mensagens serão sempre reformatadas para remover elementos inseguros e para melhorar a legibilidade, e a abertura de links devem ser confirmadas por questão de segurança.</string>
     <string name="app_crash">O FairEmail não é suportado neste dispositivo porque bugs do Android causam tais falhas</string>
-    <string name="app_promote">Enviado com <a href="https://email.faircode.eu/">FairEmail</a>, um aplicativo de e-mail de código aberto para o Android, que respeita sua privacidade</string>
     <string name="app_exit">Pressione \'voltar\' novamente para sair</string>
     <string name="channel_service">Serviço</string>
     <string name="channel_send">Enviar</string>
@@ -15,6 +14,10 @@
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
     <string name="channel_group_contacts">Contatos</string>
+    <plurals name="page_conversation">
+        <item quantity="one">Conversa</item>
+        <item quantity="other">Mensagens</item>
+    </plurals>
     <string name="page_folders">Pastas</string>
     <string name="page_compose">Escrever</string>
     <string name="tile_synchronize">Sincronizar</string>
@@ -169,6 +172,7 @@
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_sync_subscribed">Sincronizar apenas pastas subscritas</string>
     <string name="title_advanced_keyboard">Mostrar teclado por padrão</string>
+    <string name="title_advanced_suggest_local">Sugerir contatos armazenados localmente</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_usenet_signature">Convenção de assinatura do Usenet</string>
@@ -193,6 +197,7 @@
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
+    <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_flags">Mostrar estrelas</string>
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
@@ -217,16 +222,20 @@
     <string name="title_advanced_onclose">Ao fechar uma conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
+    <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_tracking">Reconhecer e desativar automaticamente as imagens de rastreamento</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
+    <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
     <string name="title_advanced_notify_preview">Mostrar pré-visualização de mensagem nas notificações</string>
     <string name="title_advanced_notify_actions">Ações de notificação</string>
     <string name="title_advanced_notify_action_trash">Lixeira</string>
     <string name="title_advanced_notify_action_archive">Arquivo</string>
     <string name="title_advanced_notify_action_reply">Responder</string>
+    <string name="title_advanced_notify_action_reply_direct">Resposta direta</string>
     <string name="title_advanced_notify_action_flag">Estrela</string>
     <string name="title_advanced_notify_action_seen">Ler</string>
+    <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
@@ -237,6 +246,7 @@
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>
+    <string name="title_advanced_experiments">Experimente recursos experimentais</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
     <string name="title_advanced_debug">Modo de depuração</string>
     <string name="title_advanced_cleanup">Limpeza</string>
@@ -249,6 +259,7 @@
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e consumir energia extra da bateria, especialmente se uma série de mensagens forem armazenadas no dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
+    <string name="title_advanced_suggest_local_hint">Além dos contatos fornecidos pelo Android</string>
     <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
     <string name="title_advanced_metered_warning">Desabilitar esta opção desativará o recebimento e envio de mensagens em conexões de internet móvel</string>
@@ -266,8 +277,10 @@
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_subscribed_only_hint">Habilitando isto irá apagar todas as pastas locais sem assinatura</string>
     <string name="title_advanced_english_hint">Isto irá reiniciar o app</string>
+    <string name="title_advanced_experiments_hint">Lista de recursos experimentais atuais</string>
     <string name="title_advanced_debug_hint">Habilitar o log extra e mostrar informações de depuração em vários lugares</string>
     <string name="title_advanced_cleanup_hint">Isto irá excluir todos os arquivos temporários</string>
+    <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_select">Selecionar &#8230;</string>
     <string name="title_identity_name">Seu nome</string>
     <string name="title_identity_email">Seu endereço de e-mail</string>
@@ -329,6 +342,7 @@
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última vez conectado: %1$s</string>
+    <string name="title_pop3_support">POP3 não é suportado</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
     <string name="title_synchronize_all">Sincronizar todas as mensagens</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
@@ -418,6 +432,7 @@
     <string name="title_reply_template">Modelo</string>
     <string name="title_moving">Movendo para %1$s</string>
     <string name="title_open_with">Abrir com</string>
+    <string name="title_authentication_failed">%1$s a autenticação falhou</string>
     <string name="title_receipt_subject">Confirmação se leitura: %1$s</string>
     <string name="title_receipt_text">Esta confirmação de leitura só reconhece que a mensagem foi exibida. Não há garantia de que o destinatário tenha lido o conteúdo da mensagem.</string>
     <string name="title_no_answers">Nenhum modelo de resposta definido</string>
@@ -549,6 +564,7 @@
     <string name="title_rule_action">Ação</string>
     <string name="title_rule_action_remark">Esta ação será aplicada a novas mensagens que chegam no pasta %1$s</string>
     <string name="title_rule_hours">Horas</string>
+    <string name="title_rule_schedule_end">A partir do final da condição de tempo</string>
     <string name="title_rule_folder">Pasta</string>
     <string name="title_rule_thread">Todas as mensagens na mesma conversa e pasta</string>
     <string name="title_rule_identity">Identidade</string>
@@ -651,7 +667,9 @@
     <string name="title_hint_message_selection">Pressione longamente uma mensagem para começar a selecionar várias mensagens</string>
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
     <string name="title_hint_image_link">Link da imagem</string>
+    <string name="title_hint_too_complex">Mensagem muito grande ou muito complexa para exibir</string>
     <string name="title_hint_tracking_image">Imagem de rastreamento %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Mantenha pressionado para mais opções</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_secure_link">Tornar o link seguro</string>
     <string name="title_link_secured">Link seguro</string>

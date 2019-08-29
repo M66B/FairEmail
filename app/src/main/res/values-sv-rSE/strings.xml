@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail är en e-postapp med öppen källkod som är fokuserad på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
-    <string name="app_promote">Skickad med <a href="https://email.faircode.eu/">FairEmail</a>, en privatlivs vänlig e-postapp med öppen källkod för Android</string>
     <string name="app_exit">Gå \"tillbaka\" igen för att avsluta</string>
     <string name="channel_service">Tjänst</string>
     <string name="channel_send">Skicka</string>
@@ -19,6 +18,12 @@
         <item quantity="one">Konversation</item>
         <item quantity="other">Konversationer</item>
     </plurals>
+    <plurals name="page_message">
+        <item quantity="one">Meddelande</item>
+        <item quantity="other">Meddelanden</item>
+    </plurals>
+    <string name="page_folders">Mappar</string>
+    <string name="page_compose">Skriv</string>
     <string name="tile_synchronize">Synkronisera</string>
     <string name="tile_unseen">Nya meddelanden</string>
     <string name="shortcut_refresh">Uppdatera</string>
@@ -170,6 +175,7 @@
     <string name="title_advanced_subscriptions">Hantera mapprenumerationer</string>
     <string name="title_advanced_sync_subscribed">Synkronisera abonnerade mappar bara</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
+    <string name="title_advanced_suggest_local">Föreslå lokalt lagrade kontakter</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_autoresize">Ändra storlek automatiskt på bifogade och inbäddade bilder</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
@@ -183,13 +189,16 @@
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
+    <string name="title_advanced_cards">Visa kort</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
+    <string name="title_advanced_highlight_unread">Markera olästa meddelanden</string>
     <string name="title_advanced_avatars">Visa kontaktfoton</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
+    <string name="title_advanced_subject_top">Visa ämne ovanför avsändaren</string>
     <string name="title_advanced_subject_italic">Visa ämnet kursivt</string>
     <string name="title_advanced_flags">Visa stjärnor</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
@@ -214,16 +223,20 @@
     <string name="title_advanced_onclose">När du stänger en konversation</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
+    <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
+    <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
     <string name="title_advanced_notify_action_archive">Arkiv</string>
     <string name="title_advanced_notify_action_reply">Svara</string>
+    <string name="title_advanced_notify_action_reply_direct">Direkt svar</string>
     <string name="title_advanced_notify_action_flag">Stjärna</string>
     <string name="title_advanced_notify_action_seen">Läst</string>
+    <string name="title_advanced_biometrics_notify">Visa aviseringsinnehåll när du använder biometrisk autentisering</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
@@ -234,6 +247,7 @@
     <string name="title_advanced_english">Tvinga användning av engelska</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
+    <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_cleanup">Rensa</string>
@@ -242,8 +256,11 @@
     <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Kontinuerlig synkronisering kommer att undvika detta genom kontinuerlig övervakning endast för ändringar.</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>
+    <string name="title_advanced_unseen_hint">Vissa leverantörer stöder inte detta korrekt, vilket till exempel kan leda till att alla meddelanden synkroniseras</string>
     <string name="title_advanced_sync_kept_hint">Detta kommer att överföra extra data och förbruka extra batterikraft, speciellt om många meddelanden lagras på enheten</string>
     <string name="title_advanced_sync_folders_hint">Inaktivering av detta kommer att minska data och batterianvändning något, men kommer att inaktivera uppdatering av listan över mappar också</string>
+    <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
+    <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android</string>
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Inaktivering av det här alternativet inaktiverar mottagning och sändning av meddelanden på mobila internetanslutningar</string>
@@ -254,17 +271,21 @@
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
+    <string name="title_advanced_permission_contacts_hint">Detta kräver att du ger tillstånd att läsa dina kontakter</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_subscribed_only_hint">Om du aktiverar detta tas alla lokala mappar utan abonnemang bort</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
+    <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
     <string name="title_advanced_debug_hint">Aktivera extra loggning och visa felsökningsinformation på olika ställen</string>
     <string name="title_advanced_cleanup_hint">Detta tar bort alla temporära filer</string>
+    <string name="title_advanced_never_favorite">Aldrig favorit</string>
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>
+    <string name="title_identity_color_hint">Identitetsfärger har företräde framför kontofärger</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_encrypt">Kryptera som standard</string>
@@ -320,6 +341,7 @@
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
+    <string name="title_pop3_support">POP3 stöds inte</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_synchronize_all">Synkronisera alla meddelanden</string>
     <string name="title_synchronize_enabled">Synkronisera</string>
@@ -407,6 +429,7 @@
     <string name="title_reply_template">Mall</string>
     <string name="title_moving">Flyttar till %1$s</string>
     <string name="title_open_with">Öppna med</string>
+    <string name="title_authentication_failed">%1$s autentisering misslyckades</string>
     <string name="title_receipt_subject">Läs kvitto: %1$s</string>
     <string name="title_receipt_text">Detta läskvitto bekräftar bara att meddelandet visades. Det finns ingen garanti för att mottagaren har läst meddelandets innehåll.</string>
     <string name="title_no_answers">Inga svarsmallar definierade</string>
@@ -639,7 +662,9 @@
     <string name="title_hint_message_selection">Tryck länge på ett meddelande för att börja välja flera meddelanden</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_hint_image_link">Bildlänk</string>
+    <string name="title_hint_too_complex">Meddelandet är för stort eller för komplext för att visas</string>
     <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>
+    <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_secure_link">Gör länken säker</string>
     <string name="title_link_secured">Länken är säker</string>

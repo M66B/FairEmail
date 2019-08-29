@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail è un\'app opensource di posta focalizzata su privacy e sicurezza. Per questo motivo alcune caratteristiche potrebbero funzionare in modo diverso da quello a cui si è abituati.</string>
     <string name="app_limitations">Ad esempio, i messaggi verranno sempre riformattati per rimuovere elementi non sicuri e per migliorare la leggibilità e l\'apertura dei collegamenti deve essere confermata per sicurezza.</string>
     <string name="app_crash">FairEmail non è supportata su questo dispositivo a causa di bug in Android che causano crash</string>
-    <string name="app_promote">Inviato con <a href="https://email.faircode.eu/">FairEmail</a>, un\'app email open source, privacy friendly per Android</string>
     <string name="app_exit">Premi di nuovo \'indietro\' per uscire</string>
     <string name="channel_service">Servizio</string>
     <string name="channel_send">Invia</string>
@@ -220,6 +219,7 @@
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
     <string name="title_advanced_double_tap">Doppio tocco per segnare il messaggio letto/non letto</string>
+    <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>

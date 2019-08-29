@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
     <string name="app_limitations">For eksempel vil meldinger alltid bli formatert for å fjerne usikre elementer, og for å forbedre lesbarheten og åpning av linker må bekreftes for sikkerhet.</string>
     <string name="app_crash">FairEmail støttes ikke på denne enheten fordi feil i Android forårsaker krasjer</string>
-    <string name="app_promote">Sendt med <a href="https://email.faircode.eu/">FairEmail</a>, en åpen kildekode, privatlivs vennlig e-postapp for Android</string>
     <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Send</string>
@@ -221,6 +220,7 @@
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
+    <string name="title_advanced_expand_read">Merk meldinger som er lest når de utvides</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
     <string name="title_advanced_autoclose">Lukk samtaler automatisk</string>

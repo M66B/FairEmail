@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
     <string name="app_limitations">De exemplu, mesajele vor fi mereu rescrise pentru a înlătura elementele nesigure și a îmbunătății lizibilitatea iar deschiderea legăturilor trebuie, pentru siguranță, confirmată.</string>
     <string name="app_crash">FairEmail nu suportă acest dispozitiv din cauza erorilor din Android ce duc la blocaje</string>
-    <string name="app_promote">Trimis cu <a href="https://email.faircode.eu/">FairEmail</a>, o aplicație de e-mail pentru Android cu sursă deschisă, ce vă protejează intimitatea</string>
     <string name="app_exit">Apăsați din nou \'Înapoi\' pentru a ieși</string>
     <string name="channel_service">Serviciu</string>
     <string name="channel_send">Trimite</string>
@@ -188,6 +187,7 @@
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_sync_subscribed">Sincronizează doar dosarele abonate</string>
     <string name="title_advanced_keyboard">Afișare implicită a tastaturii</string>
+    <string name="title_advanced_suggest_local">Sugerează contacte stocate local</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
@@ -247,6 +247,7 @@
     <string name="title_advanced_notify_action_trash">Gunoi</string>
     <string name="title_advanced_notify_action_archive">Arhivare</string>
     <string name="title_advanced_notify_action_reply">Răspunde</string>
+    <string name="title_advanced_notify_action_reply_direct">Răspuns</string>
     <string name="title_advanced_notify_action_flag">Stea</string>
     <string name="title_advanced_notify_action_seen">Citit</string>
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
@@ -260,6 +261,7 @@
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
+    <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_cleanup">Curățare</string>
@@ -272,6 +274,7 @@
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
+    <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
@@ -289,6 +292,7 @@
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_subscribed_only_hint">La activare se vor șterge toate dosarele locale fără abonament</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
+    <string name="title_advanced_experiments_hint">Lista de funcții experimentale curente</string>
     <string name="title_advanced_debug_hint">Activați înregistrări suplimentare în jurnalul aplicației și afișați informații de depanare în diferite locuri</string>
     <string name="title_advanced_cleanup_hint">Se vor șterge toate fișierele temporare</string>
     <string name="title_advanced_never_favorite">Niciodată favorit</string>
@@ -353,6 +357,7 @@
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
+    <string name="title_pop3_support">POP3 nu este acceptat</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_all">Sincronizează toate mesajele</string>
     <string name="title_synchronize_enabled">Sincronizare</string>

@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail je aplikacija otvorenog izvora (open source) usmjerena na privatnost i sigurnost. Zbog toga neke funkcije mogu raditi drugačije od onoga na što ste navikli.</string>
     <string name="app_limitations">Na primjer, poruke će uvijek biti preoblikovane kako bi se uklonili nesigurni elementi i poboljšana čitljivost, a otvaranje veza mora biti potvrđeno radi sigurnosti.</string>
     <string name="app_crash">FairEmail nije podržan na ovom uređaju jer greške u Androidu uzrokuju probleme i padove</string>
-    <string name="app_promote">Poslano sa <a href="https://email.faircode.eu/"> FairEmailom </a>, open source aplikacijom za e-poštu koja poštuje privatnost na Androidu</string>
     <string name="app_exit">Ponovo pritisnite \'natrag\' za izlazak</string>
     <string name="channel_service">Usluga</string>
     <string name="channel_send">Pošalji</string>
@@ -187,8 +186,10 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_subscriptions">Upravljanje pretplatama za mape</string>
     <string name="title_advanced_sync_subscribed">Sinkroniziraj samo pretplaćene mape</string>
     <string name="title_advanced_keyboard">Standardno pokaži tastaturu</string>
+    <string name="title_advanced_suggest_local">Predložiti lokalno pohranjene kontakte</string>
     <string name="title_advanced_prefix_once">Dodati predmet samo jednom prilikom odgovaranja ili prosljeđivanja</string>
     <string name="title_advanced_plain_only">Standardno šaljite samo običan tekst</string>
+    <string name="title_advanced_usenet_signature">Usenet konvencija potpisa</string>
     <string name="title_advanced_autoresize">Automatski promijeniti veličinu priloženih i ugrađenih slika</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixela</string>
     <string name="title_advanced_lookup_mx">Provjeriva adrese e-pošte primatelja prije slanja</string>
@@ -245,6 +246,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_notify_action_trash">Otpad</string>
     <string name="title_advanced_notify_action_archive">Arhiva</string>
     <string name="title_advanced_notify_action_reply">Odgovor</string>
+    <string name="title_advanced_notify_action_reply_direct">Izravni odgovor</string>
     <string name="title_advanced_notify_action_flag">Zvijezda</string>
     <string name="title_advanced_notify_action_seen">Pročitaj</string>
     <string name="title_advanced_biometrics_notify">Prikažite sadržaj obavijesti kada koristite biometrijsku provjeru autentičnosti</string>
@@ -258,6 +260,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>
+    <string name="title_advanced_experiments">Probaj eksperimentalne značajke</string>
     <string name="title_advanced_crash_reports">Pošalji izvješća o pogrešci</string>
     <string name="title_advanced_debug">Modus za lakše pronalaženje pogrešaka (debug)</string>
     <string name="title_advanced_cleanup">Čišćenje</string>
@@ -270,6 +273,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_sync_kept_hint">To će prenijeti dodatne podatke i potrošiti dodatnu snagu baterije, posebno ako je na uređaju spremljeno puno poruka</string>
     <string name="title_advanced_sync_folders_hint">Onemogućavanjem će se nešto smanjiti korištenje podataka i baterija, ali će se onemogućiti i ažuriranje popisa mapa</string>
     <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinkronizaciju poruka</string>
+    <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android</string>
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti dali postoju DNS MX zapisi</string>
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
@@ -287,6 +291,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_sender_hint">Većina pružatelja usluga ne dopušta modificirane adrese pošaljitelja</string>
     <string name="title_advanced_subscribed_only_hint">Ako to omogućite, izbrisat ćete sve lokalne mape bez pretplate</string>
     <string name="title_advanced_english_hint">To će ponovno pokrenuti aplikaciju</string>
+    <string name="title_advanced_experiments_hint">Popis trenutnih eksperimentalnih značajki</string>
     <string name="title_advanced_debug_hint">Omogućite dodatno bilježenje i prikaz informacija za uklanjanje pogrešaka na različitim mjestima</string>
     <string name="title_advanced_cleanup_hint">Ovo će izbrisati sve privremene datoteke</string>
     <string name="title_advanced_never_favorite">Nikada favorit</string>
@@ -351,6 +356,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
     <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
+    <string name="title_pop3_support">POP3 nije podržan</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
     <string name="title_synchronize_all">Sinkroniziraj sve poruke</string>
     <string name="title_synchronize_enabled">Sinkroniziraj</string>

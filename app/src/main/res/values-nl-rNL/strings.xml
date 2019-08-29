@@ -6,7 +6,6 @@
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
     <string name="app_limitations">Berichten worden bijvoorbeeld altijd opnieuw geformatteerd om onveilige elementen te verwijderen en de leesbaarheid te verbeteren en het openen van koppelingen moet voor de veiligheid worden bevestigd.</string>
     <string name="app_crash">FairEmail wordt niet ondersteund op dit apparaat omdat bugs in Android crashes veroorzaken</string>
-    <string name="app_promote">Verzonden met <a href="https://email.faircode.eu/">FairEmail</a>, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="app_exit">Ga nogmaals \'terug\' om af te sluiten</string>
     <string name="channel_service">Service</string>
     <string name="channel_send">Verzenden</string>
@@ -221,6 +220,7 @@
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
+    <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
@@ -277,7 +277,7 @@
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
     <string name="title_advanced_permission_contacts_hint">Dit vereist toestemming om je contacten te lezen</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
-    <string name="title_advanced_autocollapse_hint">Meerdere uitgeklapte berichten worden altijd gesloten bij \'terug\'</string>
+    <string name="title_advanced_autocollapse_hint">Meerdere uitgevouwen berichten worden altijd gesloten bij \'terug\'</string>
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_subscribed_only_hint">Dit inschakelen zal alle lokale mappen zonder abonnement verwijderen</string>
@@ -650,7 +650,7 @@
     <string name="title_legend_metered">Verbinding is gemeten</string>
     <string name="title_legend_unmetered">Verbinding is ongemeten</string>
     <string name="title_legend_roaming">Roaming</string>
-    <string name="title_legend_expander">Uitklappen</string>
+    <string name="title_legend_expander">Uitvouwen</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Toon citaten</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>
