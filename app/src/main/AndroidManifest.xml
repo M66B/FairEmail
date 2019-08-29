@@ -154,7 +154,7 @@
         </activity>
 
         <activity
-            android:name=".ActivityEml"
+            android:name=".ActivityEML"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:launchMode="singleTop">

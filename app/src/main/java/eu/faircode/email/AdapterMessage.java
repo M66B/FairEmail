@@ -57,7 +57,6 @@ import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.method.LinkMovementMethod;
 import android.text.style.DynamicDrawableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
@@ -1024,20 +1023,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywords.setText(TextUtils.join(" ", message.keywords));
 
             // Headers
-            if (show_headers && message.headers != null) {
-                SpannableStringBuilder ssb = new SpannableStringBuilder(message.headers);
-                int index = 0;
-                for (String line : message.headers.split("\n")) {
-                    if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
-                        int colon = line.indexOf(':');
-                        if (colon > 0)
-                            ssb.setSpan(new ForegroundColorSpan(colorAccent), index, index + colon, 0);
-                    }
-                    index += line.length() + 1;
-                }
-
-                tvHeaders.setText(ssb);
-            } else
+            if (show_headers && message.headers != null)
+                tvHeaders.setText(HtmlHelper.highlightHeaders(context, message.headers));
+            else
                 tvHeaders.setText(null);
 
             // Attachments

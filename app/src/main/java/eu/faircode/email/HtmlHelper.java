@@ -30,8 +30,10 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
 import android.os.Handler;
 import android.text.Html;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -730,6 +732,21 @@ public class HtmlHelper {
         } catch (NumberFormatException ignored) {
             return false;
         }
+    }
+
+    static Spanned highlightHeaders(Context context, String headers) {
+        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
+        int index = 0;
+        for (String line : headers.split("\n")) {
+            if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
+                int colon = line.indexOf(':');
+                if (colon > 0)
+                    ssb.setSpan(new ForegroundColorSpan(colorAccent), index, index + colon, 0);
+            }
+            index += line.length() + 1;
+        }
+        return ssb;
     }
 
     static Spanned fromHtml(@NonNull String html) {

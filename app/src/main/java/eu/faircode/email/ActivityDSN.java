@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.View;
 import android.widget.TextView;
 
@@ -88,7 +89,9 @@ public class ActivityDSN extends ActivityBase {
                     int length;
                     while ((length = is.read(buffer)) != -1)
                         bos.write(buffer, 0, length);
-                    result.headers = MessageHelper.decodeMime(bos.toString(StandardCharsets.UTF_8.name()));
+
+                    String headers = MessageHelper.decodeMime(bos.toString(StandardCharsets.UTF_8.name()));
+                    result.headers = HtmlHelper.highlightHeaders(context, headers);
                 }
 
                 return result;
@@ -111,6 +114,6 @@ public class ActivityDSN extends ActivityBase {
     }
 
     private class Result {
-        String headers;
+        Spanned headers;
     }
 }

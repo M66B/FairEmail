@@ -26,9 +26,7 @@ import android.content.DialogInterface;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -54,7 +52,7 @@ import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 
-public class ActivityEml extends ActivityBase {
+public class ActivityEML extends ActivityBase {
     private Uri uri;
 
     @Override
@@ -125,21 +123,7 @@ public class ActivityEml extends ActivityBase {
                     result.cc = MessageHelper.formatAddresses(helper.getCc());
                     result.bcc = MessageHelper.formatAddresses(helper.getBcc());
                     result.subject = helper.getSubject();
-
-                    String headers = helper.getHeaders();
-                    int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
-                    SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
-                    int index = 0;
-                    for (String line : headers.split("\n")) {
-                        if (line.length() > 0 && !Character.isWhitespace(line.charAt(0))) {
-                            int colon = line.indexOf(':');
-                            if (colon > 0)
-                                ssb.setSpan(new ForegroundColorSpan(colorAccent), index, index + colon, 0);
-                        }
-                        index += line.length() + 1;
-                    }
-
-                    result.headers = ssb;
+                    result.headers = HtmlHelper.highlightHeaders(context, helper.getHeaders());
 
                     MessageHelper.MessageParts parts = helper.getMessageParts();
 
@@ -220,10 +204,10 @@ public class ActivityEml extends ActivityBase {
             @Override
             protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
                 ArrayAdapter<EntityAccount> adapter =
-                        new ArrayAdapter<>(ActivityEml.this, R.layout.spinner_item1, android.R.id.text1);
+                        new ArrayAdapter<>(ActivityEML.this, R.layout.spinner_item1, android.R.id.text1);
                 adapter.addAll(accounts);
 
-                new AlertDialog.Builder(ActivityEml.this)
+                new AlertDialog.Builder(ActivityEML.this)
                         .setAdapter(adapter, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -236,7 +220,7 @@ public class ActivityEml extends ActivityBase {
                                 new SimpleTask<String>() {
                                     @Override
                                     protected void onPreExecute(Bundle args) {
-                                        ToastEx.makeText(ActivityEml.this, R.string.title_executing, Toast.LENGTH_LONG).show();
+                                        ToastEx.makeText(ActivityEML.this, R.string.title_executing, Toast.LENGTH_LONG).show();
                                     }
 
                                     @Override
@@ -280,7 +264,7 @@ public class ActivityEml extends ActivityBase {
 
                                     @Override
                                     protected void onExecuted(Bundle args, String name) {
-                                        ToastEx.makeText(ActivityEml.this, name, Toast.LENGTH_LONG).show();
+                                        ToastEx.makeText(ActivityEML.this, name, Toast.LENGTH_LONG).show();
                                     }
 
                                     @Override
@@ -290,7 +274,7 @@ public class ActivityEml extends ActivityBase {
                                         else
                                             Helper.unexpectedError(getSupportFragmentManager(), ex);
                                     }
-                                }.execute(ActivityEml.this, args, "eml:store");
+                                }.execute(ActivityEML.this, args, "eml:store");
                             }
                         })
                         .show();
