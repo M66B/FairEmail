@@ -58,6 +58,7 @@ For authorizing:
 * Search for settings
 * Select any day for time conditions
 * Widget for selected account
+* Pinch zoom
 
 Anything on this list is in random order and *might* be added in the near future.
 
