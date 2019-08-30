@@ -286,13 +286,25 @@ public class FragmentSetup extends FragmentBase {
                 btnInbox.setEnabled(done);
 
                 prefs.edit().putBoolean("has_accounts", done).apply();
-            }
-        });
 
-        db.folder().livePrimaryDrafts().observe(getViewLifecycleOwner(), new Observer<EntityFolder>() {
-            @Override
-            public void onChanged(EntityFolder draft) {
-                tvNoPrimaryDrafts.setVisibility(draft == null ? View.VISIBLE : View.GONE);
+                if (done)
+                    new SimpleTask<EntityFolder>() {
+                        @Override
+                        protected EntityFolder onExecute(Context context, Bundle args) {
+                            DB db = DB.getInstance(context);
+                            return db.folder().getPrimaryDrafts();
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, EntityFolder drafts) {
+                            tvNoPrimaryDrafts.setVisibility(drafts == null ? View.VISIBLE : View.GONE);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getFragmentManager(), ex);
+                        }
+                    }.execute(FragmentSetup.this, new Bundle(), "setup:drafts");
             }
         });
 

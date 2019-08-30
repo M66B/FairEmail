@@ -120,13 +120,6 @@ public interface DaoFolder {
             " GROUP BY folder.id")
     LiveData<List<TupleFolderNav>> liveNavigation();
 
-    @Query("SELECT folder.* FROM folder" +
-            " JOIN account ON account.id = folder.account" +
-            " WHERE account.synchronize" +
-            " AND account.`primary`" +
-            " AND folder.type = '" + EntityFolder.DRAFTS + "'")
-    LiveData<EntityFolder> livePrimaryDrafts();
-
     @Query("SELECT COUNT(id) FROM folder" +
             " WHERE sync_state = 'syncing'" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'")
