@@ -994,13 +994,17 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onActionDiscard() {
-        Bundle args = new Bundle();
-        args.putString("question", getString(R.string.title_ask_discard));
+        if (isEmpty())
+            onAction(R.id.action_delete);
+        else {
+            Bundle args = new Bundle();
+            args.putString("question", getString(R.string.title_ask_discard));
 
-        FragmentDialogAsk fragment = new FragmentDialogAsk();
-        fragment.setArguments(args);
-        fragment.setTargetFragment(this, REQUEST_DISCARD);
-        fragment.show(getFragmentManager(), "compose:discard");
+            FragmentDialogAsk fragment = new FragmentDialogAsk();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(this, REQUEST_DISCARD);
+            fragment.show(getFragmentManager(), "compose:discard");
+        }
     }
 
     private void onActionSend() {
