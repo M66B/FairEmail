@@ -208,6 +208,7 @@
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
+    <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>

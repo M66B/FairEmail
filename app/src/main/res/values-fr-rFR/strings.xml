@@ -15,8 +15,8 @@
     <string name="channel_error">Erreurs</string>
     <string name="channel_group_contacts">Contacts</string>
     <plurals name="page_conversation">
-        <item quantity="one">Fil de discussion</item>
-        <item quantity="other">Fils de discussion</item>
+        <item quantity="one">Conversation</item>
+        <item quantity="other">Conversations</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Message</item>
@@ -220,7 +220,7 @@
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
     <string name="title_advanced_swipenav">Balayez vers la gauche/droite pour passer à la conversation suivante/précédente</string>
     <string name="title_advanced_double_tap">Appuyez deux fois pour marquer le message lu/non lu</string>
-    <string name="title_advanced_expand_read">Marquer les messages lus à l\'ouverture de la conversation</string>
+    <string name="title_advanced_expand_read">Marquer les messages comme lus à l\'ouverture</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
@@ -278,7 +278,7 @@
     <string name="title_advanced_permission_contacts_hint">Cela nécessite l\'autorisation de lire vos contacts</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autocollapse_hint">Les messages multiples étendus seront toujours fermés par « Retour »</string>
-    <string name="title_advanced_autoclose_hint">Fermer automatiquement les fils de conversation quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
+    <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
@@ -616,7 +616,7 @@
     <string name="title_legend_sync_keep">Nombre de jours à synchroniser / pour conserver les messages</string>
     <string name="title_legend_download_fetch">Nombre de messages téléchargés / en-têtes récupérés</string>
     <string name="title_legend_stop">Arrêter le traitement des règles</string>
-    <string name="title_legend_thread">Fil de discussion</string>
+    <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_zoom">Changer la taille du texte</string>
     <string name="title_legend_draft">A un brouillon</string>
     <string name="title_legend_auth">Échec de l\'authentification</string>
