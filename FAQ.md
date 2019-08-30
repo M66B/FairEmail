@@ -659,6 +659,9 @@ but such apps cannot be updated anymore and recent Android versions will show a 
 <a name="faq22"></a>
 **(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'Connection closed/reset by peer', 'Read timed out' and 'Broken pipe' mean?**
 
+FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
+Also, FairEmail will always retry again later, so transient errors will automatically be solved.
+
 The messages *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
 mean that FairEmail was not able to connect to the email server.
 
