@@ -2969,11 +2969,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     expand = messages.get(0);
 
                 if (expand != null &&
-                        (expand.content || unmetered || (expand.size != null && expand.size < download))) {
+                        (expand.content || unmetered || (expand.size != null && expand.size < download)))
                     iProperties.setValue("expanded", expand.id, true);
-                    if (!expand.ui_seen)
-                        return true;
-                }
             }
         } else {
             if (autoCloseCount > 0 && (autoclose || onclose != null)) {
@@ -3067,6 +3064,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
             }.setLog(false).execute(this, args, "messages:navigation");
         }
+
         return false;
     }
 
