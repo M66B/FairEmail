@@ -82,7 +82,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private String startup;
 
     private View view;
-    private Group grpPane;
+
+    private View content_separator;
+    private View content_pane;
+
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
@@ -135,7 +138,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        grpPane = findViewById(R.id.grpPane);
+        content_separator = findViewById(R.id.content_separator);
+        content_pane = findViewById(R.id.content_pane);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.setScrimColor(Helper.resolveColor(this, R.attr.colorDrawerScrim));
@@ -422,6 +426,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         // Initialize
 
+        if (content_pane != null) {
+            content_separator.setVisibility(View.GONE);
+            content_pane.setVisibility(View.GONE);
+        }
+
         if (getSupportFragmentManager().getFragments().size() == 0 &&
                 !getIntent().hasExtra(Intent.EXTRA_PROCESS_TEXT))
             init();
@@ -608,9 +617,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 drawerLayout.closeDrawer(drawerContainer);
             drawerToggle.setDrawerIndicatorEnabled(count == 1);
 
-            if (grpPane != null) {
+            if (content_pane != null) {
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.content_pane);
-                grpPane.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
+                content_separator.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
+                content_pane.setVisibility(fragment == null ? View.GONE : View.VISIBLE);
             }
         }
     }
@@ -1029,11 +1039,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragment.setArguments(args);
 
         int pane;
-        if (grpPane == null)
+        if (content_pane == null)
             pane = R.id.content_frame;
         else {
             pane = R.id.content_pane;
-            grpPane.setVisibility(View.VISIBLE);
+            content_separator.setVisibility(View.VISIBLE);
+            content_pane.setVisibility(View.VISIBLE);
             args.putBoolean("pane", true);
         }
 

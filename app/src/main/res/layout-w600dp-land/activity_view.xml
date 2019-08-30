@@ -6,44 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".ActivityView">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:layout_constraintEnd_toStartOf="@+id/content_separator"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@+id/content_separator" />
 
         <View
             android:id="@+id/content_separator"
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="?attr/colorSeparator"
-            app:layout_constraintEnd_toStartOf="@+id/content_pane"
-            app:layout_constraintStart_toEndOf="@id/content_frame"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="?attr/colorSeparator" />
 
         <FrameLayout
             android:id="@+id/content_pane"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintStart_toEndOf="@id/content_separator"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpPane"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone"
-            app:constraint_referenced_ids="content_separator,content_pane" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/drawer_container"
