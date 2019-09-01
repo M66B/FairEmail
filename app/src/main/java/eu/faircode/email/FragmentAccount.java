@@ -930,6 +930,17 @@ public class FragmentAccount extends FragmentBase {
                 try {
                     db.beginTransaction();
 
+                    if (account != null && !account.password.equals(password)) {
+                        List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                        for (EntityIdentity identity : identities)
+                            if (identity.password.equals(account.password) &&
+                                    Helper.getTld(identity.host).equals(Helper.getTld(account.host))) {
+                                Log.i("Changing identity password host=" + identity.host);
+                                identity.password = password;
+                                db.identity().updateIdentity(identity);
+                            }
+                    }
+
                     boolean update = (account != null);
                     if (account == null)
                         account = new EntityAccount();
