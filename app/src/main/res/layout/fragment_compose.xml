@@ -64,12 +64,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etExtra" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/ivToAdd"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_legend_pick"
                 app:layout_constraintBottom_toBottomOf="@id/etTo"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -90,12 +91,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etTo" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/ivCcAdd"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_legend_pick"
                 app:layout_constraintBottom_toBottomOf="@id/etCc"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -116,12 +118,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etCc" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/ivBccAdd"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_legend_pick"
                 app:layout_constraintBottom_toBottomOf="@id/etBcc"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -142,12 +145,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etBcc" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/ivCcBcc"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_show_addresses"
                 app:layout_constraintBottom_toBottomOf="@id/etSubject"
                 app:layout_constraintEnd_toEndOf="parent"
