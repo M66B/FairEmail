@@ -32,6 +32,7 @@ For authorizing:
 * A [bug in Android](https://issuetracker.google.com/issues/62427912) sometimes causes a crash with "*... ActivityRecord not found for ...*" after updating FairEmail. Reinstalling ([source](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) might fix the problem.
 * A bug in Nova Launcher on Android 5.x lets FairEmail crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * The folder selector sometimes shows no folders for yet unknown reasons.
+* A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller.
 
 ## Planned features
 
