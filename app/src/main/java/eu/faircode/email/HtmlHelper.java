@@ -78,7 +78,7 @@ import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 250; // characters
 
-    private static final int MAX_LINKS = 500;
+    private static final int MAX_AUTO_LINK = 250;
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
 
     private static final List<String> heads = Collections.unmodifiableList(Arrays.asList(
@@ -125,12 +125,6 @@ public class HtmlHelper {
                     Log.i("Removed tag=" + tag);
                 }
             }
-        }
-
-        int links = parsed.select("a").size();
-        if (links > MAX_LINKS) {
-            Log.i("Message links=" + links);
-            return "<strong>" + context.getString(R.string.title_hint_too_complex) + "</strong>";
         }
 
         Whitelist whitelist = Whitelist.relaxed()
@@ -275,11 +269,11 @@ public class HtmlHelper {
                         PatternsCompat.AUTOLINK_WEB_URL.pattern());
 
         NodeTraversor.traverse(new NodeVisitor() {
-            private int alinks = links;
+            private int links = 0;
 
             @Override
             public void head(Node node, int depth) {
-                if (alinks < MAX_LINKS && node instanceof TextNode) {
+                if (links < MAX_AUTO_LINK && node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
                     String text = tnode.text();
 
@@ -303,7 +297,7 @@ public class HtmlHelper {
                             if (BuildConfig.DEBUG)
                                 Log.i("Web url=" + matcher.group() +
                                         " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
-                                        " linked=" + linked + " email=" + email);
+                                        " linked=" + linked + " email=" + email + " count=" + links);
 
                             if (linked)
                                 span.appendText(text.substring(pos, matcher.end()));
@@ -315,11 +309,11 @@ public class HtmlHelper {
                                 a.text(matcher.group());
                                 span.appendChild(a);
 
-                                alinks++;
+                                links++;
                             }
 
                             pos = matcher.end();
-                        } while (alinks < MAX_LINKS && matcher.find());
+                        } while (links < MAX_AUTO_LINK && matcher.find());
 
                         span.appendText(text.substring(pos));
 
