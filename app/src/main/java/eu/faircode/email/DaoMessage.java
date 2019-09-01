@@ -354,6 +354,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET notifying = :notifying WHERE id = :id")
     int setMessageNotifying(long id, int notifying);
 
+    @Query("UPDATE message SET received = :received WHERE id = :id")
+    int setMessageReceived(long id, long received);
+
     @Query("UPDATE message SET seen = :seen WHERE id = :id")
     int setMessageSeen(long id, boolean seen);
 

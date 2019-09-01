@@ -2665,7 +2665,6 @@ public class FragmentCompose extends FragmentBase {
                         draft.bcc = abcc;
                         draft.subject = subject;
                         draft.encrypt = encrypt;
-                        draft.received = new Date().getTime();
                         draft.sender = MessageHelper.getSortKey(draft.from);
                         Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
                         draft.avatar = (lookupUri == null ? null : lookupUri.toString());
@@ -2723,6 +2722,11 @@ public class FragmentCompose extends FragmentBase {
                                     HtmlHelper.getPreview(body),
                                     null);
                         }
+                    }
+
+                    if (dirty) {
+                        draft.received = new Date().getTime();
+                        db.message().setMessageReceived(draft.id, draft.received);
                     }
 
                     // Remove unused inline images
