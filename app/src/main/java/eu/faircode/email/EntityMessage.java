@@ -37,7 +37,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
+import java.util.UUID;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -157,13 +157,7 @@ public class EntityMessage implements Serializable {
     public Long last_attempt; // send
 
     static String generateMessageId() {
-        StringBuilder sb = new StringBuilder();
-        sb.append('<')
-                .append(Math.abs(new Random().nextInt())).append('.')
-                .append(System.currentTimeMillis()).append('.')
-                .append(BuildConfig.APPLICATION_ID).append("@localhost")
-                .append('>');
-        return sb.toString();
+        return "<" + UUID.randomUUID() + "@localhost" + '>';
     }
 
     boolean replySelf(String via) {

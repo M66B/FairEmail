@@ -121,7 +121,7 @@ public class MessageHelper {
         if (message.inreplyto != null)
             imessage.addHeader("In-Reply-To", message.inreplyto);
 
-        imessage.addHeader("X-FairEmail-ID", message.msgid);
+        imessage.addHeader("X-Correlation-ID", message.msgid);
 
         imessage.setFlag(Flags.Flag.SEEN, message.seen);
         imessage.setFlag(Flags.Flag.FLAGGED, message.flagged);
@@ -405,7 +405,7 @@ public class MessageHelper {
 
     String getMessageID() throws MessagingException {
         // Outlook outbox -> sent
-        String header = imessage.getHeader("X-FairEmail-ID", null);
+        String header = imessage.getHeader("X-Correlation-ID", null);
         if (header == null)
             header = imessage.getHeader("Message-ID", null);
         return (header == null ? null : MimeUtility.unfold(header));
