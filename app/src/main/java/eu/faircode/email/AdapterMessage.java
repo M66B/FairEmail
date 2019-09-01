@@ -1677,15 +1677,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message.ui_snoozed != null) {
                 DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                 DateFormat D = new SimpleDateFormat("E");
-                Snackbar.make(
-                        parentFragment.getView(),
+                ToastEx.makeText(
+                        context,
                         D.format(message.ui_snoozed) + " " + DTF.format(message.ui_snoozed) + " - " +
                                 DateUtils.getRelativeTimeSpanString(
                                         message.ui_snoozed,
                                         System.currentTimeMillis(),
                                         DateUtils.MINUTE_IN_MILLIS,
                                         DateUtils.FORMAT_ABBREV_RELATIVE),
-                        Snackbar.LENGTH_LONG).show();
+                        Toast.LENGTH_LONG).show();
             }
         }
 
