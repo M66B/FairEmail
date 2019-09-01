@@ -3377,12 +3377,15 @@ public class FragmentCompose extends FragmentBase {
             final Spinner spTarget = dview.findViewById(R.id.spTarget);
 
             Cursor groups = getContext().getContentResolver().query(
-                    ContactsContract.Groups.CONTENT_URI,
+                    ContactsContract.Groups.CONTENT_SUMMARY_URI,
                     new String[]{
                             ContactsContract.Groups._ID,
-                            ContactsContract.Groups.TITLE
+                            ContactsContract.Groups.TITLE,
+                            ContactsContract.Groups.SUMMARY_COUNT
                     },
-                    ContactsContract.Groups.GROUP_VISIBLE + " = 1", null,
+                    ContactsContract.Groups.DELETED + " = 0" +
+                            " AND " + ContactsContract.Groups.SUMMARY_COUNT + " > 0",
+                    null,
                     ContactsContract.Groups.TITLE
             );
 
