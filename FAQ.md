@@ -111,7 +111,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'Connection closed/reset by peer', 'Read timed out' and 'Broken pipe' mean?](#user-content-faq22)
+* [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out' and 'Broken pipe' mean?](#user-content-faq22)
 * [(23) Why do I get 'Too many simultaneous connections' or 'Maximum number of connections ... exceeded' ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
@@ -658,7 +658,7 @@ but such apps cannot be updated anymore and recent Android versions will show a 
 <br />
 
 <a name="faq22"></a>
-**(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'Connection closed/reset by peer', 'Read timed out' and 'Broken pipe' mean?**
+**(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out' and 'Broken pipe' mean?**
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 Also, FairEmail will always retry again later, so transient errors will automatically be solved.
@@ -670,7 +670,7 @@ The message *... Software caused connection abort ...*
 means that the email server or something between FairEmail and the email server actively terminated an existing connection.
 This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The message *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
+The message *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
 
 The message *... Connection closed by peer ...* might be caused by a not updated Exchange server,
 see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
