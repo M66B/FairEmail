@@ -66,6 +66,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -227,7 +228,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     ));
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener, View.OnLongClickListener, BottomNavigationView.OnNavigationItemSelectedListener, View.OnKeyListener {
+            View.OnKeyListener,
+            View.OnClickListener,
+            View.OnLongClickListener,
+            View.OnTouchListener,
+            BottomNavigationView.OnNavigationItemSelectedListener {
         private View card;
         private View view;
 
@@ -330,6 +335,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private boolean hasJunk;
         private boolean delete;
+
+        private ScaleGestureDetector gestureDetector;
 
         ViewHolder(final View itemView) {
             super(itemView);
@@ -508,9 +515,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibImages.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
 
+                tvBody.setOnTouchListener(this);
+
                 btnCalendarAccept.setOnClickListener(this);
                 btnCalendarDecline.setOnClickListener(this);
                 btnCalendarMaybe.setOnClickListener(this);
+
+                gestureDetector = new ScaleGestureDetector(context, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
+                    @Override
+                    public boolean onScale(ScaleGestureDetector detector) {
+                        TupleMessageEx message = getMessage();
+                        if (message != null) {
+                            float factor = detector.getScaleFactor();
+                            float size = tvBody.getTextSize() * factor;
+                            properties.setSize(message.id, size);
+                            tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+                        }
+                        return true;
+                    }
+                });
             }
         }
 
@@ -539,6 +562,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
+
+                tvBody.setOnTouchListener(null);
 
                 btnCalendarAccept.setOnClickListener(null);
                 btnCalendarDecline.setOnClickListener(null);
@@ -950,8 +975,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
 
-            if (textSize != 0)
-                tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+            if (textSize != 0) {
+                float size = properties.getSize(message.id, textSize);
+                tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+            }
 
             tvBody.setTextColor(contrast ? textColorPrimary : textColorSecondary);
             tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
@@ -1416,6 +1443,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private boolean firstClick = false;
+
+        @Override
+        public boolean onTouch(View view, MotionEvent ev) {
+            if (ev.getPointerCount() > 1 &&
+                    textSize != 0 && gestureDetector != null) {
+                switch (ev.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                    case MotionEvent.ACTION_MOVE:
+                        view.getParent().requestDisallowInterceptTouchEvent(true);
+                        gestureDetector.onTouchEvent(ev);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        view.getParent().requestDisallowInterceptTouchEvent(false);
+                        gestureDetector.onTouchEvent(ev);
+                        break;
+                }
+                return true;
+            }
+            return false;
+        }
 
         @Override
         public void onClick(View view) {
@@ -3476,6 +3524,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setValue(String name, long id, boolean enabled);
 
         boolean getValue(String name, long id);
+
+        void setSize(long id, float size);
+
+        float getSize(long id, float defaultSize);
 
         void setBody(long id, Spanned body);
 

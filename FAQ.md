@@ -54,12 +54,12 @@ For authorizing:
 * ~~Pinch zoom~~ (not reliably possible in a scrolling list; the full message view can be zoomed instead)
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
+* ~~Pinch zoom text size~~
 * Send as attachment
 * Themes
 * Search for settings
 * Select any day for time conditions
 * Widget for selected account
-* Pinch zoom
 
 Anything on this list is in random order and *might* be added in the near future.
 

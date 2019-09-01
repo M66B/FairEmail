@@ -232,6 +232,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private int autoCloseCount = 0;
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
+    private LongSparseArray<Float> sizes = new LongSparseArray<>();
     private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
@@ -1177,6 +1178,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if ("addresses".equals(name))
                 return !addresses;
             return false;
+        }
+
+        @Override
+        public void setSize(long id, float size) {
+            sizes.put(id, size);
+        }
+
+        @Override
+        public float getSize(long id, float defaultSize) {
+            return sizes.get(id, defaultSize);
         }
 
         @Override
