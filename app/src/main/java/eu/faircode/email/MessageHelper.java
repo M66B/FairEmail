@@ -899,8 +899,7 @@ public class MessageHelper {
             if (index < 0)
                 for (int i = 0; i < remotes.size(); i++) {
                     EntityAttachment remote = remotes.get(i);
-                    if (remote.name == null && remote.cid == null &&
-                            Objects.equals(remote.type, local.type) &&
+                    if (Objects.equals(remote.type, local.type) &&
                             Objects.equals(remote.size, local.size)) {
                         index = i;
                         break;
