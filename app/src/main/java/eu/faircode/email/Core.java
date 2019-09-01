@@ -1922,7 +1922,7 @@ class Core {
         }
     }
 
-    static void notifyMessages(Context context, List<TupleMessageEx> messages, Map<String, List<Long>> groupNotifying) {
+    static void notifyMessages(Context context, List<TupleMessageEx> messages, Map<Long, List<Long>> groupNotifying) {
         if (messages == null)
             messages = new ArrayList<>();
         Log.i("Notify messages=" + messages.size());
@@ -1937,8 +1937,8 @@ class Core {
         boolean pro = ActivityBilling.isPro(context);
 
         int unseen = 0;
-        Map<String, List<TupleMessageEx>> groupMessages = new HashMap<>();
-        for (String group : groupNotifying.keySet())
+        Map<Long, List<TupleMessageEx>> groupMessages = new HashMap<>();
+        for (long group : groupNotifying.keySet())
             groupMessages.put(group, new ArrayList<>());
 
         // Current
@@ -1955,7 +1955,7 @@ class Core {
                     continue;
             }
 
-            String group = Long.toString(pro && message.accountNotify ? message.account : 0);
+            long group = (pro && message.accountNotify ? message.account : 0);
             if (!groupMessages.containsKey(group)) {
                 groupNotifying.put(group, new ArrayList<Long>());
                 groupMessages.put(group, new ArrayList<TupleMessageEx>());
@@ -1986,7 +1986,7 @@ class Core {
         }
 
         // Difference
-        for (String group : groupMessages.keySet()) {
+        for (long group : groupMessages.keySet()) {
             // Difference
             final List<Long> add = new ArrayList<>();
             final List<Long> remove = new ArrayList<>(groupNotifying.get(group));
@@ -2051,7 +2051,7 @@ class Core {
         groupNotifying.clear();
     }
 
-    private static List<Notification> getNotificationUnseen(Context context, String group, List<TupleMessageEx> messages) {
+    private static List<Notification> getNotificationUnseen(Context context, long group, List<TupleMessageEx> messages) {
         List<Notification> notifications = new ArrayList<>();
 
         // Android 7+ N https://developer.android.com/training/notify-user/group
@@ -2088,7 +2088,7 @@ class Core {
             Intent summary = new Intent(context, ActivityView.class).setAction("unified");
             PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
 
-            Intent clear = new Intent(context, ServiceUI.class).setAction("clear");
+            Intent clear = new Intent(context, ServiceUI.class).setAction("clear:" + group);
             PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // Build title
@@ -2107,7 +2107,7 @@ class Core {
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_STATUS)
                             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                            .setGroup(group)
+                            .setGroup(Long.toString(group))
                             .setGroupSummary(true)
                             .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
@@ -2192,7 +2192,7 @@ class Core {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 mbuilder
-                        .setGroup(group)
+                        .setGroup(Long.toString(group))
                         .setGroupSummary(false)
                         .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 

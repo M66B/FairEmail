@@ -427,9 +427,10 @@ public interface DaoMessage {
     int setMessageLastAttempt(long id, long last_attempt);
 
     @Query("UPDATE message SET ui_ignored = 1" +
-            " WHERE NOT ui_ignored" +
-            " AND folder IN (SELECT id FROM folder WHERE type = '" + EntityFolder.INBOX + "')")
-    int ignoreAll();
+            " WHERE (:account IS NULL OR account = :account)" +
+            " AND NOT ui_ignored" +
+            " AND folder IN (SELECT id FROM folder WHERE folder.unified)")
+    int ignoreAll(Long account);
 
     @Query("UPDATE message SET ui_found = 1" +
             " WHERE account = :account" +

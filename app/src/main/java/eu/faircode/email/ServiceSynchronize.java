@@ -165,7 +165,7 @@ public class ServiceSynchronize extends ServiceBase {
             }
         });
 
-        Map<String, List<Long>> groupNotifying = new HashMap<>();
+        Map<Long, List<Long>> groupNotifying = new HashMap<>();
 
         // Get existing notifications
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -174,7 +174,7 @@ public class ServiceSynchronize extends ServiceBase {
                 String tag = sbn.getTag();
                 if (tag != null && tag.startsWith("unseen.")) {
                     String[] p = tag.split(("\\."));
-                    String group = p[1];
+                    long group = Long.parseLong(p[1]);
                     long id = Long.parseLong(p[2]);
 
                     if (!groupNotifying.containsKey(group))

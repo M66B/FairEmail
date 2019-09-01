@@ -91,7 +91,7 @@ public class ServiceUI extends IntentService {
 
             switch (parts[0]) {
                 case "clear":
-                    onClear();
+                    onClear(id);
                     break;
 
                 case "trash":
@@ -139,8 +139,10 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onClear() {
-        DB.getInstance(this).message().ignoreAll();
+    private void onClear(long group) {
+        DB db = DB.getInstance(this);
+        int cleared = db.message().ignoreAll(group == 0 ? null : group);
+        Log.i("Cleared=" + cleared);
     }
 
     private void cancel(String group, long id) {
