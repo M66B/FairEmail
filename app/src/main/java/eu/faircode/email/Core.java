@@ -1289,21 +1289,19 @@ class Core {
                     }
             }
 
-            // Delete not synchronized messages without uid
-            db.message().deleteOrphans(folder.id);
-
             // Add local sent messages to remote sent folder
             if (EntityFolder.SENT.equals(folder.type)) {
-                List<EntityMessage> orphans = db.message().getSentOrphans(folder.account);
-                Log.i(folder.name + " sent orphans=" + orphans.size() + " account=" + folder.account);
+                List<EntityMessage> orphans = db.message().getOrphans(folder.id);
+                Log.i(folder.name + " sent orphans=" + orphans.size());
                 for (EntityMessage orphan : orphans) {
-                    Log.i(folder.name + " adding orphan id=" + orphan.id + " sent=" + new Date(orphan.sent));
-                    orphan.folder = folder.id;
-                    orphan.ui_hide = 0L;
-                    db.message().updateMessage(orphan);
-                    EntityOperation.queue(context, orphan, EntityOperation.ADD);
+                    Log.i(folder.name + " adding orphan id=" + orphan.id);
+                    if (orphan.content)
+                        EntityOperation.queue(context, orphan, EntityOperation.ADD);
                 }
             }
+
+            // Delete not synchronized messages without uid
+            db.message().deleteOrphans(folder.id);
 
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
@@ -1418,8 +1416,7 @@ class Core {
                             " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +
                             " msgid=" + dup.msgid + " thread=" + dup.thread);
 
-                    if (dup.folder.equals(folder.id) ||
-                            (EntityFolder.OUTBOX.equals(dfolder.type) && EntityFolder.SENT.equals(folder.type))) {
+                    if (dup.folder.equals(folder.id)) {
                         String thread = helper.getThreadId(context, account.id, uid);
                         Log.i(folder.name + " found as id=" + dup.id +
                                 " uid=" + dup.uid + "/" + uid +
@@ -1427,15 +1424,13 @@ class Core {
 
                         if (dup.uid == null) {
                             Log.i(folder.name + " set uid=" + uid);
-                            dup.folder = folder.id; // outbox to sent
                             dup.uid = uid;
-                            dup.msgid = msgid;
                             dup.thread = thread;
 
                             if (dup.size == null)
                                 dup.size = helper.getSize();
 
-                            if (EntityFolder.OUTBOX.equals(dfolder.type)) {
+                            if (EntityFolder.SENT.equals(folder.type)) {
                                 dup.received = helper.getReceived();
                                 dup.sent = helper.getSent();
                             }

@@ -351,6 +351,43 @@ public class ServiceSend extends ServiceBase {
                 imessage.addHeader("Disposition-Notification-To", ident.replyto == null ? ident.email : ident.replyto);
         }
 
+        // Prepare sent message
+        Long sid = null;
+        EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
+        if (sent != null) {
+            Log.i(sent.name + " Preparing sent message");
+
+            long id = message.id;
+
+            MessageHelper helper = new MessageHelper(imessage);
+
+            message.id = null;
+            message.folder = sent.id;
+            message.identity = null;
+            message.receipt_request = helper.getReceiptRequested();
+            message.from = helper.getFrom();
+            message.bcc = helper.getBcc();
+            message.reply = helper.getReply();
+            message.received = new Date().getTime();
+            message.seen = true;
+            message.ui_seen = true;
+            message.ui_hide = Long.MAX_VALUE;
+            message.error = null;
+            message.id = db.message().insertMessage(message);
+
+            MessageHelper.MessageParts parts = helper.getMessageParts();
+            String body = parts.getHtml(this);
+            Helper.writeText(message.getFile(this), body);
+            db.message().setMessageContent(message.id,
+                    true,
+                    parts.isPlainOnly(),
+                    HtmlHelper.getPreview(body),
+                    parts.getWarnings(message.warning));
+
+            sid = message.id;
+            message.id = id;
+        }
+
         // Create transport
         try (MailService iservice = new MailService(
                 this, ident.getProtocol(), ident.realm, ident.insecure, debug)) {
@@ -372,27 +409,11 @@ public class ServiceSend extends ServiceBase {
             try {
                 db.beginTransaction();
 
-                db.message().setMessageIdentity(message.id, null);
-                db.message().setMessageFrom(message.id, DB.Converters.encodeAddresses(imessage.getFrom())); // extra
-                db.message().setMessageSent(message.id, time);
-                db.message().setMessageReceiptRequested(message.id, ident.delivery_receipt || ident.read_receipt);
-                db.message().setMessageSeen(message.id, true);
-                db.message().setMessageUiSeen(message.id, true);
-                db.message().setMessageError(message.id, null);
-                if (!BuildConfig.DEBUG && !debug)
-                    db.message().setMessageUiHide(message.id, new Date().getTime());
+                db.message().deleteMessage(message.id);
 
-                EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
-                if (sent != null) {
-                    // Give server time to store message into the sent folder
-                    try {
-                        Thread.sleep(AFTER_SEND_DELAY);
-                    } catch (InterruptedException ex) {
-                        Log.w(ex);
-                    }
-
-                    // Check for sent orphans
-                    EntityOperation.sync(this, sent.id, false);
+                if (sid != null) {
+                    db.message().setMessageSent(sid, time);
+                    db.message().setMessageUiHide(sid, 0L);
                 }
 
                 if (message.inreplyto != null) {
@@ -406,24 +427,28 @@ public class ServiceSend extends ServiceBase {
                 db.endTransaction();
             }
 
-            // Update message with signature / referenced text for sent orphans
-            MessageHelper helper = new MessageHelper(imessage);
-            MessageHelper.MessageParts parts = helper.getMessageParts();
-            String body = parts.getHtml(this);
-            Helper.writeText(message.getFile(this), body);
-            db.message().setMessageContent(message.id,
-                    true,
-                    parts.isPlainOnly(),
-                    HtmlHelper.getPreview(body),
-                    parts.getWarnings(message.warning));
-
+            // Reset identity
             db.identity().setIdentityConnected(ident.id, new Date().getTime());
             db.identity().setIdentityError(ident.id, null);
 
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.cancel("send:" + message.identity, 1);
+
+            // Check for sent orphans
+            if (sent != null) {
+                // Give server time to store message into the sent folder
+                try {
+                    Thread.sleep(AFTER_SEND_DELAY);
+                } catch (InterruptedException ex) {
+                    Log.w(ex);
+                }
+                EntityOperation.sync(this, sent.id, false);
+            }
         } catch (MessagingException ex) {
             Log.e(ex);
+
+            if (sid != null)
+                db.message().deleteMessage(sid);
 
             db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
 

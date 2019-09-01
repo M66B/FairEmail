@@ -312,12 +312,14 @@ public interface DaoMessage {
             " AND NOT uid IS NULL")
     List<Long> getUids(long folder, Long received);
 
-    @Query("SELECT message.* FROM message" +
-            " JOIN folder on folder.id = message.folder" +
-            " WHERE  message.account = :account" +
-            " AND folder.type = '" + EntityFolder.OUTBOX + "'" +
-            " AND sent IS NOT NULL")
-    List<EntityMessage> getSentOrphans(long account);
+    @Query("SELECT * FROM message" +
+            " WHERE folder = :folder" +
+            " AND uid IS NULL" +
+            " AND NOT EXISTS" +
+            "  (SELECT * FROM operation" +
+            "  WHERE operation.message = message.id" +
+            "  AND operation.name = '" + EntityOperation.ADD + "')")
+    List<EntityMessage> getOrphans(long folder);
 
     @Query("SELECT * FROM message WHERE NOT ui_snoozed IS NULL")
     List<EntityMessage> getSnoozed();
@@ -342,15 +344,6 @@ public interface DaoMessage {
 
     @Update
     int updateMessage(EntityMessage message);
-
-    @Query("UPDATE message SET folder = :folder WHERE id = :id")
-    int setMessageFolder(long id, long folder);
-
-    @Query("UPDATE message SET identity = :identity WHERE id = :id")
-    int setMessageIdentity(long id, Long identity);
-
-    @Query("UPDATE message SET `from` = :from WHERE id = :id")
-    int setMessageFrom(long id, String from);
 
     @Query("UPDATE message SET uid = :uid WHERE id = :id")
     int setMessageUid(long id, Long uid);
@@ -396,12 +389,6 @@ public interface DaoMessage {
 
     @Query("UPDATE message SET received = :sent, sent = :sent WHERE id = :id")
     int setMessageSent(long id, Long sent);
-
-    @Query("UPDATE message SET receipt_request = :receipt_request WHERE id = :id")
-    int setMessageReceiptRequested(long id, Boolean receipt_request);
-
-    @Query("UPDATE message SET avatar = :avatar WHERE id = :id")
-    int setMessageAvatar(long id, String avatar);
 
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);
