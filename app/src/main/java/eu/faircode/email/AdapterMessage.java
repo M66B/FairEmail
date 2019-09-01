@@ -528,6 +528,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message != null) {
                             float factor = detector.getScaleFactor();
                             float size = tvBody.getTextSize() * factor;
+                            //Log.i("Gesture factor=" + factor + " size=" + size);
                             properties.setSize(message.id, size);
                             tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
                         }
@@ -1446,23 +1447,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         @Override
         public boolean onTouch(View view, MotionEvent ev) {
-            if (ev.getPointerCount() > 1 &&
-                    textSize != 0 && gestureDetector != null) {
-                switch (ev.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                    case MotionEvent.ACTION_MOVE:
-                        view.getParent().requestDisallowInterceptTouchEvent(true);
-                        gestureDetector.onTouchEvent(ev);
-                        break;
-
-                    case MotionEvent.ACTION_UP:
-                        view.getParent().requestDisallowInterceptTouchEvent(false);
-                        gestureDetector.onTouchEvent(ev);
-                        break;
-                }
+            if (ev.getPointerCount() > 1 && textSize != 0 && gestureDetector != null) {
+                //Log.i("Gesture event=" + ev);
+                view.getParent().requestDisallowInterceptTouchEvent(true);
+                gestureDetector.onTouchEvent(ev);
                 return true;
+            } else {
+                view.getParent().requestDisallowInterceptTouchEvent(false);
+                return false;
             }
-            return false;
         }
 
         @Override
