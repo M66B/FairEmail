@@ -205,7 +205,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
 * [(115) Can you add email address chips?](#user-content-faq114)
-* [(116) How can I show images in messages from trusted senders by default?](#user-content-faq116)
+* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
 * [(119) Can you add colors to the unified inbox widget?](#user-content-faq119)
@@ -217,6 +217,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(125) What are the current experimental features?](#user-content-faq125)
 * [(126) What does 'User is authenticated but not connected' mean?](#user-content-faq126)
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
+* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
 
 [I have another question.](#support)
 
@@ -2047,12 +2048,12 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 <br />
 
 <a name="faq116"></a>
-**(116) How can I show images in messages from trusted senders by default?**
+**~~(116) How can I show images in messages from trusted senders by default?~~**
 
-You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.
+~~You can show images in messages from trusted senders by default by enabled the display setting *Automatically show images for known contacts*.~~
 
-Contacts in the Android contacts list are considered to be known and trusted,
-unless the contact is in the group / has the label '*Untrusted*' (case insensitive).
+~~Contacts in the Android contacts list are considered to be known and trusted,~~
+~~unless the contact is in the group / has the label '*Untrusted*' (case insensitive).~~
 
 <br />
 
@@ -2169,6 +2170,13 @@ This message in fact means that the password was invalid, likely because it was 
 **(127) How can I fix 'Syntactically invalid HELO argument(s)'?**
 
 You can likely fix the error *Syntactically invalid HELO argument(s)* by disabling the advanced indentity option *Use local IP address instead of host name*.
+
+<br />
+
+<a name="faq128"></a>
+**(128) How can I reset asked questions, for example to show images?**
+
+You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
 
 <br />
 

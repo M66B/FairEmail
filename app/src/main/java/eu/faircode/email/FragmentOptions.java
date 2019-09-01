@@ -41,8 +41,7 @@ public class FragmentOptions extends FragmentBase {
             "subscriptions",
             "startup", "cards", "date", "threading", "highlight_unread", "avatars", "generated_icons", "identicons", "circular",
             "name_email", "subject_top", "subject_italic", "flags", "preview", "preview_italic",
-            "addresses", "attachments_alt", "contrast", "monospaced", "inline_images",
-            "contact_images", "all_images", "collapse_quotes", "autocontent", "actionbar",
+            "addresses", "attachments_alt", "contrast", "monospaced", "inline_images", "collapse_quotes", "autocontent", "actionbar",
             "autoscroll", "swipenav", "autoexpand", "autoclose", "onclose",
             "experiments", "debug",
             "biometrics"

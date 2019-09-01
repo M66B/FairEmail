@@ -190,8 +190,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean attachments_alt;
     private boolean contrast;
     private boolean monospaced;
-    private boolean contact_images;
-    private boolean all_images;
     private boolean collapse_quotes;
     private boolean authentication;
     private static boolean debug;
@@ -828,9 +826,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }.setLog(false).execute(context, owner, aargs, "message:avatar");
             } else
                 bindContactInfo(info, message);
-
-            if (all_images || (contact_images && message.avatar != null))
-                properties.setValue("images", message.id, true);
 
             if (viewType == ViewType.THREAD) {
                 if (expanded)
@@ -1990,17 +1985,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImages(final TupleMessageEx message) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            if (prefs.getBoolean("show_images_confirmed", false)) {
-                onShowImagesConfirmed(message);
-                return;
-            }
-
             final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
             final TextView tvMessage = dview.findViewById(R.id.tvMessage);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             tvMessage.setText(context.getText(R.string.title_ask_show_image));
+            if (message.from == null || message.from.length == 0)
+                cbNotAgain.setVisibility(View.GONE);
+            else {
+                List<String> froms = new ArrayList<>();
+                for (Address address : message.from)
+                    froms.add(((InternetAddress) address).getAddress());
+                cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again,
+                        TextUtils.join(", ", froms)));
+            }
 
             // TODO: dialog fragment
             final Dialog dialog = new AlertDialog.Builder(context)
@@ -2008,8 +2006,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (cbNotAgain.isChecked())
-                                prefs.edit().putBoolean("show_images_confirmed", true).apply();
+                            if (cbNotAgain.isChecked()) {
+                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                for (Address address : message.from) {
+                                    String from = ((InternetAddress) address).getAddress();
+                                    editor.putBoolean(from + ".show_images", true);
+                                }
+                                editor.apply();
+                            }
+                            properties.setValue("images", message.id, true);
                             onShowImagesConfirmed(message);
                         }
                     })
@@ -2406,6 +2412,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void loadText(TupleMessageEx message, boolean scroll) {
             if (message.content) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                if (message.from != null)
+                    for (Address address : message.from) {
+                        String from = ((InternetAddress) address).getAddress();
+                        if (prefs.getBoolean(from + ".show_images", false)) {
+                            properties.setValue("images", message.id, true);
+                            break;
+                        }
+                    }
+
                 boolean show_images = properties.getValue("images", message.id);
                 boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
 
@@ -3068,8 +3084,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.contrast = prefs.getBoolean("contrast", false);
         this.monospaced = prefs.getBoolean("monospaced", false);
-        this.contact_images = (this.contacts && prefs.getBoolean("contact_images", true));
-        this.all_images = prefs.getBoolean("all_images", false);
         this.collapse_quotes = prefs.getBoolean("collapse_quotes", false);
         this.authentication = prefs.getBoolean("authentication", true);
 

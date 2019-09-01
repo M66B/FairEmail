@@ -69,7 +69,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
-            "welcome", "show_html_confirmed", "show_images_confirmed", "print_html_confirmed", "edit_ref_confirmed", "crash_reports_asked"
+            "welcome", "show_html_confirmed", "print_html_confirmed", "edit_ref_confirmed", "crash_reports_asked"
     };
 
     @Override
@@ -225,21 +225,33 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_default:
-                onMenuDefault(RESET_OPTIONS);
+                onMenuDefault();
                 return true;
             case R.id.menu_reset_questions:
-                onMenuDefault(RESET_QUESTIONS);
+                onMenuResetQuestions();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onMenuDefault(String[] options) {
+    private void onMenuDefault() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor editor = prefs.edit();
-        for (String option : options)
+        for (String option : RESET_OPTIONS)
             editor.remove(option);
+        editor.apply();
+        ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
+    }
+
+    private void onMenuResetQuestions() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        for (String option : RESET_QUESTIONS)
+            editor.remove(option);
+        for (String key : prefs.getAll().keySet())
+            if (key.endsWith(".show_images"))
+                editor.remove(key);
         editor.apply();
         ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
