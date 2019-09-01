@@ -78,7 +78,6 @@ import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 250; // characters
 
-    private static final int MAX_SIZE = 100 * 1024; // characters
     private static final int MAX_LINKS = 500;
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
 
@@ -91,11 +90,6 @@ public class HtmlHelper {
             Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static String sanitize(Context context, String html, boolean show_images) {
-        if (html.length() > MAX_SIZE) {
-            Log.i("Message size=" + html.length());
-            return "<strong>" + context.getString(R.string.title_hint_too_complex) + "</strong>";
-        }
-
         Document parsed = Jsoup.parse(html);
 
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
