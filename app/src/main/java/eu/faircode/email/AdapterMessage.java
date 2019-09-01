@@ -2421,8 +2421,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 String html = HtmlHelper.sanitize(context, body, show_images);
-                if (debug)
-                    html += "<pre>" + Html.escapeHtml(html) + "</pre>";
+                if (debug) {
+                    Document format = Jsoup.parse(html);
+                    format.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
+                    String[] lines = format.outerHtml().split("\\r?\\n");
+                    for (int i = 0; i < lines.length; i++)
+                        lines[i] = Html.escapeHtml(lines[i]);
+                    html += "<pre>" + TextUtils.join("<br>", lines) + "</pre>";
+                }
 
                 Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                     @Override
