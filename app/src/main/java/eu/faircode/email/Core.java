@@ -2111,6 +2111,12 @@ class Core {
                             .setGroupSummary(true)
                             .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
 
+            if (pro && group != 0 &&
+                    messages.size() > 0 && messages.get(0).accountColor != null) {
+                builder.setColor(messages.get(0).accountColor);
+                builder.setColorized(true);
+            }
+
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                 builder.setSound(null);
 
