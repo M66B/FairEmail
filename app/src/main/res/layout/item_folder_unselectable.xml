@@ -43,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/ivExpander"
+                android:id="@+id/ibExpander"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -70,7 +70,7 @@
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ivExpander"
+                app:layout_constraintStart_toEndOf="@id/ibExpander"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View

@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@id/rvAccount" />
 
     <ImageButton
-        android:id="@+id/ivExpanderUnified"
+        android:id="@+id/ibExpanderUnified"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderUnified" />
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderUnified" />
 
     <View
         android:id="@+id/vSeparatorUnified"
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@id/rvMenu" />
 
     <ImageButton
-        android:id="@+id/ivExpanderExtra"
+        android:id="@+id/ibExpanderExtra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderExtra" />
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderExtra" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpUnified"

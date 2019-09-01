@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/ivExpanderAddress"
+        android:id="@+id/ibExpanderAddress"
         android:layout_width="0dp"
         android:layout_height="24dp"
         android:background="?android:attr/selectableItemBackground"
@@ -32,7 +32,7 @@
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toStartOf="@+id/ibNotifyContact"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_search_24" />
 
     <ImageButton
@@ -43,7 +43,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_notify"
         app:layout_constraintEnd_toStartOf="@+id/ibAddContact"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_notifications_24" />
 
     <ImageButton
@@ -54,7 +54,7 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_contacts"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivExpanderAddress"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_import_contacts_24" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -310,5 +310,5 @@
         android:id="@+id/grpAddresses"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorAddress,ivExpanderAddress" />
+        app:constraint_referenced_ids="vSeparatorAddress,@+id/ibExpanderAddress" />
 </androidx.constraintlayout.widget.ConstraintLayout>

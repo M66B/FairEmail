@@ -261,7 +261,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private View vsBody;
 
-        private ImageButton ivExpanderAddress;
+        private ImageButton ibExpanderAddress;
 
         private ImageButton ibSearchContact;
         private ImageButton ibNotifyContact;
@@ -345,7 +345,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             view = itemView.findViewById(R.id.clItem);
 
             vwColor = itemView.findViewById(R.id.vwColor);
-            ivExpander = itemView.findViewById(R.id.ivExpander);
+            ivExpander = itemView.findViewById(R.id.ibExpander);
             ivFlagged = itemView.findViewById(R.id.ivFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
             tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
@@ -380,7 +380,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             inAttachmentsAlt.setVisibility(attachments_alt ? View.VISIBLE : View.GONE);
             ConstraintLayout attachments = (attachments_alt ? inAttachmentsAlt : inAttachments);
 
-            ivExpanderAddress = vsBody.findViewById(R.id.ivExpanderAddress);
+            ibExpanderAddress = vsBody.findViewById(R.id.ibExpanderAddress);
 
             ibSearchContact = vsBody.findViewById(R.id.ibSearchContact);
             ibNotifyContact = vsBody.findViewById(R.id.ibNotifyContact);
@@ -501,7 +501,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivFlagged.setOnLongClickListener(this);
 
             if (vsBody != null) {
-                ivExpanderAddress.setOnClickListener(this);
+                ibExpanderAddress.setOnClickListener(this);
                 ibSearchContact.setOnClickListener(this);
                 ibNotifyContact.setOnClickListener(this);
                 ibAddContact.setOnClickListener(this);
@@ -550,7 +550,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivFlagged.setOnLongClickListener(null);
 
             if (vsBody != null) {
-                ivExpanderAddress.setOnClickListener(null);
+                ibExpanderAddress.setOnClickListener(null);
                 ibSearchContact.setOnClickListener(null);
                 ibNotifyContact.setOnClickListener(null);
                 ibAddContact.setOnClickListener(null);
@@ -986,7 +986,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvBody.setVisibility(View.INVISIBLE);
 
             // Addresses
-            ivExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
+            ibExpanderAddress.setImageLevel(show_addresses ? 0 /* less */ : 1 /* more */);
 
             String from = MessageHelper.formatAddresses(message.senders);
             String to = MessageHelper.formatAddresses(message.to);
@@ -1478,7 +1478,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onAddContact(message);
             else if (viewType == ViewType.THREAD) {
                 switch (view.getId()) {
-                    case R.id.ivExpanderAddress:
+                    case R.id.ibExpanderAddress:
                         onToggleAddresses(message);
                         break;
 

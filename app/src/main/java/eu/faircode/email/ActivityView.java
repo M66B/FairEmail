@@ -90,11 +90,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private ActionBarDrawerToggle drawerToggle;
     private ScrollView drawerContainer;
     private RecyclerView rvAccount;
-    private ImageButton ivExpanderUnified;
+    private ImageButton ibExpanderUnified;
     private RecyclerView rvUnified;
     private RecyclerView rvFolder;
     private RecyclerView rvMenu;
-    private ImageButton ivExpanderExtra;
+    private ImageButton ibExpanderExtra;
     private RecyclerView rvMenuExtra;
     private Group grpUnified;
 
@@ -164,8 +164,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvAccount.setAdapter(aadapter);
 
         // Unified system folders
-        ivExpanderUnified = drawerContainer.findViewById(R.id.ivExpanderUnified);
-        ivExpanderUnified.setVisibility(View.GONE);
+        ibExpanderUnified = drawerContainer.findViewById(R.id.ibExpanderUnified);
+        ibExpanderUnified.setVisibility(View.GONE);
 
         grpUnified = drawerContainer.findViewById(R.id.grpUnified);
         grpUnified.setVisibility(View.GONE);
@@ -176,15 +176,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvUnified.setAdapter(uadapter);
 
         boolean unified_system = prefs.getBoolean("unified_system", false);
-        ivExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
+        ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
         grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
 
-        ivExpanderUnified.setOnClickListener(new View.OnClickListener() {
+        ibExpanderUnified.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean unified_system = !prefs.getBoolean("unified_system", false);
                 prefs.edit().putBoolean("unified_system", unified_system).apply();
-                ivExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
+                ibExpanderUnified.setImageLevel(unified_system ? 0 /* less */ : 1 /* more */);
                 grpUnified.setVisibility(unified_system ? View.VISIBLE : View.GONE);
             }
         });
@@ -201,7 +201,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvMenu.setAdapter(madapter);
 
         // Extra menus
-        ivExpanderExtra = drawerContainer.findViewById(R.id.ivExpanderExtra);
+        ibExpanderExtra = drawerContainer.findViewById(R.id.ibExpanderExtra);
 
         rvMenuExtra = drawerContainer.findViewById(R.id.rvMenuExtra);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -222,15 +222,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         rvMenuExtra.addItemDecoration(itemDecorator);
 
         boolean minimal = prefs.getBoolean("minimal", false);
-        ivExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
+        ibExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
         rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
 
-        ivExpanderExtra.setOnClickListener(new View.OnClickListener() {
+        ibExpanderExtra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean minimal = !prefs.getBoolean("minimal", false);
                 prefs.edit().putBoolean("minimal", minimal).apply();
-                ivExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
+                ibExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
                 rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
                 if (!minimal)
                     new Handler().post(new Runnable() {
@@ -399,7 +399,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             public void onChanged(List<EntityFolderUnified> folders) {
                 if (folders == null)
                     folders = new ArrayList<>();
-                ivExpanderUnified.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
+                ibExpanderUnified.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
                 boolean unified_system = prefs.getBoolean("unified_system", false);
                 grpUnified.setVisibility(unified_system && folders.size() > 0 ? View.VISIBLE : View.GONE);
                 uadapter.set(folders);

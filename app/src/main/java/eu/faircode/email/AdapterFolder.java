@@ -97,7 +97,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         private ImageView ivReadOnly;
 
         private View vwLevel;
-        private ImageButton ivExpander;
+        private ImageButton ibExpander;
 
         private ImageView ivUnified;
         private ImageView ivSubscribed;
@@ -129,7 +129,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivReadOnly = itemView.findViewById(R.id.ivReadOnly);
 
             vwLevel = itemView.findViewById(R.id.vwLevel);
-            ivExpander = itemView.findViewById(R.id.ivExpander);
+            ibExpander = itemView.findViewById(R.id.ibExpander);
 
             ivUnified = itemView.findViewById(R.id.ivUnified);
             ivSubscribed = itemView.findViewById(R.id.ivSubscribed);
@@ -152,7 +152,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void wire() {
             view.setOnClickListener(this);
-            ivExpander.setOnClickListener(this);
+            ibExpander.setOnClickListener(this);
             if (listener == null)
                 view.setOnLongClickListener(this);
             if (btnHelp != null)
@@ -161,7 +161,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void unwire() {
             view.setOnClickListener(null);
-            ivExpander.setOnClickListener(null);
+            ibExpander.setOnClickListener(null);
             if (listener == null)
                 view.setOnLongClickListener(null);
             if (btnHelp != null)
@@ -215,8 +215,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             lp.width = (account < 0 ? 1 : folder.indentation) * dp12;
             vwLevel.setLayoutParams(lp);
 
-            ivExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
-            ivExpander.setVisibility(account < 0 || !folder.expander
+            ibExpander.setImageLevel(folder.collapsed ? 1 /* more */ : 0 /* less */);
+            ibExpander.setVisibility(account < 0 || !folder.expander
                     ? View.GONE
                     : folder.child_refs != null && folder.child_refs.size() > 0
                     ? View.VISIBLE : View.INVISIBLE);
@@ -308,7 +308,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (folder.tbd != null)
                     return;
 
-                if (view.getId() == R.id.ivExpander)
+                if (view.getId() == R.id.ibExpander)
                     onCollapse(folder);
                 else if (folder.selectable) {
                     if (listener == null) {
