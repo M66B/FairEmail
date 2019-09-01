@@ -237,7 +237,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View view;
 
         private View vwColor;
-        private ImageButton ivExpander;
+        private ImageButton ibExpander;
         private ImageView ibFlagged;
         private ImageView ivAvatar;
         private TextView tvFrom;
@@ -345,7 +345,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             view = itemView.findViewById(R.id.clItem);
 
             vwColor = itemView.findViewById(R.id.vwColor);
-            ivExpander = itemView.findViewById(R.id.ibExpander);
+            ibExpander = itemView.findViewById(R.id.ibExpander);
             ibFlagged = itemView.findViewById(R.id.ibFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
             tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
@@ -479,7 +479,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void wire() {
-            final View touch = (viewType == ViewType.THREAD ? ivExpander : vwColor);
+            final View touch = (viewType == ViewType.THREAD ? ibExpander : vwColor);
             touch.setOnClickListener(this);
             view.post(new Runnable() {
                 @Override
@@ -539,7 +539,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void unwire() {
-            final View touch = (viewType == ViewType.THREAD ? ivExpander : vwColor);
+            final View touch = (viewType == ViewType.THREAD ? ibExpander : vwColor);
             touch.setOnClickListener(null);
             view.setOnKeyListener(null);
 
@@ -574,7 +574,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void clear() {
             vwColor.setVisibility(View.GONE);
-            ivExpander.setVisibility(View.GONE);
+            ibExpander.setVisibility(View.GONE);
             ibFlagged.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(null);
@@ -686,11 +686,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
-            ivExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
+            ibExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
             if (viewType == ViewType.THREAD)
-                ivExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
+                ibExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
             else
-                ivExpander.setVisibility(View.GONE);
+                ibExpander.setVisibility(View.GONE);
 
             // Line 1
             boolean outgoing = (viewType != ViewType.THREAD && EntityFolder.isOutgoing(message.folderType));
@@ -1909,7 +1909,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean expanded = !properties.getValue("expanded", message.id);
                 properties.setValue("expanded", message.id, expanded);
 
-                ivExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
+                ibExpander.setImageLevel(expanded ? 0 /* less*/ : 1 /* more */);
 
                 if (expanded)
                     bindExpanded(message, true);
