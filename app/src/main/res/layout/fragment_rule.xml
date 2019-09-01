@@ -143,16 +143,17 @@
                 android:hint="@string/title_optional"
                 android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toStartOf="@+id/ivSender"
+                app:layout_constraintEnd_toStartOf="@+id/ibSender"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbSender" />
 
-            <ImageView
-                android:id="@+id/ivSender"
+            <ImageButton
+                android:id="@+id/ibSender"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_legend_pick"
                 app:layout_constraintBottom_toBottomOf="@id/etSender"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -207,16 +208,17 @@
                 android:hint="@string/title_optional"
                 android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toStartOf="@+id/ivRecipient"
+                app:layout_constraintEnd_toStartOf="@+id/ibRecipient"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cbRecipient" />
 
-            <ImageView
-                android:id="@+id/ivRecipient"
+            <ImageButton
+                android:id="@+id/ibRecipient"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_legend_pick"
                 app:layout_constraintBottom_toBottomOf="@id/etRecipient"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -613,8 +615,8 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
                 tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
-                vSeparatorSender,tvSender,cbSender,etSender,ivSender,tvAndSender,
-                vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ivRecipient,tvAndRecipient,
+                vSeparatorSender,tvSender,cbSender,etSender,ibSender,tvAndSender,
+                vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
                 vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
                 vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,
                 vSeparatorSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,

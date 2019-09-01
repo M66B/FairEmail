@@ -87,11 +87,11 @@ public class FragmentRule extends FragmentBase {
 
     private EditText etSender;
     private CheckBox cbSender;
-    private ImageView ivSender;
+    private ImageView ibSender;
 
     private EditText etRecipient;
     private CheckBox cbRecipient;
-    private ImageView ivRecipient;
+    private ImageView ibRecipient;
 
     private EditText etSubject;
     private CheckBox cbSubject;
@@ -190,11 +190,11 @@ public class FragmentRule extends FragmentBase {
 
         etSender = view.findViewById(R.id.etSender);
         cbSender = view.findViewById(R.id.cbSender);
-        ivSender = view.findViewById(R.id.ivSender);
+        ibSender = view.findViewById(R.id.ibSender);
 
         etRecipient = view.findViewById(R.id.etRecipient);
         cbRecipient = view.findViewById(R.id.cbRecipient);
-        ivRecipient = view.findViewById(R.id.ivRecipient);
+        ibRecipient = view.findViewById(R.id.ibRecipient);
 
         etSubject = view.findViewById(R.id.etSubject);
         cbSubject = view.findViewById(R.id.cbSubject);
@@ -240,7 +240,7 @@ public class FragmentRule extends FragmentBase {
         grpAnswer = view.findViewById(R.id.grpAnswer);
         grpAutomation = view.findViewById(R.id.grpAutomation);
 
-        ivSender.setOnClickListener(new View.OnClickListener() {
+        ibSender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
@@ -251,7 +251,7 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
-        ivRecipient.setOnClickListener(new View.OnClickListener() {
+        ibRecipient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent pick = new Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Email.CONTENT_URI);
