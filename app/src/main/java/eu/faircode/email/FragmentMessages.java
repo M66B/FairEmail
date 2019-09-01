@@ -1367,6 +1367,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
             Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
+            d.setTint(Helper.resolveColor(getContext(), android.R.attr.textColorSecondary));
 
             if (dX > 0) {
                 // Right swipe
