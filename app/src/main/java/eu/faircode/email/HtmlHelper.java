@@ -145,9 +145,14 @@ public class HtmlHelper {
         }
 
         // Pre formatted text
-        for (Element code : document.select("pre")) {
-            code.html(code.html().replaceAll("\\r?\\n", "<br>"));
-            code.tagName("div");
+        for (Element pre : document.select("pre")) {
+            String[] lines = pre.html().split("\\r?\\n");
+            for (int i = 0; i < lines.length; i++) {
+                if (!"-- ".equals(lines[i]))
+                    lines[i] = lines[i].replace(" ", "&nbsp;");
+            }
+            pre.html(TextUtils.join("<br>", lines));
+            pre.tagName("div");
         }
 
         // Code

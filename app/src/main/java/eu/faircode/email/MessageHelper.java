@@ -862,11 +862,8 @@ public class MessageHelper {
             // Prevent Jsoup throwing an exception
             result = result.replace("\0", "");
 
-            if (part.isMimeType("text/plain")) {
-                result = TextUtils.htmlEncode(result);
-                result = result.replaceAll("\\r?\\n", "<br>");
-                result = "<span>" + result + "</span>";
-            }
+            if (part.isMimeType("text/plain"))
+                result = "<pre>" + TextUtils.htmlEncode(result) + "</pre>";
 
             return result;
         }
