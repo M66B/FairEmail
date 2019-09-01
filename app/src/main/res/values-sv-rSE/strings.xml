@@ -662,7 +662,6 @@
     <string name="title_hint_message_selection">Tryck länge på ett meddelande för att börja välja flera meddelanden</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_hint_image_link">Bildlänk</string>
-    <string name="title_hint_too_complex">Meddelandet är för stort eller för komplext för att visas</string>
     <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_open_link">Öppna länken</string>

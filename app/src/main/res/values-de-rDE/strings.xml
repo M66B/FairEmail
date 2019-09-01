@@ -671,7 +671,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_hint_image_link">Bildlink</string>
-    <string name="title_hint_too_complex">Nachricht zu groß oder zu komplex zum Anzeigen</string>
     <string name="title_hint_tracking_image">Tracking-Bild %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_open_link">Link öffnen</string>

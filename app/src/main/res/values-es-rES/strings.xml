@@ -220,6 +220,7 @@
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
     <string name="title_advanced_double_tap">Doble toque para marcar mensaje leído/no leído</string>
+    <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_collapse">Contraer mensajes en conversaciones al ir \'atrás\'</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
@@ -671,7 +672,6 @@
     <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_image_link">Enlace de imagen</string>
-    <string name="title_hint_too_complex">Mensaje demasiado grande o demasiado complejo para mostrar</string>
     <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_open_link">Abrir enlace</string>

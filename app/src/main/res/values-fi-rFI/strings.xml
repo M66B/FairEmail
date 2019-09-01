@@ -672,7 +672,6 @@
     <string name="title_hint_message_selection">Paina viestiä pitkään aloittaaksesi useamman viestin valinnan</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_image_link">Kuvalinkki</string>
-    <string name="title_hint_too_complex">Viesti liian suuri tai monimutkainen näytettäväksi</string>
     <string name="title_hint_tracking_image">Seurantakuva %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_open_link">Avaa linkki</string>

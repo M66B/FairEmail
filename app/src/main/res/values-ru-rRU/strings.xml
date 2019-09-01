@@ -694,7 +694,6 @@
     <string name="title_hint_message_selection">Длительное нажатие для выбора нескольких сообщений</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время, в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_image_link">Ссылка на изображение</string>
-    <string name="title_hint_too_complex">Сообщение слишком большое или слишком сложное для отображения</string>
     <string name="title_hint_tracking_image">Отслеживающее изображение %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Длительно нажмите для опций</string>
     <string name="title_open_link">Открыть ссылку</string>

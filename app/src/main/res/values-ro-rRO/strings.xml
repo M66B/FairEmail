@@ -682,7 +682,6 @@
     <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_image_link">Legătură imagine</string>
-    <string name="title_hint_too_complex">Mesajul este prea mare sau prea complex pentru a putea fi afișat</string>
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_open_link">Deschide legătura</string>

@@ -671,7 +671,6 @@
     <string name="title_hint_message_selection">Premi a lungo un messaggio per iniziare a selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_hint_image_link">Link Immagine</string>
-    <string name="title_hint_too_complex">Messaggio troppo grande o troppo complesso da visualizzare</string>
     <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_open_link">Apri collegamento</string>
