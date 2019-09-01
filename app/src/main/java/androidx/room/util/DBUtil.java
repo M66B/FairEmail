@@ -19,8 +19,10 @@ package androidx.room.util;
 import android.database.AbstractWindowedCursor;
 import android.database.Cursor;
 import android.os.Build;
+import android.os.CancellationSignal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -53,10 +55,32 @@ public class DBUtil {
      * @param sqLiteQuery The query to perform.
      * @param maybeCopy   True if the result cursor should maybe be copied, false otherwise.
      * @return Result of the query.
+     *
+     * @deprecated This is only used in the generated code and shouldn't be called directly.
      */
+    @Deprecated
     @NonNull
     public static Cursor query(RoomDatabase db, SupportSQLiteQuery sqLiteQuery, boolean maybeCopy) {
-        final Cursor cursor = db.query(sqLiteQuery);
+        return query(db, sqLiteQuery, maybeCopy, null);
+    }
+
+    /**
+     * Performs the SQLiteQuery on the given database.
+     * <p>
+     * This util method encapsulates copying the cursor if the {@code maybeCopy} parameter is
+     * {@code true} and either the api level is below a certain threshold or the full result of the
+     * query does not fit in a single window.
+     *
+     * @param db          The database to perform the query on.
+     * @param sqLiteQuery The query to perform.
+     * @param maybeCopy   True if the result cursor should maybe be copied, false otherwise.
+     * @param signal      The cancellation signal to be attached to the query.
+     * @return Result of the query.
+     */
+    @NonNull
+    public static Cursor query(@NonNull RoomDatabase db, @NonNull SupportSQLiteQuery sqLiteQuery,
+            boolean maybeCopy, @Nullable CancellationSignal signal) {
+        final Cursor cursor = db.query(sqLiteQuery, signal);
         if (maybeCopy && cursor instanceof AbstractWindowedCursor) {
             AbstractWindowedCursor windowedCursor = (AbstractWindowedCursor) cursor;
             int rowsInCursor = windowedCursor.getCount(); // Should fill the window.
@@ -130,6 +154,20 @@ public class DBUtil {
                 input.close();
             }
         }
+    }
+
+    /**
+     * CancellationSignal is only available from API 16 on. This function will create a new
+     * instance of the Cancellation signal only if the current API > 16.
+     *
+     * @return A new instance of CancellationSignal or null.
+     */
+    @Nullable
+    public static CancellationSignal createCancellationSignal() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            return new CancellationSignal();
+        }
+        return null;
     }
 
     private DBUtil() {
