@@ -238,14 +238,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private View vwColor;
         private ImageButton ivExpander;
-        private ImageView ivFlagged;
+        private ImageView ibFlagged;
         private ImageView ivAvatar;
         private TextView tvFrom;
         private TextView tvSize;
         private TextView tvTime;
         private ImageView ivType;
-        private ImageView ivAuth;
-        private ImageView ivSnoozed;
+        private ImageView ibAuth;
+        private ImageView ibSnoozed;
         private ImageView ivBrowsed;
         private ImageView ivAnswered;
         private ImageView ivPlain;
@@ -346,14 +346,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             vwColor = itemView.findViewById(R.id.vwColor);
             ivExpander = itemView.findViewById(R.id.ibExpander);
-            ivFlagged = itemView.findViewById(R.id.ivFlagged);
+            ibFlagged = itemView.findViewById(R.id.ibFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
             tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivType = itemView.findViewById(R.id.ivType);
-            ivAuth = itemView.findViewById(R.id.ivAuth);
-            ivSnoozed = itemView.findViewById(R.id.ivSnoozed);
+            ibAuth = itemView.findViewById(R.id.ibAuth);
+            ibSnoozed = itemView.findViewById(R.id.ibSnoozed);
             ivBrowsed = itemView.findViewById(R.id.ivBrowsed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
             ivPlain = itemView.findViewById(R.id.ivPlain);
@@ -494,11 +494,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             });
             view.setOnKeyListener(this);
 
-            ivAuth.setOnClickListener(this);
-            ivSnoozed.setOnClickListener(this);
-            ivFlagged.setOnClickListener(this);
+            ibAuth.setOnClickListener(this);
+            ibSnoozed.setOnClickListener(this);
+            ibFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD)
-                ivFlagged.setOnLongClickListener(this);
+                ibFlagged.setOnLongClickListener(this);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(this);
@@ -543,11 +543,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             touch.setOnClickListener(null);
             view.setOnKeyListener(null);
 
-            ivAuth.setOnClickListener(null);
-            ivSnoozed.setOnClickListener(null);
-            ivFlagged.setOnClickListener(null);
+            ibAuth.setOnClickListener(null);
+            ibSnoozed.setOnClickListener(null);
+            ibFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD)
-                ivFlagged.setOnLongClickListener(null);
+                ibFlagged.setOnLongClickListener(null);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(null);
@@ -575,14 +575,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void clear() {
             vwColor.setVisibility(View.GONE);
             ivExpander.setVisibility(View.GONE);
-            ivFlagged.setVisibility(View.GONE);
+            ibFlagged.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.GONE);
             tvFrom.setText(null);
             tvSize.setText(null);
             tvTime.setText(null);
             ivType.setVisibility(View.GONE);
-            ivAuth.setVisibility(View.GONE);
-            ivSnoozed.setVisibility(View.GONE);
+            ibAuth.setVisibility(View.GONE);
+            ibSnoozed.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
             ivPlain.setVisibility(View.GONE);
@@ -640,14 +640,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Duplicate
             if (viewType == ViewType.THREAD) {
                 boolean dim = (message.duplicate || EntityFolder.TRASH.equals(message.folderType));
-                ivFlagged.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibFlagged.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAvatar.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvFrom.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivType.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivBrowsed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivPlain.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -719,8 +719,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     (viewType == ViewType.UNIFIED && type == null && !inbox) ||
                     (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
                     ? View.VISIBLE : View.GONE);
-            ivAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
-            ivSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
+            ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
+            ibSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
             ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
             ivPlain.setVisibility(message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
@@ -916,12 +916,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindFlagged(TupleMessageEx message) {
             int flagged = (message.count - message.unflagged);
-            ivFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ivFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
+            ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
+            ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
                     ? message.color == null || !ActivityBilling.isPro(context)
                     ? colorAccent : message.color : textColorSecondary));
-            ivFlagged.setVisibility(flags && !message.folderReadOnly ? View.VISIBLE : View.GONE);
-            ivFlagged.setEnabled(message.uid != null);
+            ibFlagged.setVisibility(flags && !message.folderReadOnly ? View.VISIBLE : View.GONE);
+            ibFlagged.setEnabled(message.uid != null);
         }
 
         private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
@@ -1464,11 +1464,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null)
                 return;
 
-            if (view.getId() == R.id.ivAuth)
+            if (view.getId() == R.id.ibAuth)
                 onShowAuth(message);
-            else if (view.getId() == R.id.ivSnoozed)
+            else if (view.getId() == R.id.ibSnoozed)
                 onShowSnoozed(message);
-            else if (view.getId() == R.id.ivFlagged)
+            else if (view.getId() == R.id.ibFlagged)
                 onToggleFlag(message);
             else if (view.getId() == R.id.ibSearchContact)
                 onSearchContact(message);
@@ -1636,7 +1636,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message == null || message.folderReadOnly)
                 return false;
 
-            if (view.getId() == R.id.ivFlagged) {
+            if (view.getId() == R.id.ibFlagged) {
                 onMenuColoredStar(message);
                 return true;
             }

@@ -96,7 +96,7 @@
         android:text="Time"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
+        app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
         app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
     <ImageView
@@ -110,11 +110,12 @@
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_edit_24" />
 
-    <ImageView
-        android:id="@+id/ivAuth"
+    <ImageButton
+        android:id="@+id/ibAuth"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_auth"
         android:tint="@color/colorError"
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
@@ -122,14 +123,15 @@
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_flag_24" />
 
-    <ImageView
-        android:id="@+id/ivSnoozed"
+    <ImageButton
+        android:id="@+id/ibSnoozed"
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginStart="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_snoozed"
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-        app:layout_constraintStart_toEndOf="@id/ivAuth"
+        app:layout_constraintStart_toEndOf="@id/ibAuth"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_timelapse_24" />
 
@@ -140,7 +142,7 @@
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_browsed"
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-        app:layout_constraintStart_toEndOf="@id/ivSnoozed"
+        app:layout_constraintStart_toEndOf="@id/ibSnoozed"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_playlist_add_24" />
 
@@ -240,12 +242,12 @@
         android:layout_marginEnd="6dp"
         android:contentDescription="@string/title_legend_thread"
         app:layout_constraintBottom_toBottomOf="@id/tvSubject"
-        app:layout_constraintEnd_toStartOf="@+id/ivFlagged"
+        app:layout_constraintEnd_toStartOf="@+id/ibFlagged"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_message_24" />
 
-    <ImageView
-        android:id="@+id/ivFlagged"
+    <ImageButton
+        android:id="@+id/ibFlagged"
         android:layout_width="24dp"
         android:layout_height="36dp"
         android:layout_marginEnd="6dp"
