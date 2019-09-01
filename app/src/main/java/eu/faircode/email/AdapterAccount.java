@@ -34,6 +34,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -87,6 +88,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private TextView tvDrafts;
         private TextView tvWarning;
         private TextView tvError;
+        private Button btnHelp;
         private Group grpSettings;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "AccountPopup");
@@ -109,17 +111,20 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvDrafts = itemView.findViewById(R.id.tvDrafts);
             tvWarning = itemView.findViewById(R.id.tvWarning);
             tvError = itemView.findViewById(R.id.tvError);
+            btnHelp = itemView.findViewById(R.id.btnHelp);
             grpSettings = itemView.findViewById(R.id.grpSettings);
         }
 
         private void wire() {
             view.setOnClickListener(this);
             view.setOnLongClickListener(this);
+            btnHelp.setOnClickListener(this);
         }
 
         private void unwire() {
             view.setOnClickListener(null);
             view.setOnLongClickListener(null);
+            btnHelp.setOnClickListener(null);
         }
 
         private void bindTo(TupleAccountEx account) {
@@ -169,24 +174,29 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             tvError.setText(account.error);
             tvError.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
+            btnHelp.setVisibility(account.error == null ? View.GONE : View.VISIBLE);
 
             grpSettings.setVisibility(settings ? View.VISIBLE : View.GONE);
         }
 
         @Override
         public void onClick(View view) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
+            if (view.getId() == R.id.btnHelp)
+                Helper.viewFAQ(context, 22);
+            else {
+                int pos = getAdapterPosition();
+                if (pos == RecyclerView.NO_POSITION)
+                    return;
 
-            TupleAccountEx account = items.get(pos);
-            if (account.tbd != null)
-                return;
+                TupleAccountEx account = items.get(pos);
+                if (account.tbd != null)
+                    return;
 
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
-                            .putExtra("id", account.id));
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                lbm.sendBroadcast(
+                        new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
+                                .putExtra("id", account.id));
+            }
         }
 
         @Override

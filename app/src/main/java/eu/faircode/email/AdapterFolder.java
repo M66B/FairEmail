@@ -37,6 +37,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -114,6 +115,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private TextView tvKeywords;
         private TextView tvError;
+        private Button btnHelp;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "FolderPopup");
 
@@ -145,6 +147,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
             tvKeywords = itemView.findViewById(R.id.tvKeywords);
             tvError = itemView.findViewById(R.id.tvError);
+            btnHelp = itemView.findViewById(R.id.btnHelp);
         }
 
         private void wire() {
@@ -152,6 +155,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivExpander.setOnClickListener(this);
             if (listener == null)
                 view.setOnLongClickListener(this);
+            if (btnHelp != null)
+                btnHelp.setOnClickListener(this);
         }
 
         private void unwire() {
@@ -159,6 +164,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             ivExpander.setOnClickListener(null);
             if (listener == null)
                 view.setOnLongClickListener(null);
+            if (btnHelp != null)
+                btnHelp.setOnClickListener(null);
         }
 
         private void bindTo(final TupleFolderEx folder) {
@@ -283,32 +290,38 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 tvError.setText(folder.error);
                 tvError.setVisibility(folder.error != null ? View.VISIBLE : View.GONE);
+                if (btnHelp != null)
+                    btnHelp.setVisibility(folder.error == null ? View.GONE : View.VISIBLE);
             }
         }
 
         @Override
         public void onClick(View view) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
+            if (view.getId() == R.id.btnHelp)
+                Helper.viewFAQ(context, 22);
+            else {
+                int pos = getAdapterPosition();
+                if (pos == RecyclerView.NO_POSITION)
+                    return;
 
-            TupleFolderEx folder = items.get(pos);
-            if (folder.tbd != null)
-                return;
+                TupleFolderEx folder = items.get(pos);
+                if (folder.tbd != null)
+                    return;
 
-            if (view.getId() == R.id.ivExpander)
-                onCollapse(folder);
-            else if (folder.selectable) {
-                if (listener == null) {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                    .putExtra("account", folder.account)
-                                    .putExtra("folder", folder.id));
-                } else {
-                    if (disabledIds.contains(folder.id))
-                        return;
-                    listener.onFolderSelected(folder);
+                if (view.getId() == R.id.ivExpander)
+                    onCollapse(folder);
+                else if (folder.selectable) {
+                    if (listener == null) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                        lbm.sendBroadcast(
+                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                        .putExtra("account", folder.account)
+                                        .putExtra("folder", folder.id));
+                    } else {
+                        if (disabledIds.contains(folder.id))
+                            return;
+                        listener.onFolderSelected(folder);
+                    }
                 }
             }
         }

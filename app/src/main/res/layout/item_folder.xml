@@ -241,13 +241,27 @@
                 app:layout_constraintStart_toEndOf="@id/ivExpander"
                 app:layout_constraintTop_toBottomOf="@id/tvKeywords" />
 
+            <Button
+                android:id="@+id/btnHelp"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorAccent"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/title_setup_help"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvError" />
+
             <View
                 android:id="@+id/paddingBottom"
                 android:layout_width="match_parent"
                 android:layout_height="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvError" />
+                app:layout_constraintTop_toBottomOf="@id/btnHelp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ViewCardOptional>
 </FrameLayout>
