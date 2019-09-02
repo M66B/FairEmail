@@ -1,18 +1,18 @@
 # Nápověda k nastavení
 
-Nastavení FairEmailu je poměrně jednoduché. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Nastavení FairEmailu je poměrně jednoduché. Potřebujete přidat alespoň jeden účet aby jste mohli e-mailové zprávy přijímat a alespoň jednu identitu pokud chcete e-maily odesílat. Rychlé nastavení přidá účet i identitu v jednom kroku pro většinu hlavních poskytovatelů.
 
 ## Požadavky
 
-An internet connection is required to set up accounts and identities.
+Pro nastavení účtů a identit je nutné připojení k internetu.
 
 ## Rychlé nastavení
 
-Just enter your name, email address and password and tap *Go*.
+Stačí zadat své jméno, e-mailovou adresu a heslo a stisknout *Přejít*.
 
-This will work for most major email providers.
+Toto funguje pro většinu hlavních e-mailových poskytovatelů.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Pokud rychlé nastavení nefunguje, budete účet a identitu muset nastavit jiným způsobem, viz. níže.
 
 ## Nastavení účtu - pro příjem e-mailů
 
@@ -36,6 +36,6 @@ If you want to lookup email addresses, have contact photos shown, etc, you'll ne
 
 On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
 
-## Questions or problems
+## Otázky nebo problémy
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Máte-li nějaký dotaz či problém, podívejte se prosím [sem](https://github.com/M66B/FairEmail/blob/master/FAQ.md) nebo pro požádání o pomoc použijte [tento kontaktní formulář](https://contact.faircode.eu/?product=fairemailsupport) (jako "transaction number" můžete uvést "*setup help*").
