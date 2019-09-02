@@ -3,7 +3,7 @@
 <resources>
     <string name="app_search">FairEmail-sökning</string>
     <string name="app_changelog">Ändringslogg</string>
-    <string name="app_welcome">FairEmail är en e-postapp med öppen källkod som är fokuserad på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
+    <string name="app_welcome">FairEmail är en e-postapp baserad på öppen källkod som fokuserar på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Meddelanden kommer till exempel alltid att omformateras för att avlägsna osäkra element och för att förbättra läsbarheten och öppna länkar måste bekräftas för säkerheten.</string>
     <string name="app_crash">FairEmail stöds inte på den här enheten eftersom buggar i Android orsakar kraschar</string>
     <string name="app_exit">Gå \"tillbaka\" igen för att avsluta</string>
@@ -31,7 +31,7 @@
     <string name="shortcut_setup">Inställningar</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Synkroniserar %1$d konto</item>
-        <item quantity="other">Synkronisera %1$d konton</item>
+        <item quantity="other">Synkroniserar %1$d konton</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d aktivitet väntar</item>
@@ -77,6 +77,7 @@
     <string name="menu_legend">Förklaring</string>
     <string name="menu_faq">Support</string>
     <string name="menu_issue">Rapportera problem</string>
+    <string name="menu_attribution">Attribueringar</string>
     <string name="menu_privacy">Sekretess</string>
     <string name="menu_about">Om</string>
     <string name="menu_pro">Pro-funktioner</string>
@@ -178,6 +179,7 @@
     <string name="title_advanced_suggest_local">Föreslå lokalt lagrade kontakter</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
+    <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
     <string name="title_advanced_autoresize">Ändra storlek automatiskt på bifogade och inbäddade bilder</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_advanced_lookup_mx">Kontrollera mottagarens e-postadresser innan du skickar</string>
@@ -313,11 +315,13 @@
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
     <string name="title_password">Lösenord</string>
+    <string name="title_realm">Domän</string>
     <string name="title_use_ip">Använd lokal IP-adress istället för värdnamn</string>
     <string name="title_synchronize_account">Synkronisera (hämta meddelanden)</string>
     <string name="title_synchronize_identity">Synkronisera (skicka meddelanden)</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
+    <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_no_name">Namn saknas</string>
     <string name="title_no_email">E-postadressen saknas</string>
@@ -403,6 +407,8 @@
     <string name="title_share">Dela</string>
     <string name="title_print">Skriv ut</string>
     <string name="title_show_headers">Visa rubriker</string>
+    <string name="title_raw_download">Ladda ner rent meddelande</string>
+    <string name="title_raw_save">Spara rent meddelande</string>
     <string name="title_manage_keywords">Hantera nyckelord</string>
     <string name="title_add_keyword">Lägg till nyckelord</string>
     <string name="title_show_inline">Visa infogade bilagor</string>
@@ -441,6 +447,7 @@
     <string name="title_no_folder">Mappen finns inte</string>
     <string name="title_no_format">Det ursprungligen mottagna meddelandet kommer att inkluderas</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
+    <string name="title_raw_saved">Rent meddelande sparat</string>
     <string name="title_attachment_saved">Bilaga sparad</string>
     <string name="title_attachments_saved">Bilagor sparade</string>
     <string name="title_attachments_incomplete">Vissa bilagor eller bilder hämtades inte och kunde inte läggas till</string>
@@ -559,6 +566,7 @@
     <string name="title_rule_action">Åtgärd</string>
     <string name="title_rule_action_remark">Denna åtgärd kommer att tillämpas på nya meddelanden som kommer i mappen %1$s</string>
     <string name="title_rule_hours">Timmar</string>
+    <string name="title_rule_schedule_end">Från slutet av tidsvillkoret</string>
     <string name="title_rule_folder">Mapp</string>
     <string name="title_rule_thread">Alla meddelanden i samma konversation och mapp</string>
     <string name="title_rule_identity">Identitet</string>
@@ -688,6 +696,7 @@
     <string name="title_completed">Slutförd</string>
     <string name="title_ask_what">Fråga vad du ska göra</string>
     <string name="title_no_ask_again">Fråga inte detta igen</string>
+    <string name="title_no_ask_for_again">Fråga inte om %1$s igen</string>
     <string name="title_no_body">Ingen meddelandetext hittades</string>
     <string name="title_no_charset">Kodningen stöds inte: %1$s</string>
     <string name="title_via">Via: %1$s</string>

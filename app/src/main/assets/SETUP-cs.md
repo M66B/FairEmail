@@ -16,25 +16,25 @@ Pokud rychlé nastavení nefunguje, budete účet a identitu muset nastavit jin�
 
 ## Nastavení účtu - pro příjem e-mailů
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Pro přidání účtu stiskněte *Spravovat účty* a stiskněte oranžové tlačítko *přidat* umístěné dole. Zvolte poskytovatele ze seznamu, zadejte uživatelské jméno, což je obvykle vaše e-mailová adresa a zadejte své heslo. Stiskněte *Ověřit* a nechte FairEmail připojit se k e-mailovému serveru a načíst seznam systémových složek. Po kontrole vybraných systémových složek můžete účet přidat stisknutím *Uložit*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Není-li Váš poskytovatel uveden na seznamu, zvolte *Vlastní*. Zadejte název domény, například *gmail.com* a stiskněte *Získat nastavení*. Podporuje-li Váš poskytovatel [automatické zjišťování](https://tools.ietf.org/html/rfc6186), FairEmail automaticky předvyplní název hostitele a číslo portu. V opačném případě postupujte dle instrukcí svého poskytovatele pro nastavení IMAP - správného názvu hostitele, čísla portu a protokolu (SSL/TLS nebo STARTTLS). Pro více informací se prosím podívejte [sem](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Nastavení identity - pro odesílání e-mailů
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Podobně, pro přidání identity stiskněte *Spravovat identity* a stiskněte oranžové tlačítko *přidat* umístěné dole. Zadejte jméno, které si přejete aby se zobrazovalo v adresním poli "Od:" u Vámi odeslaných e-mailů a zvolte připojený účet. Stiskněte *Uložit* pro přidání identity.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Pokud byl účet nastaven ručně, pravděpodobně bude potřeba nastavit ručně i identitu. Zadejte název domény, například *gmail.com* a stiskněte *Získat nastavení*. Podporuje-li Váš poskytovatel [automatické zjišťování](https://tools.ietf.org/html/rfc6186), FairEmail automaticky předvyplní název hostitele a číslo portu. V opačném případě postupujte dle instrukcí svého poskytovatele pro nastavení SMTP - správného názvu hostitele, čísla portu a protokolu (SSL/TLS nebo STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Přečtěte si [tyto časté dotazy](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) o používání aliasů.
 
-## Grant permissions - to access contact information
+## Udělení oprávnění - pro přístup k informacím kontaktů
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Pro hledání e-mailových adres, zobrazení fotografií kontaktů, apod., musíte FairEmailu udělit oprávnění ke čtení kontaktů. Stačí stisknout *Udělit oprávnění* a zvolit *Povolit*.
 
-## Setup battery optimizations - to continuously receive emails
+## Nastavení optimalizace výdrže baterie - pro průběžný příjem e-mailů
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+Na posledních verzích Androidu, pokud je obrazovka po nějaký čas vypnuta, jsou aplikace uspávány pro snížení spotřeby baterie. Chcete-li přijímat nové e-maily bez prodlení, měli byste pro FairEmail zakázat optimalizaci výdrže baterie. Stiskněte *Zakázat optimalizaci baterie* a postupujte dle instrukcí.
 
 ## Otázky nebo problémy
 

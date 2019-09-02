@@ -696,6 +696,7 @@
     <string name="title_completed">Fullført</string>
     <string name="title_ask_what">Spør hva du skal gjøre</string>
     <string name="title_no_ask_again">Ikke spør dette igjen</string>
+    <string name="title_no_ask_for_again">Ikke spør dette igjen for %1$s</string>
     <string name="title_no_body">Ingen meldingstekst funnet</string>
     <string name="title_no_charset">Koding støttes ikke: %1$s</string>
     <string name="title_via">Via: %1$s</string>
