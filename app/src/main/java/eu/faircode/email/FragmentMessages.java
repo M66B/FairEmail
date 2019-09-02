@@ -1699,30 +1699,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onExecuted(Bundle args, final MoreResult result) {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabMore);
 
-                if (result.unseen) // Unseen, not draft
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
-                if (result.seen) // Seen, not draft
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 2, R.string.title_unseen);
+                int order = 0;
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
+                if (result.unseen) // Unseen, not draft
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, order++, R.string.title_seen);
+                if (result.seen) // Seen, not draft
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, order++, R.string.title_unseen);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze);
 
                 if (result.unflagged)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, 4, R.string.title_flag);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag);
                 if (result.flagged)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, 5, R.string.title_unflag);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag);
                 if (result.unflagged || result.flagged)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 6, R.string.title_flag_color);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color);
 
                 if (result.hasArchive && !result.isArchive) // has archive and not is archive/drafts
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, 7, R.string.title_archive);
-
-                int order = 8;
-                for (EntityAccount account : result.accounts) {
-                    MenuItem item = popupMenu.getMenu()
-                            .add(Menu.NONE, R.string.title_move_to_account, order++,
-                                    getString(R.string.title_move_to_account, account.name));
-                    item.setIntent(new Intent().putExtra("account", account.id));
-                }
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_archive, order++, R.string.title_archive);
 
                 if (result.isTrash) // is trash
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, order++, R.string.title_delete);
@@ -1732,6 +1726,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (result.hasJunk && !result.isJunk && !result.isDrafts) // has junk and not junk/drafts
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_spam, order++, R.string.title_spam);
+
+                for (EntityAccount account : result.accounts) {
+                    MenuItem item = popupMenu.getMenu()
+                            .add(Menu.NONE, R.string.title_move_to_account, order++,
+                                    getString(R.string.title_move_to_account, account.name));
+                    item.setIntent(new Intent().putExtra("account", account.id));
+                }
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
