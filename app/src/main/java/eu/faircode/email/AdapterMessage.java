@@ -1156,7 +1156,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void bindAttachments(final TupleMessageEx message, @Nullable List<EntityAttachment> attachments) {
             if (attachments == null)
                 attachments = new ArrayList<>();
-            properties.setAttchments(message.id, attachments);
+            properties.setAttachments(message.id, attachments);
 
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
@@ -3540,7 +3540,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         Spanned getBody(long id);
 
-        void setAttchments(long id, List<EntityAttachment> attachments);
+        void setAttachments(long id, List<EntityAttachment> attachments);
 
         List<EntityAttachment> getAttachments(long id);
 

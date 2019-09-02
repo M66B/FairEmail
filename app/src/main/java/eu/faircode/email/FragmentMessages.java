@@ -1204,7 +1204,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void setAttchments(long id, List<EntityAttachment> list) {
+        public void setAttachments(long id, List<EntityAttachment> list) {
             attachments.put(id, list);
         }
 
