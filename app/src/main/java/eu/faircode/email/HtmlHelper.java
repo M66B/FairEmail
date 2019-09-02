@@ -206,12 +206,19 @@ public class HtmlHelper {
 
         // Tables
         for (Element col : document.select("th,td")) {
-            // separate columns by a space
-            if (col.nextElementSibling() == null) {
-                if (col.selectFirst("div,table,p") == null)
+            boolean content = false;
+            for (Element e : col.children())
+                if (!e.isBlock() && hasContent(e)) {
+                    content = true;
+                    break;
+                }
+
+            // separate columns
+            if (content)
+                if (col.nextElementSibling() == null)
                     col.appendElement("br");
-            } else
-                col.append("&nbsp;");
+                else
+                    col.appendText(" ");
 
             if ("th".equals(col.tagName()))
                 col.tagName("strong");
@@ -345,10 +352,7 @@ public class HtmlHelper {
 
         // Remove block elements displaying nothing
         for (Element e : document.select("*"))
-            if (e.isBlock() &&
-                    !e.hasText() &&
-                    e.select("br").size() == 0 &&
-                    e.select("img").size() == 0)
+            if (e.isBlock() && !hasContent(e))
                 e.remove();
 
         // Prevent too many line breaks
@@ -360,6 +364,10 @@ public class HtmlHelper {
 
         Element body = document.body();
         return (body == null ? "" : body.html());
+    }
+
+    private static boolean hasContent(Element element) {
+        return (element.hasText() || element.selectFirst("img") != null);
     }
 
     static Drawable decodeImage(final Context context, final long id, String source, boolean show, final TextView view) {
