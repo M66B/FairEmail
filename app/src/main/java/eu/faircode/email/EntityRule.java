@@ -206,7 +206,7 @@ public class EntityRule {
         boolean matched = false;
         if (needle != null && haystack != null)
             if (regex) {
-                Pattern pattern = Pattern.compile(needle);
+                Pattern pattern = Pattern.compile(needle, Pattern.DOTALL);
                 matched = pattern.matcher(haystack).matches();
             } else
                 matched = haystack.toLowerCase().contains(needle.trim().toLowerCase());
