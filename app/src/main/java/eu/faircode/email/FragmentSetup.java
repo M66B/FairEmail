@@ -28,6 +28,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
@@ -73,9 +75,12 @@ public class FragmentSetup extends FragmentBase {
     private Button btnDoze;
     private Button btnBattery;
 
+    private Button btnDataSaver;
+
     private Button btnInbox;
 
     private Group grpWelcome;
+    private Group grpDataSaver;
 
     private int textColorPrimary;
     private int colorWarning;
@@ -117,9 +122,12 @@ public class FragmentSetup extends FragmentBase {
         btnDoze = view.findViewById(R.id.btnDoze);
         btnBattery = view.findViewById(R.id.btnBattery);
 
+        btnDataSaver = view.findViewById(R.id.btnDataSaver);
+
         btnInbox = view.findViewById(R.id.btnInbox);
 
         grpWelcome = view.findViewById(R.id.grpWelcome);
+        grpDataSaver = view.findViewById(R.id.grpDataSaver);
 
         PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -191,6 +199,20 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            final Intent settings = new Intent(
+                    Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
+                    Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+
+            btnDataSaver.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(settings);
+                }
+            });
+            btnDataSaver.setEnabled(settings.resolveActivity(pm) != null);
+        }
+
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -219,6 +241,7 @@ public class FragmentSetup extends FragmentBase {
 
         boolean welcome = prefs.getBoolean("welcome", true);
         grpWelcome.setVisibility(welcome ? View.VISIBLE : View.GONE);
+        grpDataSaver.setVisibility(View.GONE);
 
         int[] grantResults = new int[permissions.length];
         for (int i = 0; i < permissions.length; i++)
@@ -349,6 +372,17 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone.setText(ignoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(ignoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(ignoring ? check : null, null, null, null);
+
+        // https://developer.android.com/training/basics/network-ops/data-saver.html
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (cm != null) {
+                int status = cm.getRestrictBackgroundStatus();
+                grpDataSaver.setVisibility(
+                        status == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED
+                                ? View.VISIBLE : View.GONE);
+            }
+        }
     }
 
     @Override

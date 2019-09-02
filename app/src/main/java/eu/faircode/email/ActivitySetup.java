@@ -31,18 +31,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -68,7 +65,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
@@ -106,7 +102,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     private ActionBarDrawerToggle drawerToggle;
     private ConstraintLayout drawerContainer;
     private RecyclerView rvMenu;
-    private Snackbar sbDataSaver;
 
     private boolean hasAccount;
     private String password;
@@ -252,20 +247,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         adapter.set(menus);
 
-        sbDataSaver = Snackbar.make(view, R.string.title_setup_data, Snackbar.LENGTH_INDEFINITE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            final Intent settings = new Intent(
-                    Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS,
-                    Uri.parse("package:" + BuildConfig.APPLICATION_ID));
-            if (settings.resolveActivity(getPackageManager()) != null)
-                sbDataSaver.setAction(R.string.title_setup_manage, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(settings);
-                    }
-                });
-        }
-
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
         if (getSupportFragmentManager().getFragments().size() == 0) {
@@ -320,16 +301,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         iff.addAction(ACTION_EDIT_ACCOUNT);
         iff.addAction(ACTION_EDIT_IDENTITY);
         lbm.registerReceiver(receiver, iff);
-
-        // https://developer.android.com/training/basics/network-ops/data-saver.html
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (cm != null) {
-                int status = cm.getRestrictBackgroundStatus();
-                if (status == ConnectivityManager.RESTRICT_BACKGROUND_STATUS_ENABLED)
-                    sbDataSaver.show();
-            }
-        }
     }
 
     @Override
@@ -337,9 +308,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         super.onPause();
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         lbm.unregisterReceiver(receiver);
-
-        if (sbDataSaver.isShown())
-            sbDataSaver.dismiss();
     }
 
     @Override
