@@ -1632,6 +1632,8 @@ In short tracking images keep track if you opened a message.
 FairEmail automatically recognizes images with a surface of less than or equal to 25 pixels as tracking images.
 FairEmail automatically removes the link of such images, which makes such images appear as broken, and adds a remark about this below the image.
 
+Automatic recognition of tracking images can be disabled in the behavior settings.
+
 <br />
 
 <a name="faq83"></a>
