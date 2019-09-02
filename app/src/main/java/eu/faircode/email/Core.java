@@ -2066,6 +2066,7 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         boolean biometric_notify = prefs.getBoolean("biometrics_notify", false);
+        boolean name_email = prefs.getBoolean("name_email", false);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
@@ -2132,7 +2133,7 @@ class Core {
                 DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                 StringBuilder sb = new StringBuilder();
                 for (EntityMessage message : messages) {
-                    sb.append("<strong>").append(messageContact.get(message).getDisplayName(true)).append("</strong>");
+                    sb.append("<strong>").append(messageContact.get(message).getDisplayName(name_email)).append("</strong>");
                     if (!TextUtils.isEmpty(message.subject))
                         sb.append(": ").append(message.subject);
                     sb.append(" ").append(DTF.format(message.received));
@@ -2234,7 +2235,7 @@ class Core {
                         ? Helper.localizeFolderName(context, message.folderName)
                         : message.folderDisplay;
 
-                mbuilder.setContentTitle(info.getDisplayName(true))
+                mbuilder.setContentTitle(info.getDisplayName(name_email))
                         .setSubText(message.accountName + " · " + folderName);
             }
 
