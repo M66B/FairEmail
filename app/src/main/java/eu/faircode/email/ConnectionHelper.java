@@ -22,6 +22,7 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -315,5 +316,20 @@ public class ConnectionHelper {
                 }
 
         return ok;
+    }
+
+    static boolean isSameDomain(String host1, String host2) {
+        String domain1 = getDomain(host1);
+        String domain2 = getDomain(host2);
+        return Objects.equals(domain1, domain2);
+    }
+
+    private static String getDomain(String host) {
+        if (host != null) {
+            String[] h = host.split("\\.");
+            if (h.length >= 2)
+                return h[h.length - 2] + "." + h[h.length - 1];
+        }
+        return host;
     }
 }

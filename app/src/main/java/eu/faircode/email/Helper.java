@@ -871,14 +871,6 @@ public class Helper {
         return true;
     }
 
-    static String getTld(String host) {
-        String[] h = host.split("\\.");
-        if (h.length >= 2)
-            return h[h.length - 2] + "." + h[h.length - 1];
-        else
-            return host;
-    }
-
     static int getSize(Bundle bundle) {
         Parcel p = Parcel.obtain();
         bundle.writeToParcel(p, 0);
