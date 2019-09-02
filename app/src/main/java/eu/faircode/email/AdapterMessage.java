@@ -1056,10 +1056,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cowner.recreate();
             cowner.start();
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
+                private int lastInlineImages = 0;
+
                 @Override
                 public void onChanged(@Nullable List<EntityAttachment> attachments) {
                     bindAttachments(message, attachments);
-                    loadText(message, false);
+
+                    int inlineImages = 0;
+                    if (attachments != null)
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.available && attachment.isInline() && attachment.isImage())
+                                inlineImages++;
+
+                    if (inlineImages != lastInlineImages) {
+                        lastInlineImages = inlineImages;
+                        loadText(message, false);
+                    }
                 }
             });
 
