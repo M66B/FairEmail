@@ -148,8 +148,18 @@ public class HtmlHelper {
         for (Element pre : document.select("pre")) {
             String[] lines = pre.html().split("\\r?\\n");
             for (int i = 0; i < lines.length; i++) {
-                if (!"-- ".equals(lines[i]))
-                    lines[i] = lines[i].replace(" ", "&nbsp;");
+                if (!"-- ".equals(lines[i])) {
+                    StringBuilder sb = new StringBuilder();
+                    int len = lines[i].length();
+                    for (int j = 0; j < len; j++) {
+                        char kar = lines[i].charAt(j);
+                        if (kar == ' ' && j + 1 < len && lines[i].charAt(j + 1) == ' ')
+                            sb.append("&nbsp;");
+                        else
+                            sb.append(kar);
+                    }
+                    lines[i] = sb.toString();
+                }
             }
             pre.html(TextUtils.join("<br>", lines));
             pre.tagName("div");
