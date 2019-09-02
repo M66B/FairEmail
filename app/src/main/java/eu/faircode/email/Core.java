@@ -1295,13 +1295,13 @@ class Core {
                 Log.i(folder.name + " sent orphans=" + orphans.size());
                 for (EntityMessage orphan : orphans) {
                     Log.i(folder.name + " adding orphan id=" + orphan.id);
-                    if (orphan.content)
+                    if (orphan.content && orphan.ui_hide == 0L)
                         EntityOperation.queue(context, orphan, EntityOperation.ADD);
                 }
+            } else {
+                // Delete not synchronized messages without uid
+                db.message().deleteOrphans(folder.id);
             }
-
-            // Delete not synchronized messages without uid
-            db.message().deleteOrphans(folder.id);
 
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);

@@ -375,14 +375,8 @@ public class ServiceSend extends ServiceBase {
             message.error = null;
             message.id = db.message().insertMessage(message);
 
-            MessageHelper.MessageParts parts = helper.getMessageParts();
-            String body = parts.getHtml(this);
-            Helper.writeText(message.getFile(this), body);
-            db.message().setMessageContent(message.id,
-                    true,
-                    parts.isPlainOnly(),
-                    HtmlHelper.getPreview(body),
-                    parts.getWarnings(message.warning));
+            message.getFile(this).createNewFile();
+            EntityAttachment.copy(this, id, message.id);
 
             sid = message.id;
             message.id = id;
@@ -412,6 +406,16 @@ public class ServiceSend extends ServiceBase {
                 db.message().deleteMessage(message.id);
 
                 if (sid != null) {
+                    MessageHelper helper = new MessageHelper(imessage);
+                    MessageHelper.MessageParts parts = helper.getMessageParts();
+                    String body = parts.getHtml(this);
+                    Helper.writeText(EntityMessage.getFile(this, sid), body);
+                    db.message().setMessageContent(message.id,
+                            true,
+                            parts.isPlainOnly(),
+                            HtmlHelper.getPreview(body),
+                            parts.getWarnings(message.warning));
+
                     db.message().setMessageSent(sid, time);
                     db.message().setMessageUiHide(sid, 0L);
                 }

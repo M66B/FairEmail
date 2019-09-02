@@ -188,11 +188,15 @@ public class EntityMessage implements Serializable {
         return addresses.toArray(new Address[0]);
     }
 
-    File getFile(Context context) {
+    static File getFile(Context context, Long id) {
         File dir = new File(context.getFilesDir(), "messages");
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, id.toString());
+    }
+
+    File getFile(Context context) {
+        return getFile(context, id);
     }
 
     File getFile(Context context, int revision) {

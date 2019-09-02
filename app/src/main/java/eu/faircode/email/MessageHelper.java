@@ -1017,6 +1017,8 @@ public class MessageHelper {
 
     private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws IOException, FolderClosedException {
         try {
+            if (BuildConfig.DEBUG)
+                Log.i("Part class=" + part.getClass() + " type=" + part.getContentType());
             if (part.isMimeType("multipart/*")) {
                 Multipart multipart;
                 Object content = part.getContent();
