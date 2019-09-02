@@ -211,8 +211,6 @@
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
-    <string name="title_advanced_images">Näytä tunnettujen yhteystietojen kuvat automaattisesti</string>
-    <string name="title_advanced_images_all">Näytä kaikki kuvat oletuksena</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_remote_content">Näytä ulkoinen sisältö automaattisesti alkuperäisissä viesteissä</string>
     <string name="title_advanced_actionbar">Keskustelujen toimintopalkki</string>
@@ -275,7 +273,6 @@
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
-    <string name="title_advanced_permission_contacts_hint">Tämä vaatii oikeudet yhteystietojen lukemiseen</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
     <string name="title_advanced_autocollapse_hint">Monta laajennettua viestiä suljetaan aina takaisin-painikkeella</string>
     <string name="title_advanced_autoclose_hint">Sulje keskustelut, kun kaikki viestit on arkistoitu, lähetetty tai siirretty roskakoriin</string>
@@ -699,6 +696,7 @@
     <string name="title_completed">Valmis</string>
     <string name="title_ask_what">Kysy, mitä tehdään</string>
     <string name="title_no_ask_again">Älä kysy tätä uudelleen</string>
+    <string name="title_no_ask_for_again">Älä kysy tätä uudelleen osoitteelle %1$s</string>
     <string name="title_no_body">Viestin tekstiä ei löytynyt</string>
     <string name="title_no_charset">Koodausta ei tueta: %1$s</string>
     <string name="title_via">Kautta: %1$s</string>

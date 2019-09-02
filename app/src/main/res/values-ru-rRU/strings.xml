@@ -233,8 +233,6 @@
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
-    <string name="title_advanced_images">Автоматически показывать изображения для известных контактов</string>
-    <string name="title_advanced_images_all">Автоматически показывать все изображения</string>
     <string name="title_advanced_collapse_quotes">Свернуть цитируемый текст</string>
     <string name="title_advanced_remote_content">Автоматически показывать удаленное содержимое при просмотре оригиналов сообщений</string>
     <string name="title_advanced_actionbar">Панель управления диалогами</string>
@@ -297,7 +295,6 @@
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, вложенные в сообщение</string>
-    <string name="title_advanced_permission_contacts_hint">Это требует разрешения на чтение ваших контактов</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autocollapse_hint">Несколько развёрнутых сообщений всегда будут закрыты по кнопке \'назад\'</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
@@ -721,6 +718,7 @@
     <string name="title_completed">Завершено</string>
     <string name="title_ask_what">Спросить, что делать</string>
     <string name="title_no_ask_again">Больше не спрашивать</string>
+    <string name="title_no_ask_for_again">Больше не спрашивать для %1$s</string>
     <string name="title_no_body">В сообщении нет текста</string>
     <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>
     <string name="title_via">Через: %1$s</string>

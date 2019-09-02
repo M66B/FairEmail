@@ -211,8 +211,6 @@
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
-    <string name="title_advanced_images">Afficher automatiquement les images pour les contacts connus</string>
-    <string name="title_advanced_images_all">Afficher automatiquement toutes les images</string>
     <string name="title_advanced_collapse_quotes">Réduire le texte cité</string>
     <string name="title_advanced_remote_content">Afficher automatiquement le contenu distant lors de la visualisation des messages originaux</string>
     <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
@@ -275,7 +273,6 @@
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_inline_hint">Les images en ligne sont des images incluses dans le message</string>
-    <string name="title_advanced_permission_contacts_hint">Cela nécessite l\'autorisation de lire vos contacts</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
     <string name="title_advanced_autocollapse_hint">Les messages multiples étendus seront toujours fermés par « Retour »</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
@@ -699,6 +696,7 @@
     <string name="title_completed">Terminé</string>
     <string name="title_ask_what">Demander ce qu\'il faut faire</string>
     <string name="title_no_ask_again">Ne plus me le demander</string>
+    <string name="title_no_ask_for_again">Ne pas demander ceci pour %1$s</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
     <string name="title_no_charset">Format d\'encodage non pris en charge : %1$s</string>
     <string name="title_via">Via : %1$s</string>

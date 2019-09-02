@@ -210,8 +210,6 @@
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa il carattere monospaziale per il testo del messaggio</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
-    <string name="title_advanced_images">Mostra automaticamente le immagini per i contatti noti</string>
-    <string name="title_advanced_images_all">Mostra automaticamente tutte le immagini</string>
     <string name="title_advanced_collapse_quotes">Comprimi testo citato</string>
     <string name="title_advanced_remote_content">Mostra automaticamente il contenuto remoto quando si visualizzano i messaggi originali</string>
     <string name="title_advanced_actionbar">Barra di azione di conversazione</string>
@@ -274,7 +272,6 @@
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
     <string name="title_advanced_preview_hint">Disponibile solo quando è stato scaricato il testo del messaggio</string>
     <string name="title_advanced_inline_hint">Le immagini in linea sono incluse nel messaggio</string>
-    <string name="title_advanced_permission_contacts_hint">Questo richiede il permesso di leggere i tuoi contatti</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando c\'è un solo messaggio o solo un messaggio da leggere in una conversazione</string>
     <string name="title_advanced_autocollapse_hint">Più messaggi estesi verranno sempre chiusi con \'indietro\'</string>
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
@@ -698,6 +695,7 @@
     <string name="title_completed">Completato</string>
     <string name="title_ask_what">Chiedi cosa fare</string>
     <string name="title_no_ask_again">Non chiedere di nuovo</string>
+    <string name="title_no_ask_for_again">Non chiedere più per %1$s</string>
     <string name="title_no_body">Nessun messaggio di testo trovato</string>
     <string name="title_no_charset">Codifica non supportata: %1$s</string>
     <string name="title_via">Tramite: %1$s</string>

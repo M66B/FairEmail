@@ -199,8 +199,6 @@
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
     <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
-    <string name="title_advanced_images">自动显示已知联系人的图片</string>
-    <string name="title_advanced_images_all">自动显示所有图像</string>
     <string name="title_advanced_collapse_quotes">折叠引用的文本</string>
     <string name="title_advanced_remote_content">查看原始消息时自动显示远程内容</string>
     <string name="title_advanced_actionbar">对话操作栏</string>
@@ -263,7 +261,6 @@
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
-    <string name="title_advanced_permission_contacts_hint">这需要授权读取联系人的权限</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
@@ -687,6 +684,7 @@
     <string name="title_completed">完成</string>
     <string name="title_ask_what">询问做什么</string>
     <string name="title_no_ask_again">别再询问</string>
+    <string name="title_no_ask_for_again">不要再询问 %1$s</string>
     <string name="title_no_body">没有找到消息文本</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_via">通过: %1$s</string>

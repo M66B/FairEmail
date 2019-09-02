@@ -4,6 +4,7 @@
     <string name="app_changelog">سِجل التغييرات</string>
     <string name="app_welcome">FairEmail تطبيق مفتوح المصدر للبريد الإلكتروني يُركّز على الخصوصية والأمان. ولهذا السبب قد تعمل بعض الميزات بشكل مختلف مما كنت مُعتادًا عليه.</string>
     <string name="channel_service">الخدمة</string>
+    <string name="channel_send">أرسل</string>
     <string name="channel_notification">الاشعارات</string>
     <string name="channel_update">التحديثات</string>
     <string name="channel_warning">التحذيرات</string>
@@ -353,6 +354,7 @@
     <string name="title_fix">تصليح</string>
     <string name="title_enable">تمكين</string>
     <string name="title_no_ask_again">لا تسألني مرة أخرى</string>
+    <string name="title_no_ask_for_again">لا تسألني ثانية عن %1$s</string>
     <string name="title_no_body">لم يتم العثور على أية رسالة نصية</string>
     <string name="title_via">عبر: %1$s</string>
     <string name="title_icalendar_accept">موافقة</string>

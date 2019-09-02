@@ -210,8 +210,6 @@
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt monospatieret skrifttype til beskedtekst</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
-    <string name="title_advanced_images">Auto-vis billeder for kendte kontakter</string>
-    <string name="title_advanced_images_all">Auto-vis alle billeder</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_remote_content">Auto-vis fjernindhold, når originale beskeder læses</string>
     <string name="title_advanced_actionbar">Samtale-handlingsbjælke</string>
@@ -274,7 +272,6 @@
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
-    <string name="title_advanced_permission_contacts_hint">Dette kræver, at der gives tilladelse til at læse dine kontakter</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_autocollapse_hint">Alle udvidede beskeder lukkes altid ved tryk på \"Tilbage\"</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
@@ -698,6 +695,7 @@
     <string name="title_completed">Fuldført</string>
     <string name="title_ask_what">Spørg, hvad der skal ske</string>
     <string name="title_no_ask_again">Spørg ikke om dette igen</string>
+    <string name="title_no_ask_for_again">Spørg ikke om dette igen for %1$s</string>
     <string name="title_no_body">Ingen beskedtekst fundet</string>
     <string name="title_no_charset">Uunderstøttet kodning: %1$s</string>
     <string name="title_via">Via: %1$s</string>

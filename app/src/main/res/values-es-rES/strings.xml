@@ -211,8 +211,6 @@
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para texto de mensaje</string>
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
-    <string name="title_advanced_images">Mostrar automáticamente imágenes de contactos conocidos</string>
-    <string name="title_advanced_images_all">Mostrar automáticamente todas las imágenes</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
     <string name="title_advanced_remote_content">Mostrar contenido remoto automáticamente al visualizar mensajes originales</string>
     <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
@@ -275,7 +273,6 @@
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
-    <string name="title_advanced_permission_contacts_hint">Esto requiere otorgar permiso para leer tus contactos</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_autocollapse_hint">Múltiples mensajes expandidos siempre se cerrarán con \'atrás\'</string>
     <string name="title_advanced_autoclose_hint">Cerrar automáticamente hilos de conversación cuando todos los mensajes son archivados, enviados o eliminados</string>
@@ -699,6 +696,7 @@
     <string name="title_completed">Completado</string>
     <string name="title_ask_what">Preguntar qué hacer</string>
     <string name="title_no_ask_again">No volver a preguntar</string>
+    <string name="title_no_ask_for_again">No volver a preguntar esto por %1$s</string>
     <string name="title_no_body">No se encontró texto en el mensaje</string>
     <string name="title_no_charset">Codificación no soportada: %1$s</string>
     <string name="title_via">Vía: %1$s</string>

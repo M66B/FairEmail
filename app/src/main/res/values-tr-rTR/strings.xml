@@ -208,8 +208,6 @@
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metni için tek aralıklı yazı tipi kullan</string>
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
-    <string name="title_advanced_images">Bilinen kişiler için görselleri otomatik olarak göster</string>
-    <string name="title_advanced_images_all">Tüm görselleri otomatik olarak göster</string>
     <string name="title_advanced_collapse_quotes">Alıntılanan metni daralt</string>
     <string name="title_advanced_remote_content">Orijinal iletileri görüntülerken uzak içeriği otomatik olarak göster</string>
     <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
@@ -266,7 +264,6 @@
     <string name="title_advanced_threading_hint">Birbirlerine bağlı grup iletileri</string>
     <string name="title_advanced_name_email_hint">Devre dışı bırakıldığında, yalnızca adlar mevcut olduğunda gösterilecektir</string>
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
-    <string name="title_advanced_permission_contacts_hint">Bu, kişilerinizi okumak için izin vermenizi gerektirir</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_autocollapse_hint">Çoklu genişletilmiş mesajlar her zaman \'geri\' komutuyla kapatılacak</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>

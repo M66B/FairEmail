@@ -233,8 +233,6 @@
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
-    <string name="title_advanced_images">Automatycznie wyświetlaj zdjęcia dla znanych kontaktów</string>
-    <string name="title_advanced_images_all">Automatycznie pokazuj wszystkie obrazy</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_remote_content">Automatycznie wyświetlaj zawartość zdalną podczas przeglądania oryginalnych wiadomości</string>
     <string name="title_advanced_actionbar">Pasek akcji konwersacji</string>
@@ -297,7 +295,6 @@
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
-    <string name="title_advanced_permission_contacts_hint">Wymaga to przyznania pozwolenia na odczyt kontaktów</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autocollapse_hint">Rozwinięte wiadomości zostaną zawsze zamknięte przy \'cofnij\'</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
@@ -721,6 +718,7 @@
     <string name="title_completed">Ukończone</string>
     <string name="title_ask_what">Zapytaj co zrobić</string>
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
+    <string name="title_no_ask_for_again">Nie pytaj ponownie o %1$s</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
     <string name="title_via">Przez: %1$s</string>

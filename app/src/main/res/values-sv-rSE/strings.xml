@@ -209,8 +209,6 @@
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
     <string name="title_advanced_monospaced">Använd monospace-typsnitt för meddelandetexten</string>
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
-    <string name="title_advanced_images">Visa automatiskt bilder för kända kontakter</string>
-    <string name="title_advanced_images_all">Visa automatiskt alla bilder</string>
     <string name="title_advanced_collapse_quotes">Kollapsa citerad text</string>
     <string name="title_advanced_remote_content">Visa automatiskt fjärrinnehåll när du visar originalmeddelanden</string>
     <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
@@ -273,7 +271,6 @@
     <string name="title_advanced_name_email_hint">När inaktiverad visas endast namn när det är tillgängligt</string>
     <string name="title_advanced_preview_hint">Endast tillgängligt när meddelandetexten hämtades</string>
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
-    <string name="title_advanced_permission_contacts_hint">Detta kräver att du ger tillstånd att läsa dina kontakter</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autocollapse_hint">Flera utökade meddelanden kommer alltid att stängas på \"Tillbaka\"</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
