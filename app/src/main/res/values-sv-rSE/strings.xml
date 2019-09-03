@@ -58,7 +58,7 @@
         <item quantity="other">Flytta %1$d meddelanden till %2$s ?</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">Ta bort %1$d meddelandet permanent?</item>
+        <item quantity="one">Ta bort %1$d meddelande permanent?</item>
         <item quantity="other">Ta bort %1$d meddelanden permanent?</item>
     </plurals>
     <plurals name="title_ask_spam">
@@ -86,7 +86,7 @@
     <string name="menu_other">Andra appar</string>
     <string name="title_welcome">Välkommen</string>
     <string name="title_eula">Licensavtal för slutanvändare</string>
-    <string name="title_agree">Jag samtycker</string>
+    <string name="title_agree">Jag godkänner</string>
     <string name="title_disagree">Jag godkänner inte</string>
     <string name="title_version">Version %1$s</string>
     <string name="title_list_accounts">Konton</string>
@@ -96,7 +96,7 @@
     <string name="title_edit_folder">Redigera mapp</string>
     <string name="title_setup">Inställningar</string>
     <string name="title_setup_help">Hjälp</string>
-    <string name="title_setup_welcome">        Ta emot och skicka meddelanden kräver att du konfigurerar ett konto och en identitet på samma sätt som i någon annan e-postapp.
+    <string name="title_setup_welcome">        För att ta emot och skicka meddelanden krävs att du konfigurerar ett konto och en identitet på samma sätt som i alla andra e-postappar.
         Den snabba installationen kommer att skapa både ett konto och identitet genom att bara be om ditt namn, e-postadress och lösenord.
         Konton och identiteter (alias) kan också ställas in manuellt om det behövs.
     </string>
