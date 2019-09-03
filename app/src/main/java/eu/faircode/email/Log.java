@@ -354,6 +354,22 @@ public class Log {
         if (ex instanceof NoSuchMethodError)
             return false;
 
+        if (ex instanceof IllegalStateException &&
+                "Drag shadow dimensions must be positive".equals(ex.getMessage()))
+            /*
+                Android 9 only
+                java.lang.IllegalStateException: Drag shadow dimensions must be positive
+                java.lang.IllegalStateException: Drag shadow dimensions must be positive
+                at android.view.View.startDragAndDrop(View.java:24027)
+                at android.widget.Editor.startDragAndDrop(Editor.java:1165)
+                at android.widget.Editor.performLongClick(Editor.java:1191)
+                at android.widget.TextView.performLongClick(TextView.java:11346)
+                at android.view.View.performLongClick(View.java:6653)
+                at android.view.View$CheckForLongPress.run(View.java:25855)
+                at android.os.Handler.handleCallback(Handler.java:873)
+            */
+            return false;
+
         if (ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Bad notification posted") ||
                         ex.getMessage().contains("ActivityRecord not found") ||
