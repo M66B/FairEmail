@@ -524,6 +524,7 @@
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
     <string name="title_sort_on_snoozed">Utsatt</string>
+    <string name="title_sort_ascending">Eldst først</string>
     <string name="title_filter">Filtrere ut</string>
     <string name="title_filter_seen">Les</string>
     <string name="title_filter_unflagged">Ikke med stjerne</string>

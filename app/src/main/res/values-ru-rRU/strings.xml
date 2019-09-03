@@ -546,6 +546,7 @@
     <string name="title_sort_on_subject">Тема</string>
     <string name="title_sort_on_size">Размер</string>
     <string name="title_sort_on_snoozed">Отложено</string>
+    <string name="title_sort_ascending">Сначала старые</string>
     <string name="title_filter">Фильтровать</string>
     <string name="title_filter_seen">Прочитанные</string>
     <string name="title_filter_unflagged">Не Избранные</string>
