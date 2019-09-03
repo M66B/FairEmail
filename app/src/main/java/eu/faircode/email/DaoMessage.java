@@ -76,12 +76,12 @@ public interface DaoMessage {
             "  WHEN 'size' = :sort THEN -SUM(message.size)" +
             "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "  ELSE 0" +
-            " END, message.received DESC")
+            " END, CASE WHEN :ascending THEN message.received ELSE -message.received END")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
             String type,
             boolean threading,
-            String sort,
+            String sort, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_snoozed,
             boolean found,
             boolean debug);
@@ -121,11 +121,11 @@ public interface DaoMessage {
             "  WHEN 'size' = :sort THEN -SUM(message.size)" +
             "  WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "  ELSE 0" +
-            " END, message.received DESC")
+            " END, CASE WHEN :ascending THEN message.received ELSE -message.received END")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
-            String sort,
+            String sort, boolean ascending,
             boolean filter_seen, boolean filter_unflagged, boolean filter_snoozed,
             boolean found,
             boolean debug);

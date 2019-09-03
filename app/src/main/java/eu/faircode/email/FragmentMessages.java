@@ -584,9 +584,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         String sort = prefs.getString("sort", "time");
+        boolean ascending = prefs.getBoolean("ascending", false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
 
-        adapter = new AdapterMessage(this, type, viewType, compact, zoom, sort, filter_duplicates, iProperties);
+        adapter = new AdapterMessage(this, type, viewType, compact, zoom, sort, ascending, filter_duplicates, iProperties);
         rvMessage.setAdapter(adapter);
 
         seekBar.setOnTouchListener(new View.OnTouchListener() {
@@ -2448,6 +2449,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onPrepareOptionsMenu(Menu menu) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
+        boolean ascending = prefs.getBoolean("ascending", false);
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
         boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
         boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
@@ -2480,6 +2482,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             menu.findItem(R.id.menu_sort_on_size).setChecked(true);
         else if ("snoozed".equals(sort))
             menu.findItem(R.id.menu_sort_on_snoozed).setChecked(true);
+        menu.findItem(R.id.menu_ascending).setChecked(ascending);
 
         menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
         menu.findItem(R.id.menu_filter_seen).setVisible(viewType != AdapterMessage.ViewType.THREAD);
@@ -2550,6 +2553,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onMenuSort("snoozed");
                 return true;
 
+            case R.id.menu_ascending:
+                onMenuAscending(!item.isChecked());
+                return true;
+
             case R.id.menu_filter_seen:
                 onMenuFilterRead(!item.isChecked());
                 return true;
@@ -2610,6 +2617,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putString("sort", sort).apply();
         adapter.setSort(sort);
+        loadMessages(true);
+    }
+
+    private void onMenuAscending(boolean ascending) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("ascending", ascending).apply();
+        adapter.setAscending(ascending);
+        getActivity().invalidateOptionsMenu();
         loadMessages(true);
     }
 

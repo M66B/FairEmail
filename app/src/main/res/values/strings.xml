@@ -599,6 +599,7 @@
     <string name="title_sort_on_subject">Subject</string>
     <string name="title_sort_on_size">Size</string>
     <string name="title_sort_on_snoozed">Snoozed</string>
+    <string name="title_sort_ascending">Oldest first</string>
 
     <string name="title_filter">Filter out</string>
     <string name="title_filter_seen">Read</string>
