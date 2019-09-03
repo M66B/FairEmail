@@ -45,6 +45,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.mail.Address;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -53,6 +54,7 @@ import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.UIDFolder;
+import javax.mail.internet.InternetAddress;
 import javax.mail.search.BodyTerm;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
@@ -190,13 +192,21 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         else if (context.getString(R.string.title_search_special_snoozed).equals(special))
                             match = (message.ui_snoozed != null);
                     } else {
-                        if (message.from != null && message.from.length > 0)
-                            for (int j = 0; j < message.from.length && !match; j++)
-                                match = message.from[j].toString().toLowerCase().contains(find);
+                        List<Address> addresses = new ArrayList<>();
+                        if (message.from != null)
+                            addresses.addAll(Arrays.asList(message.from));
+                        if (message.to != null)
+                            addresses.addAll(Arrays.asList(message.to));
+                        if (message.cc != null)
+                            addresses.addAll(Arrays.asList(message.cc));
 
-                        if (!match && message.to != null && message.to.length > 0)
-                            for (int j = 0; j < message.to.length && !match; j++)
-                                match = message.to[j].toString().toLowerCase().contains(find);
+                        for (Address address : addresses) {
+                            String email = ((InternetAddress) address).getAddress();
+                            String name = ((InternetAddress) address).getPersonal();
+                            if (email != null && email.toLowerCase().contains(find) ||
+                                    name != null && name.toLowerCase().contains(find))
+                                match = true;
+                        }
 
                         if (!match && message.subject != null)
                             match = message.subject.toLowerCase().contains(find);
