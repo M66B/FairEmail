@@ -218,6 +218,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(126) What does 'User is authenticated but not connected' mean?](#user-content-faq126)
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
+* [(129) Is ProtonMail supported?](#user-content-faq129)
 
 [I have another question.](#support)
 
@@ -2181,6 +2182,13 @@ You can likely fix the error *Syntactically invalid HELO argument(s)* by disabli
 You can reset asked questions via the three dots overflow menu in the miscellaneous settings.
 
 <br />
+
+<a name="faq129"></a>
+**(129) Is ProtonMail supported?**
+
+ProtonMail uses a proprietary email protocol
+and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/),
+so you cannot use FairEmail to access ProtonMail.
 
 ## Support
 
