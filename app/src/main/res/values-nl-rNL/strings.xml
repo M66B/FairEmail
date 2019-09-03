@@ -524,6 +524,7 @@
     <string name="title_sort_on_subject">Onderwerp</string>
     <string name="title_sort_on_size">Grootte</string>
     <string name="title_sort_on_snoozed">Gesluimerd</string>
+    <string name="title_sort_ascending">Oudste eerst</string>
     <string name="title_filter">Uitfilteren</string>
     <string name="title_filter_seen">Gelezen</string>
     <string name="title_filter_unflagged">Zonder ster</string>
