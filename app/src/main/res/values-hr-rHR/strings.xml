@@ -228,6 +228,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_autoscroll">Pomakniti se na vrh po prijemu novih poruka</string>
     <string name="title_advanced_swipenav">Prijeđite prstom ulijevo / udesno da biste prešli na sljedeći / prethodni razgovor</string>
     <string name="title_advanced_double_tap">Dvaput dodirnite da biste označili poruku pročitanu / nepročitanu</string>
+    <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
     <string name="title_advanced_collapse">Sažmi poruke u razgovorima na \"natrag\"</string>
     <string name="title_advanced_autoclose">Automatski zatvori razgovore</string>
@@ -533,6 +534,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_sort_on_subject">Predmet</string>
     <string name="title_sort_on_size">Veličina</string>
     <string name="title_sort_on_snoozed">Odgođeno</string>
+    <string name="title_sort_ascending">Prvo najstarije</string>
     <string name="title_filter">Filtrirati</string>
     <string name="title_filter_seen">Pročitaj</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>
@@ -705,6 +707,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_completed">Završeno</string>
     <string name="title_ask_what">Pitati što učiniti</string>
     <string name="title_no_ask_again">Ne pitaj ponovno</string>
+    <string name="title_no_ask_for_again">Ne pitaj ponovo za %1$s</string>
     <string name="title_no_body">Nije pronađen tekst poruke</string>
     <string name="title_no_charset">Nepodržano kodiranje: %1$s</string>
     <string name="title_via">Preko: %1$s</string>

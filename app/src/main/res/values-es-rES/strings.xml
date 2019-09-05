@@ -524,6 +524,7 @@
     <string name="title_sort_on_subject">Asunto</string>
     <string name="title_sort_on_size">Tamaño</string>
     <string name="title_sort_on_snoozed">Pospuesto</string>
+    <string name="title_sort_ascending">Más antiguo primero</string>
     <string name="title_filter">Filtrar</string>
     <string name="title_filter_seen">Leer</string>
     <string name="title_filter_unflagged">No destacado</string>

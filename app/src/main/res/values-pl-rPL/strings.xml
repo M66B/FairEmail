@@ -546,6 +546,7 @@
     <string name="title_sort_on_subject">Temat</string>
     <string name="title_sort_on_size">Rozmiar</string>
     <string name="title_sort_on_snoozed">Odłożona</string>
+    <string name="title_sort_ascending">Od najstarszych</string>
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
     <string name="title_filter_unflagged">Nie oznaczona</string>

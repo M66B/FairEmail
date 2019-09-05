@@ -523,6 +523,7 @@
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
     <string name="title_sort_on_snoozed">Udsat</string>
+    <string name="title_sort_ascending">Ældste først</string>
     <string name="title_filter">Filtrér fra</string>
     <string name="title_filter_seen">Læst</string>
     <string name="title_filter_unflagged">Fjernet stjernemarkering</string>
