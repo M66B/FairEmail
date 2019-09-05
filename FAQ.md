@@ -383,7 +383,7 @@ or enable two factor authentication and use an app specific password.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
-See [this FAQ](#user-content-faq111) about why OAuth (Google, Microsoft, etc login) is not being supported.
+See [this FAQ](#user-content-faq111) about why OAuth (Google login) is not being supported.
 
 **Enable "Less secure apps"**
 
