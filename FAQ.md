@@ -409,7 +409,7 @@ This can be prevented by using an app specific password.
 See [here](https://support.google.com/mail/answer/7126229) for Google's instructions
 and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
 
-See [this FAQ](#user-content-faq111) about why OAuth is not being used.
+See [this FAQ](#user-content-faq111) about why OAuth (Google, Microsoft, etc login) is not being used.
 
 <br />
 
