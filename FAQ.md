@@ -690,6 +690,9 @@ Possible causes are:
 * The email server is refusing to accept a message, for example because it is too large or contains unacceptable links
 * There are too many connections to the server, see also the next question
 
+Many public Wi-Fi networks block outgoing email to prevent spam.
+Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port number.
+
 If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
 
 FairEmail will automatically try to connect again after a delay.
