@@ -1184,14 +1184,15 @@ public class ServiceSynchronize extends ServiceBase {
                             if (!iservice.getStore().isConnected())
                                 throw new StoreClosedException(iservice.getStore(), "NOOP");
 
-                            for (EntityFolder folder : mapFolders.keySet())
-                                if (folder.synchronize && mapFolders.get(folder) != null)
-                                    if (!folder.poll && capIdle) {
-                                        // Sends folder NOOP
-                                        if (!mapFolders.get(folder).isOpen())
-                                            throw new StoreClosedException(iservice.getStore(), folder.name);
-                                    } else
-                                        EntityOperation.sync(this, folder.id, false);
+                            if (sync)
+                                for (EntityFolder folder : mapFolders.keySet())
+                                    if (folder.synchronize)
+                                        if (!folder.poll && capIdle) {
+                                            // Sends folder NOOP
+                                            if (!mapFolders.get(folder).isOpen())
+                                                throw new StoreClosedException(iservice.getStore(), folder.name);
+                                        } else
+                                            EntityOperation.sync(this, folder.id, false);
 
                             // Successfully connected: reset back off time
                             backoff = CONNECT_BACKOFF_START;
