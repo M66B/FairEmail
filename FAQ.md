@@ -383,6 +383,8 @@ or enable two factor authentication and use an app specific password.
 
 Note that an app specific password is required when two factor authentication is enabled.
 
+See [this FAQ](#user-content-faq111) about why OAuth (Google, Microsoft, etc login) is not being supported.
+
 **Enable "Less secure apps"**
 
 See [here](https://support.google.com/accounts/answer/6010255) about how to enable "less secure apps"
@@ -408,8 +410,6 @@ This can be prevented by using an app specific password.
 
 See [here](https://support.google.com/mail/answer/7126229) for Google's instructions
 and [here](https://support.google.com/mail/accounts/answer/78754) for troubleshooting.
-
-See [this FAQ](#user-content-faq111) about why OAuth (Google, Microsoft, etc login) is not being used.
 
 <br />
 
