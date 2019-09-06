@@ -2376,8 +2376,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if ("pro".equals(key)) {
             boolean pro = prefs.getBoolean(key, false);
             grpSupport.setVisibility(
-                    viewType == AdapterMessage.ViewType.THREAD || pro
-                            ? View.GONE : View.VISIBLE);
+                    !pro && viewType == AdapterMessage.ViewType.UNIFIED
+                            ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -2531,7 +2531,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ibSeen.setImageResource(filter_seen ? R.drawable.baseline_drafts_24 : R.drawable.baseline_mail_24);
         ibUnflagged.setImageResource(filter_unflagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
-        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_timelapse_24: R.drawable.baseline_timer_off_24);
+        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
 
         boolean folder = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
