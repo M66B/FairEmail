@@ -159,9 +159,9 @@ repositories {
 configurations.all {
     // Workaround https://issuetracker.google.com/issues/138441698
     // Support @69c481c39a17d4e1e44a4eb298bb81c48f226eef
-    //exclude group: "androidx.room", module: "room-runtime"
+    exclude group: "androidx.room", module: "room-runtime"
     // Workaround https://issuetracker.google.com/issues/134685570
-    //exclude group: "androidx.lifecycle", module: "lifecycle-livedata"
+    exclude group: "androidx.lifecycle", module: "lifecycle-livedata"
 }
 
 dependencies {
