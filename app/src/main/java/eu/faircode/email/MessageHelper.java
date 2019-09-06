@@ -1034,11 +1034,16 @@ public class MessageHelper {
                 for (int i = 0; i < multipart.getCount(); i++)
                     try {
                         Part cpart = multipart.getBodyPart(i);
-                        ContentType ct = new ContentType(cpart.getContentType());
-                        if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase()))
-                            pgp = true;
-                        else
-                            getMessageParts(cpart, parts, pgp);
+
+                        try {
+                            ContentType ct = new ContentType(cpart.getContentType());
+                            if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase()))
+                                pgp = true;
+                        } catch (ParseException ex) {
+                            Log.w(ex);
+                        }
+
+                        getMessageParts(cpart, parts, pgp);
                     } catch (ParseException ex) {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
