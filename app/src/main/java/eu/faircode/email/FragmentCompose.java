@@ -661,6 +661,7 @@ public class FragmentCompose extends FragmentBase {
                 if (a == null) {
                     a = new Bundle();
                     a.putString("action", "new");
+                    setArguments(a);
                 }
 
                 Bundle args = new Bundle();
