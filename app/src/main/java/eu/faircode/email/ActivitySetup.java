@@ -881,20 +881,26 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     for (int s = 0; s < jsettings.length(); s++) {
                         JSONObject jsetting = (JSONObject) jsettings.get(s);
                         String key = jsetting.getString("key");
-                        if (!"pro".equals(key) || BuildConfig.DEBUG) {
-                            Object value = jsetting.get("value");
-                            if (value instanceof Boolean)
-                                editor.putBoolean(key, (Boolean) value);
-                            else if (value instanceof Integer)
-                                editor.putInt(key, (Integer) value);
-                            else if (value instanceof Long)
-                                editor.putLong(key, (Long) value);
-                            else if (value instanceof String)
-                                editor.putString(key, (String) value);
-                            else
-                                throw new IllegalArgumentException("Unknown settings type key=" + key);
-                            Log.i("Imported setting=" + key);
-                        }
+
+                        if ("pro".equals(key) && !BuildConfig.DEBUG)
+                            continue;
+
+                        if ("biometrics".equals(key) && !Helper.canAuthenticate(context))
+                            continue;
+
+                        Object value = jsetting.get("value");
+                        if (value instanceof Boolean)
+                            editor.putBoolean(key, (Boolean) value);
+                        else if (value instanceof Integer)
+                            editor.putInt(key, (Integer) value);
+                        else if (value instanceof Long)
+                            editor.putLong(key, (Long) value);
+                        else if (value instanceof String)
+                            editor.putString(key, (String) value);
+                        else
+                            throw new IllegalArgumentException("Unknown settings type key=" + key);
+
+                        Log.i("Imported setting=" + key);
                     }
                     editor.apply();
                     ApplicationEx.upgrade(context);
