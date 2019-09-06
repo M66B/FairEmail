@@ -1996,8 +1996,10 @@ Disabling *Partial fetch* will result in more memory usage.
 <a name="faq111"></a>
 **(111) Can you add OAuth authentication?**
 
-(X)OAuth authentication, formerly available as *Select account* for Google accounts, requires creating an online (Google, Microsoft, etc) app,
-which would make authentication for many people dependent on one (developer) account, which is a bad idea.
+(X)OAuth authentication, [formerly available](https://github.com/M66B/FairEmail/commit/eddfad1e25ca12c438d86793323895b41872f7b9) as *Select account* for Google accounts,
+requires creating an online (Google, Microsoft, etc) app, which would make authentication for many people dependent on one (developer) account, which is a bad idea.
+
+Moreover, periodically refreshing the OAuth token has shown to be less reliable than using an app password, which is just as safe as OAuth authentication.
 
 See also [this related article](https://arstechnica.com/gadgets/2019/06/gmails-api-lockdown-will-kill-some-third-party-app-access-starting-july-15/).
 
