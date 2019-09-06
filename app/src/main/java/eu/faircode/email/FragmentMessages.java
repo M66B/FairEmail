@@ -166,6 +166,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private SeekBar seekBar;
     private ImageButton ibDown;
     private ImageButton ibUp;
+    private ImageButton ibSeen;
+    private ImageButton ibUnflagged;
     private ImageButton ibSnoozed;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -359,6 +361,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         seekBar = view.findViewById(R.id.seekBar);
         ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
+        ibSeen = view.findViewById(R.id.ibSeen);
+        ibUnflagged = view.findViewById(R.id.ibUnflagged);
         ibSnoozed = view.findViewById(R.id.ibSnoozed);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
@@ -608,6 +612,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View v) {
                 scrollToVisibleItem(llm, false);
+            }
+        });
+
+        ibSeen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean filter = prefs.getBoolean("filter_seen", true);
+                onMenuFilterSeen(!filter);
+            }
+        });
+
+        ibUnflagged.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean filter = prefs.getBoolean("filter_unflagged", true);
+                onMenuFilterUnflagged(!filter);
             }
         });
 
@@ -865,6 +885,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         seekBar.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
+        ibSeen.setVisibility(View.GONE);
+        ibUnflagged.setVisibility(View.GONE);
         ibSnoozed.setVisibility(View.GONE);
         bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(false);
         bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(false);
@@ -2507,10 +2529,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
-        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_all_inclusive_24 : R.drawable.baseline_timelapse_24);
-        ibSnoozed.setVisibility(experiments &&
-                (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
-                ? View.VISIBLE : View.GONE);
+        ibSeen.setImageResource(filter_seen ? R.drawable.baseline_drafts_24 : R.drawable.baseline_mail_24);
+        ibUnflagged.setImageResource(filter_unflagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
+        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_timelapse_24: R.drawable.baseline_timer_off_24);
+
+        boolean folder = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
+
+        ibSeen.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
+        ibUnflagged.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
+        ibSnoozed.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
 
         super.onPrepareOptionsMenu(menu);
     }
@@ -2563,7 +2590,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return true;
 
             case R.id.menu_filter_seen:
-                onMenuFilterRead(!item.isChecked());
+                onMenuFilterSeen(!item.isChecked());
                 return true;
 
             case R.id.menu_filter_unflagged:
@@ -2633,7 +2660,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         loadMessages(true);
     }
 
-    private void onMenuFilterRead(boolean filter) {
+    private void onMenuFilterSeen(boolean filter) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         prefs.edit().putBoolean("filter_seen", filter).apply();
         getActivity().invalidateOptionsMenu();
