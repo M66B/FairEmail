@@ -344,6 +344,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
     <string name="title_pop3_support">POP3 wird nicht unterstützt</string>
+    <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_all">Alle Nachrichten synchronisieren</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
@@ -700,6 +701,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Codierung: %1$s</string>
     <string name="title_via">über %1$s</string>
+    <string name="title_1hour">1 Stunde</string>
+    <string name="title_1day">1 Tag</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>
