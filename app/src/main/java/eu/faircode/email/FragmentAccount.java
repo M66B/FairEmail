@@ -91,6 +91,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
+    private TextView tvOAuthSupport;
     private EditText etRealm;
 
     private EditText etName;
@@ -184,6 +185,7 @@ public class FragmentAccount extends FragmentBase {
         cbInsecure = view.findViewById(R.id.cbInsecure);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
+        tvOAuthSupport = view.findViewById(R.id.tvOAuthSupport);
         etRealm = view.findViewById(R.id.etRealm);
 
         etName = view.findViewById(R.id.etName);
@@ -306,6 +308,14 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
                 etPort.setHint(id == R.id.radio_starttls ? "143" : "993");
+            }
+        });
+
+        tvOAuthSupport.setPaintFlags(tvOAuthSupport.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvOAuthSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 111);
             }
         });
 
