@@ -1117,14 +1117,13 @@ public class MessageHelper {
 
                     // Try to guess a better content type
                     // For example, sometimes PDF files are sent as application/octet-stream
-                    if ("application/octet-stream".equalsIgnoreCase(apart.attachment.type)) {
-                        String extension = Helper.getExtension(apart.attachment.name);
-                        if (extension != null) {
-                            String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
-                            if (type != null) {
+                    String extension = Helper.getExtension(apart.attachment.name);
+                    if (extension != null) {
+                        String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
+                        if (type != null) {
+                            if (!type.equals(apart.attachment.type))
                                 Log.w("Guessing file=" + apart.attachment.name + " type=" + type);
-                                apart.attachment.type = type;
-                            }
+                            apart.attachment.type = type;
                         }
                     }
 
