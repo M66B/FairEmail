@@ -25,6 +25,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -56,6 +57,8 @@ public class FragmentDialogDuration extends FragmentDialogEx {
 
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_duration, null);
         final TextView tvDuration = dview.findViewById(R.id.tvDuration);
+        final Button btn1hour = dview.findViewById(R.id.btn1hour);
+        final Button btn1day = dview.findViewById(R.id.btn1day);
         final TimePicker timePicker = dview.findViewById(R.id.timePicker);
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
 
@@ -76,6 +79,59 @@ public class FragmentDialogDuration extends FragmentDialogEx {
             timePicker.setHour(cal.get(Calendar.HOUR_OF_DAY));
             timePicker.setMinute(cal.get(Calendar.MINUTE));
         }
+
+        Dialog dialog = new AlertDialog.Builder(getContext())
+                .setTitle(title)
+                .setView(dview)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        long now = new Date().getTime();
+                        long duration = (cal.getTimeInMillis() - now);
+                        if (duration < 0)
+                            duration = 0;
+                        Log.i("Set duration=" + duration + " time=" + new Date(cal.getTimeInMillis()));
+
+                        Bundle args = getArguments();
+                        args.putLong("duration", duration);
+                        args.putLong("time", cal.getTimeInMillis());
+
+                        sendResult(RESULT_OK);
+                    }
+                })
+                .create();
+
+        btn1hour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+                long now = new Date().getTime();
+                long duration = 3600 * 1000L;
+
+                Bundle args = getArguments();
+                args.putLong("duration", duration);
+                args.putLong("time", now + duration);
+
+                sendResult(RESULT_OK);
+            }
+        });
+
+        btn1day.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+                long now = new Date().getTime();
+                long duration = 24 * 3600 * 1000L;
+
+                Bundle args = getArguments();
+                args.putLong("duration", duration);
+                args.putLong("time", now + duration);
+
+                sendResult(RESULT_OK);
+            }
+        });
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
@@ -105,25 +161,6 @@ public class FragmentDialogDuration extends FragmentDialogEx {
                 }
         );
 
-        return new AlertDialog.Builder(getContext())
-                .setTitle(title)
-                .setView(dview)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        long now = new Date().getTime();
-                        long duration = (cal.getTimeInMillis() - now);
-                        if (duration < 0)
-                            duration = 0;
-                        Log.i("Set duration=" + duration + " time=" + new Date(cal.getTimeInMillis()));
-
-                        Bundle args = getArguments();
-                        args.putLong("duration", duration);
-                        args.putLong("time", cal.getTimeInMillis());
-
-                        sendResult(RESULT_OK);
-                    }
-                })
-                .create();
+        return dialog;
     }
 }
