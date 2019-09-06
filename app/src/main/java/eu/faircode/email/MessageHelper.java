@@ -883,20 +883,39 @@ public class MessageHelper {
             List<EntityAttachment> remotes = getAttachments();
 
             // Some servers order attachments randomly
+
             int index = -1;
+            boolean warning = false;
+
+            // Get attachment by position
+            if (local.sequence <= remotes.size()) {
+                EntityAttachment remote = remotes.get(local.sequence - 1);
+                if (Objects.equals(remote.name, local.name) &&
+                        Objects.equals(remote.type, local.type) &&
+                        Objects.equals(remote.disposition, local.disposition) &&
+                        Objects.equals(remote.cid, local.cid) &&
+                        Objects.equals(remote.size, local.size))
+                    index = local.sequence - 1;
+            }
 
             // Match attachment by name/cid
-            for (int i = 0; i < remotes.size(); i++) {
-                EntityAttachment remote = remotes.get(i);
-                if (Objects.equals(remote.name, local.name) &&
-                        Objects.equals(remote.cid, local.cid)) {
-                    index = i;
-                    break;
+            if (index < 0 && !(local.name == null && local.cid == null)) {
+                warning = true;
+                Log.w("Matching attachment by name/cid");
+                for (int i = 0; i < remotes.size(); i++) {
+                    EntityAttachment remote = remotes.get(i);
+                    if (Objects.equals(remote.name, local.name) &&
+                            Objects.equals(remote.cid, local.cid)) {
+                        index = i;
+                        break;
+                    }
                 }
             }
 
             // Match attachment by type/size
-            if (index < 0)
+            if (index < 0) {
+                warning = true;
+                Log.w("Matching attachment by type/size");
                 for (int i = 0; i < remotes.size(); i++) {
                     EntityAttachment remote = remotes.get(i);
                     if (Objects.equals(remote.type, local.type) &&
@@ -905,8 +924,9 @@ public class MessageHelper {
                         break;
                     }
                 }
+            }
 
-            if (index < 0) {
+            if (index < 0 || warning) {
                 Map<String, String> crumb = new HashMap<>();
                 crumb.put("local", local.toString());
                 Log.w("Attachment not found local=" + local);
@@ -916,8 +936,10 @@ public class MessageHelper {
                     Log.w("Attachment remote=" + remote);
                 }
                 Log.breadcrumb("attachments", crumb);
-                throw new IllegalArgumentException("Attachment not found");
             }
+
+            if (index < 0)
+                throw new IllegalArgumentException("Attachment not found");
 
             downloadAttachment(context, index, local);
         }
