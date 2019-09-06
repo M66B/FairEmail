@@ -111,7 +111,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out' and 'Broken pipe' mean?](#user-content-faq22)
+* [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out', 'Broken pipe', 'ParseException' and 'SendFailedException' mean?](#user-content-faq22)
 * [(23) Why do I get 'Too many simultaneous connections' or 'Maximum number of connections ... exceeded' ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
@@ -660,7 +660,7 @@ but such apps cannot be updated anymore and recent Android versions will show a 
 <br />
 
 <a name="faq22"></a>
-**(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out' and 'Broken pipe' mean?**
+**(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out', 'Broken pipe', 'ParseException' and 'SendFailedException' mean?**
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 Also, FairEmail will always retry again later, so transient errors will automatically be solved.
@@ -678,6 +678,12 @@ The message *... Connection closed by peer ...* might be caused by a not updated
 see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
 The message *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
+
+The message *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software.
+FairEmail will workaround this is most cases, so this message can mostly be considered as a warning instead of an error.
+
+The message *...SendFailedException...* means that there was a problem with sending a message.
+The message will almost always include a reason. Common reasons are that the message is too big or that one or more recipient addresses are invalid.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
