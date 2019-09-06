@@ -1535,7 +1535,8 @@ class Core {
                     for (EntityAttachment attachment : parts.getAttachments()) {
                         Log.i(folder.name + " attachment seq=" + sequence +
                                 " name=" + attachment.name + " type=" + attachment.type +
-                                " cid=" + attachment.cid + " pgp=" + attachment.encryption);
+                                " cid=" + attachment.cid + " pgp=" + attachment.encryption +
+                                " size=" + attachment.size);
                         attachment.message = message.id;
                         attachment.sequence = sequence++;
                         attachment.id = db.attachment().insertAttachment(attachment);
