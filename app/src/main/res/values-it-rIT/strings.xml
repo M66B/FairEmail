@@ -344,6 +344,7 @@
     <string name="title_edit_html">Modifica come HTML</string>
     <string name="title_last_connected">Ultima connessione:%1$s</string>
     <string name="title_pop3_support">POP3 non è supportato</string>
+    <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_all">Sincronizza tutti i messaggi</string>
     <string name="title_synchronize_enabled">Sincronizza</string>
@@ -700,6 +701,8 @@
     <string name="title_no_body">Nessun messaggio di testo trovato</string>
     <string name="title_no_charset">Codifica non supportata: %1$s</string>
     <string name="title_via">Tramite: %1$s</string>
+    <string name="title_1hour">1 ora</string>
+    <string name="title_1day">1 giorno</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>

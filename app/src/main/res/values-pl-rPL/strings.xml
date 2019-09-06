@@ -367,6 +367,7 @@
     <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_pop3_support">POP3 nie jest wspierany</string>
+    <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_synchronize_all">Synchronizuj wszystkie wiadomości</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
@@ -723,6 +724,8 @@
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
     <string name="title_via">Przez: %1$s</string>
+    <string name="title_1hour">1 godzina</string>
+    <string name="title_1day">1 dzień</string>
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>
