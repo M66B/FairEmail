@@ -36,6 +36,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import static androidx.room.ForeignKey.CASCADE;
@@ -212,7 +214,8 @@ public class EntityOperation {
 
                 // Cross account move
                 if (!source.account.equals(target.account))
-                    if (message.raw != null && message.raw) {
+                    if (message.raw != null && message.raw &&
+                            message.getRawFile(context).exists()) {
                         name = ADD;
                         folder = target.id;
                     } else
@@ -225,18 +228,27 @@ public class EntityOperation {
             Log.e(ex);
         }
 
-        EntityOperation operation = new EntityOperation();
-        operation.account = message.account;
-        operation.folder = folder;
-        operation.message = message.id;
-        operation.name = name;
-        operation.args = jargs.toString();
-        operation.created = new Date().getTime();
-        operation.id = db.operation().insertOperation(operation);
+        EntityOperation op = new EntityOperation();
+        op.account = message.account;
+        op.folder = folder;
+        op.message = message.id;
+        op.name = name;
+        op.args = jargs.toString();
+        op.created = new Date().getTime();
+        op.id = db.operation().insertOperation(op);
 
-        Log.i("Queued op=" + operation.id + "/" + operation.name +
-                " folder=" + operation.folder + " msg=" + operation.message +
-                " args=" + operation.args);
+        Log.i("Queued op=" + op.id + "/" + op.name +
+                " folder=" + op.folder + " msg=" + op.message +
+                " args=" + op.args);
+
+        Map<String, String> crumb = new HashMap<>();
+        crumb.put("name", op.name);
+        crumb.put("args", op.args);
+        crumb.put("folder", op.account + ":" + op.folder);
+        if (op.message != null)
+            crumb.put("message", Long.toString(op.message));
+        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+        Log.breadcrumb("queued", crumb);
 
         if (SEND.equals(name))
             ServiceSend.start(context);

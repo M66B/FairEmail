@@ -148,7 +148,7 @@ class Core {
                     Map<String, String> crumb = new HashMap<>();
                     crumb.put("name", op.name);
                     crumb.put("args", op.args);
-                    crumb.put("folder", op.folder + ":" + folder.type);
+                    crumb.put("folder", op.account + ":" + op.folder + ":" + folder.type);
                     if (op.message != null)
                         crumb.put("message", Long.toString(op.message));
                     crumb.put("free", Integer.toString(Log.getFreeMemMb()));
