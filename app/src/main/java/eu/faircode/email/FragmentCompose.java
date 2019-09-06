@@ -2571,7 +2571,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.ui_hide = ui_hide;
                         db.message().updateMessage(draft);
 
-                        if (content)
+                        if (draft.content)
                             EntityOperation.queue(context, draft, EntityOperation.ADD);
                     }
 
