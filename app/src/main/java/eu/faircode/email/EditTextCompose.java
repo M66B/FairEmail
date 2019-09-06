@@ -49,10 +49,25 @@ public class EditTextCompose extends AppCompatEditText {
 
     @Override
     public boolean onTextContextMenuItem(int id) {
-        if (id == android.R.id.paste && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            return super.onTextContextMenuItem(android.R.id.pasteAsPlainText);
-        else
-            return super.onTextContextMenuItem(id);
+        try {
+            if (id == android.R.id.paste && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                return super.onTextContextMenuItem(android.R.id.pasteAsPlainText);
+            else
+                return super.onTextContextMenuItem(id);
+        } catch (Throwable ex) {
+            /*
+                java.lang.RuntimeException: PARAGRAPH span must start at paragraph boundary
+                        at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:619)
+                        at android.text.SpannableStringBuilder.change(SpannableStringBuilder.java:391)
+                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:496)
+                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:454)
+                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:33)
+                        at android.widget.TextView.paste(TextView.java:8891)
+                        at android.widget.TextView.onTextContextMenuItem(TextView.java:8706)
+             */
+            Log.w(ex);
+            return false;
+        }
     }
 
     @Override
