@@ -1595,13 +1595,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     try {
                         db.beginTransaction();
 
-                        EntityFolder target = db.folder().getFolder(tid);
-                        if (target == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_folder));
-
-                        EntityAccount account = db.account().getAccount(target.account);
                         EntityMessage message = db.message().getMessage(id);
-                        if (message != null) {
+
+                        EntityFolder target = null;
+                        if (message != null)
+                            target = db.folder().getFolder(tid);
+
+                        if (target != null) {
+                            EntityAccount account = db.account().getAccount(target.account);
                             List<EntityMessage> messages = db.message().getMessagesByThread(
                                     message.account, message.thread, threading && thread ? null : id, message.folder);
                             for (EntityMessage threaded : messages) {
@@ -4335,36 +4336,37 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMove(Bundle args) {
-        new SimpleTask<Void>() {
+        new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
-            protected Void onExecute(Context context, Bundle args) {
+            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) {
                 long id = args.getLong("message");
-                long target = args.getLong("folder");
+                long tid = args.getLong("folder");
                 boolean copy = args.getBoolean("copy");
                 boolean similar = args.getBoolean("similar");
+
+                ArrayList<MessageTarget> result = new ArrayList<>();
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
                     EntityMessage message = db.message().getMessage(id);
-                    if (message == null)
-                        return null;
 
-                    if (similar) {
-                        if (copy)
-                            throw new IllegalArgumentException();
-                        else {
+                    EntityFolder target = null;
+                    if (message != null)
+                        target = db.folder().getFolder(tid);
+
+                    if (target != null) {
+                        EntityAccount account = db.account().getAccount(target.account);
+                        if (account != null) {
                             List<EntityMessage> messages = db.message().getMessagesByThread(
-                                    message.account, message.thread, threading ? null : id, message.folder);
+                                    message.account, message.thread, threading && similar ? null : id, message.folder);
                             for (EntityMessage threaded : messages)
-                                EntityOperation.queue(context, threaded, EntityOperation.MOVE, target);
+                                if (copy)
+                                    EntityOperation.queue(context, message, EntityOperation.COPY, tid);
+                                else
+                                    result.add(new MessageTarget(threaded, account, target));
                         }
-                    } else {
-                        if (copy)
-                            EntityOperation.queue(context, message, EntityOperation.COPY, target);
-                        else
-                            EntityOperation.queue(context, message, EntityOperation.MOVE, target);
                     }
 
                     db.setTransactionSuccessful();
@@ -4372,14 +4374,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                return null;
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
+                moveAsk(result);
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(this, args, "message:copy");
+        }.execute(this, args, "message:move");
     }
 
     private WebView printWebView = null;
