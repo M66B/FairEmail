@@ -294,4 +294,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Mail.ru"
+        link="https://help.mail.ru/mail-help/mailer/popsmtp">
+        <imap
+            host="imap.mail.ru"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mail.ru"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
