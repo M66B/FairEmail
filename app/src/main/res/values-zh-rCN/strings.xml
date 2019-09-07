@@ -333,6 +333,7 @@
     <string name="title_edit_html">以 html 格式编辑</string>
     <string name="title_last_connected">上次连接%1$s前</string>
     <string name="title_pop3_support">不支持POP3协议</string>
+    <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_synchronize_all">同步所有消息</string>
     <string name="title_synchronize_enabled">同步</string>
@@ -689,6 +690,8 @@
     <string name="title_no_body">没有找到消息文本</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_via">通过: %1$s</string>
+    <string name="title_1hour">1 小时</string>
+    <string name="title_1day">1 天</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>
@@ -697,6 +700,9 @@
     <string name="title_pro_list">专业版功能列表</string>
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_once">仅一次</string>
+    <string name="title_pro_info">毫不夸张地说，我在开发FairEmail上花费了数千小时，尽管如此，多数功能依旧可免费使用。
+为了让FairEmail开发持续下去，免费版无法使用一些便利和高级的功能。
+FairEmail会显示一条消息来提醒您这一点，这条消息在您购买专业版后将被移除。</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_pending">购买待处理</string>
