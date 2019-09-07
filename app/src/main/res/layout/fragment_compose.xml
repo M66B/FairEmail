@@ -246,11 +246,20 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="6dp"
                 android:fontFamily="monospace"
+                android:minHeight="24dp"
                 android:text="Signature"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cbSignature"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorBody" />
+
+            <CheckBox
+                android:id="@+id/cbSignature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSignature"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvSignature" />
 
             <View
                 android:id="@+id/vSeparatorSignature"
@@ -362,7 +371,7 @@
                 android:id="@+id/grpSignature"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="vSeparatorSignature,tvSignature" />
+                app:constraint_referenced_ids="vSeparatorSignature,tvSignature,cbSignature" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpReferenceHint"

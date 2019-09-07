@@ -84,6 +84,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
@@ -172,6 +174,7 @@ public class FragmentCompose extends FragmentBase {
     private EditTextCompose etBody;
     private TextView tvNoInternet;
     private TextView tvSignature;
+    private CheckBox cbSignature;
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
     private ImageButton ibReferenceEdit;
@@ -265,6 +268,7 @@ public class FragmentCompose extends FragmentBase {
         etBody = view.findViewById(R.id.etBody);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
+        cbSignature = view.findViewById(R.id.cbSignature);
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
@@ -343,6 +347,39 @@ public class FragmentCompose extends FragmentBase {
             @Override
             public void onInputContent(Uri uri) {
                 onAddAttachment(uri, true);
+            }
+        });
+
+        cbSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                Bundle args = new Bundle();
+                args.putLong("id", working);
+                args.putBoolean("signature", checked);
+
+                new SimpleTask<Integer>() {
+                    @Override
+                    protected Integer onExecute(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        boolean signature = args.getBoolean("signature");
+
+                        DB db = DB.getInstance(context);
+                        return db.message().setMessageSignature(id, signature);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Integer count) {
+                        if (count > 0) {
+                            boolean signature = args.getBoolean("signature");
+                            tvSignature.setAlpha(signature ? 1.0f : Helper.LOW_LIGHT);
+                        }
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getFragmentManager(), ex);
+                    }
+                }.execute(FragmentCompose.this, args, "draft:signature");
             }
         });
 
@@ -2998,6 +3035,9 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setText(text[0]);
                 etBody.setSelection(0);
                 grpBody.setVisibility(View.VISIBLE);
+
+                cbSignature.setChecked(draft.signature);
+                tvSignature.setAlpha(draft.signature ? 1.0f : Helper.LOW_LIGHT);
 
                 boolean ref_has_images = args.getBoolean("ref_has_images");
 
