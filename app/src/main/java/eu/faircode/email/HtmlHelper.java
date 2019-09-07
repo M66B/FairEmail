@@ -637,17 +637,27 @@ public class HtmlHelper {
         NodeTraversor.traverse(new NodeVisitor() {
             private int qlevel = 0;
             private int tlevel = 0;
+            private int plevel = 0;
             private boolean nl = true;
 
             public void head(Node node, int depth) {
                 if (node instanceof TextNode)
-                    append(((TextNode) node).text());
+                    if (plevel > 0) {
+                        String[] lines = ((TextNode) node).getWholeText().split("\\r?\\n");
+                        for (String line : lines) {
+                            append(line);
+                            newline();
+                        }
+                    } else
+                        append(((TextNode) node).text());
                 else {
                     String name = node.nodeName();
                     if ("li".equals(name))
                         append("*");
                     else if ("blockquote".equals(name))
                         qlevel++;
+                    else if ("pre".equals(name))
+                        plevel++;
 
                     if (heads.contains(name))
                         newline();
@@ -666,6 +676,8 @@ public class HtmlHelper {
                         newline();
                 } else if ("blockquote".equals(name))
                     qlevel--;
+                else if ("pre".equals(name))
+                    plevel--;
 
                 if (tails.contains(name))
                     newline();
