@@ -667,6 +667,8 @@
     <string name="title_hint_folder_actions">Langt trykk for flere instillinger</string>
     <string name="title_hint_folder_sync">For å begrense batteri- og nettverks bruk, vil ikke alle mapper og ikke alle meldinger synkroniseres som standard</string>
     <string name="title_hint_support">Hvis du har et spørsmål eller et problem, vennligst bruk support menyen for å få hjelp</string>
+    <string name="title_hint_message_actions">Sveip til venstre for å slette; Sveip til høyre for å arkivere (hvis tilgjengelig); Sveipe handlingene kan konfigureres i kontoinnstillingene</string>
+    <string name="title_hint_message_selection">Trykk lenge på en melding for å begynne å velge flere meldinger; Hold og sveip opp eller ned for å velge flere meldinger</string>
     <string name="title_hint_sync">Nedlasting av meldinger kan ta litt tid, avhengig av leverandørens hastighet, internettforbindelse og enhet og antall meldinger. Mens du laster ned meldinger, kan appen reagere langsommere.</string>
     <string name="title_hint_image_link">Bildelink</string>
     <string name="title_hint_tracking_image">Sporer bilde %1$sx%2$s</string>

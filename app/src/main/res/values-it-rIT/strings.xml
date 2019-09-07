@@ -666,6 +666,8 @@
     <string name="title_hint_folder_actions">Tieni premuto per le opzioni</string>
     <string name="title_hint_folder_sync">Per limitare l\'utilizzo della batteria e della rete, non tutte le cartelle e non tutti i messaggi verranno sincronizzati per impostazione predefinita</string>
     <string name="title_hint_support">Se hai una domanda o un problema, usa il menu di supporto per ottenere aiuto</string>
+    <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento possono essere configurate nelle impostazioni dell\'account</string>
+    <string name="title_hint_message_selection">Premi a lungo su di un messaggio per iniziare a selezionare più messaggi; Tieni premuto e scorri verso l\'alto o verso il basso per selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_hint_image_link">Link Immagine</string>
     <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
