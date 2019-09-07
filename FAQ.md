@@ -60,6 +60,7 @@ For authorizing:
 * Search for settings
 * Select any day for time conditions
 * Widget for selected account
+* Display GIFs
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -513,8 +514,6 @@ Note that signed only or encrypted only messages are not supported, see here abo
 * [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
 If you want, you can verify a signature by opening the *signature.asc* attachment.
-
-Encryption/decryption is a pro feature.
 
 Please see the [known problems](#known-problems) about YubiKey.
 
