@@ -55,6 +55,7 @@ import java.util.List;
 public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
 
+    private TextView tvWelcome;
     private ImageButton ibWelcome;
 
     private Button btnHelp;
@@ -102,6 +103,7 @@ public class FragmentSetup extends FragmentBase {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
         // Get controls
+        tvWelcome = view.findViewById(R.id.tvWelcome);
         ibWelcome = view.findViewById(R.id.ibWelcome);
 
         btnHelp = view.findViewById(R.id.btnHelp);
@@ -133,6 +135,9 @@ public class FragmentSetup extends FragmentBase {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         // Wire controls
+
+        tvWelcome.setText(getString(R.string.title_setup_welcome)
+                .replaceAll("^\\s+", "").replaceAll("\\s+", " "));
 
         ibWelcome.setOnClickListener(new View.OnClickListener() {
             @Override

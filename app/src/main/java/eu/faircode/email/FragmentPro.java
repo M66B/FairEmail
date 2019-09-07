@@ -41,6 +41,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class FragmentPro extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TextView tvPending;
     private TextView tvActivated;
+    private TextView tvInfo;
     private TextView tvList;
     private Button btnPurchase;
     private TextView tvPrice;
@@ -59,11 +60,15 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         tvPending = view.findViewById(R.id.tvPending);
         tvActivated = view.findViewById(R.id.tvActivated);
+        tvInfo = view.findViewById(R.id.tvInfo);
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
         tvPrice = view.findViewById(R.id.tvPrice);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         btnCheck = view.findViewById(R.id.btnCheck);
+
+        tvInfo.setText(getString(R.string.title_pro_info)
+                .replaceAll("^\\s+", "").replaceAll("\\s+", " "));
 
         tvList.setPaintFlags(tvList.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvList.setOnClickListener(new View.OnClickListener() {
