@@ -667,8 +667,6 @@
     <string name="title_hint_folder_actions">Mantenga pulsado para opciones</string>
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
-    <string name="title_hint_message_actions">Deslice a la izquierda para eliminar; deslice a la derecha para archivar (si está disponible)</string>
-    <string name="title_hint_message_selection">Mantenga presionado un mensaje para empezar a seleccionar múltiples mensajes</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_image_link">Enlace de imagen</string>
     <string name="title_hint_tracking_image">Imagen de seguimiento %1$sx%2$s</string>

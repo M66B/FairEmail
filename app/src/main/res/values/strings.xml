@@ -758,8 +758,8 @@
     <string name="title_hint_folder_actions">Long press for options</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronized by default</string>
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
-    <string name="title_hint_message_actions">Swipe left to trash; swipe right to archive (if available)</string>
-    <string name="title_hint_message_selection">Long press a message to start selecting multiple messages</string>
+    <string name="title_hint_message_actions">Swipe left to trash; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
+    <string name="title_hint_message_selection">Long press a message to start selecting multiple messages; Hold and swipe up or down to select more messages</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_hint_image_link">Image link</string>
     <string name="title_hint_tracking_image">Tracking image %1$sx%2$s</string>

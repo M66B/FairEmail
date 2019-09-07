@@ -365,9 +365,6 @@ public class FragmentQuickSetup extends FragmentBase {
                         else if (EntityFolder.ARCHIVE.equals(folder.type))
                             account.swipe_right = folder.id;
 
-                    if (account.swipe_right == null && account.swipe_left != null)
-                        account.swipe_right = account.swipe_left;
-
                     db.account().updateAccount(account);
 
                     // Create identity

@@ -665,8 +665,6 @@
     <string name="title_hint_folder_actions">Langt tryk for flere muligheder</string>
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
-    <string name="title_hint_message_actions">Stryg til venstre for at slette, stryg til højre for at arkivere (hvis tilgængelig)</string>
-    <string name="title_hint_message_selection">Langt tryk på en besked for markering af flere</string>
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
     <string name="title_hint_image_link">Billed-link</string>
     <string name="title_hint_tracking_image">Sporingsbillede %1$sx%2$s</string>

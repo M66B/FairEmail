@@ -667,8 +667,6 @@
     <string name="title_hint_folder_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>
-    <string name="title_hint_message_actions">Pyyhkäise vasemmalle siirtääksesi roskakoriin; pyyhkäise oikealle arkistoidaksesi (jos käytettävissä)</string>
-    <string name="title_hint_message_selection">Paina viestiä pitkään aloittaaksesi useamman viestin valinnan</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_image_link">Kuvalinkki</string>
     <string name="title_hint_tracking_image">Seurantakuva %1$sx%2$s</string>

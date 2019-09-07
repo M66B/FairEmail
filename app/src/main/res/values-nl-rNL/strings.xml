@@ -667,8 +667,8 @@
     <string name="title_hint_folder_actions">Druk lang voor opties</string>
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
-    <string name="title_hint_message_actions">Veeg naar links om weg te gooien; veeg naar rechts om te archiveren (indien beschikbaar)</string>
-    <string name="title_hint_message_selection">Druk lang op een bericht om te beginnen met het selecteren van meerdere berichten</string>
+    <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veeg acties kunnen worden geconfigureerd in de accountinstellingen</string>
+    <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Houd ingedrukt en veeg omhoog of omlaag om meer berichten te selecteren</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_image_link">Afbeeldingskoppeling</string>
     <string name="title_hint_tracking_image">Tracking afbeelding %1$sx%2$s</string>

@@ -689,8 +689,6 @@
     <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
-    <string name="title_hint_message_actions">Przesuń w lewo do kosza; przesuń w prawo do archiwum (jeśli dostępne)</string>
-    <string name="title_hint_message_selection">Przytrzymaj wiadomość, aby zacząć zaznaczanie wielu wiadomości</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_image_link">Adres obrazka</string>
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>

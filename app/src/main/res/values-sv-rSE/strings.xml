@@ -665,8 +665,6 @@
     <string name="title_hint_folder_actions">Långtryck för inställningar</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
-    <string name="title_hint_message_actions">Svep åt vänster för att slänga; svep åt höger för att arkivera (om tillgängligt)</string>
-    <string name="title_hint_message_selection">Tryck länge på ett meddelande för att börja välja flera meddelanden</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_hint_image_link">Bildlänk</string>
     <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>

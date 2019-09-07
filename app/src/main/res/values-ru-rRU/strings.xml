@@ -688,8 +688,6 @@
     <string name="title_hint_folder_actions">Длительно нажмите для опций</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика не все папки и сообщения синхронизируются по умолчанию</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи</string>
-    <string name="title_hint_message_actions">Свайп влево - в корзину; Свайп вправо - в Архив (если доступно)</string>
-    <string name="title_hint_message_selection">Длительное нажатие для выбора нескольких сообщений</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время, в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
     <string name="title_hint_image_link">Ссылка на изображение</string>
     <string name="title_hint_tracking_image">Отслеживающее изображение %1$sx%2$s</string>

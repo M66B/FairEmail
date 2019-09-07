@@ -130,8 +130,10 @@ public class ApplicationEx extends Application {
             if (prefs.getBoolean("autonext", false))
                 editor.putString("onclose", "next");
             editor.remove("autonext");
+        } else if (version < 693) {
+            editor.remove("message_swipe");
+            editor.remove("message_select");
         }
-
 
         if (BuildConfig.DEBUG && false) {
             editor.remove("app_support");

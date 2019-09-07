@@ -369,8 +369,6 @@
     <string name="title_hint_folder_actions">Variantlar üçün uzun basın</string>
     <string name="title_hint_folder_sync">Batereya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq eyniləşdirilməyəcək</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
-    <string name="title_hint_message_actions">Tullantı üçün sola; arxiv üçün sağa sürüşdür (əgər varsa)</string>
-    <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın</string>
     <string name="title_hint_sync">Mesajların endirilməsi təchizatçınızın sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq biraz vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
     <string name="title_open_link">Bağlantını aç</string>
     <string name="title_updated">%1$s versiyası üçün yeniləmə mövcuddur</string>

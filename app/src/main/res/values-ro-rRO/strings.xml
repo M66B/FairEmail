@@ -677,8 +677,6 @@
     <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
-    <string name="title_hint_message_actions">Glisare spre stânga trimite la gunoi iar glisare spre dreapta la arhivă (dacă este disponibilă)</string>
-    <string name="title_hint_message_selection">Apăsați lung un mesaj pentru a selecta multiple</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_image_link">Legătură imagine</string>
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
