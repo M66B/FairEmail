@@ -1148,7 +1148,9 @@ public class MessageHelper {
                     // For example, sometimes PDF files are sent as application/octet-stream
                     if (!apart.pgp) {
                         String extension = Helper.getExtension(apart.attachment.name);
-                        if (extension != null) {
+                        if (extension != null &&
+                                ("pdf".equals(extension.toLowerCase()) ||
+                                        "application/octet-stream".equals(apart.attachment.type))) {
                             String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
                             if (type != null) {
                                 if (!type.equals(apart.attachment.type))
