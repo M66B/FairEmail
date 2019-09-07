@@ -361,6 +361,11 @@ public class ServiceSend extends ServiceBase {
 
             MessageHelper helper = new MessageHelper(imessage);
 
+            if (message.uid != null) {
+                Log.e("Outbox id=" + message.id + " uid=" + message.uid);
+                message.uid = null;
+            }
+
             message.id = null;
             message.folder = sent.id;
             message.identity = null;
