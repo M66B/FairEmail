@@ -252,8 +252,8 @@ public class MessageHelper {
             body.append(mdoc.body().html());
 
         // When sending message
-        if (identity != null && message.signature) {
-            if (!TextUtils.isEmpty(identity.signature)) {
+        if (identity != null) {
+            if (!TextUtils.isEmpty(identity.signature) && message.signature) {
                 Document sdoc = Jsoup.parse(identity.signature);
                 if (sdoc.body() != null) {
                     if (usenet) // https://www.ietf.org/rfc/rfc3676.txt
