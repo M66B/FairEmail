@@ -24,10 +24,12 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ImageDecoder;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
+import android.os.Build;
 import android.os.Handler;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
@@ -412,20 +414,54 @@ public class HtmlHelper {
                 d.setBounds(0, 0, px, px);
                 return d;
             } else {
-                Bitmap bm = Helper.decodeImage(attachment.getFile(context),
-                        res.getDisplayMetrics().widthPixels);
-                if (bm == null) {
-                    Log.i("Image not decodable CID=" + cid);
-                    Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
-                    d.setBounds(0, 0, px, px);
-                    return d;
+                int scaleToPixels = res.getDisplayMetrics().widthPixels;
+                if ("image/gif".equals(attachment.type) &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    ImageDecoder.Source isource = ImageDecoder.createSource(attachment.getFile(context));
+                    Drawable gif;
+                    try {
+                        gif = ImageDecoder.decodeDrawable(isource, new ImageDecoder.OnHeaderDecodedListener() {
+                            @Override
+                            public void onHeaderDecoded(
+                                    @NonNull ImageDecoder decoder,
+                                    @NonNull ImageDecoder.ImageInfo info,
+                                    @NonNull ImageDecoder.Source source) {
+                                int factor = 1;
+                                while (info.getSize().getWidth() / factor > scaleToPixels)
+                                    factor *= 2;
+
+                                decoder.setTargetSampleSize(factor);
+                            }
+                        });
+                    } catch (IOException ex) {
+                        Log.w(ex);
+                        gif = null;
+                    }
+                    if (gif == null) {
+                        Log.i("GIF not decodable CID=" + cid);
+                        Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+                        d.setBounds(0, 0, px, px);
+                        return d;
+                    } else {
+                        if (view != null)
+                            fitDrawable(gif, a, view);
+                        return gif;
+                    }
                 } else {
-                    Drawable d = new BitmapDrawable(res, bm);
-                    DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                    d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
-                    if (view != null)
-                        fitDrawable(d, a, view);
-                    return d;
+                    Bitmap bm = Helper.decodeImage(attachment.getFile(context), scaleToPixels);
+                    if (bm == null) {
+                        Log.i("Image not decodable CID=" + cid);
+                        Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
+                        d.setBounds(0, 0, px, px);
+                        return d;
+                    } else {
+                        Drawable d = new BitmapDrawable(res, bm);
+                        DisplayMetrics dm = context.getResources().getDisplayMetrics();
+                        d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+                        if (view != null)
+                            fitDrawable(d, a, view);
+                        return d;
+                    }
                 }
             }
         }

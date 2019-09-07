@@ -38,6 +38,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -2515,7 +2516,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        return HtmlHelper.decodeImage(context, message.id, source, show_images, tvBody);
+                        Drawable drawable = HtmlHelper.decodeImage(context, message.id, source, show_images, tvBody);
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                            if (drawable instanceof AnimatedImageDrawable)
+                                ((AnimatedImageDrawable) drawable).start();
+                        }
+
+                        return drawable;
                     }
                 }, null);
 
@@ -3777,6 +3785,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, Drawable drawable) {
                     pv.setImageDrawable(drawable);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        if (drawable instanceof AnimatedImageDrawable)
+                            ((AnimatedImageDrawable) drawable).start();
+                    }
                 }
 
                 @Override

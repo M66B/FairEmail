@@ -55,12 +55,12 @@ For authorizing:
 * ~~More compact folder view~~
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
+* ~~Display GIFs~~
 * Send as attachment
 * Themes
 * Search for settings
 * Select any day for time conditions
 * Widget for selected account
-* Display GIFs
 
 Anything on this list is in random order and *might* be added in the near future.
 
