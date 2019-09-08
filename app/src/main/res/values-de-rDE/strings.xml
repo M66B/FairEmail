@@ -651,6 +651,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_expander">Erweitern</string>
     <string name="title_legend_avatar">Benutzerbild</string>
     <string name="title_legend_show_quotes">Zitate anzeigen</string>
+    <string name="title_legend_show_unsubscribe">Aus Liste abmelden</string>
     <string name="title_legend_show_images">Bilder anzeigen</string>
     <string name="title_legend_show_full">Vollbild anzeigen</string>
     <string name="title_legend_edit">Bearbeiten</string>

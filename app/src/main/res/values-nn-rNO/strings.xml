@@ -652,6 +652,7 @@
     <string name="title_legend_expander">Utvidet</string>
     <string name="title_legend_avatar">Profilbilde</string>
     <string name="title_legend_show_quotes">Vis sitater</string>
+    <string name="title_legend_show_unsubscribe">Avslutt abonnement fra listen</string>
     <string name="title_legend_show_images">Vise bilder</string>
     <string name="title_legend_show_full">Vis fullskjerm</string>
     <string name="title_legend_edit">Rediger</string>

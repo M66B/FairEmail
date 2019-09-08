@@ -344,6 +344,7 @@
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
     <string name="title_pop3_support">POP3 understøttes ikke</string>
+    <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
     <string name="title_synchronize_all">Synkronisér alle beskeder</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>
@@ -665,6 +666,8 @@
     <string name="title_hint_folder_actions">Langt tryk for flere muligheder</string>
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
+    <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
+    <string name="title_hint_message_selection">Langt tryk på en besked for at tilgå valg af flere beskeder; Hold og stryg op/ned for at vælge flere beskeder</string>
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
     <string name="title_hint_image_link">Billed-link</string>
     <string name="title_hint_tracking_image">Sporingsbillede %1$sx%2$s</string>
@@ -698,6 +701,8 @@
     <string name="title_no_body">Ingen beskedtekst fundet</string>
     <string name="title_no_charset">Uunderstøttet kodning: %1$s</string>
     <string name="title_via">Via: %1$s</string>
+    <string name="title_1hour">1 time</string>
+    <string name="title_1day">1 dag</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>
@@ -706,6 +711,9 @@
     <string name="title_pro_list">Liste over Pro-funktioner</string>
     <string name="title_pro_purchase">Køb</string>
     <string name="title_pro_once">Kun én gang</string>
+    <string name="title_pro_info">Udvikling af FairEmail tog bogstaveligt talt tusinder af timer, også selvom de fleste funktioner er gratis at benytte.
+         For at gøre FairEmail bæredygtig langsigtet, er visse bekvemmeligheds- og avancerede funktioner ikke gratis at bruge.
+         FairEmail viser en lille besked for at minde dig om dette. Denne fjernes, hvis du køber Pro-funktionerne.    </string>
     <string name="title_pro_hint">Køb af Pro-funktioner vil tillade brug alle aktuelle og fremtidige Pro-funktioner samt sikre denne apps vedligeholdelse og understøttelse</string>
     <string name="title_pro_price">Se venligst <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">denne FAQ</a> ang. prisen for Pro-funktionerne</string>
     <string name="title_pro_pending">Afventende køb</string>

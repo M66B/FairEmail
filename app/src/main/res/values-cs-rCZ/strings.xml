@@ -4,7 +4,7 @@
     <string name="app_search">FairEmail vyhledávání</string>
     <string name="app_changelog">Přehled změn</string>
     <string name="app_welcome">FairEmail je e-mailový klient s otevřeným kódem zaměřený na soukromí a bezpečnost. Z tohoto důvodu se některé funkce mohou chovat odlišně než jste zvyklí.</string>
-    <string name="app_limitations">Například, zprávy budou vždy přeformátovány pro odstranění prvků, které nejsou bezpečné, a zároveň pro zlepšení čitelnosti a otevírání odkazů je nutné z důvodu bezpečnosti potvrdit.</string>
+    <string name="app_limitations">Například, zprávy budou vždy přeformátovány pro odstranění prvků, které nejsou bezpečné, a zároveň pro zlepšení čitelnosti, a otevírání odkazů je nutné z důvodu bezpečnosti potvrdit.</string>
     <string name="app_crash">FairEmail není na tomto zařízení podporován, protože chyby v Androidu způsobují jeho pády</string>
     <string name="app_exit">Znovu \"zpět\" pro ukončení</string>
     <string name="channel_service">Služba</string>

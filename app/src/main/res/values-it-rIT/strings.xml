@@ -651,6 +651,7 @@
     <string name="title_legend_expander">Espansione</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Mostra citazioni</string>
+    <string name="title_legend_show_unsubscribe">Cancellare dalla lista</string>
     <string name="title_legend_show_images">Mostra immagini</string>
     <string name="title_legend_show_full">Mostra schermo intero</string>
     <string name="title_legend_edit">Modifica</string>

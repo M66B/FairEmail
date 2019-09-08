@@ -652,6 +652,7 @@
     <string name="title_legend_expander">Développer</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Afficher les citations</string>
+    <string name="title_legend_show_unsubscribe">Se désabonner de la liste</string>
     <string name="title_legend_show_images">Afficher les images</string>
     <string name="title_legend_show_full">Afficher en plein écran</string>
     <string name="title_legend_edit">Modifier</string>
