@@ -35,6 +35,10 @@
         <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
         <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
         <item name="android:radioButtonStyle">@style/radioButtonStyle</item>
+
+        <item name="android:scrollbarSize">6dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_track</item>
     </style>
 
     <style name="AppThemeDark" parent="Base.Theme.AppCompat">
@@ -62,6 +66,10 @@
         <item name="android:buttonStyleSmall">@style/buttonStyleSmall</item>
         <item name="android:buttonStyleToggle">@style/buttonStyleToggle</item>
         <item name="android:radioButtonStyle">@style/radioButtonStyle</item>
+
+        <item name="android:scrollbarSize">6dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
+        <item name="android:scrollbarTrackVertical">@drawable/scroll_track</item>
     </style>
 
     <style name="AppThemeBlack" parent="AppThemeDark">
