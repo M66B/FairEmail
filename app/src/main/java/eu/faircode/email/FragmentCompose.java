@@ -683,6 +683,7 @@ public class FragmentCompose extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putLong("fair:working", working);
         outState.putBoolean("fair:show_images", show_images);
+        outState.putParcelable("fair:photo", photoURI);
         super.onSaveInstanceState(outState);
     }
 
@@ -730,6 +731,7 @@ public class FragmentCompose extends FragmentBase {
         } else {
             working = savedInstanceState.getLong("fair:working");
             show_images = savedInstanceState.getBoolean("fair:show_images");
+            photoURI = savedInstanceState.getParcelable("fair:photo");
 
             Bundle args = new Bundle();
             args.putString("action", working < 0 ? "new" : "edit");
@@ -981,6 +983,7 @@ public class FragmentCompose extends FragmentBase {
             dir.mkdir();
         File file = new File(dir, new Date().getTime() + ".jpg");
 
+        // https://developer.android.com/training/camera/photobasics
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         photoURI = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
