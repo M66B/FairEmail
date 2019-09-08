@@ -82,6 +82,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private float textSize;
     private int textColorPrimary;
     private int textColorSecondary;
+    private int colorUnread;
 
     private List<Long> disabledIds = new ArrayList<>();
     private List<TupleFolderEx> all = new ArrayList<>();
@@ -236,7 +237,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvName.setText(folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref));
 
             tvName.setTypeface(folder.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            tvName.setTextColor(folder.unseen > 0 ? textColorPrimary : textColorSecondary);
+            tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
 
             if (listener == null && folder.selectable) {
                 StringBuilder sb = new StringBuilder();
@@ -681,6 +682,13 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.textSize = Helper.getTextSize(context, zoom);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+
+        if (highlight_unread)
+            this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
+        else
+            this.colorUnread = this.textColorPrimary;
 
         setHasStableIds(true);
 
