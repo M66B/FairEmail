@@ -3742,7 +3742,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         protected String[] onExecute(Context context, Bundle args) throws Throwable {
                             Uri uri = args.getParcelable("uri");
-                            return IPInfo.getOrganization(uri);
+                            return IPInfo.getOrganization(uri, context);
                         }
 
                         @Override

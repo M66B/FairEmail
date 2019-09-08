@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.net.MailTo;
 import android.net.ParseException;
 import android.net.Uri;
@@ -35,30 +36,33 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 public class IPInfo {
-    private static Map<String, String> hostOrganization = new HashMap<>();
+    private static Map<InetAddress, String> hostOrganization = new HashMap<>();
 
-    static String[] getOrganization(Uri uri) throws IOException, ParseException {
+    static String[] getOrganization(Uri uri, Context context) throws IOException, ParseException {
         if ("mailto".equals(uri.getScheme())) {
             MailTo email = MailTo.parse(uri.toString());
             String to = email.getTo();
             if (to == null || !to.contains("@"))
                 throw new UnknownHostException();
-            String host = to.substring(to.indexOf('@') + 1);
-            return getOrganization(host);
+            String domain = to.substring(to.indexOf('@') + 1);
+            InetAddress address = ConnectionHelper.lookupMx(domain, context);
+            if (address == null)
+                throw new UnknownHostException();
+            return new String[]{domain, getOrganization(address)};
         } else {
             String host = uri.getHost();
             if (host == null)
                 throw new UnknownHostException();
-            return getOrganization(host);
+            InetAddress address = InetAddress.getByName(host);
+            return new String[]{host, getOrganization(address)};
         }
     }
 
-    private static String[] getOrganization(String host) throws IOException {
+    private static String getOrganization(InetAddress address) throws IOException {
         synchronized (hostOrganization) {
-            if (hostOrganization.containsKey(host))
-                return new String[]{host, hostOrganization.get(host)};
+            if (hostOrganization.containsKey(address))
+                return hostOrganization.get(address);
         }
-        InetAddress address = InetAddress.getByName(host);
         URL url = new URL("https://ipinfo.io/" + address.getHostAddress() + "/org");
         Log.i("GET " + url);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -70,9 +74,9 @@ public class IPInfo {
             if ("undefined".equals(organization))
                 organization = null;
             synchronized (hostOrganization) {
-                hostOrganization.put(host, organization);
+                hostOrganization.put(address, organization);
             }
-            return new String[]{host, organization};
+            return organization;
         }
     }
 }

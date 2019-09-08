@@ -14,6 +14,8 @@ import android.telephony.TelephonyManager;
 import androidx.preference.PreferenceManager;
 
 import org.xbill.DNS.Lookup;
+import org.xbill.DNS.MXRecord;
+import org.xbill.DNS.Record;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.Type;
 
@@ -316,6 +318,28 @@ public class ConnectionHelper {
                 }
 
         return ok;
+    }
+
+    static InetAddress lookupMx(String domain, Context context) {
+        try {
+            Lookup lookup = new Lookup(domain, Type.MX);
+            SimpleResolver resolver = new SimpleResolver(getDnsServer(context));
+            lookup.setResolver(resolver);
+            Log.i("Lookup MX=" + domain + " @" + resolver.getAddress());
+
+            lookup.run();
+            if (lookup.getResult() == Lookup.SUCCESSFUL) {
+                Record[] answers = lookup.getAnswers();
+                if (answers != null && answers.length > 0 && answers[0] instanceof MXRecord) {
+                    MXRecord mx = (MXRecord) answers[0];
+                    return InetAddress.getByName(mx.getTarget().toString(true));
+                }
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return null;
     }
 
     static boolean isSameDomain(String host1, String host2) {
