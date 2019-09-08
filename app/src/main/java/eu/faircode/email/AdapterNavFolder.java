@@ -50,12 +50,14 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private boolean debug;
+    private int colorUnread;
+    private int textColorSecondary;
+
     private List<TupleFolderNav> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat DTF;
-
-    private boolean debug;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private View view;
@@ -118,8 +120,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                 tvItem.setText(context.getString(R.string.title_name_count,
                         folder.getDisplayName(context), NF.format(count)));
 
-            tvItem.setTextColor(Helper.resolveColor(context,
-                    count == 0 ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setText(folder.last_sync == null ? null : DTF.format(folder.last_sync));
@@ -152,10 +153,13 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
 
-        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
         this.debug = prefs.getBoolean("debug", false);
+        this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnread : android.R.attr.textColorPrimary);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+
+        this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 
         setHasStableIds(true);
     }

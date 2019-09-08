@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,6 +44,9 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+
+    private int colorUnread;
+    private int textColorSecondary;
 
     private List<NavMenuItem> items = new ArrayList<>();
 
@@ -85,8 +90,7 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
                 tvItem.setText(context.getString(R.string.title_name_count,
                         context.getString(menu.getTitle()), NF.format(menu.getCount())));
 
-            tvItem.setTextColor(Helper.resolveColor(context,
-                    menu.getCount() == null ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTextColor(menu.getCount() == null ? textColorSecondary : colorUnread);
             tvItem.setTypeface(menu.getCount() == null ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setVisibility(View.GONE);
@@ -120,6 +124,12 @@ public class AdapterNavMenu extends RecyclerView.Adapter<AdapterNavMenu.ViewHold
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+        this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnread : android.R.attr.textColorPrimary);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+
         setHasStableIds(true);
     }
 

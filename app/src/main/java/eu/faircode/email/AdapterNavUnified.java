@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +47,9 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+
+    private int colorUnread;
+    private int textColorSecondary;
 
     private List<EntityFolderUnified> items = new ArrayList<>();
 
@@ -86,8 +91,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
                 tvItem.setText(context.getString(R.string.title_name_count,
                         Helper.localizeFolderType(context, folder.type), NF.format(folder.unseen)));
 
-            tvItem.setTextColor(Helper.resolveColor(context,
-                    folder.unseen == 0 ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTextColor(folder.unseen == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(folder.unseen == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setVisibility(View.GONE);
@@ -116,6 +120,11 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+        this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnread : android.R.attr.textColorPrimary);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
     }
 
     public void set(@NonNull List<EntityFolderUnified> types) {

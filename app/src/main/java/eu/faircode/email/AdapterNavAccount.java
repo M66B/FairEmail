@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,6 +49,9 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+
+    private int colorUnread;
+    private int textColorSecondary;
 
     private List<TupleAccountEx> items = new ArrayList<>();
 
@@ -96,8 +101,7 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
                 tvItem.setText(context.getString(R.string.title_name_count,
                         account.name, NF.format(account.unseen)));
 
-            tvItem.setTextColor(Helper.resolveColor(context,
-                    account.unseen == 0 ? android.R.attr.textColorSecondary : android.R.attr.textColorPrimary));
+            tvItem.setTextColor(account.unseen == 0 ? textColorSecondary : colorUnread);
             tvItem.setTypeface(account.unseen == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setText(account.last_connected == null ? null : DTF.format(account.last_connected));
@@ -127,6 +131,11 @@ public class AdapterNavAccount extends RecyclerView.Adapter<AdapterNavAccount.Vi
         this.context = context;
         this.owner = owner;
         this.inflater = LayoutInflater.from(context);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+        this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnread : android.R.attr.textColorPrimary);
+        this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         this.DTF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
 
