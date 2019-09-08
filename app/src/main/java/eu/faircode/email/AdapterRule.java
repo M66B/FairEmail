@@ -185,7 +185,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     .setCheckable(true).setChecked(rule.enabled);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
                     .setEnabled(ActivityBilling.isPro(context));
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 3, R.string.title_move_to_folder);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -197,6 +198,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         case R.string.title_rule_execute:
                             onActionExecute();
+                            return true;
+
+                        case R.string.title_move_to_folder:
+                            onActionMove();
                             return true;
 
                         case R.string.title_copy:
@@ -284,6 +289,19 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "rule:execute");
+                }
+
+                private void onActionMove() {
+                    Bundle args = new Bundle();
+                    args.putString("title", context.getString(R.string.title_move_to_folder));
+                    args.putLong("account", rule.account);
+                    args.putLongArray("disabled", new long[]{rule.folder});
+                    args.putLong("rule", rule.id);
+
+                    FragmentDialogFolder fragment = new FragmentDialogFolder();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(parentFragment, FragmentRules.REQUEST_MOVE);
+                    fragment.show(parentFragment.getFragmentManager(), "rule:move");
                 }
 
                 private void onActionCopy() {

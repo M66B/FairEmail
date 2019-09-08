@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -41,6 +43,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.app.Activity.RESULT_OK;
+
 public class FragmentRules extends FragmentBase {
     private long account;
     private long folder;
@@ -53,6 +57,8 @@ public class FragmentRules extends FragmentBase {
     private FloatingActionButton fab;
 
     private AdapterRule adapter;
+
+    static final int REQUEST_MOVE = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,5 +145,40 @@ public class FragmentRules extends FragmentBase {
                 grpReady.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_MOVE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onMove(data.getBundleExtra("args"));
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onMove(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("rule");
+                long folder = args.getLong("folder");
+
+                DB db = DB.getInstance(context);
+                db.rule().setRuleFolder(id, folder);
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+
+            }
+        }.execute(this, args, "rule:move");
     }
 }
