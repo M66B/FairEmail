@@ -26,9 +26,21 @@
         android:layout_marginEnd="6dp"
         android:contentDescription="@string/title_decrypt"
         android:tint="@color/bottomnav_foreground"
-        app:layout_constraintEnd_toStartOf="@+id/ibImages"
+        app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
         app:layout_constraintTop_toBottomOf="@id/bnvActions"
         app:srcCompat="@drawable/baseline_no_encryption_24" />
+
+    <ImageButton
+        android:id="@+id/ibUnsubscribe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="6dp"
+        android:contentDescription="@string/title_legend_show_unsubscribe"
+        android:tint="@color/bottomnav_foreground"
+        app:layout_constraintEnd_toStartOf="@+id/ibImages"
+        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:srcCompat="@drawable/baseline_unsubscribe_24" />
 
     <ImageButton
         android:id="@+id/ibImages"

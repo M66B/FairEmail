@@ -1477,6 +1477,7 @@ class Core {
                 message.bcc = helper.getBcc();
                 message.reply = helper.getReply();
                 message.list_post = helper.getListPost();
+                message.unsubscribe = helper.getListUnsubscribe();
                 message.subject = helper.getSubject();
                 message.size = helper.getSize();
                 message.content = false;

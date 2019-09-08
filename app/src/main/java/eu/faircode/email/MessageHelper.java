@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.MailTo;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
@@ -548,19 +549,20 @@ public class MessageHelper {
                 return null;
 
             list = MimeUtility.unfold(list);
+            list = decodeMime(list);
 
             // List-Post: NO (posting not allowed on this list)
             if (list != null && list.startsWith("NO"))
                 return null;
 
             // https://www.ietf.org/rfc/rfc2368.txt
-            for (String _to : list.split(",")) {
-                String to = _to.trim();
-                int lt = to.indexOf("<");
-                int gt = to.lastIndexOf(">");
+            for (String entry : list.split(",")) {
+                entry = entry.trim();
+                int lt = entry.indexOf("<");
+                int gt = entry.lastIndexOf(">");
                 if (lt >= 0 && gt > lt)
                     try {
-                        MailTo mailto = MailTo.parse(to.substring(lt + 1, gt));
+                        MailTo mailto = MailTo.parse(entry.substring(lt + 1, gt));
                         if (mailto.getTo() != null)
                             return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
                     } catch (android.net.ParseException ex) {
@@ -569,6 +571,42 @@ public class MessageHelper {
             }
 
             Log.w(new IllegalArgumentException("List-Post: " + list));
+            return null;
+        } catch (AddressException ex) {
+            Log.w(ex);
+            return null;
+        }
+    }
+
+    String getListUnsubscribe() throws MessagingException {
+        String list;
+        try {
+            // https://www.ietf.org/rfc/rfc2369.txt
+            list = imessage.getHeader("List-Unsubscribe", null);
+            if (list == null)
+                return null;
+
+            list = MimeUtility.unfold(list);
+            list = decodeMime(list);
+
+            if (list != null && list.startsWith("NO"))
+                return null;
+
+            for (String entry : list.split(",")) {
+                entry = entry.trim();
+                int lt = entry.indexOf("<");
+                int gt = entry.lastIndexOf(">");
+                if (lt >= 0 && gt > lt) {
+                    String unsubscribe = entry.substring(lt + 1, gt);
+                    Uri uri = Uri.parse(unsubscribe);
+                    String scheme = uri.getScheme();
+                    if ("mailto".equals(scheme) ||
+                            "http".equals(scheme) || "https".equals(scheme))
+                        return unsubscribe;
+                }
+            }
+
+            Log.w(new IllegalArgumentException("List-Unsubscribe: " + list));
             return null;
         } catch (AddressException ex) {
             Log.w(ex);

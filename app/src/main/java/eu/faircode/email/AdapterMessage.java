@@ -304,6 +304,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private ImageButton ibFull;
         private ImageButton ibImages;
+        private ImageButton ibUnsubscribe;
         private ImageButton ibDecrypt;
 
         private TextView tvBody;
@@ -447,6 +448,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
+            ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
@@ -516,6 +518,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
+                ibUnsubscribe.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
 
                 tvBody.setOnTouchListener(this);
@@ -566,6 +569,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
+                ibUnsubscribe.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
 
                 tvBody.setOnTouchListener(null);
@@ -910,6 +914,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
+            ibUnsubscribe.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
 
             tvBody.setVisibility(View.GONE);
@@ -978,6 +983,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
+            ibUnsubscribe.setVisibility(message.unsubscribe == null ? View.GONE : View.VISIBLE);
 
             if (textSize != 0) {
                 float size = properties.getSize(message.id, textSize);
@@ -1511,6 +1517,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
                     case R.id.ibImages:
                         onShowImages(message);
+                        break;
+                    case R.id.ibUnsubscribe:
+                        onActionUnsubscribe(message);
                         break;
                     case R.id.ibDecrypt:
                         onActionDecrypt(message);
@@ -2099,6 +2108,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "show:images");
+        }
+
+        private void onActionUnsubscribe(TupleMessageEx message) {
+            Uri uri = Uri.parse(message.unsubscribe);
+            onOpenLink(uri, context.getString(R.string.title_legend_show_unsubscribe));
         }
 
         private void onActionDecrypt(TupleMessageEx message) {
