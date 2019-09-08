@@ -895,11 +895,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         pbWait.setVisibility(View.VISIBLE);
 
         fabReply.hide();
-        fabCompose.hide();
+
+        if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER)
+            fabCompose.show();
+        else
+            fabCompose.hide();
+
         if (viewType == AdapterMessage.ViewType.SEARCH && !server)
             fabSearch.show();
         else
             fabSearch.hide();
+
         fabMore.hide();
         fabError.hide();
 
@@ -2305,19 +2311,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabMore.show();
         else
             fabMore.hide();
-
-        if (viewType != AdapterMessage.ViewType.THREAD && viewType != AdapterMessage.ViewType.SEARCH) {
-            db.identity().liveComposableIdentities(account < 0 ? null : account).observe(getViewLifecycleOwner(),
-                    new Observer<List<TupleIdentityEx>>() {
-                        @Override
-                        public void onChanged(List<TupleIdentityEx> identities) {
-                            if (identities == null || identities.size() == 0)
-                                fabCompose.hide();
-                            else
-                                fabCompose.show();
-                        }
-                    });
-        }
 
         checkReporting();
     }

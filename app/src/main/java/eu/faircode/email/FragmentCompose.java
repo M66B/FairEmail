@@ -1786,6 +1786,8 @@ public class FragmentCompose extends FragmentBase {
 
     private void onAction(int action) {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+        if (identity == null)
+            throw new IllegalArgumentException(getString(R.string.title_from_missing));
 
         // Workaround underlines left by Android
         etBody.clearComposingText();
@@ -1984,9 +1986,9 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private SimpleTask<EntityMessage> draftLoader = new SimpleTask<EntityMessage>() {
+    private SimpleTask<DraftData> draftLoader = new SimpleTask<DraftData>() {
         @Override
-        protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+        protected DraftData onExecute(Context context, Bundle args) throws Throwable {
             String action = args.getString("action");
             long id = args.getLong("id", -1);
             long reference = args.getLong("reference", -1);
@@ -2354,21 +2356,41 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
-            return draft;
+            DraftData data = new DraftData();
+            data.draft = draft;
+            data.identities = db.identity().getComposableIdentities(null);
+
+            return data;
         }
 
         @Override
-        protected void onExecuted(Bundle args, final EntityMessage draft) {
-            working = draft.id;
+        protected void onExecuted(Bundle args, final DraftData data) {
+            if (data.identities == null || data.identities.size() == 0)
+                throw new IllegalStateException(getString(R.string.title_no_identities));
+
+            working = data.draft.id;
 
             final String action = getArguments().getString("action");
-            Log.i("Loaded draft id=" + draft.id + " action=" + action);
+            Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
 
-            etExtra.setText(draft.extra);
-            etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
-            etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
-            etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
-            etSubject.setText(draft.subject);
+            // Show identities
+            IdentityAdapter iadapter = new IdentityAdapter(getContext(), data.identities);
+            spIdentity.setAdapter(iadapter);
+
+            // Select identity
+            if (data.draft.identity != null)
+                for (int pos = 0; pos < data.identities.size(); pos++) {
+                    if (data.identities.get(pos).id.equals(data.draft.identity)) {
+                        spIdentity.setSelection(pos);
+                        break;
+                    }
+                }
+
+            etExtra.setText(data.draft.extra);
+            etTo.setText(MessageHelper.formatAddressesCompose(data.draft.to));
+            etCc.setText(MessageHelper.formatAddressesCompose(data.draft.cc));
+            etBcc.setText(MessageHelper.formatAddressesCompose(data.draft.bcc));
+            etSubject.setText(data.draft.subject);
 
             long reference = args.getLong("reference", -1);
             etTo.setTag(reference < 0 ? "" : etTo.getText().toString());
@@ -2378,54 +2400,21 @@ public class FragmentCompose extends FragmentBase {
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             ibCcBcc.setVisibility(View.VISIBLE);
 
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision != null && draft.revision > 1);
-            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(
+                    data.draft.revision != null && data.draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(
+                    data.draft.revision != null && !data.draft.revision.equals(data.draft.revisions));
 
-            plain_only = (draft.plain_only != null && draft.plain_only);
-            encrypt = (draft.encrypt != null && draft.encrypt);
+            plain_only = (data.draft.plain_only != null && data.draft.plain_only);
+            encrypt = (data.draft.encrypt != null && data.draft.encrypt);
             getActivity().invalidateOptionsMenu();
 
             if (args.getBoolean("incomplete"))
                 Snackbar.make(view, R.string.title_attachments_incomplete, Snackbar.LENGTH_LONG).show();
 
-            new SimpleTask<List<TupleIdentityEx>>() {
-                @Override
-                protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
-                    DB db = DB.getInstance(context);
-                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
-                    if (identities == null)
-                        identities = new ArrayList<>();
-
-                    return identities;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
-                    Log.i("Set identities=" + identities.size());
-
-                    // Show identities
-                    IdentityAdapter adapter = new IdentityAdapter(getContext(), identities);
-                    spIdentity.setAdapter(adapter);
-
-                    // Select identity
-                    if (draft.identity != null)
-                        for (int pos = 0; pos < identities.size(); pos++) {
-                            if (identities.get(pos).id.equals(draft.identity)) {
-                                spIdentity.setSelection(pos);
-                                break;
-                            }
-                        }
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getFragmentManager(), ex);
-                }
-            }.execute(FragmentCompose.this, new Bundle(), "compose:identities");
-
             DB db = DB.getInstance(getContext());
 
-            db.attachment().liveAttachments(draft.id).observe(getViewLifecycleOwner(),
+            db.attachment().liveAttachments(data.draft.id).observe(getViewLifecycleOwner(),
                     new Observer<List<EntityAttachment>>() {
                         private int last_available = 0;
 
@@ -2462,7 +2451,7 @@ public class FragmentCompose extends FragmentBase {
                         }
                     });
 
-            db.message().liveMessage(draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
+            db.message().liveMessage(data.draft.id).observe(getViewLifecycleOwner(), new Observer<EntityMessage>() {
                 @Override
                 public void onChanged(EntityMessage draft) {
                     // Draft was deleted
@@ -2491,7 +2480,17 @@ public class FragmentCompose extends FragmentBase {
                 handleFileShare();
             else if (ex instanceof IllegalArgumentException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-            else
+            else if (ex instanceof IllegalStateException) {
+                Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE);
+                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getContext(), ActivitySetup.class));
+                        getActivity().finish();
+                    }
+                });
+                snackbar.show();
+            } else
                 Helper.unexpectedError(getFragmentManager(), ex);
         }
     };
@@ -3562,5 +3561,10 @@ public class FragmentCompose extends FragmentBase {
                     })
                     .create();
         }
+    }
+
+    private class DraftData {
+        private EntityMessage draft;
+        private List<TupleIdentityEx> identities;
     }
 }

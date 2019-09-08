@@ -256,19 +256,8 @@ public class FragmentFolders extends FragmentBase {
         // Observe account
         if (account < 0) {
             setSubtitle(R.string.title_folders_unified);
-
             fab.setImageResource(R.drawable.baseline_edit_24);
-
-            db.identity().liveComposableIdentities(null).observe(getViewLifecycleOwner(),
-                    new Observer<List<TupleIdentityEx>>() {
-                        @Override
-                        public void onChanged(List<TupleIdentityEx> identities) {
-                            if (identities == null || identities.size() == 0)
-                                fab.hide();
-                            else
-                                fab.show();
-                        }
-                    });
+            fab.show();
         } else
             db.account().liveAccount(account).observe(getViewLifecycleOwner(), new Observer<EntityAccount>() {
                 @Override

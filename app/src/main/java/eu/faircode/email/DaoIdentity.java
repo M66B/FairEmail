@@ -44,14 +44,6 @@ public interface DaoIdentity {
             ", identity.`primary` DESC, identity.display COLLATE NOCASE, identity.name COLLATE NOCASE, identity.email COLLATE NOCASE")
     List<TupleIdentityEx> getComposableIdentities(Long account);
 
-    @Query("SELECT identity.*, account.name AS accountName FROM identity" +
-            " JOIN account ON account.id = identity.account" +
-            " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
-            " WHERE (:account IS NULL OR identity.account = :account)" +
-            " AND identity.synchronize" +
-            " AND account.synchronize")
-    LiveData<List<TupleIdentityEx>> liveComposableIdentities(Long account);
-
     @Query("SELECT * FROM identity" +
             " WHERE account = :account" +
             " ORDER BY name COLLATE NOCASE")

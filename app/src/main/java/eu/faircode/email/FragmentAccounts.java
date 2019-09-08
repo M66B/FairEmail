@@ -172,9 +172,14 @@ public class FragmentAccounts extends FragmentBase {
         if (cards && !Helper.isDarkTheme(getContext()))
             view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
 
-        if (!settings)
+        if (settings) {
+            fab.show();
+            fabCompose.hide();
+        } else {
             fab.hide();
-        fabCompose.hide();
+            fabCompose.show();
+        }
+
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
@@ -215,19 +220,6 @@ public class FragmentAccounts extends FragmentBase {
                             animator.end();
                     }
                 });
-
-
-        if (!settings)
-            db.identity().liveComposableIdentities(null).observe(getViewLifecycleOwner(),
-                    new Observer<List<TupleIdentityEx>>() {
-                        @Override
-                        public void onChanged(List<TupleIdentityEx> identities) {
-                            if (identities == null || identities.size() == 0)
-                                fabCompose.hide();
-                            else
-                                fabCompose.show();
-                        }
-                    });
     }
 
     @Override
