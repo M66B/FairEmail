@@ -80,6 +80,7 @@
         <item name="colorAccent">@color/greyAccent</item>
 
         <item name="colorUnread">@color/greyAccent</item>
+        <item name="colorSeparator">@color/greyPrimary</item>
 
         <item name="android:windowBackground">@android:color/black</item>
         <item name="colorDrawerBackground">@android:color/black</item>
