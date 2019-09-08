@@ -76,7 +76,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etTo"
                 app:layout_constraintTop_toTopOf="@+id/etTo"
-                app:srcCompat="@drawable/baseline_person_24" />
+                app:srcCompat="@drawable/baseline_person_add_24" />
 
             <MultiAutoCompleteTextView
                 android:id="@+id/etCc"
@@ -103,7 +103,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etCc"
                 app:layout_constraintTop_toTopOf="@+id/etCc"
-                app:srcCompat="@drawable/baseline_person_24" />
+                app:srcCompat="@drawable/baseline_person_add_24" />
 
             <MultiAutoCompleteTextView
                 android:id="@+id/etBcc"
@@ -130,7 +130,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/etBcc"
                 app:layout_constraintTop_toTopOf="@+id/etBcc"
-                app:srcCompat="@drawable/baseline_person_24" />
+                app:srcCompat="@drawable/baseline_person_add_24" />
 
             <EditText
                 android:id="@+id/etSubject"

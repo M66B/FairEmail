@@ -158,7 +158,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/etSender"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/etSender"
-                app:srcCompat="@drawable/baseline_person_24" />
+                app:srcCompat="@drawable/baseline_person_add_24" />
 
             <TextView
                 android:id="@+id/tvAndSender"
@@ -223,7 +223,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/etRecipient"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/etRecipient"
-                app:srcCompat="@drawable/baseline_person_24" />
+                app:srcCompat="@drawable/baseline_person_add_24" />
 
             <TextView
                 android:id="@+id/tvAndRecipient"

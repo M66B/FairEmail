@@ -26,7 +26,7 @@
                 android:padding="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_person_24" />
+                app:srcCompat="@drawable/baseline_person_add_24" />
 
             <TextView
                 android:id="@+id/tvPick"
