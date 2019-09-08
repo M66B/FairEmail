@@ -564,8 +564,8 @@ public class MessageHelper {
                     try {
                         MailTo mailto = MailTo.parse(entry.substring(lt + 1, gt));
                         if (mailto.getTo() != null)
-                            return new Address[]{new InternetAddress(mailto.getTo().split(",")[0])};
-                    } catch (android.net.ParseException ex) {
+                            return new Address[]{new InternetAddress(mailto.getTo().split(",")[0], null)};
+                    } catch (Throwable ex) {
                         Log.i(ex);
                     }
             }
