@@ -78,6 +78,17 @@
                 app:layout_constraintTop_toTopOf="@+id/etTo"
                 app:srcCompat="@drawable/baseline_person_add_24" />
 
+            <ImageView
+                android:id="@+id/ivCcLegend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/title_cc"
+                android:src="@drawable/baseline_people_24"
+                app:layout_constraintBottom_toBottomOf="@id/etBcc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etTo" />
+
             <MultiAutoCompleteTextView
                 android:id="@+id/etCc"
                 android:layout_width="0dp"
@@ -88,7 +99,7 @@
                 android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/ivCcAdd"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivCcLegend"
                 app:layout_constraintTop_toBottomOf="@+id/etTo" />
 
             <ImageButton
@@ -105,6 +116,17 @@
                 app:layout_constraintTop_toTopOf="@+id/etCc"
                 app:srcCompat="@drawable/baseline_person_add_24" />
 
+            <ImageView
+                android:id="@+id/ivBccLegend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:contentDescription="@string/title_bcc"
+                android:src="@drawable/baseline_people_outline_24"
+                app:layout_constraintBottom_toBottomOf="@id/etBcc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etBcc" />
+
             <MultiAutoCompleteTextView
                 android:id="@+id/etBcc"
                 android:layout_width="0dp"
@@ -115,14 +137,13 @@
                 android:inputType="textEmailAddress"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toStartOf="@+id/ivBccAdd"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivBccLegend"
                 app:layout_constraintTop_toBottomOf="@+id/etCc" />
 
             <ImageButton
                 android:id="@+id/ivBccAdd"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/title_legend_pick"
@@ -353,7 +374,7 @@
                 android:id="@+id/grpAddresses"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="etCc,ivCcAdd,etBcc,ivBccAdd" />
+                app:constraint_referenced_ids="ivCcLegend,etCc,ivCcAdd,ivBccLegend,etBcc,ivBccAdd" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAttachments"
