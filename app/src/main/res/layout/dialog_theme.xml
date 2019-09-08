@@ -40,6 +40,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <RadioButton
+            android:id="@+id/rbThemeGrey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="6dp"
+            android:text="@string/title_setup_grey_theme"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <RadioButton
             android:id="@+id/rbThemeSystem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
