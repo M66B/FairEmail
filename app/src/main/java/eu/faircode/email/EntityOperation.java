@@ -214,8 +214,7 @@ public class EntityOperation {
 
                 // Cross account move
                 if (!source.account.equals(target.account))
-                    if (message.raw != null && message.raw &&
-                            message.getRawFile(context).exists()) {
+                    if (message.raw != null && message.raw) {
                         name = ADD;
                         folder = target.id;
                     } else

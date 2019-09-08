@@ -472,6 +472,10 @@ class Core {
         // Add message
         DB db = DB.getInstance(context);
 
+        // Drafts can change accounts
+        if (jargs.length() == 0 && !folder.id.equals(message.folder))
+            throw new IllegalArgumentException("Message folder changed");
+
         // Get arguments
         long target = jargs.optLong(0, folder.id);
         boolean autoread = jargs.optBoolean(1, false);
