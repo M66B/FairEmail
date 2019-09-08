@@ -347,7 +347,6 @@
     <string name="title_check">Проверить</string>
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Адрес электронной почты отсутствует</string>
-    <string name="title_email_invalid">Некорректный адрес электронной почты</string>
     <string name="title_address_parse_error">Адрес \'%1$s\' неверный: %2$s</string>
     <string name="title_no_account">Учетная запись отсутствует</string>
     <string name="title_no_host">Отсутствует имя хоста</string>

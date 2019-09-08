@@ -595,7 +595,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (!should && TextUtils.isEmpty(email))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
                 if (!should && !Patterns.EMAIL_ADDRESS.matcher(email).matches())
-                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
                 if (!should && TextUtils.isEmpty(host))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_host));
                 if (TextUtils.isEmpty(port))
@@ -604,6 +604,11 @@ public class FragmentIdentity extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_user));
                 if (!should && synchronize && TextUtils.isEmpty(password) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+
+                if (!should && !TextUtils.isEmpty(replyto) && !Patterns.EMAIL_ADDRESS.matcher(replyto).matches())
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, replyto));
+                if (!should && !TextUtils.isEmpty(bcc) && !Patterns.EMAIL_ADDRESS.matcher(bcc).matches())
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
 
                 if (TextUtils.isEmpty(display))
                     display = null;

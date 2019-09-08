@@ -325,7 +325,6 @@
     <string name="title_check">Kontrollera</string>
     <string name="title_no_name">Namn saknas</string>
     <string name="title_no_email">E-postadressen saknas</string>
-    <string name="title_email_invalid">Ogiltig e-postadress</string>
     <string name="title_address_parse_error">Adress \"%1$s\" ogiltig: %2$s</string>
     <string name="title_no_account">Konto saknas</string>
     <string name="title_no_host">Värdnamn saknas</string>

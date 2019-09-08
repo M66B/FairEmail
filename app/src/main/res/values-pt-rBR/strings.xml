@@ -320,7 +320,6 @@
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Nome ausente</string>
     <string name="title_no_email">Endereço de e-mail ausente</string>
-    <string name="title_email_invalid">Endereço de e-mail inválido</string>
     <string name="title_address_parse_error">Endereço \'%1$s\' inválido: %2$s</string>
     <string name="title_no_account">Conta ausente</string>
     <string name="title_no_host">Nome do servidor faltante</string>

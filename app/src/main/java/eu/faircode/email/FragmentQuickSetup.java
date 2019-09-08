@@ -232,7 +232,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 if (TextUtils.isEmpty(email))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid));
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
 
                 String[] dparts = email.split("@");
                 EmailProvider provider = EmailProvider.fromDomain(context, dparts[1], EmailProvider.Discover.ALL);

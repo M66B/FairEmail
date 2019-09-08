@@ -335,7 +335,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_check">Provjeri</string>
     <string name="title_no_name">Nedostaje ime</string>
     <string name="title_no_email">Adresa e-pošte nedostaje</string>
-    <string name="title_email_invalid">Adresa e-pošte nije valjana</string>
     <string name="title_address_parse_error">Adresa \'%1$s\' je nevažeća: %2$s</string>
     <string name="title_no_account">Nedostaje račun</string>
     <string name="title_no_host">Nedostaje naziv hosta</string>

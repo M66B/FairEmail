@@ -208,7 +208,6 @@
     <string name="title_check">Yoxla</string>
     <string name="title_no_name">Ad əskikdir</string>
     <string name="title_no_email">E-poçt ünvanı əskikdir</string>
-    <string name="title_email_invalid">E-poçt ünvanı yalnışdır</string>
     <string name="title_no_account">Hesab əskikdir</string>
     <string name="title_no_host">Host adı əskikdir</string>
     <string name="title_no_user">İstifadəçi adı əskikdir</string>

@@ -152,6 +152,7 @@
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
     <string name="title_setup_black_theme">Thème noir</string>
+    <string name="title_setup_grey_theme">Thème gris</string>
     <string name="title_setup_system_theme">Thème système</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
@@ -325,7 +326,6 @@
     <string name="title_check">Vérifier</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
-    <string name="title_email_invalid">Adresse e-mail invalide</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' invalide : %2$s</string>
     <string name="title_no_account">Compte manquant</string>
     <string name="title_no_host">Nom d\'hôte manquant</string>

@@ -315,7 +315,6 @@
     <string name="title_check">Kontrol et</string>
     <string name="title_no_name">İsim eksik</string>
     <string name="title_no_email">E-posta adresi eksik</string>
-    <string name="title_email_invalid">E-posta adresi geçersiz</string>
     <string name="title_address_parse_error">%1$s adresi geçersiz: %2$s</string>
     <string name="title_no_account">Hesap bilgisi eksik</string>
     <string name="title_no_host">Sunucu adı eksik</string>

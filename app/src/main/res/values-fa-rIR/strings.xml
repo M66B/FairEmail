@@ -138,7 +138,6 @@
     <string name="title_check">بررسی</string>
     <string name="title_no_name">نام وجود ندارد</string>
     <string name="title_no_email">ایمیل آدرس وجود ندارد</string>
-    <string name="title_email_invalid">آدرس ایمیل نامعتبر است</string>
     <string name="title_no_account">حساب وجود ندارد</string>
     <string name="title_no_host">نام میزبان وجود ندارد</string>
     <string name="title_no_user">نام کاربری وجود ندارد</string>

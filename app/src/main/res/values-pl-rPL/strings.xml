@@ -347,7 +347,6 @@
     <string name="title_check">Sprawdź</string>
     <string name="title_no_name">Brak nazwy</string>
     <string name="title_no_email">Brak adresu e-mail</string>
-    <string name="title_email_invalid">Błędny adres e-mail</string>
     <string name="title_address_parse_error">Adres \'%1$s\' nieprawidłowy: %2$s</string>
     <string name="title_no_account">Brak konta</string>
     <string name="title_no_host">Brak nazwy hosta</string>
