@@ -1380,6 +1380,7 @@ class Core {
             IMAPFolder ifolder, IMAPMessage imessage,
             boolean browsed, boolean download,
             List<EntityRule> rules, State state) throws MessagingException, IOException {
+        // Instead of locking the database while performing message I/O
         lockFolders.putIfAbsent(folder.id, folder.id);
         synchronized (lockFolders.get(folder.id)) {
             long uid = ifolder.getUID(imessage);
@@ -2205,6 +2206,8 @@ class Core {
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                             .setOnlyAlertOnce(true);
+
+            // TODO: setAllowSystemGeneratedContextualActions
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 mbuilder
