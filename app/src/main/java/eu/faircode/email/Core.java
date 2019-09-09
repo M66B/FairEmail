@@ -810,10 +810,11 @@ class Core {
             if (folder.tbc != null) {
                 Log.i(folder.name + " creating");
                 Folder ifolder = istore.getFolder(folder.name);
-                if (!ifolder.exists())
+                if (!ifolder.exists()) {
                     ifolder.create(Folder.HOLDS_MESSAGES);
-                if (subscribed_only)
-                    ifolder.setSubscribed(true);
+                    if (subscribed_only)
+                        ifolder.setSubscribed(true);
+                }
                 db.folder().resetFolderTbc(folder.id);
                 local.put(folder.name, folder);
                 sync_folders = true;
@@ -822,7 +823,11 @@ class Core {
                 Log.i(folder.name + " rename into " + folder.rename);
                 Folder ifolder = istore.getFolder(folder.name);
                 if (ifolder.exists()) {
+                    // https://tools.ietf.org/html/rfc3501#section-6.3.9
+                    boolean subscribed = ifolder.isSubscribed();
+                    ifolder.setSubscribed(false);
                     ifolder.renameTo(istore.getFolder(folder.rename));
+                    ifolder.setSubscribed(subscribed);
                     db.folder().renameFolder(folder.account, folder.name, folder.rename);
                     folder.name = folder.rename;
                 }
@@ -832,8 +837,10 @@ class Core {
             } else if (folder.tbd != null && folder.tbd) {
                 Log.i(folder.name + " deleting");
                 Folder ifolder = istore.getFolder(folder.name);
-                if (ifolder.exists())
+                if (ifolder.exists()) {
+                    ifolder.setSubscribed(false);
                     ifolder.delete(false);
+                }
                 db.folder().deleteFolder(folder.id);
                 sync_folders = true;
 
