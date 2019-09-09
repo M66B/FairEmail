@@ -1163,9 +1163,9 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK)
                         if (requestCode == REQUEST_TAKE_PHOTO)
-                            onAddMedia(new Intent().setData(photoURI), true);
+                            onAddMedia(new Intent().setData(photoURI));
                         else if (data != null)
-                            onAddMedia(data, false);
+                            onAddMedia(data);
                     break;
                 case REQUEST_ENCRYPT:
                     if (resultCode == RESULT_OK && data != null) {
@@ -1346,21 +1346,18 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:attachment:add");
     }
 
-    private void onAddMedia(Intent data, boolean image) {
-        Log.i("Add media data=" + data);
-        Log.logExtras(data);
-
+    private void onAddMedia(Intent data) {
         ClipData clipData = data.getClipData();
         if (clipData == null) {
             Uri uri = data.getData();
             if (uri != null)
-                onAddAttachment(uri, image);
+                onAddAttachment(uri, false);
         } else {
             for (int i = 0; i < clipData.getItemCount(); i++) {
                 ClipData.Item item = clipData.getItemAt(i);
                 Uri uri = item.getUri();
                 if (uri != null)
-                    onAddAttachment(uri, image);
+                    onAddAttachment(uri, false);
             }
         }
     }
