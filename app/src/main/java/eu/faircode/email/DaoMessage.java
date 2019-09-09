@@ -149,9 +149,9 @@ public interface DaoMessage {
             " AND message.thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (message.ui_hide = 0 OR :debug)" +
-            " ORDER BY message.received DESC" +
+            " ORDER BY CASE WHEN :ascending THEN message.received ELSE -message.received END" +
             ", CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 1 ELSE 0 END")
-    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean debug);
+    DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean ascending, boolean debug);
 
     @Query("SELECT account.name AS accountName" +
             ", COUNT(message.id) AS count" +

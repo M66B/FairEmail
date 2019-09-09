@@ -2486,8 +2486,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ib.setImageResource(connected
                 ? R.drawable.baseline_folder_special_24 : R.drawable.baseline_folder_open_24);
 
-        menu.findItem(R.id.menu_sort_on).setVisible(
-                viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
+        menu.findItem(R.id.menu_sort_on).setVisible(viewType != AdapterMessage.ViewType.SEARCH);
+
+        if (viewType == AdapterMessage.ViewType.THREAD) {
+            menu.findItem(R.id.menu_sort_on_time).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_unread).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_starred).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_sender).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_subject).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_size).setVisible(false);
+            menu.findItem(R.id.menu_sort_on_snoozed).setVisible(false);
+        }
 
         if ("time".equals(sort))
             menu.findItem(R.id.menu_sort_on_time).setChecked(true);

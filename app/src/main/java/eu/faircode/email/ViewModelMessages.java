@@ -118,6 +118,7 @@ public class ViewModelMessages extends ViewModel {
                             db.message().pagedThread(
                                     args.account, args.thread,
                                     args.threading ? null : args.id,
+                                    args.ascending,
                                     args.debug), LOCAL_PAGE_SIZE);
                     break;
 
