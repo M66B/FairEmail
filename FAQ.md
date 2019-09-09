@@ -57,9 +57,9 @@ For authorizing:
 * ~~Pinch zoom text size~~
 * ~~Display GIFs~~
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
-* Send as attachment
+* ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
+* ~~Send as attachment~~
 * Search for settings
-* Select any day for time conditions
 * Widget for selected account
 
 Anything on this list is in random order and *might* be added in the near future.

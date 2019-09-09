@@ -478,6 +478,7 @@
     <string name="title_show_headers">Show headers</string>
     <string name="title_raw_download">Download raw message</string>
     <string name="title_raw_save">Save raw message</string>
+    <string name="title_raw_send">Send as attachment</string>
     <string name="title_manage_keywords">Manage keywords</string>
     <string name="title_add_keyword">Add keyword</string>
     <string name="title_show_inline">Show inline attachments</string>
