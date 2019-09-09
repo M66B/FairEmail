@@ -185,6 +185,7 @@
     <string name="title_setup_grey_light_theme">Grey light theme</string>
     <string name="title_setup_grey_dark_theme">Grey dark theme</string>
     <string name="title_setup_system_theme">System theme</string>
+    <string name="title_setup_grey_system_theme">Grey system theme</string>
     <string name="title_setup_advanced">Advanced</string>
 
     <string name="title_setup_options">Options</string>
