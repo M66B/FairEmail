@@ -59,8 +59,8 @@ For authorizing:
 * ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~Send as attachment~~
+* ~~Widget for selected account~~ (the unified inbox is / can be composed of selected folders already, so I see no real need for this complication)
 * Search for settings
-* Widget for selected account
 
 Anything on this list is in random order and *might* be added in the near future.
 
