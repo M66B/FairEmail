@@ -531,6 +531,7 @@
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
+    <string name="title_ask_delete_ref">Delete replied/forwarded message text? This cannot be undone.</string>
     <string name="title_ask_edit_ref">Edit reformatted replied/forwarded message text?</string>
     <string name="title_ask_sync_all">Synchronize all messages in %1$s?</string>
     <string name="title_ask_delete_local">Delete local messages? Messages will remain on the remote server.</string>

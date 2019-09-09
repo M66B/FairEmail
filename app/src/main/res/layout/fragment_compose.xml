@@ -313,9 +313,19 @@
                 android:text="@string/title_no_format"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textStyle="italic"
-                app:layout_constraintEnd_toStartOf="@+id/ibReferenceEdit"
+                app:layout_constraintEnd_toStartOf="@+id/ibReferenceDelete"
                 app:layout_constraintStart_toEndOf="@id/ibCloseRefHint"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature" />
+
+            <ImageButton
+                android:id="@+id/ibReferenceDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:contentDescription="@string/title_legend_edit"
+                app:layout_constraintEnd_toStartOf="@+id/ibReferenceEdit"
+                app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
+                app:srcCompat="@drawable/baseline_delete_24" />
 
             <ImageButton
                 android:id="@+id/ibReferenceEdit"
@@ -342,7 +352,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:barrierDirection="bottom"
-                app:constraint_referenced_ids="ibCloseRefHint,tvReferenceHint,ibReferenceEdit,ibReferenceImages" />
+                app:constraint_referenced_ids="ibCloseRefHint,tvReferenceHint,ibReferenceDelete,ibReferenceEdit,ibReferenceImages" />
 
             <TextView
                 android:id="@+id/tvReference"

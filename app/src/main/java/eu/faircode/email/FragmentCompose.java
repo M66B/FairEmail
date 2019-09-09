@@ -177,6 +177,7 @@ public class FragmentCompose extends FragmentBase {
     private CheckBox cbSignature;
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
+    private ImageButton ibReferenceDelete;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private BottomNavigationView edit_bar;
@@ -226,12 +227,13 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_ENCRYPT = 8;
     private static final int REQUEST_COLOR = 9;
     private static final int REQUEST_SEND_AFTER = 10;
-    private static final int REQUEST_REF_EDIT = 11;
-    private static final int REQUEST_CONTACT_GROUP = 12;
-    private static final int REQUEST_ANSWER = 13;
-    private static final int REQUEST_LINK = 14;
-    private static final int REQUEST_DISCARD = 15;
-    private static final int REQUEST_SEND = 16;
+    private static final int REQUEST_REF_DELETE = 11;
+    private static final int REQUEST_REF_EDIT = 12;
+    private static final int REQUEST_CONTACT_GROUP = 13;
+    private static final int REQUEST_ANSWER = 14;
+    private static final int REQUEST_LINK = 15;
+    private static final int REQUEST_DISCARD = 16;
+    private static final int REQUEST_SEND = 17;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -271,6 +273,7 @@ public class FragmentCompose extends FragmentBase {
         cbSignature = view.findViewById(R.id.cbSignature);
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
+        ibReferenceDelete = view.findViewById(R.id.ibReferenceDelete);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         edit_bar = view.findViewById(R.id.edit_bar);
@@ -392,6 +395,13 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        ibReferenceDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onReferenceDelete();
+            }
+        });
+
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -479,6 +489,7 @@ public class FragmentCompose extends FragmentBase {
         grpBody.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
+        ibReferenceDelete.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
@@ -581,6 +592,67 @@ public class FragmentCompose extends FragmentBase {
         return view;
     }
 
+    private void onReferenceDelete() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (prefs.getBoolean("delete_ref_confirmed", false)) {
+            onReferenceDeleteConfirmed();
+            return;
+        }
+
+        Bundle args = new Bundle();
+        args.putString("question", getString(R.string.title_ask_delete_ref));
+        args.putString("notagain", "delete_ref_confirmed");
+
+        FragmentDialogAsk fragment = new FragmentDialogAsk();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_REF_DELETE);
+        fragment.show(getFragmentManager(), "compose:refdelete");
+    }
+
+    private void onReferenceDeleteConfirmed() {
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ibReferenceDelete.setEnabled(false);
+                ibReferenceEdit.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                ibReferenceDelete.setEnabled(true);
+                ibReferenceEdit.setEnabled(true);
+            }
+
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft != null) {
+                    File refFile = draft.getRefFile(context);
+                    refFile.delete();
+                }
+
+                return draft;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (draft != null)
+                    showDraft(draft);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(FragmentCompose.this, args, "compose:refdelete");
+    }
+
     private void onReferenceEdit() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean("edit_ref_confirmed", false)) {
@@ -606,11 +678,13 @@ public class FragmentCompose extends FragmentBase {
         new SimpleTask<EntityMessage>() {
             @Override
             protected void onPreExecute(Bundle args) {
+                ibReferenceDelete.setEnabled(false);
                 ibReferenceEdit.setEnabled(false);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
+                ibReferenceDelete.setEnabled(true);
                 ibReferenceEdit.setEnabled(true);
             }
 
@@ -1183,6 +1257,10 @@ public class FragmentCompose extends FragmentBase {
                         Bundle args = data.getBundleExtra("args");
                         onSendAfter(args.getLong("time"));
                     }
+                    break;
+                case REQUEST_REF_DELETE:
+                    if (resultCode == RESULT_OK)
+                        onReferenceDeleteConfirmed();
                     break;
                 case REQUEST_REF_EDIT:
                     if (resultCode == RESULT_OK)
@@ -3052,6 +3130,7 @@ public class FragmentCompose extends FragmentBase {
                 tvReference.setText(text[1]);
                 tvReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 grpReferenceHint.setVisibility(text[1] == null || !ref_hint ? View.GONE : View.VISIBLE);
+                ibReferenceDelete.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 
