@@ -81,7 +81,16 @@
         <item name="colorDrawerBackground">@android:color/black</item>
     </style>
 
-    <style name="AppThemeGrey" parent="AppThemeDark">
+    <style name="AppThemeGreyLight" parent="AppThemeLight">
+        <item name="themeName">light</item>
+        <item name="colorPrimary">@color/greyPrimary</item>
+        <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
+        <item name="colorAccent">@color/greyAccent</item>
+
+        <item name="colorUnread">@color/greyAccent</item>
+    </style>
+
+    <style name="AppThemeGreyDark" parent="AppThemeDark">
         <item name="themeName">black</item>
         <item name="colorPrimary">@color/greyPrimary</item>
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>

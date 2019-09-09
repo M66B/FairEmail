@@ -392,8 +392,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 case "black":
                     rgTheme.check(R.id.rbThemeBlack);
                     break;
-                case "grey":
-                    rgTheme.check(R.id.rbThemeGrey);
+                case "grey_light":
+                    rgTheme.check(R.id.rbThemeGreyLight);
+                    break;
+                case "grey_dark":
+                    rgTheme.check(R.id.rbThemeGreyDark);
                     break;
                 case "system":
                     rgTheme.check(R.id.rbThemeSystem);
@@ -417,8 +420,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                         case R.id.rbThemeBlack:
                             prefs.edit().putString("theme", "black").apply();
                             break;
-                        case R.id.rbThemeGrey:
-                            prefs.edit().putString("theme", "grey").apply();
+                        case R.id.rbThemeGreyLight:
+                            prefs.edit().putString("theme", "grey_light").apply();
+                            break;
+                        case R.id.rbThemeGreyDark:
+                            prefs.edit().putString("theme", "grey_dark").apply();
                             break;
                         case R.id.rbThemeSystem:
                             prefs.edit().putString("theme", "system").apply();

@@ -130,9 +130,15 @@ public class ApplicationEx extends Application {
             if (prefs.getBoolean("autonext", false))
                 editor.putString("onclose", "next");
             editor.remove("autonext");
+
         } else if (version < 693) {
             editor.remove("message_swipe");
             editor.remove("message_select");
+
+        } else if (version < 696) {
+            String theme = prefs.getString("theme", "light");
+            if ("grey".equals(theme))
+                editor.putString("theme", "grey_dark");
         }
 
         if (BuildConfig.DEBUG && false) {

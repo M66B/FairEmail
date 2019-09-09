@@ -40,12 +40,21 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <RadioButton
-            android:id="@+id/rbThemeGrey"
+            android:id="@+id/rbThemeGreyLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:padding="6dp"
-            android:text="@string/title_setup_grey_theme"
+            android:text="@string/title_setup_grey_light_theme"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <RadioButton
+            android:id="@+id/rbThemeGreyDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="6dp"
+            android:text="@string/title_setup_grey_dark_theme"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <RadioButton
