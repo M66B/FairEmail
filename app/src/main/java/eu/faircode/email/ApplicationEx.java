@@ -139,6 +139,11 @@ public class ApplicationEx extends Application {
             String theme = prefs.getString("theme", "light");
             if ("grey".equals(theme))
                 editor.putString("theme", "grey_dark");
+
+            if (prefs.contains("ascending")) {
+                editor.putBoolean("ascending_list", prefs.getBoolean("ascending", false));
+                editor.remove("ascending");
+            }
         }
 
         if (BuildConfig.DEBUG && false) {

@@ -63,7 +63,7 @@ public class ViewModelMessages extends ViewModel {
             String thread, long id,
             String query, boolean server) {
 
-        Args args = new Args(context, type, account, folder, thread, id, query, server);
+        Args args = new Args(context, viewType, type, account, folder, thread, id, query, server);
         Log.i("Get model=" + viewType + " " + args);
         dump();
 
@@ -309,6 +309,7 @@ public class ViewModelMessages extends ViewModel {
         private boolean debug;
 
         Args(Context context,
+             AdapterMessage.ViewType viewType,
              String type, long account, long folder,
              String thread, long id,
              String query, boolean server) {
@@ -324,7 +325,8 @@ public class ViewModelMessages extends ViewModel {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             this.threading = prefs.getBoolean("threading", true);
             this.sort = prefs.getString("sort", "time");
-            this.ascending = prefs.getBoolean("ascending", false);
+            this.ascending = prefs.getBoolean(
+                    viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
             this.filter_seen = prefs.getBoolean("filter_seen", false);
             this.filter_unflagged = prefs.getBoolean("filter_unflagged", false);
             this.filter_snoozed = prefs.getBoolean("filter_snoozed", true);

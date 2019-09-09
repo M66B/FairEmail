@@ -588,7 +588,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         String sort = prefs.getString("sort", "time");
-        boolean ascending = prefs.getBoolean("ascending", false);
+        boolean ascending = prefs.getBoolean(
+                viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_duplicates = prefs.getBoolean("filter_duplicates", false);
 
         adapter = new AdapterMessage(this, type, viewType, compact, zoom, sort, ascending, filter_duplicates, iProperties);
@@ -2470,7 +2471,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     public void onPrepareOptionsMenu(Menu menu) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         String sort = prefs.getString("sort", "time");
-        boolean ascending = prefs.getBoolean("ascending", false);
+        boolean ascending = prefs.getBoolean(
+                viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
         boolean filter_seen = prefs.getBoolean("filter_seen", false);
         boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
         boolean filter_snoozed = prefs.getBoolean("filter_snoozed", true);
@@ -2657,7 +2659,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onMenuAscending(boolean ascending) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("ascending", ascending).apply();
+        prefs.edit().putBoolean(
+                viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", ascending).apply();
         adapter.setAscending(ascending);
         getActivity().invalidateOptionsMenu();
         loadMessages(true);
