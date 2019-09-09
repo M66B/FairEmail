@@ -21,6 +21,8 @@ For authorizing:
 * Microsoft Exchange: see [question 8](#user-content-faq8)
 * Yahoo!: see [question 88](#user-content-faq88)
 
+Please see [here](#user-content-faq22) for common error messages.
+
 ## Known problems
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~

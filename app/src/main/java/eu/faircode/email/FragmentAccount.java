@@ -129,6 +129,7 @@ public class FragmentAccount extends FragmentBase {
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
     private Button btnHelp;
+    private Button btnSupport;
     private TextView tvInstructions;
 
     private ContentLoadingProgressBar pbWait;
@@ -222,6 +223,7 @@ public class FragmentAccount extends FragmentBase {
 
         tvError = view.findViewById(R.id.tvError);
         btnHelp = view.findViewById(R.id.btnHelp);
+        btnSupport = view.findViewById(R.id.btnSupport);
         tvInstructions = view.findViewById(R.id.tvInstructions);
 
         pbWait = view.findViewById(R.id.pbWait);
@@ -398,6 +400,13 @@ public class FragmentAccount extends FragmentBase {
             }
         });
 
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.view(getContext(), Uri.parse(Helper.FAQ_URI + "#user-content-authorizing-accounts"), false);
+            }
+        });
+
         adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
         adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
 
@@ -436,6 +445,7 @@ public class FragmentAccount extends FragmentBase {
 
         tvError.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
+        btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -512,6 +522,7 @@ public class FragmentAccount extends FragmentBase {
                 grpFolders.setVisibility(View.GONE);
                 tvError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
+                btnSupport.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
             }
 
@@ -750,6 +761,7 @@ public class FragmentAccount extends FragmentBase {
                 pbSave.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
+                btnSupport.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
             }
 
@@ -1123,6 +1135,8 @@ public class FragmentAccount extends FragmentBase {
             btnHelp.setVisibility(View.VISIBLE);
         }
 
+        btnSupport.setVisibility(View.VISIBLE);
+
         if (provider != null && provider.documentation != null) {
             tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
             tvInstructions.setVisibility(View.VISIBLE);
@@ -1133,10 +1147,8 @@ public class FragmentAccount extends FragmentBase {
             public void run() {
                 if (provider != null && provider.documentation != null)
                     scroll.smoothScrollTo(0, tvInstructions.getBottom());
-                else if (provider != null && provider.link != null)
-                    scroll.smoothScrollTo(0, btnHelp.getBottom());
                 else
-                    scroll.smoothScrollTo(0, tvError.getBottom());
+                    scroll.smoothScrollTo(0, btnSupport.getBottom());
             }
         });
     }

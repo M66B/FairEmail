@@ -120,6 +120,7 @@ public class FragmentIdentity extends FragmentBase {
     private ContentLoadingProgressBar pbSave;
     private TextView tvError;
     private Button btnHelp;
+    private Button btnSupport;
     private TextView tvInstructions;
 
     private ContentLoadingProgressBar pbWait;
@@ -201,6 +202,7 @@ public class FragmentIdentity extends FragmentBase {
         pbSave = view.findViewById(R.id.pbSave);
         tvError = view.findViewById(R.id.tvError);
         btnHelp = view.findViewById(R.id.btnHelp);
+        btnSupport = view.findViewById(R.id.btnSupport);
         tvInstructions = view.findViewById(R.id.tvInstructions);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -218,6 +220,7 @@ public class FragmentIdentity extends FragmentBase {
                 if (position == 0) {
                     tvError.setVisibility(View.GONE);
                     btnHelp.setVisibility(View.GONE);
+                    btnSupport.setVisibility(View.GONE);
                     tvInstructions.setVisibility(View.GONE);
                     grpAdvanced.setVisibility(View.GONE);
                 }
@@ -432,6 +435,13 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.view(getContext(), Uri.parse(Helper.FAQ_URI + "#user-content-authorizing-accounts"), false);
+            }
+        });
+
         // Initialize
         Helper.setViewsEnabled(view, false);
         btnAutoConfig.setEnabled(false);
@@ -447,6 +457,7 @@ public class FragmentIdentity extends FragmentBase {
         pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
+        btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
 
         grpAuthorize.setVisibility(View.GONE);
@@ -546,6 +557,7 @@ public class FragmentIdentity extends FragmentBase {
                 pbSave.setVisibility(View.VISIBLE);
                 tvError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
+                btnSupport.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
             }
 
@@ -817,6 +829,8 @@ public class FragmentIdentity extends FragmentBase {
             btnHelp.setVisibility(View.VISIBLE);
         }
 
+        btnSupport.setVisibility(View.VISIBLE);
+
         if (provider != null && provider.documentation != null) {
             tvInstructions.setText(HtmlHelper.fromHtml(provider.documentation.toString()));
             tvInstructions.setVisibility(View.VISIBLE);
@@ -827,10 +841,8 @@ public class FragmentIdentity extends FragmentBase {
             public void run() {
                 if (provider != null && provider.documentation != null)
                     scroll.smoothScrollTo(0, tvInstructions.getBottom());
-                else if (provider != null && provider.link != null)
-                    scroll.smoothScrollTo(0, btnHelp.getBottom());
                 else
-                    scroll.smoothScrollTo(0, tvError.getBottom());
+                    scroll.smoothScrollTo(0, btnSupport.getBottom());
             }
         });
     }

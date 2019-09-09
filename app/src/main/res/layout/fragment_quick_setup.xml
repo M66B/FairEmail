@@ -122,6 +122,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvError" />
 
+            <Button
+                android:id="@+id/btnSupport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="?attr/colorAccent"
+                android:text="@string/menu_faq"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvError" />
+
             <TextView
                 android:id="@+id/tvInstructions"
                 android:layout_width="wrap_content"

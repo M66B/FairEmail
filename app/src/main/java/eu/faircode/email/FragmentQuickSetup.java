@@ -73,6 +73,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
     private TextView tvError;
     private Button btnHelp;
+    private Button btnSupport;
     private TextView tvInstructions;
 
     private TextView tvImap;
@@ -102,6 +103,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
         tvError = view.findViewById(R.id.tvError);
         btnHelp = view.findViewById(R.id.btnHelp);
+        btnSupport = view.findViewById(R.id.btnSupport);
         tvInstructions = view.findViewById(R.id.tvInstructions);
 
         tvImap = view.findViewById(R.id.tvImap);
@@ -147,11 +149,19 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         });
 
+        btnSupport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.view(getContext(), Uri.parse(Helper.FAQ_URI + "#user-content-authorizing-accounts"), false);
+            }
+        });
+
         // Initialize
         pbCheck.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
+        btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
         grpSetup.setVisibility(View.GONE);
@@ -207,6 +217,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 tvError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
+                btnSupport.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
                 grpSetup.setVisibility(check ? View.GONE : View.VISIBLE);
             }
@@ -440,6 +451,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     btnHelp.setVisibility(View.VISIBLE);
                 }
 
+                btnSupport.setVisibility(View.VISIBLE);
+
                 if (args.containsKey("documentation")) {
                     tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation")));
                     tvInstructions.setVisibility(View.VISIBLE);
@@ -450,10 +463,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     public void run() {
                         if (args.containsKey("documentation"))
                             scroll.smoothScrollTo(0, tvInstructions.getBottom());
-                        else if (args.containsKey("link"))
-                            scroll.smoothScrollTo(0, btnHelp.getBottom());
-                        else if (tvError.getVisibility() == View.VISIBLE)
-                            scroll.smoothScrollTo(0, tvError.getBottom());
+                        else
+                            scroll.smoothScrollTo(0, btnSupport.getBottom());
                     }
                 });
 
