@@ -7,6 +7,8 @@
     <attr name="colorDrawerText" format="reference" />
     <attr name="colorDrawerBackground" format="reference" />
     <attr name="colorCardBackground" format="reference" />
+    <attr name="colorToastForeground" format="reference" />
+    <attr name="colorToastBackground" format="reference" />
     <attr name="activatableItemBackground" format="reference" />
 
     <style name="AppThemeLight" parent="Base.Theme.AppCompat.Light.DarkActionBar">
@@ -26,6 +28,9 @@
         <item name="colorDrawerBackground">@color/lightColorDrawerBackground</item>
 
         <item name="colorCardBackground">@color/lightColorCardBackground</item>
+
+        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastBackground">@color/colorPrimaryDark</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
 
@@ -59,6 +64,9 @@
 
         <item name="colorCardBackground">@color/darkColorCardBackground</item>
 
+        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastBackground">@color/colorPrimaryDark</item>
+
         <item name="activatableItemBackground">@drawable/activatable_item_background_dark</item>
 
         <item name="android:checkboxStyle">@style/checkboxStyle</item>
@@ -88,6 +96,9 @@
         <item name="colorAccent">@color/greyAccent</item>
 
         <item name="colorUnread">@color/greyAccent</item>
+
+        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastBackground">@color/greyAccent</item>
     </style>
 
     <style name="AppThemeGreyDark" parent="AppThemeDark">
@@ -98,6 +109,9 @@
 
         <item name="colorUnread">@color/greyAccent</item>
         <item name="colorSeparator">@color/greyPrimary</item>
+
+        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastBackground">@color/greyAccent</item>
 
         <item name="android:windowBackground">@android:color/black</item>
         <item name="colorDrawerBackground">@android:color/black</item>

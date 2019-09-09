@@ -16,5 +16,5 @@
         android:gravity="center"
         android:text="Message"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/colorToastForeground" />
+        android:textColor="?attr/colorToastForeground" />
 </LinearLayout>
