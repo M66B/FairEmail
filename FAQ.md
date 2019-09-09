@@ -224,7 +224,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(129) Is ProtonMail supported?](#user-content-faq129)
 * [(130) What does message error ... mean?](#user-content-faq130)
 
-[I have another question.](#support)
+[I have another question.](#user-content-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
@@ -700,6 +700,8 @@ If you are using a VPN, the VPN provider might block the connection because it i
 
 FairEmail will automatically try to connect again after a delay.
 This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+
+When in doubt, you can ask for [support](#user-content-support).
 
 <br />
 
