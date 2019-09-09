@@ -64,14 +64,7 @@ public class FragmentBase extends Fragment {
 
     @Override
     public void startActivity(Intent intent) {
-        try {
-            if (Helper.hasAuthentication(getContext()))
-                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-            super.startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
-            ToastEx.makeText(getContext(), getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
-        }
+        Helper.startActivity(getContext(), intent);
     }
 
     @Override

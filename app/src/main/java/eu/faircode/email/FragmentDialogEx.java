@@ -97,9 +97,7 @@ public class FragmentDialogEx extends DialogFragment {
 
     @Override
     public void startActivity(Intent intent) {
-        if (Helper.hasAuthentication(getContext()))
-            intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        super.startActivity(intent);
+        Helper.startActivity(getContext(), intent);
     }
 
     @Override

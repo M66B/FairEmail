@@ -1368,7 +1368,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionCalendar(TupleMessageEx message, int action) {
             if (!ActivityBilling.isPro(context)) {
-                context.startActivity(new Intent(context, ActivityBilling.class));
+                Helper.startActivity(context, new Intent(context, ActivityBilling.class));
                 return;
             }
 
@@ -1457,7 +1457,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("reference", args.getLong("id"))
                             .putExtra("ics", ics)
                             .putExtra("status", status);
-                    context.startActivity(reply);
+                    Helper.startActivity(context, reply);
                 }
 
                 @Override
@@ -1563,7 +1563,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1)
-                    context.startActivity(
+                    Helper.startActivity(context,
                             new Intent(context, ActivityCompose.class)
                                     .putExtra("action", "edit")
                                     .putExtra("id", message.id));
@@ -1862,7 +1862,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @TargetApi(Build.VERSION_CODES.O)
                 private void onActionCreateChannel() {
                     if (!ActivityBilling.isPro(context)) {
-                        context.startActivity(new Intent(context, ActivityBilling.class));
+                        Helper.startActivity(context, new Intent(context, ActivityBilling.class));
                         return;
                     }
 
@@ -1881,7 +1881,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
                             .putExtra(Settings.EXTRA_CHANNEL_ID, channelId);
-                    context.startActivity(intent);
+                    Helper.startActivity(context, intent);
                 }
 
                 private void onActionDeleteChannel() {
@@ -1936,13 +1936,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Snackbar.make(parentFragment.getView(),
                             R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
-                    context.startActivity(edit);
+                    Helper.startActivity(context, edit);
             }
         }
 
         private void onToggleMessage(TupleMessageEx message) {
             if (EntityFolder.DRAFTS.equals(message.folderType))
-                context.startActivity(
+                Helper.startActivity(context,
                         new Intent(context, ActivityCompose.class)
                                 .putExtra("action", "edit")
                                 .putExtra("id", message.id));
@@ -2207,7 +2207,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Intent reply = new Intent(context, ActivityCompose.class)
                     .putExtra("action", action)
                     .putExtra("reference", message.id);
-            context.startActivity(reply);
+            Helper.startActivity(context, reply);
         }
 
         private void onMenuAnswer(TupleMessageEx message) {
@@ -2244,14 +2244,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             @Override
                             public boolean onMenuItemClick(MenuItem target) {
                                 if (!ActivityBilling.isPro(context)) {
-                                    context.startActivity(new Intent(context, ActivityBilling.class));
+                                    Helper.startActivity(context, new Intent(context, ActivityBilling.class));
                                     return true;
                                 }
 
-                                context.startActivity(new Intent(context, ActivityCompose.class)
-                                        .putExtra("action", "reply")
-                                        .putExtra("reference", message.id)
-                                        .putExtra("answer", (long) target.getItemId()));
+                                Helper.startActivity(context,
+                                        new Intent(context, ActivityCompose.class)
+                                                .putExtra("action", "reply")
+                                                .putExtra("reference", message.id)
+                                                .putExtra("answer", (long) target.getItemId()));
                                 return true;
                             }
                         });
@@ -2747,7 +2748,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Intent asnew = new Intent(context, ActivityCompose.class)
                     .putExtra("action", "editasnew")
                     .putExtra("reference", message.id);
-            context.startActivity(asnew);
+            Helper.startActivity(context, asnew);
         }
 
         private void onMenuUnseen(final TupleMessageEx message) {
@@ -2974,7 +2975,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Snackbar.make(parentFragment.getView(),
                                 R.string.title_no_viewer, Snackbar.LENGTH_LONG).show();
                     else
-                        context.startActivity(share);
+                        Helper.startActivity(context, share);
                 }
 
                 @Override
@@ -3099,7 +3100,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Intent send = new Intent(Intent.ACTION_SEND);
             send.putExtra(Intent.EXTRA_STREAM, uri);
             send.setType("message/rfc822");
-            context.startActivity(send);
+            Helper.startActivity(context, send);
         }
 
         ItemDetailsLookup.ItemDetails<Long> getItemDetails(@NonNull MotionEvent motionEvent) {
@@ -4081,7 +4082,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (!ActivityBilling.isPro(getContext())) {
-                                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+                                startActivity(new Intent(getContext(), ActivityBilling.class));
                                 return;
                             }
 
@@ -4157,7 +4158,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (!ActivityBilling.isPro(getContext())) {
-                                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+                                startActivity(new Intent(getContext(), ActivityBilling.class));
                                 return;
                             }
 

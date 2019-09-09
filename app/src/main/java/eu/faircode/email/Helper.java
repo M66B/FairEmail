@@ -189,7 +189,7 @@ public class Helper {
         if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
             view(context, intent.getData(), false);
         else
-            context.startActivity(intent);
+            startActivity(context, intent);
     }
 
     static void view(Context context, Uri uri, boolean browse) {
@@ -197,7 +197,7 @@ public class Helper {
 
         if (browse || !hasCustomTabs(context, uri)) {
             Intent view = new Intent(Intent.ACTION_VIEW, uri);
-            context.startActivity(getChooser(context, view));
+            startActivity(context, getChooser(context, view));
         } else {
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
@@ -248,6 +248,17 @@ public class Helper {
             return intent;
         } else
             return new Intent(Intent.ACTION_VIEW, Uri.parse(XDA_URI));
+    }
+
+    static void startActivity(Context context, Intent intent) {
+        try {
+            if (Helper.hasAuthentication(context))
+                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException ex) {
+            Log.e(ex);
+            ToastEx.makeText(context, context.getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
+        }
     }
 
     // Graphics
@@ -495,9 +506,10 @@ public class Helper {
 
                                 @Override
                                 protected void onExecuted(Bundle args, Long id) {
-                                    context.startActivity(new Intent(context, ActivityCompose.class)
-                                            .putExtra("action", "edit")
-                                            .putExtra("id", id));
+                                    Helper.startActivity(context,
+                                            new Intent(context, ActivityCompose.class)
+                                                    .putExtra("action", "edit")
+                                                    .putExtra("id", id));
                                 }
 
                                 @Override
@@ -825,7 +837,7 @@ public class Helper {
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    tv.getContext().startActivity(new Intent(tv.getContext(), ActivityBilling.class));
+                    Helper.startActivity(tv.getContext(), new Intent(tv.getContext(), ActivityBilling.class));
                 }
             });
         }

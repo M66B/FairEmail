@@ -286,7 +286,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
                             .putExtra(Settings.EXTRA_CHANNEL_ID, EntityAccount.getNotificationChannelId(account.id));
-                    context.startActivity(intent);
+                    Helper.startActivity(context, intent);
                 }
 
                 private void onActionCopy() {

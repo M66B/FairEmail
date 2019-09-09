@@ -199,14 +199,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     public void startActivity(Intent intent) {
-        try {
-            if (Helper.hasAuthentication(this))
-                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-            super.startActivity(intent);
-        } catch (ActivityNotFoundException ex) {
-            Log.e(ex);
-            ToastEx.makeText(this, getString(R.string.title_no_viewer, intent.getAction()), Toast.LENGTH_LONG).show();
-        }
+        Helper.startActivity(this, intent);
     }
 
     @Override

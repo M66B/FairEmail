@@ -940,7 +940,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuAnswer() {
         if (!ActivityBilling.isPro(getContext())) {
-            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+            startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
@@ -1586,7 +1586,7 @@ public class FragmentCompose extends FragmentBase {
 
     private void onSendAfter(long time) {
         if (!ActivityBilling.isPro(getContext())) {
-            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+            startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 

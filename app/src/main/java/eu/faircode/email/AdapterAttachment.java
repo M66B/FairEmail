@@ -244,7 +244,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         context.getString(R.string.title_no_viewer, attachment.type),
                         Snackbar.LENGTH_LONG).show();
             else
-                context.startActivity(intent);
+                Helper.startActivity(context, intent);
         }
 
         private void onDownload(EntityAttachment attachment) {

@@ -619,7 +619,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 private void onActionCreateChannel() {
                     if (!ActivityBilling.isPro(context)) {
-                        context.startActivity(new Intent(context, ActivityBilling.class));
+                        Helper.startActivity(context, new Intent(context, ActivityBilling.class));
                         return;
                     }
 
@@ -632,7 +632,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
                             .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName())
                             .putExtra(Settings.EXTRA_CHANNEL_ID, EntityFolder.getNotificationChannelId(folder.id));
-                    context.startActivity(intent);
+                    Helper.startActivity(context, intent);
                 }
 
                 @RequiresApi(api = Build.VERSION_CODES.O)

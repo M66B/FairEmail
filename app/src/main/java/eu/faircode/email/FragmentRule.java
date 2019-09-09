@@ -492,7 +492,7 @@ public class FragmentRule extends FragmentBase {
                 case REQUEST_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
                         if (!ActivityBilling.isPro(getContext())) {
-                            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+                            startActivity(new Intent(getContext(), ActivityBilling.class));
                             return;
                         }
 
@@ -771,7 +771,7 @@ public class FragmentRule extends FragmentBase {
 
     private void onActionSave() {
         if (!ActivityBilling.isPro(getContext())) {
-            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+            startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
