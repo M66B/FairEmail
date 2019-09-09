@@ -186,7 +186,7 @@
     <string name="title_setup_grey_dark_theme">Grey dark theme</string>
     <string name="title_setup_system_theme">System theme</string>
     <string name="title_setup_grey_system_theme">Grey system theme</string>
-    <string name="title_setup_system_theme_hint">The system themes will automatically switch light/dark on day/night, if supported by Android</string>
+    <string name="title_setup_system_theme_hint">The system themes will automatically switch to light/dark on day/night, if supported by Android</string>
     <string name="title_setup_advanced">Advanced</string>
 
     <string name="title_setup_options">Options</string>
@@ -244,7 +244,7 @@
     <string name="title_advanced_name_email">Show names and email addresses</string>
     <string name="title_advanced_subject_top">Show subject above sender</string>
     <string name="title_advanced_subject_italic">Show subject in italics</string>
-    <string name="title_advanced_subject_elipsed">When needed shorten the subject</string>
+    <string name="title_advanced_subject_elipsed">When needed, shorten the subject</string>
     <string name="title_advanced_flags">Show stars</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_preview_italic">Show message preview in italics</string>
@@ -579,6 +579,8 @@
 
     <string name="title_from_missing">Sender missing</string>
     <string name="title_to_missing">Recipient missing</string>
+    <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
+    <string name="title_attachment_reminder">Did you intend to add an attachment?</string>
     <string name="title_attachments_missing">Not all attachments are downloaded</string>
     <string name="title_draft_deleted">Draft discarded</string>
     <string name="title_draft_saved">Draft saved</string>
