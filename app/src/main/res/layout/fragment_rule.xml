@@ -614,12 +614,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-                tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
+                tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
                 vSeparatorSender,tvSender,cbSender,etSender,ibSender,tvAndSender,
                 vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
                 vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
                 vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,
-                vSeparatorSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
+                vSeparatorSchedule,tvSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
                 vSeparatorAction,tvAction,spAction,tvActionRemark,
                 vSeparatorParameters" />
 
