@@ -272,7 +272,10 @@ only suggesting contacts won't work without contacts permissions.
 **(2) Why is there a permanent notification shown?**
 
 A low priority permanent status bar notification with the number of accounts being synchronized and the number of operations pending (see next question) is shown
-to prevent Android from killing the service that takes care of receiving and sending email.
+to prevent Android from killing the service that takes care of continuous receiving email.
+
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might used more battery power.
+See [here](#user-content-faq39) for more details about battery usage.
 
 Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
 
