@@ -329,7 +329,7 @@ public class ServiceSend extends ServiceBase {
 
         // Add reply to
         if (ident.replyto != null)
-            imessage.setReplyTo(new Address[]{new InternetAddress(ident.replyto, null)});
+            imessage.setReplyTo(InternetAddress.parse(ident.replyto));
 
         // Add bcc
         if (ident.bcc != null) {
@@ -337,7 +337,7 @@ public class ServiceSend extends ServiceBase {
             Address[] existing = imessage.getRecipients(Message.RecipientType.BCC);
             if (existing != null)
                 bcc.addAll(Arrays.asList(existing));
-            bcc.add(new InternetAddress(ident.bcc, null));
+            bcc.addAll(Arrays.asList(InternetAddress.parse(ident.bcc)));
             imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
         }
 

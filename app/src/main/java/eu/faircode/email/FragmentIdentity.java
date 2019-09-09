@@ -67,6 +67,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
@@ -605,10 +608,21 @@ public class FragmentIdentity extends FragmentBase {
                 if (!should && synchronize && TextUtils.isEmpty(password) && !insecure)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
-                if (!should && !TextUtils.isEmpty(replyto) && !Patterns.EMAIL_ADDRESS.matcher(replyto).matches())
-                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, replyto));
-                if (!should && !TextUtils.isEmpty(bcc) && !Patterns.EMAIL_ADDRESS.matcher(bcc).matches())
-                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
+                if (!should && !TextUtils.isEmpty(replyto)) {
+                    try {
+                        InternetAddress[] addresses = InternetAddress.parse(replyto);
+                        if (addresses.length != 1)
+                            throw new AddressException();
+                    } catch (AddressException ex) {
+                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, replyto));
+                    }
+                }
+                if (!should && !TextUtils.isEmpty(bcc))
+                    try {
+                        InternetAddress.parse(bcc);
+                    } catch (AddressException ex) {
+                        throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, bcc));
+                    }
 
                 if (TextUtils.isEmpty(display))
                     display = null;
