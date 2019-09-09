@@ -56,7 +56,7 @@ For authorizing:
 * ~~Compose lists and tables~~ (this requires a rich text editor, see [this FAQ](#user-content-faq99))
 * ~~Pinch zoom text size~~
 * ~~Display GIFs~~
-* ~~Themes~~ (a grey theme was added because this is what most people seems to want)
+* ~~Themes~~ (a grey light and dark theme were added because this is what most people seems to want)
 * Send as attachment
 * Search for settings
 * Select any day for time conditions
