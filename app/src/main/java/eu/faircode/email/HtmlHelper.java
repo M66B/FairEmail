@@ -209,10 +209,16 @@ public class HtmlHelper {
         // Tables
         for (Element col : document.select("th,td")) {
             boolean content = false;
-            for (Element e : col.children())
-                if (!e.isBlock() && hasContent(e)) {
+            for (Node node : col.childNodes())
+                if (node instanceof TextNode) {
                     content = true;
                     break;
+                } else if (node instanceof Element) {
+                    Element element = (Element) node;
+                    if (!element.isBlock() && hasContent(element)) {
+                        content = true;
+                        break;
+                    }
                 }
 
             // separate columns
