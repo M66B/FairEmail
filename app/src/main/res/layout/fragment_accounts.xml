@@ -48,9 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:tint="@color/colorActionForeground"
+        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
-        app:backgroundTint="?attr/colorAccent"
+        app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_edit_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -59,8 +59,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:tint="@color/colorActionForeground"
+        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_add"
-        app:backgroundTint="?attr/colorAccent"
+        app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_add_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

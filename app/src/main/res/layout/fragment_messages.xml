@@ -182,7 +182,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="@dimen/fab_padding"
-                android:tint="@color/colorActionForeground"
+                android:tint="?attr/colorFabForeground"
+                app:backgroundTint="?attr/colorFabBackground"
                 app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/baseline_reply_24" />
@@ -263,8 +264,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:background="?attr/colorPrimary"
-                app:itemIconTint="@color/bottomnav_foreground"
-                app:itemTextColor="@color/bottomnav_foreground"
+                app:itemIconTint="@color/action_foreground"
+                app:itemTextColor="@color/action_foreground"
                 app:labelVisibilityMode="unlabeled"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -310,9 +311,9 @@
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="@dimen/fab_padding"
         android:layout_marginBottom="90dp"
-        android:tint="@color/colorActionForeground"
+        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_more"
-        app:backgroundTint="?attr/colorAccent"
+        app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_more_vert_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -321,9 +322,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:tint="@color/colorActionForeground"
+        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_search_server"
-        app:backgroundTint="?attr/colorAccent"
+        app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_youtube_searched_for_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -332,9 +333,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:tint="@color/colorActionForeground"
+        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
-        app:backgroundTint="?attr/colorAccent"
+        app:backgroundTint="?attr/colorFabBackground"
         app:srcCompat="@drawable/baseline_edit_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -343,7 +344,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_margin="@dimen/fab_padding"
-        android:tint="@color/colorActionForeground"
+        android:tint="?attr/colorFabForeground"
         android:tooltipText="@string/title_compose"
         app:backgroundTint="@color/colorError"
         app:srcCompat="@drawable/baseline_warning_24" />
