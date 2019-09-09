@@ -152,7 +152,6 @@
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
     <string name="title_setup_black_theme">Thème noir</string>
-    <string name="title_setup_grey_theme">Thème gris</string>
     <string name="title_setup_system_theme">Thème système</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
@@ -326,6 +325,7 @@
     <string name="title_check">Vérifier</string>
     <string name="title_no_name">Nom manquant</string>
     <string name="title_no_email">Adresse e-mail manquante</string>
+    <string name="title_email_invalid">Adresse e-mail invalide : \'%1$s\'</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' invalide : %2$s</string>
     <string name="title_no_account">Compte manquant</string>
     <string name="title_no_host">Nom d\'hôte manquant</string>
@@ -668,7 +668,7 @@
     <string name="title_hint_folder_actions">Appui long pour les options</string>
     <string name="title_hint_folder_sync">Pour limiter l\'utilisation de la batterie et du réseau, les dossiers et les messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu Support pour obtenir de l\'aide</string>
-    <string name="title_hint_message_actions">Balayer vers la gauche pour mettre à la corbeille; balayer vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
+    <string name="title_hint_message_actions">Balayer vers la gauche pour mettre à la corbeille ; balayer vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyer longuement sur un message pour commencer à sélectionner plusieurs messages ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner plus de messages</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
     <string name="title_hint_image_link">Lien de l\'image</string>

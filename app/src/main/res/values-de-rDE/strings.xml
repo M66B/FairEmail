@@ -151,7 +151,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_light_theme">Helles Design</string>
     <string name="title_setup_dark_theme">Dunkles Design</string>
     <string name="title_setup_black_theme">Schwarzes Design</string>
-    <string name="title_setup_grey_theme">Graues Thema</string>
+    <string name="title_setup_grey_light_theme">Hellgraues Design</string>
+    <string name="title_setup_grey_dark_theme">Dunkelgraues Design</string>
     <string name="title_setup_system_theme">System Design</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
@@ -325,6 +326,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_check">Prüfen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
+    <string name="title_email_invalid">E-Mail-Adresse ungültig: \'%1$s\'</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' ungültig: %2$s</string>
     <string name="title_no_account">Konto fehlt</string>
     <string name="title_no_host">Hostname fehlt</string>

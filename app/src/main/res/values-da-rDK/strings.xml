@@ -324,6 +324,7 @@
     <string name="title_check">Tjek</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-mailadresse mangler</string>
+    <string name="title_email_invalid">Ugyldig e-mailadresse: \'%1$s\'</string>
     <string name="title_address_parse_error">Ugyldig \'%1$s\'-adresse: %2$s</string>
     <string name="title_no_account">Konto mangler</string>
     <string name="title_no_host">Værtsnavn mangler</string>
@@ -650,6 +651,7 @@
     <string name="title_legend_expander">Udvider</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Vis citater</string>
+    <string name="title_legend_show_unsubscribe">Afabonnér fra liste</string>
     <string name="title_legend_show_images">Vis billeder</string>
     <string name="title_legend_show_full">Vis fuldskærm</string>
     <string name="title_legend_edit">Redigér</string>

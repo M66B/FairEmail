@@ -325,6 +325,7 @@
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Falta nombre</string>
     <string name="title_no_email">Falta dirección de correo electrónico</string>
+    <string name="title_email_invalid">Dirección de correo no válida: \'%1$s\'</string>
     <string name="title_address_parse_error">Dirección \'%1$s\' inválida: %2$s</string>
     <string name="title_no_account">Falta cuenta</string>
     <string name="title_no_host">Falta nombre de host</string>
@@ -651,6 +652,7 @@
     <string name="title_legend_expander">Expandir</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Mostrar citas</string>
+    <string name="title_legend_show_unsubscribe">Desuscribirse de la lista</string>
     <string name="title_legend_show_images">Mostrar imágenes</string>
     <string name="title_legend_show_full">Mostrar en pantalla completa</string>
     <string name="title_legend_edit">Editar</string>

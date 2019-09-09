@@ -152,7 +152,6 @@
     <string name="title_setup_light_theme">Vaalea teema</string>
     <string name="title_setup_dark_theme">Tumma teema</string>
     <string name="title_setup_black_theme">Musta teema</string>
-    <string name="title_setup_grey_theme">Harmaa teema</string>
     <string name="title_setup_system_theme">Järjestelmän teema</string>
     <string name="title_setup_advanced">Lisäasetukset</string>
     <string name="title_setup_options">Asetukset</string>
@@ -326,6 +325,7 @@
     <string name="title_check">Tarkista</string>
     <string name="title_no_name">Nimi puuttuu</string>
     <string name="title_no_email">Sähköpostiosoite puuttuu</string>
+    <string name="title_email_invalid">Virheellinen sähköpostiosoite: \'%1$s\'</string>
     <string name="title_address_parse_error">Osoite \'%1$s\' virheellinen: %2$s</string>
     <string name="title_no_account">Tili puuttuu</string>
     <string name="title_no_host">Verkko-osoite puuttuu</string>
@@ -701,6 +701,8 @@
     <string name="title_no_body">Viestin tekstiä ei löytynyt</string>
     <string name="title_no_charset">Koodausta ei tueta: %1$s</string>
     <string name="title_via">Kautta: %1$s</string>
+    <string name="title_1hour">1 tunti</string>
+    <string name="title_1day">1 päivä</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>

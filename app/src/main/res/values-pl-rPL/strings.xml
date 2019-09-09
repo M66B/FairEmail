@@ -347,6 +347,7 @@
     <string name="title_check">Sprawdź</string>
     <string name="title_no_name">Brak nazwy</string>
     <string name="title_no_email">Brak adresu e-mail</string>
+    <string name="title_email_invalid">Niepoprawny adres e-mail: \'%1$s\'</string>
     <string name="title_address_parse_error">Adres \'%1$s\' nieprawidłowy: %2$s</string>
     <string name="title_no_account">Brak konta</string>
     <string name="title_no_host">Brak nazwy hosta</string>
@@ -673,6 +674,7 @@
     <string name="title_legend_expander">Rozszerzacz</string>
     <string name="title_legend_avatar">Awatar</string>
     <string name="title_legend_show_quotes">Pokaż cytaty</string>
+    <string name="title_legend_show_unsubscribe">Wypisz się z listy</string>
     <string name="title_legend_show_images">Pokaż obrazy</string>
     <string name="title_legend_show_full">Pokaż na pełnym ekranie</string>
     <string name="title_legend_edit">Edycja</string>
@@ -688,6 +690,8 @@
     <string name="title_hint_folder_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
+    <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
+    <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_image_link">Adres obrazka</string>
     <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
@@ -731,6 +735,9 @@
     <string name="title_pro_list">Lista funkcji pro</string>
     <string name="title_pro_purchase">Kup</string>
     <string name="title_pro_once">Tylko raz</string>
+    <string name="title_pro_info">Opracowanie FairEmail zajęło dosłownie tysiące godzin i pomimo tego większość funkcji jest darmowe.
+W celu utrzymania FairEmail w dłuższej perspektywie, niektóre udogodnienia i zaawansowane funkcje nie są darmowe.
+FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie usunięta, jeśli kupisz funkcje pro.    </string>
     <string name="title_pro_hint">Kupno funkcji pro pozwoli Ci używać wszystkich obecnych i przyszłych funkcji pro oraz będzie utrzymywać i wspierać aplikację</string>
     <string name="title_pro_price">Zobacz <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">ten FAQ</a> na temat cen funkcji pro</string>
     <string name="title_pro_pending">Zakup w toku</string>

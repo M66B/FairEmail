@@ -152,7 +152,8 @@
     <string name="title_setup_light_theme">Licht thema</string>
     <string name="title_setup_dark_theme">Donker thema</string>
     <string name="title_setup_black_theme">Zwart thema</string>
-    <string name="title_setup_grey_theme">Grijs thema</string>
+    <string name="title_setup_grey_light_theme">Grijs licht thema</string>
+    <string name="title_setup_grey_dark_theme">Grijs donker thema</string>
     <string name="title_setup_system_theme">Systeem thema</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_setup_options">Opties</string>

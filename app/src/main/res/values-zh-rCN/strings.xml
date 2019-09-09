@@ -140,7 +140,6 @@
     <string name="title_setup_light_theme">亮色主题</string>
     <string name="title_setup_dark_theme">暗色主题</string>
     <string name="title_setup_black_theme">黑色主题</string>
-    <string name="title_setup_grey_theme">灰色主题</string>
     <string name="title_setup_system_theme">系统主题</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
@@ -314,6 +313,7 @@
     <string name="title_check">检查</string>
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
+    <string name="title_email_invalid">电邮地址无效：\'%1$s\'</string>
     <string name="title_address_parse_error">地址 \'%1$s\' 无效: %2$s</string>
     <string name="title_no_account">缺少账户</string>
     <string name="title_no_host">缺少主机名称</string>
