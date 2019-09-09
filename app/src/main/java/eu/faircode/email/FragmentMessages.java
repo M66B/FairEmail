@@ -3359,11 +3359,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     protected Void onExecute(Context context, Bundle args) {
                         DB db = DB.getInstance(context);
-                        ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-                        for (MessageTarget target : result) {
-                            Log.i("Move undo id=" + target.id);
-                            db.message().setMessageUiHide(target.id, 0L);
+
+                        try {
+                            db.beginTransaction();
+
+                            ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+                            for (MessageTarget target : result) {
+                                Log.i("Move undo id=" + target.id);
+                                db.message().setMessageUiHide(target.id, 0L);
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
                         }
+
                         return null;
                     }
 
