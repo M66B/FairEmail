@@ -163,7 +163,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private TextView tvNoEmail;
     private FixedRecyclerView rvMessage;
     private View vwAnchor;
-    private SeekBar seekBar;
+    private SeekBar sbThread;
     private ImageButton ibDown;
     private ImageButton ibUp;
     private ImageButton ibSeen;
@@ -201,6 +201,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean threading;
     private boolean swipenav;
     private boolean autoscroll;
+    private boolean seekbar;
     private boolean actionbar;
     private boolean autoexpand;
     private boolean autoclose;
@@ -312,6 +313,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         cards = prefs.getBoolean("cards", true);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);
+        seekbar = prefs.getBoolean("seekbar", false);
         actionbar = prefs.getBoolean("actionbar", true);
         autoexpand = prefs.getBoolean("autoexpand", true);
         autoclose = prefs.getBoolean("autoclose", true);
@@ -358,7 +360,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
         rvMessage = view.findViewById(R.id.rvMessage);
         vwAnchor = view.findViewById(R.id.vwAnchor);
-        seekBar = view.findViewById(R.id.seekBar);
+        sbThread = view.findViewById(R.id.sbThread);
         ibDown = view.findViewById(R.id.ibDown);
         ibUp = view.findViewById(R.id.ibUp);
         ibSeen = view.findViewById(R.id.ibSeen);
@@ -595,7 +597,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         adapter = new AdapterMessage(this, type, viewType, compact, zoom, sort, ascending, filter_duplicates, iProperties);
         rvMessage.setAdapter(adapter);
 
-        seekBar.setOnTouchListener(new View.OnTouchListener() {
+        sbThread.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return true;
@@ -883,7 +885,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
 
         tvNoEmail.setVisibility(View.GONE);
-        seekBar.setVisibility(View.GONE);
+        sbThread.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
         ibSeen.setVisibility(View.GONE);
@@ -927,14 +929,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 public void onFound(int position, int size) {
-                    if (actionbar) {
-                        seekBar.setMax(size - 1);
-                        seekBar.setProgress(size - 1 - position);
-                        seekBar.getProgressDrawable().setAlpha(0);
-                        seekBar.getThumb().setColorFilter(
+                    if (seekbar) {
+                        sbThread.setMax(size - 1);
+                        sbThread.setProgress(size - 1 - position);
+                        sbThread.getProgressDrawable().setAlpha(0);
+                        sbThread.getThumb().setColorFilter(
                                 position == 0 || position == size - 1 ? colorAccent : colorPrimary,
                                 PorterDuff.Mode.SRC_IN);
-                        seekBar.setVisibility(size > 1 ? View.VISIBLE : View.GONE);
+                        sbThread.setVisibility(size > 1 ? View.VISIBLE : View.GONE);
                     }
                 }
             });

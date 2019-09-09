@@ -67,13 +67,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swImagesInline;
     private SwitchCompat swCollapseQuotes;
     private SwitchCompat swRemoteContent;
+    private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "threading", "highlight_unread",
             "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_top", "subject_italic", "subject_ellipsize",
             "flags", "preview", "preview_italic", "addresses", "attachments_alt",
-            "contrast", "monospaced", "inline_images", "collapse_quotes", "autocontent", "actionbar",
+            "contrast", "monospaced", "inline_images", "collapse_quotes", "autocontent", "seekbar", "actionbar",
     };
 
     @Override
@@ -110,6 +111,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesInline = view.findViewById(R.id.swImagesInline);
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
         swRemoteContent = view.findViewById(R.id.swRemoteContent);
+        swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
 
         setOptions();
@@ -304,6 +306,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swSeekbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("seekbar", checked).apply();
+            }
+        });
+
         swActionbar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -396,6 +405,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
         swRemoteContent.setChecked(prefs.getBoolean("autocontent", false));
+        swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
     }
 

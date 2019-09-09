@@ -153,7 +153,7 @@
                 app:fastScrollHorizontalTrackDrawable="@drawable/scroll_track"
                 app:fastScrollVerticalThumbDrawable="@drawable/scroll_thumb"
                 app:fastScrollVerticalTrackDrawable="@drawable/scroll_track"
-                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vSeparatorHintSelect" />
@@ -183,7 +183,7 @@
                 android:layout_gravity="end|bottom"
                 android:layout_margin="@dimen/fab_padding"
                 android:tint="@color/colorActionForeground"
-                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/baseline_reply_24" />
 
@@ -194,7 +194,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
-                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toStartOf="@+id/ibUp"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +207,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:padding="12dp"
                 android:tint="?attr/colorSeparator"
-                app:layout_constraintBottom_toTopOf="@+id/seekBar"
+                app:layout_constraintBottom_toTopOf="@+id/sbThread"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@+id/ibDown"
@@ -251,7 +251,7 @@
                 app:srcCompat="@drawable/baseline_timelapse_24" />
 
             <SeekBar
-                android:id="@+id/seekBar"
+                android:id="@+id/sbThread"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
