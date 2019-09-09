@@ -137,10 +137,9 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
                 }
 
                 private void onActionCompose() {
-                    Helper.startActivity(context,
-                            new Intent(context, ActivityCompose.class)
-                                    .putExtra("action", "new")
-                                    .putExtra("answer", answer.id));
+                    context.startActivity(new Intent(context, ActivityCompose.class)
+                            .putExtra("action", "new")
+                            .putExtra("answer", answer.id));
                 }
 
                 private void onActionHide(boolean hide) {

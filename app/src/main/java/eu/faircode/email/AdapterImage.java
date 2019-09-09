@@ -142,7 +142,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                     return;
                 }
 
-                Helper.startActivity(context, intent);
+                context.startActivity(intent);
             } else {
                 if (attachment.progress == null) {
                     Bundle args = new Bundle();
