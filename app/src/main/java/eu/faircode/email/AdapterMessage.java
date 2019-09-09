@@ -369,6 +369,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvError = itemView.findViewById(R.id.tvError);
             btnHelp = itemView.findViewById(R.id.btnHelp);
             pbLoading = itemView.findViewById(R.id.pbLoading);
+
+            if (subject_top) {
+                TextUtils.TruncateAt ellipsize = tvFrom.getEllipsize();
+                tvFrom.setEllipsize(tvSubject.getEllipsize());
+                tvSubject.setEllipsize(ellipsize);
+            }
         }
 
         private void ensureExpanded() {
