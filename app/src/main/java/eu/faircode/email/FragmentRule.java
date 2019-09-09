@@ -659,17 +659,18 @@ public class FragmentRule extends FragmentBase {
                         int type = jaction.getInt("type");
                         switch (type) {
                             case EntityRule.TYPE_SNOOZE:
-                                npDuration.setValue(jaction.getInt("duration"));
+                                npDuration.setValue(jaction.optInt("duration", 0));
                                 cbScheduleEnd.setChecked(jaction.optBoolean("schedule_end", false));
                                 break;
 
                             case EntityRule.TYPE_FLAG:
-                                onSelectColor(jaction.isNull("color") ? Color.TRANSPARENT : jaction.getInt("color"));
+                                onSelectColor(jaction.isNull("color")
+                                        ? Color.TRANSPARENT : jaction.optInt("color", 0));
                                 break;
 
                             case EntityRule.TYPE_MOVE:
                             case EntityRule.TYPE_COPY:
-                                long target = jaction.getLong("target");
+                                long target = jaction.optLong("target", -1);
                                 for (int pos = 0; pos < adapterTarget.getCount(); pos++)
                                     if (adapterTarget.getItem(pos).id.equals(target)) {
                                         spTarget.setSelection(pos);
@@ -682,14 +683,14 @@ public class FragmentRule extends FragmentBase {
                                 break;
 
                             case EntityRule.TYPE_ANSWER:
-                                long identity = jaction.getLong("identity");
+                                long identity = jaction.optLong("identity", -1);
                                 for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
                                     if (adapterIdentity.getItem(pos).id.equals(identity)) {
                                         spIdent.setSelection(pos);
                                         break;
                                     }
 
-                                long answer = jaction.getLong("answer");
+                                long answer = jaction.optLong("answer", -1);
                                 for (int pos = 0; pos < adapterAnswer.getCount(); pos++)
                                     if (adapterAnswer.getItem(pos).id.equals(answer)) {
                                         spAnswer.setSelection(pos);
@@ -709,13 +710,13 @@ public class FragmentRule extends FragmentBase {
 
                         showActionParameters(type);
                     }
-
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                } finally {
                     grpReady.setVisibility(View.VISIBLE);
                     bottom_navigation.findViewById(R.id.action_delete).setVisibility(rule == null ? View.GONE : View.VISIBLE);
                     bottom_navigation.setVisibility(View.VISIBLE);
                     pbWait.setVisibility(View.GONE);
-                } catch (JSONException ex) {
-                    Log.e(ex);
                 }
             }
 
