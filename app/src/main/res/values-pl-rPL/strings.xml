@@ -174,7 +174,10 @@
     <string name="title_setup_light_theme">Jasny motyw</string>
     <string name="title_setup_dark_theme">Ciemny motyw</string>
     <string name="title_setup_black_theme">Czarny motyw</string>
+    <string name="title_setup_grey_light_theme">Motyw jasno szary</string>
+    <string name="title_setup_grey_dark_theme">Motyw ciemno szary</string>
     <string name="title_setup_system_theme">Motyw systemu</string>
+    <string name="title_setup_grey_system_theme">Motyw szary systemowy</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
@@ -225,6 +228,7 @@
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
+    <string name="title_advanced_subject_elipsed">W razie potrzeby skróć temat</string>
     <string name="title_advanced_flags">Oznacz gwiazdkami</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_preview_italic">Pokaż podgląd wiadomości kursywą</string>
@@ -235,7 +239,6 @@
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_remote_content">Automatycznie wyświetlaj zawartość zdalną podczas przeglądania oryginalnych wiadomości</string>
-    <string name="title_advanced_actionbar">Pasek akcji konwersacji</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
@@ -432,6 +435,7 @@
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_raw_download">Pobierz wiadomość źródłową</string>
     <string name="title_raw_save">Zapisz wiadomość źródłową</string>
+    <string name="title_raw_send">Wyślij jako załącznik</string>
     <string name="title_manage_keywords">Zarządzaj słowami kluczowymi</string>
     <string name="title_add_keyword">Dodaj słowo kluczowe</string>
     <string name="title_show_inline">Pokaż wstawione załączniki</string>
@@ -812,5 +816,10 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>5 minut</item>
         <item>10 minut</item>
         <item>20 minut</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Na początku</item>
+        <item>W środku</item>
+        <item>Na końcu</item>
     </string-array>
 </resources>

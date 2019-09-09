@@ -151,9 +151,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_light_theme">Helles Design</string>
     <string name="title_setup_dark_theme">Dunkles Design</string>
     <string name="title_setup_black_theme">Schwarzes Design</string>
-    <string name="title_setup_grey_light_theme">Hellgraues Design</string>
+    <string name="title_setup_grey_light_theme">Graues Design auf hellem Untergrund</string>
     <string name="title_setup_grey_dark_theme">Dunkelgraues Design</string>
-    <string name="title_setup_system_theme">System Design</string>
+    <string name="title_setup_system_theme">System-Design</string>
+    <string name="title_setup_grey_system_theme">Graues System-Design</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
@@ -204,6 +205,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_subject_top">Zeige Betreff oberhalb des Absenders</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
+    <string name="title_advanced_subject_elipsed">Wenn nötig, den Betreff kürzen</string>
     <string name="title_advanced_flags">Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
@@ -214,7 +216,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierter Text ausblenden</string>
     <string name="title_advanced_remote_content">Zeige Remote-Inhalte automatisch beim Betrachten von Originalnachrichten</string>
-    <string name="title_advanced_actionbar">Navigationsleiste in Konversationen</string>
+    <string name="title_advanced_seekbar">Zeige relative Gesprächsposition mit einem Punkt an</string>
+    <string name="title_advanced_actionbar">Navigationsleiste in Konversationen anzeigen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Nach oben blättern, um neue Nachrichten abzurufen</string>
     <string name="title_advanced_swipenav">Wische nach links/rechts, um zum nächsten/vorherigen Gespräch zu gehen</string>
@@ -411,6 +414,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_show_headers">Kopfzeile anzeigen</string>
     <string name="title_raw_download">Rohdaten runterladen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
+    <string name="title_raw_send">Als Anhang senden</string>
     <string name="title_manage_keywords">Schlagwörter verwalten</string>
     <string name="title_add_keyword">Schlagwort hinzufügen</string>
     <string name="title_show_inline">Eingebettete Anhänge anzeigen</string>
@@ -460,6 +464,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
+    <string name="title_ask_delete_ref">Den Text der beantworteten/weitergeleiteten Nachricht löschen? Dies kann nicht rückgängig gemacht werden.</string>
     <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
     <string name="title_ask_sync_all">Alle Nachrichten in %1$s synchronisieren?</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
@@ -791,5 +796,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>5 Minuten</item>
         <item>10 Minuten</item>
         <item>20 Minuten</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Am Anfang</item>
+        <item>In der Mitte</item>
+        <item>Am Ende</item>
     </string-array>
 </resources>

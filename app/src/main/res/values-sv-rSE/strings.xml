@@ -213,7 +213,6 @@
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
     <string name="title_advanced_collapse_quotes">Kollapsa citerad text</string>
     <string name="title_advanced_remote_content">Visa automatiskt fjärrinnehåll när du visar originalmeddelanden</string>
-    <string name="title_advanced_actionbar">Konversationens åtgärdsfält</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
     <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>

@@ -235,7 +235,6 @@
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_collapse_quotes">Свернуть цитируемый текст</string>
     <string name="title_advanced_remote_content">Автоматически показывать удаленное содержимое при просмотре оригиналов сообщений</string>
-    <string name="title_advanced_actionbar">Панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_swipenav">Свайп влево/вправо, чтобы перейти к следующему/предыдущему диалогу</string>

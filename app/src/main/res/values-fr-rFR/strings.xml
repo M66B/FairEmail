@@ -155,6 +155,7 @@
     <string name="title_setup_grey_light_theme">Thème gris clair</string>
     <string name="title_setup_grey_dark_theme">Thème gris foncé</string>
     <string name="title_setup_system_theme">Thème système</string>
+    <string name="title_setup_grey_system_theme">Thème système gris</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
@@ -203,8 +204,9 @@
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_circular">Afficher des icônes rondes</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
-    <string name="title_advanced_subject_top">Afficher le sujet au dessus de l\'expéditeur</string>
+    <string name="title_advanced_subject_top">Afficher l\'objet au dessus de l\'expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l\'objet en italiques</string>
+    <string name="title_advanced_subject_elipsed">Raccourcir l\'objet si nécessaire</string>
     <string name="title_advanced_flags">Afficher les messages suivis</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italiques</string>
@@ -215,7 +217,8 @@
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_collapse_quotes">Réduire le texte cité</string>
     <string name="title_advanced_remote_content">Afficher automatiquement le contenu distant lors de la visualisation des messages originaux</string>
-    <string name="title_advanced_actionbar">Barre d\'action de conversation</string>
+    <string name="title_advanced_seekbar">Afficher la position relative dans la conversation avec un point</string>
+    <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
     <string name="title_advanced_swipenav">Balayez vers la gauche/droite pour passer à la conversation suivante/précédente</string>
@@ -412,6 +415,7 @@
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_raw_download">Télécharger le message brut</string>
     <string name="title_raw_save">Sauvegarder le message brut</string>
+    <string name="title_raw_send">Envoyer comme pièce jointe</string>
     <string name="title_manage_keywords">Gérer les mots-clés</string>
     <string name="title_add_keyword">Ajouter un mot-clé</string>
     <string name="title_show_inline">Afficher les pièces jointes dans le message</string>
@@ -461,6 +465,7 @@
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
+    <string name="title_ask_delete_ref">Supprimer le texte du message répondu/transmis ? Ceci ne peut pas être annulé.</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
     <string name="title_ask_sync_all">Synchroniser tous les messages dans %1$s ?</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux ? Les messages resteront sur le serveur distant.</string>
@@ -793,5 +798,10 @@
         <item>5 minutes</item>
         <item>10 minutes</item>
         <item>20 minutes</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Au début</item>
+        <item>Au milieu</item>
+        <item>À la fin</item>
     </string-array>
 </resources>

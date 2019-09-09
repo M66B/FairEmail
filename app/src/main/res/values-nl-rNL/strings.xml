@@ -155,6 +155,7 @@
     <string name="title_setup_grey_light_theme">Grijs licht thema</string>
     <string name="title_setup_grey_dark_theme">Grijs donker thema</string>
     <string name="title_setup_system_theme">Systeem thema</string>
+    <string name="title_setup_grey_system_theme">Grijs systeemthema</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
@@ -205,6 +206,7 @@
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
+    <string name="title_advanced_subject_elipsed">Wanneer nodig verkort het onderwerp</string>
     <string name="title_advanced_flags">Toon sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_preview_italic">Toon berichtvoorbeeld cursief</string>
@@ -215,7 +217,8 @@
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_collapse_quotes">Geciteerde tekst samenvouwen</string>
     <string name="title_advanced_remote_content">Externe inhoud automatisch weergeven bij het bekijken van originele berichten</string>
-    <string name="title_advanced_actionbar">Actiebalk gesprek</string>
+    <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
+    <string name="title_advanced_actionbar">Toon actiebalk gesprek</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
@@ -412,6 +415,7 @@
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_raw_download">Ruw bericht downloaden</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
+    <string name="title_raw_send">Stuur als bijlage</string>
     <string name="title_manage_keywords">Trefwoorden beheren</string>
     <string name="title_add_keyword">Trefwoord toevoegen</string>
     <string name="title_show_inline">Toon inline bijlagen</string>
@@ -461,6 +465,7 @@
     <string name="title_ask_discard">Concept weggooien?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
+    <string name="title_ask_delete_ref">Verwijder beantwoorde/doorgestuurde berichttekst? Dit kan niet ongedaan worden gemaakt.</string>
     <string name="title_ask_edit_ref">Bewerk opnieuw geformatteerde beantwoorde/doorgestuurde berichttekst?</string>
     <string name="title_ask_sync_all">Alle berichten in %1$s synchroniseren?</string>
     <string name="title_ask_delete_local">Lokale berichten verwijderen? Berichten blijven op de externe server.</string>
@@ -790,5 +795,10 @@
         <item>5 minuten</item>
         <item>10 minuten</item>
         <item>20 minuten</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Aan het begin</item>
+        <item>In het midden</item>
+        <item>Aan het einde</item>
     </string-array>
 </resources>

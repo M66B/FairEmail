@@ -155,6 +155,7 @@
     <string name="title_setup_grey_light_theme">Grått lyst tema</string>
     <string name="title_setup_grey_dark_theme">Grått mørkt tema</string>
     <string name="title_setup_system_theme">System tema</string>
+    <string name="title_setup_grey_system_theme">Grått systemtema</string>
     <string name="title_setup_advanced">Avansert</string>
     <string name="title_setup_options">Alternativer</string>
     <string name="title_setup_defaults">Gjenopprett standarder</string>
@@ -205,6 +206,7 @@
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
     <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
+    <string name="title_advanced_subject_elipsed">Forkorte emnet ved behov</string>
     <string name="title_advanced_flags">Vis stjerner</string>
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
     <string name="title_advanced_preview_italic">Vis forhåndsvisning av melding i kursiv</string>
@@ -215,7 +217,8 @@
     <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
     <string name="title_advanced_collapse_quotes">Kollapse sitert tekst</string>
     <string name="title_advanced_remote_content">Vis automatisk fjerninnhold når du ser på originale meldinger</string>
-    <string name="title_advanced_actionbar">Konversasjons handlingslinje</string>
+    <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
+    <string name="title_advanced_actionbar">Vis samtale handlingslinje</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
@@ -412,6 +415,7 @@
     <string name="title_show_headers">Vis topptekster</string>
     <string name="title_raw_download">Last ned rå melding</string>
     <string name="title_raw_save">Lagre rå melding</string>
+    <string name="title_raw_send">Send som vedlegg</string>
     <string name="title_manage_keywords">Administrer søkeord</string>
     <string name="title_add_keyword">Legg til søkeord</string>
     <string name="title_show_inline">Vis innebygde vedlegg</string>
@@ -461,6 +465,7 @@
     <string name="title_ask_discard">Kast utkast?</string>
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
+    <string name="title_ask_delete_ref">Vil du slette svart/videresendt meldingstekst? Dette kan ikke angres.</string>
     <string name="title_ask_edit_ref">Redigere omformatert svar/videresendt meldingstekst?</string>
     <string name="title_ask_sync_all">Synkroniser alle meldinger i %1$s?</string>
     <string name="title_ask_delete_local">Slett lokale meldinger? Meldinger vil forbli på den eksterne serveren.</string>
@@ -793,5 +798,10 @@
         <item>5 minutter</item>
         <item>10 minutter</item>
         <item>20 minutter</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>I begynnelsen</item>
+        <item>I midten</item>
+        <item>På slutten</item>
     </string-array>
 </resources>

@@ -151,7 +151,10 @@
     <string name="title_setup_light_theme">Lyst tema</string>
     <string name="title_setup_dark_theme">Mørkt tema</string>
     <string name="title_setup_black_theme">Sort tema</string>
+    <string name="title_setup_grey_light_theme">Gråt/lyst tema</string>
+    <string name="title_setup_grey_dark_theme">Mørkegråt tema</string>
     <string name="title_setup_system_theme">Systemtema</string>
+    <string name="title_setup_grey_system_theme">Gråt systemtema</string>
     <string name="title_setup_advanced">Avanceret</string>
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>
@@ -202,6 +205,7 @@
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
+    <string name="title_advanced_subject_elipsed">Når nødvendigt, afkort emnet</string>
     <string name="title_advanced_flags">Vis stjernemarkeringer</string>
     <string name="title_advanced_preview">Forhåndsvisning af beskeder</string>
     <string name="title_advanced_preview_italic">Vis beskedforhåndsvisning med kursiv</string>
@@ -212,7 +216,6 @@
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_remote_content">Auto-vis fjernindhold, når originale beskeder læses</string>
-    <string name="title_advanced_actionbar">Samtale-handlingsbjælke</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
@@ -409,6 +412,7 @@
     <string name="title_show_headers">Vis overskrifter</string>
     <string name="title_raw_download">Download besked i råformat</string>
     <string name="title_raw_save">Gem besked i råformat</string>
+    <string name="title_raw_send">Send som vedhæftning</string>
     <string name="title_manage_keywords">Håndtér stikord</string>
     <string name="title_add_keyword">Tilføj stikord</string>
     <string name="title_show_inline">Vis indlejrede vedhæftninger</string>
@@ -789,5 +793,10 @@
         <item>5 minutter</item>
         <item>10 minutter</item>
         <item>20 minutter</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>I starten</item>
+        <item>I midten</item>
+        <item>Ved slutningen</item>
     </string-array>
 </resources>

@@ -152,7 +152,10 @@
     <string name="title_setup_light_theme">Vaalea teema</string>
     <string name="title_setup_dark_theme">Tumma teema</string>
     <string name="title_setup_black_theme">Musta teema</string>
+    <string name="title_setup_grey_light_theme">Harmaa-vaalea teema</string>
+    <string name="title_setup_grey_dark_theme">Harmaa-tumma teema</string>
     <string name="title_setup_system_theme">Järjestelmän teema</string>
+    <string name="title_setup_grey_system_theme">Harmaa järjestelmän teema</string>
     <string name="title_setup_advanced">Lisäasetukset</string>
     <string name="title_setup_options">Asetukset</string>
     <string name="title_setup_defaults">Palauta oletukset</string>
@@ -203,6 +206,7 @@
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
+    <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
     <string name="title_advanced_flags">Näytä tähdet</string>
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
     <string name="title_advanced_preview_italic">Näytä viestin esikatselu kursiivilla</string>
@@ -213,7 +217,8 @@
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_remote_content">Näytä ulkoinen sisältö automaattisesti alkuperäisissä viesteissä</string>
-    <string name="title_advanced_actionbar">Keskustelujen toimintopalkki</string>
+    <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
+    <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
@@ -410,6 +415,7 @@
     <string name="title_show_headers">Näytä tunnistetiedot</string>
     <string name="title_raw_download">Lataa raakaviesti</string>
     <string name="title_raw_save">Tallenna raakaviesti</string>
+    <string name="title_raw_send">Lähetä liitteenä</string>
     <string name="title_manage_keywords">Hallitse avainsanoja</string>
     <string name="title_add_keyword">Lisää avainsana</string>
     <string name="title_show_inline">Näytä tekstiin upotetut liitteet</string>
@@ -459,6 +465,7 @@
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
+    <string name="title_ask_delete_ref">Poista vastattu/edelleenlähetetty viestiteksti? Tätä ei voi perua.</string>
     <string name="title_ask_edit_ref">Muokkaa uudelleenmuotoiltua vastatun/edelleenlähetetyn viestin tekstiä?</string>
     <string name="title_ask_sync_all">Synkronoi kaikki viestit kansiossa %1$s?</string>
     <string name="title_ask_delete_local">Poistetaanko paikalliset viestit? Viestit säilyvät palvelimella.</string>
@@ -668,6 +675,8 @@
     <string name="title_hint_folder_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_hint_folder_sync">Akun ja verkon käytön rajoittamiseksi kaikkia kansioita ja viestejä ei oletusarvoisesti synkronoida</string>
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, ole hyvä ja käytä tukivalikkoa saadaksesi apua</string>
+    <string name="title_hint_message_actions">Pyyhkäise vasemmalle siirtääksesi roskakoriin; Pyyhkäise oikealle arkistoidaksesi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
+    <string name="title_hint_message_selection">Paina viestiä pitkään aloittaaksesi useamman viestin valinnan; Paina ja vieritä ylös tai alas valitaksesi lisää viestejä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_image_link">Kuvalinkki</string>
     <string name="title_hint_tracking_image">Seurantakuva %1$sx%2$s</string>
@@ -711,6 +720,10 @@
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>
     <string name="title_pro_purchase">Osta</string>
     <string name="title_pro_once">Vain kerran</string>
+    <string name="title_pro_info">        FairEmailin kehittämiseen on kulunut kirjaimellisesti tuhansia tunteja mutta siitä huolimatta useimmat ominaisuudet ovat ilmaisia käyttää.
+        Jotta FairEmailin kehittäminen olisi mahdollista, jotkin mukavuutta tuovat ja edistyneemmät ominaisuudet eivät ole ilmaisia.
+        FairEmail näyttää pienen viestin muistuttaakseen sinua tästä. Viesti poistuu, jos ostat pro-ominaisuudet.
+    </string>
     <string name="title_pro_hint">Pro-ominaisuuksien ostaminen antaa oikeudet käyttää nykyisiä ja tulevia pro-ominaisuuksia sekä auttaa ylläpitämään ja tukemaan tätä sovellusta</string>
     <string name="title_pro_price">Katso <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">nämä usein kysytyt kysymykset</a> pro-ominaisuuksien hinnasta</string>
     <string name="title_pro_pending">Ostos odottaa vahvistusta</string>

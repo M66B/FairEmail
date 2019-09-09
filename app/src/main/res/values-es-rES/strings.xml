@@ -152,7 +152,10 @@
     <string name="title_setup_light_theme">Tema claro</string>
     <string name="title_setup_dark_theme">Tema oscuro</string>
     <string name="title_setup_black_theme">Tema negro</string>
+    <string name="title_setup_grey_light_theme">Tema gris claro</string>
+    <string name="title_setup_grey_dark_theme">Tema gris oscuro</string>
     <string name="title_setup_system_theme">Tema del sistema</string>
+    <string name="title_setup_grey_system_theme">Tema gris del sistema</string>
     <string name="title_setup_advanced">Avanzado</string>
     <string name="title_setup_options">Opciones</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
@@ -203,6 +206,7 @@
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
+    <string name="title_advanced_subject_elipsed">Acortar el asunto cuando sea necesario</string>
     <string name="title_advanced_flags">Mostrar estrellas</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_preview_italic">Mostrar vista previa de mensaje en cursiva</string>
@@ -213,7 +217,6 @@
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
     <string name="title_advanced_remote_content">Mostrar contenido remoto automáticamente al visualizar mensajes originales</string>
-    <string name="title_advanced_actionbar">Barra de acciones de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
@@ -410,6 +413,7 @@
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_raw_download">Descargar mensaje raw</string>
     <string name="title_raw_save">Guardar mensaje raw</string>
+    <string name="title_raw_send">Enviar como adjunto</string>
     <string name="title_manage_keywords">Administrar palabras clave</string>
     <string name="title_add_keyword">Añadir palabra clave</string>
     <string name="title_show_inline">Mostrar adjuntos incrustados</string>
@@ -459,6 +463,7 @@
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
+    <string name="title_ask_delete_ref">¿Eliminar el texto del mensaje contestado/reenviado? Esto no se puede deshacer.</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
     <string name="title_ask_sync_all">Sincronizar todos los mensajes en %1$s?</string>
     <string name="title_ask_delete_local">¿Borrar mensajes locales? Los mensajes permanecerán en el servidor remoto.</string>
@@ -791,5 +796,10 @@
         <item>5 minutos</item>
         <item>10 minutos</item>
         <item>20 minutos</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Al principio</item>
+        <item>En el medio</item>
+        <item>Al final</item>
     </string-array>
 </resources>

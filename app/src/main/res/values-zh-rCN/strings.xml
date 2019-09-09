@@ -140,7 +140,10 @@
     <string name="title_setup_light_theme">亮色主题</string>
     <string name="title_setup_dark_theme">暗色主题</string>
     <string name="title_setup_black_theme">黑色主题</string>
+    <string name="title_setup_grey_light_theme">浅灰色主题</string>
+    <string name="title_setup_grey_dark_theme">深灰色主题</string>
     <string name="title_setup_system_theme">系统主题</string>
+    <string name="title_setup_grey_system_theme">让系统主题变灰</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
@@ -191,6 +194,7 @@
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
+    <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
     <string name="title_advanced_flags">显示星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_preview_italic">斜体字显示消息预览</string>
@@ -201,7 +205,6 @@
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_collapse_quotes">折叠引用的文本</string>
     <string name="title_advanced_remote_content">查看原始消息时自动显示远程内容</string>
-    <string name="title_advanced_actionbar">对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
@@ -398,6 +401,7 @@
     <string name="title_show_headers">显示标题</string>
     <string name="title_raw_download">下载原始消息</string>
     <string name="title_raw_save">保存原始消息</string>
+    <string name="title_raw_send">作为附件发送</string>
     <string name="title_manage_keywords">关键字管理</string>
     <string name="title_add_keyword">添加关键字</string>
     <string name="title_show_inline">显示内嵌附件</string>
@@ -778,5 +782,10 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>5分钟</item>
         <item>10分钟</item>
         <item>20分钟</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>从开头起</item>
+        <item>主题中部</item>
+        <item>主题末尾</item>
     </string-array>
 </resources>

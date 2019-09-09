@@ -152,7 +152,10 @@
     <string name="title_setup_light_theme">Aydınlık tema</string>
     <string name="title_setup_dark_theme">Koyu Tema</string>
     <string name="title_setup_black_theme">Siyah tema</string>
+    <string name="title_setup_grey_light_theme">Açık gri tema</string>
+    <string name="title_setup_grey_dark_theme">Koyu gri tema</string>
     <string name="title_setup_system_theme">Sistem teması</string>
+    <string name="title_setup_grey_system_theme">Gri sistem teması</string>
     <string name="title_setup_advanced">Gelişmiş</string>
     <string name="title_setup_options">Seçenekler</string>
     <string name="title_setup_defaults">Öntanımlıları geri yükle</string>
@@ -210,7 +213,6 @@
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_collapse_quotes">Alıntılanan metni daralt</string>
     <string name="title_advanced_remote_content">Orijinal iletileri görüntülerken uzak içeriği otomatik olarak göster</string>
-    <string name="title_advanced_actionbar">İletişim etkinlik çubuğu</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
@@ -512,6 +514,7 @@
     <string name="title_sort_on_subject">Konu</string>
     <string name="title_sort_on_size">Boyut</string>
     <string name="title_sort_on_snoozed">Ertelendi</string>
+    <string name="title_sort_ascending">Önce en eski</string>
     <string name="title_filter">Filtreleme</string>
     <string name="title_filter_seen">Oku</string>
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>
@@ -683,6 +686,8 @@
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>
     <string name="title_via">Şu yol ile: %1$s</string>
+    <string name="title_1hour">1 saat</string>
+    <string name="title_1day">1 gün</string>
     <string name="title_icalendar_accept">Kabul</string>
     <string name="title_icalendar_decline">Reddet</string>
     <string name="title_icalendar_maybe">Olabilir</string>
@@ -765,5 +770,10 @@
         <item>5 Dakika</item>
         <item>10 Dakika</item>
         <item>20 Dakika</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Başlangıçta</item>
+        <item>Ortada</item>
+        <item>Sonunda</item>
     </string-array>
 </resources>
