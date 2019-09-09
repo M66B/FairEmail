@@ -55,6 +55,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swNameEmail;
     private SwitchCompat swSubjectTop;
     private SwitchCompat swSubjectItalic;
+    private Spinner spSubjectEllipsize;
     private SwitchCompat swFlags;
     private SwitchCompat swPreview;
     private SwitchCompat swPreviewItalic;
@@ -70,7 +71,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "threading", "highlight_unread",
-            "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_top", "subject_italic",
+            "avatars", "generated_icons", "identicons", "circular", "name_email", "subject_top", "subject_italic", "subject_ellipsize",
             "flags", "preview", "preview_italic", "addresses", "attachments_alt",
             "contrast", "monospaced", "inline_images", "collapse_quotes", "autocontent", "actionbar",
     };
@@ -98,6 +99,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNameEmail = view.findViewById(R.id.swNameEmail);
         swSubjectTop = view.findViewById(R.id.swSubjectTop);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
+        spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
         swFlags = view.findViewById(R.id.swFlags);
         swPreview = view.findViewById(R.id.swPreview);
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
@@ -215,6 +217,19 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subject_italic", checked).apply();
+            }
+        });
+
+        spSubjectEllipsize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.ellipsizeValues);
+                prefs.edit().putString("subject_ellipsize", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("subject_ellipsize").apply();
             }
         });
 
@@ -361,6 +376,15 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
         swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
+
+        String subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
+        String[] ellipsizeValues = getResources().getStringArray(R.array.ellipsizeValues);
+        for (int pos = 0; pos < startupValues.length; pos++)
+            if (ellipsizeValues[pos].equals(subject_ellipsize)) {
+                spSubjectEllipsize.setSelection(pos);
+                break;
+            }
+
         swFlags.setChecked(prefs.getBoolean("flags", true));
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swPreviewItalic.setChecked(prefs.getBoolean("preview_italic", true));

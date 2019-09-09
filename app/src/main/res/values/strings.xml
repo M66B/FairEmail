@@ -243,6 +243,7 @@
     <string name="title_advanced_name_email">Show names and email addresses</string>
     <string name="title_advanced_subject_top">Show subject above sender</string>
     <string name="title_advanced_subject_italic">Show subject in italics</string>
+    <string name="title_advanced_subject_elipsed">When needed shorten the subject</string>
     <string name="title_advanced_flags">Show stars</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_preview_italic">Show message preview in italics</string>
@@ -960,6 +961,18 @@
         <item>5 minutes</item>
         <item>10 minutes</item>
         <item>20 minutes</item>
+    </string-array>
+
+    <string-array name="ellipsizeValues" translatable="false">
+        <item>start</item>
+        <item>middle</item>
+        <item>end</item>
+    </string-array>
+
+    <string-array name="ellipsizeNames">
+        <item>At the start</item>
+        <item>In the middle</item>
+        <item>At the end</item>
     </string-array>
 
     <array name="colorPicker">

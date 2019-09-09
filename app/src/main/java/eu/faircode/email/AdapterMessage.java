@@ -186,6 +186,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean name_email;
     private boolean subject_top;
     private boolean subject_italic;
+    private String subject_ellipsize;
+
     private boolean flags;
     private boolean preview;
     private boolean preview_italic;
@@ -370,11 +372,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnHelp = itemView.findViewById(R.id.btnHelp);
             pbLoading = itemView.findViewById(R.id.pbLoading);
 
-            if (subject_top) {
-                TextUtils.TruncateAt ellipsize = tvFrom.getEllipsize();
-                tvFrom.setEllipsize(tvSubject.getEllipsize());
-                tvSubject.setEllipsize(ellipsize);
-            }
+            if (compact)
+                if ("start".equals(subject_ellipsize))
+                    tvSubject.setEllipsize(TextUtils.TruncateAt.START);
+                else if ("end".equals(subject_ellipsize))
+                    tvSubject.setEllipsize(TextUtils.TruncateAt.END);
+                else
+                    tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
         }
 
         private void ensureExpanded() {
@@ -3132,6 +3136,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.name_email = prefs.getBoolean("name_email", false);
         this.subject_top = prefs.getBoolean("subject_top", false);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
+        this.subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
         this.flags = prefs.getBoolean("flags", true);
         this.preview = prefs.getBoolean("preview", false);
         this.preview_italic = prefs.getBoolean("preview_italic", true);
