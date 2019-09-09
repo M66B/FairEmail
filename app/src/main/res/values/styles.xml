@@ -110,7 +110,7 @@
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
         <item name="colorAccent">@color/greyAccent</item>
 
-        <item name="colorUnread">@color/greyAccent</item>
+        <item name="colorUnread">@color/greyAccentDark</item>
 
         <item name="colorFabBackground">@color/greyAccent</item>
 
@@ -129,10 +129,10 @@
 
         <item name="colorActionBackground">@color/greyPrimary</item>
 
-        <item name="colorFabBackground">@color/greyAccent</item>
+        <item name="colorFabBackground">@color/greyAccentDark</item>
 
         <item name="colorToastForeground">@android:color/white</item>
-        <item name="colorToastBackground">@color/greyAccent</item>
+        <item name="colorToastBackground">@color/greyAccentDark</item>
 
         <item name="android:windowBackground">@android:color/black</item>
         <item name="colorDrawerBackground">@android:color/black</item>

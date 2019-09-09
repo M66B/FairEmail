@@ -18,6 +18,7 @@
     <color name="greyPrimary">#424242</color>
     <color name="greyPrimaryDark">#1b1b1b</color>
     <color name="greyAccent">#90a4ae</color>
+    <color name="greyAccentDark">#62757f</color>
 
     <color name="colorActionForeground">#fff</color>
     <color name="colorActionForegroundDisabled">#ccc</color>
