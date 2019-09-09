@@ -114,7 +114,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(19) Why are the pro features so expensive?](#user-content-faq19)
 * [(20) Can I get a refund?](#user-content-faq20)
 * [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out', 'Broken pipe', 'ParseException' and 'SendFailedException' mean?](#user-content-faq22)
+* [(22) What does account/folder error ... mean?](#user-content-faq22)
 * [(23) Why do I get 'Too many simultaneous connections' or 'Maximum number of connections ... exceeded' ?](#user-content-faq23)
 * [(24) What is browse messages on the server?](#user-content-faq24)
 * [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
@@ -222,6 +222,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
 * [(129) Is ProtonMail supported?](#user-content-faq129)
+* [(130) What does message error ... mean?](#user-content-faq130)
 
 [I have another question.](#support)
 
@@ -662,30 +663,24 @@ but such apps cannot be updated anymore and recent Android versions will show a 
 <br />
 
 <a name="faq22"></a>
-**(22) What do 'Couldn't connect to host', 'Connection refused', 'Network unreachable', 'Software caused connection abort', 'BYE Logging out', 'Connection closed/reset by peer', 'Read timed out', 'Broken pipe', 'ParseException' and 'SendFailedException' mean?**
+**(22) What does account/folder error ... mean?**
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
 Also, FairEmail will always retry again later, so transient errors will automatically be solved.
 
-The messages *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
+The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
 mean that FairEmail was not able to connect to the email server.
 
-The message *... Software caused connection abort ...*
+The error *... Software caused connection abort ...*
 means that the email server or something between FairEmail and the email server actively terminated an existing connection.
 This can for example happen when connectivity was abruptly lost. A typical example is turning on flight mode.
 
-The message *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
+The error *... BYE Logging out ...*, *... Connection reset by peer ...* or *... Broken pipe ...* means that the email server actively terminated an existing connection.
 
-The message *... Connection closed by peer ...* might be caused by a not updated Exchange server,
+The error *... Connection closed by peer ...* might be caused by a not updated Exchange server,
 see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-The message *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
-
-The message *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software.
-FairEmail will workaround this is most cases, so this message can mostly be considered as a warning instead of an error.
-
-The message *...SendFailedException...* means that there was a problem with sending a message.
-The message will almost always include a reason. Common reasons are that the message is too big or that one or more recipient addresses are invalid.
+The error *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
@@ -2204,6 +2199,17 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 ProtonMail uses a proprietary email protocol
 and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/),
 so you cannot use FairEmail to access ProtonMail.
+
+<a name="faq130"></a>
+**(130) What does message error ... mean?**
+
+The error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software.
+FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
+
+The error *...SendFailedException...* means that there was a problem while sending a message.
+The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
+
+Please see [here](#user-content-faq22) for other error messages in the outbox.
 
 ## Support
 

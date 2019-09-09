@@ -1775,7 +1775,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onHelp(TupleMessageEx message) {
-            Helper.viewFAQ(context, 22);
+            Helper.viewFAQ(context, 130);
         }
 
         private void onSearchContact(TupleMessageEx message) {
