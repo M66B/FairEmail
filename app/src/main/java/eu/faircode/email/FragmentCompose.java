@@ -1347,6 +1347,9 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAddMedia(Intent data) {
+        Log.i("Add media data=" + data);
+        Log.logExtras(data);
+
         ClipData clipData = data.getClipData();
         if (clipData == null) {
             Uri uri = data.getData();
