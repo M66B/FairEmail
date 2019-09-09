@@ -151,6 +151,8 @@
     <string name="title_setup_light_theme">Tema chiaro</string>
     <string name="title_setup_dark_theme">Tema scuro</string>
     <string name="title_setup_black_theme">Tema nero</string>
+    <string name="title_setup_grey_light_theme">Tema grigio chiaro</string>
+    <string name="title_setup_grey_dark_theme">Tema grigio scuro</string>
     <string name="title_setup_system_theme">Tema di sistema</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_setup_options">Opzioni</string>
