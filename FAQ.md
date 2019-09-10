@@ -63,6 +63,8 @@ Please see [here](#user-content-faq22) for common error messages.
 * ~~Send as attachment~~
 * ~~Widget for selected account~~ (the unified inbox is / can be composed of selected folders already, so I see no real need for this complication)
 * Search for settings
+* Show individual images
+* Remind to attach files
 
 Anything on this list is in random order and *might* be added in the near future.
 
