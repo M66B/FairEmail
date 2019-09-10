@@ -153,6 +153,18 @@
                 app:layout_constraintTop_toBottomOf="@id/tvLookupMxHint"
                 app:switchPadding="12dp" />
 
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swCheckAttachments"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:checked="true"
+                android:text="@string/title_advanced_missing_attachments"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/swAutoSend"
+                app:switchPadding="12dp" />
+
             <TextView
                 android:id="@+id/tvSendDelayed"
                 android:layout_width="0dp"
@@ -164,7 +176,7 @@
                 android:textColor="?android:attr/textColorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swAutoSend" />
+                app:layout_constraintTop_toBottomOf="@id/swCheckAttachments" />
 
             <Spinner
                 android:id="@+id/spSendDelayed"

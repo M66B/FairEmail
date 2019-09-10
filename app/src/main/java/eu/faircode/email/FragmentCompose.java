@@ -50,8 +50,10 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.LocaleList;
 import android.os.Looper;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
@@ -203,6 +205,7 @@ public class FragmentCompose extends FragmentBase {
     private long working = -1;
     private State state = State.NONE;
     private boolean show_images = false;
+    private boolean reminded = false;
     private boolean autosave = false;
     private boolean busy = false;
 
@@ -234,6 +237,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_LINK = 15;
     private static final int REQUEST_DISCARD = 16;
     private static final int REQUEST_SEND = 17;
+    private static final int REQUEST_REMIND = 18;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -756,6 +760,7 @@ public class FragmentCompose extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putLong("fair:working", working);
         outState.putBoolean("fair:show_images", show_images);
+        outState.putBoolean("fair:reminded", reminded);
         outState.putParcelable("fair:photo", photoURI);
         super.onSaveInstanceState(outState);
     }
@@ -804,6 +809,7 @@ public class FragmentCompose extends FragmentBase {
         } else {
             working = savedInstanceState.getLong("fair:working");
             show_images = savedInstanceState.getBoolean("fair:show_images");
+            reminded = savedInstanceState.getBoolean("fair:reminded");
             photoURI = savedInstanceState.getParcelable("fair:photo");
 
             Bundle args = new Bundle();
@@ -1218,6 +1224,11 @@ public class FragmentCompose extends FragmentBase {
             onAction(R.id.action_send);
     }
 
+    private void onActionReminded() {
+        reminded = true;
+        onAction(R.id.action_send);
+    }
+
     private void onEncrypt() {
         if (pgpService.isBound())
             try {
@@ -1326,6 +1337,10 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_SEND:
                     if (resultCode == RESULT_OK)
                         onActionSendConfirmed();
+                    break;
+                case REQUEST_REMIND:
+                    if (resultCode == RESULT_OK)
+                        onActionReminded();
                     break;
             }
         } catch (Throwable ex) {
@@ -1932,6 +1947,7 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("plain_only", plain_only);
         args.putBoolean("encrypt", encrypt);
         args.putBoolean("empty", isEmpty());
+        args.putBoolean("reminded", reminded);
 
         Log.i("Run execute id=" + working);
         actionLoader.execute(this, args, "compose:action:" + action);
@@ -2663,6 +2679,7 @@ public class FragmentCompose extends FragmentBase {
             boolean plain_only = args.getBoolean("plain_only");
             boolean encrypt = args.getBoolean("encrypt");
             boolean empty = args.getBoolean("empty");
+            boolean reminded = args.getBoolean("reminded");
 
             EntityMessage draft;
 
@@ -2932,10 +2949,37 @@ public class FragmentCompose extends FragmentBase {
                         if (draft.to == null && draft.cc == null && draft.bcc == null)
                             throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
 
-                        // Save attachments
+                        // Check attachments
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.available)
                                 throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
+
+                        boolean check_attachments = prefs.getBoolean("check_attachments", true);
+                        if (check_attachments && !reminded && attachments.size() == 0) {
+                            List<String> keywords = new ArrayList<>();
+
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                                String[] k = context.getString(R.string.title_attachment_keywords).split(",");
+                                keywords.addAll(Arrays.asList(k));
+                            } else {
+                                Configuration config = context.getResources().getConfiguration();
+                                LocaleList ll = context.getResources().getConfiguration().getLocales();
+                                for (int i = 0; i < ll.size(); i++) {
+                                    Configuration lconf = new Configuration(config);
+                                    lconf.setLocale(ll.get(i));
+                                    Context lcontext = context.createConfigurationContext(lconf);
+                                    String[] k = lcontext.getString(R.string.title_attachment_keywords).split(",");
+                                    keywords.addAll(Arrays.asList(k));
+                                }
+                            }
+
+                            String plain = HtmlHelper.getText(body);
+                            for (String keyword : keywords)
+                                if (plain.matches("(?si).*\\b" + Pattern.quote(keyword.trim()) + "\\b.*")) {
+                                    args.putBoolean("remind", true);
+                                    return draft;
+                                }
+                        }
 
                         // Delete draft (cannot move to outbox)
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
@@ -3025,8 +3069,14 @@ public class FragmentCompose extends FragmentBase {
                 onEncrypt();
 
             } else if (action == R.id.action_send) {
-                autosave = false;
-                finish();
+                if (args.getBoolean("remind", false)) {
+                    FragmentDialogRemind remind = new FragmentDialogRemind();
+                    remind.setTargetFragment(FragmentCompose.this, FragmentCompose.REQUEST_REMIND);
+                    remind.show(getFragmentManager(), "compose:remind");
+                } else {
+                    autosave = false;
+                    finish();
+                }
             }
         }
 
@@ -3682,6 +3732,40 @@ public class FragmentCompose extends FragmentBase {
                             String link = etLink.getText().toString();
                             getArguments().putString("link", link);
                             sendResult(RESULT_OK);
+                        }
+                    })
+                    .create();
+        }
+    }
+
+    public static class FragmentDialogRemind extends FragmentDialogEx {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
+            TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+            tvMessage.setText(R.string.title_attachment_reminder);
+
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("check_attachments", false).apply();
+                            sendResult(Activity.RESULT_CANCELED);
+                        }
+                    })
+                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("check_attachments", false).apply();
+                            sendResult(Activity.RESULT_OK);
                         }
                     })
                     .create();

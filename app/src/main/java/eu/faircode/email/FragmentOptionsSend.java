@@ -50,10 +50,12 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private TextView tvAutoResize;
     private SwitchCompat swLookupMx;
     private SwitchCompat swAutoSend;
+    private SwitchCompat swCheckAttachments;
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "suggest_local", "prefix_once", "plain_only", "usenet_signature", "autoresize", "resize", "lookup_mx", "autosend", "send_delayed"
+            "keyboard", "suggest_local", "prefix_once", "plain_only", "usenet_signature",
+            "autoresize", "resize", "lookup_mx", "autosend", "check_attachments", "send_delayed"
     };
 
     @Override
@@ -76,6 +78,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
         swLookupMx = view.findViewById(R.id.swLookupMx);
         swAutoSend = view.findViewById(R.id.swAutoSend);
+        swCheckAttachments = view.findViewById(R.id.swCheckAttachments);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
 
         setOptions();
@@ -152,6 +155,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autosend", !checked).apply();
+            }
+        });
+
+        swCheckAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("check_attachments", checked).apply();
             }
         });
 
@@ -234,6 +244,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
         swAutoSend.setChecked(!prefs.getBoolean("autosend", false));
+        swCheckAttachments.setChecked(prefs.getBoolean("check_attachments", true));
 
         int send_delayed = prefs.getInt("send_delayed", 0);
         int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);

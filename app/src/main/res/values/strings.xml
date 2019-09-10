@@ -222,6 +222,7 @@
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Check recipient email addresses before sending</string>
     <string name="title_advanced_autosend">Confirm sending messages</string>
+    <string name="title_advanced_missing_attachments">Check for missing attachments</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
 
     <string name="title_advanced_metered">Use metered connections</string>
