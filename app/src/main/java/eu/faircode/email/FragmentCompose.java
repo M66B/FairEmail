@@ -739,7 +739,6 @@ public class FragmentCompose extends FragmentBase {
 
     private void onReferenceImages() {
         show_images = true;
-        onAction(R.id.action_save);
         showDraft(working);
     }
 
@@ -1027,13 +1026,55 @@ public class FragmentCompose extends FragmentBase {
     private void onMenuPlainOnly() {
         plain_only = !plain_only;
         getActivity().invalidateOptionsMenu();
-        onAction(R.id.action_save);
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putBoolean("plain_only", plain_only);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                boolean plain_only = args.getBoolean("plain_only");
+
+                DB db = DB.getInstance(context);
+                db.message().setMessagePlainOnly(id, plain_only);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(this, args, "compose:plain_only");
     }
 
     private void onMenuEncrypt() {
         encrypt = !encrypt;
         getActivity().invalidateOptionsMenu();
-        onAction(R.id.action_save);
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putBoolean("encrypt", encrypt);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                boolean encrypt = args.getBoolean("encrypt");
+
+                DB db = DB.getInstance(context);
+                db.message().setMessageEncrypt(id, encrypt);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(this, args, "compose:encrypt");
     }
 
     private void onMenuSendAfter() {
@@ -1410,6 +1451,7 @@ public class FragmentCompose extends FragmentBase {
                     etBody.setText(HtmlHelper.fromHtml(html, cidGetter, null));
                 }
 
+                // Save text & update remote draft
                 onAction(R.id.action_save);
             }
 
@@ -2515,16 +2557,14 @@ public class FragmentCompose extends FragmentBase {
                             for (EntityAttachment attachment : attachments) {
                                 if (attachment.available)
                                     available++;
-                                if (attachment.progress != null) {
+                                if (attachment.progress != null)
                                     downloading = true;
-                                    break;
-                                }
                             }
 
                             Log.i("Attachments=" + attachments.size() +
                                     " available=" + available + " downloading=" + downloading);
 
-                            // Attachment deleted
+                            // Attachment deleted: update remote draft
                             if (available < last_available)
                                 onAction(R.id.action_save);
 
