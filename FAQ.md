@@ -63,7 +63,7 @@ Please see [here](#user-content-faq22) for common error messages.
 * ~~Send as attachment~~
 * ~~Widget for selected account~~ (the unified inbox is / can be composed of selected folders already, so I see no real need for this complication)
 * Search for settings
-* Show individual images
+* Select domains to show images for
 * Remind to attach files
 
 Anything on this list is in random order and *might* be added in the near future.
@@ -403,7 +403,8 @@ If you use multiple Gmail accounts, make sure you change the "less secure apps" 
 
 Be aware that you need to leave the "less secure apps" settings screen by using the back arrow to apply the setting.
 
-If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account.
+If you use this method, you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Gmail account, which is a good idea anyway.
+Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure.
 
 When "less secure apps" is not enabled,
 you'll get the error *Authentication failed - invalid credentials* for accounts (IMAP)
@@ -1725,7 +1726,8 @@ You might need to enable "*less secure sign in*" for "*outdated*" apps,
 see [here](https://help.yahoo.com/kb/grant-temporary-access-outdated-apps-account-settings-sln27791.html) for more information.
 You can directly access this setting [here](https://login.yahoo.com/account/security#less-secure-apps).
 
-Note that FairEmail is using the standard [IMAP protocol](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol), which is really not outdated.
+If you enable "*less secure sign in*", you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Yahoo! account, which is a good idea anyway.
+Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure and not outdated.
 
 <br />
 
