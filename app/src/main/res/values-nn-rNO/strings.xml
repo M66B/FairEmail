@@ -156,6 +156,7 @@
     <string name="title_setup_grey_dark_theme">Grått mørkt tema</string>
     <string name="title_setup_system_theme">System tema</string>
     <string name="title_setup_grey_system_theme">Grått systemtema</string>
+    <string name="title_setup_system_theme_hint">System temaene skifter automatisk lys/mørk på dag/natt, hvis de støttes av Android</string>
     <string name="title_setup_advanced">Avansert</string>
     <string name="title_setup_options">Alternativer</string>
     <string name="title_setup_defaults">Gjenopprett standarder</string>
@@ -507,6 +508,8 @@
     <string name="title_send_plain_text">Send bare ren tekst</string>
     <string name="title_from_missing">Avsender mangler</string>
     <string name="title_to_missing">Mottaker mangler</string>
+    <string name="title_attachment_keywords">festet, feste, vedlegg, inkludert</string>
+    <string name="title_attachment_reminder">Hadde du tenkt å legge til et vedlegg?</string>
     <string name="title_attachments_missing">Ikke alle vedlegg er lastet ned</string>
     <string name="title_draft_deleted">Utkast forkastet</string>
     <string name="title_draft_saved">Utkast lagret</string>

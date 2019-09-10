@@ -155,6 +155,7 @@
     <string name="title_setup_grey_dark_theme">Mørkegråt tema</string>
     <string name="title_setup_system_theme">Systemtema</string>
     <string name="title_setup_grey_system_theme">Gråt systemtema</string>
+    <string name="title_setup_system_theme_hint">Systemtemaerne skifter automatisk til lys/mørk dag/nat, hvis understøttet af Android</string>
     <string name="title_setup_advanced">Avanceret</string>
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>
@@ -216,6 +217,8 @@
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_remote_content">Auto-vis fjernindhold, når originale beskeder læses</string>
+    <string name="title_advanced_seekbar">Vis relativ samtaleposition med en prik</string>
+    <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
@@ -462,6 +465,7 @@
     <string name="title_ask_discard">Kassér kladde?</string>
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
+    <string name="title_ask_delete_ref">Slet besvaret/videresendt beskedtekst? Dette kan ikke fortrydes.</string>
     <string name="title_ask_edit_ref">Redigér omformateret besvaret/videresendt beskedtekst?</string>
     <string name="title_ask_sync_all">Synkronisér alle beskeder i %1$s?</string>
     <string name="title_ask_delete_local">Slet lokale beskeder? Beskeder forbliver på den eksterne server.</string>
@@ -503,6 +507,8 @@
     <string name="title_send_plain_text">Send kun som simpel tekst</string>
     <string name="title_from_missing">Afsender mangler</string>
     <string name="title_to_missing">Modtager mangler</string>
+    <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
+    <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
     <string name="title_draft_deleted">Kladde kasseret</string>
     <string name="title_draft_saved">Kladde gemt</string>

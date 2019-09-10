@@ -156,6 +156,7 @@
     <string name="title_setup_grey_dark_theme">Harmaa-tumma teema</string>
     <string name="title_setup_system_theme">Järjestelmän teema</string>
     <string name="title_setup_grey_system_theme">Harmaa järjestelmän teema</string>
+    <string name="title_setup_system_theme_hint">Järjestelmän teemat vaihtuvat automaattisesti vaaleaksi/tummaksi päivällä/yöllä, jos Android tukee sitä</string>
     <string name="title_setup_advanced">Lisäasetukset</string>
     <string name="title_setup_options">Asetukset</string>
     <string name="title_setup_defaults">Palauta oletukset</string>
@@ -507,6 +508,8 @@
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
+    <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
+    <string name="title_attachment_reminder">Oli tarkoituksenasi lisätä liite?</string>
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
     <string name="title_draft_deleted">Luonnos hylätty</string>
     <string name="title_draft_saved">Luonnos tallennettu</string>

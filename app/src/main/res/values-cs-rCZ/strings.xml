@@ -178,6 +178,7 @@
     <string name="title_setup_grey_dark_theme">Šedý tmavý motiv</string>
     <string name="title_setup_system_theme">Motiv systému</string>
     <string name="title_setup_grey_system_theme">Šedý systémový motiv</string>
+    <string name="title_setup_system_theme_hint">Podporuje-li to Android, systémové motivy se ve dne/noci automaticky přepnou mezi světlým/tmavým zobrazením</string>
     <string name="title_setup_advanced">Pokročilé</string>
     <string name="title_setup_options">Možnosti</string>
     <string name="title_setup_defaults">Obnovit výchozí</string>
@@ -228,7 +229,7 @@
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
-    <string name="title_advanced_subject_elipsed">Zkrátit předmět, je-li potřeba</string>
+    <string name="title_advanced_subject_elipsed">V případě potřeby zestručnit předmět</string>
     <string name="title_advanced_flags">Zobrazit hvězdičky</string>
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
@@ -529,6 +530,8 @@
     <string name="title_send_plain_text">Odeslat pouze prostý text</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
+    <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
+    <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>
@@ -697,7 +700,7 @@
     <string name="title_hint_folder_actions">Dlouze podržet pro možnosti</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
-    <string name="title_hint_message_actions">Tažením doleva hodit do koše; tažením doprava archivovat (pokud je k dispozici); Akce tažením lze změnit v nastavení účtu</string>
+    <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (pokud je k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte výběr zpráv; držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_image_link">Odkaz obrázku</string>

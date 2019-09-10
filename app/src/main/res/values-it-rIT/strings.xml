@@ -155,6 +155,7 @@
     <string name="title_setup_grey_dark_theme">Tema grigio scuro</string>
     <string name="title_setup_system_theme">Tema di sistema</string>
     <string name="title_setup_grey_system_theme">Tema di sistema grigio</string>
+    <string name="title_setup_system_theme_hint">I temi di sistema passeranno automaticamente a chiaro/scuro a seconda sia giorno o notte, se supportato da Android</string>
     <string name="title_setup_advanced">Avanzate</string>
     <string name="title_setup_options">Opzioni</string>
     <string name="title_setup_defaults">Ripristina predefiniti</string>
@@ -205,7 +206,7 @@
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
-    <string name="title_advanced_subject_elipsed">Quando necessario accorciare l\'oggetto</string>
+    <string name="title_advanced_subject_elipsed">Quando necessario, accorcia l\'oggetto</string>
     <string name="title_advanced_flags">Mostra stelle</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_preview_italic">Mostra anteprima messaggio corsivo</string>
@@ -506,6 +507,8 @@
     <string name="title_send_plain_text">Invia solo testo semplice</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
+    <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
+    <string name="title_attachment_reminder">Intende aggiungere un allegato?</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>
     <string name="title_draft_deleted">Bozza eliminata</string>
     <string name="title_draft_saved">Bozza salvata</string>

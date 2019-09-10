@@ -144,6 +144,7 @@
     <string name="title_setup_grey_dark_theme">深灰色主题</string>
     <string name="title_setup_system_theme">系统主题</string>
     <string name="title_setup_grey_system_theme">让系统主题变灰</string>
+    <string name="title_setup_system_theme_hint">如果Android支持，系统主题将在白天/夜间自动切换亮色/暗色主题</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
@@ -205,6 +206,8 @@
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_collapse_quotes">折叠引用的文本</string>
     <string name="title_advanced_remote_content">查看原始消息时自动显示远程内容</string>
+    <string name="title_advanced_seekbar">用一个点显示相对对话位置</string>
+    <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
@@ -451,6 +454,7 @@
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
+    <string name="title_ask_delete_ref">删除回复/转发的消息文本？此操作无法撤销。</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
     <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
@@ -492,6 +496,8 @@
     <string name="title_send_plain_text">仅发送纯文本</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
+    <string name="title_attachment_keywords">至少包含一个附件</string>
+    <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>

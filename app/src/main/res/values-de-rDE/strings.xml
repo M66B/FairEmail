@@ -4,7 +4,7 @@
     <string name="app_search">FairEmail-Suche</string>
     <string name="app_changelog">Änderungsprotokoll</string>
     <string name="app_welcome">FairEmail ist eine Open Source E-Mail-App mit dem Fokus auf Privatsphäre und Sicherheit. Aus diesem Grund können einige Funktionen anders funktionieren als Sie es gewohnt sind.</string>
-    <string name="app_limitations">Beispielsweise werden Nachrichten neu formatiert um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zu erhöhen, muss das Öffnen eines Links vorab bestätigt werden.</string>
+    <string name="app_limitations">Beispielsweise werden Nachrichten automatisch neu formatiert um unsichere Elemente zu entfernen und die Lesbarkeit zu erhöhen. Um die Sicherheit zusätzlich zu erhöhen, muss das Öffnen von Links vorab bestätigt werden.</string>
     <string name="app_crash">FairEmail wird auf diesem Gerät nicht unterstützt, da Fehler in der benutzten Android-Version Abstürze verursachen</string>
     <string name="app_exit">„Zurück” erneut drücken, um zu beenden</string>
     <string name="channel_service">Dienst</string>
@@ -66,7 +66,7 @@
         <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
     </plurals>
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
-    <string name="title_notification_waiting">Auf eine geeignete Verbindung wird gewartet</string>
+    <string name="title_notification_waiting">Warte auf eine geeignete Verbindung</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -77,7 +77,7 @@
     <string name="menu_legend">Legende</string>
     <string name="menu_faq">Unterstützung</string>
     <string name="menu_issue">Problem melden</string>
-    <string name="menu_attribution">Eigenschaften</string>
+    <string name="menu_attribution">Danksagung</string>
     <string name="menu_privacy">Datenschutz</string>
     <string name="menu_about">Über</string>
     <string name="menu_pro">Pro-Funktionen</string>
@@ -152,9 +152,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_dark_theme">Dunkles Design</string>
     <string name="title_setup_black_theme">Schwarzes Design</string>
     <string name="title_setup_grey_light_theme">Graues Design auf hellem Untergrund</string>
-    <string name="title_setup_grey_dark_theme">Dunkelgraues Design</string>
+    <string name="title_setup_grey_dark_theme">Graues Design auf dunklem Hintergrund</string>
     <string name="title_setup_system_theme">System-Design</string>
     <string name="title_setup_grey_system_theme">Graues System-Design</string>
+    <string name="title_setup_system_theme_hint">Das System-Design wird abhängig von der Tageszeit automatisch zwischen hell und dunkel wechseln, falls von Android unterstützt</string>
     <string name="title_setup_advanced">Erweitert</string>
     <string name="title_setup_options">Optionen</string>
     <string name="title_setup_defaults">Auf Standard zurücksetzen</string>
@@ -415,8 +416,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_raw_download">Rohdaten runterladen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>
-    <string name="title_manage_keywords">Schlagwörter verwalten</string>
-    <string name="title_add_keyword">Schlagwort hinzufügen</string>
+    <string name="title_manage_keywords">Labels verwalten</string>
+    <string name="title_add_keyword">Label hinzufügen</string>
     <string name="title_show_inline">Eingebettete Anhänge anzeigen</string>
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
@@ -506,6 +507,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_send_plain_text">Nur Text senden</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
+    <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen</string>
+    <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>

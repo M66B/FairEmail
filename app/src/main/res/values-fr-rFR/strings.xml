@@ -152,10 +152,11 @@
     <string name="title_setup_light_theme">Thème clair</string>
     <string name="title_setup_dark_theme">Thème sombre</string>
     <string name="title_setup_black_theme">Thème noir</string>
-    <string name="title_setup_grey_light_theme">Thème gris clair</string>
-    <string name="title_setup_grey_dark_theme">Thème gris foncé</string>
+    <string name="title_setup_grey_light_theme">Thème clair gris</string>
+    <string name="title_setup_grey_dark_theme">Thème sombre gris</string>
     <string name="title_setup_system_theme">Thème système</string>
     <string name="title_setup_grey_system_theme">Thème système gris</string>
+    <string name="title_setup_system_theme_hint">Les thèmes système basculeront automatiquement en mode clair/sombre le jour/la nuit si pris en charge par Android</string>
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
@@ -507,6 +508,8 @@
     <string name="title_send_plain_text">Envoyer en texte brut uniquement</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
+    <string name="title_attachment_keywords">pièce jointe,pièces jointes,incluse,incluses</string>
+    <string name="title_attachment_reminder">Avez-vous l\'intention d\'ajouter une pièce jointe ?</string>
     <string name="title_attachments_missing">Les pièces jointes ne sont pas toutes téléchargées</string>
     <string name="title_draft_deleted">Brouillon supprimé</string>
     <string name="title_draft_saved">Brouillon enregistré</string>

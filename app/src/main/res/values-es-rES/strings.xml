@@ -156,6 +156,7 @@
     <string name="title_setup_grey_dark_theme">Tema gris oscuro</string>
     <string name="title_setup_system_theme">Tema del sistema</string>
     <string name="title_setup_grey_system_theme">Tema gris del sistema</string>
+    <string name="title_setup_system_theme_hint">Los temas del sistema cambiarán automáticamente a claro/oscuro durante el día/noche, si es compatible con Android</string>
     <string name="title_setup_advanced">Avanzado</string>
     <string name="title_setup_options">Opciones</string>
     <string name="title_setup_defaults">Restablecer ajustes por defecto</string>
@@ -217,6 +218,8 @@
     <string name="title_advanced_images_inline">Mostrar imágenes embebidas automáticamente</string>
     <string name="title_advanced_collapse_quotes">Colapsar texto citado</string>
     <string name="title_advanced_remote_content">Mostrar contenido remoto automáticamente al visualizar mensajes originales</string>
+    <string name="title_advanced_seekbar">Mostrar posición relativa de conversación con un punto</string>
+    <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
@@ -505,6 +508,8 @@
     <string name="title_send_plain_text">Enviar sólo texto plano</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
+    <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
+    <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
     <string name="title_draft_deleted">Borrador eliminado</string>
     <string name="title_draft_saved">Borrador guardado</string>
