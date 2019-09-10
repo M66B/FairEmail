@@ -11,8 +11,8 @@
     <color name="colorError">#ff0000</color>
 
     <!-- Light blue 900 -->
-    <color name="blackPrimary">#01579b</color>
-    <color name="blackPrimaryDark">#002f6c</color>
+    <color name="darkPrimary">#01579b</color>
+    <color name="darkPrimaryDark">#002f6c</color>
 
     <!-- Grey 800 / Blue grey 300 -->
     <color name="greyPrimary">#424242</color>
