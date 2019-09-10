@@ -100,9 +100,10 @@ public class EntityOperation {
         long folder = message.folder;
         try {
             if (SEEN.equals(name)) {
+                boolean seen = jargs.getBoolean(0);
                 boolean ignore = jargs.optBoolean(1, true);
                 for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
-                    db.message().setMessageUiSeen(similar.id, jargs.getBoolean(0));
+                    db.message().setMessageUiSeen(similar.id, seen);
                     db.message().setMessageUiIgnored(similar.id, ignore);
                 }
 
