@@ -34,9 +34,9 @@
 
         <item name="colorCardBackground">@color/lightColorCardBackground</item>
 
-        <item name="colorActionForeground">@color/colorActionForeground</item>
-        <item name="colorActionForegroundDisabled">@color/colorActionForegroundDisabled</item>
-        <item name="colorActionBackground">@color/colorActionBackground</item>
+        <item name="colorActionForeground">@color/lightActionForeground</item>
+        <item name="colorActionForegroundDisabled">@color/lightActionForegroundDisabled</item>
+        <item name="colorActionBackground">@color/lightActionBackground</item>
 
         <item name="colorFabForeground">@android:color/white</item>
         <item name="colorFabBackground">@color/colorAccent</item>
@@ -75,6 +75,10 @@
         <item name="colorDrawerBackground">@color/darkColorDrawerBackground</item>
 
         <item name="colorCardBackground">@color/darkColorCardBackground</item>
+
+        <item name="colorActionForeground">@color/darkActionForeground</item>
+        <item name="colorActionForegroundDisabled">@color/darkActionForegroundDisabled</item>
+        <item name="colorActionBackground">@color/darkActionBackground</item>
 
         <item name="colorFabForeground">@android:color/white</item>
         <item name="colorFabBackground">@color/colorAccent</item>

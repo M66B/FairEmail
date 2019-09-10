@@ -20,30 +20,37 @@
     <color name="greyAccent">#90a4ae</color>
     <color name="greyAccentDark">#62757f</color>
 
-    <color name="colorActionForeground">#fff</color>
-    <color name="colorActionForegroundDisabled">#ccc</color>
-    <color name="colorActionBackground">#ccc</color>
-
     <color name="colorWidgetForeground">#fff</color>
     <color name="colorWidgetBackground">#7f000000</color>
 
     <color name="lightColorItemSelected">#ccc</color>
     <color name="lightColorSeparator">#ccc</color>
     <color name="lightColorWarning">#ffff0000</color>
+
     <color name="lightColorDrawerScrim">#99000000</color>
     <color name="lightColorDrawerText">#111</color>
     <color name="lightColorDrawerBackground">#eee</color>
-    <color name="lightColorCardBackground">#fff</color>
 
+    <color name="lightColorCardBackground">#fff</color>
     <color name="lightColorBackground_cards">#eee</color>
+
+    <color name="lightActionForeground">#fff</color>
+    <color name="lightActionForegroundDisabled">#ddd</color>
+    <color name="lightActionBackground">#ccc</color>
 
     <color name="darkColorItemSelected">#444</color>
     <color name="darkColorSeparator">#444</color>
     <color name="darkColorWarning">#ffffb300</color>
+
     <color name="darkColorDrawerScrim">#997f7f7f</color>
     <color name="darkColorDrawerText">#fff</color>
     <color name="darkColorDrawerBackground">#222</color>
+
     <color name="darkColorCardBackground">#222</color>
+
+    <color name="darkActionForeground">#fff</color>
+    <color name="darkActionForegroundDisabled">#666</color>
+    <color name="darkActionBackground">#444</color>
 
     <!-- default: #323232 -->
     <color name="design_snackbar_background_color" tools:override="true">#222</color>
