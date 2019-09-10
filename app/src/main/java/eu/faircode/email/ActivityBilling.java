@@ -102,7 +102,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
             getSupportFragmentManager().addOnBackStackChangedListener(this);
         }
 
-        if (Helper.isPlayStoreInstall(this)) {
+        if (Helper.isPlayStoreInstall()) {
             Log.i("IAB start");
             billingClient = BillingClient.newBuilder(this)
                     .enablePendingPurchases()
@@ -219,7 +219,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     };
 
     private void onPurchase(Intent intent) {
-        if (Helper.isPlayStoreInstall(this)) {
+        if (Helper.isPlayStoreInstall()) {
             BillingFlowParams.Builder flowParams = BillingFlowParams.newBuilder();
             if (skuDetails.containsKey(getSkuPro())) {
                 Log.i("IAB purchase SKU=" + skuDetails.get(getSkuPro()));

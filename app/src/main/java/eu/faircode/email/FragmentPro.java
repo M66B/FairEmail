@@ -101,7 +101,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnPurchase.setEnabled(false);
         tvPrice.setText(null);
         btnCheck.setEnabled(false);
-        btnCheck.setVisibility(Helper.isPlayStoreInstall(getContext()) && debug ? View.VISIBLE : View.GONE);
+        btnCheck.setVisibility(Helper.isPlayStoreInstall() && debug ? View.VISIBLE : View.GONE);
 
         return view;
     }
@@ -182,7 +182,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             boolean pro = prefs.getBoolean(key, false);
             tvActivated.setVisibility(pro ? View.VISIBLE : View.GONE);
 
-            if (!Helper.isPlayStoreInstall(getContext()))
+            if (!Helper.isPlayStoreInstall())
                 btnPurchase.setEnabled(!pro || BuildConfig.DEBUG);
         }
     }

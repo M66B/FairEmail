@@ -61,7 +61,7 @@ public class ApplicationEx extends Application {
                     Log.e(ex);
 
                     if (BuildConfig.BETA_RELEASE ||
-                            !Helper.isPlayStoreInstall(ApplicationEx.this))
+                            !Helper.isPlayStoreInstall())
                         Log.writeCrashLog(ApplicationEx.this, ex);
 
                     if (prev != null)
@@ -190,7 +190,7 @@ public class ApplicationEx extends Application {
             nm.createNotificationChannel(notification);
 
             // Update
-            if (!Helper.isPlayStoreInstall(this)) {
+            if (!Helper.isPlayStoreInstall()) {
                 NotificationChannel update = new NotificationChannel(
                         "update", getString(R.string.channel_update),
                         NotificationManager.IMPORTANCE_HIGH);

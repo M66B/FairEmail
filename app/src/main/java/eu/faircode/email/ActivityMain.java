@@ -39,7 +39,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
     protected void onCreate(Bundle savedInstanceState) {
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-        if (!Log.isSupportedDevice() && Helper.isPlayStoreInstall(this)) {
+        if (!Log.isSupportedDevice() && Helper.isPlayStoreInstall()) {
             setTheme(R.style.AppThemeLight);
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_unsupported);

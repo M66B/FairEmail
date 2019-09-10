@@ -813,7 +813,7 @@ public class Helper {
         return sb.toString();
     }
 
-    static boolean isPlayStoreInstall(Context context) {
+    static boolean isPlayStoreInstall() {
         return BuildConfig.PLAY_STORE_RELEASE;
     }
 

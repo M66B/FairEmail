@@ -336,7 +336,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }, new Runnable() {
             @Override
             public void run() {
-                if (!Helper.isPlayStoreInstall(ActivityView.this)) {
+                if (!Helper.isPlayStoreInstall()) {
                     drawerLayout.closeDrawer(drawerContainer);
                     checkUpdate(true);
                 }
@@ -360,7 +360,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 }
             }).setExternal(true));
 
-        if ((Helper.isPlayStoreInstall(this) || BuildConfig.DEBUG) &&
+        if ((Helper.isPlayStoreInstall() || BuildConfig.DEBUG) &&
                 getIntentRate(this).resolveActivity(pm) != null)
             extra.add(new NavMenuItem(R.drawable.baseline_star_24, R.string.menu_rate, new Runnable() {
                 @Override
@@ -687,7 +687,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void checkUpdate(boolean always) {
-        if (Helper.isPlayStoreInstall(this) || !Helper.hasValidFingerprint(this))
+        if (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(this))
             return;
 
         long now = new Date().getTime();
@@ -813,7 +813,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private Intent getIntentOtherApps() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(Helper.isPlayStoreInstall(this)
+        intent.setData(Uri.parse(Helper.isPlayStoreInstall()
                 ? Helper.PLAY_APPS_URI : Helper.XDA_APPS_URI));
         return intent;
     }
