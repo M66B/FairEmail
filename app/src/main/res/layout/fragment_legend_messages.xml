@@ -372,13 +372,35 @@
                 app:layout_constraintTop_toTopOf="@id/ivDownload" />
 
             <ImageView
+                android:id="@+id/ivUnsubscribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/title_legend_zoom"
+                android:padding="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivDownload"
+                app:srcCompat="@drawable/baseline_unsubscribe_24" />
+
+            <TextView
+                android:id="@+id/tvUnsubscribe"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:text="@string/title_legend_show_unsubscribe"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="@id/ivUnsubscribe"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivUnsubscribe"
+                app:layout_constraintTop_toTopOf="@id/ivUnsubscribe" />
+
+            <ImageView
                 android:id="@+id/ivExternalImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/title_legend_external_image"
                 android:padding="12dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivDownload"
+                app:layout_constraintTop_toBottomOf="@id/ivUnsubscribe"
                 app:srcCompat="@drawable/baseline_image_24" />
 
             <TextView
