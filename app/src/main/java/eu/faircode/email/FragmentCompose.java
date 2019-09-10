@@ -642,10 +642,8 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null) {
+                if (draft != null)
                     showDraft(draft);
-                    onAction(R.id.action_save); // Update inline images
-                }
             }
 
             @Override
@@ -729,7 +727,6 @@ public class FragmentCompose extends FragmentBase {
             protected void onExecuted(Bundle args, EntityMessage draft) {
                 plain_only = true;
                 getActivity().invalidateOptionsMenu();
-                onAction(R.id.action_save); // Update inline images
                 showDraft(draft);
             }
 
