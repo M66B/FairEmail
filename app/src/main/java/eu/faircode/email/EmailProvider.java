@@ -105,6 +105,11 @@ public class EmailProvider {
                         provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
+                        String user = xml.getAttributeValue(null, "user");
+                        if ("local".equals(user))
+                            provider.user = UserType.LOCAL;
+                        else if ("email".equals(user))
+                            provider.user = UserType.EMAIL;
                     } else if ("imap".equals(name)) {
                         provider.imap.host = xml.getAttributeValue(null, "host");
                         provider.imap.port = xml.getAttributeIntValue(null, "port", 0);
