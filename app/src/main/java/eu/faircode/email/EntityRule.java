@@ -245,7 +245,8 @@ public class EntityRule {
 
     private boolean onActionSeen(Context context, EntityMessage message, boolean seen) {
         EntityOperation.queue(context, message, EntityOperation.SEEN, seen);
-        message.seen = seen;
+        message.ui_seen = seen;
+        message.ui_ignored = true;
         return true;
     }
 
