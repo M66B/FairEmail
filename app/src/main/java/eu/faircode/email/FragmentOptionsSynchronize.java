@@ -42,6 +42,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 import java.text.SimpleDateFormat;
@@ -244,7 +245,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        setOptions();
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            setOptions();
     }
 
     @Override

@@ -152,7 +152,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        setOptions();
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            setOptions();
     }
 
     @Override

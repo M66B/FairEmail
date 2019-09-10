@@ -36,6 +36,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -212,7 +213,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        setOptions();
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            setOptions();
     }
 
     @Override
