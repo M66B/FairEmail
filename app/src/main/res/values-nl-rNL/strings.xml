@@ -156,7 +156,7 @@
     <string name="title_setup_grey_dark_theme">Grijs donker thema</string>
     <string name="title_setup_system_theme">Systeem thema</string>
     <string name="title_setup_grey_system_theme">Grijs systeemthema</string>
-    <string name="title_setup_system_theme_hint">De systeemthema\'s zullen automatisch naar licht/donker schelen bij dag/nacht, indien ondersteund door Android</string>
+    <string name="title_setup_system_theme_hint">De systeemthema\'s zullen automatisch naar licht/donker bij dag/nacht schakelen, indien ondersteund door Android</string>
     <string name="title_setup_advanced">Geavanceerd</string>
     <string name="title_setup_options">Opties</string>
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
@@ -700,7 +700,7 @@
     <string name="title_undo">Herstel</string>
     <string name="title_redo">Opnieuw</string>
     <string name="title_add">Toevoegen</string>
-    <string name="title_browse">Bladeren</string>
+    <string name="title_browse">Gebruik app</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>

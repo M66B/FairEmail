@@ -163,7 +163,10 @@
     <string name="title_setup_light_theme">Temă luminoasă</string>
     <string name="title_setup_dark_theme">Temă întunecată</string>
     <string name="title_setup_black_theme">Temă neagră</string>
+    <string name="title_setup_grey_light_theme">Temă deschisă gri</string>
+    <string name="title_setup_grey_dark_theme">Temă închisă gri</string>
     <string name="title_setup_system_theme">Temă de sistem</string>
+    <string name="title_setup_grey_system_theme">Temă de sistem gri</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
@@ -214,6 +217,7 @@
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
     <string name="title_advanced_subject_italic">Arată subiectul cursiv</string>
+    <string name="title_advanced_subject_elipsed">La nevoie, scurtează subiectul</string>
     <string name="title_advanced_flags">Arată cu stea</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_preview_italic">Arată previzualizare mesaj cu aldin</string>
@@ -224,6 +228,8 @@
     <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
     <string name="title_advanced_remote_content">Arată automat conținutul găzduit pe servere la vizualizarea mesajului original</string>
+    <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
+    <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
@@ -335,6 +341,7 @@
     <string name="title_check">Verificare</string>
     <string name="title_no_name">Lipsește numele</string>
     <string name="title_no_email">Lipsește adresa de e-mail</string>
+    <string name="title_email_invalid">Adresa de e-mail nu este validă: \'%1$s\'</string>
     <string name="title_address_parse_error">Adresa \'%1$s\' este invalidă: %2$s</string>
     <string name="title_no_account">Lipsește contul</string>
     <string name="title_no_host">Lipsește numele serverului</string>
@@ -354,6 +361,7 @@
     <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_pop3_support">POP3 nu este acceptat</string>
+    <string name="title_oauth_support">OAuth nu este suportat</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_all">Sincronizează toate mesajele</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
@@ -418,6 +426,7 @@
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_raw_download">Descarcă mesaj original</string>
     <string name="title_raw_save">Salvează mesaj original</string>
+    <string name="title_raw_send">Trimite ca atașament</string>
     <string name="title_manage_keywords">Gestionare cuvinte cheie</string>
     <string name="title_add_keyword">Adăugă cuvânt cheie</string>
     <string name="title_show_inline">Arată atașamentele integrate</string>
@@ -660,6 +669,7 @@
     <string name="title_legend_expander">Extindere</string>
     <string name="title_legend_avatar">Poză de profil</string>
     <string name="title_legend_show_quotes">Arată citate</string>
+    <string name="title_legend_show_unsubscribe">Dezabonare de la listă</string>
     <string name="title_legend_show_images">Afișare imagini</string>
     <string name="title_legend_show_full">Afișează pe ecranul complet</string>
     <string name="title_legend_edit">Editează</string>
@@ -695,7 +705,6 @@
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_add">Adaugă</string>
-    <string name="title_browse">Răsfoire</string>
     <string name="title_info">Informații</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
@@ -708,6 +717,8 @@
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
     <string name="title_no_charset">Codare nesuportată: %1$s</string>
     <string name="title_via">Via: %1$s</string>
+    <string name="title_1hour">O oră</string>
+    <string name="title_1day">O zi</string>
     <string name="title_icalendar_accept">Acceptă</string>
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>
@@ -790,5 +801,10 @@
         <item>5 minute</item>
         <item>10 minute</item>
         <item>20 de minute</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>La început</item>
+        <item>La mijloc</item>
+        <item>La sfârșit</item>
     </string-array>
 </resources>
