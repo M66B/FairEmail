@@ -207,7 +207,8 @@ public class FragmentFolders extends FragmentBase {
                             lbm.sendBroadcast(
                                     new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                             .putExtra("account", drafts.account)
-                                            .putExtra("folder", drafts.id));
+                                            .putExtra("folder", drafts.id)
+                                            .putExtra("type", drafts.type));
                         }
 
                         @Override

@@ -317,7 +317,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                         .putExtra("account", folder.account)
-                                        .putExtra("folder", folder.id));
+                                        .putExtra("folder", folder.id)
+                                        .putExtra("type", folder.type));
                     } else {
                         if (disabledIds.contains(folder.id))
                             return;

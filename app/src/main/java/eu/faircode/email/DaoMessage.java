@@ -38,6 +38,9 @@ public interface DaoMessage {
     // all bare columns in the result set take values from the input row which also contains the minimum or maximum."
     // https://www.sqlite.org/lang_select.html
 
+    String is_drafts = "folder.type = '" + EntityFolder.DRAFTS + "'";
+    String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
+
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
@@ -67,7 +70,7 @@ public interface DaoMessage {
             "   ELSE SUM(CASE WHEN folder.type = :type THEN 1 ELSE 0 END) > 0 END)" +
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0)" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0)" +
-            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL)" +
+            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " ORDER BY CASE" +
             "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +
@@ -85,8 +88,6 @@ public interface DaoMessage {
             boolean filter_seen, boolean filter_unflagged, boolean filter_snoozed,
             boolean found,
             boolean debug);
-
-    String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
 
     @Query("SELECT message.*" +
             ", account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
@@ -112,7 +113,7 @@ public interface DaoMessage {
             " HAVING SUM(CASE WHEN folder.id = :folder THEN 1 ELSE 0 END) > 0" +
             " AND (NOT :filter_seen OR SUM(1 - message.ui_seen) > 0 OR " + is_outbox + ")" +
             " AND (NOT :filter_unflagged OR COUNT(message.id) - SUM(1 - message.ui_flagged) > 0 OR " + is_outbox + ")" +
-            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + ")" +
+            " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_outbox + " OR " + is_drafts + ")" +
             " ORDER BY CASE" +
             "  WHEN 'unread' = :sort THEN SUM(1 - message.ui_seen) = 0" +
             "  WHEN 'starred' = :sort THEN COUNT(message.id) - SUM(1 - message.ui_flagged) = 0" +

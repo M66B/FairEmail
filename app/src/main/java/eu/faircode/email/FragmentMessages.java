@@ -212,8 +212,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private int colorAccent;
 
     private long primary;
-    private boolean trash = false;
-    private boolean outbox = false;
     private boolean connected;
     private boolean reset = false;
     private String searching = null;
@@ -340,8 +338,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             viewType = AdapterMessage.ViewType.SEARCH;
             setTitle(R.string.title_search);
         }
-
-        outbox = (viewType == AdapterMessage.ViewType.FOLDER);
     }
 
     @Override
@@ -790,7 +786,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         lbm.sendBroadcast(
                                 new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                         .putExtra("account", drafts.account)
-                                        .putExtra("folder", drafts.id));
+                                        .putExtra("folder", drafts.id)
+                                        .putExtra("type", drafts.type));
                     }
 
                     @Override
@@ -2246,14 +2243,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             folders.add(folder);
 
                         updateState(folders);
-
-                        boolean trash = (folder != null && EntityFolder.TRASH.equals(folder.type));
-                        boolean outbox = (folder != null && EntityFolder.OUTBOX.equals(folder.type));
-                        if (FragmentMessages.this.trash != trash || FragmentMessages.this.outbox != outbox) {
-                            FragmentMessages.this.trash = trash;
-                            FragmentMessages.this.outbox = outbox;
-                            getActivity().invalidateOptionsMenu();
-                        }
                     }
                 });
                 db.message().liveHiddenFolder(folder, null).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
@@ -2482,6 +2471,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean compact = prefs.getBoolean("compact", false);
         boolean experiments = prefs.getBoolean("experiments", false);
 
+        boolean outbox = EntityFolder.OUTBOX.equals(type);
+        boolean folder =
+                (viewType == AdapterMessage.ViewType.UNIFIED ||
+                        (viewType == AdapterMessage.ViewType.FOLDER && !outbox));
+
+        boolean canSnooze =
+                (viewType == AdapterMessage.ViewType.UNIFIED && !EntityFolder.DRAFTS.equals(type)) ||
+                        (viewType == AdapterMessage.ViewType.FOLDER && !EntityFolder.DRAFTS.equals(type));
+
         menu.findItem(R.id.menu_search).setVisible(
                 viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
 
@@ -2521,7 +2519,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         menu.findItem(R.id.menu_filter).setVisible(viewType != AdapterMessage.ViewType.SEARCH && !outbox);
         menu.findItem(R.id.menu_filter_seen).setVisible(viewType != AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_unflagged).setVisible(viewType != AdapterMessage.ViewType.THREAD);
-        menu.findItem(R.id.menu_filter_snoozed).setVisible(viewType != AdapterMessage.ViewType.THREAD);
+        menu.findItem(R.id.menu_filter_snoozed).setVisible(viewType != AdapterMessage.ViewType.THREAD && canSnooze);
         menu.findItem(R.id.menu_filter_duplicates).setVisible(viewType == AdapterMessage.ViewType.THREAD);
         menu.findItem(R.id.menu_filter_seen).setChecked(filter_seen);
         menu.findItem(R.id.menu_filter_unflagged).setChecked(filter_unflagged);
@@ -2532,7 +2530,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
-        menu.findItem(R.id.menu_empty_trash).setVisible(trash);
+        menu.findItem(R.id.menu_empty_trash).setVisible(
+                viewType == AdapterMessage.ViewType.FOLDER && EntityFolder.TRASH.equals(type));
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
@@ -2540,11 +2539,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibUnflagged.setImageResource(filter_unflagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
         ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
 
-        boolean folder = (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER);
-
         ibSeen.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
         ibUnflagged.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
-        ibSnoozed.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
+        ibSnoozed.setVisibility(experiments && folder && canSnooze ? View.VISIBLE : View.GONE);
 
         super.onPrepareOptionsMenu(menu);
     }

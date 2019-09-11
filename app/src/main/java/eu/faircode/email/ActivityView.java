@@ -836,16 +836,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void onMenuOutbox() {
         Bundle args = new Bundle();
 
-        new SimpleTask<Long>() {
+        new SimpleTask<EntityFolder>() {
             @Override
-            protected Long onExecute(Context context, Bundle args) {
+            protected EntityFolder onExecute(Context context, Bundle args) {
                 DB db = DB.getInstance(context);
                 EntityFolder outbox = db.folder().getOutbox();
-                return (outbox == null ? -1 : outbox.id);
+                return outbox;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Long folder) {
+            protected void onExecuted(Bundle args, EntityFolder outbox) {
+                if (outbox == null)
+                    return;
+
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
 
@@ -853,7 +856,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                 .putExtra("account", -1L)
-                                .putExtra("folder", folder));
+                                .putExtra("folder", outbox.id)
+                                .putExtra("type", outbox.type));
             }
 
             @Override
