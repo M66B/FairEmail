@@ -507,6 +507,7 @@
     <string name="title_send_plain_text">Alleen platte tekst</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
+    <string name="title_subject_reminder">Onderwerp is leeg</string>
     <string name="title_attachment_keywords">bijlage, bijlagen</string>
     <string name="title_attachment_reminder">Was u van plan een bijlage toe te voegen?</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>

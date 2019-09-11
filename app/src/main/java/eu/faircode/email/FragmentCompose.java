@@ -2750,18 +2750,21 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.to == null && draft.cc == null && draft.bcc == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
 
+                            if (identity.plain_only)
+                                db.message().setMessagePlainOnly(draft.id, true);
+
+                            if (identity.encrypt)
+                                db.message().setMessageEncrypt(draft.id, true);
+
+                            if (TextUtils.isEmpty(draft.subject))
+                                args.putBoolean("remind_subject", true);
+
                             int attached = 0;
                             for (EntityAttachment attachment : attachments)
                                 if (!attachment.available)
                                     throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                                 else if (!attachment.isInline() && attachment.encryption == null)
                                     attached++;
-
-                            if (identity.plain_only)
-                                db.message().setMessagePlainOnly(draft.id, true);
-
-                            if (identity.encrypt)
-                                db.message().setMessageEncrypt(draft.id, true);
 
                             // Check for missing attachments
                             if (attached == 0) {
@@ -2785,7 +2788,7 @@ public class FragmentCompose extends FragmentBase {
                                 String plain = HtmlHelper.getText(body);
                                 for (String keyword : keywords)
                                     if (plain.matches("(?si).*\\b" + Pattern.quote(keyword.trim()) + "\\b.*")) {
-                                        args.putBoolean("remind", true);
+                                        args.putBoolean("remind_attachment", true);
                                         break;
                                     }
                             }
@@ -3550,7 +3553,8 @@ public class FragmentCompose extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             long id = getArguments().getLong("id");
-            boolean remind = getArguments().getBoolean("remind", false);
+            boolean remind_subject = getArguments().getBoolean("remind_subject", false);
+            boolean remind_attachment = getArguments().getBoolean("remind_attachment", false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             int send_delayed = prefs.getInt("send_delayed", 0);
@@ -3565,12 +3569,14 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbEncrypt = dview.findViewById(R.id.cbEncrypt);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
+            final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
 
             tvTo.setText(null);
             tvVia.setText(null);
             tvSendAt.setText(null);
-            tvRemindAttachment.setVisibility(remind ? View.VISIBLE : View.GONE);
+            tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
+            tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
 
             DB db = DB.getInstance(getContext());
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
