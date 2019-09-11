@@ -366,8 +366,9 @@ public class HtmlHelper {
         // Prevent too many line breaks
         for (Element div : document.select("div")) {
             div.tagName("span");
-            if (div.parent() != null)
-                div.after(document.createElement("br"));
+            if (div.childNodeSize() == 1 && div.childNode(0) instanceof TextNode)
+                div.appendElement("br");
+            div.appendElement("br");
         }
 
         Element body = document.body();
