@@ -76,6 +76,15 @@ public class FragmentDialogEx extends DialogFragment {
         Log.i("Stop " + this);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Log.i("Result class=" + this.getClass().getSimpleName() +
+                " request=" + requestCode + " result=" + resultCode);
+        Log.logExtras(data);
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
+
     @NonNull
     @Override
     public LifecycleOwner getViewLifecycleOwner() {

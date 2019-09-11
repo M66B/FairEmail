@@ -3685,36 +3685,34 @@ public class FragmentCompose extends FragmentBase {
         public void onActivityResult(int requestCode, int resultCode, @Nullable Intent intent) {
             super.onActivityResult(requestCode, resultCode, intent);
 
-            Context context = getContext();
-            if (context == null)
-                return;
+            if (resultCode == RESULT_OK && intent != null) {
+                Bundle data = intent.getBundleExtra("args");
+                long id = data.getLong("id");
+                long duration = data.getLong("duration");
+                long time = data.getLong("time");
 
-            Bundle data = intent.getBundleExtra("args");
-            long id = data.getLong("id");
-            long duration = data.getLong("duration");
-            long time = data.getLong("time");
+                Bundle args = new Bundle();
+                args.putLong("id", id);
+                args.putLong("wakeup", duration == 0 ? -1 : time);
 
-            Bundle args = new Bundle();
-            args.putLong("id", id);
-            args.putLong("wakeup", duration == 0 ? -1 : time);
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) {
+                        long id = args.getLong("id");
+                        Long wakeup = args.getLong("wakeup");
 
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-                    Long wakeup = args.getLong("wakeup");
+                        DB db = DB.getInstance(context);
+                        db.message().setMessageSnoozed(id, wakeup < 0 ? null : wakeup);
 
-                    DB db = DB.getInstance(context);
-                    db.message().setMessageSnoozed(id, wakeup < 0 ? null : wakeup);
+                        return null;
+                    }
 
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getFragmentManager(), ex);
-                }
-            }.execute(this, args, "compose:snooze");
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getFragmentManager(), ex);
+                    }
+                }.execute(this, args, "compose:snooze");
+            }
         }
     }
 
