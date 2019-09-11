@@ -241,6 +241,7 @@
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_circular">Show round icons</string>
     <string name="title_advanced_name_email">Show names and email addresses</string>
+    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_subject_top">Show subject above sender</string>
     <string name="title_advanced_subject_italic">Show subject in italics</string>
     <string name="title_advanced_subject_elipsed">When needed, shorten the subject</string>
@@ -269,7 +270,6 @@
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
-    <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
 
     <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
