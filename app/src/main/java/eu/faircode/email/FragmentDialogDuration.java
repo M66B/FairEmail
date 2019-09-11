@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogDuration extends FragmentDialogEx {
@@ -162,5 +164,17 @@ public class FragmentDialogDuration extends FragmentDialogEx {
         );
 
         return dialog;
+    }
+
+    @Override
+    protected void sendResult(int result) {
+        if (result == RESULT_OK) {
+            if (!ActivityBilling.isPro(getContext())) {
+                getActivity().startActivity(new Intent(getContext(), ActivityBilling.class));
+                result = RESULT_CANCELED;
+            }
+        }
+
+        super.sendResult(result);
     }
 }

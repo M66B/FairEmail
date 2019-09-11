@@ -3689,11 +3689,6 @@ public class FragmentCompose extends FragmentBase {
             if (context == null)
                 return;
 
-            if (!ActivityBilling.isPro(context)) {
-                context.startActivity(new Intent(context, ActivityBilling.class));
-                return;
-            }
-
             Bundle data = intent.getBundleExtra("args");
             long id = data.getLong("id");
             long duration = data.getLong("duration");

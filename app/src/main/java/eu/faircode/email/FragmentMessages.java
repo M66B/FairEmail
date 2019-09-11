@@ -4247,11 +4247,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSnooze(Bundle args) {
-        if (!ActivityBilling.isPro(getContext())) {
-            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
-            return;
-        }
-
         long duration = args.getLong("duration");
         long time = args.getLong("time");
         args.putLong("wakeup", duration == 0 ? -1 : time);
