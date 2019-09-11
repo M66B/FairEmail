@@ -181,10 +181,10 @@
     <string name="title_advanced_suggest_local">Yerel olarak depolanmış kişileri öner</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
+    <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksel</string>
     <string name="title_advanced_lookup_mx">Göndermeden önce alıcı e-posta adreslerini kontrol edin</string>
-    <string name="title_advanced_autosend">İleti göndermeyi onayla</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
@@ -203,6 +203,7 @@
     <string name="title_advanced_circular">Yuvarlak simgeleri göster</string>
     <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
+    <string name="title_advanced_subject_elipsed">Gerektiğinde konuyu kısaltın</string>
     <string name="title_advanced_flags">Yıldızları göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_preview_italic">İleti önizlemesini italik olarak göster</string>
@@ -213,6 +214,7 @@
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_collapse_quotes">Alıntılanan metni daralt</string>
     <string name="title_advanced_remote_content">Orijinal iletileri görüntülerken uzak içeriği otomatik olarak göster</string>
+    <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
@@ -227,6 +229,7 @@
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
     <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
+    <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
@@ -258,6 +261,7 @@
     <string name="title_advanced_sync_kept_hint">Bu, özellikle aygıtda tutulan çok sayıda ileti olması durumunda, fazladan veri aktarır ve fazla pil kullanır</string>
     <string name="title_advanced_sync_folders_hint">Bunu devre dışı bırakmak veri ve pil kullanımını bir miktar azaltır, ancak klasör listesinin güncellenmesini de devre dışı bırakır</string>
     <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
+    <string name="title_advanced_suggest_local_hint">Android tarafından sağlanan bağlantılara ek olarak</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
     <string name="title_advanced_metered_warning">Bu seçeneğin devre dışı bırakılması mobil internet bağlantısında ileti almayı ve göndermeyi devre dışı bırakacaktır</string>
@@ -317,6 +321,7 @@
     <string name="title_check">Kontrol et</string>
     <string name="title_no_name">İsim eksik</string>
     <string name="title_no_email">E-posta adresi eksik</string>
+    <string name="title_email_invalid">E-posta adresi geçersiz: \'%1$s\'</string>
     <string name="title_address_parse_error">%1$s adresi geçersiz: %2$s</string>
     <string name="title_no_account">Hesap bilgisi eksik</string>
     <string name="title_no_host">Sunucu adı eksik</string>
@@ -400,6 +405,7 @@
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_raw_download">Ham iletiyi indir</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>
+    <string name="title_raw_send">Ek olarak gönder</string>
     <string name="title_manage_keywords">Anahtar sözcükleri yönet</string>
     <string name="title_add_keyword">Anahtar sözcük ekle</string>
     <string name="title_show_inline">Ekleri göster</string>
@@ -449,6 +455,7 @@
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
+    <string name="title_ask_delete_ref">Yanıtlanan/iletilen ileti metni silinsin mi? Bu geri alınamaz.</string>
     <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
     <string name="title_ask_sync_all">%1$s\'deki tüm iletiler eşzamanlandı mı?</string>
     <string name="title_ask_delete_local">Yerel iletiler silinsin mi? İletiler uzak sunucuda kalacaktır.</string>
@@ -487,9 +494,10 @@
     <string name="title_media_toolbar">Medya araç çubuğu</string>
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
     <string name="title_insert_template">Kalıp ekle</string>
-    <string name="title_send_plain_text">Yalnızca düz metin gönder</string>
+    <string name="title_send_plain_text">Yalnızca düz metin</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_to_missing">Alıcı eksik</string>
+    <string name="title_attachment_reminder">Bir ek eklemek niyetinde misiniz?</string>
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
     <string name="title_draft_deleted">Taslak silindi</string>
     <string name="title_draft_saved">Taslak kaydedildi</string>
@@ -639,6 +647,7 @@
     <string name="title_legend_expander">Genişletici</string>
     <string name="title_legend_avatar">Profil resmi</string>
     <string name="title_legend_show_quotes">Alıntıları Göster</string>
+    <string name="title_legend_show_unsubscribe">Listeden Çık</string>
     <string name="title_legend_show_images">Resimleri göster</string>
     <string name="title_legend_show_full">Tam ekran göster</string>
     <string name="title_legend_edit">Düzenle</string>
@@ -674,6 +683,7 @@
     <string name="title_undo">Geri Al</string>
     <string name="title_redo">Yinele</string>
     <string name="title_add">Ekle</string>
+    <string name="title_browse">Uygulamayı kullan</string>
     <string name="title_info">Bilgi</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
@@ -682,11 +692,14 @@
     <string name="title_completed">Tamamlandı</string>
     <string name="title_ask_what">Ne yapılacağını sor</string>
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
+    <string name="title_no_ask_for_again">%1$s için bunu bir daha sorma</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>
     <string name="title_via">Şu yol ile: %1$s</string>
     <string name="title_1hour">1 saat</string>
     <string name="title_1day">1 gün</string>
+    <string name="title_now">Şimdi</string>
+    <string name="title_after">%1$s\'den sonra</string>
     <string name="title_icalendar_accept">Kabul</string>
     <string name="title_icalendar_decline">Reddet</string>
     <string name="title_icalendar_maybe">Olabilir</string>

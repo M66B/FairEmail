@@ -178,6 +178,7 @@
     <string name="title_setup_grey_dark_theme">Motyw ciemno szary</string>
     <string name="title_setup_system_theme">Motyw systemu</string>
     <string name="title_setup_grey_system_theme">Motyw szary systemowy</string>
+    <string name="title_setup_system_theme_hint">Motywy systemowe zostaną automatycznie przełączone na jasne/ciemne w dzień/noc, jeśli jest to wspierane przez system Android</string>
     <string name="title_setup_advanced">Zaawansowane</string>
     <string name="title_setup_options">Opcje</string>
     <string name="title_setup_defaults">Przywróć domyślne</string>
@@ -208,7 +209,6 @@
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
-    <string name="title_advanced_autosend">Potwierdź wysłanie wiadomości</string>
     <string name="title_advanced_send_delayed">Opóźnij wysyłanie wiadomości</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
@@ -228,6 +228,7 @@
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
+    <string name="title_advanced_subject_elipsed">W razie potrzeby skróć temat</string>
     <string name="title_advanced_flags">Oznacz gwiazdkami</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_preview_italic">Pokaż podgląd wiadomości kursywą</string>
@@ -525,9 +526,10 @@
     <string name="title_media_toolbar">Pasek mediów</string>
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
-    <string name="title_send_plain_text">Wyślij tylko zwykły tekst</string>
     <string name="title_from_missing">Brak nadawcy</string>
     <string name="title_to_missing">Brak adresata</string>
+    <string name="title_attachment_keywords">załączony, załącznik, załączniki, w zestawie, w załączonym</string>
+    <string name="title_attachment_reminder">Czy zamierzałeś dodać załącznik?</string>
     <string name="title_attachments_missing">Nie wszystkie załączniki są pobrane</string>
     <string name="title_draft_deleted">Szkic odrzucony</string>
     <string name="title_draft_saved">Szkic zapisany</string>
@@ -718,6 +720,7 @@
     <string name="title_undo">Cofnij</string>
     <string name="title_redo">Ponów</string>
     <string name="title_add">Dodaj</string>
+    <string name="title_browse">Użyj aplikacji</string>
     <string name="title_info">Info</string>
     <string name="title_report">Raport</string>
     <string name="title_fix">Popraw</string>

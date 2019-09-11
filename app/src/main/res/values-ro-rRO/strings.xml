@@ -160,13 +160,14 @@
     <string name="title_setup_biometrics_disable">Dezactivează</string>
     <string name="title_setup_biometrics_unlock">Deblocați</string>
     <string name="title_setup_theme">Selectare temă</string>
-    <string name="title_setup_light_theme">Temă luminoasă</string>
+    <string name="title_setup_light_theme">Temă deschisă</string>
     <string name="title_setup_dark_theme">Temă întunecată</string>
     <string name="title_setup_black_theme">Temă neagră</string>
     <string name="title_setup_grey_light_theme">Temă deschisă gri</string>
-    <string name="title_setup_grey_dark_theme">Temă închisă gri</string>
+    <string name="title_setup_grey_dark_theme">Temă întunecată gri</string>
     <string name="title_setup_system_theme">Temă de sistem</string>
     <string name="title_setup_grey_system_theme">Temă de sistem gri</string>
+    <string name="title_setup_system_theme_hint">Temele de sistem se vor schimba automat la deschisă/întunecată pe timp de zi/noapte, dacă Android suportă</string>
     <string name="title_setup_advanced">Setări avansate</string>
     <string name="title_setup_options">Opţiuni</string>
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
@@ -197,7 +198,6 @@
     <string name="title_advanced_autoresize">Redimensionează automat imaginile atașate și incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixeli</string>
     <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
-    <string name="title_advanced_autosend">Confirmă trimiterea mesajelor</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
@@ -476,6 +476,7 @@
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
+    <string name="title_ask_delete_ref">Stergeți textul mesajului răspuns/redirecționat? Acesta nu se va putea recupera.</string>
     <string name="title_ask_edit_ref">Se editează textul mesajului rescris ca răspuns/redirecționat?</string>
     <string name="title_ask_sync_all">Se sincronizează toate mesajele din %1$s?</string>
     <string name="title_ask_delete_local">Ștergeți mesajele locale? Mesajele vor rămâne pe serverul gazdă.</string>
@@ -514,9 +515,11 @@
     <string name="title_media_toolbar">Bară atașare</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
-    <string name="title_send_plain_text">Trimite numai text simplu</string>
+    <string name="title_send_plain_text">Doar text simplu</string>
     <string name="title_from_missing">Expeditor lipsă</string>
     <string name="title_to_missing">Destinatar lipsă</string>
+    <string name="title_attachment_keywords">atasez,atasat,atasate,atsament,atașez,atașat,atașament</string>
+    <string name="title_attachment_reminder">Ați intenționat să adăugați un atașament?</string>
     <string name="title_attachments_missing">Nu toate ataşamentele se descarcă</string>
     <string name="title_draft_deleted">S-a renunțat la ciornă</string>
     <string name="title_draft_saved">Ciornă salvată</string>
@@ -685,6 +688,8 @@
     <string name="title_hint_folder_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
+    <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>
+    <string name="title_hint_message_selection">Atingeți lung un mesaj pentru a începe selecția multiplă. Țineți și glisați sus sau jos pentru a selecta mai multe mesaje</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_image_link">Legătură imagine</string>
     <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
@@ -705,6 +710,7 @@
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_add">Adaugă</string>
+    <string name="title_browse">Deschide</string>
     <string name="title_info">Informații</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
@@ -719,6 +725,8 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">O oră</string>
     <string name="title_1day">O zi</string>
+    <string name="title_now">Acum</string>
+    <string name="title_after">După %1$s</string>
     <string name="title_icalendar_accept">Acceptă</string>
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>

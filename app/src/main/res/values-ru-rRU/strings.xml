@@ -205,7 +205,6 @@
     <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_lookup_mx">Проверить адрес электронной почты получателя перед отправкой</string>
-    <string name="title_advanced_autosend">Подтверждать отправку сообщений</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
@@ -516,7 +515,6 @@
     <string name="title_media_toolbar">Панель медиа</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
-    <string name="title_send_plain_text">Отправить только простым текстом</string>
     <string name="title_from_missing">Отправитель отсутствует</string>
     <string name="title_to_missing">Получатель отсутствует</string>
     <string name="title_attachments_missing">Не все вложения загружены</string>

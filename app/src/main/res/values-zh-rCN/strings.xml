@@ -175,7 +175,6 @@
     <string name="title_advanced_autoresize">自动调整附加和嵌入图像大小</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
-    <string name="title_advanced_autosend">确认发送邮件</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
@@ -493,7 +492,7 @@
     <string name="title_media_toolbar">媒体工具栏</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
-    <string name="title_send_plain_text">仅发送纯文本</string>
+    <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>
@@ -688,6 +687,7 @@
     <string name="title_undo">撤销</string>
     <string name="title_redo">重做</string>
     <string name="title_add">添加</string>
+    <string name="title_browse">使用App</string>
     <string name="title_info">信息</string>
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
@@ -702,6 +702,8 @@
     <string name="title_via">通过: %1$s</string>
     <string name="title_1hour">1 小时</string>
     <string name="title_1day">1 天</string>
+    <string name="title_now">现在</string>
+    <string name="title_after">%1$s之后</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

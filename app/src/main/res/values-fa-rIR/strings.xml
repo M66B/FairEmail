@@ -75,7 +75,6 @@
     <string name="title_advanced_section_display">نمایش</string>
     <string name="title_advanced_section_behavior">رفتار</string>
     <string name="title_advanced_section_misc">متفرقه</string>
-    <string name="title_advanced_autosend">تایید ارسال پیام‌ها</string>
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>

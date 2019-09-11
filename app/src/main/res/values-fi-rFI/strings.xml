@@ -187,7 +187,6 @@
     <string name="title_advanced_autoresize">Muuta liitettyjen ja upotettujen kuvien koot</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d kuvapistettä</string>
     <string name="title_advanced_lookup_mx">Tarkista vastaanottajien sähköpostiosoitteet ennen lähettämistä</string>
-    <string name="title_advanced_autosend">Vahvista viestien lähetys</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_metered">Käytä käytön mukaan laskutettavia yhteyksiä</string>
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
@@ -505,7 +504,7 @@
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
-    <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
+    <string name="title_send_plain_text">Muotoilematon teksti ainoastaan</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
@@ -700,6 +699,7 @@
     <string name="title_undo">Kumoa</string>
     <string name="title_redo">Tee uudelleen</string>
     <string name="title_add">Lisää</string>
+    <string name="title_browse">Käytä sovellusta</string>
     <string name="title_info">Lisätietoa</string>
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
@@ -714,6 +714,7 @@
     <string name="title_via">Kautta: %1$s</string>
     <string name="title_1hour">1 tunti</string>
     <string name="title_1day">1 päivä</string>
+    <string name="title_now">Nyt</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>
@@ -800,5 +801,10 @@
         <item>5 minuuttia</item>
         <item>10 minuuttia</item>
         <item>20 minuuttia</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>Alusta</item>
+        <item>Keskeltä</item>
+        <item>Lopusta</item>
     </string-array>
 </resources>

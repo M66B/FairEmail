@@ -187,7 +187,6 @@
     <string name="title_advanced_autoresize">Endre størrelsen på vedlagte og innebygde bilder automatisk</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d piksler</string>
     <string name="title_advanced_lookup_mx">Sjekk mottakerens e-postadresser før du sender</string>
-    <string name="title_advanced_autosend">Bekreft sending av meldinger</string>
     <string name="title_advanced_send_delayed">Forsink sending av meldinger</string>
     <string name="title_advanced_metered">Bruk målte tilkoblinger</string>
     <string name="title_advanced_download">Last ned meldinger og vedlegg automatisk på en målingstilkobling opp til</string>
@@ -505,7 +504,7 @@
     <string name="title_media_toolbar">Media verktøylinje</string>
     <string name="title_insert_contact_group">Sett inn kontaktgruppe</string>
     <string name="title_insert_template">Sett inn mal</string>
-    <string name="title_send_plain_text">Send bare ren tekst</string>
+    <string name="title_send_plain_text">Bare vanlig tekst</string>
     <string name="title_from_missing">Avsender mangler</string>
     <string name="title_to_missing">Mottaker mangler</string>
     <string name="title_attachment_keywords">festet, feste, vedlegg, inkludert</string>
@@ -700,6 +699,7 @@
     <string name="title_undo">Angre</string>
     <string name="title_redo">Gjenta</string>
     <string name="title_add">Legg til</string>
+    <string name="title_browse">Bruk app</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
@@ -714,6 +714,8 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 time</string>
     <string name="title_1day">1 dag</string>
+    <string name="title_now">Nå</string>
+    <string name="title_after">Etter %1$s</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>

@@ -187,7 +187,6 @@
     <string name="title_advanced_autoresize">Redimensionar automáticamente imágenes adjuntas e incrustadas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d píxeles</string>
     <string name="title_advanced_lookup_mx">Comprobar direcciones de correo electrónico del destinatario antes de enviar</string>
-    <string name="title_advanced_autosend">Confirmar enviar mensajes</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_metered">Usar conexión de datos</string>
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
@@ -505,7 +504,7 @@
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
-    <string name="title_send_plain_text">Enviar sólo texto plano</string>
+    <string name="title_send_plain_text">Sólo en texto plano</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
@@ -700,6 +699,7 @@
     <string name="title_undo">Deshacer</string>
     <string name="title_redo">Rehacer</string>
     <string name="title_add">Agregar</string>
+    <string name="title_browse">Usar aplicación</string>
     <string name="title_info">Información</string>
     <string name="title_report">Reportar</string>
     <string name="title_fix">Reparar</string>
@@ -714,6 +714,8 @@
     <string name="title_via">Vía: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 día</string>
+    <string name="title_now">Ahora</string>
+    <string name="title_after">Después de %1$s</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

@@ -50,7 +50,6 @@
     <string name="title_advanced_unseen">すべての未読メッセージ</string>
     <string name="title_advanced_flagged">すべてのスター付きメッセージ</string>
     <string name="title_advanced_delete_unseen">古い未読メッセージを削除</string>
-    <string name="title_advanced_autosend">メッセージの送信時に確認</string>
     <string name="title_advanced_avatars">連絡先の写真を表示</string>
     <string name="title_advanced_notify_action_trash">ゴミ箱</string>
     <string name="title_advanced_notify_action_archive">アーカイブ</string>

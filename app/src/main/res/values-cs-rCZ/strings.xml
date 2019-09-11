@@ -209,7 +209,6 @@
     <string name="title_advanced_autoresize">Automaticky upravit velikost přiložených a vložených obrázků</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixelů</string>
     <string name="title_advanced_lookup_mx">Před odesláním zkontrolovat e-mailové adresy příjemců</string>
-    <string name="title_advanced_autosend">Potvrzovat odesílání zpráv</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
@@ -527,7 +526,7 @@
     <string name="title_media_toolbar">Panel médií</string>
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
     <string name="title_insert_template">Vložit šablonu</string>
-    <string name="title_send_plain_text">Odeslat pouze prostý text</string>
+    <string name="title_send_plain_text">Pouze prostý text</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
@@ -701,7 +700,7 @@
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (pokud je k dispozici); Akce tažením lze změnit v nastavení účtu</string>
-    <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte výběr zpráv; držte a táhněte nahoru či dolů pro výběr více zpráv</string>
+    <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_image_link">Odkaz obrázku</string>
     <string name="title_hint_tracking_image">Sledovací obrázek %1$sx%2$s px</string>
@@ -722,6 +721,7 @@
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
     <string name="title_add">Přidat</string>
+    <string name="title_browse">Použít aplikaci</string>
     <string name="title_info">Info</string>
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
@@ -736,6 +736,8 @@
     <string name="title_via">Přes: %1$s</string>
     <string name="title_1hour">1 hodina</string>
     <string name="title_1day">1 den</string>
+    <string name="title_now">Nyní</string>
+    <string name="title_after">Po %1$s</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>

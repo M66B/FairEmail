@@ -186,7 +186,6 @@
     <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini allegate e incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
-    <string name="title_advanced_autosend">Confermare l\'invio dei messaggi</string>
     <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
@@ -504,7 +503,7 @@
     <string name="title_media_toolbar">Barra strumenti media</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
-    <string name="title_send_plain_text">Invia solo testo semplice</string>
+    <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
@@ -699,6 +698,7 @@
     <string name="title_undo">Annulla</string>
     <string name="title_redo">Ripeti</string>
     <string name="title_add">Aggiungi</string>
+    <string name="title_browse">Usa l\'app</string>
     <string name="title_info">Info</string>
     <string name="title_report">Report</string>
     <string name="title_fix">Correggi</string>
@@ -713,6 +713,8 @@
     <string name="title_via">Tramite: %1$s</string>
     <string name="title_1hour">1 ora</string>
     <string name="title_1day">1 giorno</string>
+    <string name="title_now">Ora</string>
+    <string name="title_after">Dopo %1$s</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>

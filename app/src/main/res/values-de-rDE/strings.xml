@@ -186,7 +186,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autoresize">Angehängte und eingebettete Bilder automatisch anpassen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d Pixel</string>
     <string name="title_advanced_lookup_mx">Überprüft die Empfänger-E-Mail-Adressen vor dem Senden</string>
-    <string name="title_advanced_autosend">Senden von E-Mails bestätigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_metered">Getaktete Verbindungen verwenden</string>
     <string name="title_advanced_download">Automatisches Herunterladen von E-Mails und Anhängen auf getakteten Verbindungen bis zu einer Größe von</string>
@@ -504,7 +503,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_media_toolbar">Mediensymbolleiste</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
-    <string name="title_send_plain_text">Nur Text senden</string>
+    <string name="title_send_plain_text">Nur Text</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen</string>
@@ -699,6 +698,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_undo">Rückgängig</string>
     <string name="title_redo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
+    <string name="title_browse">App auswählen</string>
     <string name="title_info">Info</string>
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
@@ -713,6 +713,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
     <string name="title_1day">1 Tag</string>
+    <string name="title_now">Jetzt</string>
+    <string name="title_after">Nach %1$s</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>

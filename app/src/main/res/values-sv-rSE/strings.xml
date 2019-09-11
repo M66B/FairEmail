@@ -183,7 +183,6 @@
     <string name="title_advanced_autoresize">Ändra storlek automatiskt på bifogade och inbäddade bilder</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixlar</string>
     <string name="title_advanced_lookup_mx">Kontrollera mottagarens e-postadresser innan du skickar</string>
-    <string name="title_advanced_autosend">Bekräfta sändning av meddelanden</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
     <string name="title_advanced_metered">Använda uppmätta anslutningar</string>
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
@@ -494,7 +493,6 @@
     <string name="title_media_toolbar">Verktygsfält för media</string>
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
     <string name="title_insert_template">Infoga mall</string>
-    <string name="title_send_plain_text">Skicka endast oformaterad text</string>
     <string name="title_from_missing">Avsändaren saknas</string>
     <string name="title_to_missing">Mottagare saknas</string>
     <string name="title_attachments_missing">Inte alla bilagor har hämtats</string>

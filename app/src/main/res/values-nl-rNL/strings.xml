@@ -187,7 +187,6 @@
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
-    <string name="title_advanced_autosend">Bevestig het verzenden van berichten</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
@@ -505,7 +504,7 @@
     <string name="title_media_toolbar">Media werkbalk</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
-    <string name="title_send_plain_text">Verstuur alleen platte tekst</string>
+    <string name="title_send_plain_text">Alleen platte tekst</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_attachment_keywords">bijlage, bijlagen</string>
@@ -715,6 +714,8 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 uur</string>
     <string name="title_1day">1 dag</string>
+    <string name="title_now">Nu</string>
+    <string name="title_after">Over %1$s</string>
     <string name="title_icalendar_accept">Accepteer</string>
     <string name="title_icalendar_decline">Weiger</string>
     <string name="title_icalendar_maybe">Misschien</string>

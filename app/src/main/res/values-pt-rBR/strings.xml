@@ -179,7 +179,6 @@
     <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_advanced_lookup_mx">Verifique os endereços de e-mail do destinatário antes de enviar</string>
-    <string name="title_advanced_autosend">Confirmar o envio de mensagens</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
     <string name="title_advanced_metered">Usar conexões limitadas</string>
     <string name="title_advanced_download">Fazer download automático de mensagens e anexos em uma conexão limitada até</string>
@@ -489,7 +488,6 @@
     <string name="title_media_toolbar">Barra de mídia</string>
     <string name="title_insert_contact_group">Inserir grupo de contato</string>
     <string name="title_insert_template">Inserir modelo</string>
-    <string name="title_send_plain_text">Enviar apenas em texto simples</string>
     <string name="title_from_missing">Remetente faltante</string>
     <string name="title_to_missing">Destinatário faltante</string>
     <string name="title_attachments_missing">Nem todos os anexos foram baixados</string>
