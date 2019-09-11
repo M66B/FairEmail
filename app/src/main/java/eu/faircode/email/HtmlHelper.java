@@ -710,9 +710,9 @@ public class HtmlHelper {
             public void tail(Node node, int depth) {
                 String name = node.nodeName();
                 if ("a".equals(name))
-                    append("[" + node.absUrl("href") + "] ");
+                    append("[" + node.attr("href") + "] ");
                 else if ("img".equals(name))
-                    append("[" + node.absUrl("src") + "] ");
+                    append("[" + node.attr("src") + "] ");
                 else if ("th".equals(name) || "td".equals(name)) {
                     Node next = node.nextSibling();
                     if (next == null || !("th".equals(next.nodeName()) || "td".equals(next.nodeName())))
