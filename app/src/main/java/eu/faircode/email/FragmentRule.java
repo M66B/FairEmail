@@ -998,7 +998,7 @@ public class FragmentRule extends FragmentBase {
         return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
     }
 
-    public static class TimePickerFragment extends FragmentDialogEx implements TimePickerDialog.OnTimeSetListener {
+    public static class TimePickerFragment extends FragmentDialogBase implements TimePickerDialog.OnTimeSetListener {
         @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -1027,7 +1027,7 @@ public class FragmentRule extends FragmentBase {
         }
     }
 
-    public static class FragmentDialogCheck extends FragmentDialogEx {
+    public static class FragmentDialogCheck extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

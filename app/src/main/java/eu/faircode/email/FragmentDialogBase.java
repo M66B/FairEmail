@@ -17,7 +17,7 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 import static android.app.Activity.RESULT_CANCELED;
 
-public class FragmentDialogEx extends DialogFragment {
+public class FragmentDialogBase extends DialogFragment {
     private boolean once = false;
     private LifecycleOwner owner;
     private LifecycleRegistry registry;
@@ -115,8 +115,8 @@ public class FragmentDialogEx extends DialogFragment {
         fragment.getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroy() {
-                Log.i("Reset target " + FragmentDialogEx.this);
-                FragmentDialogEx.super.setTargetFragment(null, requestCode);
+                Log.i("Reset target " + FragmentDialogBase.this);
+                FragmentDialogBase.super.setTargetFragment(null, requestCode);
             }
         });
     }

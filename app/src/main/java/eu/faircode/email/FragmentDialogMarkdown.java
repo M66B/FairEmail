@@ -20,7 +20,7 @@ import java.util.Locale;
 
 import io.noties.markwon.Markwon;
 
-public class FragmentDialogMarkdown extends FragmentDialogEx {
+public class FragmentDialogMarkdown extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

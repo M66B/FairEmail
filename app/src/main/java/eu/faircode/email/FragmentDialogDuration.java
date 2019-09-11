@@ -43,7 +43,7 @@ import java.util.Date;
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentDialogDuration extends FragmentDialogEx {
+public class FragmentDialogDuration extends FragmentDialogBase {
     private Calendar cal = Calendar.getInstance();
 
     @Override

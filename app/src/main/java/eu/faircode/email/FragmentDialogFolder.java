@@ -36,7 +36,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentDialogFolder extends FragmentDialogEx {
+public class FragmentDialogFolder extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

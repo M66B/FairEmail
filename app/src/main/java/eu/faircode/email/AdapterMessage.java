@@ -3638,7 +3638,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void finish();
     }
 
-    public static class FragmentDialogLink extends FragmentDialogEx {
+    public static class FragmentDialogLink extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3815,7 +3815,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    public static class FragmentDialogImage extends FragmentDialogEx {
+    public static class FragmentDialogImage extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3851,7 +3851,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    public static class FragmentDialogFull extends FragmentDialogEx {
+    public static class FragmentDialogFull extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -3885,7 +3885,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    public static class FragmentDialogWebView extends FragmentDialogEx {
+    public static class FragmentDialogWebView extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -4050,7 +4050,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    public static class FragmentKeywordManage extends FragmentDialogEx {
+    public static class FragmentKeywordManage extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -4144,7 +4144,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
     }
 
-    public static class FragmentKeywordAdd extends FragmentDialogEx {
+    public static class FragmentKeywordAdd extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

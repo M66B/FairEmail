@@ -164,7 +164,7 @@ public class FragmentContacts extends FragmentBase {
         Helper.viewFAQ(getContext(), 84);
     }
 
-    public static class FragmentDelete extends FragmentDialogEx {
+    public static class FragmentDelete extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
