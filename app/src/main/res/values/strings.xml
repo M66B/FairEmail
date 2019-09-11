@@ -808,6 +808,7 @@
     <string name="title_1day">1 day</string>
     <string name="title_now">Now</string>
     <string name="title_after">After %1$s</string>
+    <string name="title_reset">Reset</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

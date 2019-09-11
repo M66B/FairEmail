@@ -101,6 +101,16 @@ public class FragmentDialogDuration extends FragmentDialogEx {
                         sendResult(RESULT_OK);
                     }
                 })
+                .setNeutralButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Bundle args = getArguments();
+                        args.putLong("duration", 0);
+                        args.putLong("time", new Date().getTime());
+
+                        sendResult(RESULT_OK);
+                    }
+                })
                 .create();
 
         btn1hour.setOnClickListener(new View.OnClickListener() {
