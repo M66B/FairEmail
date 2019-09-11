@@ -2466,16 +2466,22 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onPreExecute(Bundle args) {
-            busy = true;
-            Helper.setViewsEnabled(view, false);
-            getActivity().invalidateOptionsMenu();
+            int action = args.getInt("action");
+            if (action != R.id.action_check) {
+                busy = true;
+                Helper.setViewsEnabled(view, false);
+                getActivity().invalidateOptionsMenu();
+            }
         }
 
         @Override
         protected void onPostExecute(Bundle args) {
-            busy = false;
-            Helper.setViewsEnabled(view, true);
-            getActivity().invalidateOptionsMenu();
+            int action = args.getInt("action");
+            if (action != R.id.action_check) {
+                busy = false;
+                Helper.setViewsEnabled(view, true);
+                getActivity().invalidateOptionsMenu();
+            }
         }
 
         @Override

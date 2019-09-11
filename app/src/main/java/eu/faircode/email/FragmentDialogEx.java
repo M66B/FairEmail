@@ -82,7 +82,6 @@ public class FragmentDialogEx extends DialogFragment {
                 " request=" + requestCode + " result=" + resultCode);
         Log.logExtras(data);
         super.onActivityResult(requestCode, resultCode, data);
-
     }
 
     @NonNull
