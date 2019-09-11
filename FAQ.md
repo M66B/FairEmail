@@ -62,9 +62,9 @@ Please see [here](#user-content-faq22) for common error messages.
 * ~~Any day time condition~~ (any day doesn't really fit into the from/to date/time condition)
 * ~~Send as attachment~~
 * ~~Widget for selected account~~ (the unified inbox is / can be composed of selected folders already, so I see no real need for this complication)
+* ~~Remind to attach files~~
 * Search for settings
 * Select domains to show images for
-* Remind to attach files
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -132,7 +132,6 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(35) Why should I be careful with viewing images, attachments and the original message?](#user-content-faq35)
 * [(36) How are settings files encrypted?](#user-content-faq36)
 * [(37) How are passwords stored?](#user-content-faq37)
-* [(38) Can you help me restore my Play store purchase?](#user-content-faq38)
 * [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
 * [(40) How can I reduce the network usage of FairEmail?](#user-content-faq40)
 * [(41) How can I fix the error 'Handshake failed' ?](#user-content-faq41)
@@ -918,29 +917,6 @@ Long version:
 
 All supported Android versions [encrypt all user data](https://source.android.com/security/encryption/full-disk.html),
 so all data, including usernames, passwords, messages, etc, is stored encrypted.
-
-<br />
-
-<a name="faq38"></a>
-**(38) Can you help me restore my Play store purchase?**
-
-Google manages all purchases, so as developer I have no control over purchases.
-So, the only thing I can do, is give some advice:
-
-* Make sure you have an active, working internet connection
-* Make sure the Google Play store / Play services are not blocked in any way, for example by a firewall
-* Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
-* Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
-* Open FairEmail to check the purchase again
-
-Note that:
-
-* Purchases are stored in the Google cloud and cannot get lost
-* There is no time limit on purchases, so they cannot expire
-* Google does not expose details (name, e-mail, etc) about buyers to developers
-* An application like FairEmail cannot select which Google account to use
-
-If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
 <br />
 
@@ -2077,13 +2053,14 @@ Reverted [commit](https://github.com/M66B/FairEmail/commit/2c80c25b8aa75af2287f4
 
 <br />
 
+<a name="faq38"></a>
 <a name="faq117"></a>
 **(117) Can you help me restore my purchase?**
 
 Google manages all purchases, so as developer I have little control over purchases.
-So, the only thing I can do, is give some advice:
+So, basically the only thing I can do, is give some advice:
 
-* Make sure you have an active internet connection
+* Make sure you have an active, working internet connection
 * Make sure you are logged in with the right Google account and that there is nothing wrong with your Google account
 * Open the Play store application and wait at least a minute to give it time to synchronize with the Google servers
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
@@ -2096,6 +2073,8 @@ Note that:
 * There is no time limit on purchases, so they cannot expire
 * Google does not expose details (name, e-mail, etc) about buyers to developers
 * An application like FairEmail cannot select which Google account to use
+
+If you cannot solve the problem with the purchase, you will have to contact Google about it.
 
 <br />
 
