@@ -210,7 +210,7 @@ public class HtmlHelper {
         for (Element col : document.select("th,td")) {
             boolean content = false;
             for (Node node : col.childNodes())
-                if (node instanceof TextNode) {
+                if (node instanceof TextNode && !((TextNode) node).isBlank()) {
                     content = true;
                     break;
                 } else if (node instanceof Element) {
@@ -237,7 +237,7 @@ public class HtmlHelper {
         for (Element row : document.select("tr"))
             row.tagName("span");
 
-        document.select("caption").tagName("p");
+        document.select("caption").tagName("div");
 
         for (Element table : document.select("table"))
             if (table.parent() != null && "a".equals(table.parent().tagName()))
@@ -363,13 +363,13 @@ public class HtmlHelper {
             if (e.isBlock() && !hasContent(e))
                 e.remove();
 
-        // Prevent too many line breaks
-        for (Element div : document.select("div")) {
+        // Selective line breaking
+        for (Element div : document.select("div,p")) {
             div.tagName("span");
 
             boolean content = false;
             for (Node child : div.childNodes())
-                if (child instanceof TextNode ||
+                if ((child instanceof TextNode && !((TextNode) child).isBlank()) ||
                         (child instanceof Element && "img".equals(child.nodeName()))) {
                     content = true;
                     break;
