@@ -2031,11 +2031,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImages(final TupleMessageEx message) {
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_again, null);
-            final TextView tvMessage = dview.findViewById(R.id.tvMessage);
+            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_show_images, null);
+            final TextView tvTracking = dview.findViewById(R.id.tvTracking);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            tvMessage.setText(context.getText(R.string.title_ask_show_image));
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+            tvTracking.setVisibility(disable_tracking ? View.VISIBLE : View.GONE);
+
             if (message.from == null || message.from.length == 0)
                 cbNotAgain.setVisibility(View.GONE);
             else {
