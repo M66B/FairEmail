@@ -716,6 +716,7 @@
     <string name="title_1day">1 jour</string>
     <string name="title_now">Maintenant</string>
     <string name="title_after">Après %1$s</string>
+    <string name="title_reset">Réinitialiser</string>
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>

@@ -715,6 +715,7 @@
     <string name="title_1day">1 giorno</string>
     <string name="title_now">Ora</string>
     <string name="title_after">Dopo %1$s</string>
+    <string name="title_reset">Reset</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>

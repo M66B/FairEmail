@@ -715,6 +715,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_1day">1 Tag</string>
     <string name="title_now">Jetzt</string>
     <string name="title_after">Nach %1$s</string>
+    <string name="title_reset">Zurücksetzen</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>

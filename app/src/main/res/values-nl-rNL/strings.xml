@@ -716,6 +716,7 @@
     <string name="title_1day">1 dag</string>
     <string name="title_now">Nu</string>
     <string name="title_after">Over %1$s</string>
+    <string name="title_reset">Herstellen</string>
     <string name="title_icalendar_accept">Accepteer</string>
     <string name="title_icalendar_decline">Weiger</string>
     <string name="title_icalendar_maybe">Misschien</string>

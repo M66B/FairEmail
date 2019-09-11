@@ -716,6 +716,7 @@
     <string name="title_1day">1 dag</string>
     <string name="title_now">Nå</string>
     <string name="title_after">Etter %1$s</string>
+    <string name="title_reset">Tilbakestill</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>
