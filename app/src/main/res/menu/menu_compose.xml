@@ -27,21 +27,4 @@
         android:id="@+id/menu_answer"
         android:title="@string/title_insert_template"
         app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_plain_only"
-        android:checkable="true"
-        android:title="@string/title_send_plain_text"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_encrypt"
-        android:checkable="true"
-        android:title="@string/title_encrypt"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/menu_send_after"
-        android:title="@string/title_send_at"
-        app:showAsAction="never" />
 </menu>

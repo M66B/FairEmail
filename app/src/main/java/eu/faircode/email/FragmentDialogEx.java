@@ -73,13 +73,15 @@ public class FragmentDialogEx extends DialogFragment {
         super.setTargetFragment(fragment, requestCode);
         Log.i("Set target " + this + " " + fragment);
 
-        fragment.getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
-            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            public void onDestroy() {
-                Log.i("Reset target " + FragmentDialogEx.this);
-                FragmentDialogEx.super.setTargetFragment(null, requestCode);
-            }
-        });
+        if (getView() != null) {
+            fragment.getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
+                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                public void onDestroy() {
+                    Log.i("Reset target " + FragmentDialogEx.this);
+                    FragmentDialogEx.super.setTargetFragment(null, requestCode);
+                }
+            });
+        }
     }
 
     protected void sendResult(int result) {
