@@ -220,8 +220,7 @@ public class FragmentOrder extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "order:set");
-
+        }.execute(this, args, "order:set");
     }
 
     private ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {

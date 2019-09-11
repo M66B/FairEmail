@@ -577,7 +577,7 @@ public class FragmentRule extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentRule.this, args, "rule:delete");
+        }.execute(this, args, "rule:delete");
     }
 
     private void onScheduleStart(Intent data) {
@@ -724,7 +724,7 @@ public class FragmentRule extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentRule.this, rargs, "rule:get");
+        }.execute(this, rargs, "rule:get");
     }
 
     private void showActionParameters(int type) {
@@ -1043,7 +1043,7 @@ public class FragmentRule extends FragmentBase {
             LinearLayoutManager llm = new LinearLayoutManager(getContext());
             rvMessage.setLayoutManager(llm);
 
-            final AdapterRuleMatch adapter = new AdapterRuleMatch(getContext(), getActivity());
+            final AdapterRuleMatch adapter = new AdapterRuleMatch(getContext(), getViewLifecycleOwner());
             rvMessage.setAdapter(adapter);
 
             tvNoMessages.setVisibility(View.GONE);
@@ -1093,7 +1093,7 @@ public class FragmentRule extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getFragmentManager(), ex);
                 }
-            }.execute(getContext(), getActivity(), args, "rule:check");
+            }.execute(this, args, "rule:check");
 
             return new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_rule_matched)

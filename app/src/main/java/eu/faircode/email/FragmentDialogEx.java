@@ -11,44 +11,75 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import static android.app.Activity.RESULT_CANCELED;
 
 public class FragmentDialogEx extends DialogFragment {
     private boolean once = false;
+    private LifecycleOwner owner;
+    private LifecycleRegistry registry;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        owner = new LifecycleOwner() {
+            @NonNull
+            @Override
+            public Lifecycle getLifecycle() {
+                return registry;
+            }
+        };
+        registry = new LifecycleRegistry(owner);
+        registry.setCurrentState(Lifecycle.State.CREATED);
         Log.i("Create " + this);
     }
 
     @Override
     public void onResume() {
+        registry.setCurrentState(Lifecycle.State.RESUMED);
         super.onResume();
         Log.i("Resume " + this);
     }
 
     @Override
     public void onPause() {
+        registry.setCurrentState(Lifecycle.State.STARTED);
         super.onPause();
         Log.i("Pause " + this);
     }
 
     @Override
     public void onDestroy() {
+        registry.setCurrentState(Lifecycle.State.DESTROYED);
         super.onDestroy();
         Log.i("Destroy " + this);
     }
 
     @Override
     public void onStart() {
+        registry.setCurrentState(Lifecycle.State.STARTED);
         try {
             super.onStart();
         } catch (Throwable ex) {
             Log.e(ex);
         }
+        Log.i("Start " + this);
+    }
+
+    @Override
+    public void onStop() {
+        registry.setCurrentState(Lifecycle.State.CREATED);
+        super.onStop();
+        Log.i("Stop " + this);
+    }
+
+    @NonNull
+    @Override
+    public LifecycleOwner getViewLifecycleOwner() {
+        return owner;
     }
 
     @Override
@@ -73,15 +104,13 @@ public class FragmentDialogEx extends DialogFragment {
         super.setTargetFragment(fragment, requestCode);
         Log.i("Set target " + this + " " + fragment);
 
-        if (getView() != null) {
-            fragment.getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
-                @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-                public void onDestroy() {
-                    Log.i("Reset target " + FragmentDialogEx.this);
-                    FragmentDialogEx.super.setTargetFragment(null, requestCode);
-                }
-            });
-        }
+        fragment.getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            public void onDestroy() {
+                Log.i("Reset target " + FragmentDialogEx.this);
+                FragmentDialogEx.super.setTargetFragment(null, requestCode);
+            }
+        });
     }
 
     protected void sendResult(int result) {

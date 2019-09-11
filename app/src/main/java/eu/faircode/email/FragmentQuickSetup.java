@@ -481,7 +481,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 });
 
             }
-        }.execute(FragmentQuickSetup.this, args, "setup:quick");
+        }.execute(this, args, "setup:quick");
     }
 
     @Override

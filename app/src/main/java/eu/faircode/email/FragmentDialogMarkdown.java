@@ -90,7 +90,7 @@ public class FragmentDialogMarkdown extends FragmentDialogEx {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(getContext(), getActivity(), getArguments(), "markdown:read");
+        }.execute(this, getArguments(), "markdown:read");
 
         return dialog;
     }

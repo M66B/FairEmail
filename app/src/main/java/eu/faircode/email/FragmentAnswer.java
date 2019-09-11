@@ -262,7 +262,7 @@ public class FragmentAnswer extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentAnswer.this, args, "answer:delete");
+        }.execute(this, args, "answer:delete");
     }
 
     public static class FragmentInfo extends FragmentDialogEx {

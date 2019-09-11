@@ -650,7 +650,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentCompose.this, args, "compose:refdelete");
+        }.execute(this, args, "compose:refdelete");
     }
 
     private void onReferenceEdit() {
@@ -733,7 +733,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentCompose.this, args, "compose:refedit");
+        }.execute(this, args, "compose:refedit");
     }
 
     private void onReferenceImages() {
@@ -1655,7 +1655,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(getContext(), getViewLifecycleOwner(), args, "compose:picked");
+        }.execute(this, args, "compose:picked");
     }
 
     private void onAnswerSelected(Bundle args) {
@@ -2946,7 +2946,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentCompose.this, args, "compose:show");
+        }.execute(this, args, "compose:show");
     }
 
     private void showDraft(final EntityMessage draft) {
@@ -3070,7 +3070,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentCompose.this, args, "compose:show");
+        }.execute(this, args, "compose:show");
     }
 
     private Html.ImageGetter cidGetter = new Html.ImageGetter() {
@@ -3473,7 +3473,7 @@ public class FragmentCompose extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getFragmentManager(), ex);
                 }
-            }.execute(getContext(), getActivity(), new Bundle(), "compose:answer");
+            }.execute(this, new Bundle(), "compose:answer");
 
             return new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_insert_template)
@@ -3552,15 +3552,13 @@ public class FragmentCompose extends FragmentBase {
             long id = getArguments().getLong("id");
             boolean remind = getArguments().getBoolean("remind", false);
 
-            Context context = getContext();
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             int send_delayed = prefs.getInt("send_delayed", 0);
 
-            final int[] sendDelayedValues = context.getResources().getIntArray(R.array.sendDelayedValues);
-            final String[] sendDelayedNames = context.getResources().getStringArray(R.array.sendDelayedNames);
+            final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
+            final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_send, null);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
@@ -3574,8 +3572,8 @@ public class FragmentCompose extends FragmentBase {
             tvSendAt.setText(null);
             tvRemindAttachment.setVisibility(remind ? View.VISIBLE : View.GONE);
 
-            DB db = DB.getInstance(context);
-            db.message().liveMessage(id).observe(getActivity(), new Observer<TupleMessageEx>() {
+            DB db = DB.getInstance(getContext());
+            db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
                 @Override
                 public void onChanged(TupleMessageEx draft) {
                     int plus = (draft.cc == null ? 0 : draft.cc.length) +
@@ -3588,15 +3586,15 @@ public class FragmentCompose extends FragmentBase {
 
                     if (draft.ui_snoozed == null) {
                         if (send_delayed == 0)
-                            tvSendAt.setText(context.getString(R.string.title_now));
+                            tvSendAt.setText(getString(R.string.title_now));
                         else
                             for (int pos = 0; pos < sendDelayedValues.length; pos++)
                                 if (sendDelayedValues[pos] == send_delayed) {
-                                    tvSendAt.setText(context.getString(R.string.title_after, sendDelayedNames[pos]));
+                                    tvSendAt.setText(getString(R.string.title_after, sendDelayedNames[pos]));
                                     break;
                                 }
                     } else {
-                        DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
+                        DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                         DateFormat D = new SimpleDateFormat("E");
                         tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     }
@@ -3626,7 +3624,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(getFragmentManager(), ex);
                         }
-                    }.execute(context, getActivity(), args, "compose:plain_only");
+                    }.execute(FragmentDialogSend.this, args, "compose:plain_only");
                 }
             });
 
@@ -3653,7 +3651,7 @@ public class FragmentCompose extends FragmentBase {
                         protected void onException(Bundle args, Throwable ex) {
                             Helper.unexpectedError(getFragmentManager(), ex);
                         }
-                    }.execute(context, getActivity(), args, "compose:plain_only");
+                    }.execute(FragmentDialogSend.this, args, "compose:encrypt");
                 }
             });
 
@@ -3661,7 +3659,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onClick(View view) {
                     Bundle args = new Bundle();
-                    args.putString("title", context.getString(R.string.title_send_at));
+                    args.putString("title", getString(R.string.title_send_at));
                     args.putLong("id", id);
 
                     FragmentDialogDuration fragment = new FragmentDialogDuration();
@@ -3671,7 +3669,7 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            return new AlertDialog.Builder(context)
+            return new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -3721,7 +3719,7 @@ public class FragmentCompose extends FragmentBase {
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getFragmentManager(), ex);
                 }
-            }.execute(context, getActivity(), args, "compose:snooze");
+            }.execute(this, args, "compose:snooze");
         }
     }
 

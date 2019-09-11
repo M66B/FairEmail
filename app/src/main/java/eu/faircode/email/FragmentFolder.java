@@ -507,7 +507,7 @@ public class FragmentFolder extends FragmentBase {
                 else
                     Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentFolder.this, args, "folder:save");
+        }.execute(this, args, "folder:save");
     }
 
     private void onDelete() {
@@ -551,6 +551,6 @@ public class FragmentFolder extends FragmentBase {
                 else
                     Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentFolder.this, args, "folder:delete");
+        }.execute(this, args, "folder:delete");
     }
 }

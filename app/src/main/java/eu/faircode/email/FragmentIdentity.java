@@ -508,7 +508,7 @@ public class FragmentIdentity extends FragmentBase {
                 else
                     Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentIdentity.this, args, "identity:config");
+        }.execute(this, args, "identity:config");
     }
 
     private void onSave(boolean should) {
@@ -815,7 +815,7 @@ public class FragmentIdentity extends FragmentBase {
                 else
                     showError(ex);
             }
-        }.execute(FragmentIdentity.this, args, "identity:save");
+        }.execute(this, args, "identity:save");
     }
 
     private void showError(Throwable ex) {
@@ -1134,7 +1134,7 @@ public class FragmentIdentity extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentIdentity.this, args, "identity:delete");
+        }.execute(this, args, "identity:delete");
     }
 
     private void onHtml(Bundle args) {

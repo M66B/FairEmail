@@ -507,7 +507,7 @@ public class Helper {
                                     else
                                         ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                                 }
-                            }.execute(context, getActivity(), new Bundle(), "error:unexpected");
+                            }.execute(FragmentDialogUnexpected.this, new Bundle(), "error:unexpected");
                         }
                     })
                     .create();

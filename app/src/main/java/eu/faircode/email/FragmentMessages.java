@@ -304,6 +304,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         primary = args.getLong("primary", -1);
         connected = args.getBoolean("connected", false);
 
+        if (folder > 0 && type == null)
+            Log.e("Messages for folder without type");
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swipenav = prefs.getBoolean("swipenav", true);
@@ -4706,7 +4709,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getFragmentManager(), ex);
                 }
-            }.execute(getContext(), getActivity(), new Bundle(), "messages:accounts");
+            }.execute(this, new Bundle(), "messages:accounts");
 
             return new AlertDialog.Builder(getContext())
                     .setAdapter(adapter, new DialogInterface.OnClickListener() {

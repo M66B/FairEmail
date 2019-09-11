@@ -154,7 +154,7 @@ public class FragmentOperations extends FragmentBase {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Helper.unexpectedError(getFragmentManager(), ex);
                                 }
-                            }.execute(getContext(), getActivity(), new Bundle(), "operations:delete");
+                            }.execute(DialogDelete.this, new Bundle(), "operations:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

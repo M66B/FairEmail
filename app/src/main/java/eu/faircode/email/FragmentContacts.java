@@ -193,7 +193,7 @@ public class FragmentContacts extends FragmentBase {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Helper.unexpectedError(getFragmentManager(), ex);
                                 }
-                            }.execute(getContext(), getActivity(), new Bundle(), "contacts:delete");
+                            }.execute(FragmentDelete.this, new Bundle(), "contacts:delete");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

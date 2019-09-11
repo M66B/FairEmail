@@ -3787,7 +3787,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         protected void onException(Bundle args, Throwable ex) {
                             tvOwner.setText(ex.getMessage());
                         }
-                    }.execute(getContext(), getActivity(), args, "link:owner");
+                    }.execute(FragmentDialogLink.this, args, "link:owner");
                 }
             });
 
@@ -3839,7 +3839,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getFragmentManager(), ex);
                 }
-            }.execute(getContext(), getActivity(), getArguments(), "view:image");
+            }.execute(this, getArguments(), "view:image");
 
             final Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Black_NoTitleBar_Fullscreen);
             dialog.setContentView(pv);
@@ -3970,7 +3970,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected void onException(Bundle args, Throwable ex) {
                     Helper.unexpectedError(getFragmentManager(), ex);
                 }
-            }.execute(getContext(), getActivity(), getArguments(), "message:full");
+            }.execute(this, getArguments(), "message:full");
 
             return dialog;
         }
@@ -4123,7 +4123,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 protected void onException(Bundle args, Throwable ex) {
                                     Helper.unexpectedError(getFragmentManager(), ex);
                                 }
-                            }.execute(getContext(), getActivity(), args, "message:keywords:manage");
+                            }.execute(FragmentKeywordManage.this, args, "message:keywords:manage");
                         }
                     })
                     .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
@@ -4186,7 +4186,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     protected void onException(Bundle args, Throwable ex) {
                                         Helper.unexpectedError(getFragmentManager(), ex);
                                     }
-                                }.execute(getContext(), getActivity(), args, "message:keyword:add");
+                                }.execute(FragmentKeywordAdd.this, args, "message:keyword:add");
                             }
                         }
                     }).create();

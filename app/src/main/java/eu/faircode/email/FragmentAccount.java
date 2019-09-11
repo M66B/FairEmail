@@ -496,7 +496,7 @@ public class FragmentAccount extends FragmentBase {
                 else
                     Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentAccount.this, args, "account:config");
+        }.execute(this, args, "account:config");
     }
 
     private void onCheck() {
@@ -693,7 +693,7 @@ public class FragmentAccount extends FragmentBase {
                 else
                     showError(ex);
             }
-        }.execute(FragmentAccount.this, args, "account:check");
+        }.execute(this, args, "account:check");
     }
 
     private void onSave(boolean should) {
@@ -1121,7 +1121,7 @@ public class FragmentAccount extends FragmentBase {
                 else
                     showError(ex);
             }
-        }.execute(FragmentAccount.this, args, "account:save");
+        }.execute(this, args, "account:save");
     }
 
     private void showError(Throwable ex) {
@@ -1417,7 +1417,7 @@ public class FragmentAccount extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
-        }.execute(FragmentAccount.this, args, "account:delete");
+        }.execute(this, args, "account:delete");
     }
 
     private void setFolders(List<EntityFolder> _folders, EntityAccount account) {
