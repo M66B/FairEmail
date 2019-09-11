@@ -366,9 +366,19 @@ public class HtmlHelper {
         // Prevent too many line breaks
         for (Element div : document.select("div")) {
             div.tagName("span");
-            if (div.childNodeSize() == 1 && div.childNode(0) instanceof TextNode)
+
+            boolean content = false;
+            for (Node child : div.childNodes())
+                if (child instanceof TextNode ||
+                        (child instanceof Element && "img".equals(child.nodeName()))) {
+                    content = true;
+                    break;
+                }
+
+            if (content) {
                 div.appendElement("br");
-            div.appendElement("br");
+                div.appendElement("br");
+            }
         }
 
         Element body = document.body();
