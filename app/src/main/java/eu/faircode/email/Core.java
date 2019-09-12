@@ -117,7 +117,7 @@ class Core {
     private static int lastUnseen = -1;
     private static ConcurrentMap<Long, Long> lockFolders = new ConcurrentHashMap<>();
 
-    private static final int MAX_NOTIFICATION_COUNT = 10; // per group
+    private static final int MAX_NOTIFICATION_COUNT = 100; // per group
     private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
