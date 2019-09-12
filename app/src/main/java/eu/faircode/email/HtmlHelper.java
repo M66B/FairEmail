@@ -130,7 +130,7 @@ public class HtmlHelper {
         }
 
         Whitelist whitelist = Whitelist.relaxed()
-                .addTags("hr", "abbr")
+                .addTags("hr", "abbr", "big")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -138,6 +138,15 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data");
         final Document document = new Cleaner(whitelist).clean(parsed);
+
+        // Remove new lines without surrounding content
+        for (Element br : document.select("br"))
+            if (br.parent() != null && !hasContent(br.parent().childNodes()))
+                br.tagName("span");
+
+        // Paragraphs
+        for (Element p : document.select("p"))
+            p.tagName("div");
 
         // Short quotes
         for (Element q : document.select("q")) {
@@ -208,24 +217,9 @@ public class HtmlHelper {
 
         // Tables
         for (Element col : document.select("th,td")) {
-            boolean content = false;
-            for (Node node : col.childNodes())
-                if (node instanceof TextNode && !((TextNode) node).isBlank()) {
-                    content = true;
-                    break;
-                } else if (node instanceof Element) {
-                    Element element = (Element) node;
-                    if (!element.isBlock() && hasContent(element)) {
-                        content = true;
-                        break;
-                    }
-                }
-
             // separate columns
-            if (content)
-                if (col.nextElementSibling() == null)
-                    col.appendElement("br");
-                else
+            if (hasContent(col.childNodes()))
+                if (col.nextElementSibling() != null)
                     col.appendText(" ");
 
             if ("th".equals(col.tagName()))
@@ -234,8 +228,12 @@ public class HtmlHelper {
                 col.tagName("span");
         }
 
-        for (Element row : document.select("tr"))
+        for (Element row : document.select("tr")) {
             row.tagName("span");
+            Element next = row.nextElementSibling();
+            if (next != null && "tr".equals(next.tagName()))
+                row.appendElement("br");
+        }
 
         document.select("caption").tagName("div");
 
@@ -358,35 +356,32 @@ public class HtmlHelper {
             }
         }, document);
 
-        // Remove block elements displaying nothing
-        for (Element e : document.select("*"))
-            if (e.isBlock() && !hasContent(e))
-                e.remove();
-
-        // Selective line breaking
-        for (Element div : document.select("div,p")) {
-            div.tagName("span");
-
-            boolean content = false;
-            for (Node child : div.childNodes())
-                if ((child instanceof TextNode && !((TextNode) child).isBlank()) ||
-                        (child instanceof Element && "img".equals(child.nodeName()))) {
-                    content = true;
-                    break;
-                }
-
-            if (content) {
+        // Selective new lines
+        for (Element div : document.select("div"))
+            if (div.children().select("div").size() == 0 &&
+                    hasContent(div.childNodes())) {
                 div.appendElement("br");
                 div.appendElement("br");
             }
-        }
+
+        for (Element div : document.select("div"))
+            div.tagName("span");
 
         Element body = document.body();
         return (body == null ? "" : body.html());
     }
 
-    private static boolean hasContent(Element element) {
-        return (element.hasText() || element.selectFirst("img") != null);
+    private static boolean hasContent(List<Node> nodes) {
+        for (Node node : nodes)
+            if (node instanceof TextNode && !((TextNode) node).isBlank())
+                return true;
+            else if (node instanceof Element) {
+                Element element = (Element) node;
+                if (!element.isBlock() &&
+                        (element.hasText() || element.selectFirst("img") != null))
+                    return true;
+            }
+        return false;
     }
 
     static Drawable decodeImage(final Context context, final long id, String source, boolean show, final TextView view) {
