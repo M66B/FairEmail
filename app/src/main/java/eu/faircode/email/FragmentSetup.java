@@ -429,6 +429,7 @@ public class FragmentSetup extends FragmentBase {
                             }
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }

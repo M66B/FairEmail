@@ -277,6 +277,7 @@ public class ActivityEML extends ActivityBase {
                                 }.execute(ActivityEML.this, args, "eml:store");
                             }
                         })
+                        .setNegativeButton(android.R.string.cancel, null)
                         .show();
             }
 

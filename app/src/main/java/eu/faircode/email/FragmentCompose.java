@@ -3435,6 +3435,7 @@ public class FragmentCompose extends FragmentBase {
 
             final AlertDialog dialog = new AlertDialog.Builder(getContext())
                     .setView(dview)
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
 
             lvGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -3498,6 +3499,7 @@ public class FragmentCompose extends FragmentBase {
                             sendResult(RESULT_OK);
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }
@@ -3550,6 +3552,7 @@ public class FragmentCompose extends FragmentBase {
                             sendResult(RESULT_OK);
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }
@@ -3690,6 +3693,7 @@ public class FragmentCompose extends FragmentBase {
                             sendResult(Activity.RESULT_OK);
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
 

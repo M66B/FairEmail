@@ -511,6 +511,7 @@ public class FragmentQuickSetup extends FragmentBase {
                             sendResult(RESULT_OK);
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }

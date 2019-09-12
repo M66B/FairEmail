@@ -488,6 +488,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
             return new AlertDialog.Builder(getContext())
                     .setView(dview)
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }

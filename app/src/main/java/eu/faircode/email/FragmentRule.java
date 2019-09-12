@@ -1098,6 +1098,7 @@ public class FragmentRule extends FragmentBase {
             return new AlertDialog.Builder(getContext())
                     .setTitle(R.string.title_rule_matched)
                     .setView(dview)
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }

@@ -111,6 +111,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         return new AlertDialog.Builder(getContext())
                 .setTitle(title)
                 .setView(dview)
+                .setNegativeButton(android.R.string.cancel, null)
                 .create();
     }
 }

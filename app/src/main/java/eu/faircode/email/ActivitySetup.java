@@ -1103,6 +1103,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             }
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }

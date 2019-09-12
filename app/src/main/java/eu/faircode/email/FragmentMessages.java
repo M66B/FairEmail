@@ -4715,6 +4715,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             sendResult(RESULT_OK);
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }

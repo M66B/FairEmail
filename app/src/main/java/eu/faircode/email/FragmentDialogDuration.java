@@ -101,6 +101,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                         sendResult(RESULT_OK);
                     }
                 })
+                .setNegativeButton(android.R.string.cancel, null)
                 .setNeutralButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

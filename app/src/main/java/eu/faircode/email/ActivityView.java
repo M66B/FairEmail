@@ -1132,6 +1132,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                             prefs.edit().putBoolean("first", false).apply();
                         }
                     })
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }
