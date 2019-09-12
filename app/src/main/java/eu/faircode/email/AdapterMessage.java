@@ -1079,7 +1079,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             // Attachments
             bindAttachments(message, properties.getAttachments(message.id));
             cowner.recreate();
-            cowner.start();
             db.attachment().liveAttachments(message.id).observe(cowner, new Observer<List<EntityAttachment>>() {
                 private int lastInlineImages = 0;
 
@@ -2625,6 +2624,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     properties.scrollTo(getAdapterPosition());
 
                 pbBody.setVisibility(View.GONE);
+
+                // Show attachments/images
+                cowner.start();
             }
 
             @Override
