@@ -113,11 +113,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:drawableEnd="@drawable/baseline_open_in_new_24"
+                android:drawablePadding="6dp"
                 android:text="@string/title_pop3_support"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?android:attr/textColorLink"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvImap" />
+
+            <TextView
+                android:id="@+id/tvActiveSyncSupport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:drawableEnd="@drawable/baseline_open_in_new_24"
+                android:drawablePadding="6dp"
+                android:text="@string/title_activesync_support"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?android:attr/textColorLink"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPopSupport" />
 
             <!-- host -->
 
@@ -129,7 +144,7 @@
                 android:text="@string/title_host"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPopSupport" />
+                app:layout_constraintTop_toBottomOf="@id/tvActiveSyncSupport" />
 
             <EditText
                 android:id="@+id/etHost"
@@ -253,6 +268,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:drawableEnd="@drawable/baseline_open_in_new_24"
+                android:drawablePadding="6dp"
                 android:text="@string/title_oauth_support"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="?android:attr/textColorLink"
@@ -797,7 +814,7 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
-                tvImap,tvPopSupport,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort" />
+                tvImap,tvPopSupport,tvActiveSyncSupport,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAuthorize"
