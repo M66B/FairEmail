@@ -120,8 +120,7 @@
         <item name="colorToastBackground">@color/greyAccent</item>
     </style>
 
-    <style name="AppThemeGreyDark" parent="AppThemeDark">
-        <item name="themeName">black</item>
+    <style name="AppThemeGreyDark" parent="AppThemeBlack">
         <item name="colorPrimary">@color/greyPrimary</item>
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
         <item name="colorAccent">@color/greyAccent</item>
@@ -135,9 +134,6 @@
 
         <item name="colorToastForeground">@android:color/white</item>
         <item name="colorToastBackground">@color/greyAccentDark</item>
-
-        <item name="android:windowBackground">@android:color/black</item>
-        <item name="colorDrawerBackground">@android:color/black</item>
     </style>
 
     <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
