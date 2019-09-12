@@ -55,6 +55,10 @@
     <!-- default: #323232 -->
     <color name="design_snackbar_background_color" tools:override="true">#222</color>
 
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="transparent">#00000000</color>
+
     <!-- color picker -->
     <color name="red">#F6402C</color>
     <color name="pink">#EB1460</color>

@@ -38,10 +38,10 @@
         <item name="colorActionForegroundDisabled">@color/lightActionForegroundDisabled</item>
         <item name="colorActionBackground">@color/lightActionBackground</item>
 
-        <item name="colorFabForeground">@android:color/white</item>
+        <item name="colorFabForeground">@color/white</item>
         <item name="colorFabBackground">@color/colorAccent</item>
 
-        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastForeground">@color/white</item>
         <item name="colorToastBackground">@color/colorPrimaryDark</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_light</item>
@@ -80,10 +80,10 @@
         <item name="colorActionForegroundDisabled">@color/darkActionForegroundDisabled</item>
         <item name="colorActionBackground">@color/darkActionBackground</item>
 
-        <item name="colorFabForeground">@android:color/white</item>
+        <item name="colorFabForeground">@color/white</item>
         <item name="colorFabBackground">@color/colorAccent</item>
 
-        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastForeground">@color/white</item>
         <item name="colorToastBackground">@color/colorPrimaryDark</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_dark</item>
@@ -102,8 +102,8 @@
     <style name="AppThemeBlack" parent="AppThemeDark">
         <item name="themeName">black</item>
 
-        <item name="android:windowBackground">@android:color/black</item>
-        <item name="colorDrawerBackground">@android:color/black</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="colorDrawerBackground">@color/black</item>
     </style>
 
     <style name="AppThemeGreyLight" parent="AppThemeLight">
@@ -116,7 +116,7 @@
 
         <item name="colorFabBackground">@color/greyAccent</item>
 
-        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastForeground">@color/white</item>
         <item name="colorToastBackground">@color/greyAccent</item>
     </style>
 
@@ -132,19 +132,19 @@
 
         <item name="colorFabBackground">@color/greyAccentDark</item>
 
-        <item name="colorToastForeground">@android:color/white</item>
+        <item name="colorToastForeground">@color/white</item>
         <item name="colorToastBackground">@color/greyAccentDark</item>
     </style>
 
     <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:background">@android:color/transparent</item>
+        <item name="android:background">@color/transparent</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/transparent</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
+        <item name="android:statusBarColor">@color/transparent</item>
     </style>
 
     <style name="checkboxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
