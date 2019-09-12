@@ -562,7 +562,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 cal.set(Calendar.MINUTE, 0);
                 cal.set(Calendar.SECOND, 0);
                 cal.set(Calendar.MILLISECOND, 0);
-                cal.add(Calendar.DAY_OF_MONTH, -2);
+                cal.add(Calendar.DAY_OF_MONTH, -1);
                 if (message.received <= cal.getTimeInMillis())
                     tvDate.setText(
                             DateUtils.formatDateRange(
