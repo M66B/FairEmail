@@ -3615,6 +3615,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
             tvTo.setText(null);
             tvVia.setText(null);
@@ -3623,6 +3624,14 @@ public class FragmentCompose extends FragmentBase {
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
             cbNotAgain.setChecked(!send_dialog);
             cbNotAgain.setVisibility(dialog ? View.VISIBLE : View.GONE);
+            tvNotAgain.setVisibility(cbNotAgain.isChecked() && send_dialog ? View.VISIBLE : View.GONE);
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    tvNotAgain.setVisibility(isChecked && send_dialog ? View.VISIBLE : View.GONE);
+                }
+            });
 
             DB db = DB.getInstance(getContext());
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
