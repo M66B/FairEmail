@@ -230,9 +230,11 @@ public class HtmlHelper {
 
         for (Element row : document.select("tr")) {
             row.tagName("span");
-            Element next = row.nextElementSibling();
-            if (next != null && "tr".equals(next.tagName()))
-                row.appendElement("br");
+            if (hasContent(row.childNodes())) {
+                Element next = row.nextElementSibling();
+                if (next != null && "tr".equals(next.tagName()))
+                    row.appendElement("br");
+            }
         }
 
         document.select("caption").tagName("div");
