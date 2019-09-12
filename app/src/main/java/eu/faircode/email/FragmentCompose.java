@@ -1092,8 +1092,6 @@ public class FragmentCompose extends FragmentBase {
 
     private void onActionCheck(boolean dialog) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (dialog)
-            prefs.edit().remove("send_dialog").apply();
         boolean send_dialog = prefs.getBoolean("send_dialog", true);
 
         Bundle extras = new Bundle();
@@ -3594,8 +3592,11 @@ public class FragmentCompose extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             long id = getArguments().getLong("id");
-            boolean remind_subject = getArguments().getBoolean("remind_subject", false);
-            boolean remind_attachment = getArguments().getBoolean("remind_attachment", false);
+
+            Bundle args = getArguments();
+            boolean dialog = args.getBundle("extras").getBoolean("dialog");
+            boolean remind_subject = args.getBoolean("remind_subject", false);
+            boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             int send_delayed = prefs.getInt("send_delayed", 0);
@@ -3620,7 +3621,8 @@ public class FragmentCompose extends FragmentBase {
             tvSendAt.setText(null);
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
-            cbNotAgain.setVisibility(send_dialog ? View.VISIBLE : View.GONE);
+            cbNotAgain.setChecked(!send_dialog);
+            cbNotAgain.setVisibility(dialog ? View.VISIBLE : View.GONE);
 
             DB db = DB.getInstance(getContext());
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
@@ -3725,8 +3727,7 @@ public class FragmentCompose extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             getArguments().putBoolean("encrypt", cbEncrypt.isChecked());
-                            if (cbNotAgain.isChecked())
-                                prefs.edit().putBoolean("send_dialog", false).apply();
+                            prefs.edit().putBoolean("send_dialog", !cbNotAgain.isChecked()).apply();
                             sendResult(Activity.RESULT_OK);
                         }
                     })
