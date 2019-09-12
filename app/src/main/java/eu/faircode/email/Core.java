@@ -653,6 +653,17 @@ class Core {
             }
             ifolder.expunge();
         }
+
+        // Delete junk contacts
+        if (EntityFolder.JUNK.equals(target.type)) {
+            Address[] recipients = (message.reply != null ? message.reply : message.from);
+            if (recipients != null)
+                for (Address recipient : recipients) {
+                    String email = ((InternetAddress) recipient).getAddress();
+                    int count = db.contact().deleteContact(target.account, EntityContact.TYPE_FROM, email);
+                    Log.i("Deleted contact email=" + email + " count=" + count);
+                }
+        }
     }
 
     private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
