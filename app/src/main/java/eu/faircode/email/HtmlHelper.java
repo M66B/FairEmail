@@ -141,7 +141,7 @@ public class HtmlHelper {
 
         // Remove new lines without surrounding content
         for (Element br : document.select("br"))
-            if (br.parent() != null && !hasContent(br.parent().childNodes()))
+            if (br.parent() != null && !hasVisibleContent(br.parent().childNodes()))
                 br.tagName("span");
 
         // Paragraphs
@@ -218,7 +218,7 @@ public class HtmlHelper {
         // Tables
         for (Element col : document.select("th,td")) {
             // separate columns
-            if (hasContent(col.childNodes()))
+            if (hasVisibleContent(col.childNodes()))
                 if (col.nextElementSibling() != null)
                     col.appendText(" ");
 
@@ -230,7 +230,7 @@ public class HtmlHelper {
 
         for (Element row : document.select("tr")) {
             row.tagName("span");
-            if (hasContent(row.childNodes())) {
+            if (hasVisibleContent(row.childNodes())) {
                 Element next = row.nextElementSibling();
                 if (next != null && "tr".equals(next.tagName()))
                     row.appendElement("br");
@@ -361,7 +361,7 @@ public class HtmlHelper {
         // Selective new lines
         for (Element div : document.select("div"))
             if (div.children().select("div").size() == 0 &&
-                    hasContent(div.childNodes())) {
+                    hasVisibleContent(div.childNodes())) {
                 div.appendElement("br");
                 div.appendElement("br");
             }
@@ -373,7 +373,7 @@ public class HtmlHelper {
         return (body == null ? "" : body.html());
     }
 
-    private static boolean hasContent(List<Node> nodes) {
+    private static boolean hasVisibleContent(List<Node> nodes) {
         for (Node node : nodes)
             if (node instanceof TextNode && !((TextNode) node).isBlank())
                 return true;
