@@ -461,7 +461,7 @@ public class FragmentCompose extends FragmentBase {
                         onActionDiscard();
                         break;
                     case R.id.action_send:
-                        onActionCheck();
+                        onActionCheck(false);
                         break;
                     default:
                         onAction(action);
@@ -935,6 +935,9 @@ public class FragmentCompose extends FragmentBase {
             case R.id.menu_answer:
                 onMenuAnswer();
                 return true;
+            case R.id.menu_send:
+                onActionCheck(true);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -1087,8 +1090,15 @@ public class FragmentCompose extends FragmentBase {
         }
     }
 
-    private void onActionCheck() {
-        onAction(R.id.action_check);
+    private void onActionCheck(boolean dialog) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (dialog)
+            prefs.edit().remove("send_dialog").apply();
+        boolean send_dialog = prefs.getBoolean("send_dialog", true);
+
+        Bundle extras = new Bundle();
+        extras.putBoolean("dialog", dialog || send_dialog);
+        onAction(R.id.action_check, extras);
     }
 
     private void onEncrypt() {
@@ -1755,6 +1765,10 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAction(int action) {
+        onAction(action, null);
+    }
+
+    private void onAction(int action, Bundle extras) {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
         if (identity == null)
             throw new IllegalArgumentException(getString(R.string.title_from_missing));
@@ -1765,8 +1779,8 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putInt("action", action);
-        args.putLong("account", identity == null ? -1 : identity.account);
-        args.putLong("identity", identity == null ? -1 : identity.id);
+        args.putLong("account", identity.account);
+        args.putLong("identity", identity.id);
         args.putString("extra", etExtra.getText().toString().trim());
         args.putString("to", etTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
@@ -1774,6 +1788,8 @@ public class FragmentCompose extends FragmentBase {
         args.putString("subject", etSubject.getText().toString().trim());
         args.putString("body", HtmlHelper.toHtml(etBody.getText()));
         args.putBoolean("empty", isEmpty());
+        if (extras != null)
+            args.putBundle("extras", extras);
 
         Log.i("Run execute id=" + working);
         actionLoader.execute(this, args, "compose:action:" + action);
@@ -2902,10 +2918,17 @@ public class FragmentCompose extends FragmentBase {
                 // Do nothing
 
             } else if (action == R.id.action_check) {
-                FragmentDialogSend fragment = new FragmentDialogSend();
-                fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
-                fragment.show(getFragmentManager(), "compose:send");
+                boolean dialog = args.getBundle("extras").getBoolean("dialog");
+                boolean remind_subject = args.getBoolean("remind_subject", false);
+                boolean remind_attachment = args.getBoolean("remind_attachment", false);
+
+                if (dialog || remind_subject || remind_attachment) {
+                    FragmentDialogSend fragment = new FragmentDialogSend();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
+                    fragment.show(getFragmentManager(), "compose:send");
+                } else
+                    onAction(R.id.action_send);
 
             } else if (action == R.id.action_send) {
                 autosave = false;
@@ -3576,6 +3599,7 @@ public class FragmentCompose extends FragmentBase {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             int send_delayed = prefs.getInt("send_delayed", 0);
+            boolean send_dialog = prefs.getBoolean("send_dialog", true);
 
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
@@ -3589,12 +3613,14 @@ public class FragmentCompose extends FragmentBase {
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
+            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             tvTo.setText(null);
             tvVia.setText(null);
             tvSendAt.setText(null);
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
+            cbNotAgain.setVisibility(send_dialog ? View.VISIBLE : View.GONE);
 
             DB db = DB.getInstance(getContext());
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
@@ -3699,6 +3725,8 @@ public class FragmentCompose extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             getArguments().putBoolean("encrypt", cbEncrypt.isChecked());
+                            if (cbNotAgain.isChecked())
+                                prefs.edit().putBoolean("send_dialog", false).apply();
                             sendResult(Activity.RESULT_OK);
                         }
                     })
