@@ -226,6 +226,7 @@
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
+    <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_subject_elipsed">W razie potrzeby skróć temat</string>
@@ -253,7 +254,6 @@
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej trwale usuń wersję roboczą</string>
-    <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_unseen_ignored">Niech liczba nowych wiadomości odpowiada liczbie powiadomień</string>
@@ -487,6 +487,7 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
+    <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
     <string name="title_ask_delete_ref">Usunąć tekst odpowiedzi/przesłanej dalej wiadomości? Tego nie da się cofnąć.</string>
     <string name="title_ask_edit_ref">Edytować ponownie sformatowany tekst odpowiedzi/przekazanej wiadomości?</string>
     <string name="title_ask_sync_all">Synchronizować wszystkie wiadomości w %1$s?</string>
@@ -526,8 +527,10 @@
     <string name="title_media_toolbar">Pasek mediów</string>
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
+    <string name="title_send_plain_text">Tylko zwykły tekst</string>
     <string name="title_from_missing">Brak nadawcy</string>
     <string name="title_to_missing">Brak adresata</string>
+    <string name="title_subject_reminder">Temat jest pusty</string>
     <string name="title_attachment_keywords">załączony, załącznik, załączniki, w zestawie, w załączonym</string>
     <string name="title_attachment_reminder">Czy zamierzałeś dodać załącznik?</string>
     <string name="title_attachments_missing">Nie wszystkie załączniki są pobrane</string>
@@ -735,6 +738,9 @@
     <string name="title_via">Przez: %1$s</string>
     <string name="title_1hour">1 godzina</string>
     <string name="title_1day">1 dzień</string>
+    <string name="title_now">Teraz</string>
+    <string name="title_after">Po %1$s</string>
+    <string name="title_reset">Resetuj</string>
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>

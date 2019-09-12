@@ -181,6 +181,8 @@
     <string name="title_advanced_sync_subscribed">Synkronoi vain tilatut kansiot</string>
     <string name="title_advanced_keyboard">Näytä näppäimistö oletuksena</string>
     <string name="title_advanced_suggest_local">Ehdota paikallisesti tallennettuja yhteystietoja</string>
+    <string name="title_advanced_suggest_sent">Ehdota lähetetyistä viesteistä löytyviä osoitteita</string>
+    <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
@@ -204,6 +206,7 @@
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
+    <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
@@ -231,7 +234,6 @@
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
     <string name="title_advanced_discard_delete">Luonnosta hylättäessä poista se pysyvästi</string>
-    <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän täsmätä ilmoitusten lukumäärän kanssa</string>
@@ -465,6 +467,7 @@
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
+    <string name="title_ask_show_image_hint">Seurantakuviksi tunnistettuja kuvia ei näytetä</string>
     <string name="title_ask_delete_ref">Poista vastattu/edelleenlähetetty viestiteksti? Tätä ei voi perua.</string>
     <string name="title_ask_edit_ref">Muokkaa uudelleenmuotoiltua vastatun/edelleenlähetetyn viestin tekstiä?</string>
     <string name="title_ask_sync_all">Synkronoi kaikki viestit kansiossa %1$s?</string>
@@ -507,6 +510,7 @@
     <string name="title_send_plain_text">Muotoilematon teksti ainoastaan</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
+    <string name="title_subject_reminder">Aihe puuttuu</string>
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
     <string name="title_attachment_reminder">Oli tarkoituksenasi lisätä liite?</string>
     <string name="title_attachments_missing">Kaikkia liitteitä ei ole ladattu</string>
@@ -715,6 +719,7 @@
     <string name="title_1hour">1 tunti</string>
     <string name="title_1day">1 päivä</string>
     <string name="title_now">Nyt</string>
+    <string name="title_reset">Palauta oletukset</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>

@@ -181,6 +181,8 @@
     <string name="title_advanced_sync_subscribed">Sincronizar solo carpetas suscritas</string>
     <string name="title_advanced_keyboard">Mostrar teclado por defecto</string>
     <string name="title_advanced_suggest_local">Sugerir contactos almacenados localmente</string>
+    <string name="title_advanced_suggest_sent">Sugerir direcciones encontradas en mensajes enviados</string>
+    <string name="title_advanced_suggest_received">Sugerir direcciones encontradas en mensajes recibidos</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_plain_only">Enviar sólo texto plano por defecto</string>
     <string name="title_advanced_usenet_signature">Convención de firma Usenet</string>
@@ -204,6 +206,7 @@
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
+    <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
     <string name="title_advanced_subject_elipsed">Acortar el asunto cuando sea necesario</string>
@@ -231,7 +234,6 @@
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
     <string name="title_advanced_discard_delete">Al descartar borrador eliminarlo permanentemente</string>
-    <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
@@ -465,6 +467,7 @@
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
+    <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
     <string name="title_ask_delete_ref">¿Eliminar el texto del mensaje contestado/reenviado? Esto no se puede deshacer.</string>
     <string name="title_ask_edit_ref">¿Editar texto reformateado de mensaje respondido/reenviado?</string>
     <string name="title_ask_sync_all">Sincronizar todos los mensajes en %1$s?</string>
@@ -507,6 +510,7 @@
     <string name="title_send_plain_text">Sólo en texto plano</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
+    <string name="title_subject_reminder">El asunto está vacío</string>
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
     <string name="title_attachments_missing">No todos los adjuntos fueron descargados</string>
@@ -716,6 +720,7 @@
     <string name="title_1day">1 día</string>
     <string name="title_now">Ahora</string>
     <string name="title_after">Después de %1$s</string>
+    <string name="title_reset">Restablecer</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

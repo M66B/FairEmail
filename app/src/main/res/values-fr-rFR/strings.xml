@@ -181,6 +181,8 @@
     <string name="title_advanced_sync_subscribed">Synchroniser les dossiers abonnés uniquement</string>
     <string name="title_advanced_keyboard">Afficher le clavier par défaut</string>
     <string name="title_advanced_suggest_local">Suggérer les contacts stockés localement</string>
+    <string name="title_advanced_suggest_sent">Suggérer les adresses trouvées dans les messages envoyés</string>
+    <string name="title_advanced_suggest_received">Suggérer les adresses trouvées dans les messages reçus</string>
     <string name="title_advanced_prefix_once">Ne préfixer l\'objet qu\'une seule fois lors de la réponse ou du transfert</string>
     <string name="title_advanced_plain_only">Envoyer le texte brut uniquement par défaut</string>
     <string name="title_advanced_usenet_signature">Convention de signature Usenet</string>
@@ -204,6 +206,7 @@
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_circular">Afficher des icônes rondes</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
+    <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_subject_top">Afficher l\'objet au dessus de l\'expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l\'objet en italiques</string>
     <string name="title_advanced_subject_elipsed">Raccourcir l\'objet si nécessaire</string>
@@ -231,7 +234,6 @@
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
-    <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
@@ -465,6 +467,7 @@
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
+    <string name="title_ask_show_image_hint">Les images reconnues comme des images de suivi ne seront pas affichées</string>
     <string name="title_ask_delete_ref">Supprimer le texte du message répondu/transmis ? Ceci ne peut pas être annulé.</string>
     <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
     <string name="title_ask_sync_all">Synchroniser tous les messages dans %1$s ?</string>
@@ -507,7 +510,8 @@
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
-    <string name="title_attachment_keywords">pièce jointe,pièces jointes,incluse,incluses</string>
+    <string name="title_subject_reminder">L\'objet est vide</string>
+    <string name="title_attachment_keywords">pièce jointe,pièces jointes,ci-joint,ci-jointe,ci-joints,ci-jointes</string>
     <string name="title_attachment_reminder">Avez-vous l\'intention d\'ajouter une pièce jointe ?</string>
     <string name="title_attachments_missing">Les pièces jointes ne sont pas toutes téléchargées</string>
     <string name="title_draft_deleted">Brouillon supprimé</string>

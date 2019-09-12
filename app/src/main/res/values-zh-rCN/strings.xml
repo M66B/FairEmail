@@ -192,6 +192,7 @@
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
+    <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
@@ -219,7 +220,6 @@
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_discard_delete">丢弃草稿时永久删除草稿</string>
-    <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
@@ -453,6 +453,7 @@
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
+    <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
     <string name="title_ask_delete_ref">删除回复/转发的消息文本？此操作无法撤销。</string>
     <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
     <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
@@ -495,6 +496,7 @@
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
+    <string name="title_subject_reminder">主题为空</string>
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
@@ -704,6 +706,7 @@
     <string name="title_1day">1 天</string>
     <string name="title_now">现在</string>
     <string name="title_after">%1$s之后</string>
+    <string name="title_reset">重置</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

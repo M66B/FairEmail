@@ -196,6 +196,7 @@
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
+    <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
     <string name="title_advanced_subject_italic">Mostrar assunto em itálico</string>
     <string name="title_advanced_flags">Mostrar estrelas</string>
@@ -219,7 +220,6 @@
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
     <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
-    <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_tracking">Reconhecer e desativar automaticamente as imagens de rastreamento</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>

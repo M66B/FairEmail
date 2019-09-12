@@ -181,6 +181,8 @@
     <string name="title_advanced_sync_subscribed">Synkronisere bare abonnerte mapper</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
     <string name="title_advanced_suggest_local">Foreslå lokalt lagrede kontakter</string>
+    <string name="title_advanced_suggest_sent">Foreslå adresser som er funnet i sendte meldinger</string>
+    <string name="title_advanced_suggest_received">Foreslå adresser som er funnet i sendte meldinger</string>
     <string name="title_advanced_prefix_once">Prefiks emne bare en gang på svar eller videresending</string>
     <string name="title_advanced_plain_only">Send bare vanlig tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet signaturkonvensjon</string>
@@ -204,6 +206,7 @@
     <string name="title_advanced_identicons">Vis identicons</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
+    <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
     <string name="title_advanced_subject_elipsed">Forkorte emnet ved behov</string>
@@ -231,7 +234,6 @@
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
     <string name="title_advanced_discard_delete">Ved å kaste utkast permanent slett utkast</string>
-    <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
@@ -465,6 +467,7 @@
     <string name="title_ask_discard">Kast utkast?</string>
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
+    <string name="title_ask_show_image_hint">Bilder som blir gjenkjent som sporingsbilder, vises ikke</string>
     <string name="title_ask_delete_ref">Vil du slette svart/videresendt meldingstekst? Dette kan ikke angres.</string>
     <string name="title_ask_edit_ref">Redigere omformatert svar/videresendt meldingstekst?</string>
     <string name="title_ask_sync_all">Synkroniser alle meldinger i %1$s?</string>
@@ -507,6 +510,7 @@
     <string name="title_send_plain_text">Bare vanlig tekst</string>
     <string name="title_from_missing">Avsender mangler</string>
     <string name="title_to_missing">Mottaker mangler</string>
+    <string name="title_subject_reminder">Emnet er tomt</string>
     <string name="title_attachment_keywords">festet, feste, vedlegg, inkludert</string>
     <string name="title_attachment_reminder">Hadde du tenkt å legge til et vedlegg?</string>
     <string name="title_attachments_missing">Ikke alle vedlegg er lastet ned</string>

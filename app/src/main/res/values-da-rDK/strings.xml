@@ -203,6 +203,7 @@
     <string name="title_advanced_identicons">Vis identikoner</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
+    <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
     <string name="title_advanced_subject_elipsed">Når nødvendigt, afkort emnet</string>
@@ -230,7 +231,6 @@
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_automove">Bekræft flytning af beskeder</string>
     <string name="title_advanced_discard_delete">Ved kassering af udkast, slet dette permanent</string>
-    <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
@@ -464,6 +464,7 @@
     <string name="title_ask_discard">Kassér kladde?</string>
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
+    <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
     <string name="title_ask_delete_ref">Slet besvaret/videresendt beskedtekst? Dette kan ikke fortrydes.</string>
     <string name="title_ask_edit_ref">Redigér omformateret besvaret/videresendt beskedtekst?</string>
     <string name="title_ask_sync_all">Synkronisér alle beskeder i %1$s?</string>
@@ -506,6 +507,7 @@
     <string name="title_send_plain_text">Kun klartekst</string>
     <string name="title_from_missing">Afsender mangler</string>
     <string name="title_to_missing">Modtager mangler</string>
+    <string name="title_subject_reminder">Emne er tomt</string>
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
     <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
@@ -715,6 +717,7 @@
     <string name="title_1day">1 dag</string>
     <string name="title_now">Nu</string>
     <string name="title_after">Efter %1$s</string>
+    <string name="title_reset">Nulstil</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>

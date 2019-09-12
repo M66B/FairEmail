@@ -203,6 +203,8 @@
     <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
     <string name="title_advanced_keyboard">Automaticky zobrazit klávesnici</string>
     <string name="title_advanced_suggest_local">Navrhovat místně uložené kontakty</string>
+    <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
+    <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
     <string name="title_advanced_plain_only">Odeslat pouze prostý text jako výchozí</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
@@ -226,6 +228,7 @@
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Použít kulaté ikony</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
+    <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
     <string name="title_advanced_subject_elipsed">V případě potřeby zestručnit předmět</string>
@@ -253,7 +256,6 @@
     <string name="title_advanced_autoread">Automaticky označit zprávy jako přečtené při přesunu</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
-    <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
     <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv odpovídá počtu oznámení</string>
@@ -487,6 +489,7 @@
     <string name="title_ask_discard">Zahodit koncept?</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
+    <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
     <string name="title_ask_delete_ref">Smazat text odpovídané/přeposílané zprávy? Tuto akci nelze vrátit zpět.</string>
     <string name="title_ask_edit_ref">Upravit přeformátovaný text odpovídané/přeposílané zprávy?</string>
     <string name="title_ask_sync_all">Synchronizovat všechny zprávy v %1$s?</string>
@@ -529,6 +532,7 @@
     <string name="title_send_plain_text">Pouze prostý text</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
+    <string name="title_subject_reminder">Chybí předmět</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
@@ -738,6 +742,7 @@
     <string name="title_1day">1 den</string>
     <string name="title_now">Nyní</string>
     <string name="title_after">Po %1$s</string>
+    <string name="title_reset">Obnovit</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>

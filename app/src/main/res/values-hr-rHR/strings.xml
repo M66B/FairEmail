@@ -214,6 +214,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_identicons">Pokaži identitete</string>
     <string name="title_advanced_circular">Pokaži okrugle ikone</string>
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
+    <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
     <string name="title_advanced_subject_top">Pokaži predmet iznad pošiljatelja</string>
     <string name="title_advanced_subject_italic">Prikaži predmet kurzivno</string>
     <string name="title_advanced_subject_elipsed">Ako potrebno skratiti naslov</string>
@@ -241,7 +242,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
     <string name="title_advanced_discard_delete">Pri odbacivanju skice trajno izbrisati skicu</string>
-    <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
     <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara sa brojem obavijesti</string>

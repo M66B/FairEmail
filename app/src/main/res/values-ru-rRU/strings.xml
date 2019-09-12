@@ -222,6 +222,7 @@
     <string name="title_advanced_identicons">Показать идентики</string>
     <string name="title_advanced_circular">Использовать круглые иконки</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
+    <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_flags">Показывать звёзды</string>
@@ -246,7 +247,6 @@
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
-    <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>

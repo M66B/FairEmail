@@ -180,6 +180,8 @@
     <string name="title_advanced_sync_subscribed">Sincronizza solo le cartelle sottoscritte</string>
     <string name="title_advanced_keyboard">Mostra tastiera di default</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
+    <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
+    <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_plain_only">Invia testo semplice solo per impostazione predefinita</string>
     <string name="title_advanced_usenet_signature">Convenzione firma Usenet</string>
@@ -203,6 +205,7 @@
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
+    <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_subject_elipsed">Quando necessario, accorcia l\'oggetto</string>
@@ -230,7 +233,6 @@
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_discard_delete">In caso la bozza venga scartata, eliminala definitivamente</string>
-    <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
@@ -464,6 +466,7 @@
     <string name="title_ask_discard">Eliminare la bozza?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
+    <string name="title_ask_show_image_hint">Le immagini riconosciute come immagini di tracciamento non verranno mostrate</string>
     <string name="title_ask_delete_ref">Elimina testo del messaggio risposto/inoltrato? Questo non può essere annullato.</string>
     <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
     <string name="title_ask_sync_all">Sincronizza tutti i messaggi in %1$s?</string>
@@ -506,6 +509,7 @@
     <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
+    <string name="title_subject_reminder">Oggetto vuoto</string>
     <string name="title_attachment_keywords">allegato,allegato,allegati,inclusi</string>
     <string name="title_attachment_reminder">Intende aggiungere un allegato?</string>
     <string name="title_attachments_missing">Non tutti gli allegati sono stati scaricati</string>

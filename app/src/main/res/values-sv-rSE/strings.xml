@@ -200,6 +200,7 @@
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
+    <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_subject_top">Visa ämne ovanför avsändaren</string>
     <string name="title_advanced_subject_italic">Visa ämnet kursivt</string>
     <string name="title_advanced_flags">Visa stjärnor</string>
@@ -224,7 +225,6 @@
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
-    <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
