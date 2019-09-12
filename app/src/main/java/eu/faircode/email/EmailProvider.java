@@ -43,6 +43,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -55,6 +56,7 @@ import java.util.concurrent.Future;
 
 public class EmailProvider {
     public String name;
+    public List<String> domain;
     public String link;
     public int order;
     public String type;
@@ -103,6 +105,9 @@ public class EmailProvider {
                         provider.name = xml.getAttributeValue(null, "name");
                         provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
                         provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
+                        String domain = xml.getAttributeValue(null, "domain");
+                        if (domain != null)
+                            provider.domain = Arrays.asList(domain.split(","));
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
                         String user = xml.getAttributeValue(null, "user");
@@ -150,16 +155,22 @@ public class EmailProvider {
     }
 
     static EmailProvider fromDomain(Context context, String domain, Discover discover) throws IOException {
-        EmailProvider autoconfig = _fromDomain(context, domain, discover);
+        List<EmailProvider> providers = loadProfiles(context);
+        for (EmailProvider provider : providers)
+            if (provider.domain != null && provider.domain.contains(domain.toLowerCase())) {
+                Log.i("Provider from domain=" + domain);
+                return provider;
+            }
+
+        EmailProvider autoconfig = _fromDomain(context, domain.toLowerCase(), discover);
 
         // Always prefer built-in profiles
         // - ISPDB is not always correct
         // - documentation links
-        List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
             if (provider.imap.host.equals(autoconfig.imap.host) ||
                     provider.smtp.host.equals(autoconfig.smtp.host)) {
-                Log.i("Replacing autoconfig by profile " + provider.name);
+                Log.i("Replacing auto config by profile=" + provider.name);
                 return provider;
             }
 

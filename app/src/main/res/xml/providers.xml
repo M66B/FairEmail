@@ -307,4 +307,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="KPN mail"
+        domain="kpnmail.nl,kpnplanet.nl,planet.nl,wxs.nl,hetnet.nl,freeler.nl,snelnet.net,on.nl,onsbrabantnet.nl,onsmail.nl,onsnet.nu,onsneteindhoven.nl,onsnetnuenen.nl"
+        link="https://www.kpn.com/service/internet/e-mail/instellen-laptop-pc.htm">
+        <imap
+            host="imap.kpnmail.nl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.kpnmail.nl"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
