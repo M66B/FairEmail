@@ -528,16 +528,18 @@ public class FragmentCompose extends FragmentBase {
         });
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean suggest_local = prefs.getBoolean("suggest_local", false);
+        boolean suggest_sent = prefs.getBoolean("suggest_sent", false);
+        boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
         cadapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence typed) {
-                Log.i("Searching provided contact=" + typed);
+                Log.i("Suggest contact=" + typed);
 
                 String wildcard = "%" + typed + "%";
-                boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
-                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email"});
+                List<Cursor> cursors = new ArrayList<>();
 
+                MatrixCursor provided = new MatrixCursor(new String[]{"_id", "name", "email"});
+                boolean contacts = Helper.hasPermission(getContext(), Manifest.permission.READ_CONTACTS);
                 if (contacts) {
                     Cursor cursor = resolver.query(
                             ContactsContract.CommonDataKinds.Email.CONTENT_URI,
@@ -553,18 +555,25 @@ public class FragmentCompose extends FragmentBase {
                             "CASE WHEN " + ContactsContract.Contacts.DISPLAY_NAME + " NOT LIKE '%@%' THEN 0 ELSE 1 END" +
                                     ", " + ContactsContract.Contacts.DISPLAY_NAME + " COLLATE NOCASE" +
                                     ", " + ContactsContract.CommonDataKinds.Email.DATA + " COLLATE NOCASE");
+
                     while (cursor != null && cursor.moveToNext())
                         provided.newRow()
                                 .add(cursor.getLong(0))
                                 .add(cursor.getString(1))
                                 .add(cursor.getString(2));
-
-                    if (!suggest_local)
-                        return provided;
                 }
+                cursors.add(provided);
 
-                Cursor local = db.contact().searchContacts(null, null, wildcard);
-                return new MergeCursor(new Cursor[]{provided, local});
+                if (suggest_sent)
+                    cursors.add(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
+
+                if (suggest_received)
+                    cursors.add(db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard));
+
+                if (cursors.size() == 1)
+                    return cursors.get(0);
+                else
+                    return new MergeCursor(cursors.toArray(new Cursor[0]));
             }
         });
 

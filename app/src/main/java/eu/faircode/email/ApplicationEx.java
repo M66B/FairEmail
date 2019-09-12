@@ -144,6 +144,12 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("ascending_list", prefs.getBoolean("ascending", false));
                 editor.remove("ascending");
             }
+
+        } else if (version < 701) {
+            if (prefs.getBoolean("suggest_local", false)) {
+                editor.putBoolean("suggest_sent", true);
+                editor.remove("suggest_local");
+            }
         }
 
         if (BuildConfig.DEBUG && false) {
