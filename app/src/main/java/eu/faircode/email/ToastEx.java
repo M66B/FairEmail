@@ -21,7 +21,10 @@ public class ToastEx extends Toast {
         ToastEx toast = new ToastEx(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.toast, null);
+        view.setBackground(context.getResources().getDrawable(R.drawable.toast_background, context.getTheme()));
+
         TextView tv = view.findViewById(android.R.id.message);
+        tv.setTextColor(Helper.resolveColor(context, R.attr.colorToastForeground));
         tv.setText(text);
         toast.setView(view);
         toast.setDuration(duration);

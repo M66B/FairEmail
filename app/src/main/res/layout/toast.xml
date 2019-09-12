@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/toast_background"
     android:orientation="vertical"
     android:paddingStart="12dp"
     android:paddingTop="6dp"
@@ -15,6 +14,5 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Message"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="?attr/colorToastForeground" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 </LinearLayout>
