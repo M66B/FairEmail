@@ -374,6 +374,7 @@
     <string name="title_edit_html">Upravit jako HTML</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
     <string name="title_pop3_support">POP3 není podporován</string>
+    <string name="title_activesync_support">ActiveSync není podporován</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_synchronize_all">Synchronizovat všechny zprávy</string>
@@ -511,6 +512,7 @@
     <string name="title_discard">Zahodit</string>
     <string name="title_save">Uložit</string>
     <string name="title_send">Odeslat</string>
+    <string name="title_send_with_options">Odeslat &#8230;</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
     <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
     <string name="title_style_bold">Tučně</string>

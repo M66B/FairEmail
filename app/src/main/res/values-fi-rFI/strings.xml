@@ -352,6 +352,7 @@
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
     <string name="title_pop3_support">POP3 ei ole tuettu</string>
+    <string name="title_activesync_support">ActiveSync ei ole tuettu</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_all">Synkronoi kaikki viestit</string>
@@ -489,6 +490,7 @@
     <string name="title_discard">Hylkää</string>
     <string name="title_save">Tallenna</string>
     <string name="title_send">Lähetä</string>
+    <string name="title_send_with_options">Lähetä &#8230;</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
     <string name="title_style_bold">Lihavointi</string>

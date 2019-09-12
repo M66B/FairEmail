@@ -352,6 +352,7 @@
     <string name="title_edit_html">Rediger som HTML</string>
     <string name="title_last_connected">Sist tilkoblet: %1$s</string>
     <string name="title_pop3_support">POP3 støttes ikke</string>
+    <string name="title_activesync_support">ActiveSync støttes ikke</string>
     <string name="title_oauth_support">OAuth støttes ikke</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
     <string name="title_synchronize_all">Synkroniser alle meldinger</string>
