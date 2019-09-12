@@ -4127,7 +4127,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 protected void onException(Bundle args, Throwable ex) {
                                     Helper.unexpectedError(getFragmentManager(), ex);
                                 }
-                            }.execute(FragmentKeywordManage.this, args, "message:keywords:manage");
+                            }.execute(getContext(), getActivity(), args, "message:keywords:manage");
                         }
                     })
                     .setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
@@ -4191,7 +4191,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     protected void onException(Bundle args, Throwable ex) {
                                         Helper.unexpectedError(getFragmentManager(), ex);
                                     }
-                                }.execute(FragmentKeywordAdd.this, args, "message:keyword:add");
+                                }.execute(getContext(), getActivity(), args, "message:keyword:add");
                             }
                         }
                     })
