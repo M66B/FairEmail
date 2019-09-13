@@ -283,27 +283,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
+        android:gravity="center_vertical"
+        android:minHeight="24dp"
         android:text="error"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?attr/colorWarning"
         android:textIsSelectable="true"
-        app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+        app:layout_constraintEnd_toStartOf="@+id/btnHelp"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvPreview" />
 
-    <Button
-        android:id="@+id/btnHelp"
-        style="?android:attr/buttonStyleSmall"
+    <ImageButton
+        android:id="@+id/ibHelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="?attr/colorAccent"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:text="@string/title_setup_help"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvError" />
+        android:layout_marginEnd="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:tint="?attr/colorWarning"
+        app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+        app:layout_constraintTop_toTopOf="@id/tvError"
+        app:srcCompat="@drawable/baseline_info_24" />
 
     <View
         android:id="@+id/paddingEnd"
@@ -321,7 +320,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnHelp" />
+        app:layout_constraintTop_toBottomOf="@id/tvError" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbLoading"

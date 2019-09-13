@@ -260,7 +260,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageView ivThread;
         private TextView tvPreview;
         private TextView tvError;
-        private Button btnHelp;
+        private ImageButton ibHelp;
         private ContentLoadingProgressBar pbLoading;
 
         private View vsBody;
@@ -370,7 +370,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCount = itemView.findViewById(R.id.tvCount);
             ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
-            btnHelp = itemView.findViewById(R.id.btnHelp);
+            ibHelp = itemView.findViewById(R.id.ibHelp);
             pbLoading = itemView.findViewById(R.id.pbLoading);
 
             if (compact)
@@ -514,7 +514,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(this);
             if (viewType == ViewType.THREAD)
                 ibFlagged.setOnLongClickListener(this);
-            btnHelp.setOnClickListener(this);
+            ibHelp.setOnClickListener(this);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(this);
@@ -565,7 +565,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setOnClickListener(null);
             if (viewType == ViewType.THREAD)
                 ibFlagged.setOnLongClickListener(null);
-            btnHelp.setOnClickListener(null);
+            ibHelp.setOnClickListener(null);
 
             if (vsBody != null) {
                 ibExpanderAddress.setOnClickListener(null);
@@ -613,7 +613,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivThread.setVisibility(View.GONE);
             tvPreview.setVisibility(View.GONE);
             tvError.setVisibility(View.GONE);
-            btnHelp.setVisibility(View.GONE);
+            ibHelp.setVisibility(View.GONE);
             pbLoading.setVisibility(View.VISIBLE);
 
             clearExpanded(null);
@@ -808,7 +808,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else {
                 tvError.setText(error);
                 tvError.setVisibility(error == null ? View.GONE : View.VISIBLE);
-                btnHelp.setVisibility(error == null ? View.GONE : View.VISIBLE);
+                ibHelp.setVisibility(error == null ? View.GONE : View.VISIBLE);
             }
 
             // Contact info
@@ -1501,7 +1501,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowSnoozed(message);
             else if (view.getId() == R.id.ibFlagged)
                 onToggleFlag(message);
-            else if (view.getId() == R.id.btnHelp)
+            else if (view.getId() == R.id.ibHelp)
                 onHelp(message);
             else if (view.getId() == R.id.ibSearchContact)
                 onSearchContact(message);

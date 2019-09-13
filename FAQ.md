@@ -2191,6 +2191,10 @@ so you cannot use FairEmail to access ProtonMail.
 <a name="faq130"></a>
 **(130) What does message error ... mean?**
 
+The warning *No server found at ...* means that there was no email server registered at the indicated domain name.
+Replying to the message might not be possible and might result in an error.
+This could indicate a falsified email address and/or spam.
+
 The error *... ParseException ...* means that there is a problem with a received message, likely caused by a bug in the sending software.
 FairEmail will workaround this is in most cases, so this message can mostly be considered as a warning instead of an error.
 
