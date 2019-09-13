@@ -587,7 +587,7 @@
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
     <string name="title_attachment_reminder">Did you intend to add an attachment?</string>
     <string name="title_attachments_missing">Not all attachments are downloaded</string>
-    <string name="title_send_dialog_hint">This dialog will still be available via the three dot overflow menu in the action bar</string>
+    <string name="title_send_dialog_hint">This dialog will still be available via the three-dots overflow menu in the action bar</string>
     <string name="title_draft_deleted">Draft discarded</string>
     <string name="title_draft_saved">Draft saved</string>
     <string name="title_ask_send_via">Send message to %1$s via %2$s?</string>
