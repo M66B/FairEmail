@@ -1100,7 +1100,7 @@ class Core {
 
             // Reduce list of local uids
             SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
-            if (sync_unseen)
+            if (sync_unseen && ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
             if (sync_flagged && ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
