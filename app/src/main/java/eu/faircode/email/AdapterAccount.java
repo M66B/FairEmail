@@ -213,7 +213,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
             popupMenu.getMenu().add(Menu.NONE, 0, 0, account.name).setEnabled(false);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 1, R.string.title_synchronize_enabled)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
 
             if (account.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -231,7 +231,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
-                        case R.string.title_synchronize_enabled:
+                        case R.string.title_enabled:
                             onActionSync(!item.isChecked());
                             return true;
 

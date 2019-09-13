@@ -381,8 +381,6 @@
     <string name="title_password">Password</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Use local IP address instead of host name</string>
-    <string name="title_synchronize_account">Synchronize (receive messages)</string>
-    <string name="title_synchronize_identity">Synchronize (send messages)</string>
     <string name="title_primary_account">Primary (default account)</string>
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
@@ -804,6 +802,7 @@
     <string name="title_report">Report</string>
     <string name="title_fix">Fix</string>
     <string name="title_enable">Enable</string>
+    <string name="title_enabled">Enabled</string>
     <string name="title_executing">Executing</string>
     <string name="title_completed">Completed</string>
     <string name="title_ask_what">Ask what to do</string>

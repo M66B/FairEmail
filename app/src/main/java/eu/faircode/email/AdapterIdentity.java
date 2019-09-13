@@ -164,7 +164,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             popupMenu.getMenu().add(Menu.NONE, 0, 0, identity.email).setEnabled(false);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 1, R.string.title_synchronize_enabled)
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(identity.synchronize);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 2, R.string.title_copy);
@@ -173,7 +173,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     switch (item.getItemId()) {
-                        case R.string.title_synchronize_enabled:
+                        case R.string.title_enabled:
                             onActionSync(!item.isChecked());
                             return true;
 
