@@ -1607,7 +1607,8 @@ class Core {
             } else {
                 if (process) {
                     EntityIdentity identity = matchIdentity(context, folder, message);
-                    if (identity != null) {
+                    if (identity != null &&
+                            (message.identity == null || !message.identity.equals(identity.id))) {
                         message.identity = identity.id;
                         Log.i(folder.name + " updated id=" + message.id + " identity=" + identity.id);
                     }
