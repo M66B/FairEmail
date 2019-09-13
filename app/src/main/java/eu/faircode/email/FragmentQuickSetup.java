@@ -48,7 +48,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sun.mail.imap.IMAPFolder;
 
@@ -444,11 +443,10 @@ public class FragmentQuickSetup extends FragmentBase {
                 Log.i("Quick ex=" + Helper.formatThrowable(ex, false));
 
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else {
+                    tvError.setText(ex.getMessage());
+                else
                     tvError.setText(Helper.formatThrowable(ex, false));
-                    tvError.setVisibility(View.VISIBLE);
-                }
+                tvError.setVisibility(View.VISIBLE);
 
                 if (args.containsKey("link")) {
                     Uri uri = Uri.parse(args.getString("link"));
