@@ -168,25 +168,37 @@ public class ServiceSynchronize extends ServiceBase {
         Map<Long, List<Long>> groupNotifying = new HashMap<>();
 
         // Get existing notifications
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            for (StatusBarNotification sbn : nm.getActiveNotifications()) {
-                String tag = sbn.getTag();
-                if (tag != null && tag.startsWith("unseen.")) {
-                    String[] p = tag.split(("\\."));
-                    long group = Long.parseLong(p[1]);
-                    long id = Long.parseLong(p[2]);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            try {
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                for (StatusBarNotification sbn : nm.getActiveNotifications()) {
+                    String tag = sbn.getTag();
+                    if (tag != null && tag.startsWith("unseen.")) {
+                        String[] p = tag.split(("\\."));
+                        long group = Long.parseLong(p[1]);
+                        long id = Long.parseLong(p[2]);
 
-                    if (!groupNotifying.containsKey(group))
-                        groupNotifying.put(group, new ArrayList<>());
+                        if (!groupNotifying.containsKey(group))
+                            groupNotifying.put(group, new ArrayList<>());
 
-                    if (id > 0) {
-                        Log.i("Notify restore " + tag);
-                        groupNotifying.get(group).add(id);
+                        if (id > 0) {
+                            Log.i("Notify restore " + tag);
+                            groupNotifying.get(group).add(id);
+                        }
                     }
                 }
+            } catch (Throwable ex) {
+                Log.w(ex);
+                /*
+                    java.lang.RuntimeException: Unable to create service eu.faircode.email.ServiceSynchronize: java.lang.NullPointerException: Attempt to invoke virtual method 'java.util.List android.content.pm.ParceledListSlice.getList()' on a null object reference
+                            at android.app.ActivityThread.handleCreateService(ActivityThread.java:2944)
+                            at android.app.ActivityThread.access$1900(ActivityThread.java:154)
+                            at android.app.ActivityThread$H.handleMessage(ActivityThread.java:1474)
+                            at android.os.Handler.dispatchMessage(Handler.java:102)
+                            at android.os.Looper.loop(Looper.java:234)
+                            at android.app.ActivityThread.main(ActivityThread.java:5526)
+                */
             }
-        }
 
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
             private ExecutorService executor =
