@@ -1053,7 +1053,7 @@ public class ServiceSynchronize extends ServiceBase {
                             idler.start();
                             idlers.add(idler);
 
-                            if (sync)
+                            if (sync && folder.selectable)
                                 EntityOperation.sync(this, folder.id, false);
                         } else
                             mapFolders.put(folder, null);
