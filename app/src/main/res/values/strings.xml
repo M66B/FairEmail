@@ -713,6 +713,7 @@
     <string name="title_legend_primary">Primary</string>
     <string name="title_legend_subscribed">Subscribed to</string>
     <string name="title_legend_rule">Has rules</string>
+    <string name="title_legend_similar">Search similar messages</string>
     <string name="title_legend_notify">Notify on new messages</string>
     <string name="title_legend_sync_keep">Number of days to synchronize / to keep messages</string>
     <string name="title_legend_download_fetch">Number of message downloaded / headers fetched</string>

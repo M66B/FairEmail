@@ -31,6 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_legend_similar"
+        android:tooltipText="@string/title_legend_similar"
         app:layout_constraintEnd_toStartOf="@+id/ibNotifyContact"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_search_24" />
@@ -42,6 +44,7 @@
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_notify"
+        android:tooltipText="@string/title_legend_notify"
         app:layout_constraintEnd_toStartOf="@+id/ibAddContact"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_notifications_24" />
@@ -53,6 +56,7 @@
         android:layout_marginEnd="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_contacts"
+        android:tooltipText="@string/title_legend_contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
         app:srcCompat="@drawable/baseline_import_contacts_24" />

@@ -27,6 +27,7 @@
         android:backgroundTint="?attr/colorActionBackground"
         android:contentDescription="@string/title_decrypt"
         android:tint="@color/action_foreground"
+        android:tooltipText="@string/title_decrypt"
         app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
         app:layout_constraintTop_toBottomOf="@id/bnvActions"
         app:srcCompat="@drawable/baseline_no_encryption_24" />
@@ -40,6 +41,7 @@
         android:backgroundTint="?attr/colorActionBackground"
         android:contentDescription="@string/title_legend_show_unsubscribe"
         android:tint="@color/action_foreground"
+        android:tooltipText="@string/title_legend_show_unsubscribe"
         app:layout_constraintEnd_toStartOf="@+id/ibImages"
         app:layout_constraintTop_toBottomOf="@id/bnvActions"
         app:srcCompat="@drawable/baseline_unsubscribe_24" />
@@ -53,6 +55,7 @@
         android:backgroundTint="?attr/colorActionBackground"
         android:contentDescription="@string/title_legend_show_images"
         android:tint="@color/action_foreground"
+        android:tooltipText="@string/title_legend_show_images"
         app:layout_constraintEnd_toStartOf="@+id/ibFull"
         app:layout_constraintTop_toBottomOf="@id/bnvActions"
         app:srcCompat="@drawable/baseline_image_24" />
@@ -65,6 +68,7 @@
         android:backgroundTint="?attr/colorActionBackground"
         android:contentDescription="@string/title_legend_show_full"
         android:tint="@color/action_foreground"
+        android:tooltipText="@string/title_legend_show_full"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bnvActions"
         app:srcCompat="@drawable/baseline_fullscreen_24" />
