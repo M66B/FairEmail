@@ -222,7 +222,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(126) What does 'User is authenticated but not connected' mean?](#user-content-faq126)
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Is ProtonMail supported?](#user-content-faq129)
+* [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
 * [(130) What does message error ... mean?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
 
@@ -2183,11 +2183,15 @@ You can reset asked questions via the three dots overflow menu in the miscellane
 <br />
 
 <a name="faq129"></a>
-**(129) Is ProtonMail supported?**
+**(129) Are ProtonMail, Tutanota supported?**
 
 ProtonMail uses a proprietary email protocol
 and [does not directly support IMAP](https://protonmail.com/support/knowledge-base/imap-smtp-and-pop3-setup/),
 so you cannot use FairEmail to access ProtonMail.
+
+Tutanota uses a proprietary email protocol
+and [does not support IMAP](https://tutanota.com/faq/#imap),
+so you cannot use FairEmail to access Tutanota.
 
 <br />
 
