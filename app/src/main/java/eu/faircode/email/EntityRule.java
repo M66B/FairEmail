@@ -245,8 +245,10 @@ public class EntityRule {
 
     private boolean onActionSeen(Context context, EntityMessage message, boolean seen) {
         EntityOperation.queue(context, message, EntityOperation.SEEN, seen);
+
         message.ui_seen = seen;
         message.ui_ignored = true;
+
         return true;
     }
 
@@ -265,8 +267,10 @@ public class EntityRule {
         for (EntityMessage threaded : messages)
             EntityOperation.queue(context, threaded, EntityOperation.MOVE, target, seen);
 
-        if (seen)
-            message.seen = true;
+        if (seen) {
+            message.ui_seen = true;
+            message.ui_ignored = true;
+        }
 
         return true;
     }
@@ -280,6 +284,7 @@ public class EntityRule {
             throw new IllegalArgumentException("Rule copy to folder not found");
 
         EntityOperation.queue(context, message, EntityOperation.COPY, target, false);
+
         return true;
     }
 
@@ -326,6 +331,7 @@ public class EntityRule {
                 null);
 
         EntityOperation.queue(context, reply, EntityOperation.SEND);
+
         return true;
     }
 
@@ -340,6 +346,7 @@ public class EntityRule {
 
         Log.i("Sending " + automation);
         context.sendBroadcast(automation);
+
         return true;
     }
 
@@ -364,6 +371,9 @@ public class EntityRule {
         DB db = DB.getInstance(context);
         db.message().setMessageSnoozed(message.id, wakeup);
         EntityMessage.snooze(context, message.id, wakeup);
+
+        message.ui_snoozed = wakeup;
+
         onActionSeen(context, message, true);
 
         return true;
@@ -372,7 +382,12 @@ public class EntityRule {
     private boolean onActionFlag(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         Integer color = (jargs.has("color") && !jargs.isNull("color")
                 ? jargs.getInt("color") : null);
+
         EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
+
+        message.ui_flagged = true;
+        message.color = color;
+
         return true;
     }
 
