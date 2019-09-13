@@ -55,6 +55,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.UIDFolder;
 import javax.mail.internet.InternetAddress;
+import javax.mail.search.AndTerm;
 import javax.mail.search.BodyTerm;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
@@ -303,9 +304,18 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     if (browse_time < 0)
                         browse_time = 0;
 
-                    Log.i("Boundary browse after=" + new Date(browse_time));
+                    boolean filter_seen = prefs.getBoolean("filter_seen", false);
+                    boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+                    Log.i("Boundary browse after=" + new Date(browse_time) +
+                            " filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
 
-                    state.imessages = state.ifolder.search(new ReceivedDateTerm(ComparisonTerm.LE, new Date(browse_time)));
+                    SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.LE, new Date(browse_time));
+                    if (filter_seen && state.ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+                        searchTerm = new AndTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+                    if (filter_unflagged && state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+                        searchTerm = new AndTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
+
+                    state.imessages = state.ifolder.search(searchTerm);
                 } else if (query.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
                     String special = query.split(":")[1];
                     if (context.getString(R.string.title_search_special_unseen).equals(special))
