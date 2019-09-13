@@ -169,6 +169,8 @@
     <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
     <string name="title_advanced_suggest_local">提示本地存储的联系人</string>
+    <string name="title_advanced_suggest_sent">提示在已发送消息中找到的地址</string>
+    <string name="title_advanced_suggest_received">提示在已收到消息中找到的地址</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
@@ -338,6 +340,7 @@
     <string name="title_edit_html">以 html 格式编辑</string>
     <string name="title_last_connected">上次连接%1$s前</string>
     <string name="title_pop3_support">不支持POP3协议</string>
+    <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_synchronize_all">同步所有消息</string>
@@ -475,6 +478,7 @@
     <string name="title_discard">舍弃</string>
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
+    <string name="title_send_with_options">发送 &#8230;</string>
     <string name="title_send_at">发送于 &#8230;</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
     <string name="title_style_bold">粗体</string>
@@ -500,6 +504,7 @@
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_attachments_missing">没有下载全部附件</string>
+    <string name="title_send_dialog_hint">操作栏的三点溢出菜单内仍可以找到该对话框</string>
     <string name="title_draft_deleted">草稿已舍弃</string>
     <string name="title_draft_saved">草稿已保存</string>
     <string name="title_ask_send_via">要通过%2$s把消息发送给 %1$s 吗？</string>

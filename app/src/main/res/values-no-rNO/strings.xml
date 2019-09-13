@@ -490,6 +490,7 @@
     <string name="title_discard">Forkast</string>
     <string name="title_save">Lagre</string>
     <string name="title_send">Send</string>
+    <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sender &#8230;</string>
     <string name="title_no_server">Ingen server funnet på \'%1$s\'</string>
     <string name="title_style_bold">Fet</string>
@@ -515,6 +516,7 @@
     <string name="title_attachment_keywords">festet, feste, vedlegg, inkludert</string>
     <string name="title_attachment_reminder">Hadde du tenkt å legge til et vedlegg?</string>
     <string name="title_attachments_missing">Ikke alle vedlegg er lastet ned</string>
+    <string name="title_send_dialog_hint">Denne dialogboksen vil fremdeles være tilgjengelig via trepunkts menyen i handlingslinjen</string>
     <string name="title_draft_deleted">Utkast forkastet</string>
     <string name="title_draft_saved">Utkast lagret</string>
     <string name="title_ask_send_via">Send meldingen til %1$s via %2$s?</string>

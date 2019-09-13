@@ -516,6 +516,7 @@
     <string name="title_attachment_keywords">bijlage, bijlagen</string>
     <string name="title_attachment_reminder">Was u van plan een bijlage toe te voegen?</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
+    <string name="title_send_dialog_hint">Dit dialoogvenster is nog steeds beschikbaar via het driepuntsoverloopmenu in de actiebalk</string>
     <string name="title_draft_deleted">Concept weggegooid</string>
     <string name="title_draft_saved">Concept opgeslagen</string>
     <string name="title_ask_send_via">Verstuur bericht naar %1$s via %2$s?</string>

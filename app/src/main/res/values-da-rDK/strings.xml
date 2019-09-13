@@ -180,6 +180,8 @@
     <string name="title_advanced_sync_subscribed">Synkronisér kun abonnerede mapper</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
     <string name="title_advanced_suggest_local">Foreslår lokalt lagrede kontakter</string>
+    <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
+    <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_plain_only">Send kun simpel tekst som standard</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
@@ -349,6 +351,7 @@
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
     <string name="title_pop3_support">POP3 understøttes ikke</string>
+    <string name="title_activesync_support">ActiveSync er uunderstøttet</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
     <string name="title_synchronize_all">Synkronisér alle beskeder</string>
@@ -486,6 +489,7 @@
     <string name="title_discard">Kassér</string>
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
+    <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
     <string name="title_no_server">Ingen server fundet på \'%1$s\'</string>
     <string name="title_style_bold">Fed</string>
@@ -511,6 +515,7 @@
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
     <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
     <string name="title_attachments_missing">Ikke alle vedhæftninger er downloadet</string>
+    <string name="title_send_dialog_hint">Denne dialog vil stadig være tilgængelig via 3-priksoverløbsmenuen på handlingsbjælken</string>
     <string name="title_draft_deleted">Kladde kasseret</string>
     <string name="title_draft_saved">Kladde gemt</string>
     <string name="title_ask_send_via">Send besked til %1$s via %2$s?</string>

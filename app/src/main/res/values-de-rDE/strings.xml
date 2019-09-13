@@ -489,6 +489,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
+    <string name="title_send_with_options">Sende-Optionen &#8230;</string>
     <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_no_server">Kein Server gefunden bei \'%1$s\'</string>
     <string name="title_style_bold">Fett</string>
@@ -514,6 +515,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen,anbei</string>
     <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
     <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
+    <string name="title_send_dialog_hint">Dieser Dialog ist in jeden Fall über das drei Punkte-Überlauf-Menü in der Aktionsleiste verfügbar</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
     <string name="title_ask_send_via">Sende E-Mail zu %1$s über %2$s?</string>
