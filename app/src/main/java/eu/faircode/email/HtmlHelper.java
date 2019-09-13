@@ -29,6 +29,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LevelListDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.text.Html;
@@ -66,6 +67,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -245,18 +247,38 @@ public class HtmlHelper {
             else
                 table.tagName("div");
 
-        // Images
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+
+        // Build list of allowed hosts
+        List<String> hosts = new ArrayList<>();
+        if (disable_tracking)
+            for (Element img : document.select("img")) {
+                String src = img.attr("src");
+                if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
+                    Uri uri = Uri.parse(img.attr("src"));
+                    String host = uri.getHost();
+                    if (host != null && !hosts.contains(host))
+                        hosts.add(host);
+                }
+            }
+
+        // Images
         for (Element img : document.select("img")) {
             // Remove link tracking pixels
-            if (disable_tracking && isTrackingPixel(img)) {
+            if (disable_tracking) {
                 String src = img.attr("src");
-                img.removeAttr("src");
-                img.tagName("a");
-                img.attr("href", src);
-                img.appendText(context.getString(R.string.title_hint_tracking_image,
-                        img.attr("width"), img.attr("height")));
+                if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
+                    Uri uri = Uri.parse(img.attr("src"));
+                    String host = uri.getHost();
+                    if (host == null || !hosts.contains(host)) {
+                        img.removeAttr("src");
+                        img.tagName("a");
+                        img.attr("href", src);
+                        img.appendText(context.getString(R.string.title_hint_tracking_image,
+                                img.attr("width"), img.attr("height")));
+                    }
+                }
             }
 
             if (!show_images) {
@@ -791,12 +813,9 @@ public class HtmlHelper {
     }
 
     private static boolean isTrackingPixel(Element img) {
-        String src = img.attr("src");
         String width = img.attr("width").trim();
         String height = img.attr("height").trim();
 
-        if (TextUtils.isEmpty(src))
-            return false;
         if (TextUtils.isEmpty(width) || TextUtils.isEmpty(height))
             return false;
 
