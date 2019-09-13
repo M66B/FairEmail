@@ -150,7 +150,14 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("suggest_sent", true);
                 editor.remove("suggest_local");
             }
+
+        } else if (version < 703) {
+            if (!prefs.getBoolean("style_toolbar", true)) {
+                editor.putBoolean("compose_media", false);
+                editor.remove("style_toolbar");
+            }
         }
+
 
         if (BuildConfig.DEBUG && false) {
             editor.remove("app_support");

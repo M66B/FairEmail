@@ -9,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_bar"
+        app:layout_constraintBottom_toTopOf="@+id/media_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -413,7 +413,7 @@
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/edit_bar"
+        android:id="@+id/media_bar"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:background="?attr/colorActionBackground"
