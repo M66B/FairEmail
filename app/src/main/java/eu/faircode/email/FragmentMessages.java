@@ -944,6 +944,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (swipenav) {
                 Log.i("Swipe navigation");
 
+                boolean ltr = (getContext().getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_LTR);
+
                 final SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
                     @Override
                     public boolean onSwipeRight() {
@@ -951,7 +953,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
                             view.startAnimation(bounce);
                         } else
-                            navigate(previous, true);
+                            navigate(previous, ltr);
 
                         return (previous != null);
                     }
@@ -962,7 +964,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
                             view.startAnimation(bounce);
                         } else
-                            navigate(next, false);
+                            navigate(next, !ltr);
 
                         return (next != null);
                     }
