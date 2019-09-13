@@ -289,7 +289,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="?attr/colorWarning"
         android:textIsSelectable="true"
-        app:layout_constraintEnd_toStartOf="@+id/btnHelp"
+        app:layout_constraintEnd_toStartOf="@+id/ibHelp"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvPreview" />
 
