@@ -251,7 +251,7 @@
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
-    <string name="title_advanced_double_back">\'Retour\' deux fois pour quitter</string>
+    <string name="title_advanced_double_back">Faire \"Retour\" deux fois pour quitter</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
