@@ -116,9 +116,9 @@
             android:id="@+id/ibSendAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_timelapse_24"
             app:layout_constraintBottom_toBottomOf="@id/tvSendAt"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/baseline_timelapse_24" />
 
         <TextView
             android:id="@+id/tvRemindSubject"
