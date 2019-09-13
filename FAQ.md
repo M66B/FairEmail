@@ -26,6 +26,12 @@ For authorizing:
 
 Please see [here](#user-content-faq22) for common error messages.
 
+Related questions:
+
+* [Why is POP not supported?](#user-content-faq11)
+* [Why is ActiveSync not supported?](#user-content-faq133)
+* [Why is OAuth not supported?](#user-content-faq111)
+
 ## Known problems
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
@@ -75,7 +81,7 @@ Anything on this list is in random order and *might* be added in the near future
 ## Frequently requested features
 
 * *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. See below for the design goals.
-* *ActiveSync*: using the Exchange ActiveSync protocol requires [a license](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing), so this cannot be added.
+* *ActiveSync*: please see [this FAQ](#user-content-faq133)
 
 The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
@@ -207,7 +213,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
 * [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Can you add OAuth authentication?](#user-content-faq111)
+* [(111) Why is OAuth not supported?](#user-content-faq111)
 * [(112) Which email provider do you recommend?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
@@ -229,6 +235,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(130) What does message error ... mean?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
 * [(132) Why are new message notifications silent?](#user-content-faq132)
+* [(133) Why is ActiveSync not supported?](#user-content-faq133)
 
 [I have another question.](#user-content-support)
 
@@ -454,7 +461,7 @@ Note that this will result in extra internet traffic.
 You can use a Microsoft Exchange account if it is accessible via IMAP.
 See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
-Please see [here](#frequently-requested-features) about ActiveSync support.
+Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
 <br />
 
@@ -1981,7 +1988,7 @@ Disabling *Partial fetch* will result in more memory usage.
 <br />
 
 <a name="faq111"></a>
-**(111) Can you add OAuth authentication?**
+**(111) Why is OAuth not supported?**
 
 (X)OAuth authentication, [formerly available](https://github.com/M66B/FairEmail/commit/eddfad1e25ca12c438d86793323895b41872f7b9) as *Select account* for Google accounts,
 requires creating an online (Google, Microsoft, etc) app, which would make authentication for many people dependent on one (developer) account, which is a bad idea.
@@ -2231,6 +2238,14 @@ This behavior seems quite natural to me.
 
 Notifications appear to silent by default on some MIUI versions.
 Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
+
+<br />
+
+<a name="faq133"></a>
+**(133) Why is ActiveSync not supported?**
+
+The Microsoft Exchange ActiveSync protocol [is patented](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) and can therefore not be supported.
+For this reason you won't find many, if any, other email clients supporting ActiveSync.
 
 <br />
 

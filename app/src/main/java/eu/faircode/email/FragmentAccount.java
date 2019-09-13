@@ -290,8 +290,7 @@ public class FragmentAccount extends FragmentBase {
         tvActiveSyncSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse(Helper.FAQ_URI + "#user-content-frequently-requested-features");
-                Helper.view(getContext(), uri, false);
+                Helper.viewFAQ(getContext(), 133);
             }
         });
 
