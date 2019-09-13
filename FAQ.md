@@ -225,6 +225,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
 * [(130) What does message error ... mean?](#user-content-faq130)
 * [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
+* [(132) Why are new message notifications silent?](#user-content-faq132)
 
 [I have another question.](#user-content-support)
 
@@ -2219,6 +2220,14 @@ If you read from left to right, swiping to the left will show the next message.
 Similarly, if you read from right to left, swiping to the right will show the next message.
 
 This behavior seems quite natural to me.
+
+<br />
+
+<a name="faq132"></a>
+**(132) Why are new message notifications silent?**
+
+Notifications appear to silent by default on some MIUI versions.
+Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
 
 <br />
 
