@@ -908,6 +908,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
+        menu.findItem(R.id.menu_send).setVisible(state == State.LOADED);
 
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
         menu.findItem(R.id.menu_media).setEnabled(!busy);
@@ -915,6 +916,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_clear).setEnabled(!busy);
         menu.findItem(R.id.menu_contact_group).setEnabled(!busy && hasPermission(Manifest.permission.READ_CONTACTS));
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
+        menu.findItem(R.id.menu_send).setEnabled(!busy);
 
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
@@ -2515,22 +2517,14 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onPreExecute(Bundle args) {
-            int action = args.getInt("action");
-            if (action != R.id.action_check) {
-                busy = true;
-                Helper.setViewsEnabled(view, false);
-                getActivity().invalidateOptionsMenu();
-            }
+            setBusy(true);
         }
 
         @Override
         protected void onPostExecute(Bundle args) {
             int action = args.getInt("action");
-            if (action != R.id.action_check) {
-                busy = false;
-                Helper.setViewsEnabled(view, true);
-                getActivity().invalidateOptionsMenu();
-            }
+            if (action != R.id.action_check)
+                setBusy(false);
         }
 
         @Override
@@ -2947,6 +2941,8 @@ public class FragmentCompose extends FragmentBase {
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
                 if (dialog || remind_subject || remind_attachment) {
+                    setBusy(false);
+
                     FragmentDialogSend fragment = new FragmentDialogSend();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
@@ -2962,6 +2958,10 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onException(Bundle args, Throwable ex) {
+            int action = args.getInt("action");
+            if (action == R.id.action_check)
+                setBusy(false);
+
             if (ex instanceof MessageRemovedException)
                 finish();
             else if (ex instanceof IllegalArgumentException ||
@@ -2988,6 +2988,13 @@ public class FragmentCompose extends FragmentBase {
                 default:
                     return Integer.toString(id);
             }
+        }
+
+
+        private void setBusy(boolean busy) {
+            FragmentCompose.this.busy = busy;
+            Helper.setViewsEnabled(view, !busy);
+            getActivity().invalidateOptionsMenu();
         }
     };
 
