@@ -461,6 +461,8 @@ Note that this will result in extra internet traffic.
 You can use a Microsoft Exchange account if it is accessible via IMAP.
 See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
+Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+
 Please see [this FAQ](#user-content-faq133) about ActiveSync support.
 
 <br />
@@ -2229,7 +2231,7 @@ Please see [here](#user-content-faq22) for other error messages in the outbox.
 If you read from left to right, swiping to the left will show the next message.
 Similarly, if you read from right to left, swiping to the right will show the next message.
 
-This behavior seems quite natural to me.
+This behavior seems quite natural to me, also because it is similar to turning pages.
 
 <br />
 
