@@ -587,16 +587,8 @@ public class FragmentAccount extends FragmentBase {
                     result.idle = iservice.getStore().hasCapability("IDLE");
 
                     boolean inbox = false;
-                    boolean archive = false;
-                    boolean drafts = false;
-                    boolean trash = false;
-                    boolean sent = false;
-                    boolean junk = false;
-                    EntityFolder altArchive = null;
-                    EntityFolder altDrafts = null;
-                    EntityFolder altTrash = null;
-                    EntityFolder altSent = null;
-                    EntityFolder altJunk = null;
+
+                    List<EntityFolder> guesses = new ArrayList<>();
 
                     for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                         // Check folder attributes
@@ -608,69 +600,48 @@ public class FragmentAccount extends FragmentBase {
                         if (type != null) {
                             // Create entry
                             EntityFolder folder = db.folder().getFolderByName(id, fullName);
-                            if (folder == null) {
-                                int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
-                                folder = new EntityFolder();
-                                folder.name = fullName;
-                                folder.type = type;
-                                folder.synchronize = (sync >= 0);
-                                folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
-                                folder.sync_days = EntityFolder.DEFAULT_SYNC;
-                                folder.keep_days = EntityFolder.DEFAULT_KEEP;
-                            }
+                            if (folder == null)
+                                folder = new EntityFolder(fullName, type);
                             result.folders.add(folder);
 
                             if (EntityFolder.USER.equals(type)) {
-                                if (folder.name.toLowerCase().contains("archive"))
-                                    altArchive = folder;
-                                if (folder.name.toLowerCase().contains("draft"))
-                                    altDrafts = folder;
-                                if (folder.name.toLowerCase().contains("trash"))
-                                    altTrash = folder;
-                                if (folder.name.toLowerCase().contains("sent"))
-                                    altSent = folder;
-                                if (folder.name.toLowerCase().contains("junk"))
-                                    altJunk = folder;
-                            } else {
-                                if (EntityFolder.INBOX.equals(type))
-                                    inbox = true;
-                                else if (EntityFolder.ARCHIVE.equals(type))
-                                    archive = true;
-                                else if (EntityFolder.DRAFTS.equals(type))
-                                    drafts = true;
-                                else if (EntityFolder.TRASH.equals(type))
-                                    trash = true;
-                                else if (EntityFolder.SENT.equals(type))
-                                    sent = true;
-                                else if (EntityFolder.JUNK.equals(type))
-                                    junk = true;
+                                String guess = EntityFolder.guessType(fullName);
+                                if (guess != null)
+                                    guesses.add(folder);
                             }
 
-                            if (EntityFolder.INBOX.equals(type))
+                            if (EntityFolder.INBOX.equals(type)) {
+                                inbox = true;
+
                                 result.utf8 = (Boolean) ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
                                     @Override
                                     public Object doCommand(IMAPProtocol protocol) {
                                         return protocol.supportsUtf8();
                                     }
                                 });
+                            }
 
                             Log.i(folder.name + " id=" + folder.id +
                                     " type=" + folder.type + " attr=" + TextUtils.join(",", attrs));
                         }
                     }
 
+                    for (EntityFolder guess : guesses) {
+                        boolean has = false;
+                        String gtype = EntityFolder.guessType(guess.name);
+                        for (EntityFolder folder : result.folders)
+                            if (folder.type.equals(gtype)) {
+                                has = true;
+                                break;
+                            }
+                        if (!has) {
+                            guess.type = gtype;
+                            Log.i(guess.name + " guessed type=" + gtype);
+                        }
+                    }
+
                     if (!inbox)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_inbox));
-                    if (!archive && altArchive != null)
-                        altArchive.type = EntityFolder.ARCHIVE;
-                    if (!drafts && altDrafts != null)
-                        altDrafts.type = EntityFolder.DRAFTS;
-                    if (!trash && altTrash != null)
-                        altTrash.type = EntityFolder.TRASH;
-                    if (!sent && altSent != null)
-                        altSent.type = EntityFolder.SENT;
-                    if (!junk && altJunk != null)
-                        altJunk.type = EntityFolder.JUNK;
 
                     if (result.folders.size() > 0)
                         Collections.sort(result.folders, result.folders.get(0).getComparator(null));

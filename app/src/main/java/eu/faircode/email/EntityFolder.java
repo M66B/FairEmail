@@ -37,8 +37,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 
 import static androidx.room.ForeignKey.CASCADE;
@@ -157,10 +159,21 @@ public class EntityFolder extends EntityOrder implements Serializable {
             USER
     ));
 
+    private static Map<String, String> GUESS_FOLDER_TYPE = new HashMap<String, String>() {{
+        put("all", EntityFolder.ARCHIVE);
+        put("archive", EntityFolder.ARCHIVE);
+        put("draft", EntityFolder.DRAFTS);
+        put("concept", EntityFolder.DRAFTS);
+        put("trash", EntityFolder.TRASH);
+        put("junk", EntityFolder.JUNK);
+        put("spam", EntityFolder.JUNK);
+        put("sent", EntityFolder.SENT);
+    }};
+
     static final int DEFAULT_SYNC = 7; // days
     static final int DEFAULT_KEEP = 30; // days
 
-    static final List<String> SYSTEM_FOLDER_SYNC = Collections.unmodifiableList(Arrays.asList(
+    private static final List<String> SYSTEM_FOLDER_SYNC = Collections.unmodifiableList(Arrays.asList(
             INBOX,
             DRAFTS,
             SENT,
@@ -168,7 +181,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
             TRASH,
             JUNK
     ));
-    static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Collections.unmodifiableList(Arrays.asList(
+    private static final List<Boolean> SYSTEM_FOLDER_DOWNLOAD = Collections.unmodifiableList(Arrays.asList(
             true, // inbox
             true, // drafts
             false, // sent
@@ -178,6 +191,23 @@ public class EntityFolder extends EntityOrder implements Serializable {
     )); // MUST match SYSTEM_FOLDER_SYNC
 
     public EntityFolder() {
+    }
+
+    public EntityFolder(String fullName, String type) {
+        this.name = fullName;
+        this.type = type;
+
+        int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
+        this.synchronize = (sync >= 0);
+        this.download = (sync < 0 || EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
+
+        this.sync_days = EntityFolder.DEFAULT_SYNC;
+        this.keep_days = EntityFolder.DEFAULT_KEEP;
+
+        if (EntityFolder.INBOX.equals(type)) {
+            this.unified = true;
+            this.notify = true;
+        }
     }
 
     static String getNotificationChannelId(long id) {
@@ -269,6 +299,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
             return INBOX;
 
         return USER;
+    }
+
+    static String guessType(String fullName) {
+        for (String guess : GUESS_FOLDER_TYPE.keySet())
+            if (fullName.toLowerCase().contains(guess))
+                return GUESS_FOLDER_TYPE.get(guess);
+        return null;
     }
 
     String getParentName(Character separator) {

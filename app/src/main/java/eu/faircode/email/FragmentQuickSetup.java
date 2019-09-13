@@ -275,9 +275,8 @@ public class FragmentQuickSetup extends FragmentBase {
                                 throw ex;
                         }
 
-                        boolean inbox = false;
-                        boolean drafts = false;
-                        EntityFolder altDrafts = null;
+                        List<EntityFolder> guesses = new ArrayList<>();
+
                         for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
                             String fullName = ifolder.getFullName();
                             String[] attrs = ((IMAPFolder) ifolder).getAttributes();
@@ -285,46 +284,40 @@ public class FragmentQuickSetup extends FragmentBase {
                             Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
 
                             if (type != null) {
-                                int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(type);
-
-                                EntityFolder folder = new EntityFolder();
-                                folder.name = fullName;
-                                folder.type = type;
-                                folder.synchronize = (sync >= 0);
-                                folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
-                                folder.sync_days = EntityFolder.DEFAULT_SYNC;
-                                folder.keep_days = EntityFolder.DEFAULT_KEEP;
-
-                                if (EntityFolder.INBOX.equals(type)) {
-                                    folder.unified = true;
-                                    folder.notify = true;
-                                    inbox = true;
-                                } else if (EntityFolder.DRAFTS.equals(type))
-                                    drafts = true;
-
+                                EntityFolder folder = new EntityFolder(fullName, type);
                                 folders.add(folder);
-                            } else if (fullName.toLowerCase().contains("draft")) {
-                                int sync = EntityFolder.SYSTEM_FOLDER_SYNC.indexOf(EntityFolder.DRAFTS);
 
-                                EntityFolder folder = new EntityFolder();
-                                folder.name = fullName;
-                                folder.type = EntityFolder.DRAFTS;
-                                folder.synchronize = (sync >= 0);
-                                folder.download = (sync < 0 ? true : EntityFolder.SYSTEM_FOLDER_DOWNLOAD.get(sync));
-                                folder.sync_days = EntityFolder.DEFAULT_SYNC;
-                                folder.keep_days = EntityFolder.DEFAULT_KEEP;
-
-                                altDrafts = folder;
+                                if (EntityFolder.USER.equals(type)) {
+                                    String guess = EntityFolder.guessType(fullName);
+                                    if (guess != null)
+                                        guesses.add(folder);
+                                }
                             }
                         }
 
-                        Log.i("Quick inbox=" + inbox + " drafts=" + drafts);
-
-                        if (!drafts && altDrafts != null) {
-                            drafts = true;
-                            folders.add(altDrafts);
-                            Log.i("Quick alt drafts=" + altDrafts.name);
+                        for (EntityFolder guess : guesses) {
+                            boolean has = false;
+                            String gtype = EntityFolder.guessType(guess.name);
+                            for (EntityFolder folder : folders)
+                                if (folder.type.equals(gtype)) {
+                                    has = true;
+                                    break;
+                                }
+                            if (!has) {
+                                guess.type = gtype;
+                                Log.i(guess.name + " guessed type=" + gtype);
+                            }
                         }
+
+                        boolean inbox = false;
+                        boolean drafts = false;
+                        for (EntityFolder folder : folders)
+                            if (EntityFolder.INBOX.equals(folder.type))
+                                inbox = true;
+                            else if (EntityFolder.DRAFTS.equals(folder.type))
+                                drafts = true;
+
+                        Log.i("Quick inbox=" + inbox + " drafts=" + drafts);
 
                         if (!inbox || !drafts)
                             throw new IllegalArgumentException(
