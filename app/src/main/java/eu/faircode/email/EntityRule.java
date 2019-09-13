@@ -251,7 +251,7 @@ public class EntityRule {
     }
 
     private boolean onActionMove(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
-        long target = jargs.getLong("target");
+        long target = jargs.optLong("target", -1);
         boolean seen = jargs.optBoolean("seen");
         boolean thread = jargs.optBoolean("thread");
 
