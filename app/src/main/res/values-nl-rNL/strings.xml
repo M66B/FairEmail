@@ -229,6 +229,7 @@
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
+    <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>

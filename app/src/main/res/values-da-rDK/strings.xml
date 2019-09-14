@@ -224,7 +224,7 @@
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
-    <string name="title_advanced_swipe_reversed">Omvendt swipe retning</string>
+    <string name="title_advanced_swipe_reversed">Omvendt strygeretning</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
