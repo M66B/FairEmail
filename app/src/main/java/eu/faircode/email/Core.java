@@ -483,12 +483,6 @@ class Core {
         if (target != folder.id)
             throw new IllegalArgumentException("Invalid folder");
 
-        // Prevent async deletion
-        if (folder.id.equals(message.folder)) {
-            if (message.uid != null)
-                db.message().setMessageUid(message.id, null);
-        }
-
         // External draft might have a uid only
         if (TextUtils.isEmpty(message.msgid)) {
             message.msgid = EntityMessage.generateMessageId();
@@ -534,8 +528,10 @@ class Core {
         ifolder.appendMessages(new Message[]{imessage});
 
         if (folder.id.equals(message.folder)) {
-            // External draft might have a uid only
             if (message.uid != null) {
+                db.message().setMessageUid(message.id, null);
+
+                // External draft might have a uid only
                 Message iexisting = ifolder.getMessageByUID(message.uid);
                 if (iexisting == null)
                     Log.w(folder.name + " existing not found uid=" + message.uid);
@@ -567,6 +563,7 @@ class Core {
                     Log.w(folder.name + " appended msgid=" + message.msgid + " not found");
                 else {
                     Log.i(folder.name + " appended uid=" + uid);
+                    db.message().setMessageUid(message.id, uid);
 
                     for (Message iexisting : imessages) {
                         long muid = ifolder.getUID(iexisting);
