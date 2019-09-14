@@ -72,20 +72,18 @@ Related questions:
 * ~~Send as attachment~~
 * ~~Widget for selected account~~ (the unified inbox is / can be composed of selected folders already, so I see no real need for this complication)
 * ~~Remind to attach files~~
+* ~~Select domains to show images for~~ (this will be too complicated to use)
 * Search for settings
-* Select domains to show images for
 
 Anything on this list is in random order and *might* be added in the near future.
 
 
 ## Frequently requested features
 
-* *Design*: the design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too. See below for the design goals.
-* *ActiveSync*: please see [this FAQ](#user-content-faq133)
-
+The design is based on many discussions and if you like you can discuss about it [in this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) too.
 The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc) and non distracting (no fancy colors, animations, etc).
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
-Fonts, sizes, colors, etc should be material design wherever possible.
+Fonts, sizes, colors, etc should be material design whenever possible.
 
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
