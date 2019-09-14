@@ -263,6 +263,7 @@
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
     <string name="title_advanced_autoscroll">Scroll to top on receiving new messages</string>
     <string name="title_advanced_swipenav">Swipe left/right to go to next/previous conversation</string>
+    <string name="title_advanced_swipe_reversed">Reverse swipe direction</string>
     <string name="title_advanced_double_tap">Double tap to mark message read/unread</string>
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>
     <string name="title_advanced_autoexpand">Automatically expand messages</string>

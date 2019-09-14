@@ -2233,6 +2233,8 @@ Similarly, if you read from right to left, swiping to the right will show the ne
 
 This behavior seems quite natural to me, also because it is similar to turning pages.
 
+Anyway, there is a behavior setting to reverse the swipe direction.
+
 <br />
 
 <a name="faq132"></a>
