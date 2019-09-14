@@ -888,6 +888,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if ("biometrics".equals(key) && !Helper.canAuthenticate(context))
                             continue;
 
+                        if ("alert_once".equals(key))
+                            continue;
+
                         Object value = jsetting.get("value");
                         if (value instanceof Boolean)
                             editor.putBoolean(key, (Boolean) value);

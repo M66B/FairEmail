@@ -67,13 +67,14 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private ImageButton ibManage;
     private SwitchCompat swLight;
     private Button btnSound;
+    private SwitchCompat swAlertOnce;
 
     private Group grpNotification;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "badge", "unseen_ignored",
             "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_reply_direct", "notify_flag", "notify_seen", "biometrics_notify",
-            "light", "sound"
+            "light", "sound", "alert_once"
     };
 
     @Override
@@ -102,6 +103,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         ibManage = view.findViewById(R.id.ibManage);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
+        swAlertOnce = view.findViewById(R.id.swAlertOnce);
 
         grpNotification = view.findViewById(R.id.grpNotification);
 
@@ -230,6 +232,16 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        swAlertOnce.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("alert_once", !checked).apply();
+            }
+        });
+
+        swAlertOnce.setVisibility(Log.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        grpNotification.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -297,8 +309,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", false));
 
         swLight.setChecked(prefs.getBoolean("light", false));
-
-        grpNotification.setVisibility(Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+        swAlertOnce.setChecked(!prefs.getBoolean("alert_once", true));
     }
 
     @Override

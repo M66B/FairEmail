@@ -2114,6 +2114,7 @@ class Core {
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
         boolean light = prefs.getBoolean("light", false);
         String sound = prefs.getString("sound", null);
+        boolean alert_once = prefs.getBoolean("alert_once", true);
 
         // Get contact info
         Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
@@ -2235,7 +2236,7 @@ class Core {
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                            .setOnlyAlertOnce(true);
+                            .setOnlyAlertOnce(alert_once);
 
             // TODO: setAllowSystemGeneratedContextualActions
 

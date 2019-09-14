@@ -837,4 +837,8 @@ public class Log {
 
         return true;
     }
+
+    static boolean isXiaomi() {
+        return "Xiaomi".equalsIgnoreCase(Build.MANUFACTURER);
+    }
 }
