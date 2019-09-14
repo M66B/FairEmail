@@ -49,14 +49,6 @@
             android:name="android.allow_multiple_resumed_activities"
             android:value="true" />
 
-        <!-- Bugsnag -->
-        <meta-data
-            android:name="com.bugsnag.android.DETECT_ANRS"
-            android:value="false" />
-        <meta-data
-            android:name="com.bugsnag.android.DETECT_NDK_CRASHES"
-            android:value="false" />
-
         <activity
             android:name=".ActivityMain"
             android:excludeFromRecents="true"
