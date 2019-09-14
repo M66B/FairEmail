@@ -324,8 +324,6 @@
     <string name="title_password">Salasana</string>
     <string name="title_realm">Toimialue</string>
     <string name="title_use_ip">Käytä paikallista IP-osoitetta verkkotunnuksen sijaan</string>
-    <string name="title_synchronize_account">Synkronoi (vastaanota viestejä)</string>
-    <string name="title_synchronize_identity">Synkronoi (lähetä viestejä)</string>
     <string name="title_primary_account">Ensisijainen (oletustili)</string>
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
@@ -509,7 +507,7 @@
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
-    <string name="title_send_plain_text">Muotoilematon teksti ainoastaan</string>
+    <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
     <string name="title_subject_reminder">Aihe puuttuu</string>
@@ -627,6 +625,7 @@
     <string name="title_legend_primary">Ensisijainen</string>
     <string name="title_legend_subscribed">Tilattu</string>
     <string name="title_legend_rule">Sääntöjä käytössä</string>
+    <string name="title_legend_similar">Hae samankaltaisista viesteistä</string>
     <string name="title_legend_notify">Ilmoita uusista viesteistä</string>
     <string name="title_legend_sync_keep">Synkronoitavien / säilytettävien viestien päivien lukumäärä</string>
     <string name="title_legend_download_fetch">Ladattujen viestien / haettujen tunnistetietojen lukumäärä</string>
@@ -711,6 +710,7 @@
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
     <string name="title_enable">Ota käyttöön</string>
+    <string name="title_enabled">Käytössä</string>
     <string name="title_executing">Suoritetaan</string>
     <string name="title_completed">Valmis</string>
     <string name="title_ask_what">Kysy, mitä tehdään</string>

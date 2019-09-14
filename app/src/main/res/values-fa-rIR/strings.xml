@@ -128,8 +128,6 @@
     <string name="title_user">نام کاربری</string>
     <string name="title_password">کلمه عبور</string>
     <string name="title_realm">حوزه</string>
-    <string name="title_synchronize_account">همگام سازی (دریافت پیام‌ها)</string>
-    <string name="title_synchronize_identity">همگام سازی (ارسال پیام‌ها)</string>
     <string name="title_primary_account">اصلی (حساب پیش فرض)</string>
     <string name="title_primary_identity">اصلی (هویت پیش فرض)</string>
     <string name="title_keep_alive_interval">فعال ماندن/فاصله اخذ (دقایق)</string>

@@ -313,8 +313,6 @@
     <string name="title_password">Parola</string>
     <string name="title_realm">Bölge</string>
     <string name="title_use_ip">Ana bilgisayar adı yerine yerel IP adresini kullan</string>
-    <string name="title_synchronize_account">Eşzamanlama (iletileri al)</string>
-    <string name="title_synchronize_identity">Eşzamanlama (iletileri gönder)</string>
     <string name="title_primary_account">Birincil (varsayılan hesap)</string>
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
     <string name="title_keep_alive_interval">Canlı tutma/yoklama aralığı (dakika)</string>

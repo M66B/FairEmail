@@ -324,8 +324,6 @@
     <string name="title_password">Contrasenya</string>
     <string name="title_realm">Perfil d\'accés</string>
     <string name="title_use_ip">Utilitzeu l\'adreça IP local en lloc del nom d\'amfitrió</string>
-    <string name="title_synchronize_account">Sincronitza (rebre missatges)</string>
-    <string name="title_synchronize_identity">Sincronitza (envia missatges)</string>
     <string name="title_primary_account">Primària (compte per defecte)</string>
     <string name="title_primary_identity">Primària (identitat per defecte)</string>
     <string name="title_keep_alive_interval">Interval d\'activitat (minuts)</string>

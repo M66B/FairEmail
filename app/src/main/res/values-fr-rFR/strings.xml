@@ -324,8 +324,6 @@
     <string name="title_password">Mot de passe</string>
     <string name="title_realm">Domaine</string>
     <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
-    <string name="title_synchronize_account">Synchroniser (recevoir des messages)</string>
-    <string name="title_synchronize_identity">Synchroniser (envoyer des messages)</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
     <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
@@ -627,6 +625,7 @@
     <string name="title_legend_primary">Principal</string>
     <string name="title_legend_subscribed">Abonné à</string>
     <string name="title_legend_rule">A des règles</string>
+    <string name="title_legend_similar">Rechercher des messages similaires</string>
     <string name="title_legend_notify">Notification pour les nouveaux messages</string>
     <string name="title_legend_sync_keep">Nombre de jours à synchroniser / pour conserver les messages</string>
     <string name="title_legend_download_fetch">Nombre de messages téléchargés / en-têtes récupérés</string>
@@ -711,6 +710,7 @@
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>
     <string name="title_enable">Activer</string>
+    <string name="title_enabled">Activé</string>
     <string name="title_executing">Exécution en cours</string>
     <string name="title_completed">Terminé</string>
     <string name="title_ask_what">Demander ce qu\'il faut faire</string>

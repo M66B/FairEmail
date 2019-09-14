@@ -323,8 +323,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_password">Passwort</string>
     <string name="title_realm">Bereich</string>
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
-    <string name="title_synchronize_account">Synchronisieren (E-Mails empfangen)</string>
-    <string name="title_synchronize_identity">Synchronisieren (E-Mails versenden)</string>
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
     <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
@@ -626,6 +624,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_primary">Hauptkonto</string>
     <string name="title_legend_subscribed">Abonniert zu</string>
     <string name="title_legend_rule">Enthält Regeln</string>
+    <string name="title_legend_similar">Ähnliche Nachrichten suchen</string>
     <string name="title_legend_notify">Eingangsbenachrichtigung</string>
     <string name="title_legend_sync_keep">Anzahl der zu synchronisierenden Tage / aufzubewahrenden E-Mails</string>
     <string name="title_legend_download_fetch">Anzahl der heruntergeladenen Nachrichten / abgerufene Kopfzeilen</string>
@@ -710,6 +709,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>
     <string name="title_enable">Aktivieren</string>
+    <string name="title_enabled">Aktiviert</string>
     <string name="title_executing">Wird ausgeführt</string>
     <string name="title_completed">Fertig</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>

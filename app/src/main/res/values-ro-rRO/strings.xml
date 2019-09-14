@@ -335,8 +335,6 @@
     <string name="title_password">Parolă</string>
     <string name="title_realm">Domeniu</string>
     <string name="title_use_ip">Folosește adresa IP în loc de numele gazdei</string>
-    <string name="title_synchronize_account">Sincronizare (primire mesaje)</string>
-    <string name="title_synchronize_identity">Sincronizare (trimitere mesaje)</string>
     <string name="title_primary_account">Primară (identitatea implicită)</string>
     <string name="title_primary_identity">Primară (identitatea implicită)</string>
     <string name="title_keep_alive_interval">Interval menținere conexiune/verificare periodică (minute)</string>

@@ -310,8 +310,6 @@
     <string name="title_password">Senha</string>
     <string name="title_realm">Domínio</string>
     <string name="title_use_ip">Usar endereço IP local em vez do nome do host</string>
-    <string name="title_synchronize_account">Sincronizar (receber mensagens)</string>
-    <string name="title_synchronize_identity">Sincronizar (enviar mensagens)</string>
     <string name="title_primary_account">Principal (identidade padrão)</string>
     <string name="title_primary_identity">Primária (identidade padrão)</string>
     <string name="title_keep_alive_interval">Intervalo de manutenção da conexão (minutos)</string>

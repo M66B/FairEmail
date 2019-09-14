@@ -197,7 +197,7 @@
     <string name="title_advanced_unseen">Všechny nepřečtené zprávy</string>
     <string name="title_advanced_flagged">Všechny zprávy s hvězdičkou</string>
     <string name="title_advanced_delete_unseen">Smazat staré nepřečtené zprávy</string>
-    <string name="title_advanced_kept_removed">Zkontrolovat, zda byly staré zprávy odstraněny ze serveru</string>
+    <string name="title_advanced_kept_removed">Kontrolovat, zda byly staré zprávy odstraněny ze serveru</string>
     <string name="title_advanced_sync_folders">Synchronizovat seznam složek</string>
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_sync_subscribed">Synchronizovat pouze odebírané složky</string>
@@ -346,8 +346,6 @@
     <string name="title_password">Heslo</string>
     <string name="title_realm">Sféra</string>
     <string name="title_use_ip">Použít lokální IP adresu namísto názvu hostitele</string>
-    <string name="title_synchronize_account">Synchronizovat (přijímat zprávy)</string>
-    <string name="title_synchronize_identity">Synchronizovat (odesílat zprávy)</string>
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
@@ -648,6 +646,7 @@
     <string name="title_legend_primary">Hlavní</string>
     <string name="title_legend_subscribed">Přihlášen k odběru</string>
     <string name="title_legend_rule">Má pravidla</string>
+    <string name="title_legend_similar">Hledat podobné zprávy</string>
     <string name="title_legend_notify">Oznamovat nové zprávy</string>
     <string name="title_legend_sync_keep">Počet dní k synchronizaci / ponechání zpráv</string>
     <string name="title_legend_download_fetch">Počet stažených zpráv / načtených hlaviček</string>
@@ -732,6 +731,7 @@
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
     <string name="title_enable">Zapnout</string>
+    <string name="title_enabled">Zapnuto</string>
     <string name="title_executing">Provádím</string>
     <string name="title_completed">Dokončeno</string>
     <string name="title_ask_what">Zeptej se, co dělat</string>

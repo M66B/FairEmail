@@ -199,8 +199,6 @@
     <string name="title_port">Bağlantı nöqtəsi nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>
     <string name="title_password">Şifrə</string>
-    <string name="title_synchronize_account">Eyniləşdir (mesajları al)</string>
-    <string name="title_synchronize_identity">Eyniləşdir (mesajları göndər)</string>
     <string name="title_primary_account">Üstünlük verilən (ilkin hesab)</string>
     <string name="title_primary_identity">Üstünlük verilən (ilkin kimlik)</string>
     <string name="title_check">Yoxla</string>

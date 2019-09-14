@@ -324,8 +324,6 @@
     <string name="title_password">Wachtwoord</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Gebruik lokaal IP-adres in plaats van hostnaam</string>
-    <string name="title_synchronize_account">Synchroniseren (ontvang berichten)</string>
-    <string name="title_synchronize_identity">Synchroniseren (stuur berichten)</string>
     <string name="title_primary_account">Primair account (standaard account)</string>
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
     <string name="title_keep_alive_interval">Keep-alive/periodieke controle interval (minuten)</string>
@@ -627,6 +625,7 @@
     <string name="title_legend_primary">Primair</string>
     <string name="title_legend_subscribed">Geabonneerd op</string>
     <string name="title_legend_rule">Heeft regels</string>
+    <string name="title_legend_similar">Zoek soortgelijke berichten</string>
     <string name="title_legend_notify">Melding bij nieuwe berichten</string>
     <string name="title_legend_sync_keep">Aantal dagen om te synchroniseren / om berichten te houden</string>
     <string name="title_legend_download_fetch">Aantal berichtteksten gedownload / koppen opgehaald</string>
@@ -711,6 +710,7 @@
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>
     <string name="title_enable">Inschakelen</string>
+    <string name="title_enabled">Ingeschakeld</string>
     <string name="title_executing">Aan het uitvoeren</string>
     <string name="title_completed">Voltooid</string>
     <string name="title_ask_what">Vraag wat te doen</string>

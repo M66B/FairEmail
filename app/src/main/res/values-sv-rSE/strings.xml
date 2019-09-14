@@ -315,8 +315,6 @@
     <string name="title_password">Lösenord</string>
     <string name="title_realm">Domän</string>
     <string name="title_use_ip">Använd lokal IP-adress istället för värdnamn</string>
-    <string name="title_synchronize_account">Synkronisera (hämta meddelanden)</string>
-    <string name="title_synchronize_identity">Synkronisera (skicka meddelanden)</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
     <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>

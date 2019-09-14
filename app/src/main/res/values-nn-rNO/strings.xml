@@ -324,8 +324,6 @@
     <string name="title_password">Passord</string>
     <string name="title_realm">Område</string>
     <string name="title_use_ip">Bruk lokal IP-adresse i stedet for vertsnavn</string>
-    <string name="title_synchronize_account">Synkronisere (motta meldinger)</string>
-    <string name="title_synchronize_identity">Synkronisere (sende meldinger)</string>
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>
@@ -627,6 +625,7 @@
     <string name="title_legend_primary">Primær</string>
     <string name="title_legend_subscribed">Abonnerer på</string>
     <string name="title_legend_rule">Har regler</string>
+    <string name="title_legend_similar">Søk lignende meldinger</string>
     <string name="title_legend_notify">Gi beskjed om nye meldinger</string>
     <string name="title_legend_sync_keep">Antall dager for å synkronisere / for å beholde meldinger</string>
     <string name="title_legend_download_fetch">Antall nedlastede meldinger / overskrifter hentet</string>
@@ -711,6 +710,7 @@
     <string name="title_report">Rapportere</string>
     <string name="title_fix">Fiks</string>
     <string name="title_enable">Aktiver</string>
+    <string name="title_enabled">Aktivert</string>
     <string name="title_executing">Utfører</string>
     <string name="title_completed">Fullført</string>
     <string name="title_ask_what">Spør hva du skal gjøre</string>

@@ -312,8 +312,6 @@
     <string name="title_password">密码</string>
     <string name="title_realm">访问空间</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
-    <string name="title_synchronize_account">同步（接收）</string>
-    <string name="title_synchronize_identity">同步（发送）</string>
     <string name="title_primary_account">默认账户</string>
     <string name="title_primary_identity">默认身份</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
@@ -615,6 +613,7 @@
     <string name="title_legend_primary">首选</string>
     <string name="title_legend_subscribed">订阅</string>
     <string name="title_legend_rule">有规则</string>
+    <string name="title_legend_similar">搜索类似消息</string>
     <string name="title_legend_notify">通知新邮件</string>
     <string name="title_legend_sync_keep">同步/保留邮件的天数</string>
     <string name="title_legend_download_fetch">下载的邮件正文数/获取的标头数</string>
@@ -699,6 +698,7 @@
     <string name="title_report">报告</string>
     <string name="title_fix">修复</string>
     <string name="title_enable">启用</string>
+    <string name="title_enabled">已启用</string>
     <string name="title_executing">执行中</string>
     <string name="title_completed">完成</string>
     <string name="title_ask_what">询问做什么</string>
