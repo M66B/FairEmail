@@ -201,6 +201,7 @@ public class Helper {
         } else {
             // https://developer.chrome.com/multidevice/android/customtabs
             CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+            builder.setNavigationBarColor(resolveColor(context, R.attr.colorPrimaryDark));
             builder.setToolbarColor(resolveColor(context, R.attr.colorPrimary));
 
             CustomTabsIntent customTabsIntent = builder.build();
