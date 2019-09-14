@@ -167,6 +167,7 @@ configurations.all {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    def core_version = "1.2.0-alpha04"
     def appcompat_version = "1.1.0"
     def fragment_version = "1.1.0"
     def recyclerview_version = "1.1.0-beta04"
@@ -198,6 +199,9 @@ dependencies {
     def markwon_version = "4.1.1"
 
     // https://developer.android.com/jetpack/androidx/releases/
+
+    // https://mvnrepository.com/artifact/androidx.core/core
+    implementation "androidx.core:core:$core_version"
 
     // https://mvnrepository.com/artifact/androidx.appcompat/appcompat
     // https://mvnrepository.com/artifact/androidx.fragment/fragment

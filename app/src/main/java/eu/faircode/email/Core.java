@@ -2236,9 +2236,8 @@ class Core {
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)
                             .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                            .setOnlyAlertOnce(alert_once);
-
-            // TODO: setAllowSystemGeneratedContextualActions
+                            .setOnlyAlertOnce(alert_once)
+                            .setAllowSystemGeneratedContextualActions(false);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 mbuilder
