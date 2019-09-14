@@ -2238,8 +2238,13 @@ This behavior seems quite natural to me, also because it is similar to turning p
 <a name="faq132"></a>
 **(132) Why are new message notifications silent?**
 
-Notifications appear to silent by default on some MIUI versions.
+Notifications are silent by default on some MIUI versions.
 Please see [here](http://en.miui.com/thread-3930694-1-1.html) how you can fix this.
+
+There is a bug in some Android versions
+causing [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) to mute notifications.
+Since FairEmail shows new message notifications right after fetching the message headers
+and FairEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FairEmail.
 
 <br />
 
