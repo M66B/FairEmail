@@ -267,6 +267,7 @@
     <string name="title_advanced_double_tap">Double tap to mark message read/unread</string>
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>
     <string name="title_advanced_autoexpand">Automatically expand messages</string>
+    <string name="title_advanced_expand_one">Expand only one message at a time</string>
     <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
     <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_onclose">On closing a conversation</string>

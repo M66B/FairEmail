@@ -1196,6 +1196,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void setValue(String name, long id, boolean enabled) {
             if (!values.containsKey(name))
                 values.put(name, new ArrayList<Long>());
+
             if (enabled) {
                 if (!values.get(name).contains(id))
                     values.get(name).add(id);
@@ -1203,6 +1204,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 values.get(name).remove(id);
 
             if ("expanded".equals(name)) {
+                // Collapse other messages
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean expand_one = prefs.getBoolean("expand_one", false);
+                if (expand_one) {
+                    for (Long other : new ArrayList<>(values.get(name)))
+                        if (!other.equals(id)) {
+                            values.get(name).remove(other);
+                            int pos = adapter.getPositionForKey(other);
+                            if (pos != RecyclerView.NO_POSITION)
+                                adapter.notifyItemChanged(pos);
+                        }
+                }
+
                 updateExpanded();
                 if (enabled)
                     handleExpand(id);
