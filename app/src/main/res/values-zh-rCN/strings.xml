@@ -213,6 +213,7 @@
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
+    <string name="title_advanced_swipe_reversed">反转滑动方向</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
