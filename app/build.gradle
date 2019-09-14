@@ -185,7 +185,7 @@ dependencies {
     def exif_version = "1.1.0-beta01"
     def biometric_version = "1.0.0-beta01"
     def billingclient_version = "2.0.3"
-    def javamail_version = "1.6.3"
+    def javamail_version = "1.6.4"
     def jsoup_version = "1.12.1"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
