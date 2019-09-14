@@ -2787,8 +2787,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 name = getString(R.string.title_folder_unified);
             else
                 name = Helper.localizeFolderType(getContext(), type);
-        else
+        else {
             name = (folders.size() > 0 ? folders.get(0).getDisplayName(getContext()) : "");
+            if (folders.size() == 1)
+                name += "/" + folders.get(0).accountName;
+        }
 
         // Show name/unread
         if (unseen == 0)
