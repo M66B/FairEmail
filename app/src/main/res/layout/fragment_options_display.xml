@@ -1,425 +1,417 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="12dp"
+    android:scrollbarStyle="outsideOverlay"
     tools:context=".ActivitySetup">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="12dp"
-        android:scrollbarStyle="outsideOverlay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnTheme"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_setup_theme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/btnTheme"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:text="@string/title_setup_theme"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvStartup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_startup"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnTheme" />
 
-            <TextView
-                android:id="@+id/tvStartup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_startup"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnTheme" />
+        <Spinner
+            android:id="@+id/spStartup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/startupNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvStartup" />
 
-            <Spinner
-                android:id="@+id/spStartup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:entries="@array/startupNames"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvStartup" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swCards"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_cards"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spStartup"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swCards"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_cards"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spStartup"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_date_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCards"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_date_header"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swCards"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swThreading"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_threading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDate"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swThreading"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_threading"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swDate"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvThreadingHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_threading_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swThreading" />
 
-            <TextView
-                android:id="@+id/tvThreadingHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_threading_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swThreading" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swHighlightUnread"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_highlight_unread"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvThreadingHint"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swHighlightUnread"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_highlight_unread"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvThreadingHint"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAvatars"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_avatars"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swHighlightUnread"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swAvatars"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_avatars"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swHighlightUnread"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swGeneratedIcons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_generated_icons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAvatars"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swGeneratedIcons"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_generated_icons"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swAvatars"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swIdenticons"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_identicons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swGeneratedIcons"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swIdenticons"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_identicons"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swGeneratedIcons"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swCircular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_circular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swIdenticons"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swCircular"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_circular"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swIdenticons"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swNameEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_name_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCircular"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swNameEmail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_name_email"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swCircular"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvNameEmailHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_name_email_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swNameEmail" />
 
-            <TextView
-                android:id="@+id/tvNameEmailHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_name_email_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swNameEmail" />
+        <ImageView
+            android:id="@+id/ivAuth"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:contentDescription="@string/title_legend_auth"
+            android:tint="@color/colorError"
+            app:layout_constraintBottom_toBottomOf="@+id/swAuthentication"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/swAuthentication"
+            app:srcCompat="@drawable/baseline_flag_24" />
 
-            <ImageView
-                android:id="@+id/ivAuth"
-                android:layout_width="21dp"
-                android:layout_height="21dp"
-                android:contentDescription="@string/title_legend_auth"
-                android:tint="@color/colorError"
-                app:layout_constraintBottom_toBottomOf="@+id/swAuthentication"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/swAuthentication"
-                app:srcCompat="@drawable/baseline_flag_24" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAuthentication"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_authentication"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAuth"
+            app:layout_constraintTop_toBottomOf="@id/tvNameEmailHint"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swAuthentication"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_authentication"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ivAuth"
-                app:layout_constraintTop_toBottomOf="@id/tvNameEmailHint"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSubjectTop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_subject_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAuthentication"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swSubjectTop"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_subject_top"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swAuthentication"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSubjectItalic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_subject_italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSubjectTop"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swSubjectItalic"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_subject_italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swSubjectTop"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvSubjectEllipsize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_subject_elipsed"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSubjectItalic" />
 
-            <TextView
-                android:id="@+id/tvSubjectEllipsize"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_subject_elipsed"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swSubjectItalic" />
+        <Spinner
+            android:id="@+id/spSubjectEllipsize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/ellipsizeNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsize" />
 
-            <Spinner
-                android:id="@+id/spSubjectEllipsize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:entries="@array/ellipsizeNames"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSubjectEllipsize" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swFlags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_flags"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swFlags"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_flags"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spSubjectEllipsize"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swPreview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_preview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swFlags"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swPreview"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_preview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swFlags"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvPreviewHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_preview_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swPreview" />
 
-            <TextView
-                android:id="@+id/tvPreviewHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_preview_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swPreview" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swPreviewItalic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_preview_italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPreviewHint"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swPreviewItalic"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_preview_italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPreviewHint"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAddresses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_addresses"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swPreviewItalic"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swAddresses"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_addresses"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swPreviewItalic"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swAttachmentsAlt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_attachments_alt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAddresses"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swAttachmentsAlt"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_attachments_alt"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swAddresses"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swContrast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_contrast"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAttachmentsAlt"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swContrast"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_contrast"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swAttachmentsAlt"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swMonospaced"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_monospaced"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swContrast"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swMonospaced"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_monospaced"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swContrast"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swImagesInline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_images_inline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swMonospaced"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swImagesInline"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_images_inline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swMonospaced"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvImagesInlineHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_inline_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swImagesInline" />
 
-            <TextView
-                android:id="@+id/tvImagesInlineHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_inline_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swImagesInline" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swCollapseQuotes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_collapse_quotes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImagesInlineHint"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swCollapseQuotes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_collapse_quotes"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvImagesInlineHint"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swRemoteContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_remote_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCollapseQuotes"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swRemoteContent"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_remote_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swCollapseQuotes"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvRemoteContentHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_ask_show_html"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swRemoteContent" />
 
-            <TextView
-                android:id="@+id/tvRemoteContentHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_ask_show_html"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swRemoteContent" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSeekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_seekbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRemoteContentHint"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swSeekbar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_seekbar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvRemoteContentHint"
-                app:switchPadding="12dp" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swActionbar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_actionbar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swSeekbar"
-                app:switchPadding="12dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swActionbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_actionbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSeekbar"
+            app:switchPadding="12dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

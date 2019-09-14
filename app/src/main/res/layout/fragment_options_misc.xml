@@ -1,237 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="12dp"
+    android:scrollbarStyle="outsideOverlay"
     tools:context=".ActivitySetup">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="12dp"
-        android:scrollbarStyle="outsideOverlay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDoubleBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/title_advanced_double_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swDoubleBack"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/title_advanced_double_back"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvBiometricsTimeout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_biometrics_timeout"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDoubleBack" />
 
-            <TextView
-                android:id="@+id/tvBiometricsTimeout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_biometrics_timeout"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="?android:attr/textColorPrimary"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swDoubleBack" />
+        <Spinner
+            android:id="@+id/spBiometricsTimeout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/biometricsTimeoutNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBiometricsTimeout" />
 
-            <Spinner
-                android:id="@+id/spBiometricsTimeout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:entries="@array/biometricsTimeoutNames"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvBiometricsTimeout" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swEnglish"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_english"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swEnglish"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_english"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvEnglishHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_english_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swEnglish" />
 
-            <TextView
-                android:id="@+id/tvEnglishHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_english_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swEnglish" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swWatchdog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_watchdog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swWatchdog"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_watchdog"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvEnglishHint"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swUpdates"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_updates"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swWatchdog"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swUpdates"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_updates"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swWatchdog"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swExperiments"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_experiments"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swUpdates"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swExperiments"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:checked="true"
-                android:text="@string/title_advanced_experiments"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swUpdates"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvExperimentsHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableEnd="@drawable/baseline_open_in_new_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_advanced_experiments_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swExperiments" />
 
-            <TextView
-                android:id="@+id/tvExperimentsHint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:drawableEnd="@drawable/baseline_open_in_new_24"
-                android:drawablePadding="6dp"
-                android:text="@string/title_advanced_experiments_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="?android:attr/textColorLink"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swExperiments" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swCrashReports"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_crash_reports"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swCrashReports"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_crash_reports"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
-                app:switchPadding="12dp" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDebug"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_debug"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCrashReports"
+            app:switchPadding="12dp" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/swDebug"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/title_advanced_debug"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swCrashReports"
-                app:switchPadding="12dp" />
+        <TextView
+            android:id="@+id/tvDebugHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_debug_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
-            <TextView
-                android:id="@+id/tvDebugHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_debug_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="?attr/colorWarning"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/swDebug" />
+        <Button
+            android:id="@+id/btnCleanup"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_cleanup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
 
-            <Button
-                android:id="@+id/btnCleanup"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:text="@string/title_advanced_cleanup"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+        <TextView
+            android:id="@+id/tvCleanupHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_cleanup_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnCleanup" />
 
-            <TextView
-                android:id="@+id/tvCleanupHint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="48dp"
-                android:text="@string/title_advanced_cleanup_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnCleanup" />
+        <TextView
+            android:id="@+id/tvProcessors"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_processors"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCleanupHint" />
 
-            <TextView
-                android:id="@+id/tvProcessors"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/title_advanced_processors"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCleanupHint" />
+        <TextView
+            android:id="@+id/tvMemoryClass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_advanced_memory_class"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProcessors" />
 
-            <TextView
-                android:id="@+id/tvMemoryClass"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/title_advanced_memory_class"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProcessors" />
+        <TextView
+            android:id="@+id/tvLastCleanup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_advanced_last_cleanup"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
 
-            <TextView
-                android:id="@+id/tvLastCleanup"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/title_advanced_last_cleanup"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
+        <TextView
+            android:id="@+id/tvUuid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="UUID"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLastCleanup" />
 
-            <TextView
-                android:id="@+id/tvUuid"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="UUID"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textIsSelectable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvLastCleanup" />
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/grpDebug"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:constraint_referenced_ids="
-                tvProcessors,tvMemoryClass,tvLastCleanup,tvUuid" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpDebug"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvLastCleanup,tvUuid" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

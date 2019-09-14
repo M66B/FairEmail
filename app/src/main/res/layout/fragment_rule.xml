@@ -614,49 +614,44 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-                tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
-                vSeparatorSender,tvSender,cbSender,etSender,ibSender,tvAndSender,
-                vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
-                vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
-                vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,
-                vSeparatorSchedule,tvSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
-                vSeparatorAction,tvAction,spAction,tvActionRemark,
-                vSeparatorParameters" />
+                    tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
+                    vSeparatorSender,tvSender,cbSender,etSender,ibSender,tvAndSender,
+                    vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
+                    vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
+                    vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,
+                    vSeparatorSchedule,tvSchedule,spScheduleDayStart,spScheduleDayEnd,tvScheduleHourStart,tvScheduleHourEnd,
+                    vSeparatorAction,tvAction,spAction,tvActionRemark,
+                    vSeparatorParameters" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSnooze"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="
-                tvHours,npDuration,cbScheduleEnd" />
+                app:constraint_referenced_ids="tvHours,npDuration,cbScheduleEnd" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpFlag"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="
-                tvColor,btnColor,vwColor,ibColorDefault" />
+                app:constraint_referenced_ids="tvColor,btnColor,vwColor,ibColorDefault" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpMove"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="
-                tvMoveTarget,spTarget" />
+                app:constraint_referenced_ids="tvMoveTarget,spTarget" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpMoveProp"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="
-                cbMoveSeen,cbMoveThread" />
+                app:constraint_referenced_ids="cbMoveSeen,cbMoveThread" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAnswer"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="
-                tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbCc" />
+                app:constraint_referenced_ids="tvAnswerIdentity,spIdent,tvAnswerTemplate,spAnswer,cbCc" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpAutomation"
