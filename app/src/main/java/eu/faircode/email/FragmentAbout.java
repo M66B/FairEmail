@@ -63,7 +63,6 @@ public class FragmentAbout extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        PackageManager pm = getContext().getPackageManager();
         menu.findItem(R.id.menu_changelog).setVisible(!TextUtils.isEmpty(BuildConfig.CHANGELOG));
         super.onPrepareOptionsMenu(menu);
     }
