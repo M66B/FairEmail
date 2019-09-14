@@ -229,6 +229,7 @@
     <string name="title_advanced_double_tap">Appuyez deux fois pour marquer le message lu/non lu</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus à l\'ouverture</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
+    <string name="title_advanced_expand_one">Développer un seul message à la fois</string>
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
@@ -706,7 +707,7 @@
     <string name="title_undo">Annuler</string>
     <string name="title_redo">Recommencer</string>
     <string name="title_add">Ajouter</string>
-    <string name="title_browse">Utiliser l\'application</string>
+    <string name="title_browse">Utiliser app</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>
