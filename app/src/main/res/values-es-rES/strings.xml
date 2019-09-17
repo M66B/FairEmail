@@ -225,10 +225,11 @@
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
-    <string name="title_advanced_swipe_reversed">Invertir la dirección del deslizamiento</string>
+    <string name="title_advanced_reversed">Invertir la dirección de navegación</string>
     <string name="title_advanced_double_tap">Doble toque para marcar mensaje leído/no leído</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
+    <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
     <string name="title_advanced_collapse">Contraer mensajes en conversaciones al ir \'atrás\'</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
@@ -246,11 +247,13 @@
     <string name="title_advanced_notify_action_reply_direct">Responder</string>
     <string name="title_advanced_notify_action_flag">Destacar</string>
     <string name="title_advanced_notify_action_seen">Leer</string>
+    <string name="title_advanced_notify_remove">Eliminar notificación de nuevos mensajes al pulsar en la notificación</string>
     <string name="title_advanced_biometrics_notify">Mostrar contenido de notificación al usar autenticación biométrica</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
+    <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
     <string name="title_advanced_notify_manage_hint">Pulse el nombre del canal \"Notificaciones\" para establecer el sonido de notificación por defecto, etc</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>

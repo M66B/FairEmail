@@ -179,6 +179,7 @@
     <string name="title_advanced_sync_subscribed">Yalnızca aboneliği olan dizinleri eşitle</string>
     <string name="title_advanced_keyboard">Öntanımlı olarak klavyeyi göster</string>
     <string name="title_advanced_suggest_local">Yerel olarak depolanmış kişileri öner</string>
+    <string name="title_advanced_suggest_sent">Daha önce gönderilmiş iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
@@ -339,6 +340,7 @@
     <string name="title_edit_html">HTML olarak düzenle</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_pop3_support">POP3 desteklenmiyor</string>
+    <string name="title_activesync_support">ActiveSync desteklenmiyor</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
     <string name="title_synchronize_all">Tüm iletileri eşzamanla</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
@@ -495,6 +497,7 @@
     <string name="title_send_plain_text">Yalnızca düz metin</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_to_missing">Alıcı eksik</string>
+    <string name="title_subject_reminder">Konu boş</string>
     <string name="title_attachment_reminder">Bir ek eklemek niyetinde misiniz?</string>
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
     <string name="title_draft_deleted">Taslak silindi</string>
@@ -604,6 +607,7 @@
     <string name="title_legend_primary">Birincil</string>
     <string name="title_legend_subscribed">Abone olundu</string>
     <string name="title_legend_rule">Kuralları var</string>
+    <string name="title_legend_similar">Benzer iletileri ara</string>
     <string name="title_legend_notify">Yeni iletileri bildir</string>
     <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
     <string name="title_legend_download_fetch">İndirilen iletilerin / alınan başlıkların sayısı</string>
@@ -661,6 +665,7 @@
     <string name="title_hint_folder_actions">Seçenekler için uzun basın</string>
     <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için, öntanımlı olarak tüm klasörler ve tüm iletilere eşzamanlama yapılmayacak</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
+    <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_hint_image_link">Görsel bağlantısı</string>
     <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
@@ -686,6 +691,7 @@
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>
     <string name="title_enable">Etkin</string>
+    <string name="title_enabled">Etkin</string>
     <string name="title_executing">Yürütülüyor</string>
     <string name="title_completed">Tamamlandı</string>
     <string name="title_ask_what">Ne yapılacağını sor</string>
@@ -698,6 +704,7 @@
     <string name="title_1day">1 gün</string>
     <string name="title_now">Şimdi</string>
     <string name="title_after">%1$s\'den sonra</string>
+    <string name="title_reset">Sıfırlama</string>
     <string name="title_icalendar_accept">Kabul</string>
     <string name="title_icalendar_decline">Reddet</string>
     <string name="title_icalendar_maybe">Olabilir</string>

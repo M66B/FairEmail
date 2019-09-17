@@ -225,10 +225,11 @@
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
-    <string name="title_advanced_swipe_reversed">Käänteinen pyyhkäisysuunta</string>
+    <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
     <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
+    <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
     <string name="title_advanced_collapse">Tiivistä viestit keskusteluissa takaisin-painikkeella</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
@@ -246,11 +247,13 @@
     <string name="title_advanced_notify_action_reply_direct">Vastaus</string>
     <string name="title_advanced_notify_action_flag">Tähti</string>
     <string name="title_advanced_notify_action_seen">Luettu</string>
+    <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
+    <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
     <string name="title_advanced_notify_manage_hint">Näpäytä kanavan nimeä \'Ilmoitukset\' asettaaksesi oletusilmoitusäänen yms.</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>

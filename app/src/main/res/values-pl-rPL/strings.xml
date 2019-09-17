@@ -250,6 +250,7 @@
     <string name="title_advanced_double_tap">Kliknij podwójnie, aby oznaczyć odczytane/nieodczytane</string>
     <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
+    <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>
     <string name="title_advanced_collapse">Zwiń wiadomości w konwersacji przy \'cofnij\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
@@ -647,6 +648,7 @@
     <string name="title_legend_primary">Podstawowe</string>
     <string name="title_legend_subscribed">Zasubskrybowano</string>
     <string name="title_legend_rule">Ma reguły</string>
+    <string name="title_legend_similar">Szukaj podobnych wiadomości</string>
     <string name="title_legend_notify">Powiadom o nowych wiadomościach</string>
     <string name="title_legend_sync_keep">Liczba dni do synchronizacji / zachowania wiadomości</string>
     <string name="title_legend_download_fetch">Liczba pobranych wiadomości / pobranych nagłówków</string>
@@ -731,6 +733,7 @@
     <string name="title_report">Raport</string>
     <string name="title_fix">Popraw</string>
     <string name="title_enable">Włącz</string>
+    <string name="title_enabled">Włączone</string>
     <string name="title_executing">Wykonywanie</string>
     <string name="title_completed">Ukończone</string>
     <string name="title_ask_what">Zapytaj co zrobić</string>

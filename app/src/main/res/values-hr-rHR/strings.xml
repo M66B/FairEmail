@@ -238,6 +238,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_double_tap">Dvaput dodirnite da biste označili poruku pročitanu / nepročitanu</string>
     <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
+    <string name="title_advanced_expand_one">Proširiti samo jednu poruku istodobno</string>
     <string name="title_advanced_collapse">Sažmi poruke u razgovorima na \"natrag\"</string>
     <string name="title_advanced_autoclose">Automatski zatvori razgovore</string>
     <string name="title_advanced_onclose">Na zatvaranje konverzacije</string>
@@ -635,6 +636,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_primary">Primarno</string>
     <string name="title_legend_subscribed">Pretplaćeno na</string>
     <string name="title_legend_rule">Ima pravila</string>
+    <string name="title_legend_similar">Pretraži slične poruke</string>
     <string name="title_legend_notify">Obavijest za nove poruke</string>
     <string name="title_legend_sync_keep">Broj dana za sinkronizaciju / za čuvanje poruka</string>
     <string name="title_legend_download_fetch">Broj preuzetih poruka / preuzetih zaglavlja</string>
@@ -719,6 +721,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
     <string name="title_enable">Omogući</string>
+    <string name="title_enabled">Omogućeno</string>
     <string name="title_executing">Izvršava</string>
     <string name="title_completed">Završeno</string>
     <string name="title_ask_what">Pitati što učiniti</string>

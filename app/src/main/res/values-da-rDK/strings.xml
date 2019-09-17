@@ -224,10 +224,11 @@
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
-    <string name="title_advanced_swipe_reversed">Omvendt strygeretning</string>
+    <string name="title_advanced_reversed">Omvendt navigeringsretning</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
+    <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
     <string name="title_advanced_collapse">Sammenfold beskeder i samtaler ved tryk på Tilbage</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
@@ -245,11 +246,13 @@
     <string name="title_advanced_notify_action_reply_direct">Direkte besvarelse</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Læs</string>
+    <string name="title_advanced_notify_remove">Fjern nye beskednotifikationer ved tryk på notifikationen</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>
     <string name="title_advanced_notify_action_hint">Maksimalt tre handlinger vises</string>
+    <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet \'Notifikationer\' for at opsætte standardnotifikationslyd mv.</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>

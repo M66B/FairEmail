@@ -199,7 +199,7 @@
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
     <string name="title_advanced_cards">Afficher sous forme de cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>
-    <string name="title_advanced_threading">Fil de conversation</string>
+    <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
@@ -225,7 +225,7 @@
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
     <string name="title_advanced_swipenav">Balayez vers la gauche/droite pour passer à la conversation suivante/précédente</string>
-    <string name="title_advanced_swipe_reversed">Inverser le sens de balayage</string>
+    <string name="title_advanced_reversed">Inverser les directions de navigation</string>
     <string name="title_advanced_double_tap">Appuyez deux fois pour marquer le message lu/non lu</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus à l\'ouverture</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
@@ -247,11 +247,13 @@
     <string name="title_advanced_notify_action_reply_direct">Répondre directement</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
+    <string name="title_advanced_notify_remove">Supprimer la notification de nouveau message en tapant sur la notification</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
+    <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors leur balayage et lors du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
     <string name="title_advanced_double_back">Faire \"Retour\" deux fois pour quitter</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
@@ -707,7 +709,7 @@
     <string name="title_undo">Annuler</string>
     <string name="title_redo">Recommencer</string>
     <string name="title_add">Ajouter</string>
-    <string name="title_browse">Utiliser app</string>
+    <string name="title_browse">Utiliser appli</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>

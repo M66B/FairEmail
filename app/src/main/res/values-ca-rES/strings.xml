@@ -11,12 +11,12 @@
     <string name="channel_send">Enviar</string>
     <string name="channel_notification">Notificacions</string>
     <string name="channel_update">Actualitzacions</string>
-    <string name="channel_warning">Avisos</string>
+    <string name="channel_warning">Advertències</string>
     <string name="channel_error">Errors</string>
     <string name="channel_group_contacts">Contactes</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversació</item>
-        <item quantity="other">Conversacions</item>
+        <item quantity="other">Converses</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Missatge</item>
@@ -81,7 +81,7 @@
     <string name="menu_privacy">Privadesa</string>
     <string name="menu_about">Quant a</string>
     <string name="menu_pro">Característiques Pro</string>
-    <string name="menu_invite">Invitació</string>
+    <string name="menu_invite">Convida</string>
     <string name="menu_rate">Puntua l\'aplicació</string>
     <string name="menu_other">Altres aplicacions</string>
     <string name="title_welcome">Benvingut/da</string>
@@ -105,7 +105,7 @@
     <string name="title_setup_quick_hint">La configuració ràpida aconseguirà informació de configuració a autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP per rebre missatges</string>
     <string name="title_setup_quick_smtp">Servidor SMTP per rebre missatges</string>
-    <string name="title_setup_go">Vés</string>
+    <string name="title_setup_go">Anar</string>
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_instructions">Instruccions per la configuració</string>
     <string name="title_setup_no_settings">No s\'ha trobat cap configuració pel domini \'%1$s\'</string>
@@ -114,19 +114,19 @@
     <string name="title_setup_manage">Gestiona</string>
     <string name="title_setup_grant">Permet</string>
     <string name="title_setup_account">Configuració dels comptes</string>
-    <string name="title_setup_account_remark">Per rebre correu-e</string>
+    <string name="title_setup_account_remark">Per rebre correu electrònic</string>
     <string name="title_setup_account_hint">Per canviar el color, llisca la carpeta de destinació cap a la dreta/esquerra, etc</string>
     <string name="title_setup_identity">Configuració d\'identitats</string>
-    <string name="title_setup_identity_remark">Per enviar correu-e</string>
+    <string name="title_setup_identity_remark">Per enviar correus electrònics</string>
     <string name="title_setup_identity_hint">Per canviar el nom, color, signatura, etc</string>
     <string name="title_setup_permissions">Concedeix permisos</string>
     <string name="title_setup_permissions_remark">Per accedir informació de contacte (opcional)</string>
     <string name="title_setup_doze">Configuració de l\'optimització de batería</string>
-    <string name="title_setup_doze_remark">Per rebre correu-e contínuament (opcional)</string>
+    <string name="title_setup_doze_remark">Per rebre correu electrònic contínuament (opcional)</string>
     <string name="title_setup_doze_instructions">En el següent diàleg, selecciona \"totes les apps\" a dalt, selecciona aquesta aplicació i polsa i confirma «no optimitzis la bateria»</string>
     <string name="title_setup_doze_battery">Ús de bateria elevat?</string>
     <string name="title_setup_data">L\'estalvi de dades està activat</string>
-    <string name="title_setup_inbox">Ves a missatges</string>
+    <string name="title_setup_inbox">Anar als missatges</string>
     <string name="title_setup_to_do">Per fer</string>
     <string name="title_setup_done">Fet</string>
     <string name="title_setup_export">Exporta la configuració</string>
@@ -141,7 +141,7 @@
     <string name="title_setup_imported">Configuració importada</string>
     <string name="title_setup_notifications">Gestiona les notificacions</string>
     <string name="title_setup_reorder_accounts">Ordre dels comptes</string>
-    <string name="title_setup_reorder_folders">Carpeta ordenada</string>
+    <string name="title_setup_reorder_folders">Ordre de les carpetes</string>
     <string name="title_reset_order">Esborra l\'ordre</string>
     <string name="title_setup_authentication">Autentificació</string>
     <string name="title_setup_biometrics">Autenticació biomètrica</string>
@@ -228,6 +228,7 @@
     <string name="title_advanced_double_tap">Toca dues vegades per marcar el missatge llegit/sense llegir</string>
     <string name="title_advanced_expand_read">Marca els missatges llegits en expandir-se</string>
     <string name="title_advanced_autoexpand">Ampliar automàticament els missatges</string>
+    <string name="title_advanced_expand_one">Expandir només un missatge alhora</string>
     <string name="title_advanced_collapse">Contraure missatges a les converses a la \"part posterior\"</string>
     <string name="title_advanced_autoclose">Tanca automàticament les converses</string>
     <string name="title_advanced_onclose">En tancar una conversa</string>
@@ -287,12 +288,12 @@
     <string name="title_advanced_subscribed_only_hint">Si ho activeu, suprimireu totes les carpetes locals sense subscripció</string>
     <string name="title_advanced_english_hint">Això reiniciarà l\'aplicació</string>
     <string name="title_advanced_experiments_hint">Llista de funcions experimentals actuals</string>
-    <string name="title_advanced_debug_hint">Habiliteu el registre addicional i mostri informació de depuració en diversos llocs</string>
+    <string name="title_advanced_debug_hint">Habiliteu el registre addicional i mostra informació de depuració en diversos llocs</string>
     <string name="title_advanced_cleanup_hint">S\'eliminaran tots els fitxers temporals</string>
     <string name="title_advanced_never_favorite">Mai preferit</string>
     <string name="title_select">Selecciona &#8230;</string>
     <string name="title_identity_name">El teu nom</string>
-    <string name="title_identity_email">La teva adreça de correu-e</string>
+    <string name="title_identity_email">La teva adreça de correu electrònic</string>
     <string name="title_identity_color_hint">Els colors identitaris tenen prioritat sobre els colors del compte</string>
     <string name="title_advanced_sender">Permet editar l\'adreça del remitent</string>
     <string name="title_identity_reply_to">Respon a l’adreça</string>
@@ -329,7 +330,7 @@
     <string name="title_keep_alive_interval">Interval d\'activitat (minuts)</string>
     <string name="title_check">Comprovar</string>
     <string name="title_no_name">Falta nom</string>
-    <string name="title_no_email">Falta l\'adreça de correu-e</string>
+    <string name="title_no_email">Falta l\'adreça de correu electrònic</string>
     <string name="title_email_invalid">L\'adreça de correu electrònic no és vàlida: \'%1$s\'</string>
     <string name="title_address_parse_error">L\'adreça \'%1$s\' és invàlida: %2$s</string>
     <string name="title_no_account">Falta compte</string>
@@ -350,6 +351,7 @@
     <string name="title_edit_html">Edita com HTML</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
     <string name="title_pop3_support">POP3 no està suportat</string>
+    <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
     <string name="title_synchronize_all">Sincronitza tots els missatges</string>
@@ -475,7 +477,7 @@
     <string name="title_reporting_why">La notificació d’errors ajudarà a millorar FairEmail</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
-    <string name="title_to">A:</string>
+    <string name="title_to">Per a:</string>
     <string name="title_reply_to">Respondre a:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCO:</string>
@@ -483,10 +485,11 @@
     <string name="title_received">Rebut: </string>
     <string name="title_size">Mida:</string>
     <string name="title_subject">Assumpte:</string>
-    <string name="title_body_hint">El teu missatge</string>
+    <string name="title_body_hint">El vostre missatge</string>
     <string name="title_discard">Descartar</string>
     <string name="title_save">Desa</string>
     <string name="title_send">Enviar</string>
+    <string name="title_send_with_options">Envia &#8230;</string>
     <string name="title_send_at">Envia a les &#8230;</string>
     <string name="title_no_server">No s\'ha trobat servidor per \'%1$s\'</string>
     <string name="title_style_bold">Negreta</string>
@@ -512,6 +515,7 @@
     <string name="title_attachment_keywords">adjunt, fitxer adjunt, fitxers adjunts inclosos</string>
     <string name="title_attachment_reminder">Teníeu la intenció d’afegir un fitxer adjunt?</string>
     <string name="title_attachments_missing">No es descarreguen tots els fitxers adjunts</string>
+    <string name="title_send_dialog_hint">Aquest diàleg encara estarà disponible a través del menú de desbordament de tres punts de la barra d’acció</string>
     <string name="title_draft_deleted">Esborrany eliminat</string>
     <string name="title_draft_saved">Esborrany desat</string>
     <string name="title_ask_send_via">Enviar missatge a %1$s mitjançant %2$s?</string>
@@ -537,7 +541,7 @@
     <string name="title_sort_on_size">Mida</string>
     <string name="title_sort_on_snoozed">Posposada</string>
     <string name="title_sort_ascending">El més antic primer</string>
-    <string name="title_filter">Filtrar</string>
+    <string name="title_filter">Filtrar per</string>
     <string name="title_filter_seen">Llegir</string>
     <string name="title_filter_unflagged">Sense destacat</string>
     <string name="title_filter_snoozed">Posposada</string>
@@ -622,6 +626,7 @@
     <string name="title_legend_primary">Primari</string>
     <string name="title_legend_subscribed">Subscrit a</string>
     <string name="title_legend_rule">Té normes</string>
+    <string name="title_legend_similar">Cerca missatges similars</string>
     <string name="title_legend_notify">Notificar per a nous missatges</string>
     <string name="title_legend_sync_keep">Nombre de dies per sincronitzar/guardar missatges</string>
     <string name="title_legend_download_fetch">Nombre de missatges descarregats/capçaleres obtingudes</string>
@@ -706,6 +711,7 @@
     <string name="title_report">Informa</string>
     <string name="title_fix">Repara</string>
     <string name="title_enable">Habilita</string>
+    <string name="title_enabled">Activat</string>
     <string name="title_executing">Executant</string>
     <string name="title_completed">Acabat</string>
     <string name="title_ask_what">Pregunteu què heu de fer</string>
@@ -739,7 +745,7 @@
     <string name="title_pro_invalid">Resposta no vàlida</string>
     <string name="title_pro_support">FairEmail necessita el teu ajut. Prem per comprar característiques Pro per mantenir el projecte en marxa.</string>
     <string name="title_unexpected_error">S\'ha produït un error inesperat</string>
-    <string name="title_log">Registre</string>
+    <string name="title_log">Registres</string>
     <string name="title_auto_scroll">Desplaçament automàtic</string>
     <string name="title_debug_info">Informació de depuració</string>
     <string name="title_debug_info_remark">Per favor descriu el problema i indica quan en el que va ocorre:</string>

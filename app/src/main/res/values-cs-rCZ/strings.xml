@@ -247,9 +247,11 @@
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_swipenav">Tažením doleva/doprava přejít na předešlou/následující konverzaci</string>
+    <string name="title_advanced_reversed">Obrátit směr navigace</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
+    <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>
     <string name="title_advanced_collapse">Sbalit zprávy v konverzacích při pohybu zpět</string>
     <string name="title_advanced_autoclose">Automaticky zavírat konverzace</string>
     <string name="title_advanced_onclose">Při zavření konverzace</string>
@@ -258,7 +260,7 @@
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
-    <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv odpovídá počtu oznámení</string>
+    <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv souhlasí s počtem oznámení</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
     <string name="title_advanced_notify_action_trash">Koš</string>
@@ -536,6 +538,7 @@
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>
+    <string name="title_send_dialog_hint">Tento dialog bude i nadále dostupný skrze tříbodové rozbalovací menu na panelu akcí</string>
     <string name="title_draft_deleted">Koncept zahozen</string>
     <string name="title_draft_saved">Koncept uložen</string>
     <string name="title_ask_send_via">Odeslat zprávu na %1$s přes %2$s?</string>

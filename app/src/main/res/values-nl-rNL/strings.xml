@@ -225,7 +225,7 @@
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
-    <string name="title_advanced_swipe_reversed">Keer veegrichting om</string>
+    <string name="title_advanced_reversed">Keer navigatierichting om</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
@@ -247,11 +247,13 @@
     <string name="title_advanced_notify_action_reply_direct">Direct antwoord</string>
     <string name="title_advanced_notify_action_flag">Ster</string>
     <string name="title_advanced_notify_action_seen">Gelezen</string>
+    <string name="title_advanced_notify_remove">Verwijder melding van nieuw bericht bij het tikken op melding</string>
     <string name="title_advanced_biometrics_notify">Toon notificatie inhoud bij het gebruik van biometrische verificatie</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
+    <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de naam van het kanaal \'Meldingen\' om het standaard meldingsgeluid in te stellen, etc</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
