@@ -908,17 +908,7 @@ public class ServiceSynchronize extends ServiceBase {
 
                                         for (Message imessage : e.getMessages()) {
                                             long uid = ifolder.getUID(imessage);
-                                            try {
-                                                db.beginTransaction();
-
-                                                EntityMessage message = db.message().getMessageByUid(folder.id, uid);
-                                                if (message != null)
-                                                    EntityOperation.queue(ServiceSynchronize.this, message, EntityOperation.DELETE);
-
-                                                db.setTransactionSuccessful();
-                                            } finally {
-                                                db.endTransaction();
-                                            }
+                                            EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.DELETED, uid);
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);

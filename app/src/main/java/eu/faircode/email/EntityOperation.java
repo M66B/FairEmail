@@ -77,8 +77,9 @@ public class EntityOperation {
     static final String ADD = "add";
     static final String MOVE = "move";
     static final String COPY = "copy";
-    static final String DELETE = "delete";
     static final String FETCH = "fetch";
+    static final String DELETE = "delete";
+    static final String DELETED = "deleted";
     static final String SEEN = "seen";
     static final String ANSWERED = "answered";
     static final String FLAG = "flag";
