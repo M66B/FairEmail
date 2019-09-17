@@ -139,6 +139,9 @@ public class EntityOperation {
                         " target=" + target.id + ":" + target.name +
                         " autoread=" + autoread);
 
+                if (autoread)
+                    db.message().setMessageUiSeen(message.id, true);
+
                 if (!EntityFolder.ARCHIVE.equals(source.type) ||
                         EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type))
                     db.message().setMessageUiHide(message.id, new Date().getTime());
