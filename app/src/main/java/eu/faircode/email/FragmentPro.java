@@ -148,7 +148,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
             @Override
             public void onError(String message) {
                 final Intent support = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.SUPPORT_URI));
-                Snackbar snackbar = Snackbar.make(getView(), message, Snackbar.LENGTH_LONG);
+                Snackbar snackbar = Snackbar.make(getView(), message, Snackbar.LENGTH_INDEFINITE);
                 if (support.resolveActivity(getContext().getPackageManager()) != null)
                     snackbar.setAction(R.string.title_setup_help, new View.OnClickListener() {
                         @Override
