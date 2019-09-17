@@ -713,7 +713,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibExpander.setVisibility(View.GONE);
 
             // Line 1
-            boolean outgoing = (viewType != ViewType.THREAD && EntityFolder.isOutgoing(message.folderType));
+            boolean outgoing = false;
+            if (viewType != ViewType.THREAD)
+                if (EntityFolder.isOutgoing(message.folderType))
+                    outgoing = true;
+                else if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                        message.identityEmail != null &&
+                        message.from != null && message.from.length == 1 &&
+                        message.identityEmail.equals(((InternetAddress) message.from[0]).getAddress()))
+                    outgoing = true;
             Address[] addresses = (outgoing ? message.to : message.senders);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             Long size = ("size".equals(sort) ? message.totalSize : message.size);
