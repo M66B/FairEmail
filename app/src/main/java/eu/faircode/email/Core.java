@@ -902,15 +902,11 @@ class Core {
         for (Folder ifolder : ifolders) {
             String fullName = ifolder.getFullName();
             String[] name = fullName.split(Pattern.quote(Character.toString(separator)));
-            String childName = name[name.length - 1];
             boolean subscribed = subscription.contains(fullName);
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attr, fullName, false);
             boolean selectable = !Arrays.asList(attr).contains("\\Noselect") &&
                     ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
-
-            if (EntityFolder.INBOX.equals(type) || fullName.equals(childName))
-                childName = null;
 
             Log.i(account.name + ":" + fullName + " subscribed=" + subscribed +
                     " type=" + type + " attrs=" + TextUtils.join(" ", attr));
@@ -927,7 +923,6 @@ class Core {
                         folder = new EntityFolder();
                         folder.account = account.id;
                         folder.name = fullName;
-                        folder.display = childName;
                         folder.type = (EntityFolder.SYSTEM.equals(type) ? type : EntityFolder.USER);
                         folder.synchronize = false;
                         folder.subscribed = subscribed;
@@ -942,9 +937,6 @@ class Core {
 
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
                             db.folder().setFolderSubscribed(folder.id, subscribed);
-
-                        if (folder.display == null && childName != null)
-                            db.folder().setFolderDisplay(folder.id, childName);
 
                         // Compatibility
                         if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))
