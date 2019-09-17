@@ -595,6 +595,10 @@ class Core {
                     Log.i(folder.name + " appended uid=" + uid);
                     db.message().setMessageUid(message.id, uid);
 
+                    List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+                    runRules(context, imessage, message, rules);
+                    updateContactInfo(context, folder, message);
+
                     for (Message iexisting : imessages) {
                         long muid = ifolder.getUID(iexisting);
                         if (muid != uid)
