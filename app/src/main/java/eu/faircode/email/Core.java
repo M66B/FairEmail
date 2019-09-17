@@ -115,6 +115,7 @@ class Core {
     private static int lastUnseen = -1;
 
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
+    private static final long AFTER_SEND_DELAY = 10 * 1000L; // milliseconds
     private static final int SYNC_CHUNCK_SIZE = 200;
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
@@ -221,7 +222,7 @@ class Core {
                                 break;
 
                             case EntityOperation.HEADERS:
-                                onHeaders(context, folder, message, (IMAPFolder) ifolder);
+                                onHeaders(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.RAW:
@@ -229,11 +230,15 @@ class Core {
                                 break;
 
                             case EntityOperation.BODY:
-                                onBody(context, folder, message, (IMAPFolder) ifolder);
+                                onBody(context, jargs, folder, message, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.ATTACHMENT:
                                 onAttachment(context, jargs, folder, message, op, (IMAPFolder) ifolder);
+                                break;
+
+                            case EntityOperation.EXISTS:
+                                onExists(context, jargs, folder, message, op, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.SYNC:
@@ -321,6 +326,8 @@ class Core {
         if (message.uid != null)
             return;
         if (EntityOperation.ADD.equals(op.name))
+            return;
+        if (EntityOperation.EXISTS.equals(op.name))
             return;
         if (EntityOperation.DELETE.equals(op.name) && !TextUtils.isEmpty(message.msgid))
             return;
@@ -461,7 +468,7 @@ class Core {
         }
     }
 
-    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, JSONException, IOException {
+    private static void onAdd(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder) throws MessagingException, IOException {
         // Add message
         DB db = DB.getInstance(context);
 
@@ -736,7 +743,7 @@ class Core {
         }
     }
 
-    private static void onHeaders(Context context, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
+    private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
         // Download headers
         DB db = DB.getInstance(context);
 
@@ -783,7 +790,7 @@ class Core {
         }
     }
 
-    private static void onBody(Context context, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
+    private static void onBody(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
         // Download message body
         DB db = DB.getInstance(context);
 
@@ -835,6 +842,32 @@ class Core {
 
         // Download attachment
         parts.downloadAttachment(context, attachment);
+    }
+
+    private static void onExists(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException {
+        if (message.uid != null)
+            return;
+
+        if (EntityFolder.SENT.equals(folder.type)) {
+            long ago = new Date().getTime() - op.created;
+            long delay = AFTER_SEND_DELAY - ago;
+            if (delay > 0) {
+                Log.i(folder.name + " send delay=" + delay);
+                try {
+                    Thread.sleep(delay);
+                } catch (InterruptedException ex) {
+                    Log.w(ex);
+                }
+            }
+        }
+
+        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
+        if (imessages == null || imessages.length == 0)
+            EntityOperation.queue(context, message, EntityOperation.ADD);
+        else {
+            long uid = ifolder.getUID(imessages[0]);
+            EntityOperation.queue(context, message, EntityOperation.FETCH, uid);
+        }
     }
 
     static void onSynchronizeFolders(Context context, EntityAccount account, Store istore, State state) throws MessagingException {

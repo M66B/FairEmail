@@ -90,6 +90,7 @@ public class EntityOperation {
     static final String SYNC = "sync";
     static final String SUBSCRIBE = "subscribe";
     static final String SEND = "send";
+    static final String EXISTS = "exists";
 
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
