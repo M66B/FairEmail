@@ -849,17 +849,17 @@ public class ServiceSynchronize extends ServiceBase {
                                     ifolder.open(Folder.READ_ONLY);
                                     db.folder().setFolderReadOnly(folder.id, true);
                                 } catch (MessagingException ex1) {
-                                    Log.w(ex1);
+                                    Log.w(folder.name, ex1);
                                     db.folder().setFolderState(folder.id, null);
                                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1));
                                     continue;
                                 }
                             } catch (FolderNotFoundException ex) {
-                                Log.w(ex);
+                                Log.w(folder.name, ex);
                                 db.folder().deleteFolder(folder.id);
                                 continue;
                             } catch (MessagingException ex) {
-                                Log.w(ex);
+                                Log.w(folder.name, ex);
                                 db.folder().setFolderState(folder.id, null);
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 continue;
@@ -1039,7 +1039,7 @@ public class ServiceSynchronize extends ServiceBase {
                                                                     state);
 
                                                         } catch (FolderNotFoundException ex) {
-                                                            Log.w(ex);
+                                                            Log.w(folder.name, ex);
                                                             db.folder().deleteFolder(folder.id);
                                                         } catch (Throwable ex) {
                                                             Log.e(folder.name, ex);
@@ -1146,14 +1146,14 @@ public class ServiceSynchronize extends ServiceBase {
                         try {
                             unregisterReceiver(alarm);
                         } catch (IllegalArgumentException ex) {
-                            Log.w(new IllegalStateException("Killed", ex));
+                            Log.w(account.name, new IllegalStateException("Killed", ex));
                             reload(ServiceSynchronize.this, "killed");
                         }
                     }
 
                     Log.i(account.name + " done state=" + state);
                 } catch (StoreClosedException ex) {
-                    Log.w(ex);
+                    Log.w(account.name, ex);
                 } catch (Throwable ex) {
                     Log.e(account.name, ex);
                     EntityLog.log(
@@ -1246,7 +1246,7 @@ public class ServiceSynchronize extends ServiceBase {
                                 try {
                                     unregisterReceiver(alarm);
                                 } catch (IllegalArgumentException ex) {
-                                    Log.w(new IllegalStateException("Killed", ex));
+                                    Log.w(account.name, new IllegalStateException("Killed", ex));
                                     reload(ServiceSynchronize.this, "killed");
                                 }
                             }

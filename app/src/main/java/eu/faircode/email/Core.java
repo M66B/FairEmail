@@ -997,7 +997,7 @@ class Core {
             for (Folder ifolder : isubscribed)
                 subscription.add(ifolder.getFullName());
         } catch (MessagingException ex) {
-            Log.e(ex);
+            Log.e(account.name, ex);
         }
 
         if (subscribed_only && ifolders.length == 0) {
@@ -1151,7 +1151,7 @@ class Core {
                 folder.uidv = uidv;
                 db.folder().setFolderUidValidity(folder.id, uidv);
             } catch (MessagingException ex) {
-                Log.w(ex);
+                Log.w(folder.name, ex);
             }
 
             // Get reference times
@@ -1633,7 +1633,7 @@ class Core {
                     message.mx = false;
                     message.warning = ex.getMessage();
                 } catch (Throwable ex) {
-                    Log.e(ex);
+                    Log.e(folder.name, ex);
                     message.warning = Helper.formatThrowable(ex, false);
                 }
 
@@ -2028,7 +2028,7 @@ class Core {
                         try {
                             parts.downloadAttachment(context, attachment);
                         } catch (Throwable ex) {
-                            Log.e(ex);
+                            Log.e(folder.name, ex);
                             db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
                         }
         }
