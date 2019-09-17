@@ -655,8 +655,13 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null)
-                    showDraft(draft);
+                if (draft != null) {
+                    tvReference.setVisibility(View.GONE);
+                    grpReferenceHint.setVisibility(View.GONE);
+                    ibReferenceDelete.setVisibility(View.GONE);
+                    ibReferenceEdit.setVisibility(View.GONE);
+                    ibReferenceImages.setVisibility(View.GONE);
+                }
             }
 
             @Override
