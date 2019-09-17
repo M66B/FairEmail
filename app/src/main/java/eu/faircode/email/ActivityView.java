@@ -814,7 +814,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private Intent getIntentOtherApps() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(Helper.isPlayStoreInstall()
-                ? Helper.PLAY_APPS_URI : Helper.XDA_APPS_URI));
+                ? Helper.PLAY_APPS_URI : Helper.GITHUB_APPS_URI));
         return intent;
     }
 
