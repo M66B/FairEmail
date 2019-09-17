@@ -1208,7 +1208,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if ("expanded".equals(name)) {
                 // Collapse other messages
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean expand_one = prefs.getBoolean("expand_one", false);
+                boolean expand_one = prefs.getBoolean("expand_one", true);
                 if (expand_one) {
                     for (Long other : new ArrayList<>(values.get(name)))
                         if (!other.equals(id)) {

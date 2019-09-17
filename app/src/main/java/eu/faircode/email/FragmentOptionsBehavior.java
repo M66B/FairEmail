@@ -262,7 +262,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swExpandRead.setChecked(prefs.getBoolean("expand_read", true));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
-        swExpandOne.setChecked(prefs.getBoolean("expand_one", false));
+        swExpandOne.setChecked(prefs.getBoolean("expand_one", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
 
         String onClose = prefs.getString("onclose", "");
