@@ -2909,7 +2909,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onLoading() {
             loading = true;
             pbWait.setVisibility(View.VISIBLE);
-            tvNoEmail.setVisibility(View.GONE);
+            if (viewType == AdapterMessage.ViewType.SEARCH)
+                tvNoEmail.setVisibility(View.GONE);
         }
 
         @Override
