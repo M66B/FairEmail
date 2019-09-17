@@ -177,11 +177,32 @@ class Core {
 
                         // Operations should use database transaction when needed
 
-                        // Squash operations
-                        if (i + 1 < ops.size() && op.canSquash(ops.get(i + 1))) {
+                        // Skip redundant operations
+                        boolean skip = false;
+                        for (int j = i + 1; j < ops.size(); j++) {
+                            EntityOperation next = ops.get(j);
+
+                            if (EntityOperation.ADD.equals(op.name)) {
+                                if (Objects.equals(op.message, next.message) &&
+                                        (EntityOperation.ADD.equals(next.name) ||
+                                                EntityOperation.DELETE.equals(next.name))) {
+                                    skip = true;
+                                    break;
+                                }
+                            } else if (EntityOperation.FETCH.equals(op.name))
+                                if (EntityOperation.FETCH.equals(next.name)) {
+                                    JSONArray jnext = new JSONArray(next.args);
+                                    if (jargs.getLong(0) == jnext.getLong(0)) {
+                                        skip = true;
+                                        break;
+                                    }
+                                }
+                        }
+                        if (skip) {
                             Log.i(folder.name +
-                                    " squashing op=" + op.id + "/" + op.name +
+                                    " skipping op=" + op.id + "/" + op.name +
                                     " msg=" + op.message + " args=" + op.args);
+                            db.operation().deleteOperation(op.id);
                             continue;
                         }
 

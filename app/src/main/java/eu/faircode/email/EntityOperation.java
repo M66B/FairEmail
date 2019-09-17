@@ -341,21 +341,6 @@ public class EntityOperation {
         Log.i("Queued subscribe=" + subscribe + " folder=" + folder);
     }
 
-    boolean canSquash(EntityOperation next) throws JSONException {
-        if (Objects.equals(this.message, next.message) &&
-                ADD.equals(this.name) &&
-                (ADD.equals(next.name) || DELETE.equals(next.name)))
-            return true;
-
-        if (FETCH.equals(this.name) && FETCH.equals(next.name)) {
-            JSONArray jargs1 = new JSONArray(this.args);
-            JSONArray jargs2 = new JSONArray(next.args);
-            return (jargs1.optLong(0, -1) == jargs2.optLong(0, -2));
-        }
-
-        return false;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof EntityOperation) {
