@@ -293,6 +293,11 @@ public class ServiceUI extends IntentService {
     }
 
     private void onIgnore(long id) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean notify_remove = prefs.getBoolean("notify_remove", true);
+        if (!notify_remove)
+            return;
+
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();

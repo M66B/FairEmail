@@ -61,6 +61,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionFlag;
     private CheckBox cbNotifyActionSeen;
     private TextView tvNotifyActionsPro;
+    private SwitchCompat swNotifyRemove;
     private SwitchCompat swBiometricsNotify;
     private Button btnManage;
     private TextView tvManageHint;
@@ -73,7 +74,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     private final static String[] RESET_OPTIONS = new String[]{
             "badge", "unseen_ignored",
-            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_reply_direct", "notify_flag", "notify_seen", "biometrics_notify",
+            "notify_preview", "notify_trash", "notify_archive", "notify_reply", "notify_reply_direct", "notify_flag", "notify_seen", "notify_remove",
+            "biometrics_notify",
             "light", "sound", "alert_once"
     };
 
@@ -97,6 +99,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionFlag = view.findViewById(R.id.cbNotifyActionFlag);
         cbNotifyActionSeen = view.findViewById(R.id.cbNotifyActionSeen);
         tvNotifyActionsPro = view.findViewById(R.id.tvNotifyActionsPro);
+        swNotifyRemove = view.findViewById(R.id.swNotifyRemove);
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
         btnManage = view.findViewById(R.id.btnManage);
         tvManageHint = view.findViewById(R.id.tvManageHint);
@@ -180,6 +183,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         Helper.linkPro(tvNotifyActionsPro);
+
+        swNotifyRemove.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_remove", checked).apply();
+            }
+        });
 
         swBiometricsNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -306,6 +316,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionFlag.setEnabled(pro);
         cbNotifyActionSeen.setEnabled(pro);
 
+        swNotifyRemove.setChecked(prefs.getBoolean("notify_remove", true));
         swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", false));
 
         swLight.setChecked(prefs.getBoolean("light", false));

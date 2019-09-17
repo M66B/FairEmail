@@ -163,6 +163,31 @@
             app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsHint" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swNotifyRemove"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_notify_remove"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro"
+            app:switchPadding="12dp" />
+
+        <TextView
+            android:id="@+id/tvNotifyRemoveHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_remove_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swNotifyRemove" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swBiometricsNotify"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -170,7 +195,7 @@
             android:text="@string/title_advanced_biometrics_notify"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyRemoveHint"
             app:switchPadding="12dp" />
 
         <Button
