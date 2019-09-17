@@ -69,8 +69,6 @@ import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.ReadOnlyFolderException;
 import javax.mail.StoreClosedException;
-import javax.mail.event.ConnectionAdapter;
-import javax.mail.event.ConnectionEvent;
 import javax.mail.event.FolderAdapter;
 import javax.mail.event.FolderEvent;
 import javax.mail.event.MessageChangedEvent;
@@ -790,24 +788,6 @@ public class ServiceSynchronize extends ServiceBase {
                             } finally {
                                 wlFolder.release();
                             }
-                        }
-                    });
-
-                    // Listen for connection events
-                    iservice.getStore().addConnectionListener(new ConnectionAdapter() {
-                        @Override
-                        public void opened(ConnectionEvent e) {
-                            Log.i(account.name + " opened event");
-                        }
-
-                        @Override
-                        public void disconnected(ConnectionEvent e) {
-                            Log.e(account.name + " disconnected event");
-                        }
-
-                        @Override
-                        public void closed(ConnectionEvent e) {
-                            Log.e(account.name + " closed event");
                         }
                     });
 
