@@ -68,6 +68,18 @@
             app:layout_constraintTop_toBottomOf="@id/swCards"
             app:switchPadding="12dp" />
 
+        <TextView
+            android:id="@+id/tvDateHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_date_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDate" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swThreading"
             android:layout_width="0dp"
@@ -77,7 +89,7 @@
             android:text="@string/title_advanced_threading"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDate"
+            app:layout_constraintTop_toBottomOf="@id/tvDateHint"
             app:switchPadding="12dp" />
 
         <TextView
