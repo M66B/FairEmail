@@ -311,6 +311,7 @@ The low priority status bar notification shows the number of pending operations,
 * *add*: add message to remote folder
 * *move*: move message to another remote folder
 * *copy*: copy message to another remote folder
+* *fetch*: fetched pushed message
 * *delete*: delete message from remote folder
 * *send*: send message
 * *seen*: mark message as read/unread in remote folder
@@ -323,6 +324,7 @@ The low priority status bar notification shows the number of pending operations,
 * *attachment*: download attachment
 * *sync*: synchronize local and remote messages
 * *subscribe*: subscribe to remote folder
+* *send*: send message
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
 See also [this FAQ](#user-content-faq16).

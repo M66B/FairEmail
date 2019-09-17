@@ -382,9 +382,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_hide = :ui_hide WHERE id = :id")
     int setMessageUiHide(long id, long ui_hide);
 
-    @Query("UPDATE message SET ui_hide = :ui_hide WHERE folder = :folder AND uid = :uid")
-    int setMessageUiHide(long folder, long uid, long ui_hide);
-
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id")
     int setMessageUiIgnored(long id, boolean ui_ignored);
 
