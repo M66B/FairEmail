@@ -682,8 +682,8 @@ class Core {
             List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
             IMAPMessage imessage = (IMAPMessage) ifolder.getMessageByUID(uid);
-            if (imessage == null)
-                throw new MessageRemovedException();
+            if (imessage == null || imessage.isExpunged())
+                return;
 
             FetchProfile fp = new FetchProfile();
             fp.add(FetchProfile.Item.ENVELOPE);
@@ -695,6 +695,9 @@ class Core {
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
             ifolder.fetch(new Message[]{imessage}, fp);
+
+            if (imessage.isSet(Flags.Flag.DELETED))
+                return;
 
             EntityMessage message = synchronizeMessage(context, account, folder, ifolder, imessage, false, download, rules, state);
             if (download)
