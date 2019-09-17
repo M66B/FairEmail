@@ -156,6 +156,12 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("compose_media", false);
                 editor.remove("style_toolbar");
             }
+
+        } else if (version < 709) {
+            if (prefs.getBoolean("swipe_reversed", false)) {
+                editor.putBoolean("reversed", true);
+                editor.remove("swipe_reversed");
+            }
         }
 
 

@@ -644,6 +644,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                boolean reversed = prefs.getBoolean("reversed", false);
+
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
                         onActionMove(EntityFolder.TRASH);
@@ -658,11 +660,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return true;
 
                     case R.id.action_prev:
-                        navigate(previous, true);
+                        navigate(reversed ? next : previous, true);
                         return true;
 
                     case R.id.action_next:
-                        navigate(next, false);
+                        navigate(reversed ? previous : next, false);
                         return true;
 
                     default:
@@ -947,8 +949,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 final SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
                     @Override
                     public boolean onSwipeRight() {
-                        boolean rtl = prefs.getBoolean("swipe_reversed", false);
-                        Long go = (rtl ? next : previous);
+                        boolean reversed = prefs.getBoolean("reversed", false);
+                        Long go = (reversed ? next : previous);
 
                         if (go == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
@@ -961,8 +963,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     public boolean onSwipeLeft() {
-                        boolean rtl = prefs.getBoolean("swipe_reversed", false);
-                        Long go = (rtl ? previous : next);
+                        boolean reversed = prefs.getBoolean("reversed", false);
+                        Long go = (reversed ? previous : next);
 
                         if (go == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
