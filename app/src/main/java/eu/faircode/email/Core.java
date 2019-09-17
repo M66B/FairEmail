@@ -714,7 +714,7 @@ class Core {
             fp.add(FetchProfile.Item.ENVELOPE);
             fp.add(FetchProfile.Item.FLAGS);
             fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-            fp.add(UIDFolder.FetchProfileItem.UID);
+            //fp.add(UIDFolder.FetchProfileItem.UID);
             fp.add(IMAPFolder.FetchProfileItem.HEADERS);
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             fp.add(FetchProfile.Item.SIZE);
