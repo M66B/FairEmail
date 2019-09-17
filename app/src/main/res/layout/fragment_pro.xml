@@ -58,10 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:backgroundTint="?attr/colorPrimary"
             android:text="@string/title_pro_purchase"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvList" />
 
