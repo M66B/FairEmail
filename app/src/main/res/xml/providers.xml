@@ -320,4 +320,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="/e/"
+        domain="e.email"
+        link="https://e.foundation/email-configuration/">
+        <imap
+            host="mail.ecloud.global"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.ecloud.global"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
