@@ -3984,13 +3984,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Log.i("PGP result=" + result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR));
                 switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
                     case OpenPgpApi.RESULT_CODE_SUCCESS:
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
                         if (inline) {
                             try {
                                 db.beginTransaction();
 
                                 // Write decrypted body
-                                EntityMessage m = db.message().getMessage(id);
-                                Helper.writeText(m.getFile(context),
+                                Helper.writeText(message.getFile(context),
                                         decrypted.toString().replace("\0", ""));
 
                                 db.message().setMessageStored(id, new Date().getTime());
@@ -4013,11 +4016,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 db.beginTransaction();
 
                                 // Write decrypted body
-                                EntityMessage m = db.message().getMessage(id);
                                 String html = parts.getHtml(context);
                                 if (html != null)
                                     html = html.replace("\0", "");
-                                Helper.writeText(m.getFile(context), html);
+                                Helper.writeText(message.getFile(context), html);
 
                                 // Remove previously decrypted attachments
                                 for (EntityAttachment local : attachments)
@@ -4061,7 +4063,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         break;
 
                     case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
-                        message = id;
+                        FragmentMessages.this.message = id;
                         return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
                     case OpenPgpApi.RESULT_CODE_ERROR:
