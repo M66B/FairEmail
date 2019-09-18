@@ -81,7 +81,6 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
 
 import javax.mail.Address;
 import javax.mail.FetchProfile;
@@ -1015,10 +1014,9 @@ class Core {
         Map<String, List<EntityFolder>> parentFolders = new HashMap<>();
         for (Folder ifolder : ifolders) {
             String fullName = ifolder.getFullName();
-            String[] name = fullName.split(Pattern.quote(Character.toString(separator)));
-            boolean subscribed = subscription.contains(fullName);
             String[] attr = ((IMAPFolder) ifolder).getAttributes();
             String type = EntityFolder.getType(attr, fullName, false);
+            boolean subscribed = subscription.contains(fullName);
             boolean selectable = !Arrays.asList(attr).contains("\\Noselect") &&
                     ((ifolder.getType() & IMAPFolder.HOLDS_MESSAGES) != 0);
 
@@ -1051,6 +1049,9 @@ class Core {
 
                         if (folder.subscribed == null || !folder.subscribed.equals(subscribed))
                             db.folder().setFolderSubscribed(folder.id, subscribed);
+
+                        if (folder.selectable != selectable)
+                            db.folder().setFolderSelectable(folder.id, selectable);
 
                         // Compatibility
                         if (EntityFolder.USER.equals(folder.type) && EntityFolder.SYSTEM.equals(type))

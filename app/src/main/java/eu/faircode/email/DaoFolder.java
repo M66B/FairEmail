@@ -216,6 +216,9 @@ public interface DaoFolder {
     @Query("UPDATE folder SET subscribed = :subscribed WHERE id = :id")
     int setFolderSubscribed(long id, Boolean subscribed);
 
+    @Query("UPDATE folder SET selectable = :selectable WHERE id = :id")
+    int setFolderSelectable(long id, Boolean selectable);
+
     @Query("UPDATE folder SET type = :type WHERE id = :id")
     int setFolderType(long id, String type);
 
