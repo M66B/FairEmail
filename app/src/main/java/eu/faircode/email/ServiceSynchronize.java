@@ -888,7 +888,7 @@ public class ServiceSynchronize extends ServiceBase {
 
                                         for (Message imessage : e.getMessages()) {
                                             long uid = ifolder.getUID(imessage);
-                                            EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.DELETED, uid);
+                                            EntityOperation.queue(ServiceSynchronize.this, folder, EntityOperation.FETCH, uid);
                                         }
                                     } catch (Throwable ex) {
                                         Log.e(folder.name, ex);

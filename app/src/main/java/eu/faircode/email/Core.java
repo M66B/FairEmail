@@ -165,7 +165,6 @@ class Core {
 
                         if (message == null) {
                             if (!EntityOperation.FETCH.equals(op.name) &&
-                                    !EntityOperation.DELETED.equals(op.name) &&
                                     !EntityOperation.SYNC.equals(op.name) &&
                                     !EntityOperation.SUBSCRIBE.equals(op.name))
                                 throw new MessageRemovedException();
@@ -240,10 +239,6 @@ class Core {
 
                             case EntityOperation.DELETE:
                                 onDelete(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
-
-                            case EntityOperation.DELETED:
-                                onDeleted(context, jargs, folder, (IMAPFolder) ifolder);
                                 break;
 
                             case EntityOperation.HEADERS:
@@ -357,8 +352,6 @@ class Core {
         if (EntityOperation.EXISTS.equals(op.name))
             return;
         if (EntityOperation.DELETE.equals(op.name) && !TextUtils.isEmpty(message.msgid))
-            return;
-        if (EntityOperation.DELETED.equals(op.name))
             return;
 
         Log.i(folder.name + " ensure uid op=" + op.name + " msgid=" + message.msgid);
@@ -700,34 +693,36 @@ class Core {
         long uid = jargs.getLong(0);
 
         DB db = DB.getInstance(context);
+        EntityAccount account = db.account().getAccount(folder.account);
+        boolean download = db.folder().getFolderDownload(folder.id);
+        List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+
         try {
-            EntityAccount account = db.account().getAccount(folder.account);
-            boolean download = db.folder().getFolderDownload(folder.id);
-            List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
-
             IMAPMessage imessage = (IMAPMessage) ifolder.getMessageByUID(uid);
-            if (imessage == null || imessage.isExpunged())
-                return;
+            if (imessage == null)
+                throw new MessageRemovedException();
 
-            FetchProfile fp = new FetchProfile();
-            fp.add(FetchProfile.Item.ENVELOPE);
-            fp.add(FetchProfile.Item.FLAGS);
-            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-            //fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-            fp.add(FetchProfile.Item.SIZE);
-            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            ifolder.fetch(new Message[]{imessage}, fp);
+            try {
+                FetchProfile fp = new FetchProfile();
+                fp.add(FetchProfile.Item.ENVELOPE);
+                fp.add(FetchProfile.Item.FLAGS);
+                fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+                //fp.add(UIDFolder.FetchProfileItem.UID);
+                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                fp.add(FetchProfile.Item.SIZE);
+                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                ifolder.fetch(new Message[]{imessage}, fp);
 
-            if (imessage.isSet(Flags.Flag.DELETED))
-                return;
-
-            EntityMessage message = synchronizeMessage(context, account, folder, ifolder, imessage, false, download, rules, state);
-            if (download)
-                downloadMessage(context, folder, ifolder, imessage, message.id, state);
-
-            imessage.invalidateHeaders();
+                EntityMessage message = synchronizeMessage(context, account, folder, ifolder, imessage, false, download, rules, state);
+                if (download)
+                    downloadMessage(context, folder, ifolder, imessage, message.id, state);
+            } finally {
+                imessage.invalidateHeaders();
+            }
+        } catch (MessageRemovedException ex) {
+            Log.i(ex);
+            db.message().deleteMessage(folder.id, uid);
         } finally {
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
@@ -773,18 +768,6 @@ class Core {
             ifolder.expunge();
 
             db.message().deleteMessage(message.id);
-        } finally {
-            int count = ifolder.getMessageCount();
-            db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
-        }
-    }
-
-    private static void onDeleted(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
-        long uid = jargs.getLong(0);
-
-        DB db = DB.getInstance(context);
-        try {
-            db.message().deleteMessage(folder.id, uid);
         } finally {
             int count = ifolder.getMessageCount();
             db.folder().setFolderTotal(folder.id, count < 0 ? null : count);
