@@ -165,21 +165,21 @@ public class MailService implements AutoCloseable {
                         if (user.equals(account.name)) {
                             Log.i("Refreshing token user=" + user);
                             am.invalidateAuthToken(type, password);
-                            String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
-                            if (refreshed == null)
-                                throw new IllegalStateException("no token");
+                            String token = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
+                            if (token == null)
+                                throw new IllegalArgumentException("no token");
 
                             int count = 0;
                             DB db = DB.getInstance(context);
                             if ("imap".equals(protocol) || "imaps".equals(protocol))
-                                count = db.account().updateAccountPassword(password, refreshed);
+                                count = db.account().updateAccountPassword(password, token);
                             else if ("smtp".equals(protocol) || "smtps".equals(protocol))
-                                count = db.identity().updateIdentityPassword(password, refreshed);
+                                count = db.identity().updateIdentityPassword(password, token);
 
                             if (count != 1)
-                                throw new IllegalStateException(protocol + "=" + count);
+                                throw new IllegalArgumentException(protocol + "=" + count);
 
-                            _connect(context, host, port, user, refreshed);
+                            _connect(context, host, port, user, token);
                             break;
                         }
                 } catch (Throwable ex1) {

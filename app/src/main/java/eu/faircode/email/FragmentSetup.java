@@ -475,15 +475,11 @@ public class FragmentSetup extends FragmentBase {
     }
 
     private void onAccountSelected(Intent data) {
-        Log.i("Selected " + data);
-        Log.logExtras(data);
-
         String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
         String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
 
         AccountManager am = AccountManager.get(getContext());
         Account[] accounts = am.getAccountsByType(type);
-        Log.i("Accounts=" + accounts.length);
         for (final Account account : accounts)
             if (name.equals(account.name)) {
                 Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_LONG).show();
@@ -499,11 +495,12 @@ public class FragmentSetup extends FragmentBase {
                                 try {
                                     Bundle bundle = future.getResult();
                                     String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-                                    Log.i("Got token=" + token);
+                                    Log.i("Got token");
                                     onAuthorized(name, token);
                                 } catch (Throwable ex) {
                                     if (ex instanceof AccountsException || ex instanceof IOException) {
-                                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.RESUMED))
+                                        Log.w(ex);
+                                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                             Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
                                     } else {
                                         Log.e(ex);
