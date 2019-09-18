@@ -2133,8 +2133,8 @@ class Core {
                     remove.remove(id);
                     Log.i("Notify existing=" + id);
                 } else {
-                    remove.remove(-id);
                     add.add(id);
+                    remove.remove(-id);
                     Log.i("Notify adding=" + id);
                 }
             }
@@ -2150,6 +2150,8 @@ class Core {
             Log.i("Notify group=" + group + " count=" + notifications.size() +
                     " added=" + add.size() + " removed=" + remove.size());
 
+            DB db = DB.getInstance(context);
+
             if (notifications.size() == 0) {
                 String tag = "unseen." + group + "." + 0;
                 Log.i("Notify cancel tag=" + tag);
@@ -2160,6 +2162,9 @@ class Core {
                 String tag = "unseen." + group + "." + Math.abs(id);
                 Log.i("Notify cancel tag=" + tag);
                 nm.cancel(tag, 1);
+
+                groupNotifying.get(group).remove(id);
+                db.message().setMessageNotifying(Math.abs(id), 0);
             }
 
             for (Notification notification : notifications) {
@@ -2169,18 +2174,12 @@ class Core {
                     Log.i("Notifying tag=" + tag +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
                     nm.notify(tag, 1, notification);
-                }
-            }
 
-            if (remove.size() + add.size() > 0) {
-                DB db = DB.getInstance(context);
-                for (long id : remove) {
-                    groupNotifying.get(group).remove(id);
-                    db.message().setMessageNotifying(Math.abs(id), 0);
-                }
-                for (long id : add) {
-                    groupNotifying.get(group).add(id);
-                    db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
+                    if (id != 0) {
+                        groupNotifying.get(group).add(id);
+                        groupNotifying.get(group).remove(-id);
+                        db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
+                    }
                 }
             }
         }
