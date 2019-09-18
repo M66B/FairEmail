@@ -130,6 +130,7 @@ public class FragmentIdentity extends FragmentBase {
 
     private long id = -1;
     private long copy = -1;
+    private int auth = MailService.AUTH_TYPE_PASSWORD;
     private boolean saving = false;
     private int color = Color.TRANSPARENT;
 
@@ -537,6 +538,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
+        args.putInt("auth", auth);
         args.putString("user", etUser.getText().toString());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
@@ -584,6 +586,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean starttls = args.getBoolean("starttls");
                 boolean insecure = args.getBoolean("insecure");
                 String port = args.getString("port");
+                int auth = args.getInt("auth");
                 String user = args.getString("user").trim();
                 String password = args.getString("password");
                 String realm = args.getString("realm");
@@ -680,6 +683,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.port, Integer.parseInt(port)))
                         return true;
+                    if (identity.auth_type != auth)
+                        return true;
                     if (!Objects.equals(identity.user, user))
                         return true;
                     if (!Objects.equals(identity.password, password))
@@ -731,7 +736,7 @@ public class FragmentIdentity extends FragmentBase {
                     String protocol = (starttls ? "smtp" : "smtps");
                     try (MailService iservice = new MailService(context, protocol, realm, insecure, true)) {
                         iservice.setUseIp(use_ip);
-                        iservice.connect(host, Integer.parseInt(port), user, password);
+                        iservice.connect(host, Integer.parseInt(port), auth, user, password);
                     }
                 }
 
@@ -748,13 +753,15 @@ public class FragmentIdentity extends FragmentBase {
                     identity.color = color;
                     identity.signature = signature;
 
-                    identity.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     identity.host = host;
                     identity.starttls = starttls;
                     identity.insecure = insecure;
                     identity.port = Integer.parseInt(port);
-                    identity.user = user;
-                    identity.password = password;
+                    identity.auth_type = auth;
+                    if (auth == MailService.AUTH_TYPE_PASSWORD) {
+                        identity.user = user;
+                        identity.password = password;
+                    }
                     identity.realm = realm;
                     identity.use_ip = use_ip;
                     identity.synchronize = synchronize;
@@ -853,6 +860,7 @@ public class FragmentIdentity extends FragmentBase {
         outState.putInt("fair:provider", spProvider.getSelectedItemPosition());
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
+        outState.putInt("fair:auth", auth);
         outState.putInt("fair:color", color);
         outState.putString("fair:html", (String) etSignature.getTag());
         super.onSaveInstanceState(outState);
@@ -902,6 +910,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
                     cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
 
+                    auth = (identity == null ? MailService.AUTH_TYPE_PASSWORD : identity.auth_type);
                     color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 
                     if (identity == null || copy > 0)
@@ -924,11 +933,17 @@ public class FragmentIdentity extends FragmentBase {
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
+                    auth = savedInstanceState.getInt("fair:auth");
                     color = savedInstanceState.getInt("fair:color");
                     etSignature.setTag(savedInstanceState.getString("fair:html"));
                 }
 
                 Helper.setViewsEnabled(view, true);
+
+                if (auth != MailService.AUTH_TYPE_PASSWORD) {
+                    etUser.setEnabled(false);
+                    tilPassword.setEnabled(false);
+                }
 
                 setColor(color);
 
@@ -949,7 +964,6 @@ public class FragmentIdentity extends FragmentBase {
 
                         EntityAccount unselected = new EntityAccount();
                         unselected.id = -1L;
-                        unselected.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                         unselected.name = getString(R.string.title_select);
                         unselected.primary = false;
                         accounts.add(0, unselected);

@@ -105,6 +105,9 @@ public interface DaoAccount {
     @Update
     void updateAccount(EntityAccount account);
 
+    @Query("UPDATE account SET password = :password WHERE password = :old")
+    int updateAccountPassword(String old, String password);
+
     @Query("UPDATE account SET separator = :separator WHERE id = :id")
     int setFolderSeparator(long id, Character separator);
 
@@ -117,9 +120,6 @@ public interface DaoAccount {
     @Query("UPDATE account SET last_connected = :last_connected WHERE id = :id")
     int setAccountConnected(long id, long last_connected);
 
-    @Query("UPDATE account SET password = :password WHERE id = :id")
-    int setAccountPassword(long id, String password);
-
     @Query("UPDATE account SET `order` = :order WHERE id = :id")
     int setAccountOrder(long id, Integer order);
 
@@ -128,9 +128,6 @@ public interface DaoAccount {
 
     @Query("UPDATE account SET error = :error WHERE id = :id")
     int setAccountError(long id, String error);
-
-    @Query("UPDATE account SET poll_interval = :poll_interval WHERE id = :id")
-    int setAccountPollInterval(long id, int poll_interval);
 
     @Query("UPDATE account SET `primary` = 0")
     void resetPrimary();

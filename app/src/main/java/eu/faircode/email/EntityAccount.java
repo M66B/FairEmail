@@ -55,17 +55,17 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Long id;
 
     @NonNull
-    public Integer auth_type;
-    @NonNull
     public Boolean pop = false; // obsolete
     @NonNull
     public String host; // POP3/IMAP
     @NonNull
     public Boolean starttls;
     @NonNull
-    public Boolean insecure;
+    public Boolean insecure = false;
     @NonNull
     public Integer port;
+    @NonNull
+    public Integer auth_type;
     @NonNull
     public String user;
     @NonNull
@@ -83,14 +83,14 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean primary;
     @NonNull
-    public Boolean notify;
+    public Boolean notify = false;
     @NonNull
     public Boolean browse = true;
     public Character separator;
     public Long swipe_left;
     public Long swipe_right;
     @NonNull
-    public Integer poll_interval; // keep-alive interval
+    public Integer poll_interval = DEFAULT_KEEP_ALIVE_INTERVAL; // keep-alive interval
     @NonNull
     public Boolean partial_fetch = true;
     public String prefix; // namespace, obsolete
@@ -146,11 +146,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("order", order);
-        json.put("auth_type", auth_type);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
         json.put("port", port);
+        json.put("auth_type", auth_type);
         json.put("user", user);
         json.put("password", password);
         json.put("realm", realm);
@@ -184,11 +184,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
         if (json.has("order"))
             account.order = json.getInt("order");
 
-        account.auth_type = json.getInt("auth_type");
         account.host = json.getString("host");
         account.starttls = (json.has("starttls") && json.getBoolean("starttls"));
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         account.port = json.getInt("port");
+        account.auth_type = json.getInt("auth_type");
         account.user = json.getString("user");
         account.password = json.getString("password");
         if (json.has("realm"))
@@ -227,11 +227,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public boolean equals(Object obj) {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
-            return (this.auth_type.equals(other.auth_type) &&
-                    this.host.equals(other.host) &&
+            return (this.host.equals(other.host) &&
                     this.starttls == other.starttls &&
                     this.insecure == other.insecure &&
                     this.port.equals(other.port) &&
+                    this.auth_type.equals(other.auth_type) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     Objects.equals(this.realm, other.realm) &&

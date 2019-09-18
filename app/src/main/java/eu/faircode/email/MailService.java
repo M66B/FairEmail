@@ -1,7 +1,11 @@
 package eu.faircode.email;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Context;
+import android.text.TextUtils;
 
+import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.smtp.SMTPTransport;
 import com.sun.mail.util.MailConnectException;
@@ -10,13 +14,17 @@ import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.mail.AuthenticationFailedException;
+import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Service;
@@ -32,6 +40,9 @@ public class MailService implements AutoCloseable {
     private Service iservice;
 
     private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
+
+    static final int AUTH_TYPE_PASSWORD = 1;
+    static final int AUTH_TYPE_GMAIL = 2;
 
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
     private final static int WRITE_TIMEOUT = 60 * 1000; // milliseconds
@@ -127,18 +138,56 @@ public class MailService implements AutoCloseable {
     }
 
     public void connect(EntityAccount account) throws MessagingException {
-        connect(account.host, account.port, account.user, account.password);
+        connect(account.host, account.port, account.auth_type, account.user, account.password);
     }
 
     public void connect(EntityIdentity identity) throws MessagingException {
-        connect(identity.host, identity.port, identity.user, identity.password);
+        connect(identity.host, identity.port, identity.auth_type, identity.user, identity.password);
     }
 
-    public void connect(String host, int port, String user, String password) throws MessagingException {
+    public void connect(String host, int port, int auth, String user, String password) throws MessagingException {
         try {
+            if (auth == AUTH_TYPE_GMAIL)
+                properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
+
             //if (BuildConfig.DEBUG)
             //    throw new MailConnectException(new SocketConnectException("Debug", new Exception(), host, port, 0));
+
             _connect(context, host, port, user, password);
+        } catch (AuthenticationFailedException ex) {
+            // Refresh token
+            if (auth == AUTH_TYPE_GMAIL)
+                try {
+                    String type = "com.google";
+                    AccountManager am = AccountManager.get(context);
+                    Account[] accounts = am.getAccountsByType(type);
+                    for (Account account : accounts)
+                        if (user.equals(account.name)) {
+                            Log.i("Refreshing token user=" + user);
+                            am.invalidateAuthToken(type, password);
+                            String refreshed = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
+                            if (refreshed == null)
+                                throw new IllegalStateException("no token");
+
+                            int count = 0;
+                            DB db = DB.getInstance(context);
+                            if ("imap".equals(protocol) || "imaps".equals(protocol))
+                                count = db.account().updateAccountPassword(password, refreshed);
+                            else if ("smtp".equals(protocol) || "smtps".equals(protocol))
+                                count = db.identity().updateIdentityPassword(password, refreshed);
+
+                            if (count != 1)
+                                throw new IllegalStateException(protocol + "=" + count);
+
+                            _connect(context, host, port, user, refreshed);
+                            break;
+                        }
+                } catch (Throwable ex1) {
+                    Log.e(ex1);
+                    throw ex;
+                }
+            else
+                throw ex;
         } catch (MailConnectException ex) {
             try {
                 // Some devices resolve IPv6 addresses while not having IPv6 connectivity
@@ -211,6 +260,63 @@ public class MailService implements AutoCloseable {
             iservice.connect(host, port, user, password);
         } else
             throw new NoSuchProviderException(protocol);
+    }
+
+    static String getAuthTokenType(String type) {
+        // https://developers.google.com/gmail/imap/xoauth2-protocol
+        if ("com.google".equals(type))
+            return "oauth2:https://mail.google.com/";
+        return null;
+    }
+
+    List<EntityFolder> getFolders() throws MessagingException {
+        List<EntityFolder> folders = new ArrayList<>();
+        List<EntityFolder> guesses = new ArrayList<>();
+
+        for (Folder ifolder : getStore().getDefaultFolder().list("*")) {
+            String fullName = ifolder.getFullName();
+            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
+            String type = EntityFolder.getType(attrs, fullName, true);
+            Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
+
+            if (type != null) {
+                EntityFolder folder = new EntityFolder(fullName, type);
+                folders.add(folder);
+
+                if (EntityFolder.USER.equals(type)) {
+                    String guess = EntityFolder.guessType(fullName);
+                    if (guess != null)
+                        guesses.add(folder);
+                }
+            }
+        }
+
+        for (EntityFolder guess : guesses) {
+            boolean has = false;
+            String gtype = EntityFolder.guessType(guess.name);
+            for (EntityFolder folder : folders)
+                if (folder.type.equals(gtype)) {
+                    has = true;
+                    break;
+                }
+            if (!has) {
+                guess.type = gtype;
+                Log.i(guess.name + " guessed type=" + gtype);
+            }
+        }
+
+        boolean inbox = false;
+        boolean drafts = false;
+        for (EntityFolder folder : folders)
+            if (EntityFolder.INBOX.equals(folder.type))
+                inbox = true;
+            else if (EntityFolder.DRAFTS.equals(folder.type))
+                drafts = true;
+
+        if (!inbox || !drafts)
+            return null;
+
+        return folders;
     }
 
     IMAPStore getStore() {

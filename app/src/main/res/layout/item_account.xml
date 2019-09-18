@@ -135,20 +135,6 @@
                 app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
             <TextView
-                android:id="@+id/tvAuthorize"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-                android:text="@string/title_authorization_required"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="?attr/colorWarning"
-                android:textIsSelectable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/vwColor"
-                app:layout_constraintTop_toBottomOf="@id/tvLast" />
-
-            <TextView
                 android:id="@+id/tvIdentity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -160,7 +146,7 @@
                 android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/vwColor"
-                app:layout_constraintTop_toBottomOf="@id/tvAuthorize" />
+                app:layout_constraintTop_toBottomOf="@id/tvLast" />
 
             <TextView
                 android:id="@+id/tvDrafts"

@@ -49,15 +49,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 
 import com.google.android.material.textfield.TextInputLayout;
-import com.sun.mail.imap.IMAPFolder;
 
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.mail.AuthenticationFailedException;
-import javax.mail.Folder;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -256,79 +253,32 @@ public class FragmentQuickSetup extends FragmentBase {
                 String user = (provider.user == EmailProvider.UserType.EMAIL ? email : dparts[0]);
                 Log.i("User type=" + provider.user + " name=" + user);
 
-                List<EntityFolder> folders = new ArrayList<>();
-                long now = new Date().getTime();
+                List<EntityFolder> folders;
 
-                {
-                    String protocol = provider.imap.starttls ? "imap" : "imaps";
-                    try (MailService iservice = new MailService(context, protocol, null, false, true)) {
-                        try {
-                            iservice.connect(provider.imap.host, provider.imap.port, user, password);
-                        } catch (AuthenticationFailedException ex) {
-                            if (user.contains("@")) {
-                                Log.w(ex);
-                                user = dparts[0];
-                                Log.i("Retry with user=" + user);
-                                iservice.connect(provider.imap.host, provider.imap.port, user, password);
-                            } else
-                                throw ex;
-                        }
-
-                        List<EntityFolder> guesses = new ArrayList<>();
-
-                        for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
-                            String fullName = ifolder.getFullName();
-                            String[] attrs = ((IMAPFolder) ifolder).getAttributes();
-                            String type = EntityFolder.getType(attrs, fullName, true);
-                            Log.i(fullName + " attrs=" + TextUtils.join(" ", attrs) + " type=" + type);
-
-                            if (type != null) {
-                                EntityFolder folder = new EntityFolder(fullName, type);
-                                folders.add(folder);
-
-                                if (EntityFolder.USER.equals(type)) {
-                                    String guess = EntityFolder.guessType(fullName);
-                                    if (guess != null)
-                                        guesses.add(folder);
-                                }
-                            }
-                        }
-
-                        for (EntityFolder guess : guesses) {
-                            boolean has = false;
-                            String gtype = EntityFolder.guessType(guess.name);
-                            for (EntityFolder folder : folders)
-                                if (folder.type.equals(gtype)) {
-                                    has = true;
-                                    break;
-                                }
-                            if (!has) {
-                                guess.type = gtype;
-                                Log.i(guess.name + " guessed type=" + gtype);
-                            }
-                        }
-
-                        boolean inbox = false;
-                        boolean drafts = false;
-                        for (EntityFolder folder : folders)
-                            if (EntityFolder.INBOX.equals(folder.type))
-                                inbox = true;
-                            else if (EntityFolder.DRAFTS.equals(folder.type))
-                                drafts = true;
-
-                        Log.i("Quick inbox=" + inbox + " drafts=" + drafts);
-
-                        if (!inbox || !drafts)
-                            throw new IllegalArgumentException(
-                                    context.getString(R.string.title_setup_no_settings, dparts[1]));
+                String aprotocol = provider.imap.starttls ? "imap" : "imaps";
+                try (MailService iservice = new MailService(context, aprotocol, null, false, true)) {
+                    try {
+                        iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, user, password);
+                    } catch (AuthenticationFailedException ex) {
+                        if (user.contains("@")) {
+                            Log.w(ex);
+                            user = dparts[0];
+                            Log.i("Retry with user=" + user);
+                            iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, user, password);
+                        } else
+                            throw ex;
                     }
+
+                    folders = iservice.getFolders();
+
+                    if (folders == null)
+                        throw new IllegalArgumentException(
+                                context.getString(R.string.title_setup_no_settings, dparts[1]));
                 }
 
-                {
-                    String protocol = provider.smtp.starttls ? "smtp" : "smtps";
-                    try (MailService iservice = new MailService(context, protocol, null, false, true)) {
-                        iservice.connect(provider.smtp.host, provider.smtp.port, user, password);
-                    }
+                String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
+                try (MailService iservice = new MailService(context, iprotocol, null, false, true)) {
+                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_PASSWORD, user, password);
                 }
 
                 if (check)
@@ -337,31 +287,26 @@ public class FragmentQuickSetup extends FragmentBase {
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
+
                     EntityAccount primary = db.account().getPrimaryAccount();
 
                     // Create account
                     EntityAccount account = new EntityAccount();
 
-                    account.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     account.host = provider.imap.host;
                     account.starttls = provider.imap.starttls;
-                    account.insecure = false;
                     account.port = provider.imap.port;
+                    account.auth_type = MailService.AUTH_TYPE_PASSWORD;
                     account.user = user;
                     account.password = password;
 
                     account.name = provider.name;
-                    account.color = null;
 
                     account.synchronize = true;
                     account.primary = (primary == null);
-                    account.notify = false;
-                    account.browse = true;
-                    account.poll_interval = EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL;
 
-                    account.created = now;
-                    account.error = null;
-                    account.last_connected = now;
+                    account.created = new Date().getTime();
+                    account.last_connected = account.created;
 
                     account.id = db.account().insertAccount(account);
                     EntityLog.log(context, "Quick added account=" + account.name);
@@ -388,26 +333,14 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.email = email;
                     identity.account = account.id;
 
-                    identity.display = null;
-                    identity.color = null;
-
-                    identity.signature = null;
-
-                    identity.auth_type = ConnectionHelper.AUTH_TYPE_PASSWORD;
                     identity.host = provider.smtp.host;
                     identity.starttls = provider.smtp.starttls;
-                    identity.insecure = false;
                     identity.port = provider.smtp.port;
+                    identity.auth_type = MailService.AUTH_TYPE_PASSWORD;
                     identity.user = user;
                     identity.password = password;
                     identity.synchronize = true;
                     identity.primary = true;
-
-                    identity.replyto = null;
-                    identity.bcc = null;
-                    identity.delivery_receipt = false;
-                    identity.read_receipt = false;
-                    identity.error = null;
 
                     identity.id = db.identity().insertIdentity(identity);
                     EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);

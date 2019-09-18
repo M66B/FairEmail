@@ -2,6 +2,7 @@
 <providers>
     <provider
         name="Gmail"
+        domain="gmail.com"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq6"
         order="1"
         type="com.google">

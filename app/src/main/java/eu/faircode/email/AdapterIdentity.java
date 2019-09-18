@@ -72,7 +72,6 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private ImageView ivState;
         private TextView tvAccount;
         private TextView tvLast;
-        private TextView tvAuthorize;
         private TextView tvError;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "IdentityPopup");
@@ -90,7 +89,6 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivState = itemView.findViewById(R.id.ivState);
             tvAccount = itemView.findViewById(R.id.tvAccount);
             tvLast = itemView.findViewById(R.id.tvLast);
-            tvAuthorize = itemView.findViewById(R.id.tvAuthorize);
             tvError = itemView.findViewById(R.id.tvError);
         }
 
@@ -127,8 +125,6 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvAccount.setText(identity.accountName);
             tvLast.setText(context.getString(R.string.title_last_connected,
                     identity.last_connected == null ? "-" : DTF.format(identity.last_connected)));
-
-            tvAuthorize.setVisibility(identity.auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
 
             tvError.setText(identity.error);
             tvError.setVisibility(identity.error == null ? View.GONE : View.VISIBLE);

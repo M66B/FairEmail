@@ -57,15 +57,15 @@ public class EntityIdentity {
     public Integer color;
     public String signature;
     @NonNull
-    public Integer auth_type;
-    @NonNull
     public String host; // SMTP
     @NonNull
     public Boolean starttls;
     @NonNull
-    public Boolean insecure;
+    public Boolean insecure = false;
     @NonNull
     public Integer port;
+    @NonNull
+    public Integer auth_type;
     @NonNull
     public String user;
     @NonNull
@@ -113,11 +113,11 @@ public class EntityIdentity {
         json.put("signature", signature);
         // not account
 
-        json.put("auth_type", auth_type);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
         json.put("port", port);
+        json.put("auth_type", auth_type);
         json.put("user", user);
         json.put("password", password);
         json.put("realm", realm);
@@ -151,11 +151,11 @@ public class EntityIdentity {
         if (json.has("signature") && !json.isNull("signature"))
             identity.signature = json.getString("signature");
 
-        identity.auth_type = json.getInt("auth_type");
         identity.host = json.getString("host");
         identity.starttls = json.getBoolean("starttls");
         identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         identity.port = json.getInt("port");
+        identity.auth_type = json.getInt("auth_type");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
         if (json.has("realm") && !json.isNull("realm"))
@@ -196,11 +196,11 @@ public class EntityIdentity {
                     Objects.equals(this.display, other.display) &&
                     Objects.equals(this.color, other.color) &&
                     Objects.equals(this.signature, other.signature) &&
-                    this.auth_type.equals(other.auth_type) &&
                     this.host.equals(other.host) &&
                     this.starttls.equals(other.starttls) &&
                     this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
+                    this.auth_type.equals(other.auth_type) &&
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     Objects.equals(this.realm, other.realm) &&

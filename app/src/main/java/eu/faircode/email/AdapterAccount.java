@@ -83,7 +83,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         private ImageView ivState;
         private TextView tvHost;
         private TextView tvLast;
-        private TextView tvAuthorize;
         private TextView tvIdentity;
         private TextView tvDrafts;
         private TextView tvWarning;
@@ -106,7 +105,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ivState = itemView.findViewById(R.id.ivState);
             tvHost = itemView.findViewById(R.id.tvHost);
             tvLast = itemView.findViewById(R.id.tvLast);
-            tvAuthorize = itemView.findViewById(R.id.tvAuthorize);
             tvIdentity = itemView.findViewById(R.id.tvIdentity);
             tvDrafts = itemView.findViewById(R.id.tvDrafts);
             tvWarning = itemView.findViewById(R.id.tvWarning);
@@ -165,7 +163,6 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvLast.setText(context.getString(R.string.title_last_connected,
                     account.last_connected == null ? "-" : DTF.format(account.last_connected)));
 
-            tvAuthorize.setVisibility(account.auth_type == ConnectionHelper.AUTH_TYPE_PASSWORD ? View.GONE : View.VISIBLE);
             tvIdentity.setVisibility(account.identities > 0 || !settings ? View.GONE : View.VISIBLE);
             tvDrafts.setVisibility(account.drafts || !settings ? View.GONE : View.VISIBLE);
 

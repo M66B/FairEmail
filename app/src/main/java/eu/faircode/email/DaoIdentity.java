@@ -67,6 +67,9 @@ public interface DaoIdentity {
     @Update
     void updateIdentity(EntityIdentity identity);
 
+    @Query("UPDATE identity SET password = :password WHERE password = :old")
+    int updateIdentityPassword(String old, String password);
+
     @Query("UPDATE identity SET synchronize = :synchronize WHERE id = :id")
     int setIdentitySynchronize(long id, boolean synchronize);
 
