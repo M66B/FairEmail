@@ -117,6 +117,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_go">Idi</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_authorizing">Autorizira &#8230;</string>
     <string name="title_setup_instructions">Upute za postavljanje</string>
     <string name="title_setup_no_settings">Nije pronađena nijedna postavka za domenu \'%1$s\'</string>
     <string name="title_setup_quick_success">Račun i identitet uspješno su dodani</string>
@@ -235,6 +236,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_pull_refresh">Povucite prema dolje za osvježavanje</string>
     <string name="title_advanced_autoscroll">Pomakniti se na vrh po prijemu novih poruka</string>
     <string name="title_advanced_swipenav">Prijeđite prstom ulijevo / udesno da biste prešli na sljedeći / prethodni razgovor</string>
+    <string name="title_advanced_reversed">Obrnuti smjer navigacije</string>
     <string name="title_advanced_double_tap">Dvaput dodirnite da biste označili poruku pročitanu / nepročitanu</string>
     <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
@@ -256,11 +258,13 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_notify_action_reply_direct">Izravni odgovor</string>
     <string name="title_advanced_notify_action_flag">Zvijezda</string>
     <string name="title_advanced_notify_action_seen">Pročitaj</string>
+    <string name="title_advanced_notify_remove">Uklonite novu obavijest o poruci dodirom na obavijest</string>
     <string name="title_advanced_biometrics_notify">Prikažite sadržaj obavijesti kada koristite biometrijsku provjeru autentičnosti</string>
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
+    <string name="title_advanced_notify_remove_hint">Obavijesti o novim porukama uvijek će se uklanjati nakon što ih povučete i označite kao pročitane poruke</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite kanal s nazivom \"Obavijesti\" da biste postavili zadani zvuk obavijesti, itd</string>
     <string name="title_advanced_double_back">Dvaput \'natrag\' za izlaz</string>
     <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
@@ -287,6 +291,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>
     <string name="title_advanced_roaming_hint">Zaglavlja poruka uvijek će se prikazivane prilikom roaminga. Postavku roaminga uređaja možete koristiti da biste onemogućili internet tijekom roaminga.</string>
     <string name="title_advanced_browse_hint">Dohvatite više poruka prilikom pomicanja prema dolje</string>
+    <string name="title_advanced_date_hint">Poruke su grupirane po datumu samo ako su sortirane po vremenu</string>
     <string name="title_advanced_threading_hint">Grupiranje međusobno povezane poruke</string>
     <string name="title_advanced_name_email_hint">Kada onemogućeno, samo će imena biti prikazana ako su dostupna</string>
     <string name="title_advanced_preview_hint">Dostupno samo kada je preuzet tekst poruke</string>

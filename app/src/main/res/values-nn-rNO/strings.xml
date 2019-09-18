@@ -107,6 +107,7 @@
     <string name="title_setup_quick_smtp">SMTP-server for å sende meldinger</string>
     <string name="title_setup_go">Utfør</string>
     <string name="title_setup_wizard">Veiviser</string>
+    <string name="title_authorizing">Autoriserer &#8230;</string>
     <string name="title_setup_instructions">Oppsett instruksjoner</string>
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
     <string name="title_setup_quick_success">En konto og en identitet har blitt lagt til</string>

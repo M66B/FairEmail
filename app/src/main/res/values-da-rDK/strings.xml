@@ -279,6 +279,7 @@
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere mobilnetværk under roaming.</string>
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
+    <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>

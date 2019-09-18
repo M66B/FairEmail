@@ -95,6 +95,7 @@
     <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
     <string name="title_setup_go">转到</string>
     <string name="title_setup_wizard">向导</string>
+    <string name="title_authorizing">授权中 &#8230;</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
@@ -268,6 +269,7 @@
     <string name="title_advanced_rlah_hint">假定欧盟境内不漫游</string>
     <string name="title_advanced_roaming_hint">当漫游时，将始终获取消息头。您可以使用设备的漫游设置在漫游时禁用互联网。</string>
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
+    <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
     <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>

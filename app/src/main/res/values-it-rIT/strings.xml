@@ -106,6 +106,7 @@
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>
     <string name="title_setup_go">Vai</string>
     <string name="title_setup_wizard">Wizard</string>
+    <string name="title_authorizing">Autorizzazione &#8230;</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>

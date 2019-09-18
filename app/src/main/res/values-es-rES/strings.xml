@@ -107,6 +107,7 @@
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_go">Comenzar</string>
     <string name="title_setup_wizard">Asistente</string>
+    <string name="title_authorizing">Autorizando &#8230;</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
@@ -280,6 +281,7 @@
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
+    <string name="title_advanced_date_hint">Los mensajes sólo se agrupan por fecha si se ordenan por antigüedad</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
     <string name="title_advanced_preview_hint">Sólo disponible cuando el texto del mensaje fue descargado</string>

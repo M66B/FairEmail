@@ -107,6 +107,7 @@
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
     <string name="title_setup_go">Ga</string>
     <string name="title_setup_wizard">Wizard</string>
+    <string name="title_authorizing">Autoriseren &#8230;</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
     <string name="title_setup_no_settings">Geen instellingen gevonden voor domein \'%1$s\'</string>
     <string name="title_setup_quick_success">Een account en een identiteit zijn succesvol toegevoegd</string>
