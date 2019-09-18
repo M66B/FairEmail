@@ -417,6 +417,7 @@
     <string name="title_pop3_support">POP3 is not supported</string>
     <string name="title_activesync_support">ActiveSync is not supported</string>
     <string name="title_oauth_support">OAuth is not supported</string>
+    <string name="title_authorize">Authorize</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_synchronize_all">Synchronize all messages</string>
