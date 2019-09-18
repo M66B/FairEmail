@@ -107,6 +107,7 @@
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_wizard">Asetusvelho</string>
+    <string name="title_authorizing">Valtuutetaan &#8230;</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
@@ -280,6 +281,7 @@
     <string name="title_advanced_rlah_hint">Oletetaan, että EU:ssa on kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_roaming_hint">Viestien tunnistetiedot haetaan aina myös verkkovierailun aikana. Laitteen asetuksista voi kytkeä verkkoyhteyden pois verkkovieraillessa.</string>
     <string name="title_advanced_browse_hint">Hae lisää viestejä alaspäin vieritettäessä</string>
+    <string name="title_advanced_date_hint">Viestit ryhmitellään päivämäärän mukaan vain, jos ne on lajiteltu ajan mukaan</string>
     <string name="title_advanced_threading_hint">Ryhmittele toisiinsa liittyvät viestit</string>
     <string name="title_advanced_name_email_hint">Vain saatavilla olevat nimet näytetään, kun pois käytöstä</string>
     <string name="title_advanced_preview_hint">Saatavilla vain, kun viestin teksti on ladattu</string>
