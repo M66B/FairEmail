@@ -169,13 +169,13 @@ public class ServiceSynchronize extends ServiceBase {
                     if (tag != null && tag.startsWith("unseen.")) {
                         String[] p = tag.split(("\\."));
                         long group = Long.parseLong(p[1]);
-                        long id = Long.parseLong(p[2]);
+                        long id = sbn.getNotification().extras.getLong("id", 0);
 
                         if (!groupNotifying.containsKey(group))
                             groupNotifying.put(group, new ArrayList<>());
 
                         if (id > 0) {
-                            Log.i("Notify restore " + tag);
+                            Log.i("Notify restore " + tag + " id=" + id);
                             groupNotifying.get(group).add(id);
                         }
                     }

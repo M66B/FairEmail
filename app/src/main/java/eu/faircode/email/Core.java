@@ -2083,8 +2083,11 @@ class Core {
 
             if (message.notifying != 0) {
                 long id = message.id * message.notifying;
-                if (!groupNotifying.get(group).contains(id))
+                if (!groupNotifying.get(group).contains(id) &&
+                        !groupNotifying.get(group).contains(-id)) {
+                    Log.i("Notify database=" + id);
                     groupNotifying.get(group).add(id);
+                }
             }
 
             if (!(message.ui_seen || message.ui_ignored || message.ui_hide != 0)) {
@@ -2143,7 +2146,7 @@ class Core {
 
             for (Long id : remove) {
                 String tag = "unseen." + group + "." + Math.abs(id);
-                Log.i("Notify cancel tag=" + tag);
+                Log.i("Notify cancel tag=" + tag + " id=" + id);
                 nm.cancel(tag, 1);
 
                 groupNotifying.get(group).remove(id);
@@ -2154,7 +2157,7 @@ class Core {
                 long id = notification.extras.getLong("id", 0);
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
                     String tag = "unseen." + group + "." + Math.abs(id);
-                    Log.i("Notifying tag=" + tag +
+                    Log.i("Notifying tag=" + tag + " id=" + id +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
                     nm.notify(tag, 1, notification);
 
