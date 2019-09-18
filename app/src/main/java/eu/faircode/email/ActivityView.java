@@ -438,7 +438,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (savedInstanceState != null)
             drawerToggle.setDrawerIndicatorEnabled(savedInstanceState.getBoolean("fair:toggle"));
 
-        checkIntent();
         checkFirst();
         checkCrash();
 
@@ -471,62 +470,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         fragmentTransaction.commit();
     }
 
-    private void checkIntent() {
-        Intent intent = getIntent();
-
-        if (intent.getBooleanExtra("refresh", false)) {
-            intent.removeExtra("refresh");
-            setIntent(intent);
-            ServiceSynchronize.process(this, true);
-        }
-
-        String action = intent.getAction();
-        Log.i("View intent=" + intent + " action=" + action);
-        if (action != null) {
-            intent.setAction(null);
-            setIntent(intent);
-
-            if ("unified".equals(action)) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getSupportFragmentManager().popBackStack("unified", 0);
-
-            } else if ("why".equals(action)) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getSupportFragmentManager().popBackStack("unified", 0);
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
-                boolean why = prefs.getBoolean("why", false);
-                if (!why || BuildConfig.DEBUG) {
-                    prefs.edit().putBoolean("why", true).apply();
-                    Helper.viewFAQ(this, 2);
-                }
-
-            } else if ("outbox".equals(action))
-                onMenuOutbox();
-
-            else if (action.startsWith("thread")) {
-                intent.putExtra("thread", action.split(":", 2)[1]);
-                onViewThread(intent);
-
-            } else if (action.equals("widget"))
-                onViewThread(intent);
-        }
-
-        if (intent.hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
-            CharSequence csearch = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
-            String search = (csearch == null ? null : csearch.toString());
-            if (!TextUtils.isEmpty(search)) {
-                searching = true;
-                FragmentMessages.search(
-                        ActivityView.this, ActivityView.this, getSupportFragmentManager(),
-                        -1, false, search);
-            }
-
-            intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
-            setIntent(intent);
-        }
-    }
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:toggle", drawerToggle.isDrawerIndicatorEnabled());
@@ -544,7 +487,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        checkIntent();
     }
 
     @Override
@@ -565,6 +507,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         lbm.registerReceiver(receiver, iff);
 
         checkUpdate(false);
+        checkIntent();
     }
 
     @Override
@@ -809,6 +752,62 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "update:check");
+    }
+
+    private void checkIntent() {
+        Intent intent = getIntent();
+
+        if (intent.getBooleanExtra("refresh", false)) {
+            intent.removeExtra("refresh");
+            setIntent(intent);
+            ServiceSynchronize.process(this, true);
+        }
+
+        String action = intent.getAction();
+        Log.i("View intent=" + intent + " action=" + action);
+        if (action != null) {
+            intent.setAction(null);
+            setIntent(intent);
+
+            if ("unified".equals(action)) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
+            } else if ("why".equals(action)) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
+                boolean why = prefs.getBoolean("why", false);
+                if (!why || BuildConfig.DEBUG) {
+                    prefs.edit().putBoolean("why", true).apply();
+                    Helper.viewFAQ(this, 2);
+                }
+
+            } else if ("outbox".equals(action))
+                onMenuOutbox();
+
+            else if (action.startsWith("thread")) {
+                intent.putExtra("thread", action.split(":", 2)[1]);
+                onViewThread(intent);
+
+            } else if (action.equals("widget"))
+                onViewThread(intent);
+        }
+
+        if (intent.hasExtra(Intent.EXTRA_PROCESS_TEXT)) {
+            CharSequence csearch = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+            String search = (csearch == null ? null : csearch.toString());
+            if (!TextUtils.isEmpty(search)) {
+                searching = true;
+                FragmentMessages.search(
+                        ActivityView.this, ActivityView.this, getSupportFragmentManager(),
+                        -1, false, search);
+            }
+
+            intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
+            setIntent(intent);
+        }
     }
 
     private Intent getIntentOtherApps() {

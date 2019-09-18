@@ -129,8 +129,11 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             finish();
             startActivity(getIntent());
         } else if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
+            Intent intent = getIntent();
             finish();
-            startActivity(new Intent(this, ActivityMain.class));
+            startActivity(
+                    new Intent(this, ActivityMain.class)
+                            .putExtra("intent", intent));
         }
 
         super.onResume();

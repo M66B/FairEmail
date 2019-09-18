@@ -83,7 +83,10 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 @Override
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
                     if (hasAccounts) {
-                        Intent view = new Intent(ActivityMain.this, ActivityView.class);
+                        Log.logBundle(args);
+                        Intent view = args.containsKey("intent")
+                                ? args.getParcelable("intent")
+                                : new Intent(ActivityMain.this, ActivityView.class);
                         if (ACTION_REFRESH.equals(getIntent().getAction()))
                             view.putExtra("refresh", true);
                         startActivity(view);
@@ -105,7 +108,11 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         new Runnable() {
                             @Override
                             public void run() {
-                                start.execute(ActivityMain.this, new Bundle(), "main:accounts");
+                                Intent intent = getIntent();
+                                Bundle args = new Bundle();
+                                if (intent.hasExtra("intent"))
+                                    args.putParcelable("intent", intent.getParcelableExtra("intent"));
+                                start.execute(ActivityMain.this, args, "main:accounts");
                             }
                         },
                         new Runnable() {
