@@ -86,7 +86,7 @@
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivDrafts"
-            app:srcCompat="@drawable/baseline_send_24" />
+            app:srcCompat="@drawable/baseline_forward_24" />
 
         <TextView
             android:id="@+id/tvSent"
