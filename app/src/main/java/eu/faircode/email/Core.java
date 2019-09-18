@@ -2093,10 +2093,10 @@ class Core {
             }
 
             long group = (pro && message.accountNotify ? message.account : 0);
-            if (!groupMessages.containsKey(group)) {
+            if (!groupNotifying.containsKey(group))
                 groupNotifying.put(group, new ArrayList<Long>());
+            if (!groupMessages.containsKey(group))
                 groupMessages.put(group, new ArrayList<TupleMessageEx>());
-            }
 
             if (message.notifying != 0) {
                 long id = message.id * message.notifying;
@@ -2184,8 +2184,6 @@ class Core {
                 }
             }
         }
-
-        groupNotifying.clear();
     }
 
     private static List<Notification> getNotificationUnseen(Context context, long group, List<TupleMessageEx> messages) {
