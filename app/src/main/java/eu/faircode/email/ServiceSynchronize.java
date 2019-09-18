@@ -1254,7 +1254,13 @@ public class ServiceSynchronize extends ServiceBase {
             synchronized (ServiceSynchronize.this) {
                 try {
                     ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                    EntityLog.log(ServiceSynchronize.this, "Available " + network + " capabilities " + cm.getNetworkCapabilities(network));
+                    EntityLog.log(ServiceSynchronize.this, "Available " + network +
+                            " capabilities " + cm.getNetworkCapabilities(network) +
+                            " connected=" + networkState.isConnected() +
+                            " suitable=" + networkState.isSuitable() +
+                            " unmetered=" + networkState.isUnmetered() +
+                            " roaming=" + networkState.isRoaming() +
+                            " started=" + started);
 
                     if (networkState.isSuitable())
                         if (started) {
@@ -1325,7 +1331,14 @@ public class ServiceSynchronize extends ServiceBase {
 
             synchronized (ServiceSynchronize.this) {
                 try {
-                    EntityLog.log(ServiceSynchronize.this, "Lost " + network);
+                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    EntityLog.log(ServiceSynchronize.this, "Lost " + network +
+                            " active=" + cm.getActiveNetworkInfo() +
+                            " connected=" + networkState.isConnected() +
+                            " suitable=" + networkState.isSuitable() +
+                            " unmetered=" + networkState.isUnmetered() +
+                            " roaming=" + networkState.isRoaming() +
+                            " started=" + started);
 
                     if (started && !networkState.isSuitable()) {
                         lastLost = new Date().getTime();
