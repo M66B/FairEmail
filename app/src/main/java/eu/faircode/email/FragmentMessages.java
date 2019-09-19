@@ -162,6 +162,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
     private TextView tvNoEmail;
+    private TextView tvNoEmailHint;
     private FixedRecyclerView rvMessage;
     private View vwAnchor;
     private SeekBar sbThread;
@@ -358,6 +359,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
         tvNoEmail = view.findViewById(R.id.tvNoEmail);
+        tvNoEmailHint = view.findViewById(R.id.tvNoEmailHint);
         rvMessage = view.findViewById(R.id.rvMessage);
         vwAnchor = view.findViewById(R.id.vwAnchor);
         sbThread = view.findViewById(R.id.sbThread);
@@ -888,6 +890,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.lightColorBackground_cards));
 
         tvNoEmail.setVisibility(View.GONE);
+        tvNoEmailHint.setVisibility(View.GONE);
         sbThread.setVisibility(View.GONE);
         ibDown.setVisibility(View.GONE);
         ibUp.setVisibility(View.GONE);
@@ -2910,8 +2913,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onLoading() {
             loading = true;
             pbWait.setVisibility(View.VISIBLE);
-            if (viewType == AdapterMessage.ViewType.SEARCH)
+            if (viewType == AdapterMessage.ViewType.SEARCH) {
                 tvNoEmail.setVisibility(View.GONE);
+                tvNoEmailHint.setVisibility(View.GONE);
+            }
         }
 
         @Override
@@ -2921,7 +2926,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (initialized && SimpleTask.getCount() == 0)
                 pbWait.setVisibility(View.GONE);
 
-            tvNoEmail.setVisibility(fetched == 0 ? View.VISIBLE : View.GONE);
+            boolean none = (fetched == 0);
+            tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
+            tvNoEmail.setVisibility(none && filterActive() ? View.VISIBLE : View.GONE);
         }
 
         @Override
@@ -2979,8 +2986,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (!loading && SimpleTask.getCount() == 0)
                 pbWait.setVisibility(View.GONE);
 
-            if (viewType != AdapterMessage.ViewType.SEARCH)
-                tvNoEmail.setVisibility(messages.size() == 0 && !loading ? View.VISIBLE : View.GONE);
+            if (viewType != AdapterMessage.ViewType.SEARCH) {
+                boolean none = (messages.size() == 0 && !loading);
+                tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
+                tvNoEmailHint.setVisibility(none && filterActive() ? View.VISIBLE : View.GONE);
+            }
             grpReady.setVisibility(View.VISIBLE);
         }
     };
@@ -3481,6 +3491,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         Collections.sort(displays, collator);
 
         return TextUtils.join(", ", displays);
+    }
+
+    private boolean filterActive() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean filter_seen = prefs.getBoolean("filter_seen", false);
+        boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
+        return (filter_seen || filter_unflagged);
     }
 
     private ActivityBase.IBackPressedListener onBackPressedListener = new ActivityBase.IBackPressedListener() {
