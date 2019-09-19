@@ -654,7 +654,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             view.setAlpha(
                     (EntityFolder.OUTBOX.equals(message.folderType)
                             ? message.identitySynchronize == null || !message.identitySynchronize
-                            : message.uid == null)
+                            : message.uid == null && !message.accountPop)
                             ? Helper.LOW_LIGHT : 1.0f);
 
             // Duplicate
@@ -2425,6 +2425,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     message.content && message.to != null && message.to.length > 0);
 
             popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
+
+            popupMenu.getMenu().findItem(R.id.menu_create_rule).setEnabled(!message.accountPop);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override

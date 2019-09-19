@@ -28,7 +28,6 @@ Please see [here](#user-content-faq22) for common error messages.
 
 Related questions:
 
-* [Why is POP not supported?](#user-content-faq11)
 * [Why is ActiveSync not supported?](#user-content-faq133)
 * [Why is OAuth not supported?](#user-content-faq111)
 
@@ -111,7 +110,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
 * [(9) What are identities / how do I add an alias?](#user-content-faq9)
-* [(11) Why is POP not supported?](#user-content-faq11)
+* [~~(11) Why is POP not supported?~~](#user-content-faq11)
 * [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
 * [(12) How does encryption/decryption work?](#user-content-faq12)
 * [(13) How does search on device/server work?](#user-content-faq13)
@@ -489,21 +488,21 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 <br />
 
 <a name="faq11"></a>
-**(11) Why is POP not supported?**
+**~~(11) Why is POP not supported?~~**
 
-Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,
-using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.
-Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.
+~~Besides that any decent email provider supports [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) these days,~~
+~~using [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) will result in unnecessary extra battery usage and delayed new message notifications.~~
+~~Moreover, POP is unsuitable for two way synchronization and more often than not people read and write messages on different devices these days.~~
 
-Basically, POP supports only downloading and deleting messages from the inbox.
-So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.
+~~Basically, POP supports only downloading and deleting messages from the inbox.~~
+~~So, common operations like setting message attributes (read, starred, answered, etc), adding (backing up) and moving messages is not possible.~~
 
-See also [what Google writes about it](https://support.google.com/mail/answer/7104828).
+~~See also [what Google writes about it](https://support.google.com/mail/answer/7104828).~~
 
-For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,
-which can be used as a workaround for when your provider doesn't support IMAP.
+~~For example [Gmail can import messages](https://support.google.com/mail/answer/21289) from another POP account,~~
+~~which can be used as a workaround for when your provider doesn't support IMAP.~~
 
-tl;dr; consider to switch to IMAP.
+~~tl;dr; consider to switch to IMAP.~~
 
 <br />
 

@@ -701,7 +701,7 @@ public class ServiceSynchronize extends ServiceBase {
                         throw ex;
                     }
 
-                    final boolean capIdle = iservice.getStore().hasCapability("IDLE");
+                    final boolean capIdle = iservice.hasCapability("IDLE");
                     Log.i(account.name + " idle=" + capIdle);
 
                     db.account().setAccountState(account.id, "connected");
@@ -792,7 +792,8 @@ public class ServiceSynchronize extends ServiceBase {
                     });
 
                     // Update folder list
-                    Core.onSynchronizeFolders(this, account, iservice.getStore(), state);
+                    if (!account.pop)
+                        Core.onSynchronizeFolders(this, account, iservice.getStore(), state);
 
                     // Open synchronizing folders
                     final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -993,12 +994,13 @@ public class ServiceSynchronize extends ServiceBase {
 
                                                         // Get folder
                                                         Folder ifolder = mapFolders.get(folder); // null when polling
-                                                        final boolean shouldClose = (ifolder == null);
+                                                        boolean canOpen = (!account.pop || EntityFolder.INBOX.equals(folder.type));
+                                                        final boolean shouldClose = (ifolder == null && canOpen);
 
                                                         try {
                                                             Log.i(folder.name + " run " + (shouldClose ? "offline" : "online"));
 
-                                                            if (ifolder == null) {
+                                                            if (shouldClose) {
                                                                 // Prevent unnecessary folder connections
                                                                 if (db.operation().getOperationCount(folder.id, null) == 0)
                                                                     return;

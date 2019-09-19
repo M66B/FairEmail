@@ -102,19 +102,6 @@
             app:layout_constraintTop_toBottomOf="@id/btnAutoConfig" />
 
         <TextView
-            android:id="@+id/tvPopSupport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:drawableEnd="@drawable/baseline_open_in_new_24"
-            android:drawablePadding="6dp"
-            android:text="@string/title_pop3_support"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImap" />
-
-        <TextView
             android:id="@+id/tvActiveSyncSupport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -125,7 +112,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPopSupport" />
+            app:layout_constraintTop_toBottomOf="@id/tvImap" />
 
         <!-- host -->
 
@@ -806,7 +793,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
-                tvImap,tvPopSupport,tvActiveSyncSupport,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort" />
+                tvImap,tvActiveSyncSupport,tvHost,etHost,rgEncryption,cbInsecure,tvPort,etPort" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAuthorize"

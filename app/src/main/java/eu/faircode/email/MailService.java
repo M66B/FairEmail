@@ -29,6 +29,7 @@ import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Service;
 import javax.mail.Session;
+import javax.mail.Store;
 
 public class MailService implements AutoCloseable {
     private Context context;
@@ -66,7 +67,22 @@ public class MailService implements AutoCloseable {
 
         String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
 
-        if ("imap".equals(protocol) || "imaps".equals(protocol)) {
+        if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
+            // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
+            properties.put("mail." + protocol + ".ssl.checkserveridentity", checkserveridentity);
+            properties.put("mail." + protocol + ".ssl.trust", "*");
+
+            properties.put("mail.pop3s.starttls.enable", "false");
+
+            properties.put("mail.pop3.starttls.enable", "true");
+            properties.put("mail.pop3.starttls.required", "true");
+
+            // TODO: make timeouts configurable?
+            properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
+            properties.put("mail." + protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
+            properties.put("mail." + protocol + ".timeout", Integer.toString(READ_TIMEOUT));
+
+        } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
             properties.put("mail." + protocol + ".ssl.checkserveridentity", checkserveridentity);
             properties.put("mail." + protocol + ".ssl.trust", "*");
@@ -218,17 +234,22 @@ public class MailService implements AutoCloseable {
         isession.setDebug(debug);
         //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
-        if ("imap".equals(protocol) || "imaps".equals(protocol)) {
+        if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
+            iservice = isession.getStore(protocol);
+            iservice.connect(host, port, user, password);
+
+        } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             iservice = isession.getStore(protocol);
             iservice.connect(host, port, user, password);
 
             // https://www.ietf.org/rfc/rfc2971.txt
-            if (getStore().hasCapability("ID"))
+            IMAPStore istore = (IMAPStore) getStore();
+            if (istore.hasCapability("ID"))
                 try {
                     Map<String, String> id = new LinkedHashMap<>();
                     id.put("name", context.getString(R.string.app_name));
                     id.put("version", BuildConfig.VERSION_NAME);
-                    Map<String, String> sid = getStore().id(id);
+                    Map<String, String> sid = istore.id(id);
                     if (sid != null) {
                         Map<String, String> crumb = new HashMap<>();
                         for (String key : sid.keySet()) {
@@ -322,12 +343,20 @@ public class MailService implements AutoCloseable {
         return folders;
     }
 
-    IMAPStore getStore() {
-        return (IMAPStore) iservice;
+    Store getStore() {
+        return (Store) iservice;
     }
 
     SMTPTransport getTransport() {
         return (SMTPTransport) iservice;
+    }
+
+    boolean hasCapability(String capability) throws MessagingException {
+        Store store = getStore();
+        if (store instanceof IMAPStore)
+            return ((IMAPStore) getStore()).hasCapability(capability);
+        else
+            return false;
     }
 
     public void close() throws MessagingException {

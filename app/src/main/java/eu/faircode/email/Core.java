@@ -49,6 +49,9 @@ import com.sun.mail.imap.protocol.FLAGS;
 import com.sun.mail.imap.protocol.FetchResponse;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.UID;
+import com.sun.mail.pop3.POP3Folder;
+import com.sun.mail.pop3.POP3Message;
+import com.sun.mail.pop3.POP3Store;
 import com.sun.mail.util.MessageRemovedIOException;
 
 import org.json.JSONArray;
@@ -168,10 +171,8 @@ class Core {
                                     !EntityOperation.SYNC.equals(op.name) &&
                                     !EntityOperation.SUBSCRIBE.equals(op.name))
                                 throw new MessageRemovedException();
-                        } else {
+                        } else
                             db.message().setMessageError(message.id, null);
-                            ensureUid(context, folder, message, op, (IMAPFolder) ifolder);
-                        }
 
                         // Operations should use database transaction when needed
 
@@ -204,73 +205,99 @@ class Core {
                             continue;
                         }
 
-                        switch (op.name) {
-                            case EntityOperation.SEEN:
-                                onSeen(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                        if (istore instanceof POP3Store)
+                            switch (op.name) {
+                                case EntityOperation.SEEN:
+                                    db.message().setMessageUiSeen(folder.id, jargs.getBoolean(0));
+                                    break;
+                                case EntityOperation.ANSWERED:
+                                case EntityOperation.ADD:
+                                case EntityOperation.EXISTS:
+                                    break;
+                                case EntityOperation.DELETE:
+                                    if (!EntityFolder.INBOX.equals(folder.type))
+                                        db.message().deleteMessage(folder.id, op.message);
+                                    break;
+                                case EntityOperation.SYNC:
+                                    if (ifolder == null)
+                                        db.folder().setFolderSyncState(folder.id, null);
+                                    else
+                                        onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, state);
+                                    break;
+                                default:
+                                    Log.w(folder.name + " ignored=" + op.name);
+                            }
+                        else {
+                            ensureUid(context, folder, message, op, (IMAPFolder) ifolder);
 
-                            case EntityOperation.FLAG:
-                                onFlag(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                            switch (op.name) {
+                                case EntityOperation.SEEN:
+                                    onSeen(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.ANSWERED:
-                                onAnswered(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.FLAG:
+                                    onFlag(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.KEYWORD:
-                                onKeyword(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.ANSWERED:
+                                    onAnswered(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.ADD:
-                                onAdd(context, jargs, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.KEYWORD:
+                                    onKeyword(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.MOVE:
-                                onMove(context, jargs, false, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.ADD:
+                                    onAdd(context, jargs, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.COPY:
-                                onMove(context, jargs, true, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.MOVE:
+                                    onMove(context, jargs, false, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.FETCH:
-                                onFetch(context, jargs, folder, (IMAPFolder) ifolder, state);
-                                break;
+                                case EntityOperation.COPY:
+                                    onMove(context, jargs, true, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.DELETE:
-                                onDelete(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.FETCH:
+                                    onFetch(context, jargs, folder, (IMAPFolder) ifolder, state);
+                                    break;
 
-                            case EntityOperation.HEADERS:
-                                onHeaders(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.DELETE:
+                                    onDelete(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.RAW:
-                                onRaw(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.HEADERS:
+                                    onHeaders(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.BODY:
-                                onBody(context, jargs, folder, message, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.RAW:
+                                    onRaw(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.ATTACHMENT:
-                                onAttachment(context, jargs, folder, message, op, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.BODY:
+                                    onBody(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.EXISTS:
-                                onExists(context, jargs, folder, message, op, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.ATTACHMENT:
+                                    onAttachment(context, jargs, folder, message, op, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.SYNC:
-                                onSynchronizeMessages(context, jargs, account, folder, (IMAPFolder) ifolder, state);
-                                break;
+                                case EntityOperation.EXISTS:
+                                    onExists(context, jargs, folder, message, op, (IMAPFolder) ifolder);
+                                    break;
 
-                            case EntityOperation.SUBSCRIBE:
-                                onSubscribeFolder(context, jargs, folder, (IMAPFolder) ifolder);
-                                break;
+                                case EntityOperation.SYNC:
+                                    onSynchronizeMessages(context, jargs, account, folder, (IMAPFolder) ifolder, state);
+                                    break;
 
-                            default:
-                                throw new IllegalArgumentException("Unknown operation=" + op.name);
+                                case EntityOperation.SUBSCRIBE:
+                                    onSubscribeFolder(context, jargs, folder, (IMAPFolder) ifolder);
+                                    break;
+
+                                default:
+                                    throw new IllegalArgumentException("Unknown operation=" + op.name);
+                            }
                         }
 
                         // Operation succeeded
@@ -343,7 +370,7 @@ class Core {
     }
 
     private static void ensureUid(Context context, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException {
-        if (message.uid != null)
+        if (message == null || message.uid != null)
             return;
         if (EntityOperation.ADD.equals(op.name))
             return;
@@ -1092,6 +1119,130 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
+            final POP3Folder ifolder, State state) throws MessagingException {
+        DB db = DB.getInstance(context);
+        try {
+            db.folder().setFolderSyncState(folder.id, "syncing");
+
+            Message[] imessages = ifolder.getMessages();
+            Log.i(folder.name + " POP messages=" + imessages.length);
+
+            db.folder().setFolderSyncState(folder.id, "downloading");
+
+            for (Message imessage : imessages)
+                try {
+                    if (!state.isRunning())
+                        break;
+
+                    MessageHelper helper = new MessageHelper((MimeMessage) imessage);
+                    String msgid = helper.getMessageID();
+                    if (msgid == null) {
+                        Log.w(folder.name + " POP no message ID");
+                        continue;
+                    }
+
+                    List<EntityMessage> messages = db.message().getMessageByMsgId(folder.account, msgid);
+                    if (messages.size() > 0) {
+                        Log.i(folder.name + " POP having=" + msgid);
+                        continue;
+                    }
+
+                    String authentication = helper.getAuthentication();
+                    MessageHelper.MessageParts parts = helper.getMessageParts();
+
+                    EntityMessage message = new EntityMessage();
+                    message.account = folder.account;
+                    message.folder = folder.id;
+                    message.uid = null;
+
+                    message.msgid = helper.getMessageID();
+                    message.references = TextUtils.join(" ", helper.getReferences());
+                    message.inreplyto = helper.getInReplyTo();
+                    message.deliveredto = helper.getDeliveredTo();
+                    message.thread = helper.getThreadId(context, account.id, 0);
+                    message.receipt_request = helper.getReceiptRequested();
+                    message.receipt_to = helper.getReceiptTo();
+                    message.dkim = MessageHelper.getAuthentication("dkim", authentication);
+                    message.spf = MessageHelper.getAuthentication("spf", authentication);
+                    message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                    message.from = helper.getFrom();
+                    message.to = helper.getTo();
+                    message.cc = helper.getCc();
+                    message.bcc = helper.getBcc();
+                    message.reply = helper.getReply();
+                    message.list_post = helper.getListPost();
+                    message.unsubscribe = helper.getListUnsubscribe();
+                    message.subject = helper.getSubject();
+                    message.size = helper.getSize();
+                    message.content = false;
+                    message.received = helper.getReceived();
+                    message.sent = helper.getSent();
+                    message.seen = false;
+                    message.answered = false;
+                    message.flagged = false;
+                    message.flags = null;
+                    message.keywords = new String[0];
+                    message.ui_seen = false;
+                    message.ui_answered = false;
+                    message.ui_flagged = false;
+                    message.ui_hide = 0L;
+                    message.ui_found = false;
+                    message.ui_ignored = false;
+                    message.ui_browsed = false;
+
+                    EntityIdentity identity = matchIdentity(context, folder, message);
+                    message.identity = (identity == null ? null : identity.id);
+
+                    message.sender = MessageHelper.getSortKey(message.from);
+                    Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
+                    message.avatar = (lookupUri == null ? null : lookupUri.toString());
+
+                    try {
+                        db.beginTransaction();
+
+                        message.id = db.message().insertMessage(message);
+                        Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
+
+                        int sequence = 1;
+                        for (EntityAttachment attachment : parts.getAttachments()) {
+                            Log.i(folder.name + " attachment seq=" + sequence +
+                                    " name=" + attachment.name + " type=" + attachment.type +
+                                    " cid=" + attachment.cid + " pgp=" + attachment.encryption +
+                                    " size=" + attachment.size);
+                            attachment.message = message.id;
+                            attachment.sequence = sequence++;
+                            attachment.id = db.attachment().insertAttachment(attachment);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    String body = parts.getHtml(context);
+                    Helper.writeText(message.getFile(context), body);
+                    db.message().setMessageContent(message.id,
+                            true,
+                            parts.isPlainOnly(),
+                            HtmlHelper.getPreview(body),
+                            parts.getWarnings(message.warning));
+
+                    for (EntityAttachment attachment : parts.getAttachments())
+                        parts.downloadAttachment(context, attachment);
+
+                } catch (Throwable ex) {
+                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                } finally {
+                    ((POP3Message) imessage).invalidate(true);
+                }
+        } finally {
+            db.folder().setFolderSyncState(folder.id, null);
+        }
+    }
+
+    private static void onSynchronizeMessages(
+            Context context, JSONArray jargs,
+            EntityAccount account, final EntityFolder folder,
             final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
@@ -1620,18 +1771,6 @@ class Core {
                     Log.e(folder.name, ex);
                     message.warning = Helper.formatThrowable(ex, false);
                 }
-
-            /*
-                // Authentication is more reliable
-                Address sender = helper.getSender(); // header
-                if (sender != null) {
-                    String[] s = ((InternetAddress) sender).getAddress().split("@");
-                    String[] f = (froms == null || froms.length == 0 ? null
-                            : (((InternetAddress) froms[0]).getAddress()).split("@"));
-                    if (s.length > 1 && (f == null || (f.length > 1 && !s[1].equals(f[1]))))
-                        message.warning = context.getString(R.string.title_via, s[1]);
-                }
-            */
 
             try {
                 db.beginTransaction();

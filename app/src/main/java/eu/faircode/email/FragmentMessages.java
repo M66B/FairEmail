@@ -838,8 +838,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                             int order = 1;
                             for (EntityAccount account : accounts)
-                                popupMenu.getMenu().add(Menu.NONE, 0, order++, account.name)
-                                        .setIntent(new Intent().putExtra("account", account.id));
+                                if (!account.pop)
+                                    popupMenu.getMenu().add(Menu.NONE, 0, order++, account.name)
+                                            .setIntent(new Intent().putExtra("account", account.id));
 
                             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                                 @Override
@@ -1749,7 +1750,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.hasTrash == null) result.hasTrash = false;
                 if (result.hasJunk == null) result.hasJunk = false;
 
-                result.accounts = db.account().getSynchronizingAccounts();
+                result.accounts = new ArrayList<>();
+                for (EntityAccount account : db.account().getSynchronizingAccounts())
+                    if (!account.pop)
+                        result.accounts.add(account);
 
                 return result;
             }
@@ -3211,7 +3215,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (folder == null)
                         return null;
 
-                    if (message.uid != null) {
+                    EntityAccount account = db.account().getAccount(folder.account);
+                    if (account == null)
+                        return null;
+
+                    if (message.uid == null) {
+                        if (expand_read && !message.ui_seen && account.pop)
+                            EntityOperation.queue(context, message, EntityOperation.SEEN, true);
+                    } else {
                         if (!message.content)
                             EntityOperation.queue(context, message, EntityOperation.BODY);
 

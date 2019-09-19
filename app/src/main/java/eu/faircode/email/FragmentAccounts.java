@@ -34,6 +34,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
@@ -108,11 +109,37 @@ public class FragmentAccounts extends FragmentBase {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentAccount fragment = new FragmentAccount();
-                fragment.setArguments(new Bundle());
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
-                fragmentTransaction.commit();
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fab);
+
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_imap, 1, R.string.title_imap)
+                        .setEnabled(Helper.hasValidFingerprint(getContext()));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_pop3, 2, R.string.title_pop3);
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.string.title_imap:
+                                onCreate(true);
+                                return true;
+                            case R.string.title_pop3:
+                                onCreate(false);
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+
+                    private void onCreate(boolean imap) {
+                        FragmentBase fragment = imap ? new FragmentAccount() : new FragmentPop();
+                        fragment.setArguments(new Bundle());
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
+                        fragmentTransaction.commit();
+                    }
+                });
+
+                popupMenu.show();
             }
         });
 

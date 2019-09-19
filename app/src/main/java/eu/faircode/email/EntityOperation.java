@@ -79,7 +79,6 @@ public class EntityOperation {
     static final String COPY = "copy";
     static final String FETCH = "fetch";
     static final String DELETE = "delete";
-    static final String DELETED = "deleted";
     static final String SEEN = "seen";
     static final String ANSWERED = "answered";
     static final String FLAG = "flag";
@@ -228,7 +227,7 @@ public class EntityOperation {
                         name = RAW;
 
             } else if (DELETE.equals(name))
-                db.message().setMessageUiHide(message.id, new Date().getTime());
+                db.message().setMessageUiHide(message.id, Long.MAX_VALUE);
 
         } catch (JSONException ex) {
             Log.e(ex);

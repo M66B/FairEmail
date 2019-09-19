@@ -103,7 +103,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Long last_connected;
 
     String getProtocol() {
-        return "imap" + (starttls ? "" : "s");
+        return (pop ? "pop3" : "imap") + (starttls ? "" : "s");
     }
 
     static String getNotificationChannelId(long id) {
@@ -146,6 +146,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("order", order);
+        json.put("pop", pop);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
@@ -183,6 +184,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
         if (json.has("order"))
             account.order = json.getInt("order");
+
+        if (json.has("pop"))
+            account.pop = json.getBoolean("pop");
 
         account.host = json.getString("host");
         account.starttls = (json.has("starttls") && json.getBoolean("starttls"));

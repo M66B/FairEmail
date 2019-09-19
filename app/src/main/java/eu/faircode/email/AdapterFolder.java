@@ -273,12 +273,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ivSync.setImageResource(R.drawable.baseline_sync_24);
                 } else {
                     StringBuilder a = new StringBuilder();
-                    a.append(NF.format(folder.sync_days));
+
+                    if (folder.sync_days == Integer.MAX_VALUE)
+                        a.append('∞');
+                    else
+                        a.append(NF.format(folder.sync_days));
+
                     a.append('/');
+
                     if (folder.keep_days == Integer.MAX_VALUE)
                         a.append('∞');
                     else
                         a.append(NF.format(folder.keep_days));
+
                     tvAfter.setText(a.toString());
                     ivSync.setImageResource(folder.synchronize ? R.drawable.baseline_sync_24 : R.drawable.baseline_sync_disabled_24);
                 }
@@ -368,13 +375,14 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (!folder.selectable || folder.tbd != null)
                 return false;
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
             popupMenu.getMenu().add(Menu.NONE, 0, 0, folder.getDisplayName(context)).setEnabled(false);
-
             popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
-            if (folder.account != null) {
+            if (folder.account != null && !folder.accountPop) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
@@ -382,8 +390,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 if (EntityFolder.TRASH.equals(folder.type))
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
+            }
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            if (folder.account != null) {
                 String startup = prefs.getString("startup", "unified");
                 if (!"accounts".equals(startup))
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 6, R.string.title_unified_folder)
@@ -394,7 +403,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 8, R.string.title_notify_folder)
                         .setCheckable(true).setChecked(folder.notify);
+            }
 
+            if (folder.account != null && !folder.accountPop) {
                 boolean subscriptions = prefs.getBoolean("subscriptions", false);
                 if (folder.subscribed != null && subscriptions)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, 9, R.string.title_subscribe)

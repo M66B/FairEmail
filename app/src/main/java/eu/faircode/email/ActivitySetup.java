@@ -1025,7 +1025,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onEditAccount(Intent intent) {
-        FragmentAccount fragment = new FragmentAccount();
+        boolean pop = intent.getBooleanExtra("pop", false);
+        FragmentBase fragment = pop ? new FragmentPop() : new FragmentAccount();
         fragment.setArguments(intent.getExtras());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");

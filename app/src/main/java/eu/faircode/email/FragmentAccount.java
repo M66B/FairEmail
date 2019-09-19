@@ -84,7 +84,6 @@ public class FragmentAccount extends FragmentBase {
     private Button btnAutoConfig;
     private ContentLoadingProgressBar pbAutoConfig;
 
-    private TextView tvPopSupport;
     private TextView tvActiveSyncSupport;
     private EditText etHost;
     private RadioGroup rgEncryption;
@@ -181,7 +180,6 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
         pbAutoConfig = view.findViewById(R.id.pbAutoConfig);
 
-        tvPopSupport = view.findViewById(R.id.tvPopSupport);
         tvActiveSyncSupport = view.findViewById(R.id.tvActiveSyncSupport);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
@@ -276,14 +274,6 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
-
-        tvPopSupport.setPaintFlags(tvPopSupport.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvPopSupport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 11);
             }
         });
 
@@ -586,7 +576,7 @@ public class FragmentAccount extends FragmentBase {
                 try (MailService iservice = new MailService(context, protocol, realm, insecure, true)) {
                     iservice.connect(host, Integer.parseInt(port), auth, user, password);
 
-                    result.idle = iservice.getStore().hasCapability("IDLE");
+                    result.idle = iservice.hasCapability("IDLE");
 
                     boolean inbox = false;
 
@@ -1164,7 +1154,9 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected EntityAccount onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
-                return DB.getInstance(context).account().getAccount(id);
+
+                DB db = DB.getInstance(context);
+                return db.account().getAccount(id);
             }
 
             @Override

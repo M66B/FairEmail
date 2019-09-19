@@ -270,7 +270,7 @@ public class FragmentFolders extends FragmentBase {
                     else
                         fabError.hide();
 
-                    if (account == null)
+                    if (account == null || account.pop)
                         fab.hide();
                     else
                         fab.show();

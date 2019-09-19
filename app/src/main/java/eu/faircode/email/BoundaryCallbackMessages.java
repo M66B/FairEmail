@@ -339,7 +339,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             try {
                                 // https://tools.ietf.org/html/rfc3501#section-6.4.4
                                 Argument arg = new Argument();
-                                if (query.startsWith("raw:") && state.iservice.getStore().hasCapability("X-GM-EXT-1")) {
+                                if (query.startsWith("raw:") && state.iservice.hasCapability("X-GM-EXT-1")) {
                                     // https://support.google.com/mail/answer/7190
                                     // https://developers.google.com/gmail/imap/imap-extensions#extension_of_the_search_command_x-gm-raw
                                     arg.writeAtom("X-GM-RAW");

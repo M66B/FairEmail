@@ -2187,8 +2187,6 @@ public class FragmentCompose extends FragmentBase {
                         draft.plain_only = ref.plain_only;
                         if (answer > 0)
                             body = EntityAnswer.getAnswerText(context, answer, draft.to) + body;
-
-                        EntityOperation.queue(context, ref, EntityOperation.SEEN, true);
                     }
 
                     if (plain_only)
