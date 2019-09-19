@@ -208,21 +208,17 @@ class Core {
                         if (istore instanceof POP3Store)
                             switch (op.name) {
                                 case EntityOperation.SEEN:
-                                    db.message().setMessageUiSeen(folder.id, jargs.getBoolean(0));
+                                    onSeen(context, jargs, folder, message, (POP3Folder) ifolder);
                                     break;
                                 case EntityOperation.ANSWERED:
                                 case EntityOperation.ADD:
                                 case EntityOperation.EXISTS:
                                     break;
                                 case EntityOperation.DELETE:
-                                    if (!EntityFolder.INBOX.equals(folder.type))
-                                        db.message().deleteMessage(folder.id, op.message);
+                                    onDelete(context, jargs, folder, message, (POP3Folder) ifolder);
                                     break;
                                 case EntityOperation.SYNC:
-                                    if (ifolder == null)
-                                        db.folder().setFolderSyncState(folder.id, null);
-                                    else
-                                        onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, state);
+                                    onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, state);
                                     break;
                                 default:
                                     Log.w(folder.name + " ignored=" + op.name);
@@ -426,6 +422,13 @@ class Core {
         imessage.setFlag(Flags.Flag.SEEN, seen);
 
         db.message().setMessageSeen(message.id, seen);
+    }
+
+    private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws JSONException {
+        // Mark message (un)seen
+        DB db = DB.getInstance(context);
+
+        db.message().setMessageUiSeen(folder.id, jargs.getBoolean(0));
     }
 
     private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
@@ -801,6 +804,14 @@ class Core {
         }
     }
 
+    private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws MessagingException {
+        // Delete message
+        DB db = DB.getInstance(context);
+
+        if (!EntityFolder.INBOX.equals(folder.type))
+            db.message().deleteMessage(folder.id, message.id);
+    }
+
     private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException {
         // Download headers
         DB db = DB.getInstance(context);
@@ -1121,6 +1132,12 @@ class Core {
             EntityAccount account, final EntityFolder folder,
             final POP3Folder ifolder, State state) throws MessagingException {
         DB db = DB.getInstance(context);
+
+        if (!EntityFolder.INBOX.equals(folder.type)) {
+            db.folder().setFolderSyncState(folder.id, null);
+            return;
+        }
+
         try {
             db.folder().setFolderSyncState(folder.id, "syncing");
 
