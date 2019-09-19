@@ -67,14 +67,14 @@ public interface DaoIdentity {
     @Update
     void updateIdentity(EntityIdentity identity);
 
-    @Query("UPDATE identity SET password = :password WHERE password = :old")
-    int updateIdentityPassword(String old, String password);
-
     @Query("UPDATE identity SET synchronize = :synchronize WHERE id = :id")
     int setIdentitySynchronize(long id, boolean synchronize);
 
     @Query("UPDATE identity SET state = :state WHERE id = :id")
     int setIdentityState(long id, String state);
+
+    @Query("UPDATE identity SET password = :password WHERE id = :id")
+    int setIdentityPassword(long id, String password);
 
     @Query("UPDATE identity SET last_connected = :last_connected WHERE id = :id")
     int setIdentityConnected(long id, long last_connected);

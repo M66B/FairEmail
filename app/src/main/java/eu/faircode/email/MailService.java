@@ -138,14 +138,24 @@ public class MailService implements AutoCloseable {
     }
 
     public void connect(EntityAccount account) throws MessagingException {
-        connect(account.host, account.port, account.auth_type, account.user, account.password);
+        String password = connect(account.host, account.port, account.auth_type, account.user, account.password);
+        if (password != null) {
+            DB db = DB.getInstance(context);
+            int count = db.account().setAccountPassword(account.id, account.password);
+            Log.i(account.name + " token refreshed=" + count);
+        }
     }
 
     public void connect(EntityIdentity identity) throws MessagingException {
-        connect(identity.host, identity.port, identity.auth_type, identity.user, identity.password);
+        String password = connect(identity.host, identity.port, identity.auth_type, identity.user, identity.password);
+        if (password != null) {
+            DB db = DB.getInstance(context);
+            int count = db.identity().setIdentityPassword(identity.id, identity.password);
+            Log.i(identity.email + " token refreshed=" + count);
+        }
     }
 
-    public void connect(String host, int port, int auth, String user, String password) throws MessagingException {
+    public String connect(String host, int port, int auth, String user, String password) throws MessagingException {
         try {
             if (auth == AUTH_TYPE_GMAIL)
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
@@ -154,6 +164,7 @@ public class MailService implements AutoCloseable {
             //    throw new MailConnectException(new SocketConnectException("Debug", new Exception(), host, port, 0));
 
             _connect(context, host, port, user, password);
+            return null;
         } catch (AuthenticationFailedException ex) {
             // Refresh token
             if (auth == AUTH_TYPE_GMAIL)
@@ -169,19 +180,11 @@ public class MailService implements AutoCloseable {
                             if (token == null)
                                 throw new IllegalArgumentException("no token");
 
-                            int count = 0;
-                            DB db = DB.getInstance(context);
-                            if ("imap".equals(protocol) || "imaps".equals(protocol))
-                                count = db.account().updateAccountPassword(password, token);
-                            else if ("smtp".equals(protocol) || "smtps".equals(protocol))
-                                count = db.identity().updateIdentityPassword(password, token);
-
-                            if (count != 1)
-                                throw new IllegalArgumentException(protocol + "=" + count);
-
                             _connect(context, host, port, user, token);
-                            break;
+                            return token;
                         }
+
+                    throw new IllegalArgumentException("no account");
                 } catch (Throwable ex1) {
                     Log.e(ex1);
                     throw ex;
@@ -198,7 +201,7 @@ public class MailService implements AutoCloseable {
                         try {
                             Log.i("Falling back to " + iaddr.getHostAddress());
                             _connect(context, iaddr.getHostAddress(), port, user, password);
-                            return;
+                            return null;
                         } catch (MessagingException ex1) {
                             Log.w(ex1);
                         }
