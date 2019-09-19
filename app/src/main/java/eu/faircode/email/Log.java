@@ -375,6 +375,22 @@ public class Log {
             */
             return false;
 
+        if (ex instanceof IllegalArgumentException &&
+                ex.getMessage() != null &&
+                ex.getMessage().startsWith("Tmp detached view should be removed from RecyclerView before it can be recycled"))
+            /*
+                Android 9 only?
+                java.lang.IllegalArgumentException: Tmp detached view should be removed from RecyclerView before it can be recycled: ViewHolder{e3b70bd position=0 id=1, oldPos=-1, pLpos:-1 update tmpDetached no parent} androidx.recyclerview.widget.RecyclerView{f0fe5b1 VFED..... ......ID 0,0-641,456 #7f090293 app:id/rvAccount}, adapter:eu.faircode.email.AdapterNavAccount@9a6ea96, layout:androidx.recyclerview.widget.LinearLayoutManager@d8fc617, context:eu.faircode.email.ActivityView@82a6ec4
+                at androidx.recyclerview.widget.RecyclerView$Recycler.recycleViewHolderInternal(SourceFile:6435)
+                at androidx.recyclerview.widget.RecyclerView.removeAnimatingView(SourceFile:1456)
+                at androidx.recyclerview.widget.RecyclerView$ItemAnimatorRestoreListener.onAnimationFinished(SourceFile:12690)
+                at androidx.recyclerview.widget.RecyclerView$ItemAnimator.dispatchAnimationFinished(SourceFile:13190)
+                at androidx.recyclerview.widget.SimpleItemAnimator.dispatchChangeFinished(SourceFile:317)
+                at androidx.recyclerview.widget.DefaultItemAnimator$8.onAnimationEnd(SourceFile:391)
+                at android.view.ViewPropertyAnimator$AnimatorEventListener.onAnimationEnd(ViewPropertyAnimator.java:1122)
+            */
+            return false;
+
         if (ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Bad notification posted") ||
                         ex.getMessage().contains("ActivityRecord not found") ||
@@ -383,7 +399,7 @@ public class Log {
 
         if (ex instanceof TimeoutException &&
                 ex.getMessage() != null &&
-                ex.getMessage().startsWith("com.sun.mail.imap.IMAPStore.finalize"))
+                ex.getMessage().contains("finalize"))
             return false;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
