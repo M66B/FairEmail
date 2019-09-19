@@ -53,6 +53,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -292,9 +293,10 @@ public class Helper {
                     child instanceof EditText ||
                     child instanceof CheckBox ||
                     child instanceof ImageView /* =ImageButton */ ||
+                    child instanceof RadioButton ||
                     (child instanceof Button && "disable".equals(child.getTag())))
                 child.setEnabled(enabled);
-            if (child instanceof BottomNavigationView) {
+            else if (child instanceof BottomNavigationView) {
                 Menu menu = ((BottomNavigationView) child).getMenu();
                 menu.setGroupEnabled(0, enabled);
             } else if (child instanceof ViewGroup)
