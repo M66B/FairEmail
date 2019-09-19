@@ -213,6 +213,7 @@ class Core {
                                 case EntityOperation.ANSWERED:
                                 case EntityOperation.ADD:
                                 case EntityOperation.EXISTS:
+                                    // Do nothing
                                     break;
                                 case EntityOperation.DELETE:
                                     onDelete(context, jargs, folder, message, (POP3Folder) ifolder);
@@ -428,7 +429,8 @@ class Core {
         // Mark message (un)seen
         DB db = DB.getInstance(context);
 
-        db.message().setMessageUiSeen(folder.id, jargs.getBoolean(0));
+        boolean seen = jargs.getBoolean(0);
+        db.message().setMessageUiSeen(folder.id, seen);
     }
 
     private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
@@ -1214,6 +1216,8 @@ class Core {
                     Uri lookupUri = ContactInfo.getLookupUri(context, message.from);
                     message.avatar = (lookupUri == null ? null : lookupUri.toString());
 
+                    // No MX check
+
                     try {
                         db.beginTransaction();
 
@@ -1231,6 +1235,8 @@ class Core {
                             attachment.id = db.attachment().insertAttachment(attachment);
                         }
 
+                        // No rules
+
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
@@ -1246,6 +1252,9 @@ class Core {
 
                     for (EntityAttachment attachment : parts.getAttachments())
                         parts.downloadAttachment(context, attachment);
+
+                    if (message.received > account.created)
+                        updateContactInfo(context, folder, message);
 
                 } catch (Throwable ex) {
                     db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
