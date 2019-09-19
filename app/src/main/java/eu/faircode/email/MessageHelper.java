@@ -1168,7 +1168,8 @@ public class MessageHelper {
                         cid = apart.part.getHeader("Content-ID");
                     } catch (MessagingException ex) {
                         Log.w(ex);
-                        parts.warnings.add(Helper.formatThrowable(ex, false));
+                        if (!"Failed to fetch headers".equals(ex.getMessage()))
+                            parts.warnings.add(Helper.formatThrowable(ex, false));
                     }
 
                     apart.attachment = new EntityAttachment();
