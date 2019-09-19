@@ -338,7 +338,6 @@
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
-    <string name="title_pop3_support">POP3 stöds inte</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_synchronize_all">Synkronisera alla meddelanden</string>
     <string name="title_synchronize_enabled">Synkronisera</string>

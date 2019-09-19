@@ -343,7 +343,6 @@
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以 html 格式编辑</string>
     <string name="title_last_connected">上次连接%1$s前</string>
-    <string name="title_pop3_support">不支持POP3协议</string>
     <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_authorize">授权</string>

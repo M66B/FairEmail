@@ -363,7 +363,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
     <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
-    <string name="title_pop3_support">POP3 nije podržan</string>
     <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_authorizing">Autorizira &#8230;</string>

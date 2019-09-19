@@ -353,7 +353,6 @@
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
-    <string name="title_pop3_support">POP3 no està suportat</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
     <string name="title_authorize">Autoritzar</string>

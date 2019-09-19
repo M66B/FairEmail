@@ -355,7 +355,6 @@
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
-    <string name="title_pop3_support">POP3 no es compatible</string>
     <string name="title_activesync_support">ActiveSync no es compatible</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
     <string name="title_authorize">Autorizar</string>

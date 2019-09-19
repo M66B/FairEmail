@@ -118,6 +118,8 @@
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_setup_other">Alt furnizor</string>
+    <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
@@ -364,9 +366,10 @@
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
-    <string name="title_pop3_support">POP3 nu este acceptat</string>
     <string name="title_activesync_support">ActiveSync nu este suportat</string>
     <string name="title_oauth_support">OAuth nu este suportat</string>
+    <string name="title_authorize">Autorizare</string>
+    <string name="title_authorizing">Autorizare &#8230;</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_all">Sincronizează toate mesajele</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
@@ -416,6 +419,7 @@
     <string name="title_folders_unified">Director unificat de mesaje primite</string>
     <string name="title_no_folders">Nici un dosar</string>
     <string name="title_no_messages">Nici un mesaj</string>
+    <string name="title_filters_active">Unul sau mai multe filtre active</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
