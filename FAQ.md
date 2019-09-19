@@ -2244,6 +2244,8 @@ causing [setOnlyAlertOnce](https://developer.android.com/reference/android/app/N
 Since FairEmail shows new message notifications right after fetching the message headers
 and FairEmail needs to update new message notifications after fetching the message text later, this cannot be fixed or worked around by FairEmail.
 
+Android might rate limit the notification sound, which can cause some new message notifications to be silent.
+
 <br />
 
 <a name="faq133"></a>
