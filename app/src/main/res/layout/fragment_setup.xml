@@ -79,19 +79,6 @@
             app:layout_constraintTop_toBottomOf="@id/fast" />
 
         <Button
-            android:id="@+id/btnGmail"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_setup_gmail"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvQuick" />
-
-        <Button
             android:id="@+id/btnHelp"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -104,7 +91,7 @@
             android:textColor="@android:color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnGmail" />
+            app:layout_constraintTop_toBottomOf="@id/tvQuick" />
 
         <Button
             android:id="@+id/btnQuick"
@@ -116,7 +103,7 @@
             android:textColor="@android:color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnGmail" />
+            app:layout_constraintTop_toBottomOf="@id/tvQuick" />
 
         <!-- account -->
 

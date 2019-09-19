@@ -43,6 +43,8 @@ import android.os.PowerManager;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -52,6 +54,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
@@ -75,7 +78,6 @@ public class FragmentSetup extends FragmentBase {
 
     private Button btnHelp;
     private Button btnQuick;
-    private Button btnGmail;
 
     private TextView tvAccountDone;
     private Button btnAccount;
@@ -120,7 +122,6 @@ public class FragmentSetup extends FragmentBase {
 
         btnHelp = view.findViewById(R.id.btnHelp);
         btnQuick = view.findViewById(R.id.btnQuick);
-        btnGmail = view.findViewById(R.id.btnGmail);
 
         tvAccountDone = view.findViewById(R.id.tvAccountDone);
         btnAccount = view.findViewById(R.id.btnAccount);
@@ -174,30 +175,30 @@ public class FragmentSetup extends FragmentBase {
         btnQuick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
-            }
-        });
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), btnQuick);
 
-        btnGmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<String> permissions = new ArrayList<>();
-                permissions.add(Manifest.permission.READ_CONTACTS); // profile
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-                    permissions.add(Manifest.permission.GET_ACCOUNTS);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, 1, R.string.title_setup_gmail)
+                        .setEnabled(Helper.hasValidFingerprint(getContext()));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, 2, R.string.title_setup_other);
 
-                boolean granted = true;
-                for (String permission : permissions)
-                    if (!hasPermission(permission)) {
-                        granted = false;
-                        break;
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.string.title_setup_gmail:
+                                onGmail();
+                                return true;
+                            case R.string.title_setup_other:
+                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
+                                return true;
+                            default:
+                                return false;
+                        }
                     }
+                });
 
-                if (granted)
-                    selectAccount();
-                else
-                    requestPermissions(permissions.toArray(new String[0]), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+                popupMenu.show();
             }
         });
 
@@ -262,8 +263,6 @@ public class FragmentSetup extends FragmentBase {
         });
 
         // Initialize
-        btnGmail.setVisibility(Helper.hasValidFingerprint(getContext()) ? View.VISIBLE : View.GONE);
-
         tvAccountDone.setText(null);
         tvAccountDone.setCompoundDrawables(null, null, null, null);
         tvNoPrimaryDrafts.setVisibility(View.GONE);
@@ -447,6 +446,25 @@ public class FragmentSetup extends FragmentBase {
         tvPermissionsDone.setTextColor(granted ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(granted ? check : null, null, null, null);
         btnPermissions.setEnabled(!granted);
+    }
+
+    private void onGmail() {
+        List<String> permissions = new ArrayList<>();
+        permissions.add(Manifest.permission.READ_CONTACTS); // profile
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            permissions.add(Manifest.permission.GET_ACCOUNTS);
+
+        boolean granted = true;
+        for (String permission : permissions)
+            if (!hasPermission(permission)) {
+                granted = false;
+                break;
+            }
+
+        if (granted)
+            selectAccount();
+        else
+            requestPermissions(permissions.toArray(new String[0]), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
     }
 
     private void selectAccount() {
