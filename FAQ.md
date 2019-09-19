@@ -399,7 +399,7 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-Just tap on the Gmail button in the setup screen to setup a Gmail account and identity.
+You can use the quick setup wizard to easily setup a Gmail account and identity.
 
 If you don't want to use an on device Gmail account,
 you can either enable access for "less secure apps" and use your account password
@@ -1994,7 +1994,7 @@ Disabling *Partial fetch* will result in more memory usage.
 <a name="faq111"></a>
 **(111) Why is OAuth not supported?**
 
-OAuth is supported for Gmail. Just tap on the *Gmail* button in the setup.
+OAuth is supported for Gmail via the quick setup wizard.
 The Android account manager will be used to fetch and refresh OAuth tokens for the selected account.
 
 Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections.
