@@ -1812,10 +1812,8 @@ class Core {
                 addresses.addAll(Arrays.asList(message.to));
             if (message.cc != null)
                 addresses.addAll(Arrays.asList(message.cc));
-            if (EntityFolder.ARCHIVE.equals(folder.type) || BuildConfig.DEBUG) {
-                if (message.from != null)
-                    addresses.addAll(Arrays.asList(message.from));
-            }
+            if (message.from != null)
+                addresses.addAll(Arrays.asList(message.from));
         }
 
         // Search for matching identity
