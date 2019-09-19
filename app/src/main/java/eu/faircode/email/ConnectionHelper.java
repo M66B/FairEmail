@@ -165,6 +165,11 @@ public class ConnectionHelper {
             return null;
         }
 
+        // onLost [... state: DISCONNECTED/DISCONNECTED ... available: true]
+        NetworkInfo ani = cm.getNetworkInfo(active);
+        if (ani == null || !ani.isConnected())
+            return null;
+
         NetworkCapabilities caps = cm.getNetworkCapabilities(active);
         if (caps == null) {
             Log.i("isMetered: active no caps");
