@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,25 +39,30 @@ public class FragmentDialogAsk extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final String question = getArguments().getString("question");
-        final String notagain = getArguments().getString("notagain");
+        String question = getArguments().getString("question");
+        String notagain = getArguments().getString("notagain");
 
         View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_ask_again, null);
         TextView tvMessage = dview.findViewById(R.id.tvMessage);
-        final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+        CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
         tvMessage.setText(question);
         cbNotAgain.setVisibility(notagain == null ? View.GONE : View.VISIBLE);
+
+        if (notagain != null)
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    prefs.edit().putBoolean(notagain, isChecked).apply();
+                }
+            });
 
         return new AlertDialog.Builder(getContext())
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (notagain != null && cbNotAgain.isChecked()) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                            prefs.edit().putBoolean(notagain, true).apply();
-                        }
                         sendResult(Activity.RESULT_OK);
                     }
                 })

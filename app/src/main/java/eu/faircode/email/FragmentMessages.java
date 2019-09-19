@@ -69,6 +69,7 @@ import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -4676,14 +4677,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_error_reporting, null);
-            final Button btnInfo = dview.findViewById(R.id.btnInfo);
-            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_error_reporting, null);
+            Button btnInfo = dview.findViewById(R.id.btnInfo);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             btnInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Helper.viewFAQ(getContext(), 104);
+                }
+            });
+
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    prefs.edit().putBoolean("crash_reports_asked", isChecked).apply();
                 }
             });
 
@@ -4694,20 +4703,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         public void onClick(DialogInterface dialog, int which) {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                             prefs.edit().putBoolean("crash_reports", true).apply();
-                            if (cbNotAgain.isChecked())
-                                prefs.edit().putBoolean("crash_reports_asked", true).apply();
                             Log.setCrashReporting(true);
                         }
                     })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (cbNotAgain.isChecked()) {
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                                prefs.edit().putBoolean("crash_reports_asked", true).apply();
-                            }
-                        }
-                    })
+                    .setNegativeButton(android.R.string.no, null)
                     .create();
         }
     }

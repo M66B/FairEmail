@@ -2042,9 +2042,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImages(final TupleMessageEx message) {
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_show_images, null);
-            final TextView tvTracking = dview.findViewById(R.id.tvTracking);
-            final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_show_images, null);
+            TextView tvTracking = dview.findViewById(R.id.tvTracking);
+            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
@@ -2060,21 +2060,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         TextUtils.join(", ", froms)));
             }
 
+            cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    for (Address address : message.from) {
+                        String from = ((InternetAddress) address).getAddress();
+                        editor.putBoolean(from + ".show_images", isChecked);
+                    }
+                    editor.apply();
+                }
+            });
+
             // TODO: dialog fragment
             final Dialog dialog = new AlertDialog.Builder(context)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (cbNotAgain.isChecked()) {
-                                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                                SharedPreferences.Editor editor = prefs.edit();
-                                for (Address address : message.from) {
-                                    String from = ((InternetAddress) address).getAddress();
-                                    editor.putBoolean(from + ".show_images", true);
-                                }
-                                editor.apply();
-                            }
                             properties.setValue("images", message.id, true);
                             onShowImagesConfirmed(message);
                         }
