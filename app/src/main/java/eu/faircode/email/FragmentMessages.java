@@ -2913,22 +2913,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         public void onLoading() {
             loading = true;
             pbWait.setVisibility(View.VISIBLE);
-            if (viewType == AdapterMessage.ViewType.SEARCH) {
-                tvNoEmail.setVisibility(View.GONE);
-                tvNoEmailHint.setVisibility(View.GONE);
-            }
         }
 
         @Override
         public void onLoaded(int fetched) {
             loading = false;
-
             if (initialized && SimpleTask.getCount() == 0)
                 pbWait.setVisibility(View.GONE);
-
-            boolean none = (fetched == 0);
-            tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
-            tvNoEmail.setVisibility(none && filterActive() ? View.VISIBLE : View.GONE);
         }
 
         @Override
@@ -2986,11 +2977,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (!loading && SimpleTask.getCount() == 0)
                 pbWait.setVisibility(View.GONE);
 
-            if (viewType != AdapterMessage.ViewType.SEARCH) {
-                boolean none = (messages.size() == 0 && !loading);
-                tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
-                tvNoEmailHint.setVisibility(none && filterActive() ? View.VISIBLE : View.GONE);
-            }
+            boolean none = (messages.size() == 0 && !loading);
+            tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
+            tvNoEmailHint.setVisibility(
+                    none && filterActive() && viewType != AdapterMessage.ViewType.SEARCH
+                            ? View.VISIBLE : View.GONE);
+
             grpReady.setVisibility(View.VISIBLE);
         }
     };
