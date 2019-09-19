@@ -107,7 +107,8 @@
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_go">Comenzar</string>
     <string name="title_setup_wizard">Asistente</string>
-    <string name="title_authorizing">Autorizando &#8230;</string>
+    <string name="title_setup_other">Otro proveedor</string>
+    <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
     <string name="title_setup_quick_success">Una cuenta y una identidad han sido añadidas con éxito</string>
@@ -348,7 +349,6 @@
     <string name="title_no_idle">Este proveedor no es compatible con mensajes push. Esto retrasará la recepción de nuevos mensajes y aumentará el uso de batería.</string>
     <string name="title_no_utf8">Este proveedor no es compatible con UTF-8</string>
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
-    <string name="title_authorization_required">Autorización requerida</string>
     <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
@@ -358,6 +358,8 @@
     <string name="title_pop3_support">POP3 no es compatible</string>
     <string name="title_activesync_support">ActiveSync no es compatible</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
+    <string name="title_authorize">Autorizar</string>
+    <string name="title_authorizing">Autorizando &#8230;</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
     <string name="title_synchronize_all">Sincronizar todos los mensajes</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
@@ -405,8 +407,9 @@
     <string name="title_folder_user">Usuario</string>
     <string name="title_folder_primary">Cuenta primaria de carpetas</string>
     <string name="title_folders_unified">Carpetas de bandeja de entrada unificada</string>
-    <string name="title_no_messages">Sin mensajes</string>
     <string name="title_no_folders">No hay carpetas</string>
+    <string name="title_no_messages">Sin mensajes</string>
+    <string name="title_filters_active">Uno o más filtros activos</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Marcar como leído</string>

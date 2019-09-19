@@ -107,7 +107,6 @@
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_wizard">Asetusvelho</string>
-    <string name="title_authorizing">Valtuutetaan &#8230;</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
@@ -348,7 +347,6 @@
     <string name="title_no_idle">Tämä palveluntarjoaja ei tue push-viestejä. Tämä viivästyttää uusien viestien vastaanottamista ja lisää akun käyttöä.</string>
     <string name="title_no_utf8">Tämä palveluntarjoaja ei tue UTF-8:aa</string>
     <string name="title_no_sync">Synkronointivirheitä alkaen %1$s</string>
-    <string name="title_authorization_required">Valtuutus vaaditaan</string>
     <string name="title_identity_required">Viestien lähettämiseen tarvitaan identiteetti</string>
     <string name="title_drafts_required">Viestien lähettämiseen tarvitaan luonnoskansio</string>
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
@@ -358,6 +356,8 @@
     <string name="title_pop3_support">POP3 ei ole tuettu</string>
     <string name="title_activesync_support">ActiveSync ei ole tuettu</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
+    <string name="title_authorize">Valtuuta</string>
+    <string name="title_authorizing">Valtuutetaan &#8230;</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_all">Synkronoi kaikki viestit</string>
     <string name="title_synchronize_enabled">Synkronoi</string>
@@ -405,8 +405,8 @@
     <string name="title_folder_user">Käyttäjä</string>
     <string name="title_folder_primary">Kansion ensisijainen tili</string>
     <string name="title_folders_unified">Yhdistetyn saapuneet-kansion kansiot</string>
-    <string name="title_no_messages">Ei viestejä</string>
     <string name="title_no_folders">Ei kansioita</string>
+    <string name="title_no_messages">Ei viestejä</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Merkitse luetuksi</string>
@@ -728,6 +728,7 @@
     <string name="title_1hour">1 tunti</string>
     <string name="title_1day">1 päivä</string>
     <string name="title_now">Nyt</string>
+    <string name="title_after">%1$s päästä</string>
     <string name="title_reset">Palauta oletukset</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>

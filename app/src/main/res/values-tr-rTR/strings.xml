@@ -332,7 +332,6 @@
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
-    <string name="title_authorization_required">Yetkilendirme gerekli</string>
     <string name="title_identity_required">İleti göndermek için bir kimlik gerekli</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
@@ -388,8 +387,8 @@
     <string name="title_folder_user">Kullanıcı</string>
     <string name="title_folder_primary">Klasörler birincil hesap</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
-    <string name="title_no_messages">İleti yok</string>
     <string name="title_no_folders">Klasör yok</string>
+    <string name="title_no_messages">İleti yok</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
     <string name="title_seen">Okundu olarak işaretle</string>

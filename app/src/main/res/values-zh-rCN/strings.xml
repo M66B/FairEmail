@@ -95,7 +95,8 @@
     <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
     <string name="title_setup_go">转到</string>
     <string name="title_setup_wizard">向导</string>
-    <string name="title_authorizing">授权中 &#8230;</string>
+    <string name="title_setup_other">其他邮件服务提供商</string>
+    <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
@@ -336,7 +337,6 @@
     <string name="title_no_idle">该提供商不支持消息推送，这将延迟新消息的接收并增加电池用量</string>
     <string name="title_no_utf8">该邮件服务供应商不支持UTF-8字符集</string>
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
-    <string name="title_authorization_required">需要授权</string>
     <string name="title_identity_required">需要一个身份来发送消息</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
@@ -346,6 +346,8 @@
     <string name="title_pop3_support">不支持POP3协议</string>
     <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
+    <string name="title_authorize">授权</string>
+    <string name="title_authorizing">授权中 &#8230;</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_synchronize_all">同步所有消息</string>
     <string name="title_synchronize_enabled">同步</string>
@@ -393,8 +395,9 @@
     <string name="title_folder_user">用户</string>
     <string name="title_folder_primary">文件夹主账户</string>
     <string name="title_folders_unified">聚合收件箱文件夹</string>
-    <string name="title_no_messages">没有邮件</string>
     <string name="title_no_folders">无文件夹</string>
+    <string name="title_no_messages">没有邮件</string>
+    <string name="title_filters_active">一个或多个过滤器已启用</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>

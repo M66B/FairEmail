@@ -104,10 +104,9 @@
     <string name="title_setup_quick_remark">Per configurar ràpidament un compte i una identitat per a la majoria de proveïdors</string>
     <string name="title_setup_quick_hint">La configuració ràpida aconseguirà informació de configuració a autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP per rebre missatges</string>
-    <string name="title_setup_quick_smtp">Servidor SMTP per rebre missatges</string>
-    <string name="title_setup_go">Anar</string>
+    <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>
+    <string name="title_setup_go">Vés-hi</string>
     <string name="title_setup_wizard">Assistent</string>
-    <string name="title_authorizing">S\'està autoritzant &#8230;</string>
     <string name="title_setup_instructions">Instruccions per la configuració</string>
     <string name="title_setup_no_settings">No s\'ha trobat cap configuració pel domini \'%1$s\'</string>
     <string name="title_setup_quick_success">S\'han afegit correctament un compte i una identitat</string>
@@ -122,7 +121,7 @@
     <string name="title_setup_identity_hint">Per canviar el nom, color, signatura, etc</string>
     <string name="title_setup_permissions">Concedeix permisos</string>
     <string name="title_setup_permissions_remark">Per accedir informació de contacte (opcional)</string>
-    <string name="title_setup_doze">Configuració de l\'optimització de batería</string>
+    <string name="title_setup_doze">Configuració de l\'optimització de bateria</string>
     <string name="title_setup_doze_remark">Per rebre correu electrònic contínuament (opcional)</string>
     <string name="title_setup_doze_instructions">En el següent diàleg, selecciona \"totes les apps\" a dalt, selecciona aquesta aplicació i polsa i confirma «no optimitzis la bateria»</string>
     <string name="title_setup_doze_battery">Ús de bateria elevat?</string>
@@ -132,7 +131,7 @@
     <string name="title_setup_done">Fet</string>
     <string name="title_setup_export">Exporta la configuració</string>
     <string name="title_setup_import">Importa una configuració</string>
-    <string name="title_setup_import_do">Els comptes importats s’afegiran sense sobreescriure els existents</string>
+    <string name="title_setup_import_do">Els comptes importats s’afegiran sense sobreescriure els ja existents</string>
     <string name="title_setup_password">Contrasenya</string>
     <string name="title_setup_password_repeat">Repeteix la contrasenya</string>
     <string name="title_setup_password_missing">Falta la contrasenya</string>
@@ -348,7 +347,6 @@
     <string name="title_no_idle">Aquest proveïdor no admet missatges push. Això retardarà la recepció de nous missatges i augmentarà l’ús de la bateria.</string>
     <string name="title_no_utf8">Aquest proveïdor no és compatible amb UTF-8</string>
     <string name="title_no_sync">Errors de sincronització des de %1$s</string>
-    <string name="title_authorization_required">Es requereix autorització</string>
     <string name="title_identity_required">Cal enviar una identitat per enviar missatges</string>
     <string name="title_drafts_required">Cal enviar una carpeta d\'esborranys per enviar missatges</string>
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
@@ -358,6 +356,8 @@
     <string name="title_pop3_support">POP3 no està suportat</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
+    <string name="title_authorize">Autoritzar</string>
+    <string name="title_authorizing">S\'està autoritzant &#8230;</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
     <string name="title_synchronize_all">Sincronitza tots els missatges</string>
     <string name="title_synchronize_enabled">Sincronitza</string>
@@ -405,8 +405,8 @@
     <string name="title_folder_user">Usuari</string>
     <string name="title_folder_primary">Carpetes del compte primari</string>
     <string name="title_folders_unified">Carpetes unificades de la safata d\'entrada</string>
-    <string name="title_no_messages">No hi ha missatges</string>
     <string name="title_no_folders">No carpetes</string>
+    <string name="title_no_messages">No hi ha missatges</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>
     <string name="title_seen">Marca com a llegit</string>

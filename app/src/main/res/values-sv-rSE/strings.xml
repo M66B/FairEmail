@@ -332,7 +332,6 @@
     <string name="title_no_idle">Leverantören stöder inte push-meddelanden. Detta kommer att fördröja mottagning av nya meddelanden och öka batterianvändningen.</string>
     <string name="title_no_utf8">Denna leverantör stöder inte UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfel sedan %1$s</string>
-    <string name="title_authorization_required">Tillstånd krävs</string>
     <string name="title_identity_required">En identitet krävs för att skicka meddelanden</string>
     <string name="title_drafts_required">En mapp för utkast krävs för att skicka meddelanden</string>
     <string name="title_account_delete">Ta bort detta konto permanent?</string>
@@ -387,8 +386,8 @@
     <string name="title_folder_user">Användare</string>
     <string name="title_folder_primary">Mappar primärt konto</string>
     <string name="title_folders_unified">Samlad inkorg mappar</string>
-    <string name="title_no_messages">Inga meddelanden</string>
     <string name="title_no_folders">Inga mappar</string>
+    <string name="title_no_messages">Inga meddelanden</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
     <string name="title_seen">Märk som läst</string>

@@ -129,7 +129,6 @@
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_wizard">Průvodce</string>
-    <string name="title_authorizing">Probíhá autorizace &#8230;</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
@@ -370,7 +369,6 @@
     <string name="title_no_idle">Tento poskytovatel nepodporuje okamžité zprávy. Následkem bude opožděný příjem nových zpráv a zvýšená spotřeba baterie.</string>
     <string name="title_no_utf8">Tento poskytovatel nepodporuje UTF-8</string>
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
-    <string name="title_authorization_required">Vyžadována autorizace</string>
     <string name="title_identity_required">Identita je nutná pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je nutná pro odesílání zpráv</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
@@ -380,6 +378,7 @@
     <string name="title_pop3_support">POP3 není podporován</string>
     <string name="title_activesync_support">ActiveSync není podporován</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
+    <string name="title_authorizing">Probíhá autorizace &#8230;</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_synchronize_all">Synchronizovat všechny zprávy</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
@@ -427,8 +426,8 @@
     <string name="title_folder_user">Uživatel</string>
     <string name="title_folder_primary">Hlavní účet složky</string>
     <string name="title_folders_unified">Složky sjednocené doručené pošty</string>
-    <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_no_folders">Žádné složky</string>
+    <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Označit přečtené</string>

@@ -107,7 +107,8 @@
     <string name="title_setup_quick_smtp">SMTP-server for å sende meldinger</string>
     <string name="title_setup_go">Utfør</string>
     <string name="title_setup_wizard">Veiviser</string>
-    <string name="title_authorizing">Autoriserer &#8230;</string>
+    <string name="title_setup_other">Annen leverandør</string>
+    <string name="title_setup_gmail_rationale">Gi tillatelser til å velge en konto og lese navnet ditt</string>
     <string name="title_setup_instructions">Oppsett instruksjoner</string>
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
     <string name="title_setup_quick_success">En konto og en identitet har blitt lagt til</string>
@@ -348,7 +349,6 @@
     <string name="title_no_idle">Denne leverandøren støtter ikke push-meldinger. Dette vil forsinke mottak av nye meldinger og øke batteriforbruket.</string>
     <string name="title_no_utf8">Denne leverandøren støtter ikke UTF-8</string>
     <string name="title_no_sync">Synkroniseringsfeil siden %1$s</string>
-    <string name="title_authorization_required">Godkjenning kreves</string>
     <string name="title_identity_required">En identitet er nødvendig for å sende meldinger</string>
     <string name="title_drafts_required">Det kreves en kladd mappe for å kunne sende meldinger</string>
     <string name="title_account_delete">Slett denne konto en permanent?</string>
@@ -358,6 +358,8 @@
     <string name="title_pop3_support">POP3 støttes ikke</string>
     <string name="title_activesync_support">ActiveSync støttes ikke</string>
     <string name="title_oauth_support">OAuth støttes ikke</string>
+    <string name="title_authorize">Godkjenne</string>
+    <string name="title_authorizing">Autoriserer &#8230;</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
     <string name="title_synchronize_all">Synkroniser alle meldinger</string>
     <string name="title_synchronize_enabled">Synkroniser</string>
@@ -405,8 +407,9 @@
     <string name="title_folder_user">Bruker</string>
     <string name="title_folder_primary">Mapper primærkonto</string>
     <string name="title_folders_unified">Enhetlig Innboks mapper</string>
-    <string name="title_no_messages">Ingen meldinger</string>
     <string name="title_no_folders">Ingen mapper</string>
+    <string name="title_no_messages">Ingen meldinger</string>
+    <string name="title_filters_active">En eller flere filtre aktive</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Videresend: %1$s</string>
     <string name="title_seen">Merk som lest</string>

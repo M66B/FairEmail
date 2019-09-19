@@ -107,7 +107,8 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour envoyer des messages</string>
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_wizard">Assistant</string>
-    <string name="title_authorizing">Autorisation de &#8230;</string>
+    <string name="title_setup_other">Autre fournisseur</string>
+    <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
@@ -348,7 +349,6 @@
     <string name="title_no_idle">Ce fournisseur ne gère pas les messages en mode push. Cela va retarder la réception de nouveaux messages et augmenter l\'utilisation de la batterie.</string>
     <string name="title_no_utf8">Ce fournisseur ne prend pas en charge l\'UTF-8</string>
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
-    <string name="title_authorization_required">Autorisation requise</string>
     <string name="title_identity_required">Une identité est nécessaire pour envoyer des messages</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
@@ -358,6 +358,8 @@
     <string name="title_pop3_support">POP3 n\'est pas supporté</string>
     <string name="title_activesync_support">ActiveSync n\'est pas pris en charge</string>
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
+    <string name="title_authorize">Autoriser</string>
+    <string name="title_authorizing">Autorisation de &#8230;</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_synchronize_all">Synchroniser tous les messages</string>
     <string name="title_synchronize_enabled">Synchroniser</string>
@@ -405,8 +407,9 @@
     <string name="title_folder_user">Utilisateur</string>
     <string name="title_folder_primary">Dossiers du compte principal</string>
     <string name="title_folders_unified">Dossiers de la boîte de réception unifiée</string>
-    <string name="title_no_messages">Aucun message</string>
     <string name="title_no_folders">Aucun dossier</string>
+    <string name="title_no_messages">Aucun message</string>
+    <string name="title_filters_active">Un ou plusieurs filtres actifs</string>
     <string name="title_subject_reply">Re : %1$s</string>
     <string name="title_subject_forward">Tr : %1$s</string>
     <string name="title_seen">Marquer comme lu</string>

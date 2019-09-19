@@ -354,7 +354,6 @@
     <string name="title_no_idle">Этот провайдер не поддерживает push-сообщения. Это задержит прием новых сообщений и увеличит расход заряда батареи.</string>
     <string name="title_no_utf8">Этот провайдер не поддерживает UTF-8</string>
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
-    <string name="title_authorization_required">Требуется авторизация</string>
     <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
     <string name="title_account_delete">Удалить эту учетную запись навсегда?</string>
@@ -409,8 +408,8 @@
     <string name="title_folder_user">Пользователь</string>
     <string name="title_folder_primary">Папки основной учетной записи</string>
     <string name="title_folders_unified">Папки единого почтового ящика</string>
-    <string name="title_no_messages">Нет сообщений</string>
     <string name="title_no_folders">Нет папок</string>
+    <string name="title_no_messages">Нет сообщений</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
