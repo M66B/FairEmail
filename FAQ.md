@@ -252,7 +252,7 @@ The following Android permissions are needed:
 * Optional: *read the contents of your SD card* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Optional: *use fingerprint hardware* (USE_FINGERPRINT) and use *biometric hardware* (USE_BIOMETRIC): to use biometric authentication
 * Optional: *find accounts on the device* (GET_ACCOUNTS): to use [OAuth](https://en.wikipedia.org/wiki/OAuth) instead of passwords
-* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): needed to select accounts (not used/needed on later Android versions)
+* Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to use OAuth instead of passwords (not used/needed on later Android versions)
 
 The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
 
@@ -399,13 +399,13 @@ Unfortunately, it is impossible to make everybody happy and adding lots of setti
 <a name="faq6"></a>
 **(6) How can I login to Gmail / G suite?**
 
-To use a Gmail/G suite account,
+Just tap on the Gmail button in the setup screen to setup a Gmail account and identity.
+
+If you don't want to use an on device Gmail account,
 you can either enable access for "less secure apps" and use your account password
 or enable two factor authentication and use an app specific password.
 
 Note that an app specific password is required when two factor authentication is enabled.
-
-See [this FAQ](#user-content-faq111) about why OAuth (Google login) is not being supported.
 
 **Enable "Less secure apps"**
 
@@ -1994,18 +1994,12 @@ Disabling *Partial fetch* will result in more memory usage.
 <a name="faq111"></a>
 **(111) Why is OAuth not supported?**
 
-(X)OAuth authentication, [formerly available](https://github.com/M66B/FairEmail/commit/eddfad1e25ca12c438d86793323895b41872f7b9) as *Select account* for Google accounts,
-requires creating an online (Google, Microsoft, etc) app, which would make authentication for many people dependent on one (developer) account, which is a bad idea.
-
-Moreover, periodically refreshing the OAuth token has shown to be less reliable than using an app password, which is just as safe as OAuth authentication.
-
-See also [this related article](https://arstechnica.com/gadgets/2019/06/gmails-api-lockdown-will-kill-some-third-party-app-access-starting-july-15/).
+OAuth is supported for Gmail. Just tap on the *Gmail* button in the setup.
+The Android account manager will be used to fetch and refresh OAuth tokens for the selected account.
 
 Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections.
 [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
 and requires embedding a client secret in the app, which is not a good idea for an open source app.
-
-See also [this FAQ](#user-content-faq6).
 
 <br />
 
