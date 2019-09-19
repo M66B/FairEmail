@@ -741,12 +741,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Boolean.FALSE.equals(message.mx));
 
             // Line 3
-            ivType.setImageResource(message.drafts > 0
-                    ? R.drawable.baseline_edit_24 : EntityFolder.getIcon(message.folderType));
-            ivType.setVisibility(message.drafts > 0 ||
-                    (viewType == ViewType.UNIFIED && type == null && !inbox) ||
-                    (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
-                    ? View.VISIBLE : View.GONE);
+            if (outgoing && !EntityFolder.SENT.equals(message.folderType)) {
+                ivType.setImageResource(EntityFolder.getIcon(EntityFolder.SENT));
+                ivType.setVisibility(View.VISIBLE);
+            } else {
+                ivType.setImageResource(message.drafts > 0
+                        ? R.drawable.baseline_edit_24 : EntityFolder.getIcon(message.folderType));
+                ivType.setVisibility(message.drafts > 0 ||
+                        (viewType == ViewType.UNIFIED && type == null && !inbox) ||
+                        (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
+                        ? View.VISIBLE : View.GONE);
+            }
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
             ibSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
             ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);
