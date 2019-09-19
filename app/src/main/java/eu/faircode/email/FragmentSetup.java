@@ -464,7 +464,16 @@ public class FragmentSetup extends FragmentBase {
         if (granted)
             selectAccount();
         else
-            requestPermissions(permissions.toArray(new String[0]), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+            new AlertDialog.Builder(getContext())
+                    .setMessage(R.string.title_setup_gmail_rationale)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            requestPermissions(permissions.toArray(new String[0]), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show();
     }
 
     private void selectAccount() {
