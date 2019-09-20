@@ -35,10 +35,12 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
     public PopupMenuLifecycle(@NonNull Context context, LifecycleOwner owner, @NonNull View anchor) {
         super(context, anchor);
         this.owner = owner;
+        Log.i("Instantiate " + this);
     }
 
     @Override
     public void show() {
+        Log.i("Show " + this);
         try {
             super.show();
         } catch (Throwable ex) {
@@ -48,6 +50,7 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
+        Log.i("Destroy " + this);
         this.dismiss();
         owner = null;
     }
