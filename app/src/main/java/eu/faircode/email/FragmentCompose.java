@@ -2305,7 +2305,10 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }
 
-                        String refBody = String.format("<p>%s %s:</p>\n<blockquote>%s</blockquote>",
+                        if ("reply".equals(action) || "reply_all".equals(action))
+                            refText = "<blockquote>" + refText + "</blockquote>";
+
+                        String refBody = String.format("<p>%s %s:</p>\n%s",
                                 Html.escapeHtml(new Date(ref.received).toString()),
                                 Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),
                                 refText);
