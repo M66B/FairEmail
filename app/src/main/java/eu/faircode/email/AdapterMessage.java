@@ -2737,7 +2737,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else
                         ToastEx.makeText(context, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
                 } catch (NoSuchAlgorithmException ex) {
-                    Log.e(ex);
                     Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             } else {

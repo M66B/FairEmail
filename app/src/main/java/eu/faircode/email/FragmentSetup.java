@@ -529,10 +529,8 @@ public class FragmentSetup extends FragmentBase {
                                         Log.w(ex);
                                         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                             Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
-                                    } else {
-                                        Log.e(ex);
+                                    } else
                                         Helper.unexpectedError(getFragmentManager(), ex);
-                                    }
                                 }
                             }
                         },

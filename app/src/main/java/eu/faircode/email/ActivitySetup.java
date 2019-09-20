@@ -378,7 +378,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             try {
                 askPassword(true);
             } catch (Throwable ex) {
-                Log.e(ex);
                 Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         } else
@@ -389,7 +388,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         try {
             askPassword(false);
         } catch (Throwable ex) {
-            Log.e(ex);
             Helper.unexpectedError(getSupportFragmentManager(), ex);
         }
     }

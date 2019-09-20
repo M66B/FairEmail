@@ -465,7 +465,9 @@ public class Helper {
         return sb.toString();
     }
 
-    static void unexpectedError(FragmentManager manager, final Throwable ex) {
+    static void unexpectedError(FragmentManager manager, Throwable ex) {
+        Log.e(ex);
+
         Bundle args = new Bundle();
         args.putSerializable("ex", ex);
 

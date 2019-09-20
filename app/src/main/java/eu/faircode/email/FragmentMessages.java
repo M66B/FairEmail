@@ -4107,7 +4107,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 REQUEST_DECRYPT,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
-                        Log.e(ex);
                         Helper.unexpectedError(getFragmentManager(), ex);
                     }
             }
