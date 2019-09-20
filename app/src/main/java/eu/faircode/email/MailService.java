@@ -68,6 +68,8 @@ public class MailService implements AutoCloseable {
         String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
+            this.debug = true;
+
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/pop3/package-summary.html#properties
             properties.put("mail." + protocol + ".ssl.checkserveridentity", checkserveridentity);
             properties.put("mail." + protocol + ".ssl.trust", "*");
@@ -81,6 +83,8 @@ public class MailService implements AutoCloseable {
             properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
             properties.put("mail." + protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
             properties.put("mail." + protocol + ".timeout", Integer.toString(READ_TIMEOUT));
+
+            properties.put("mail." + protocol + ".rsetbeforequit", "true");
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties

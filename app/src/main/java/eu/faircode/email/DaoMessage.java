@@ -313,6 +313,10 @@ public interface DaoMessage {
             " AND NOT uid IS NULL")
     List<Long> getUids(long folder, Long received);
 
+    @Query("SELECT msgid FROM message" +
+            " WHERE folder = :folder")
+    List<String> getMsgIds(long folder);
+
     @Query("SELECT * FROM message" +
             " WHERE folder = :folder" +
             " AND uid IS NULL" +
@@ -458,6 +462,11 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND uid = :uid")
     int deleteMessage(long folder, long uid);
+
+    @Query("DELETE FROM message" +
+            " WHERE folder = :folder" +
+            " AND msgid = :msgid")
+    int deleteMessage(long folder, String msgid);
 
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +

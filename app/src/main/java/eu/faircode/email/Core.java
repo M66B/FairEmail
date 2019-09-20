@@ -810,7 +810,9 @@ class Core {
         // Delete message
         DB db = DB.getInstance(context);
 
-        if (!EntityFolder.INBOX.equals(folder.type))
+        if (EntityFolder.INBOX.equals(folder.type)) {
+            // Do nothing
+        } else
             db.message().deleteMessage(folder.id, message.id);
     }
 
@@ -1135,6 +1137,8 @@ class Core {
             final POP3Folder ifolder, State state) throws MessagingException {
         DB db = DB.getInstance(context);
 
+        Log.i(folder.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
+
         if (!EntityFolder.INBOX.equals(folder.type)) {
             db.folder().setFolderSyncState(folder.id, null);
             return;
@@ -1145,13 +1149,18 @@ class Core {
 
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
+            if (imessages.length == 0)
+                return;
 
             db.folder().setFolderSyncState(folder.id, "downloading");
+
+            List<String> existing = db.message().getMsgIds(folder.id);
+            Log.i(folder.name + " POP existing=" + existing.size());
 
             for (Message imessage : imessages)
                 try {
                     if (!state.isRunning())
-                        break;
+                        return;
 
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage);
                     String msgid = helper.getMessageID();
@@ -1160,11 +1169,13 @@ class Core {
                         continue;
                     }
 
-                    List<EntityMessage> messages = db.message().getMessageByMsgId(folder.account, msgid);
-                    if (messages.size() > 0) {
+                    if (existing.contains(msgid)) {
+                        existing.remove(msgid);
                         Log.i(folder.name + " POP having=" + msgid);
                         continue;
                     }
+
+                    Log.i(folder.name + " POP sync=" + msgid);
 
                     String authentication = helper.getAuthentication();
                     MessageHelper.MessageParts parts = helper.getMessageParts();
@@ -1261,6 +1272,11 @@ class Core {
                 } finally {
                     ((POP3Message) imessage).invalidate(true);
                 }
+
+            for (String msgid : existing) {
+                Log.i(folder.name + " POP deleted=" + msgid);
+                db.message().deleteMessage(folder.id, msgid);
+            }
         } finally {
             db.folder().setFolderSyncState(folder.id, null);
         }
