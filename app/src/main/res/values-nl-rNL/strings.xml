@@ -355,6 +355,7 @@
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_edit_html">Bewerk HTML</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
+    <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten. Het is dus niet mogelijk om berichten als favoriet te markeren, berichten te verplaatsen, enz. POP3 gebruikt meer batterijvermogen dan IMAP. Overweeg daarom indien mogelijk om het IMAP-protocol te gebruiken.</string>
     <string name="title_activesync_support">ActiveSync wordt niet ondersteund</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_authorize">Autoriseren</string>
@@ -758,6 +759,8 @@
     <string name="title_search_special_unseen">ongelezen</string>
     <string name="title_search_special_flagged">ster</string>
     <string name="title_search_special_snoozed">gesluimerd</string>
+    <string name="title_widget_account">Account</string>
+    <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_unseen">Alleen ongelezen berichten</string>
     <string name="title_widget_flagged">Alleen berichten met een ster</string>
     <string-array name="pollIntervalNames">

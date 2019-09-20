@@ -129,6 +129,8 @@
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_go">Idż</string>
     <string name="title_setup_wizard">Kreator</string>
+    <string name="title_setup_other">Inny dostawca</string>
+    <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać swoje imię</string>
     <string name="title_setup_instructions">Instrukcja konfiguracji</string>
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
@@ -377,6 +379,8 @@
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
+    <string name="title_authorize">Autoryzuj</string>
+    <string name="title_authorizing">Autoryzowanie &#8230;</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_synchronize_all">Synchronizuj wszystkie wiadomości</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
@@ -426,6 +430,7 @@
     <string name="title_folders_unified">Wspólne foldery</string>
     <string name="title_no_folders">Brak folderów</string>
     <string name="title_no_messages">Brak wiadomości</string>
+    <string name="title_filters_active">Jeden lub więcej filtrów jest aktywnych</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>

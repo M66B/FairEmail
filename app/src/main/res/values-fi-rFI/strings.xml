@@ -107,6 +107,8 @@
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_wizard">Asetusvelho</string>
+    <string name="title_setup_other">Muu palveluntarjoaja</string>
+    <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet, että tili voidaan valita ja nimesi voidaan lukea</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
@@ -353,6 +355,7 @@
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
+    <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. Sitä käytettäessä ei ole mahdollista merkitä viestejä suosikeiksi, siirtää viestejä, jne. POP3 käyttää enemmän akkua kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
     <string name="title_activesync_support">ActiveSync ei ole tuettu</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_authorize">Valtuuta</string>
@@ -406,6 +409,7 @@
     <string name="title_folders_unified">Yhdistetyn saapuneet-kansion kansiot</string>
     <string name="title_no_folders">Ei kansioita</string>
     <string name="title_no_messages">Ei viestejä</string>
+    <string name="title_filters_active">Yksi tai useampi suodatin aktiivinen</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Merkitse luetuksi</string>
@@ -758,6 +762,8 @@
     <string name="title_search_special_unseen">lukematon</string>
     <string name="title_search_special_flagged">tähdellinen</string>
     <string name="title_search_special_snoozed">torkutettu</string>
+    <string name="title_widget_account">Tili</string>
+    <string name="title_widget_account_all">Kaikki</string>
     <string name="title_widget_unseen">Vain lukemattomat viestit</string>
     <string name="title_widget_flagged">Vain tähdelliset viestit</string>
     <string-array name="pollIntervalNames">

@@ -352,6 +352,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_identity_delete">Möchten Sie diese Identität unwiderruflich löschen?</string>
     <string name="title_edit_html">Als HTML bearbeiten</string>
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
+    <string name="title_pop_support">Das POP3-Protokoll unterstützt nur das Herunterladen und Löschen von Nachrichten. Es wird also nicht möglich sein, Nachrichten als Favoriten zu markieren, Nachrichten zu verschieben, etc. POP3 wird mehr Akku-Leistung als IMAP verwenden. Daher erwägen Sie, das IMAP-Protokoll zu verwenden, wann immer möglich.</string>
     <string name="title_activesync_support">ActiveSync wird nicht unterstützt</string>
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
     <string name="title_authorize">Autorisieren</string>
@@ -757,6 +758,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_search_special_unseen">ungelesen</string>
     <string name="title_search_special_flagged">markiert</string>
     <string name="title_search_special_snoozed">zurückgestellt</string>
+    <string name="title_widget_account">Konto</string>
+    <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string-array name="pollIntervalNames">

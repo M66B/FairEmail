@@ -355,6 +355,7 @@
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
+    <string name="title_pop_support">El protocolo POP3 sólo permite descargar y eliminar mensajes. Por lo tanto, no será posible marcar mensajes como favoritos, mover mensajes, etc. POP3 utilizará más batería que IMAP. Por lo tanto, considere usar el protocolo IMAP siempre que sea posible.</string>
     <string name="title_activesync_support">ActiveSync no es compatible</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
     <string name="title_authorize">Autorizar</string>
@@ -761,6 +762,8 @@
     <string name="title_search_special_unseen">no_leído</string>
     <string name="title_search_special_flagged">destacado</string>
     <string name="title_search_special_snoozed">pospuesto</string>
+    <string name="title_widget_account">Cuenta</string>
+    <string name="title_widget_account_all">Todas</string>
     <string name="title_widget_unseen">Sólo mensajes no leídos</string>
     <string name="title_widget_flagged">Sólo mensajes destacados</string>
     <string-array name="pollIntervalNames">

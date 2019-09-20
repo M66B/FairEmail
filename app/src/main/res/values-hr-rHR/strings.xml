@@ -117,6 +117,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_go">Idi</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_setup_other">Drugi davatelj usluga</string>
+    <string name="title_setup_gmail_rationale">Molimo dajte dopuštenje za izbor računa i čitanje vašeg imena</string>
     <string name="title_setup_instructions">Upute za postavljanje</string>
     <string name="title_setup_no_settings">Nije pronađena nijedna postavka za domenu \'%1$s\'</string>
     <string name="title_setup_quick_success">Račun i identitet uspješno su dodani</string>
@@ -363,8 +365,10 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
     <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
+    <string name="title_pop_support">POP3 protokol podržava samo preuzimanje i brisanje poruka. Dakle, neće biti moguće označiti poruke kao omiljene, premjestiti poruke itd. POP3 će trošiti više snage baterije od IMAP-a. Stoga razmislite o uporabi IMAP protokola kad god je to moguće.</string>
     <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
+    <string name="title_authorize">Odobriti</string>
     <string name="title_authorizing">Autorizira &#8230;</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
     <string name="title_synchronize_all">Sinkroniziraj sve poruke</string>
@@ -415,6 +419,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_folders_unified">Mape objedinjenog ulaznog spremnika</string>
     <string name="title_no_folders">Nema mapa</string>
     <string name="title_no_messages">Nema poruka</string>
+    <string name="title_filters_active">Jedan ili više filtera su aktivni</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Npr: %1$s</string>
     <string name="title_seen">Označi pročitano</string>
@@ -766,6 +771,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_search_special_unseen">nepročitano</string>
     <string name="title_search_special_flagged">označeno</string>
     <string name="title_search_special_snoozed">odgođeno</string>
+    <string name="title_widget_account">Račun</string>
+    <string name="title_widget_account_all">Sve</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
     <string name="title_widget_flagged">Samo poruke označene zvjezdicom</string>
     <string-array name="pollIntervalNames">

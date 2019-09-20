@@ -353,6 +353,7 @@
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
+    <string name="title_pop_support">POP3-protokollen understøtter kun download og sletning af beskeder. Det vil ikke være muligt at markere foretrukne beskeder, flytte beskeder mv. POP3 forbruger mere batteri end IMAP. Overvej derfor at benytte IMAP-protokollen, når det er muligt.</string>
     <string name="title_activesync_support">ActiveSync er uunderstøttet</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_authorize">Godkend</string>
