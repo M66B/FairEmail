@@ -2076,6 +2076,7 @@ So, basically the only thing I can do, is give some advice:
 * Open FairEmail and navigate to the pro features screen to let FairEmail check the purchases
 
 You can also try to clear the cache of the Play store app via the Android apps settings.
+Restarting the device might be necessary to let the Play store recognize the purchase correctly.
 
 Note that:
 
