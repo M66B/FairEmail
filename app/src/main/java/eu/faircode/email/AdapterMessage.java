@@ -3909,96 +3909,40 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            boolean show_images = getArguments().getBoolean("show_images");
             float textSize = getArguments().getFloat("text_size");
-
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_webview, null);
-            final WebView webView = dview.findViewById(R.id.webView);
-            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+            boolean show_images = getArguments().getBoolean("show_images");
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean inline = prefs.getBoolean("inline_images", false);
             boolean autocontent = prefs.getBoolean("autocontent", false);
 
-            setupWebView(webView);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_webview, null);
+            WebView webView = dview.findViewById(R.id.webView);
+            ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             WebSettings settings = webView.getSettings();
-            settings.setDefaultFontSize(Math.round(textSize));
-            settings.setDefaultFixedFontSize(Math.round(textSize));
-            settings.setLoadsImagesAutomatically(show_images || inline);
-            settings.setBlockNetworkLoads(!show_images && !autocontent);
-            settings.setBlockNetworkImage(!show_images && !autocontent);
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+
             settings.setBuiltInZoomControls(true);
             settings.setDisplayZoomControls(false);
 
-            Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
-            dialog.setContentView(dview);
+            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
 
-            new SimpleTask<String>() {
-                @Override
-                protected void onPreExecute(Bundle args) {
-                    webView.setVisibility(View.GONE);
-                    pbWait.setVisibility(View.VISIBLE);
-                }
+            if (textSize != 0) {
+                settings.setDefaultFontSize(Math.round(textSize));
+                settings.setDefaultFixedFontSize(Math.round(textSize));
+            }
+            boolean monospaced = prefs.getBoolean("monospaced", false);
+            if (monospaced)
+                settings.setStandardFontFamily("monospace");
 
-                @Override
-                protected void onPostExecute(Bundle args) {
-                    pbWait.setVisibility(View.GONE);
-                }
+            settings.setAllowFileAccess(false);
+            settings.setLoadsImagesAutomatically(show_images || inline);
+            settings.setBlockNetworkLoads(!show_images && !autocontent);
+            settings.setBlockNetworkImage(!show_images && !autocontent);
+            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-                @Override
-                protected String onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null || !message.content)
-                        return null;
-
-                    File file = message.getFile(context);
-                    if (!file.exists())
-                        return null;
-
-                    String html = HtmlHelper.getHtmlEmbedded(context, id, Helper.readText(file));
-
-                    // Remove viewport limitations
-                    Document doc = Jsoup.parse(html);
-                    for (Element meta : doc.select("meta").select("[name=viewport]")) {
-                        String content = meta.attr("content");
-                        String[] params = content.split(";");
-                        if (params.length > 0) {
-                            List<String> viewport = new ArrayList<>();
-                            for (String param : params)
-                                if (!param.toLowerCase().contains("maximum-scale") &&
-                                        !param.toLowerCase().contains("user-scalable"))
-                                    viewport.add(param.trim());
-
-                            if (viewport.size() == 0)
-                                meta.attr("content", "");
-                            else
-                                meta.attr("content", TextUtils.join(" ;", viewport) + ";");
-                        }
-                    }
-
-                    return doc.html();
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, String html) {
-                    webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
-                    webView.setVisibility(View.VISIBLE);
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getFragmentManager(), ex);
-                }
-            }.execute(this, getArguments(), "message:full");
-
-            return dialog;
-        }
-
-        private void setupWebView(WebView webView) {
             webView.setWebViewClient(new WebViewClient() {
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
                     Log.i("Open url=" + url);
@@ -4056,17 +4000,56 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
-            WebSettings settings = webView.getSettings();
-            settings.setUseWideViewPort(true);
-            settings.setLoadWithOverviewMode(true);
-            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-            settings.setAllowFileAccess(false);
+            Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+            dialog.setContentView(dview);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean monospaced = prefs.getBoolean("monospaced", false);
-            if (monospaced)
-                settings.setStandardFontFamily("monospace");
+            new SimpleTask<String>() {
+                @Override
+                protected void onPreExecute(Bundle args) {
+                    webView.setVisibility(View.GONE);
+                    pbWait.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onPostExecute(Bundle args) {
+                    pbWait.setVisibility(View.GONE);
+                }
+
+                @Override
+                protected String onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content)
+                        return null;
+
+                    File file = message.getFile(context);
+                    if (!file.exists())
+                        return null;
+
+                    String html = Helper.readText(file);
+
+                    Document doc = Jsoup.parse(html);
+                    HtmlHelper.removeViewportLimitations(doc);
+                    HtmlHelper.embedImages(context, id, doc);
+
+                    return doc.html();
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, String html) {
+                    webView.loadDataWithBaseURL("", html, "text/html", "UTF-8", null);
+                    webView.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getFragmentManager(), ex);
+                }
+            }.execute(this, getArguments(), "message:full");
+
+            return dialog;
         }
     }
 

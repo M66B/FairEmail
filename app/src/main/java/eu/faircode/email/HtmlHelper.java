@@ -781,11 +781,9 @@ public class HtmlHelper {
         return sb.toString();
     }
 
-    static String getHtmlEmbedded(Context context, long id, String html) throws IOException {
+    static void embedImages(Context context, long id, Document document) throws IOException {
         DB db = DB.getInstance(context);
-
-        Document doc = Jsoup.parse(html);
-        for (Element img : doc.select("img")) {
+        for (Element img : document.select("img")) {
             String src = img.attr("src");
             if (src.startsWith("cid:")) {
                 String cid = '<' + src.substring(4) + '>';
@@ -808,8 +806,25 @@ public class HtmlHelper {
                 }
             }
         }
+    }
 
-        return doc.html();
+    static void removeViewportLimitations(Document document) {
+        for (Element meta : document.select("meta").select("[name=viewport]")) {
+            String content = meta.attr("content");
+            String[] params = content.split(";");
+            if (params.length > 0) {
+                List<String> viewport = new ArrayList<>();
+                for (String param : params)
+                    if (!param.toLowerCase().contains("maximum-scale") &&
+                            !param.toLowerCase().contains("user-scalable"))
+                        viewport.add(param.trim());
+
+                if (viewport.size() == 0)
+                    meta.attr("content", "");
+                else
+                    meta.attr("content", TextUtils.join(" ;", viewport) + ";");
+            }
+        }
     }
 
     private static boolean isTrackingPixel(Element img) {
