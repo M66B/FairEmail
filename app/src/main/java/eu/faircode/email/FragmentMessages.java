@@ -229,7 +229,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private SelectionPredicateMessage selectionPredicate = null;
     private SelectionTracker<Long> selectionTracker = null;
 
-    private Long previous = null;
+    private Long prev = null;
     private Long next = null;
     private Long closeId = null;
     private int autoCloseCount = 0;
@@ -647,8 +647,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                boolean reversed = prefs.getBoolean("reversed", false);
-
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
                         onActionMove(EntityFolder.TRASH);
@@ -663,11 +661,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return true;
 
                     case R.id.action_prev:
-                        navigate(reversed ? next : previous, true);
+                        navigate(prev, true);
                         return true;
 
                     case R.id.action_next:
-                        navigate(reversed ? previous : next, false);
+                        navigate(next, false);
                         return true;
 
                     default:
@@ -924,14 +922,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                 @Override
                 public void onPrevious(boolean exists, Long id) {
-                    previous = id;
-                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(id != null);
+                    boolean reversed = prefs.getBoolean("reversed", false);
+                    if (reversed)
+                        next = id;
+                    else
+                        prev = id;
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(prev != null);
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(next != null);
                 }
 
                 @Override
                 public void onNext(boolean exists, Long id) {
-                    next = id;
-                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(id != null);
+                    boolean reversed = prefs.getBoolean("reversed", false);
+                    if (reversed)
+                        prev = id;
+                    else
+                        next = id;
+                    bottom_navigation.getMenu().findItem(R.id.action_prev).setEnabled(prev != null);
+                    bottom_navigation.getMenu().findItem(R.id.action_next).setEnabled(next != null);
                 }
 
                 @Override
@@ -954,30 +962,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 final SwipeListener swipeListener = new SwipeListener(getContext(), new SwipeListener.ISwipeListener() {
                     @Override
                     public boolean onSwipeRight() {
-                        boolean reversed = prefs.getBoolean("reversed", false);
-                        Long go = (reversed ? next : previous);
-
-                        if (go == null) {
+                        if (prev == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_right);
                             view.startAnimation(bounce);
                         } else
-                            navigate(go, true);
+                            navigate(prev, true);
 
-                        return (go != null);
+                        return (prev != null);
                     }
 
                     @Override
                     public boolean onSwipeLeft() {
-                        boolean reversed = prefs.getBoolean("reversed", false);
-                        Long go = (reversed ? previous : next);
-
-                        if (go == null) {
+                        if (next == null) {
                             Animation bounce = AnimationUtils.loadAnimation(getContext(), R.anim.bounce_left);
                             view.startAnimation(bounce);
                         } else
-                            navigate(go, false);
+                            navigate(next, false);
 
-                        return (go != null);
+                        return (next != null);
                     }
                 });
 
@@ -3212,7 +3214,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         return null;
 
                     EntityFolder folder = db.folder().getFolder(message.folder);
-                    if (folder == null)
+                    if (folder == null || folder.account == null)
                         return null;
 
                     EntityAccount account = db.account().getAccount(folder.account);
