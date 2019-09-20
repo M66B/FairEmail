@@ -284,24 +284,25 @@ only suggesting contacts won't work without contacts permissions.
 <a name="faq2"></a>
 **(2) Why is there a permanent notification shown?**
 
-A low priority permanent status bar notification with the number of accounts being synchronized and the number of operations pending (see next question) is shown
+A low priority permanent status bar notification with the number of accounts being synchronized and the number of operations pending (see the next question) is shown
 to prevent Android from killing the service that takes care of continuous receiving email.
-
-You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might used more battery power.
-See [here](#user-content-faq39) for more details about battery usage.
-
-Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
+This is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
+Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
 Most, if not all, other email apps don't show a notification
 with the "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
-Background: this is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
+Android shows icons of high priority status bar notifications first and will hide the icon of FairEmail's notification if there is no space to show icons anymore.
+In practice this means that the status bar notification doesn't take space in the status bar, unless there is space available.
+
+You can switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
+See [here](#user-content-faq39) for more details about battery usage.
 
 Some people suggested to use [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) instead of an Android service with a status bar notification,
 but this would require email providers to send FCM messages or a central server where all messages are collected sending FCM messages.
 The first is not going to happen and the last would have significant privacy implications.
 
-If you came here by clicking on the notification, you should known that the next click will open the unified inbox.
+If you came here by clicking on the notification, you should know that the next click will open the unified inbox instead.
 
 <br />
 
