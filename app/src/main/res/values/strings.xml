@@ -864,6 +864,8 @@
     <string name="title_search_special_flagged">starred</string>
     <string name="title_search_special_snoozed">snoozed</string>
 
+    <string name="title_widget_account">Account</string>
+    <string name="title_widget_account_all">All</string>
     <string name="title_widget_unseen">Unread messages only</string>
     <string name="title_widget_flagged">Starred messages only</string>
 

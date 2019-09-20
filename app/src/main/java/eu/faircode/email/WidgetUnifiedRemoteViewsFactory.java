@@ -28,6 +28,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
+import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -40,6 +41,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private Context context;
     private int appWidgetId;
 
+    private long account;
+    private boolean unseen;
+    private boolean flagged;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
     WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
@@ -59,11 +63,17 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         Log.i("Widget factory changed id=" + appWidgetId);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
-        boolean flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+        account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+        unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
+        flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
+
+        messages.clear();
 
         DB db = DB.getInstance(context);
-        messages = db.message().getWidgetUnified(unseen, flagged);
+        List<TupleMessageWidget> wmessages = db.message().getWidgetUnified(unseen, flagged);
+        for (TupleMessageWidget wmessage : wmessages)
+            if (account < 0 || wmessage.account == account)
+                messages.add(wmessage);
     }
 
     @Override
@@ -96,22 +106,23 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             if (message.unseen > 1)
                 froms = context.getString(R.string.title_name_count, froms, Integer.toString(message.unseen));
 
-            SpannableString from = new SpannableString(froms);
-            SpannableString time = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
-            SpannableString subject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
-            SpannableString account = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
+            SpannableString ssFrom = new SpannableString(froms);
+            SpannableString ssTime = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
+            SpannableString ssSubject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
+            SpannableString ssAccount = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
 
             if (!message.ui_seen) {
-                from.setSpan(new StyleSpan(Typeface.BOLD), 0, from.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                time.setSpan(new StyleSpan(Typeface.BOLD), 0, time.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                subject.setSpan(new StyleSpan(Typeface.BOLD), 0, subject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                account.setSpan(new StyleSpan(Typeface.BOLD), 0, account.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssFrom.setSpan(new StyleSpan(Typeface.BOLD), 0, ssFrom.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssTime.setSpan(new StyleSpan(Typeface.BOLD), 0, ssTime.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssSubject.setSpan(new StyleSpan(Typeface.BOLD), 0, ssSubject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssAccount.setSpan(new StyleSpan(Typeface.BOLD), 0, ssAccount.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
             }
 
-            views.setTextViewText(R.id.tvFrom, from);
-            views.setTextViewText(R.id.tvTime, time);
-            views.setTextViewText(R.id.tvSubject, subject);
-            views.setTextViewText(R.id.tvAccount, account);
+            views.setTextViewText(R.id.tvFrom, ssFrom);
+            views.setTextViewText(R.id.tvTime, ssTime);
+            views.setTextViewText(R.id.tvSubject, ssSubject);
+            views.setTextViewText(R.id.tvAccount, ssAccount);
+            views.setViewVisibility(R.id.tvAccount, account < 0 ? View.VISIBLE : View.GONE);
         } catch (Throwable ex) {
             Log.e(ex);
         }

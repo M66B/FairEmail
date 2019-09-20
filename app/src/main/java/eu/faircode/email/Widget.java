@@ -53,15 +53,15 @@ public class Widget extends AppWidgetProvider {
     }
 
     private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, int count) {
+        NumberFormat nf = NumberFormat.getIntegerInstance();
+
         Intent view = new Intent(context, ActivityView.class);
         view.setAction("unified");
         view.putExtra("refresh", true);
         view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NumberFormat nf = NumberFormat.getIntegerInstance();
-
-        for (int id : appWidgetIds) {
+        for (int appWidgetId : appWidgetIds) {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
 
             views.setOnClickPendingIntent(R.id.widget, pi);
@@ -73,7 +73,7 @@ public class Widget extends AppWidgetProvider {
             else
                 views.setTextViewText(R.id.tvCount, nf.format(count));
 
-            appWidgetManager.updateAppWidget(id, views);
+            appWidgetManager.updateAppWidget(appWidgetId, views);
         }
     }
 }

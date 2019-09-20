@@ -25,9 +25,12 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.View;
 import android.widget.RemoteViews;
+
+import androidx.preference.PreferenceManager;
 
 public class WidgetUnified extends AppWidgetProvider {
     @Override
@@ -51,6 +54,8 @@ public class WidgetUnified extends AppWidgetProvider {
     }
 
     private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         Intent view = new Intent(context, ActivityView.class);
         view.setAction("unified");
         view.putExtra("refresh", true);
@@ -58,15 +63,19 @@ public class WidgetUnified extends AppWidgetProvider {
         PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
         boolean pro = ActivityBilling.isPro(context);
-        for (int id : appWidgetIds) {
+        for (int appWidgetId : appWidgetIds) {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
             views.setViewVisibility(R.id.pro, pro ? View.GONE : View.VISIBLE);
             if (pro) {
+                String name = prefs.getString("widget." + appWidgetId + ".name", null);
+                if (name != null)
+                    views.setTextViewText(R.id.title, name);
+
                 views.setOnClickPendingIntent(R.id.title, pi);
 
                 Intent service = new Intent(context, WidgetUnifiedService.class);
-                service.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
+                service.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
                 service.setData(Uri.parse(service.toUri(Intent.URI_INTENT_SCHEME)));
 
                 views.setRemoteAdapter(R.id.lv, service);
@@ -81,7 +90,7 @@ public class WidgetUnified extends AppWidgetProvider {
             } else
                 views.setTextViewText(R.id.pro, context.getText(R.string.title_pro_feature));
 
-            appWidgetManager.updateAppWidget(id, views);
+            appWidgetManager.updateAppWidget(appWidgetId, views);
         }
     }
 }
