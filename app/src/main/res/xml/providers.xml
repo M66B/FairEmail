@@ -31,7 +31,7 @@
     <!-- needs subscription -->
     <provider
         name="mailbox.org"
-        link="https://userforum-en.mailbox.org/knowledge-base/article/setup-other-e-mail-clients-manually">
+        link="https://kb.mailbox.org/display/BMBOKB/E-Mail-Einrichtung+mit+Mozilla+Thunderbird">
         <imap
             host="imap.mailbox.org"
             port="993"
