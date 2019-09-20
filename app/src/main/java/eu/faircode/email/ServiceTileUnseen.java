@@ -94,9 +94,6 @@ public class ServiceTileUnseen extends TileService {
 
     public void onClick() {
         Log.i("Click tile unseen");
-
-        Intent clear = new Intent(this, ServiceUI.class);
-        clear.setAction("clear");
-        startService(clear);
+        ServiceSynchronize.process(this, true);
     }
 }
