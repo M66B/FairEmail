@@ -106,6 +106,7 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_instructions">Opsætningsinstruktioner</string>
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
     <string name="title_setup_quick_success">En konto og identitet er nu blevet tilføjet</string>
@@ -405,6 +406,7 @@
     <string name="title_folders_unified">Saml indbakkemapper</string>
     <string name="title_no_folders">Ingen mapper</string>
     <string name="title_no_messages">Ingen beskeder</string>
+    <string name="title_filters_active">Ét eller flere filtre er aktive</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vs: %1$s</string>
     <string name="title_seen">Markér som læst</string>

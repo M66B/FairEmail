@@ -408,7 +408,7 @@
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
     <string name="title_no_folders">Geen mappen</string>
     <string name="title_no_messages">Geen berichten</string>
-    <string name="title_filters_active">Een of meer filters actief</string>
+    <string name="title_filters_active">Eén of meer filters actief</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>
