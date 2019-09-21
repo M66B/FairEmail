@@ -162,6 +162,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("threading", checked).apply();
+                WidgetUnified.update(getContext());
             }
         });
 

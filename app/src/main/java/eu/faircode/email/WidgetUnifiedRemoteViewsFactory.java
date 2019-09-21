@@ -63,6 +63,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         Log.i("Widget factory changed id=" + appWidgetId);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean threading = prefs.getBoolean("threading", true);
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
@@ -70,7 +71,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         messages.clear();
 
         DB db = DB.getInstance(context);
-        List<TupleMessageWidget> wmessages = db.message().getWidgetUnified(unseen, flagged);
+        List<TupleMessageWidget> wmessages = db.message().getWidgetUnified(threading, unseen, flagged);
         for (TupleMessageWidget wmessage : wmessages)
             if (account < 0 || wmessage.account == account)
                 messages.add(wmessage);
