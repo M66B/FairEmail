@@ -48,6 +48,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -749,6 +750,7 @@ public class FragmentRule extends FragmentBase {
     private void onActionCheck() {
         try {
             JSONObject jcondition = getCondition();
+            JSONObject jaction = getAction();
 
             JSONObject jheader = jcondition.optJSONObject("header");
             if (jheader != null) {
@@ -759,6 +761,7 @@ public class FragmentRule extends FragmentBase {
             Bundle args = new Bundle();
             args.putLong("folder", folder);
             args.putString("condition", jcondition.toString());
+            args.putString("action", jaction.toString());
 
             FragmentDialogCheck fragment = new FragmentDialogCheck();
             fragment.setArguments(args);
@@ -1033,10 +1036,12 @@ public class FragmentRule extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             long folder = getArguments().getLong("folder");
             String condition = getArguments().getString("condition");
+            String action = getArguments().getString("action");
 
             final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_rule_match, null);
             final TextView tvNoMessages = dview.findViewById(R.id.tvNoMessages);
             final RecyclerView rvMessage = dview.findViewById(R.id.rvMessage);
+            final Button btnExecute = dview.findViewById(R.id.btnExecute);
             final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             rvMessage.setHasFixedSize(false);
@@ -1048,23 +1053,72 @@ public class FragmentRule extends FragmentBase {
 
             tvNoMessages.setVisibility(View.GONE);
             rvMessage.setVisibility(View.GONE);
+            btnExecute.setVisibility(View.GONE);
             pbWait.setVisibility(View.VISIBLE);
 
-            Bundle args = new Bundle();
+            final Bundle args = new Bundle();
             args.putLong("folder", folder);
             args.putString("condition", condition);
+            args.putString("action", action);
+
+            btnExecute.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new SimpleTask<Integer>() {
+                        @Override
+                        protected Integer onExecute(Context context, Bundle args) throws Throwable {
+                            EntityRule rule = new EntityRule();
+                            rule.folder = args.getLong("folder");
+                            rule.condition = args.getString("condition");
+                            rule.action = args.getString("action");
+
+                            int applied = 0;
+
+                            DB db = DB.getInstance(context);
+                            List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
+                            for (long mid : ids)
+                                try {
+                                    db.beginTransaction();
+
+                                    EntityMessage message = db.message().getMessage(mid);
+
+                                    if (rule.matches(context, message, null))
+                                        if (rule.execute(context, message))
+                                            applied++;
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                            return applied;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Integer applied) {
+                            ToastEx.makeText(getContext(), getString(R.string.title_rule_applied, applied), Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getFragmentManager(), ex);
+                        }
+                    }.execute(FragmentDialogCheck.this, args, "rule:execute");
+                }
+            });
 
             new SimpleTask<List<EntityMessage>>() {
                 @Override
                 protected List<EntityMessage> onExecute(Context context, Bundle args) throws Throwable {
-                    long fid = args.getLong("folder");
                     EntityRule rule = new EntityRule();
+                    rule.folder = args.getLong("folder");
                     rule.condition = args.getString("condition");
+                    rule.action = args.getString("action");
 
                     List<EntityMessage> matching = new ArrayList<>();
 
                     DB db = DB.getInstance(context);
-                    List<Long> ids = db.message().getMessageIdsByFolder(fid);
+                    List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
 
@@ -1083,9 +1137,10 @@ public class FragmentRule extends FragmentBase {
                     adapter.set(messages);
 
                     pbWait.setVisibility(View.GONE);
-                    if (messages.size() > 0)
+                    if (messages.size() > 0) {
                         rvMessage.setVisibility(View.VISIBLE);
-                    else
+                        btnExecute.setVisibility(View.VISIBLE);
+                    } else
                         tvNoMessages.setVisibility(View.VISIBLE);
                 }
 
