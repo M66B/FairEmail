@@ -26,6 +26,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteConstraintException;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -145,15 +146,6 @@ class Core {
                             " msg=" + op.message +
                             " args=" + op.args);
 
-                    Map<String, String> crumb = new HashMap<>();
-                    crumb.put("name", op.name);
-                    crumb.put("args", op.args);
-                    crumb.put("folder", op.account + ":" + op.folder + ":" + folder.type);
-                    if (op.message != null)
-                        crumb.put("message", Long.toString(op.message));
-                    crumb.put("free", Integer.toString(Log.getFreeMemMb()));
-                    Log.breadcrumb("operation", crumb);
-
                     // Fetch most recent copy of message
                     EntityMessage message = null;
                     if (op.message != null)
@@ -197,6 +189,7 @@ class Core {
                                     }
                                 }
                         }
+
                         if (skip) {
                             Log.i(folder.name +
                                     " skipping op=" + op.id + "/" + op.name +
@@ -204,6 +197,15 @@ class Core {
                             db.operation().deleteOperation(op.id);
                             continue;
                         }
+
+                        Map<String, String> crumb = new HashMap<>();
+                        crumb.put("name", op.name);
+                        crumb.put("args", op.args);
+                        crumb.put("folder", op.account + ":" + op.folder + ":" + folder.type);
+                        if (op.message != null)
+                            crumb.put("message", Long.toString(op.message));
+                        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+                        Log.breadcrumb("start operation", crumb);
 
                         if (istore instanceof POP3Store)
                             switch (op.name) {
@@ -296,6 +298,9 @@ class Core {
                                     throw new IllegalArgumentException("Unknown operation=" + op.name);
                             }
                         }
+
+                        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+                        Log.breadcrumb("end operation", crumb);
 
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
@@ -1861,6 +1866,14 @@ class Core {
                 runRules(context, imessage, message, rules);
 
                 db.setTransactionSuccessful();
+            } catch (SQLiteConstraintException ex) {
+                Log.e(ex);
+
+                Map<String, String> crumb = new HashMap<>();
+                crumb.put("folder", message.account + ":" + message.folder + ":" + folder.type);
+                crumb.put("message", uid + ":" + message.uid);
+                crumb.put("what", ex.getMessage());
+                Log.breadcrumb("insert", crumb);
             } finally {
                 db.endTransaction();
             }
