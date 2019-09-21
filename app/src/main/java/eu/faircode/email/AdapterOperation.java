@@ -333,11 +333,6 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
     }
 
     @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
-    }
-
-    @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
@@ -345,5 +340,10 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
         holder.bindTo(operation);
 
         holder.wire();
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 }

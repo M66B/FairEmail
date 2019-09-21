@@ -905,11 +905,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     }
 
     @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
-        holder.powner.recreate();
-    }
-
-    @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
 
@@ -917,6 +912,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         holder.bindTo(folder);
 
         holder.wire();
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 
     interface IFolderSelectedListener {

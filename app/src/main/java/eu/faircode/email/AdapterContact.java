@@ -421,7 +421,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
     }
 
     @Override
-    public void onViewRecycled(@NonNull ViewHolder holder) {
+    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         holder.powner.recreate();
     }
 }
