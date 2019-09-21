@@ -23,6 +23,8 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
+
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
@@ -154,6 +156,7 @@ public class EmailProvider {
         return result;
     }
 
+    @NonNull
     static EmailProvider fromDomain(Context context, String domain, Discover discover) throws IOException {
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
@@ -177,6 +180,7 @@ public class EmailProvider {
         return autoconfig;
     }
 
+    @NonNull
     private static EmailProvider _fromDomain(Context context, String domain, Discover discover) throws IOException {
         try {
             // Assume the provider knows best
@@ -202,6 +206,7 @@ public class EmailProvider {
         }
     }
 
+    @NonNull
     private static EmailProvider fromISPDB(Context context, String domain) throws IOException, XmlPullParserException {
         EmailProvider provider = new EmailProvider(domain);
 
@@ -382,6 +387,7 @@ public class EmailProvider {
         return provider;
     }
 
+    @NonNull
     private static EmailProvider fromDNS(Context context, String domain, Discover discover) throws TextParseException, UnknownHostException {
         // https://tools.ietf.org/html/rfc6186
         EmailProvider provider = new EmailProvider(domain);
@@ -423,6 +429,7 @@ public class EmailProvider {
         return provider;
     }
 
+    @NonNull
     private static EmailProvider fromTemplate(Context context, String domain, Discover discover)
             throws ExecutionException, InterruptedException, UnknownHostException {
         Server imap = null;
@@ -502,27 +509,31 @@ public class EmailProvider {
         provider.documentation.append("<a href=\"").append(href).append("\">").append(title).append("</a>");
     }
 
-    private static SRVRecord lookup(Context context, String record) throws TextParseException, UnknownHostException {
-        Lookup lookup = new Lookup(record, Type.SRV);
+    @NonNull
+    private static SRVRecord lookup(Context context, String name) throws TextParseException, UnknownHostException {
+        Lookup lookup = new Lookup(name, Type.SRV);
 
         SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
         lookup.setResolver(resolver);
-        Log.i("Lookup record=" + record + " @" + resolver.getAddress());
+        Log.i("Lookup name=" + name + " @" + resolver.getAddress());
         Record[] records = lookup.run();
 
         if (lookup.getResult() != Lookup.SUCCESSFUL)
             if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
                     lookup.getResult() == Lookup.TYPE_NOT_FOUND)
-                throw new UnknownHostException(record);
+                throw new UnknownHostException(name);
             else
                 throw new IllegalArgumentException(lookup.getErrorString());
 
-        SRVRecord result = (records == null || records.length == 0 ? null : (SRVRecord) records[0]);
-        Log.i("Found record=" + (records == null ? -1 : records.length) +
-                " result=" + (result == null ? "" : result.toString()));
+        if (records.length == 0)
+            throw new UnknownHostException(name);
+
+        SRVRecord result = (SRVRecord) records[0];
+        Log.i("Found records=" + records.length + " result=" + result.toString());
         return result;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return name;
@@ -567,6 +578,7 @@ public class EmailProvider {
             });
         }
 
+        @NonNull
         @Override
         public String toString() {
             return host + ":" + port;
