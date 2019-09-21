@@ -64,6 +64,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -551,12 +552,11 @@ public class FragmentSetup extends FragmentBase {
                 String password = args.getString("password");
 
                 if (!user.contains("@"))
-                    throw new IllegalArgumentException(user);
+                    throw new IllegalArgumentException(
+                            context.getString(R.string.title_email_invalid, user));
 
                 String domain = user.split("@")[1];
                 EmailProvider provider = EmailProvider.fromDomain(context, domain, EmailProvider.Discover.ALL);
-                if (provider == null)
-                    throw new IllegalArgumentException(user);
 
                 List<EntityFolder> folders;
 
@@ -567,7 +567,8 @@ public class FragmentSetup extends FragmentBase {
                     folders = iservice.getFolders();
 
                     if (folders == null)
-                        throw new IllegalArgumentException(domain);
+                        throw new IllegalArgumentException(
+                                context.getString(R.string.title_setup_no_settings, domain));
                 }
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
@@ -600,6 +601,7 @@ public class FragmentSetup extends FragmentBase {
                     account.last_connected = account.created;
 
                     account.id = db.account().insertAccount(account);
+                    args.putLong("account", account.id);
                     EntityLog.log(context, "Gmail account=" + account.name);
 
                     // Create folders
@@ -646,6 +648,7 @@ public class FragmentSetup extends FragmentBase {
                     identity.primary = true;
 
                     identity.id = db.identity().insertIdentity(identity);
+                    args.putLong("identity", identity.id);
                     EntityLog.log(context, "Gmail identity=" + identity.name + " email=" + identity.email);
 
                     db.setTransactionSuccessful();
@@ -661,12 +664,16 @@ public class FragmentSetup extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Void data) {
                 FragmentQuickSetup.FragmentDialogDone fragment = new FragmentQuickSetup.FragmentDialogDone();
+                fragment.setArguments(args);
                 fragment.show(getFragmentManager(), "gmail:done");
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Snackbar.make(view, Helper.formatThrowable(ex, false), Snackbar.LENGTH_LONG).show();
             }
         }.execute(this, args, "setup:gmail");
     }

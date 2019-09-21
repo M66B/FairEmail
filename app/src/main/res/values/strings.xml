@@ -420,6 +420,7 @@
     <string name="title_oauth_support">OAuth is not supported</string>
     <string name="title_authorize">Authorize</string>
     <string name="title_authorizing">Authorizing &#8230;</string>
+    <string name="title_review">Review</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_synchronize_all">Synchronize all messages</string>

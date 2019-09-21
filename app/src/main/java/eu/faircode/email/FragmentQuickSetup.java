@@ -47,6 +47,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -309,6 +310,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.last_connected = account.created;
 
                     account.id = db.account().insertAccount(account);
+                    args.putLong("account", account.id);
                     EntityLog.log(context, "Quick added account=" + account.name);
 
                     // Create folders
@@ -343,6 +345,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.primary = true;
 
                     identity.id = db.identity().insertIdentity(identity);
+                    args.putLong("identity", identity.id);
                     EntityLog.log(context, "Quick added identity=" + identity.name + " email=" + identity.email);
 
                     db.setTransactionSuccessful();
@@ -366,6 +369,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
                     FragmentDialogDone fragment = new FragmentDialogDone();
+                    fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentQuickSetup.this, REQUEST_DONE);
                     fragment.show(getFragmentManager(), "quick:done");
                 }
@@ -429,9 +433,18 @@ public class FragmentQuickSetup extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             return new AlertDialog.Builder(getContext())
                     .setMessage(R.string.title_setup_quick_success)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.title_review, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            Bundle args = getArguments();
+                            long account = args.getLong("account");
+
+                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                            lbm.sendBroadcast(
+                                    new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
+                                            .putExtra("id", account)
+                                            .putExtra("pop", false));
+
                             sendResult(RESULT_OK);
                         }
                     })
