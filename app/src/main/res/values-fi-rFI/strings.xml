@@ -360,6 +360,7 @@
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_authorize">Valtuuta</string>
     <string name="title_authorizing">Valtuutetaan &#8230;</string>
+    <string name="title_review">Tarkista</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_all">Synkronoi kaikki viestit</string>
     <string name="title_synchronize_enabled">Synkronoi</string>

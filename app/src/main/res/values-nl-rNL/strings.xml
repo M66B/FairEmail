@@ -360,6 +360,7 @@
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_authorize">Autoriseren</string>
     <string name="title_authorizing">Autoriseren &#8230;</string>
+    <string name="title_review">Review</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_synchronize_all">Alle berichten synchroniseren</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>

@@ -360,6 +360,7 @@
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
     <string name="title_authorize">Autoriser</string>
     <string name="title_authorizing">Autorisation de &#8230;</string>
+    <string name="title_review">Récapitulatif</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_synchronize_all">Synchroniser tous les messages</string>
     <string name="title_synchronize_enabled">Synchroniser</string>

@@ -359,6 +359,7 @@
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_authorize">Autorizza</string>
     <string name="title_authorizing">Autorizzazione &#8230;</string>
+    <string name="title_review">Revisione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_all">Sincronizza tutti i messaggi</string>
     <string name="title_synchronize_enabled">Sincronizza</string>

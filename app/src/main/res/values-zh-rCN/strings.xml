@@ -348,6 +348,7 @@
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_authorize">授权</string>
     <string name="title_authorizing">授权中 &#8230;</string>
+    <string name="title_review">查看</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_synchronize_all">同步所有消息</string>
     <string name="title_synchronize_enabled">同步</string>
@@ -750,6 +751,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_search_special_flagged">星标</string>
     <string name="title_search_special_snoozed">延后</string>
     <string name="title_widget_account">账户</string>
+    <string name="title_widget_account_all">全部</string>
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
     <string-array name="pollIntervalNames">
