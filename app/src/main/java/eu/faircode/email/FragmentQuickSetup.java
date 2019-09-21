@@ -23,7 +23,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -125,6 +124,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 return false;
             }
         });
+
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,12 +174,6 @@ public class FragmentQuickSetup extends FragmentBase {
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        PackageManager pm = getContext().getPackageManager();
-        super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_help:
@@ -193,6 +187,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private void onMenuHelp() {
         Bundle args = new Bundle();
         args.putString("name", "SETUP.md");
+
         FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
         fragment.setArguments(args);
         fragment.show(getChildFragmentManager(), "help");
@@ -222,8 +217,6 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             protected void onPostExecute(Bundle args) {
-                boolean check = args.getBoolean("check");
-
                 Helper.setViewsEnabled(view, true);
                 pbCheck.setVisibility(View.GONE);
                 pbSave.setVisibility(View.GONE);
