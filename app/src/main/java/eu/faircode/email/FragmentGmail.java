@@ -25,9 +25,7 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -49,15 +47,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentGmail extends FragmentBase {
     private ViewGroup view;
@@ -380,10 +375,10 @@ public class FragmentGmail extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                FragmentDialogDone fragment = new FragmentDialogDone();
+                FragmentReview fragment = new FragmentReview();
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentGmail.this, ActivitySetup.REQUEST_DONE);
-                fragment.show(getFragmentManager(), "quick:done");
+                fragment.show(getFragmentManager(), "quick:review");
             }
 
             @Override
@@ -399,31 +394,5 @@ public class FragmentGmail extends FragmentBase {
                 });
             }
         }.execute(this, args, "setup:gmail");
-    }
-
-    public static class FragmentDialogDone extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
-                    .setMessage(R.string.title_setup_quick_success)
-                    .setPositiveButton(R.string.title_review, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Bundle args = getArguments();
-                            long account = args.getLong("account");
-
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(
-                                    new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
-                                            .putExtra("id", account)
-                                            .putExtra("pop", false));
-
-                            sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
     }
 }

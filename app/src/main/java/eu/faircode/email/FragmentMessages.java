@@ -2226,7 +2226,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        db.account().liveAccountSwipes().observe(getViewLifecycleOwner(), new Observer<List<TupleAccountSwipes>>() {
+        db.account().liveAccountSwipes(null).observe(getViewLifecycleOwner(), new Observer<List<TupleAccountSwipes>>() {
             @Override
             public void onChanged(List<TupleAccountSwipes> swipes) {
                 if (swipes == null)

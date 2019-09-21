@@ -23,6 +23,8 @@ public class TupleAccountSwipes {
     public long id;
     public Long swipe_left;
     public String left_type;
+    public String left_name;
     public Long swipe_right;
     public String right_type;
+    public String right_name;
 }

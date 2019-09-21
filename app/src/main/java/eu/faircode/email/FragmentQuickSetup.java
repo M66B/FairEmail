@@ -19,9 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -44,9 +42,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -55,8 +51,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.mail.AuthenticationFailedException;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentQuickSetup extends FragmentBase {
     private ViewGroup view;
@@ -359,10 +353,10 @@ public class FragmentQuickSetup extends FragmentBase {
                             : result.smtp.host + ":" + result.smtp.port + (result.smtp.starttls ? " starttls" : " ssl"));
                     grpSetup.setVisibility(result == null ? View.GONE : View.VISIBLE);
                 } else {
-                    FragmentDialogDone fragment = new FragmentDialogDone();
+                    FragmentReview fragment = new FragmentReview();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentQuickSetup.this, ActivitySetup.REQUEST_DONE);
-                    fragment.show(getFragmentManager(), "quick:done");
+                    fragment.show(getFragmentManager(), "quick:review");
                 }
             }
 
@@ -414,32 +408,6 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         } catch (Throwable ex) {
             Log.e(ex);
-        }
-    }
-
-    public static class FragmentDialogDone extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
-                    .setMessage(R.string.title_setup_quick_success)
-                    .setPositiveButton(R.string.title_review, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Bundle args = getArguments();
-                            long account = args.getLong("account");
-
-                            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                            lbm.sendBroadcast(
-                                    new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
-                                            .putExtra("id", account)
-                                            .putExtra("pop", false));
-
-                            sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
         }
     }
 }
