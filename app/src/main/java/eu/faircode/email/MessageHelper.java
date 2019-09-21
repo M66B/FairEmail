@@ -990,6 +990,30 @@ public class MessageHelper {
             // Get data
             AttachmentPart apart = attachments.get(index);
 
+            if (local.name == null && apart.attachment.name != null) {
+                local.name = apart.attachment.name;
+                db.attachment().updateAttachment(local);
+                Log.i("Updated name " + local);
+            }
+
+            if (local.disposition == null && apart.attachment.disposition != null) {
+                local.disposition = apart.attachment.disposition;
+                db.attachment().updateAttachment(local);
+                Log.i("Updated disposition " + local);
+            }
+
+            if (local.cid == null && apart.attachment.cid != null) {
+                local.cid = apart.attachment.cid;
+                db.attachment().updateAttachment(local);
+                Log.i("Updated cid " + local);
+            }
+
+            if (local.size == null && apart.attachment.size != null) {
+                local.size = apart.attachment.size;
+                db.attachment().updateAttachment(local);
+                Log.i("Updated size " + local);
+            }
+
             // Download attachment
             File file = EntityAttachment.getFile(context, local.id, local.name);
             db.attachment().setProgress(local.id, null);
