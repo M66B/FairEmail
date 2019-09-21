@@ -340,7 +340,7 @@ public class HtmlHelper {
             public void head(Node node, int depth) {
                 if (links < MAX_AUTO_LINK && node instanceof TextNode) {
                     TextNode tnode = (TextNode) node;
-                    String text = tnode.text();
+                    String text = tnode.getWholeText();
 
                     Matcher matcher = pattern.matcher(text);
                     if (matcher.find()) {
