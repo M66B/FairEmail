@@ -704,6 +704,9 @@ see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/)
 
 The error *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
 
+The error *... Failed to load IMAP envelope ...* is caused by a bug in the IMAP server of your provider.
+One or more messages could not be retrieved due to an unrecoverable error in the IMAP protocol.
+
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
 Possible causes are:
