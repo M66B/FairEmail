@@ -36,6 +36,18 @@ public class PopupMenuLifecycle extends PopupMenu implements LifecycleObserver {
         super(context, anchor);
         this.owner = owner;
         Log.i("Instantiate " + this);
+
+        anchor.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View v) {
+                // Do nothing
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View v) {
+                PopupMenuLifecycle.this.dismiss();
+            }
+        });
     }
 
     @Override
