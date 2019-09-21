@@ -80,8 +80,6 @@ public class FragmentQuickSetup extends FragmentBase {
 
     private Group grpSetup;
 
-    private static final int REQUEST_DONE = 1;
-
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -363,15 +361,14 @@ public class FragmentQuickSetup extends FragmentBase {
                 } else {
                     FragmentDialogDone fragment = new FragmentDialogDone();
                     fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentQuickSetup.this, REQUEST_DONE);
+                    fragment.setTargetFragment(FragmentQuickSetup.this, ActivitySetup.REQUEST_DONE);
                     fragment.show(getFragmentManager(), "quick:done");
                 }
             }
 
             @Override
             protected void onException(final Bundle args, Throwable ex) {
-                Log.i("Quick ex=" + Helper.formatThrowable(ex, false));
-
+                Log.e(ex);
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     tvError.setText(ex.getMessage());
                 else
@@ -411,7 +408,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
         try {
             switch (requestCode) {
-                case REQUEST_DONE:
+                case ActivitySetup.REQUEST_DONE:
                     finish();
                     break;
             }

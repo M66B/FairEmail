@@ -114,7 +114,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_EXPORT = 3;
     static final int REQUEST_IMPORT = 4;
     static final int REQUEST_CHOOSE_ACCOUNT = 5;
+    static final int REQUEST_DONE = 6;
 
+    static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
     static final String ACTION_QUICK_SETUP = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_SETUP";
     static final String ACTION_VIEW_ACCOUNTS = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_ACCOUNTS";
     static final String ACTION_VIEW_IDENTITIES = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_IDENTITIES";
@@ -296,6 +298,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
         IntentFilter iff = new IntentFilter();
+        iff.addAction(ACTION_QUICK_GMAIL);
         iff.addAction(ACTION_QUICK_SETUP);
         iff.addAction(ACTION_VIEW_ACCOUNTS);
         iff.addAction(ACTION_VIEW_IDENTITIES);
@@ -1004,6 +1007,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         return channel;
     }
 
+    private void onViewGmail(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentGmail()).addToBackStack("quick");
+        fragmentTransaction.commit();
+    }
+
     private void onViewQuickSetup(Intent intent) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, new FragmentQuickSetup()).addToBackStack("quick");
@@ -1116,7 +1125,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         public void onReceive(Context context, Intent intent) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 String action = intent.getAction();
-                if (ACTION_QUICK_SETUP.equals(action))
+                if (ACTION_QUICK_GMAIL.equals(action))
+                    onViewGmail(intent);
+                else if (ACTION_QUICK_SETUP.equals(action))
                     onViewQuickSetup(intent);
                 else if (ACTION_VIEW_ACCOUNTS.equals(action))
                     onViewAccounts(intent);

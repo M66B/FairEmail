@@ -20,12 +20,6 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AccountManagerCallback;
-import android.accounts.AccountManagerFuture;
-import android.accounts.AccountsException;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -33,14 +27,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -56,20 +48,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.io.IOException;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import static android.accounts.AccountManager.newChooseAccountIntent;
 
 public class FragmentSetup extends FragmentBase {
     private ViewGroup view;
@@ -185,12 +168,12 @@ public class FragmentSetup extends FragmentBase {
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
+                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                         switch (item.getItemId()) {
                             case R.string.title_setup_gmail:
-                                onGmail();
+                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
                                 return true;
                             case R.string.title_setup_other:
-                                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
                                 return true;
                             default:
@@ -426,17 +409,11 @@ public class FragmentSetup extends FragmentBase {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        boolean granted = true;
         for (int i = 0; i < permissions.length; i++)
             if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
                 if (Manifest.permission.READ_CONTACTS.equals(permissions[i]))
                     setContactsPermission(true);
-            } else
-                granted = false;
-
-        if (requestCode == ActivitySetup.REQUEST_CHOOSE_ACCOUNT)
-            if (granted)
-                selectAccount();
+            }
     }
 
     private void setContactsPermission(boolean granted) {
@@ -447,235 +424,6 @@ public class FragmentSetup extends FragmentBase {
         tvPermissionsDone.setTextColor(granted ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(granted ? check : null, null, null, null);
         btnPermissions.setEnabled(!granted);
-    }
-
-    private void onGmail() {
-        List<String> permissions = new ArrayList<>();
-        permissions.add(Manifest.permission.READ_CONTACTS); // profile
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
-            permissions.add(Manifest.permission.GET_ACCOUNTS);
-
-        boolean granted = true;
-        for (String permission : permissions)
-            if (!hasPermission(permission)) {
-                granted = false;
-                break;
-            }
-
-        if (granted)
-            selectAccount();
-        else
-            new AlertDialog.Builder(getContext())
-                    .setMessage(R.string.title_setup_gmail_rationale)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            requestPermissions(permissions.toArray(new String[0]), ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show();
-    }
-
-    private void selectAccount() {
-        Log.i("Select account");
-        startActivityForResult(
-                Helper.getChooser(getContext(), newChooseAccountIntent(
-                        null,
-                        null,
-                        new String[]{"com.google"},
-                        false,
-                        null,
-                        null,
-                        null,
-                        null)),
-                ActivitySetup.REQUEST_CHOOSE_ACCOUNT);
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case ActivitySetup.REQUEST_CHOOSE_ACCOUNT:
-                if (resultCode == Activity.RESULT_OK && data != null)
-                    onAccountSelected(data);
-                break;
-        }
-    }
-
-    private void onAccountSelected(Intent data) {
-        String name = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-        String type = data.getStringExtra(AccountManager.KEY_ACCOUNT_TYPE);
-
-        AccountManager am = AccountManager.get(getContext());
-        Account[] accounts = am.getAccountsByType(type);
-        for (final Account account : accounts)
-            if (name.equals(account.name)) {
-                Snackbar.make(view, R.string.title_authorizing, Snackbar.LENGTH_LONG).show();
-
-                am.getAuthToken(
-                        account,
-                        MailService.getAuthTokenType(type),
-                        new Bundle(),
-                        getActivity(),
-                        new AccountManagerCallback<Bundle>() {
-                            @Override
-                            public void run(AccountManagerFuture<Bundle> future) {
-                                try {
-                                    Bundle bundle = future.getResult();
-                                    String token = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-                                    Log.i("Got token");
-                                    onAuthorized(name, token);
-                                } catch (Throwable ex) {
-                                    if (ex instanceof AccountsException || ex instanceof IOException) {
-                                        Log.w(ex);
-                                        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                                            Snackbar.make(view, Helper.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
-                                    } else
-                                        Helper.unexpectedError(getFragmentManager(), ex);
-                                }
-                            }
-                        },
-                        null);
-                break;
-            }
-    }
-
-    private void onAuthorized(String user, String password) {
-        Bundle args = new Bundle();
-        args.putString("user", user);
-        args.putString("password", password);
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                String user = args.getString("user");
-                String password = args.getString("password");
-
-                if (!user.contains("@"))
-                    throw new IllegalArgumentException(
-                            context.getString(R.string.title_email_invalid, user));
-
-                String domain = user.split("@")[1];
-                EmailProvider provider = EmailProvider.fromDomain(context, domain, EmailProvider.Discover.ALL);
-
-                List<EntityFolder> folders;
-
-                String aprotocol = provider.imap.starttls ? "imap" : "imaps";
-                try (MailService iservice = new MailService(context, aprotocol, null, false, true)) {
-                    iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_GMAIL, user, password);
-
-                    folders = iservice.getFolders();
-
-                    if (folders == null)
-                        throw new IllegalArgumentException(
-                                context.getString(R.string.title_setup_no_settings, domain));
-                }
-
-                String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
-                try (MailService iservice = new MailService(context, iprotocol, null, false, true)) {
-                    iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_GMAIL, user, password);
-                }
-
-                DB db = DB.getInstance(context);
-                try {
-                    db.beginTransaction();
-
-                    EntityAccount primary = db.account().getPrimaryAccount();
-
-                    // Create account
-                    EntityAccount account = new EntityAccount();
-
-                    account.host = provider.imap.host;
-                    account.starttls = provider.imap.starttls;
-                    account.port = provider.imap.port;
-                    account.auth_type = MailService.AUTH_TYPE_GMAIL;
-                    account.user = user;
-                    account.password = password;
-
-                    account.name = provider.name;
-
-                    account.synchronize = true;
-                    account.primary = (primary == null);
-
-                    account.created = new Date().getTime();
-                    account.last_connected = account.created;
-
-                    account.id = db.account().insertAccount(account);
-                    args.putLong("account", account.id);
-                    EntityLog.log(context, "Gmail account=" + account.name);
-
-                    // Create folders
-                    for (EntityFolder folder : folders) {
-                        folder.account = account.id;
-                        folder.id = db.folder().insertFolder(folder);
-                        EntityLog.log(context, "Gmail folder=" + folder.name + " type=" + folder.type);
-                    }
-
-                    // Set swipe left/right folder
-                    for (EntityFolder folder : folders)
-                        if (EntityFolder.TRASH.equals(folder.type))
-                            account.swipe_left = folder.id;
-                        else if (EntityFolder.ARCHIVE.equals(folder.type))
-                            account.swipe_right = folder.id;
-
-                    db.account().updateAccount(account);
-
-                    String name = user.split("@")[0];
-                    try (Cursor cursor = context.getContentResolver().query(
-                            ContactsContract.Profile.CONTENT_URI,
-                            new String[]{ContactsContract.Profile.DISPLAY_NAME}, null, null, null)) {
-                        if (cursor != null && cursor.moveToFirst()) {
-                            int colDisplay = cursor.getColumnIndex(ContactsContract.Profile.DISPLAY_NAME);
-                            name = cursor.getString(colDisplay);
-                        }
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-
-                    // Create identity
-                    EntityIdentity identity = new EntityIdentity();
-                    identity.name = name;
-                    identity.email = user;
-                    identity.account = account.id;
-
-                    identity.host = provider.smtp.host;
-                    identity.starttls = provider.smtp.starttls;
-                    identity.port = provider.smtp.port;
-                    identity.auth_type = MailService.AUTH_TYPE_GMAIL;
-                    identity.user = user;
-                    identity.password = password;
-                    identity.synchronize = true;
-                    identity.primary = true;
-
-                    identity.id = db.identity().insertIdentity(identity);
-                    args.putLong("identity", identity.id);
-                    EntityLog.log(context, "Gmail identity=" + identity.name + " email=" + identity.email);
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
-                }
-
-                ServiceSynchronize.reload(getContext(), "Gmail");
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                FragmentQuickSetup.FragmentDialogDone fragment = new FragmentQuickSetup.FragmentDialogDone();
-                fragment.setArguments(args);
-                fragment.show(getFragmentManager(), "gmail:done");
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    Snackbar.make(view, Helper.formatThrowable(ex, false), Snackbar.LENGTH_LONG).show();
-            }
-        }.execute(this, args, "setup:gmail");
     }
 
     public static class FragmentDialogDoze extends FragmentDialogBase {
