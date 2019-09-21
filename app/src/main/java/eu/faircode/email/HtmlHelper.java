@@ -192,7 +192,7 @@ public class HtmlHelper {
         }
 
         // Code
-        document.select("code").tagName("div");
+        document.select("code").tagName("strong");
 
         // Lines
         for (Element hr : document.select("hr")) {
