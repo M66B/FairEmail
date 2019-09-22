@@ -234,6 +234,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(132) Why are new message notifications silent?](#user-content-faq132)
 * [(133) Why is ActiveSync not supported?](#user-content-faq133)
 * [(134) Can you add deleting local messages?](#user-content-faq134)
+* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
 
 [I have another question.](#user-content-support)
 
@@ -2267,6 +2268,20 @@ For this reason you won't find many, if any, other email clients supporting Acti
 Since locally deleted messages would be downloaded again on the next sync it is not possible to permanently delete local messages.
 
 As an alternative you can snooze messages, which will hide messages for a selected time.
+
+<br />
+
+<a name="faq135"></a>
+**(135) Why are trashed messages and drafts shown in conversations?**
+
+Individual messages will rarely be trashed and mostly this happens by accident.
+Showing trashed messages in conversations makes it easier to find them back.
+
+You can permanently delete a message using the message three-dots *delete* menu, which will remove the message from the conversation.
+Note that this irreversible.
+
+Similarly, drafts are shown in conversations to find them back in the context where they belong.
+It is easy to read through the received messages before continuing to write the draft later.
 
 <br />
 
