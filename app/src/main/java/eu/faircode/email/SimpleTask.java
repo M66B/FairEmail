@@ -106,8 +106,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         try {
             onPreExecute(args);
         } catch (Throwable ex) {
-            onException(args, ex);
             Log.e(ex);
+            onException(args, ex);
         }
 
         executor.submit(new Runnable() {
@@ -162,8 +162,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                         try {
                             onPostExecute(args);
                         } catch (Throwable ex) {
-                            onException(args, ex);
                             Log.e(ex);
+                            onException(args, ex);
                         } finally {
                             try {
                                 if (ex == null) {
@@ -178,8 +178,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                                 } else
                                     onException(args, ex);
                             } catch (Throwable ex) {
-                                onException(args, ex);
                                 Log.e(ex);
+                                onException(args, ex);
                             }
                         }
                     }
