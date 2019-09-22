@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_from"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_to"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvFrom" />
 
@@ -64,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_reply_to"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTo" />
 
@@ -85,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_cc"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
@@ -101,27 +105,6 @@
                 app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
             <TextView
-                android:id="@+id/tvBccTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_bcc"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCc" />
-
-            <TextView
-                android:id="@+id/tvBcc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:text="Bcc"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textIsSelectable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvBccTitle"
-                app:layout_constraintTop_toBottomOf="@id/tvCc" />
-
-            <TextView
                 android:id="@+id/tvSubject"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -130,7 +113,7 @@
                 android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvBcc" />
+                app:layout_constraintTop_toBottomOf="@id/tvCc" />
 
             <View
                 android:id="@+id/vSeparatorHeaders"
@@ -147,6 +130,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
+                android:fontFamily="monospace"
                 android:text="Headers"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textIsSelectable="true"

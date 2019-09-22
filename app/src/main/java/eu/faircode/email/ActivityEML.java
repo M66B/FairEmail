@@ -66,7 +66,6 @@ public class ActivityEML extends ActivityBase {
         final TextView tvFrom = findViewById(R.id.tvFrom);
         final TextView tvReplyTo = findViewById(R.id.tvReplyTo);
         final TextView tvCc = findViewById(R.id.tvCc);
-        final TextView tvBcc = findViewById(R.id.tvBcc);
         final TextView tvSubject = findViewById(R.id.tvSubject);
         final TextView tvHeaders = findViewById(R.id.tvHeaders);
         final TextView tvParts = findViewById(R.id.tvParts);
@@ -121,7 +120,6 @@ public class ActivityEML extends ActivityBase {
                     result.to = MessageHelper.formatAddresses(helper.getTo());
                     result.replyto = MessageHelper.formatAddresses(helper.getReply());
                     result.cc = MessageHelper.formatAddresses(helper.getCc());
-                    result.bcc = MessageHelper.formatAddresses(helper.getBcc());
                     result.subject = helper.getSubject();
                     result.headers = HtmlHelper.highlightHeaders(context, helper.getHeaders());
 
@@ -156,7 +154,6 @@ public class ActivityEML extends ActivityBase {
                 tvTo.setText(result.to);
                 tvReplyTo.setText(result.replyto);
                 tvCc.setText(result.cc);
-                tvBcc.setText(result.bcc);
                 tvSubject.setText(result.subject);
                 tvHeaders.setText(result.headers);
                 tvParts.setText(result.parts);
@@ -293,7 +290,6 @@ public class ActivityEML extends ActivityBase {
         String to;
         String replyto;
         String cc;
-        String bcc;
         String subject;
         Spanned headers;
         Spanned parts;
