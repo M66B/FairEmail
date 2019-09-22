@@ -25,8 +25,8 @@ import androidx.annotation.Nullable;
 import java.util.Objects;
 
 public class TupleMessageStats {
-    public Integer unseen;
-    public Integer ignored;
+    public Integer unseen = 0;
+    public Integer ignored = 0;
 
     @Override
     public boolean equals(@Nullable Object obj) {

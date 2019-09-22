@@ -154,17 +154,18 @@ public class ServiceSynchronize extends ServiceBase {
 
             @Override
             public void onChanged(TupleMessageStats stats) {
-                if (stats != null) {
-                    boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
-                    if (!unseen_ignored || stats.ignored == null)
-                        stats.ignored = 0;
+                if (stats == null)
+                    stats = new TupleMessageStats();
 
-                    if (!stats.equals(lastStats)) {
-                        Log.i("Stats " + stats);
-                        lastStats = stats;
+                boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
+                if (!unseen_ignored || stats.ignored == null)
+                    stats.ignored = 0;
 
-                        setUnseen(stats.unseen - stats.ignored);
-                    }
+                if (!stats.equals(lastStats)) {
+                    Log.i("Stats " + stats);
+                    lastStats = stats;
+
+                    setUnseen(stats.unseen - stats.ignored);
                 }
             }
         });
