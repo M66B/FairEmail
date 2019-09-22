@@ -523,7 +523,7 @@ public class EmailProvider {
                     lookup.getResult() == Lookup.TYPE_NOT_FOUND)
                 throw new UnknownHostException(name);
             else
-                throw new IllegalArgumentException(lookup.getErrorString());
+                throw new UnknownHostException(lookup.getErrorString());
 
         if (records.length == 0)
             throw new UnknownHostException(name);
