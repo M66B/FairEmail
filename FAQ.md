@@ -1954,11 +1954,11 @@ However, not all servers support IMAP keywords and besides that there are no sta
 <br />
 
 <a name="faq108"></a>
-**(108) Can you add permanently delete messages from any folder?**
+**~~(108) Can you add permanently delete messages from any folder?~~**
 
-When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.
-You can permanently delete messages from the trash folder.
-Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.
+~~When you delete messages from a folder the messages will be moved to the trash folder, so you have a chance to restore the messages.~~
+~~You can permanently delete messages from the trash folder.~~
+~~Permanently delete messages from other folders would defeat the purpose of the trash folder, so this will not be added.~~
 
 <br />
 

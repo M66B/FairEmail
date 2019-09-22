@@ -2412,7 +2412,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(message.uid != null && !message.folderReadOnly);
 
             popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(debug);
 
             popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(hasJunk && !EntityFolder.JUNK.equals(message.folderType));
@@ -2457,7 +2456,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onActionMove(message, true);
                             return true;
                         case R.id.menu_delete:
-                            // For emergencies
                             onMenuDelete(message);
                             return true;
                         case R.id.menu_junk:
@@ -2836,24 +2834,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuDelete(final TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
+            Bundle aargs = new Bundle();
+            aargs.putString("question", context.getString(R.string.title_ask_delete));
+            aargs.putLong("id", message.id);
 
-            new SimpleTask<Void>() {
-                @Override
-                protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    db.message().deleteMessage(id);
-                    return null;
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:delete");
+            FragmentDialogAsk ask = new FragmentDialogAsk();
+            ask.setArguments(aargs);
+            ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
+            ask.show(parentFragment.getFragmentManager(), "message:delete");
         }
 
         private void onMenuJunk(final TupleMessageEx message) {

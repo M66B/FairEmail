@@ -3964,6 +3964,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.cancel("send:" + message.identity, 1);
                         }
+                    } else if (message.uid == null) {
+                        db.message().deleteMessage(id);
+                        db.folder().setFolderError(message.folder, null);
                     } else
                         EntityOperation.queue(context, message, EntityOperation.DELETE);
 
