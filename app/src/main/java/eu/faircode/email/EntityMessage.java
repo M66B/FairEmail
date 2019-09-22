@@ -40,7 +40,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 import javax.mail.Address;
-import javax.mail.internet.InternetAddress;
 
 import static androidx.room.ForeignKey.CASCADE;
 import static androidx.room.ForeignKey.SET_NULL;
@@ -164,12 +163,14 @@ public class EntityMessage implements Serializable {
     }
 
     boolean replySelf(String via) {
-        Address[] replying = (reply == null || reply.length == 0 ? from : reply);
-        if (replying == null || replying.length != 1)
-            return false;
+        Address[] senders = (reply == null || reply.length == 0 ? from : reply);
 
-        String recipient = MessageHelper.canonicalAddress(((InternetAddress) replying[0]).getAddress());
-        return recipient.equals(via);
+        if (senders != null)
+            for (Address sender : senders)
+                if (MessageHelper.similarAddress(sender, via))
+                    return true;
+
+        return false;
     }
 
     Address[] getAllRecipients(String via) {
@@ -182,11 +183,9 @@ public class EntityMessage implements Serializable {
             addresses.addAll(Arrays.asList(cc));
 
         // Filter self
-        for (Address address : new ArrayList<>(addresses)) {
-            String recipient = MessageHelper.canonicalAddress(((InternetAddress) address).getAddress());
-            if (recipient.equals(via))
+        for (Address address : new ArrayList<>(addresses))
+            if (MessageHelper.similarAddress(address, via))
                 addresses.remove(address);
-        }
 
         return addresses.toArray(new Address[0]);
     }

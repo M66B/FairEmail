@@ -713,14 +713,30 @@ public class MessageHelper {
         return TextUtils.join(", ", formatted);
     }
 
-    static String canonicalAddress(String address) {
-        String[] a = address.split("@");
-        if (a.length > 0) {
-            String[] extra = a[0].split("\\+");
-            if (extra.length > 0)
-                a[0] = extra[0];
-        }
-        return TextUtils.join("@", a).toLowerCase();
+    static boolean sameAddress(Address address1, String email2) {
+        String email1 = ((InternetAddress) address1).getAddress();
+        return email1.equalsIgnoreCase(email2);
+    }
+
+    static boolean similarAddress(Address address1, String email2) {
+        String email1 = ((InternetAddress) address1).getAddress();
+
+        if (!email1.contains("@") || !email2.contains("@"))
+            return false;
+
+        String[] e1 = email1.split("@");
+        String[] e2 = email2.split("@");
+
+        if (e1.length != 2 || e2.length != 2)
+            return false;
+
+        // Domain
+        if (!e1[1].equalsIgnoreCase(e2[1]))
+            return false;
+
+        String user1 = (e1[0].contains("+") ? e1[0].split("\\+")[0] : e1[0]);
+
+        return user1.equalsIgnoreCase(e2[0]);
     }
 
     static String decodeMime(String text) {

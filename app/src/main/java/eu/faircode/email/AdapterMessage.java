@@ -1804,14 +1804,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return null;
 
                     EntityFolder folder = db.folder().getFolder(message.folder);
+                    if (folder == null)
+                        return null;
 
-                    boolean outgoing;
-                    if (message.identity == null || message.from == null || message.from.length == 0)
-                        outgoing = EntityFolder.isOutgoing(folder.type);
-                    else {
-                        String from = ((InternetAddress) message.from[0]).getAddress();
-                        EntityIdentity identity = db.identity().getIdentity(message.identity);
-                        outgoing = MessageHelper.canonicalAddress(identity.email).equals(MessageHelper.canonicalAddress(from));
+                    boolean outgoing = EntityFolder.isOutgoing(folder.type);
+
+                    if (message.identity != null) {
+                        Address[] senders = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+                        if (senders != null && senders.length > 0) {
+                            EntityIdentity identity = db.identity().getIdentity(message.identity);
+                            if (identity == null)
+                                return null;
+
+                            for (Address sender : senders)
+                                if (MessageHelper.similarAddress(sender, identity.email)) {
+                                    outgoing = true;
+                                    break;
+                                }
+                        }
                     }
 
                     return (outgoing ? message.to : message.from);
@@ -1819,6 +1829,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onExecuted(Bundle args, Address[] addresses) {
+                    if (addresses == null || addresses.length == 0)
+                        return;
+
                     String query = ((InternetAddress) addresses[0]).getAddress();
                     LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                     lbm.sendBroadcast(
@@ -2174,8 +2187,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(message.id))
                         return;
 
-                    String via = (identity == null ? null : MessageHelper.canonicalAddress(identity.email));
-                    Address[] recipients = message.getAllRecipients(via);
+                    Address[] recipients = message.getAllRecipients(identity == null ? null : identity.email);
 
                     View anchor = bnvActions.findViewById(R.id.action_reply);
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);

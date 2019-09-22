@@ -2031,21 +2031,17 @@ class Core {
         }
 
         // Search for matching identity
-        for (Address address : addresses) {
-            String email = ((InternetAddress) address).getAddress();
-            if (!TextUtils.isEmpty(email)) {
-                EntityIdentity ident = db.identity().getIdentity(folder.account, email);
-                if (ident != null)
-                    return ident;
+        List<EntityIdentity> identities = db.identity().getIdentities(folder.account);
+        if (identities != null) {
+            for (Address address : addresses)
+                for (EntityIdentity identity : identities)
+                    if (MessageHelper.sameAddress(address, identity.email))
+                        return identity;
 
-                String canonical = MessageHelper.canonicalAddress(email);
-                if (canonical.equals(email))
-                    continue;
-
-                ident = db.identity().getIdentity(folder.account, canonical);
-                if (ident != null)
-                    return ident;
-            }
+            for (Address address : addresses)
+                for (EntityIdentity identity : identities)
+                    if (MessageHelper.similarAddress(address, identity.email))
+                        return identity;
         }
 
         return null;
@@ -2095,18 +2091,18 @@ class Core {
 
         // Check if from self
         if (type == EntityContact.TYPE_FROM && recipients != null && recipients.length > 0) {
-            boolean me = true;
-            for (Address reply : recipients) {
-                String email = ((InternetAddress) reply).getAddress();
-                String canonical = MessageHelper.canonicalAddress(email);
-                if (!TextUtils.isEmpty(email) &&
-                        db.identity().getIdentity(folder.account, email) == null &&
-                        (canonical.equals(email) ||
-                                db.identity().getIdentity(folder.account, canonical) == null)) {
-                    me = false;
-                    break;
+            boolean me = false;
+            List<EntityIdentity> identities = db.identity().getIdentities(folder.account);
+            if (identities != null)
+                for (Address recipient : recipients) {
+                    for (EntityIdentity identity : identities)
+                        if (MessageHelper.similarAddress(recipient, identity.email)) {
+                            me = true;
+                            break;
+                        }
+                    if (me)
+                        break;
                 }
-            }
             if (me)
                 recipients = message.to;
         }

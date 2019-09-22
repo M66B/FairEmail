@@ -2021,78 +2021,61 @@ public class FragmentCompose extends FragmentBase {
             crumb.put("action", action);
             Log.breadcrumb("compose", crumb);
 
-            EntityMessage draft;
+            DraftData data = new DraftData();
 
             DB db = DB.getInstance(context);
             try {
                 db.beginTransaction();
 
-                draft = db.message().getMessage(id);
-                if (draft == null || draft.ui_hide != 0) {
+                data.identities = db.identity().getComposableIdentities(null);
+                if (data.identities == null || data.identities.size() == 0)
+                    throw new IllegalStateException(getString(R.string.title_no_identities));
+
+                data.draft = db.message().getMessage(id);
+                if (data.draft == null || data.draft.ui_hide != 0) {
                     // New draft
                     if ("edit".equals(action))
-                        throw new MessageRemovedException("Draft for edit was deleted hide=" + (draft != null));
+                        throw new MessageRemovedException("Draft for edit was deleted hide=" + (data.draft != null));
 
-                    EntityFolder drafts;
                     EntityMessage ref = db.message().getMessage(reference);
-                    if (ref == null) {
-                        long aid = args.getLong("account", -1);
-                        if (aid < 0)
-                            drafts = db.folder().getPrimaryDrafts();
-                        else {
-                            drafts = db.folder().getFolderByType(aid, EntityFolder.DRAFTS);
-                            if (drafts == null)
-                                drafts = db.folder().getPrimaryDrafts();
-                        }
-                        if (drafts == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
-                    } else {
-                        drafts = db.folder().getFolderByType(ref.account, EntityFolder.DRAFTS);
-                        if (drafts == null)
-                            drafts = db.folder().getPrimaryDrafts();
-                        if (drafts == null)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
-                    }
 
                     String body = "";
 
-                    draft = new EntityMessage();
-                    draft.account = drafts.account;
-                    draft.folder = drafts.id;
-                    draft.msgid = EntityMessage.generateMessageId();
+                    data.draft = new EntityMessage();
+                    data.draft.msgid = EntityMessage.generateMessageId();
 
                     if (ref == null) {
-                        draft.thread = draft.msgid;
+                        data.draft.thread = data.draft.msgid;
 
                         try {
                             String to = args.getString("to");
-                            draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                            data.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
                             String cc = args.getString("cc");
-                            draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                            data.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
                         try {
                             String bcc = args.getString("bcc");
-                            draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+                            data.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
                         } catch (AddressException ex) {
                             Log.w(ex);
                         }
 
-                        draft.subject = args.getString("subject", "");
+                        data.draft.subject = args.getString("subject", "");
                         body = args.getString("body", "");
                         body = body.replaceAll("\\r?\\n", "<br>");
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
                             if (a != null) {
-                                draft.subject = a.name;
+                                data.draft.subject = a.name;
                                 body = EntityAnswer.getAnswerText(a, null) + body;
                             }
                         }
@@ -2115,40 +2098,42 @@ public class FragmentCompose extends FragmentBase {
                                 String s = ((InternetAddress) sender[0]).getAddress();
                                 int at = s.indexOf('@');
                                 if (at > 0)
-                                    draft.extra = s.substring(0, at);
+                                    data.draft.extra = s.substring(0, at);
                             }
 
-                            draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
-                            draft.inreplyto = ref.msgid;
-                            draft.thread = ref.thread;
+                            data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
+                            data.draft.inreplyto = ref.msgid;
+                            data.draft.thread = ref.thread;
 
                             String via = null;
                             if (ref.identity != null) {
                                 EntityIdentity identity = db.identity().getIdentity(ref.identity);
-                                draft.from = new Address[]{new InternetAddress(identity.email, identity.name)};
-                                via = MessageHelper.canonicalAddress(identity.email);
+                                if (identity != null) {
+                                    data.draft.from = new Address[]{new InternetAddress(identity.email, identity.name)};
+                                    via = identity.email;
+                                }
                             }
 
                             if ("list".equals(action) && ref.list_post != null)
-                                draft.to = ref.list_post;
+                                data.draft.to = ref.list_post;
                             else if ("receipt".equals(action) && ref.receipt_to != null)
-                                draft.to = ref.receipt_to;
+                                data.draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
                                 if (ref.replySelf(via)) {
-                                    draft.to = ref.to;
-                                    draft.from = ref.from;
+                                    data.draft.to = ref.to;
+                                    data.draft.from = ref.from;
                                 } else
-                                    draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                    data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                             }
 
                             if ("reply_all".equals(action))
-                                draft.cc = ref.getAllRecipients(via);
+                                data.draft.cc = ref.getAllRecipients(via);
                             else if ("receipt".equals(action))
-                                draft.receipt_request = true;
+                                data.draft.receipt_request = true;
 
                         } else if ("forward".equals(action) || "editasnew".equals(action))
-                            draft.thread = draft.msgid; // new thread
+                            data.draft.thread = data.draft.msgid; // new thread
 
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
@@ -2156,23 +2141,23 @@ public class FragmentCompose extends FragmentBase {
                                 String re = context.getString(R.string.title_subject_reply, "");
                                 subject = subject.replaceAll("(?i)" + Pattern.quote(re.trim()), "").trim();
                             }
-                            draft.subject = context.getString(R.string.title_subject_reply, subject);
+                            data.draft.subject = context.getString(R.string.title_subject_reply, subject);
                         } else if ("forward".equals(action)) {
                             if (prefix_once) {
                                 String fwd = context.getString(R.string.title_subject_forward, "");
                                 subject = subject.replaceAll("(?i)" + Pattern.quote(fwd.trim()), "").trim();
                             }
-                            draft.subject = context.getString(R.string.title_subject_forward, subject);
+                            data.draft.subject = context.getString(R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
-                            draft.subject = ref.subject;
+                            data.draft.subject = ref.subject;
                             if (ref.content) {
                                 String html = Helper.readText(ref.getFile(context));
                                 body = HtmlHelper.sanitize(context, html, true);
                             }
                         } else if ("list".equals(action)) {
-                            draft.subject = ref.subject;
+                            data.draft.subject = ref.subject;
                         } else if ("receipt".equals(action)) {
-                            draft.subject = context.getString(R.string.title_receipt_subject, subject);
+                            data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
                             Configuration configuration = new Configuration(context.getResources().getConfiguration());
                             configuration.setLocale(new Locale("en"));
@@ -2182,79 +2167,114 @@ public class FragmentCompose extends FragmentBase {
                             if (!Locale.getDefault().getLanguage().equals("en"))
                                 body += "<p>" + res.getString(R.string.title_receipt_text) + "</p>";
                         } else if ("participation".equals(action))
-                            draft.subject = status + ": " + ref.subject;
+                            data.draft.subject = status + ": " + ref.subject;
 
-                        draft.plain_only = ref.plain_only;
+                        data.draft.plain_only = ref.plain_only;
                         if (answer > 0)
-                            body = EntityAnswer.getAnswerText(context, answer, draft.to) + body;
+                            body = EntityAnswer.getAnswerText(context, answer, data.draft.to) + body;
                     }
 
                     if (plain_only)
-                        draft.plain_only = true;
+                        data.draft.plain_only = true;
 
                     // Select identity matching from address
-                    int icount = 0;
-                    EntityIdentity first = null;
-                    EntityIdentity primary = null;
-                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+                    EntityIdentity selected = null;
+                    long aid = args.getLong("account", -1);
 
-                    int iindex = -1;
-                    do {
-                        String from = null;
-                        if (iindex >= 0)
-                            from = MessageHelper.canonicalAddress(((InternetAddress) draft.from[iindex]).getAddress());
-                        for (EntityIdentity identity : identities) {
-                            String email = MessageHelper.canonicalAddress(identity.email);
-                            if (email.equals(from)) {
-                                draft.identity = identity.id;
-                                draft.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
-                                break;
-                            }
-                            if (identity.account.equals(draft.account)) {
-                                icount++;
-                                if (identity.primary)
-                                    primary = identity;
-                                if (first == null)
-                                    first = identity;
-                            }
-                        }
-                        if (draft.identity != null)
-                            break;
+                    if (data.draft.from != null && data.draft.from.length > 0) {
+                        for (Address sender : data.draft.from)
+                            for (EntityIdentity identity : data.identities)
+                                if (identity.account.equals(aid) &&
+                                        MessageHelper.sameAddress(sender, identity.email)) {
+                                    selected = identity;
+                                    break;
+                                }
 
-                        iindex++;
-                    } while (iindex < (draft.from == null ? -1 : draft.from.length));
+                        if (selected == null)
+                            for (Address sender : data.draft.from)
+                                for (EntityIdentity identity : data.identities)
+                                    if (identity.account.equals(aid) &&
+                                            MessageHelper.similarAddress(sender, identity.email)) {
+                                        selected = identity;
+                                        break;
+                                    }
 
-                    // Select identity
-                    if (draft.identity == null) {
-                        if (primary != null) {
-                            draft.identity = primary.id;
-                            draft.from = new InternetAddress[]{new InternetAddress(primary.email, primary.name)};
-                        } else if (first != null && icount == 1) {
-                            draft.identity = first.id;
-                            draft.from = new InternetAddress[]{new InternetAddress(first.email, first.name)};
-                        }
+                        if (selected == null)
+                            for (Address sender : data.draft.from)
+                                for (EntityIdentity identity : data.identities)
+                                    if (MessageHelper.sameAddress(sender, identity.email)) {
+                                        selected = identity;
+                                        break;
+                                    }
+
+                        if (selected == null)
+                            for (Address sender : data.draft.from)
+                                for (EntityIdentity identity : data.identities)
+                                    if (MessageHelper.similarAddress(sender, identity.email)) {
+                                        selected = identity;
+                                        break;
+                                    }
                     }
 
-                    draft.sender = MessageHelper.getSortKey(draft.from);
-                    Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
-                    draft.avatar = (lookupUri == null ? null : lookupUri.toString());
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.account.equals(aid) && identity.primary) {
+                                selected = identity;
+                                break;
+                            }
 
-                    draft.received = new Date().getTime();
-                    draft.seen = true;
-                    draft.ui_seen = true;
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.account.equals(aid)) {
+                                selected = identity;
+                                break;
+                            }
 
-                    draft.id = db.message().insertMessage(draft);
-                    Helper.writeText(draft.getFile(context), body);
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.primary) {
+                                selected = identity;
+                                break;
+                            }
 
-                    db.message().setMessageContent(draft.id,
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities) {
+                            selected = identity;
+                            break;
+                        }
+
+                    if (selected == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_identities));
+
+                    EntityFolder drafts = db.folder().getFolderByType(selected.account, EntityFolder.DRAFTS);
+                    if (drafts == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
+
+                    data.draft.account = drafts.account;
+                    data.draft.folder = drafts.id;
+                    data.draft.identity = selected.id;
+                    data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name)};
+
+                    data.draft.sender = MessageHelper.getSortKey(data.draft.from);
+                    Uri lookupUri = ContactInfo.getLookupUri(context, data.draft.from);
+                    data.draft.avatar = (lookupUri == null ? null : lookupUri.toString());
+
+                    data.draft.received = new Date().getTime();
+                    data.draft.seen = true;
+                    data.draft.ui_seen = true;
+
+                    data.draft.id = db.message().insertMessage(data.draft);
+                    Helper.writeText(data.draft.getFile(context), body);
+
+                    db.message().setMessageContent(data.draft.id,
                             true,
-                            draft.plain_only,
+                            data.draft.plain_only,
                             HtmlHelper.getPreview(body),
                             null);
 
                     if ("participation".equals(action)) {
                         EntityAttachment attachment = new EntityAttachment();
-                        attachment.message = draft.id;
+                        attachment.message = data.draft.id;
                         attachment.sequence = 1;
                         attachment.name = "meeting.ics";
                         attachment.type = "text/calendar";
@@ -2312,14 +2332,14 @@ public class FragmentCompose extends FragmentBase {
                                 Html.escapeHtml(new Date(ref.received).toString()),
                                 Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),
                                 refText);
-                        Helper.writeText(draft.getRefFile(context), refBody);
+                        Helper.writeText(data.draft.getRefFile(context), refBody);
                     }
 
                     if ("new".equals(action)) {
                         ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
                         if (uris != null)
                             for (Uri uri : uris)
-                                addAttachment(context, draft.id, uri, false);
+                                addAttachment(context, data.draft.id, uri, false);
                     } else if (ref != null &&
                             ("reply".equals(action) || "reply_all".equals(action) ||
                                     "forward".equals(action) || "editasnew".equals(action))) {
@@ -2328,8 +2348,8 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityAttachment attachment : attachments)
                             if (attachment.encryption != null &&
                                     attachment.encryption.equals(EntityAttachment.PGP_MESSAGE)) {
-                                draft.encrypt = true;
-                                db.message().setMessageEncrypt(draft.id, true);
+                                data.draft.encrypt = true;
+                                db.message().setMessageEncrypt(data.draft.id, true);
 
                             } else if (attachment.encryption == null &&
                                     ("forward".equals(action) || "editasnew".equals(action) ||
@@ -2338,7 +2358,7 @@ public class FragmentCompose extends FragmentBase {
                                     File source = attachment.getFile(context);
 
                                     attachment.id = null;
-                                    attachment.message = draft.id;
+                                    attachment.message = data.draft.id;
                                     attachment.sequence = ++sequence;
                                     attachment.id = db.attachment().insertAttachment(attachment);
 
@@ -2352,18 +2372,18 @@ public class FragmentCompose extends FragmentBase {
                             }
                     }
 
-                    EntityOperation.queue(context, draft, EntityOperation.ADD);
+                    EntityOperation.queue(context, data.draft, EntityOperation.ADD);
                 } else {
-                    if (!draft.content) {
-                        if (draft.uid == null)
+                    if (!data.draft.content) {
+                        if (data.draft.uid == null)
                             throw new IllegalStateException("Draft without uid");
-                        EntityOperation.queue(context, draft, EntityOperation.BODY);
+                        EntityOperation.queue(context, data.draft, EntityOperation.BODY);
                     }
 
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(data.draft.id);
                     for (EntityAttachment attachment : attachments)
                         if (!attachment.available)
-                            EntityOperation.queue(context, draft, EntityOperation.ATTACHMENT, attachment.id);
+                            EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
                 }
 
                 db.setTransactionSuccessful();
@@ -2371,18 +2391,11 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
-            DraftData data = new DraftData();
-            data.draft = draft;
-            data.identities = db.identity().getComposableIdentities(null);
-
             return data;
         }
 
         @Override
         protected void onExecuted(Bundle args, final DraftData data) {
-            if (data.identities == null || data.identities.size() == 0)
-                throw new IllegalStateException(getString(R.string.title_no_identities));
-
             working = data.draft.id;
 
             final String action = getArguments().getString("action");
