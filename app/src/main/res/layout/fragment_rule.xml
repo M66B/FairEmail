@@ -160,6 +160,14 @@
                 app:layout_constraintTop_toTopOf="@id/etSender"
                 app:srcCompat="@drawable/baseline_person_add_24" />
 
+            <CheckBox
+                android:id="@+id/cbKnownSender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_rule_sender_known"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etSender" />
+
             <TextView
                 android:id="@+id/tvAndSender"
                 android:layout_width="wrap_content"
@@ -170,7 +178,7 @@
                 android:textColor="?android:attr/textColorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etSender" />
+                app:layout_constraintTop_toBottomOf="@+id/cbKnownSender" />
 
             <View
                 android:id="@+id/vSeparatorRecipient"
@@ -615,7 +623,7 @@
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
                     tvTitle,tvFolder,tvName,etName,tvOrder,etOrder,cbEnabled,cbStop,
-                    vSeparatorSender,tvSender,cbSender,etSender,ibSender,tvAndSender,
+                    vSeparatorSender,tvSender,cbSender,etSender,ibSender,cbKnownSender,tvAndSender,
                     vSeparatorRecipient,tvRecipient,cbRecipient,etRecipient,ibRecipient,tvAndRecipient,
                     vSeparatorSubject,tvSubject,cbSubject,etSubject,tvAndSubject,
                     vSeparatorHeader,tvHeader,cbHeader,etHeader,tvAndHeader,

@@ -665,6 +665,7 @@
     <string name="title_rule_enabled">Enabled</string>
     <string name="title_rule_stop">Stop processing rules after executing this rule</string>
     <string name="title_rule_sender">Sender contains</string>
+    <string name="title_rule_sender_known">Sender is a contact</string>
     <string name="title_rule_recipient">Recipient contains</string>
     <string name="title_rule_subject">Subject contains</string>
     <string name="title_rule_header">Header contains</string>

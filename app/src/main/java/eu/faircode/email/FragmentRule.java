@@ -40,6 +40,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -89,6 +90,7 @@ public class FragmentRule extends FragmentBase {
     private EditText etSender;
     private CheckBox cbSender;
     private ImageView ibSender;
+    private CheckBox cbKnownSender;
 
     private EditText etRecipient;
     private CheckBox cbRecipient;
@@ -192,6 +194,7 @@ public class FragmentRule extends FragmentBase {
         etSender = view.findViewById(R.id.etSender);
         cbSender = view.findViewById(R.id.cbSender);
         ibSender = view.findViewById(R.id.ibSender);
+        cbKnownSender = view.findViewById(R.id.cbKnownSender);
 
         etRecipient = view.findViewById(R.id.etRecipient);
         cbRecipient = view.findViewById(R.id.cbRecipient);
@@ -249,6 +252,15 @@ public class FragmentRule extends FragmentBase {
                     Snackbar.make(view, R.string.title_no_contacts, Snackbar.LENGTH_LONG).show();
                 else
                     startActivityForResult(Helper.getChooser(getContext(), pick), REQUEST_SENDER);
+            }
+        });
+
+        cbKnownSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                etSender.setEnabled(!isChecked);
+                ibSender.setEnabled(!isChecked);
+                cbSender.setEnabled(!isChecked);
             }
         });
 
@@ -628,6 +640,10 @@ public class FragmentRule extends FragmentBase {
 
                     etSender.setText(jsender == null ? args.getString("sender") : jsender.getString("value"));
                     cbSender.setChecked(jsender != null && jsender.getBoolean("regex"));
+                    cbKnownSender.setChecked(jsender != null && jsender.optBoolean("known"));
+                    etSender.setEnabled(!cbKnownSender.isChecked());
+                    ibSender.setEnabled(!cbKnownSender.isChecked());
+                    cbSender.setEnabled(!cbKnownSender.isChecked());
 
                     etRecipient.setText(jrecipient == null ? args.getString("recipient") : jrecipient.getString("value"));
                     cbRecipient.setChecked(jrecipient != null && jrecipient.getBoolean("regex"));
@@ -877,10 +893,12 @@ public class FragmentRule extends FragmentBase {
         JSONObject jcondition = new JSONObject();
 
         String sender = etSender.getText().toString();
-        if (!TextUtils.isEmpty(sender)) {
+        boolean known = cbKnownSender.isChecked();
+        if (!TextUtils.isEmpty(sender) || known) {
             JSONObject jsender = new JSONObject();
             jsender.put("value", sender);
             jsender.put("regex", cbSender.isChecked());
+            jsender.put("known", known);
             jcondition.put("sender", jsender);
         }
 

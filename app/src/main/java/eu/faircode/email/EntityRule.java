@@ -19,11 +19,16 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.net.Uri;
+import android.provider.ContactsContract;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -102,16 +107,51 @@ public class EntityRule {
             if (jsender != null) {
                 String value = jsender.getString("value");
                 boolean regex = jsender.getBoolean("regex");
+                boolean known = jsender.optBoolean("known");
 
                 boolean matches = false;
                 if (message.from != null) {
                     for (Address from : message.from) {
                         InternetAddress ia = (InternetAddress) from;
+                        String email = ia.getAddress();
                         String personal = ia.getPersonal();
-                        String formatted = ((personal == null ? "" : personal + " ") + "<" + ia.getAddress() + ">");
-                        if (matches(context, value, formatted, regex)) {
-                            matches = true;
-                            break;
+
+                        if (known) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean suggest_sent = prefs.getBoolean("suggest_sent", false);
+                            if (suggest_sent) {
+                                DB db = DB.getInstance(context);
+                                EntityContact contact =
+                                        db.contact().getContact(message.account, EntityContact.TYPE_TO, email);
+                                if (contact != null) {
+                                    Log.i(email + " is local contact");
+                                    matches = true;
+                                    break;
+                                }
+                            }
+
+                            boolean contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
+                            if (contacts) {
+                                Cursor cursor = context.getContentResolver().query(
+                                        ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                        new String[]{ContactsContract.CommonDataKinds.Email.CONTACT_ID},
+                                        ContactsContract.CommonDataKinds.Email.DATA + " = ? COLLATE NOCASE",
+                                        new String[]{email},
+                                        null);
+
+                                while (cursor != null && cursor.moveToNext()) {
+                                    Log.i(email + " is Android contact");
+                                    matches = true;
+                                    break;
+                                }
+                            }
+
+                        } else {
+                            String formatted = ((personal == null ? "" : personal + " ") + "<" + email + ">");
+                            if (matches(context, value, formatted, regex)) {
+                                matches = true;
+                                break;
+                            }
                         }
                     }
                 }
