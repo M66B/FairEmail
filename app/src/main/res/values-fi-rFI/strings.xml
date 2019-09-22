@@ -582,6 +582,7 @@
     <string name="title_rule_enabled">Käytössä</string>
     <string name="title_rule_stop">Lopeta sääntöjen käsittely tämän säännön suorittamisen jälkeen</string>
     <string name="title_rule_sender">Lähettäjä sisältää</string>
+    <string name="title_rule_sender_known">Lähettäjä on yhteystiedoissa</string>
     <string name="title_rule_recipient">Vastaanottaja sisältää</string>
     <string name="title_rule_subject">Aihe sisältää</string>
     <string name="title_rule_header">Tunnistetiedot sisältävät</string>

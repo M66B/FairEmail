@@ -570,6 +570,7 @@
     <string name="title_rule_enabled">已启用</string>
     <string name="title_rule_stop">执行此规则后停止处理规则</string>
     <string name="title_rule_sender">发件人包含</string>
+    <string name="title_rule_sender_known">发件人是联系人</string>
     <string name="title_rule_recipient">收件人包含</string>
     <string name="title_rule_subject">主题包含</string>
     <string name="title_rule_header">邮件头包含</string>

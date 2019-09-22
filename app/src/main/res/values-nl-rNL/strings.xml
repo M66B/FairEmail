@@ -569,6 +569,7 @@
     <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
     <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_unseen">Markeren als ongelezen</string>
+    <string name="title_rule_ignore">Melding onderdrukken</string>
     <string name="title_rule_snooze">Sluimeren</string>
     <string name="title_rule_flag">Ster toevoegen</string>
     <string name="title_rule_move">Verplaatsen</string>
@@ -582,6 +583,7 @@
     <string name="title_rule_enabled">Ingeschakeld</string>
     <string name="title_rule_stop">Stop verwerking van regels na het uitvoeren van deze regel</string>
     <string name="title_rule_sender">Afzender bevat</string>
+    <string name="title_rule_sender_known">Afzender is een contact</string>
     <string name="title_rule_recipient">Ontvanger bevat</string>
     <string name="title_rule_subject">Onderwerp bevat</string>
     <string name="title_rule_header">De kop bevat</string>

@@ -581,6 +581,7 @@
     <string name="title_rule_enabled">Abilitato</string>
     <string name="title_rule_stop">Ferma l\'elaborazione delle regole dopo l\'esecuzione di questa regola</string>
     <string name="title_rule_sender">Il mittente contiene</string>
+    <string name="title_rule_sender_known">Il mittente è un contatto</string>
     <string name="title_rule_recipient">Il destinatario contiene</string>
     <string name="title_rule_subject">L\'oggetto contiene</string>
     <string name="title_rule_header">L\'intestazione contiene</string>

@@ -582,6 +582,7 @@
     <string name="title_rule_enabled">Aktivert</string>
     <string name="title_rule_stop">Stopp behandlingen av regler etter at du har utført denne regelen</string>
     <string name="title_rule_sender">Avsenderen inneholder</string>
+    <string name="title_rule_sender_known">Avsender er en kontakt</string>
     <string name="title_rule_recipient">Mottaker inneholder</string>
     <string name="title_rule_subject">Emne inneholder</string>
     <string name="title_rule_header">Overskriften inneholder</string>
