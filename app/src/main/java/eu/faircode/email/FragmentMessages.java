@@ -82,7 +82,6 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
-import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -195,7 +194,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean pane;
 
     private long message = -1;
-    private long attachment = -1;
     private OpenPgpServiceConnection pgpService;
 
     private boolean cards;
@@ -246,8 +244,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
     private static final int REQUEST_RAW = 1;
-    private static final int REQUEST_ATTACHMENT = 2;
-    private static final int REQUEST_ATTACHMENTS = 3;
     private static final int REQUEST_DECRYPT = 4;
     static final int REQUEST_MESSAGE_DELETE = 5;
     private static final int REQUEST_MESSAGES_DELETE = 6;
@@ -268,8 +264,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_EMPTY_TRASH = 21;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
-    static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
-    static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
 
     private static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
@@ -2352,8 +2346,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_STORE_RAW);
-        iff.addAction(ACTION_STORE_ATTACHMENT);
-        iff.addAction(ACTION_STORE_ATTACHMENTS);
         iff.addAction(ACTION_DECRYPT);
         lbm.registerReceiver(receiver, iff);
 
@@ -3554,10 +3546,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 if (ACTION_STORE_RAW.equals(action))
                     onStoreRaw(intent);
-                else if (ACTION_STORE_ATTACHMENT.equals(action))
-                    onStoreAttachment(intent);
-                else if (ACTION_STORE_ATTACHMENTS.equals(action))
-                    onStoreAttachments(intent);
                 else if (ACTION_DECRYPT.equals(action))
                     onDecrypt(intent);
             }
@@ -3574,28 +3562,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else
             startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_RAW);
-    }
-
-    private void onStoreAttachment(Intent intent) {
-        attachment = intent.getLongExtra("id", -1);
-        Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        create.addCategory(Intent.CATEGORY_OPENABLE);
-        create.setType(intent.getStringExtra("type"));
-        create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
-        if (create.resolveActivity(getContext().getPackageManager()) == null)
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_ATTACHMENT);
-    }
-
-    private void onStoreAttachments(Intent intent) {
-        message = intent.getLongExtra("id", -1);
-        Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        //tree.putExtra("android.content.extra.SHOW_ADVANCED", true);
-        if (tree.resolveActivity(getContext().getPackageManager()) == null)
-            Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
-        else
-            startActivityForResult(Helper.getChooser(getContext(), tree), REQUEST_ATTACHMENTS);
     }
 
     private void onDecrypt(Intent intent) {
@@ -3617,14 +3583,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_RAW:
                     if (resultCode == RESULT_OK && data != null)
                         onSaveRaw(data);
-                    break;
-                case REQUEST_ATTACHMENT:
-                    if (resultCode == RESULT_OK && data != null)
-                        onSaveAttachment(data);
-                    break;
-                case REQUEST_ATTACHMENTS:
-                    if (resultCode == RESULT_OK && data != null)
-                        onSaveAttachments(data);
                     break;
                 case REQUEST_DECRYPT:
                     if (resultCode == RESULT_OK && data != null)
@@ -3793,152 +3751,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "raw:save");
-    }
-
-    private void onSaveAttachment(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", attachment);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                if ("file".equals(uri.getScheme())) {
-                    Log.w("Save attachment uri=" + uri);
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
-                }
-
-                DB db = DB.getInstance(context);
-                EntityAttachment attachment = db.attachment().getAttachment(id);
-                if (attachment == null)
-                    return null;
-                File file = attachment.getFile(context);
-
-                ParcelFileDescriptor pfd = null;
-                OutputStream os = null;
-                InputStream is = null;
-                try {
-                    pfd = context.getContentResolver().openFileDescriptor(uri, "w");
-                    os = new FileOutputStream(pfd.getFileDescriptor());
-                    is = new FileInputStream(file);
-
-                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                    int read;
-                    while ((read = is.read(buffer)) != -1)
-                        os.write(buffer, 0, read);
-                } finally {
-                    try {
-                        if (pfd != null)
-                            pfd.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (os != null)
-                            os.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                    try {
-                        if (is != null)
-                            is.close();
-                    } catch (Throwable ex) {
-                        Log.w(ex);
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_attachment_saved, Snackbar.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
-                    Helper.unexpectedError(getFragmentManager(), ex);
-            }
-        }.execute(this, args, "attachment:save");
-    }
-
-    private void onSaveAttachments(Intent data) {
-        Bundle args = new Bundle();
-        args.putLong("id", message);
-        args.putParcelable("uri", data.getData());
-
-        new SimpleTask<Void>() {
-            @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                Uri uri = args.getParcelable("uri");
-
-                DB db = DB.getInstance(context);
-                DocumentFile tree = DocumentFile.fromTreeUri(context, uri);
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments) {
-                    File file = attachment.getFile(context);
-
-                    String name = Helper.sanitizeFilename(attachment.name);
-                    if (TextUtils.isEmpty(name))
-                        name = Long.toString(attachment.id);
-                    DocumentFile document = tree.createFile(attachment.type, name);
-                    if (document == null)
-                        throw new FileNotFoundException(uri + ":" + name);
-
-                    ParcelFileDescriptor pfd = null;
-                    OutputStream os = null;
-                    InputStream is = null;
-                    try {
-                        pfd = context.getContentResolver().openFileDescriptor(document.getUri(), "w");
-                        os = new FileOutputStream(pfd.getFileDescriptor());
-                        is = new FileInputStream(file);
-
-                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                        int read;
-                        while ((read = is.read(buffer)) != -1)
-                            os.write(buffer, 0, read);
-                    } finally {
-                        try {
-                            if (pfd != null)
-                                pfd.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        try {
-                            if (os != null)
-                                os.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        try {
-                            if (is != null)
-                                is.close();
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                    }
-                }
-
-                return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                Snackbar.make(view, R.string.title_attachments_saved, Snackbar.LENGTH_LONG).show();
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
-            }
-        }.execute(this, args, "attachments:save");
     }
 
     private void onDecrypt(Intent data, long id) {
