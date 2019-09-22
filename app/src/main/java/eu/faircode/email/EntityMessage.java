@@ -163,8 +163,10 @@ public class EntityMessage implements Serializable {
     }
 
     boolean replySelf(String via) {
-        Address[] senders = (reply == null || reply.length == 0 ? from : reply);
+        if (via == null)
+            return false;
 
+        Address[] senders = (reply == null || reply.length == 0 ? from : reply);
         if (senders != null)
             for (Address sender : senders)
                 if (MessageHelper.similarAddress(sender, via))
@@ -176,16 +178,17 @@ public class EntityMessage implements Serializable {
     Address[] getAllRecipients(String via) {
         List<Address> addresses = new ArrayList<>();
 
-        if (!replySelf(via) && to != null)
+        if (to != null && !replySelf(via))
             addresses.addAll(Arrays.asList(to));
 
         if (cc != null)
             addresses.addAll(Arrays.asList(cc));
 
         // Filter self
-        for (Address address : new ArrayList<>(addresses))
-            if (MessageHelper.similarAddress(address, via))
-                addresses.remove(address);
+        if (via != null)
+            for (Address address : new ArrayList<>(addresses))
+                if (MessageHelper.similarAddress(address, via))
+                    addresses.remove(address);
 
         return addresses.toArray(new Address[0]);
     }
