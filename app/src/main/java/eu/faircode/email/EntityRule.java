@@ -92,6 +92,7 @@ public class EntityRule {
     static final int TYPE_FLAG = 6;
     static final int TYPE_COPY = 7;
     static final int TYPE_SNOOZE = 8;
+    static final int TYPE_IGNORE = 9;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -266,6 +267,8 @@ public class EntityRule {
                 return onActionSeen(context, message, true);
             case TYPE_UNSEEN:
                 return onActionSeen(context, message, false);
+            case TYPE_IGNORE:
+                return onActionIgnore(context, message, jaction);
             case TYPE_SNOOZE:
                 return onActionSnooze(context, message, jaction);
             case TYPE_FLAG:
@@ -292,7 +295,15 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionMove(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionIgnore(Context context, EntityMessage message, JSONObject jargs) {
+        DB db = DB.getInstance(context);
+        db.message().setMessageUiIgnored(message.id, true);
+
+        message.ui_ignored = true;
+        return true;
+    }
+
+    private boolean onActionMove(Context context, EntityMessage message, JSONObject jargs) {
         long target = jargs.optLong("target", -1);
         boolean seen = jargs.optBoolean("seen");
         boolean thread = jargs.optBoolean("thread");

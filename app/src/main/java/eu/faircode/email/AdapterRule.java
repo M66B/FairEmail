@@ -127,6 +127,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     case EntityRule.TYPE_UNSEEN:
                         tvAction.setText(R.string.title_rule_unseen);
                         break;
+                    case EntityRule.TYPE_IGNORE:
+                        tvAction.setText(R.string.title_rule_ignore);
+                        break;
                     case EntityRule.TYPE_SNOOZE:
                         tvAction.setText(R.string.title_rule_snooze);
                         break;

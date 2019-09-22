@@ -651,6 +651,7 @@
 
     <string name="title_rule_seen">Mark read</string>
     <string name="title_rule_unseen">Mark unread</string>
+    <string name="title_rule_ignore">Suppress notification</string>
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Add star</string>
     <string name="title_rule_move">Move</string>
