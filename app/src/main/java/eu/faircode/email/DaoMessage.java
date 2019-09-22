@@ -248,7 +248,7 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
-    @Query("SELECT COUNT(message.id) AS unseen, SUM(message.ui_ignored) AS ignored" +
+    @Query("SELECT COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +

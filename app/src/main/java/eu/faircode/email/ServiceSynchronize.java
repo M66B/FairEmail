@@ -150,7 +150,7 @@ public class ServiceSynchronize extends ServiceBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         db.message().liveUnseen().observe(this, new Observer<TupleMessageStats>() {
-            private TupleMessageStats lastStats = null;
+            private Integer lastUnseen = null;
 
             @Override
             public void onChanged(TupleMessageStats stats) {
@@ -158,14 +158,14 @@ public class ServiceSynchronize extends ServiceBase {
                     stats = new TupleMessageStats();
 
                 boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
-                if (!unseen_ignored || stats.ignored == null)
-                    stats.ignored = 0;
+                Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
+                if (unseen == null)
+                    unseen = 0;
 
-                if (!stats.equals(lastStats)) {
+                if (lastUnseen == null || !lastUnseen.equals(unseen)) {
                     Log.i("Stats " + stats);
-                    lastStats = stats;
-
-                    setUnseen(stats.unseen - stats.ignored);
+                    lastUnseen = unseen;
+                    setUnseen(unseen);
                 }
             }
         });

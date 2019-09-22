@@ -25,15 +25,15 @@ import androidx.annotation.Nullable;
 import java.util.Objects;
 
 public class TupleMessageStats {
-    public Integer unseen = 0;
-    public Integer ignored = 0;
+    public Integer unseen;
+    public Integer notifying;
 
     @Override
     public boolean equals(@Nullable Object obj) {
         if (obj instanceof TupleMessageStats) {
             TupleMessageStats other = (TupleMessageStats) obj;
             return (Objects.equals(this.unseen, other.unseen) &&
-                    Objects.equals(this.ignored, other.ignored));
+                    Objects.equals(this.notifying, other.notifying));
         } else
             return false;
     }
@@ -41,6 +41,6 @@ public class TupleMessageStats {
     @NonNull
     @Override
     public String toString() {
-        return "unseen=" + unseen + " ignored=" + ignored;
+        return "unseen=" + unseen + " notify=" + notifying;
     }
 }
