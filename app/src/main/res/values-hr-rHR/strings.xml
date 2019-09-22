@@ -368,8 +368,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_pop_support">POP3 protokol podržava samo preuzimanje i brisanje poruka. Dakle, neće biti moguće označiti poruke kao omiljene, premjestiti poruke itd. POP3 će trošiti više snage baterije od IMAP-a. Stoga razmislite o uporabi IMAP protokola kad god je to moguće.</string>
     <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
-    <string name="title_authorize">Odobriti</string>
-    <string name="title_authorizing">Autorizira &#8230;</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
     <string name="title_synchronize_all">Sinkroniziraj sve poruke</string>
     <string name="title_synchronize_enabled">Sinkroniziraj</string>

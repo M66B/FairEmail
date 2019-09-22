@@ -108,6 +108,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
+    <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
     <string name="title_setup_no_settings">Keine Einstellungen für Domain „%1$s” gefunden</string>
     <string name="title_setup_quick_success">Ein Konto und eine Identität wurden erfolgreich hinzugefügt</string>
@@ -357,8 +358,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_pop_support">Das POP3-Protokoll unterstützt nur das Herunterladen und Löschen von Nachrichten. Es wird also nicht möglich sein, Nachrichten als Favoriten zu markieren, Nachrichten zu verschieben, etc. POP3 wird mehr Akku-Leistung als IMAP verwenden. Daher erwägen Sie, das IMAP-Protokoll zu verwenden, wann immer möglich.</string>
     <string name="title_activesync_support">ActiveSync wird nicht unterstützt</string>
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
-    <string name="title_authorize">Autorisieren</string>
-    <string name="title_authorizing">Konto autorisieren &#8230;</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_all">Alle Nachrichten synchronisieren</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>

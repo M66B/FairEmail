@@ -379,8 +379,6 @@
     <string name="title_last_connected">Poslední připojení: %1$s</string>
     <string name="title_activesync_support">ActiveSync není podporován</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
-    <string name="title_authorize">Autorizovat</string>
-    <string name="title_authorizing">Probíhá autorizace &#8230;</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_synchronize_all">Synchronizovat všechny zprávy</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>

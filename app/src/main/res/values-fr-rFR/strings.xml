@@ -109,6 +109,7 @@
     <string name="title_setup_wizard">Assistant</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
+    <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
@@ -358,8 +359,6 @@
     <string name="title_pop_support">Le protocole POP3 supporte le téléchargement et la suppression des messages uniquement. Il ne sera donc pas possible de marquer les messages favoris, de déplacer des messages, etc. POP3 utilisera plus de batterie que IMAP. Par conséquent, envisagez d\'utiliser le protocole IMAP lorsque cela est possible.</string>
     <string name="title_activesync_support">ActiveSync n\'est pas pris en charge</string>
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
-    <string name="title_authorize">Autoriser</string>
-    <string name="title_authorizing">Autorisation de &#8230;</string>
     <string name="title_review">Récapitulatif</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_synchronize_all">Synchroniser tous les messages</string>

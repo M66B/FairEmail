@@ -355,8 +355,6 @@
     <string name="title_last_connected">Darrera connexió: %1$s</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
-    <string name="title_authorize">Autoritzar</string>
-    <string name="title_authorizing">S\'està autoritzant &#8230;</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
     <string name="title_synchronize_all">Sincronitza tots els missatges</string>
     <string name="title_synchronize_enabled">Sincronitza</string>

@@ -379,8 +379,6 @@
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
-    <string name="title_authorize">Autoryzuj</string>
-    <string name="title_authorizing">Autoryzowanie &#8230;</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_synchronize_all">Synchronizuj wszystkie wiadomości</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>

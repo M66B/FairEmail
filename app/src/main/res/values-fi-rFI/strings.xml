@@ -109,6 +109,7 @@
     <string name="title_setup_wizard">Asetusvelho</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet, että tili voidaan valita ja nimesi voidaan lukea</string>
+    <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
     <string name="title_setup_quick_success">Tili ja identiteetti on lisätty onnistuneesti</string>
@@ -358,8 +359,6 @@
     <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. Sitä käytettäessä ei ole mahdollista merkitä viestejä suosikeiksi, siirtää viestejä, jne. POP3 käyttää enemmän akkua kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
     <string name="title_activesync_support">ActiveSync ei ole tuettu</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
-    <string name="title_authorize">Valtuuta</string>
-    <string name="title_authorizing">Valtuutetaan &#8230;</string>
     <string name="title_review">Tarkista</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_all">Synkronoi kaikki viestit</string>

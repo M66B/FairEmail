@@ -97,6 +97,7 @@
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_other">其他邮件服务提供商</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
+    <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
@@ -346,8 +347,6 @@
     <string name="title_pop_support">POP3协议仅支持下载和删除消息。因此，无法收藏信息，移动消息等。POP3比IMAP 更耗电。因此，请尽可能使用 IMAP 协议。</string>
     <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
-    <string name="title_authorize">授权</string>
-    <string name="title_authorizing">授权中 &#8230;</string>
     <string name="title_review">查看</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_synchronize_all">同步所有消息</string>
