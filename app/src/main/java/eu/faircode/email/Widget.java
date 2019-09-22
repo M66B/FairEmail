@@ -46,13 +46,13 @@ public class Widget extends AppWidgetProvider {
         });
     }
 
-    static void update(Context context, int count) {
+    static void update(Context context, Integer count) {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int[] appWidgetIds = AppWidgetManager.getInstance(context).getAppWidgetIds(new ComponentName(context, Widget.class));
         update(context, appWidgetManager, appWidgetIds, count);
     }
 
-    private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, int count) {
+    private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, Integer count) {
         NumberFormat nf = NumberFormat.getIntegerInstance();
 
         Intent view = new Intent(context, ActivityView.class);
@@ -66,7 +66,7 @@ public class Widget extends AppWidgetProvider {
 
             views.setOnClickPendingIntent(R.id.widget, pi);
 
-            if (count < 0)
+            if (count == null)
                 views.setTextViewText(R.id.tvCount, "?");
             else if (count > 99)
                 views.setTextViewText(R.id.tvCount, "∞");

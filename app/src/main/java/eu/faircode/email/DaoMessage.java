@@ -248,6 +248,15 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
+    @Query("SELECT COUNT(message.id) AS unseen, SUM(message.ui_ignored) AS ignored" +
+            " FROM message" +
+            " JOIN account ON account.id = message.account" +
+            " JOIN folder ON folder.id = message.folder" +
+            " WHERE account.`synchronize`" +
+            " AND folder.notify" +
+            " AND NOT (message.ui_seen OR message.ui_hide <> 0)")
+    LiveData<TupleMessageStats> liveUnseen();
+
     @Query("SELECT message.*" +
             ", account.pop AS accountPop, account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +

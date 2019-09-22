@@ -108,15 +108,11 @@ import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.SearchTerm;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
-
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
 import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 
 class Core {
-    private static int lastUnseen = -1;
-
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
     private static final long AFTER_SEND_DELAY = 10 * 1000L; // milliseconds
     private static final int SYNC_CHUNCK_SIZE = 200;
@@ -2246,16 +2242,6 @@ class Core {
         }
     }
 
-    static void notifyReset(Context context) {
-        lastUnseen = -1;
-        Widget.update(context, -1);
-        try {
-            ShortcutBadger.removeCount(context);
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-    }
-
     static void notifyMessages(Context context, List<TupleMessageEx> messages, Map<Long, List<Long>> groupNotifying) {
         if (messages == null)
             messages = new ArrayList<>();
@@ -2265,21 +2251,14 @@ class Core {
         if (nm == null)
             return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean badge = prefs.getBoolean("badge", true);
-        boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
         boolean pro = ActivityBilling.isPro(context);
 
-        int unseen = 0;
         Map<Long, List<TupleMessageEx>> groupMessages = new HashMap<>();
         for (long group : groupNotifying.keySet())
             groupMessages.put(group, new ArrayList<>());
 
         // Current
         for (TupleMessageEx message : messages) {
-            if (!message.ui_seen && (!unseen_ignored || !message.ui_ignored) && message.ui_hide == 0)
-                unseen++;
-
             // Check if notification channel enabled
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O &&
                     message.notifying == 0 && message.from != null && message.from.length > 0) {
@@ -2308,17 +2287,6 @@ class Core {
                 // This assumes the messages are properly ordered
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);
-            }
-        }
-
-        // Update widget/badge count
-        if (lastUnseen < 0 || unseen != lastUnseen) {
-            lastUnseen = unseen;
-            Widget.update(context, unseen);
-            try {
-                ShortcutBadger.applyCount(context, badge ? unseen : 0);
-            } catch (Throwable ex) {
-                Log.e(ex);
             }
         }
 
