@@ -1540,11 +1540,11 @@ class Core {
             List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
             fp.add(FetchProfile.Item.ENVELOPE);
-            // fp.add(FetchProfile.Item.FLAGS);
+            //fp.add(FetchProfile.Item.FLAGS);
             fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-            // fp.add(UIDFolder.FetchProfileItem.UID);
+            //fp.add(UIDFolder.FetchProfileItem.UID);
             fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-            // fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
 
@@ -2183,16 +2183,18 @@ class Core {
         if (fetch) {
             Log.i(folder.name + " fetching message id=" + message.id);
 
-            FetchProfile fp = new FetchProfile();
+            // Fetch on demand to prevent OOM
+
+            //FetchProfile fp = new FetchProfile();
             //fp.add(FetchProfile.Item.ENVELOPE);
             //fp.add(FetchProfile.Item.FLAGS);
-            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+            //fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
             //fp.add(UIDFolder.FetchProfileItem.UID);
             //fp.add(IMAPFolder.FetchProfileItem.HEADERS);
             //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             //fp.add(FetchProfile.Item.SIZE);
             //fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            ifolder.fetch(new Message[]{imessage}, fp);
+            //ifolder.fetch(new Message[]{imessage}, fp);
 
             MessageHelper helper = new MessageHelper(imessage);
             MessageHelper.MessageParts parts = helper.getMessageParts();

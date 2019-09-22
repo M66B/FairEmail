@@ -449,6 +449,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
             fp.add(UIDFolder.FetchProfileItem.UID);
             fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
             fp.add(FetchProfile.Item.SIZE);
             fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
             state.ifolder.fetch(isub, fp);
