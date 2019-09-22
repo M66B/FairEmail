@@ -715,11 +715,16 @@ public class MessageHelper {
 
     static boolean sameAddress(Address address1, String email2) {
         String email1 = ((InternetAddress) address1).getAddress();
+        if (email1 == null)
+            return false;
+
         return email1.equalsIgnoreCase(email2);
     }
 
     static boolean similarAddress(Address address1, String email2) {
         String email1 = ((InternetAddress) address1).getAddress();
+        if (email1 == null)
+            return false;
 
         if (!email1.contains("@") || !email2.contains("@"))
             return false;
