@@ -2092,15 +2092,6 @@ public class FragmentCompose extends FragmentBase {
                                 "list".equals(action) ||
                                 "receipt".equals(action) ||
                                 "participation".equals(action)) {
-                            EntityFolder rfolder = db.folder().getFolder(ref.folder);
-                            Address[] sender = (rfolder != null && EntityFolder.isOutgoing(rfolder.type) ? ref.from : ref.to);
-                            if (sender != null && sender.length > 0) {
-                                String s = ((InternetAddress) sender[0]).getAddress();
-                                int at = s.indexOf('@');
-                                if (at > 0)
-                                    data.draft.extra = s.substring(0, at);
-                            }
-
                             data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
                             data.draft.inreplyto = ref.msgid;
                             data.draft.thread = ref.thread;
@@ -2254,6 +2245,10 @@ public class FragmentCompose extends FragmentBase {
                     data.draft.folder = drafts.id;
                     data.draft.identity = selected.id;
                     data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name)};
+
+                    int at = selected.email.indexOf('@');
+                    if (at > 0)
+                        data.draft.extra = selected.email.substring(0, at);
 
                     data.draft.sender = MessageHelper.getSortKey(data.draft.from);
                     Uri lookupUri = ContactInfo.getLookupUri(context, data.draft.from);
