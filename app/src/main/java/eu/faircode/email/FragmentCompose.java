@@ -2096,17 +2096,13 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.inreplyto = ref.msgid;
                             data.draft.thread = ref.thread;
 
-                            EntityIdentity ridentity = null;
-                            if (ref.identity != null)
-                                ridentity = db.identity().getIdentity(ref.identity);
-
                             if ("list".equals(action) && ref.list_post != null)
                                 data.draft.to = ref.list_post;
                             else if ("receipt".equals(action) && ref.receipt_to != null)
                                 data.draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
-                                if (ref.replySelf(ridentity)) {
+                                if (ref.replySelf(data.identities)) {
                                     data.draft.from = ref.from;
                                     data.draft.to = ref.to;
                                 } else {
@@ -2116,7 +2112,7 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                             if ("reply_all".equals(action))
-                                data.draft.cc = ref.getAllRecipients(ridentity);
+                                data.draft.cc = ref.getAllRecipients(data.identities);
                             else if ("receipt".equals(action))
                                 data.draft.receipt_request = true;
 
