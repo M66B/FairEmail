@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -29,6 +31,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
+
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -79,6 +85,7 @@ public class EntityIdentity {
     public Boolean primary;
     @NonNull
     public Boolean sender_extra = false;
+    public String sender_extra_regex;
     public String replyto;
     public String bcc;
     @NonNull
@@ -100,6 +107,45 @@ public class EntityIdentity {
 
     String getProtocol() {
         return (starttls ? "smtp" : "smtps");
+    }
+
+    boolean sameAddress(Address address) {
+        String other = ((InternetAddress) address).getAddress();
+        if (other == null)
+            return false;
+
+        return other.equalsIgnoreCase(email);
+    }
+
+    boolean similarAddress(Address address) {
+        String other = ((InternetAddress) address).getAddress();
+        if (other == null)
+            return false;
+
+        if (!other.contains("@") || !email.contains("@"))
+            return false;
+
+        String[] cother = other.split("@");
+        String[] cemail = email.split("@");
+
+        if (cother.length != 2 || cemail.length != 2)
+            return false;
+
+        // Domain
+        if (!cother[1].equalsIgnoreCase(cemail[1]))
+            return false;
+
+        // User
+        if (TextUtils.isEmpty(sender_extra_regex)) {
+            String user = (cother[0].contains("+") ? cother[0].split("\\+")[0] : cother[0]);
+            if (user.equalsIgnoreCase(cemail[0]))
+                return true;
+        } else {
+            if (Pattern.matches(sender_extra_regex, cother[0]))
+                return true;
+        }
+
+        return false;
     }
 
     public JSONObject toJSON() throws JSONException {

@@ -49,6 +49,12 @@ public interface DaoIdentity {
             " ORDER BY name COLLATE NOCASE")
     List<EntityIdentity> getIdentities(long account);
 
+    @Query("SELECT identity.* FROM identity" +
+            " JOIN account ON account.id = identity.account" +
+            " WHERE identity.account = :account" +
+            " AND identity.synchronize AND account.synchronize")
+    List<EntityIdentity> getSynchronizingIdentities(long account);
+
     @Query("SELECT * FROM identity WHERE id = :id")
     EntityIdentity getIdentity(long id);
 

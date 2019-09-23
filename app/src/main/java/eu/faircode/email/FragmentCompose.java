@@ -2096,13 +2096,11 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.inreplyto = ref.msgid;
                             data.draft.thread = ref.thread;
 
-                            String via = null;
+                            EntityIdentity identity = null;
                             if (ref.identity != null) {
-                                EntityIdentity identity = db.identity().getIdentity(ref.identity);
-                                if (identity != null) {
+                                identity = db.identity().getIdentity(ref.identity);
+                                if (identity != null)
                                     data.draft.from = new Address[]{new InternetAddress(identity.email, identity.name)};
-                                    via = identity.email;
-                                }
                             }
 
                             if ("list".equals(action) && ref.list_post != null)
@@ -2111,7 +2109,7 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
-                                if (ref.replySelf(via)) {
+                                if (ref.replySelf(identity)) {
                                     data.draft.to = ref.to;
                                     data.draft.from = ref.from;
                                 } else
@@ -2119,7 +2117,7 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                             if ("reply_all".equals(action))
-                                data.draft.cc = ref.getAllRecipients(via);
+                                data.draft.cc = ref.getAllRecipients(identity);
                             else if ("receipt".equals(action))
                                 data.draft.receipt_request = true;
 
@@ -2176,7 +2174,7 @@ public class FragmentCompose extends FragmentBase {
                         for (Address sender : data.draft.from)
                             for (EntityIdentity identity : data.identities)
                                 if (identity.account.equals(aid) &&
-                                        MessageHelper.sameAddress(sender, identity.email)) {
+                                        identity.sameAddress(sender)) {
                                     selected = identity;
                                     break;
                                 }
@@ -2185,7 +2183,7 @@ public class FragmentCompose extends FragmentBase {
                             for (Address sender : data.draft.from)
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.account.equals(aid) &&
-                                            MessageHelper.similarAddress(sender, identity.email)) {
+                                            identity.similarAddress(sender)) {
                                         selected = identity;
                                         break;
                                     }
@@ -2193,7 +2191,7 @@ public class FragmentCompose extends FragmentBase {
                         if (selected == null)
                             for (Address sender : data.draft.from)
                                 for (EntityIdentity identity : data.identities)
-                                    if (MessageHelper.sameAddress(sender, identity.email)) {
+                                    if (identity.sameAddress(sender)) {
                                         selected = identity;
                                         break;
                                     }
@@ -2201,7 +2199,7 @@ public class FragmentCompose extends FragmentBase {
                         if (selected == null)
                             for (Address sender : data.draft.from)
                                 for (EntityIdentity identity : data.identities)
-                                    if (MessageHelper.similarAddress(sender, identity.email)) {
+                                    if (identity.similarAddress(sender)) {
                                         selected = identity;
                                         break;
                                     }

@@ -1817,7 +1817,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return null;
 
                             for (Address sender : senders)
-                                if (MessageHelper.similarAddress(sender, identity.email)) {
+                                if (identity.similarAddress(sender)) {
                                     outgoing = true;
                                     break;
                                 }
@@ -2187,7 +2187,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(message.id))
                         return;
 
-                    Address[] recipients = message.getAllRecipients(identity == null ? null : identity.email);
+                    Address[] recipients = message.getAllRecipients(identity);
 
                     View anchor = bnvActions.findViewById(R.id.action_reply);
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);

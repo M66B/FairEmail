@@ -456,7 +456,7 @@ public class FragmentRule extends FragmentBase {
                 if (data.folders.size() > 0)
                     Collections.sort(data.folders, data.folders.get(0).getComparator(null));
 
-                data.identities = db.identity().getIdentities(aid);
+                data.identities = db.identity().getSynchronizingIdentities(aid);
                 data.answers = db.answer().getAnswers(false);
 
                 return data;

@@ -109,6 +109,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbPrimary;
 
     private CheckBox cbSenderExtra;
+    private TextView etSenderExtra;
     private EditText etReplyTo;
     private EditText etBcc;
     private TextView tvEncryptPro;
@@ -192,6 +193,7 @@ public class FragmentIdentity extends FragmentBase {
         cbPrimary = view.findViewById(R.id.cbPrimary);
 
         cbSenderExtra = view.findViewById(R.id.cbSenderExtra);
+        etSenderExtra = view.findViewById(R.id.etSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etBcc = view.findViewById(R.id.etBcc);
         tvEncryptPro = view.findViewById(R.id.tvEncryptPro);
@@ -528,6 +530,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("email", etEmail.getText().toString().trim());
         args.putString("display", etDisplay.getText().toString());
         args.putBoolean("sender_extra", cbSenderExtra.isChecked());
+        args.putString("sender_extra_regex", etSenderExtra.getText().toString());
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putBoolean("encrypt", cbEncrypt.isChecked());
@@ -595,6 +598,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean primary = args.getBoolean("primary");
 
                 boolean sender_extra = args.getBoolean("sender_extra");
+                String sender_extra_regex = args.getString("sender_extra_regex");
                 String replyto = args.getString("replyto");
                 String bcc = args.getString("bcc");
                 boolean encrypt = args.getBoolean("encrypt");
@@ -644,6 +648,9 @@ public class FragmentIdentity extends FragmentBase {
 
                 if (TextUtils.isEmpty(realm))
                     realm = null;
+
+                if (TextUtils.isEmpty(sender_extra_regex))
+                    sender_extra_regex = null;
 
                 if (TextUtils.isEmpty(replyto))
                     replyto = null;
@@ -698,6 +705,8 @@ public class FragmentIdentity extends FragmentBase {
                     if (!Objects.equals(identity.primary, (identity.synchronize && primary)))
                         return true;
                     if (!Objects.equals(identity.sender_extra, sender_extra))
+                        return true;
+                    if (!Objects.equals(identity.sender_extra_regex, sender_extra_regex))
                         return true;
                     if (!Objects.equals(identity.replyto, replyto))
                         return true;
@@ -768,6 +777,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.primary = (identity.synchronize && primary);
 
                     identity.sender_extra = sender_extra;
+                    identity.sender_extra_regex = sender_extra_regex;
                     identity.replyto = replyto;
                     identity.bcc = bcc;
                     identity.encrypt = encrypt;
@@ -904,6 +914,7 @@ public class FragmentIdentity extends FragmentBase {
                     cbPrimary.setChecked(identity == null ? true : identity.primary);
 
                     cbSenderExtra.setChecked(identity != null && identity.sender_extra);
+                    etSenderExtra.setText(identity == null ? null : identity.sender_extra_regex);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etBcc.setText(identity == null ? null : identity.bcc);
                     cbEncrypt.setChecked(identity == null ? false : identity.encrypt);

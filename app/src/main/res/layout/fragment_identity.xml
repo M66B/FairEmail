@@ -496,6 +496,25 @@
             app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
         <TextView
+            android:id="@+id/tvSenderExtra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_sender_regex"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSenderExtra" />
+
+        <EditText
+            android:id="@+id/etSenderExtra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title_optional"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSenderExtra" />
+
+        <TextView
             android:id="@+id/tvSenderExtraHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -503,7 +522,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSenderExtra" />
+            app:layout_constraintTop_toBottomOf="@id/etSenderExtra" />
 
         <!-- reply to -->
 
@@ -699,7 +718,7 @@
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,
                 cbSynchronize,cbPrimary,
-                cbSenderExtra,tvSenderExtraHint,
+                cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvBcc,etBcc,
                 cbEncrypt,tvEncryptPro,
                 cbDeliveryReceipt,cbReadReceipt,tvReceipt" />

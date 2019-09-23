@@ -162,32 +162,32 @@ public class EntityMessage implements Serializable {
         return "<" + UUID.randomUUID() + "@localhost" + '>';
     }
 
-    boolean replySelf(String via) {
-        if (via == null)
+    boolean replySelf(EntityIdentity identity) {
+        if (identity == null)
             return false;
 
         Address[] senders = (reply == null || reply.length == 0 ? from : reply);
         if (senders != null)
             for (Address sender : senders)
-                if (MessageHelper.similarAddress(sender, via))
+                if (identity.similarAddress(sender))
                     return true;
 
         return false;
     }
 
-    Address[] getAllRecipients(String via) {
+    Address[] getAllRecipients(EntityIdentity identity) {
         List<Address> addresses = new ArrayList<>();
 
-        if (to != null && !replySelf(via))
+        if (to != null && !replySelf(identity))
             addresses.addAll(Arrays.asList(to));
 
         if (cc != null)
             addresses.addAll(Arrays.asList(cc));
 
         // Filter self
-        if (via != null)
+        if (identity != null)
             for (Address address : new ArrayList<>(addresses))
-                if (MessageHelper.similarAddress(address, via))
+                if (identity.similarAddress(address))
                     addresses.remove(address);
 
         return addresses.toArray(new Address[0]);

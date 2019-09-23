@@ -2031,16 +2031,16 @@ class Core {
         }
 
         // Search for matching identity
-        List<EntityIdentity> identities = db.identity().getIdentities(folder.account);
+        List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(folder.account);
         if (identities != null) {
             for (Address address : addresses)
                 for (EntityIdentity identity : identities)
-                    if (MessageHelper.sameAddress(address, identity.email))
+                    if (identity.sameAddress(address))
                         return identity;
 
             for (Address address : addresses)
                 for (EntityIdentity identity : identities)
-                    if (MessageHelper.similarAddress(address, identity.email))
+                    if (identity.similarAddress(address))
                         return identity;
         }
 
@@ -2092,11 +2092,11 @@ class Core {
         // Check if from self
         if (type == EntityContact.TYPE_FROM && recipients != null && recipients.length > 0) {
             boolean me = false;
-            List<EntityIdentity> identities = db.identity().getIdentities(folder.account);
+            List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(folder.account);
             if (identities != null)
                 for (Address recipient : recipients) {
                     for (EntityIdentity identity : identities)
-                        if (MessageHelper.similarAddress(recipient, identity.email)) {
+                        if (identity.similarAddress(recipient)) {
                             me = true;
                             break;
                         }
