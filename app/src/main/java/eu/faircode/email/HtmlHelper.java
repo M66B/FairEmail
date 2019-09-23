@@ -133,6 +133,7 @@ public class HtmlHelper {
 
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big")
+                .addAttributes("span", "style")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -140,6 +141,27 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data");
         final Document document = new Cleaner(whitelist).clean(parsed);
+
+        // Sanitize span styles
+        for (Element span : document.select("span")) {
+            String style = span.attr("style");
+            if (!TextUtils.isEmpty(style)) {
+                StringBuilder sb = new StringBuilder();
+
+                String[] params = style.split(";");
+                for (String param : params) {
+                    String[] kv = param.split(":");
+                    if (kv.length == 2)
+                        switch (kv[0].trim().toLowerCase()) {
+                            case "color":
+                                sb.append(param).append(";");
+                                break;
+                        }
+                }
+
+                span.attr("style", sb.toString());
+            }
+        }
 
         // Remove new lines without surrounding content
         for (Element br : document.select("br"))
