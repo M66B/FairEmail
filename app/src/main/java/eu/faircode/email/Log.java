@@ -281,6 +281,7 @@ public class Log {
             public boolean run(@NonNull Error error) {
                 error.addToTab("extra", "installer", installer == null ? "-" : installer);
                 error.addToTab("extra", "fingerprint", fingerprint);
+                error.addToTab("extra", "thread", Thread.currentThread().getId());
                 error.addToTab("extra", "free", Log.getFreeMemMb());
 
                 String theme = prefs.getString("theme", "light");
