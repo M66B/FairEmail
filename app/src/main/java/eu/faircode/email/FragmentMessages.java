@@ -1530,13 +1530,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
 
             if (message.ui_seen)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 2, R.string.title_unseen);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, 1, R.string.title_unseen);
             else
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 2, R.string.title_snooze);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 3, R.string.title_flag_color);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 3, R.string.title_move);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 4, R.string.title_move);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override

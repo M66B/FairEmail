@@ -2187,7 +2187,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     View anchor = bnvActions.findViewById(R.id.action_reply);
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
-                    popupMenu.inflate(R.menu.menu_reply);
+                    popupMenu.inflate(R.menu.popup_reply);
                     popupMenu.getMenu().findItem(R.id.menu_reply_to_all).setVisible(recipients.length > 0);
                     popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
                     popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
@@ -2399,7 +2399,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             View anchor = bnvActions.findViewById(R.id.action_more);
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);
-            popupMenu.inflate(R.menu.menu_message);
+            popupMenu.inflate(R.menu.popup_message_more);
 
             popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
 
