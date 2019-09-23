@@ -106,6 +106,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbNotify;
     private TextView tvNotifyPro;
     private CheckBox cbBrowse;
+    private CheckBox cbAutoSeen;
     private EditText etInterval;
     private CheckBox cbPartialFetch;
 
@@ -202,6 +203,7 @@ public class FragmentAccount extends FragmentBase {
         cbNotify = view.findViewById(R.id.cbNotify);
         tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
         cbBrowse = view.findViewById(R.id.cbBrowse);
+        cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
         etInterval = view.findViewById(R.id.etInterval);
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
 
@@ -714,6 +716,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("primary", cbPrimary.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("browse", cbBrowse.isChecked());
+        args.putBoolean("auto_seen", cbAutoSeen.isChecked());
         args.putString("interval", etInterval.getText().toString());
         args.putBoolean("partial_fetch", cbPartialFetch.isChecked());
 
@@ -768,6 +771,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean primary = args.getBoolean("primary");
                 boolean notify = args.getBoolean("notify");
                 boolean browse = args.getBoolean("browse");
+                boolean auto_seen = args.getBoolean("auto_seen");
                 String interval = args.getString("interval");
                 boolean partial_fetch = args.getBoolean("partial_fetch");
 
@@ -843,6 +847,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.notify, notify))
                         return true;
                     if (!Objects.equals(account.browse, browse))
+                        return true;
+                    if (!Objects.equals(account.auto_seen, auto_seen))
                         return true;
                     if (!Objects.equals(account.poll_interval, Integer.parseInt(interval)))
                         return true;
@@ -963,6 +969,7 @@ public class FragmentAccount extends FragmentBase {
                     account.primary = (account.synchronize && primary);
                     account.notify = notify;
                     account.browse = browse;
+                    account.auto_seen = auto_seen;
                     account.poll_interval = Integer.parseInt(interval);
                     account.partial_fetch = partial_fetch;
 
@@ -1209,6 +1216,7 @@ public class FragmentAccount extends FragmentBase {
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? false : account.primary);
                     cbBrowse.setChecked(account == null ? true : account.browse);
+                    cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
 

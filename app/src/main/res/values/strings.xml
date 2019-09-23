@@ -235,8 +235,6 @@
     <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
-    <string name="title_advanced_browse">Browse messages on the server</string>
-
     <string name="title_advanced_startup">Show on start screen</string>
     <string name="title_advanced_cards">Show cards</string>
     <string name="title_advanced_date_header">Group by date</string>
@@ -269,7 +267,6 @@
     <string name="title_advanced_swipenav">Swipe left/right to go to next/previous conversation</string>
     <string name="title_advanced_reversed">Reverse navigation direction</string>
     <string name="title_advanced_double_tap">Double tap to mark message read/unread</string>
-    <string name="title_advanced_expand_read">Mark messages read on expanding</string>
     <string name="title_advanced_autoexpand">Automatically expand messages</string>
     <string name="title_advanced_expand_one">Expand only one message at a time</string>
     <string name="title_advanced_collapse">Collapse messages in conversations on \'back\'</string>
@@ -421,6 +418,9 @@
     <string name="title_activesync_support">ActiveSync is not supported</string>
     <string name="title_oauth_support">OAuth is not supported</string>
     <string name="title_review">Review</string>
+
+    <string name="title_advanced_browse">Browse messages on the server</string>
+    <string name="title_advanced_expand_read">Mark messages read on expanding</string>
 
     <string name="title_synchronize_now">Synchronize now</string>
     <string name="title_synchronize_all">Synchronize all messages</string>
