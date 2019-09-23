@@ -850,14 +850,6 @@ public class Helper {
         return result;
     }
 
-    static long[] toLongArray(Set<Long> set) {
-        long[] result = new long[set.size()];
-        int i = 0;
-        for (Long value : set)
-            result[i++] = value;
-        return result;
-    }
-
     static List<Long> fromLongArray(long[] array) {
         List<Long> result = new ArrayList<>();
         for (int i = 0; i < array.length; i++)
