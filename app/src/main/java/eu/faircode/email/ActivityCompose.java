@@ -32,9 +32,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
-import org.jsoup.Jsoup;
-import org.jsoup.safety.Whitelist;
-
 import java.util.ArrayList;
 
 import javax.mail.internet.AddressException;
@@ -143,15 +140,20 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
 
                 if (intent.hasExtra(Intent.EXTRA_HTML_TEXT)) {
                     String html = intent.getStringExtra(Intent.EXTRA_HTML_TEXT);
-                    if (html != null)
-                        args.putString("body", Jsoup.clean(html, Whitelist.relaxed()));
+                    if (!TextUtils.isEmpty(html))
+                        args.putString("body", html);
                 } else if (intent.hasExtra(Intent.EXTRA_TEXT)) {
                     CharSequence body = intent.getCharSequenceExtra(Intent.EXTRA_TEXT);
                     if (body != null)
                         if (body instanceof Spanned)
-                            args.putString("body", Jsoup.clean(HtmlHelper.toHtml((Spanned) body), Whitelist.relaxed()));
-                        else
-                            args.putString("body", body.toString()); // TODO: clean?
+                            args.putString("body", HtmlHelper.toHtml((Spanned) body));
+                        else {
+                            String text = body.toString();
+                            if (!TextUtils.isEmpty(text)) {
+                                String html = "<span>" + text.replaceAll("\\r?\\n", "<br>") + "</span>";
+                                args.putString("body", html);
+                            }
+                        }
                 }
 
                 if (intent.hasExtra(Intent.EXTRA_STREAM))

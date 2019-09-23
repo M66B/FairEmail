@@ -2070,7 +2070,8 @@ public class FragmentCompose extends FragmentBase {
 
                         data.draft.subject = args.getString("subject", "");
                         body = args.getString("body", "");
-                        body = body.replaceAll("\\r?\\n", "<br>");
+                        if (!TextUtils.isEmpty(body))
+                            body = HtmlHelper.sanitize(context, body, false);
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
