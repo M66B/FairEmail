@@ -24,6 +24,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -44,8 +45,10 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +58,8 @@ public class FragmentAccounts extends FragmentBase {
 
     private boolean cards;
 
+    private ViewGroup view;
+    private SwipeRefreshLayout swipeRefresh;
     private RecyclerView rvAccount;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -82,9 +87,10 @@ public class FragmentAccounts extends FragmentBase {
         setSubtitle(R.string.title_list_accounts);
         setHasOptionsMenu(true);
 
-        View view = inflater.inflate(R.layout.fragment_accounts, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fragment_accounts, container, false);
 
         // Get controls
+        swipeRefresh = view.findViewById(R.id.swipeRefresh);
         rvAccount = view.findViewById(R.id.rvAccount);
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
@@ -92,6 +98,17 @@ public class FragmentAccounts extends FragmentBase {
         fabCompose = view.findViewById(R.id.fabCompose);
 
         // Wire controls
+
+        int colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
+        swipeRefresh.setColorSchemeColors(Color.WHITE, Color.WHITE, Color.WHITE);
+        swipeRefresh.setProgressBackgroundColorSchemeColor(colorPrimary);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                onSwipeRefresh();
+            }
+        });
+        swipeRefresh.setEnabled(!settings);
 
         rvAccount.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -278,5 +295,69 @@ public class FragmentAccounts extends FragmentBase {
         menu.findItem(R.id.menu_search).setVisible(!settings);
 
         super.onPrepareOptionsMenu(menu);
+    }
+
+    private void onSwipeRefresh() {
+        Bundle args = new Bundle();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPostExecute(Bundle args) {
+                swipeRefresh.setRefreshing(false);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                if (!ConnectionHelper.getNetworkState(context).isSuitable())
+                    throw new IllegalStateException(context.getString(R.string.title_no_internet));
+
+                boolean now = true;
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    // Unified inbox
+                    List<EntityFolder> folders = db.folder().getFoldersSynchronizingUnified(null);
+                    for (EntityFolder folder : folders) {
+                        EntityOperation.sync(context, folder.id, true);
+
+                        if (folder.account != null) {
+                            EntityAccount account = db.account().getAccount(folder.account);
+                            if (account != null && !"connected".equals(account.state))
+                                now = false;
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                if (!now)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalStateException) {
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            getContext().startActivity(
+                                    new Intent(getContext(), ActivitySetup.class)
+                                            .putExtra("tab", "connection"));
+                        }
+                    });
+                    snackbar.show();
+                } else if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(this, args, "folders:refresh");
     }
 }
