@@ -471,7 +471,7 @@ class Core {
         if (message.answered.equals(answered))
             return;
 
-        // This will be fixed when synchronizing the message
+        // This will be fixed when moving the message
         if (message.uid == null)
             return;
 
@@ -546,6 +546,7 @@ class Core {
 
         Properties props = MessageHelper.getSessionProperties();
         Session isession = Session.getInstance(props, null);
+        Flags flags = ifolder.getPermanentFlags();
 
         // Get raw message
         MimeMessage imessage;
@@ -568,7 +569,7 @@ class Core {
         }
 
         // Handle auto read
-        if (ifolder.getPermanentFlags().contains(Flags.Flag.SEEN)) {
+        if (flags.contains(Flags.Flag.SEEN)) {
             if (autoread && !imessage.isSet(Flags.Flag.SEEN)) {
                 Log.i(folder.name + " autoread");
                 imessage.setFlag(Flags.Flag.SEEN, true);
@@ -576,7 +577,7 @@ class Core {
         }
 
         // Handle draft
-        if (ifolder.getPermanentFlags().contains(Flags.Flag.DRAFT))
+        if (flags.contains(Flags.Flag.DRAFT))
             imessage.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(folder.type));
 
         // Add message
@@ -655,6 +656,7 @@ class Core {
         // Get arguments
         long id = jargs.getLong(0);
         boolean autoread = jargs.optBoolean(1, false);
+        Flags flags = ifolder.getPermanentFlags();
 
         // Get source message
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -686,8 +688,11 @@ class Core {
             file.delete();
 
             // Auto read
-            if (autoread)
+            if (autoread && flags.contains(Flags.Flag.SEEN))
                 icopy.setFlag(Flags.Flag.SEEN, true);
+
+            if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
+                icopy.setFlag(Flags.Flag.ANSWERED, true);
 
             // Set drafts flag
             icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
@@ -695,8 +700,11 @@ class Core {
             itarget.appendMessages(new Message[]{icopy});
         } else {
             // Auto read
-            if (autoread && ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+            if (autoread && flags.contains(Flags.Flag.SEEN))
                 imessage.setFlag(Flags.Flag.SEEN, true);
+
+            if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
+                imessage.setFlag(Flags.Flag.ANSWERED, true);
 
             ifolder.copyMessages(new Message[]{imessage}, itarget);
         }
@@ -1407,10 +1415,11 @@ class Core {
             Log.i(folder.name + " local count=" + uids.size());
 
             // Reduce list of local uids
+            Flags flags = ifolder.getPermanentFlags();
             SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time));
-            if (sync_unseen && ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
+            if (sync_unseen && flags.contains(Flags.Flag.SEEN))
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-            if (sync_flagged && ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+            if (sync_flagged && flags.contains(Flags.Flag.FLAGGED))
                 searchTerm = new OrTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
 
             long search = SystemClock.elapsedRealtime();
@@ -1922,13 +1931,7 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
-            if ((!message.answered.equals(answered) || !message.ui_answered.equals(message.answered)) &&
-                    db.operation().getOperationCount(folder.id, message.id, EntityOperation.ANSWERED) == 0) {
-                if (!answered && message.ui_answered && ifolder.getPermanentFlags().contains(Flags.Flag.ANSWERED)) {
-                    // This can happen when the answered operation was skipped because the message was moving
-                    answered = true;
-                    imessage.setFlag(Flags.Flag.ANSWERED, answered);
-                }
+            if ((!message.answered.equals(answered) || !message.ui_answered.equals(message.answered))) {
                 update = true;
                 message.answered = answered;
                 message.ui_answered = answered;

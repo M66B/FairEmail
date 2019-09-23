@@ -155,7 +155,6 @@ public class ServiceSend extends ServiceBase {
                                                     break;
 
                                                 case EntityOperation.ANSWERED:
-                                                    // This will be fixed when synchronizing the message
                                                     break;
 
                                                 default:
