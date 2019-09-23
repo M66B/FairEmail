@@ -592,6 +592,8 @@ public class MessageHelper {
             if (list != null && list.startsWith("NO"))
                 return null;
 
+            String link = null;
+            String mailto = null;
             for (String entry : list.split(",")) {
                 entry = entry.trim();
                 int lt = entry.indexOf("<");
@@ -600,11 +602,17 @@ public class MessageHelper {
                     String unsubscribe = entry.substring(lt + 1, gt);
                     Uri uri = Uri.parse(unsubscribe);
                     String scheme = uri.getScheme();
-                    if ("mailto".equals(scheme) ||
-                            "http".equals(scheme) || "https".equals(scheme))
-                        return unsubscribe;
+                    if (mailto == null && "mailto".equals(scheme))
+                        mailto = unsubscribe;
+                    if (link == null && ("http".equals(scheme) || "https".equals(scheme)))
+                        link = unsubscribe;
                 }
             }
+
+            if (link != null)
+                return link;
+            if (mailto != null)
+                return mailto;
 
             Log.w(new IllegalArgumentException("List-Unsubscribe: " + list));
             return null;
