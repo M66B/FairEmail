@@ -907,11 +907,13 @@ public class MessageHelper {
                 String[] lines = result.split("\\r?\\n");
                 for (String line : lines) {
                     int tlevel = 0;
-                    while (line.startsWith("> ")) {
+                    while (line.startsWith(">")) {
                         tlevel++;
                         if (tlevel > level)
                             sb.append("<blockquote>");
-                        line = line.substring(2);
+                        line = line.substring(1);
+                        if (line.startsWith(" "))
+                            line = line.substring(1);
                     }
                     for (int i = 0; i < level - tlevel; i++)
                         sb.append("</blockquote>");
