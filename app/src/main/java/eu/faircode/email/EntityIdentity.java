@@ -97,7 +97,7 @@ public class EntityIdentity {
     @NonNull
     public Boolean read_receipt = false;
     @NonNull
-    public Boolean store_sent = false;
+    public Boolean store_sent = false; // obsolete
     public Long sent_folder = null; // obsolete
     public Long sign_key = null; // OpenPGP
     public Boolean tbd;
@@ -172,16 +172,22 @@ public class EntityIdentity {
         json.put("synchronize", synchronize);
         json.put("primary", primary);
         json.put("sender_extra", sender_extra);
+        json.put("sender_extra_regex", sender_extra_regex);
 
         json.put("replyto", replyto);
         json.put("bcc", bcc);
 
+        // not plain_only
         json.put("encrypt", encrypt);
         json.put("delivery_receipt", delivery_receipt);
         json.put("read_receipt", read_receipt);
-        json.put("store_sent", store_sent);
+        // not store_sent
+        // not sent_folder
+        // not sign_key
+        // not tbd
         // not state
         // not error
+        // not last_connected
         return json;
     }
 
@@ -213,6 +219,8 @@ public class EntityIdentity {
         identity.primary = json.getBoolean("primary");
         if (json.has("sender_extra"))
             identity.sender_extra = json.getBoolean("sender_extra");
+        if (json.has("sender_extra_regex"))
+            identity.sender_extra_regex = json.getString("sender_extra_regex");
 
         if (json.has("replyto") && !json.isNull("replyto"))
             identity.replyto = json.getString("replyto");
@@ -225,9 +233,6 @@ public class EntityIdentity {
             identity.delivery_receipt = json.getBoolean("delivery_receipt");
         if (json.has("read_receipt"))
             identity.read_receipt = json.getBoolean("read_receipt");
-
-        if (json.has("store_sent"))
-            identity.store_sent = json.getBoolean("store_sent");
 
         return identity;
     }
@@ -254,12 +259,12 @@ public class EntityIdentity {
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     this.sender_extra.equals(sender_extra) &&
+                    Objects.equals(this.sender_extra_regex, other.sender_extra_regex) &&
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.bcc, other.bcc) &&
                     this.encrypt.equals(other.encrypt) &&
                     this.delivery_receipt.equals(other.delivery_receipt) &&
                     this.read_receipt.equals(other.read_receipt) &&
-                    this.store_sent.equals(other.store_sent) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.error, other.error) &&

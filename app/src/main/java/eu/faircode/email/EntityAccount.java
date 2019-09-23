@@ -160,20 +160,24 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
         json.put("name", name);
         json.put("color", color);
-        json.put("order", order);
 
         json.put("synchronize", synchronize);
         json.put("primary", primary);
         json.put("notify", notify);
         json.put("browse", browse);
+        json.put("auto_seen", auto_seen);
+        // not separator
 
         json.put("swipe_left", swipe_left);
         json.put("swipe_right", swipe_right);
 
         json.put("poll_interval", poll_interval);
         json.put("partial_fetch", partial_fetch);
+        // not prefix
         // not created
+        // not tbd
         // not state
+        // not warning
         // not error
         // not last connected
         return json;
@@ -204,8 +208,6 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.name = json.getString("name");
         if (json.has("color"))
             account.color = json.getInt("color");
-        if (json.has("order"))
-            account.order = json.getInt("order");
 
         account.synchronize = json.getBoolean("synchronize");
         account.primary = json.getBoolean("primary");
@@ -213,6 +215,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.notify = json.getBoolean("notify");
         if (json.has("browse"))
             account.browse = json.getBoolean("browse");
+        if (json.has("auto_seen"))
+            account.auto_seen = json.getBoolean("auto_seen");
 
         if (json.has("swipe_left"))
             account.swipe_left = json.getLong("swipe_left");
@@ -233,7 +237,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public boolean equals(Object obj) {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
-            return (this.host.equals(other.host) &&
+            return (Objects.equals(this.order, other.order) &&
+                    this.pop == other.pop &&
+                    this.host.equals(other.host) &&
                     this.starttls == other.starttls &&
                     this.insecure == other.insecure &&
                     this.port.equals(other.port) &&
@@ -243,11 +249,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     Objects.equals(this.realm, other.realm) &&
                     Objects.equals(this.name, other.name) &&
                     Objects.equals(this.color, other.color) &&
-                    Objects.equals(this.order, other.order) &&
                     this.synchronize.equals(other.synchronize) &&
                     this.primary.equals(other.primary) &&
                     this.notify.equals(other.notify) &&
                     this.browse.equals(other.browse) &&
+                    this.auto_seen.equals(other.auto_seen) &&
                     Objects.equals(this.swipe_left, other.swipe_left) &&
                     Objects.equals(this.swipe_right, other.swipe_right) &&
                     this.poll_interval.equals(other.poll_interval) &&
