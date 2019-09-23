@@ -907,7 +907,7 @@ public class HtmlHelper {
             }
         }
 
-        return doc.outerHtml();
+        return doc.html();
     }
 
     public static class AnnotatedSource {

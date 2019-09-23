@@ -2565,7 +2565,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (debug) {
                     Document format = Jsoup.parse(html);
                     format.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
-                    String[] lines = format.outerHtml().split("\\r?\\n");
+                    String[] lines = format.html().split("\\r?\\n");
                     for (int i = 0; i < lines.length; i++)
                         lines[i] = Html.escapeHtml(lines[i]);
                     html += "<pre>" + TextUtils.join("<br>", lines) + "</pre>";
