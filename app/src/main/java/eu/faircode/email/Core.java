@@ -80,6 +80,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
@@ -1345,7 +1346,7 @@ class Core {
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
 
-            if (account.host.toLowerCase().contains("imap.zoho")) {
+            if (account.host.toLowerCase(Locale.ROOT).contains("imap.zoho")) {
                 sync_unseen = false;
                 sync_flagged = false;
             }
@@ -2266,7 +2267,8 @@ class Core {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O &&
                     message.notifying == 0 && message.from != null && message.from.length > 0) {
                 InternetAddress from = (InternetAddress) message.from[0];
-                NotificationChannel channel = nm.getNotificationChannel("notification." + from.getAddress().toLowerCase());
+                NotificationChannel channel = nm.getNotificationChannel(
+                        "notification." + from.getAddress().toLowerCase(Locale.ROOT));
                 if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE)
                     continue;
             }
@@ -2481,7 +2483,8 @@ class Core {
 
                 if (message.from != null && message.from.length > 0) {
                     InternetAddress from = (InternetAddress) message.from[0];
-                    channel = nm.getNotificationChannel("notification." + from.getAddress().toLowerCase());
+                    channel = nm.getNotificationChannel(
+                            "notification." + from.getAddress().toLowerCase(Locale.ROOT));
                 }
 
                 if (channel == null)

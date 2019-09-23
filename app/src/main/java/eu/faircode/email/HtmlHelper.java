@@ -71,6 +71,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
@@ -154,9 +155,13 @@ public class HtmlHelper {
                 for (String param : params) {
                     String[] kv = param.split(":");
                     if (kv.length == 2)
-                        switch (kv[0].trim().toLowerCase()) {
+                        switch (kv[0].trim().toLowerCase(Locale.ROOT)) {
                             case "color":
                                 sb.append(param).append(";");
+                                break;
+
+                            case "background":
+                            case "background-color":
                                 break;
                         }
                 }
@@ -849,8 +854,8 @@ public class HtmlHelper {
             if (params.length > 0) {
                 List<String> viewport = new ArrayList<>();
                 for (String param : params)
-                    if (!param.toLowerCase().contains("maximum-scale") &&
-                            !param.toLowerCase().contains("user-scalable"))
+                    if (!param.toLowerCase(Locale.ROOT).contains("maximum-scale") &&
+                            !param.toLowerCase(Locale.ROOT).contains("user-scalable"))
                         viewport.add(param.trim());
 
                 if (viewport.size() == 0)

@@ -160,12 +160,12 @@ public class EmailProvider {
     static EmailProvider fromDomain(Context context, String domain, Discover discover) throws IOException {
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
-            if (provider.domain != null && provider.domain.contains(domain.toLowerCase())) {
+            if (provider.domain != null && provider.domain.contains(domain.toLowerCase(Locale.ROOT))) {
                 Log.i("Provider from domain=" + domain);
                 return provider;
             }
 
-        EmailProvider autoconfig = _fromDomain(context, domain.toLowerCase(), discover);
+        EmailProvider autoconfig = _fromDomain(context, domain.toLowerCase(Locale.ROOT), discover);
 
         // Always prefer built-in profiles
         // - ISPDB is not always correct

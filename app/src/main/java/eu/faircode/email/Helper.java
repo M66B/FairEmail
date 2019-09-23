@@ -92,7 +92,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
@@ -393,7 +392,7 @@ public class Helper {
 
     static String localizeFolderType(Context context, String type) {
         int resid = context.getResources().getIdentifier(
-                "title_folder_" + type.toLowerCase(),
+                "title_folder_" + type.toLowerCase(Locale.ROOT),
                 "string",
                 context.getPackageName());
         return (resid > 0 ? context.getString(resid) : type);

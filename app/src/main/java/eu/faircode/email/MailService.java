@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
@@ -65,7 +66,7 @@ public class MailService implements AutoCloseable {
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
 
-        String checkserveridentity = Boolean.toString(!insecure).toLowerCase();
+        String checkserveridentity = Boolean.toString(!insecure).toLowerCase(Locale.ROOT);
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
             this.debug = true;

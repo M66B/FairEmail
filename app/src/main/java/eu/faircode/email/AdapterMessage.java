@@ -137,6 +137,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -1851,7 +1852,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onNotifyContact(final TupleMessageEx message) {
             final NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             final InternetAddress from = (InternetAddress) message.from[0];
-            final String channelId = "notification." + from.getAddress().toLowerCase();
+            final String channelId = "notification." + from.getAddress().toLowerCase(Locale.ROOT);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibAddContact);
             NotificationChannel channel = nm.getNotificationChannel(channelId);
@@ -3666,7 +3667,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean changed = false;
                 builder.clearQuery();
                 for (String key : uri.getQueryParameterNames())
-                    if (PARANOID_QUERY.contains(key.toLowerCase()))
+                    if (PARANOID_QUERY.contains(key.toLowerCase(Locale.ROOT)))
                         changed = true;
                     else if (!TextUtils.isEmpty(key))
                         for (String value : uri.getQueryParameters(key)) {

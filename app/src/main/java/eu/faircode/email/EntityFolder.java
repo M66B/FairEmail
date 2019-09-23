@@ -303,7 +303,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     static String guessType(String fullName) {
         for (String guess : GUESS_FOLDER_TYPE.keySet())
-            if (fullName.toLowerCase().contains(guess))
+            if (fullName.toLowerCase(Locale.ROOT).contains(guess))
                 return GUESS_FOLDER_TYPE.get(guess);
         return null;
     }

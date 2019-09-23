@@ -50,6 +50,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
@@ -1136,7 +1137,7 @@ public class MessageHelper {
 
                         try {
                             ContentType ct = new ContentType(cpart.getContentType());
-                            if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase())) {
+                            if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase(Locale.ROOT))) {
                                 pgp = true;
                                 continue;
                             }
@@ -1157,7 +1158,7 @@ public class MessageHelper {
                 try {
                     disposition = part.getDisposition();
                     if (disposition != null)
-                        disposition = disposition.toLowerCase();
+                        disposition = disposition.toLowerCase(Locale.ROOT);
                 } catch (MessagingException ex) {
                     Log.w(ex);
                     parts.warnings.add(Helper.formatThrowable(ex, false));
@@ -1213,7 +1214,7 @@ public class MessageHelper {
 
                     apart.attachment = new EntityAttachment();
                     apart.attachment.name = apart.filename;
-                    apart.attachment.type = ct.getBaseType().toLowerCase();
+                    apart.attachment.type = ct.getBaseType().toLowerCase(Locale.ROOT);
                     apart.attachment.disposition = apart.disposition;
                     apart.attachment.size = (long) apart.part.getSize();
                     apart.attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
@@ -1227,9 +1228,10 @@ public class MessageHelper {
                     if (!apart.pgp) {
                         String extension = Helper.getExtension(apart.attachment.name);
                         if (extension != null &&
-                                ("pdf".equals(extension.toLowerCase()) ||
+                                ("pdf".equals(extension.toLowerCase(Locale.ROOT)) ||
                                         "application/octet-stream".equals(apart.attachment.type))) {
-                            String type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
+                            String type = MimeTypeMap.getSingleton()
+                                    .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
                             if (type != null) {
                                 if (!type.equals(apart.attachment.type))
                                     Log.w("Guessing file=" + apart.attachment.name + " type=" + type);

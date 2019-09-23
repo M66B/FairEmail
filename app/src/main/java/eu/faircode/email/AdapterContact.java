@@ -48,6 +48,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHolder> {
     private Fragment parentFragment;
@@ -322,9 +323,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             items = all;
         else {
             items = new ArrayList<>();
-            String query = search.toLowerCase().trim();
+            String query = search.toLowerCase(Locale.ROOT).trim();
             for (TupleContactEx contact : contacts)
-                if (contact.email.toLowerCase().contains(query) ||
+                if (contact.email.toLowerCase(Locale.ROOT).contains(query) ||
                         (contact.name != null && contact.name.toLowerCase().contains(query)))
                     items.add(contact);
         }

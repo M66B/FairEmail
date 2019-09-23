@@ -1142,7 +1142,7 @@ public class FragmentCompose extends FragmentBase {
 
                 String[] tos = new String[ato.length];
                 for (int i = 0; i < ato.length; i++)
-                    tos[i] = ato[i].getAddress().toLowerCase();
+                    tos[i] = ato[i].getAddress().toLowerCase(Locale.ROOT);
 
                 Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                 intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
@@ -1865,7 +1865,8 @@ public class FragmentCompose extends FragmentBase {
 
             String extension = Helper.getExtension(attachment.name);
             if (extension != null)
-                attachment.type = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension.toLowerCase());
+                attachment.type = MimeTypeMap.getSingleton()
+                        .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
             if (attachment.type == null)
                 attachment.type = "application/octet-stream";
             attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
