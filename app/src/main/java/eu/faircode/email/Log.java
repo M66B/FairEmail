@@ -451,24 +451,17 @@ public class Log {
         try {
             db.beginTransaction();
 
-            EntityFolder drafts = db.folder().getPrimaryDrafts();
-            if (drafts == null)
-                throw new IllegalArgumentException(context.getString(R.string.title_no_primary_drafts));
+            List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+            if (identities == null || identities.size() == 0)
+                throw new IllegalArgumentException(context.getString(R.string.title_no_identities));
 
-            List<EntityIdentity> identities = db.identity().getIdentities(drafts.account);
-            EntityIdentity primary = null;
-            for (EntityIdentity identity : identities) {
-                if (identity.primary) {
-                    primary = identity;
-                    break;
-                } else if (primary == null)
-                    primary = identity;
-            }
+            EntityIdentity identity = identities.get(0);
+            EntityFolder drafts = db.folder().getFolderByType(identity.account, EntityFolder.DRAFTS);
 
             draft = new EntityMessage();
             draft.account = drafts.account;
             draft.folder = drafts.id;
-            draft.identity = (primary == null ? null : primary.id);
+            draft.identity = identity.id;
             draft.msgid = EntityMessage.generateMessageId();
             draft.thread = draft.msgid;
             draft.to = new Address[]{myAddress()};
