@@ -2368,7 +2368,12 @@ public class FragmentCompose extends FragmentBase {
 
                     EntityOperation.queue(context, data.draft, EntityOperation.ADD);
                 } else {
-                    if (!data.draft.content) {
+                    if (data.draft.content) {
+                        File file = data.draft.getFile(context);
+                        String html = Helper.readText(file);
+                        html = HtmlHelper.sanitize(context, html, true);
+                        Helper.writeText(file, html);
+                    } else {
                         if (data.draft.uid == null)
                             throw new IllegalStateException("Draft without uid");
                         EntityOperation.queue(context, data.draft, EntityOperation.BODY);
