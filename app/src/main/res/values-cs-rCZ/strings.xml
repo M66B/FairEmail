@@ -131,6 +131,7 @@
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
+    <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
     <string name="title_setup_quick_success">Účet a identita byly úspěšně přidány</string>
@@ -377,8 +378,10 @@
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
+    <string name="title_pop_support">Protokol POP3 podporuje pouze stahování a odstraňování zpráv. Nebude tak možné zprávu označit jako oblíbenou, přesouvat zprávy, atd. Oproti IMAP bude POP3 také více zatěžovat baterii. Zvažte proto použití protokolu IMAP, kdykoli to bude možné.</string>
     <string name="title_activesync_support">ActiveSync není podporován</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
+    <string name="title_review">Zkontrolovat</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_synchronize_all">Synchronizovat všechny zprávy</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>
@@ -588,6 +591,7 @@
     <string name="title_answer_template_email">$email$ bude nahrazeno e-mailovou adresou odesílatele</string>
     <string name="title_rule_seen">Označit přečtené</string>
     <string name="title_rule_unseen">Označit nepřečtené</string>
+    <string name="title_rule_ignore">Potlačit oznámení</string>
     <string name="title_rule_snooze">Odložit</string>
     <string name="title_rule_flag">Přidat hvězdičku</string>
     <string name="title_rule_move">Přesunout</string>
@@ -601,6 +605,7 @@
     <string name="title_rule_enabled">Zapnuto</string>
     <string name="title_rule_stop">Zastavit zpracování pravidel po provedení tohoto pravidla</string>
     <string name="title_rule_sender">Odesílatel obsahuje</string>
+    <string name="title_rule_sender_known">Odesílatel je kontakt</string>
     <string name="title_rule_recipient">Příjemce obsahuje</string>
     <string name="title_rule_subject">Předmět obsahuje</string>
     <string name="title_rule_header">Hlavička obsahuje</string>
@@ -780,6 +785,8 @@
     <string name="title_search_special_unseen">nepřečteno</string>
     <string name="title_search_special_flagged">hvězdička</string>
     <string name="title_search_special_snoozed">odloženo</string>
+    <string name="title_widget_account">Účet</string>
+    <string name="title_widget_account_all">Všechny</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
     <string-array name="pollIntervalNames">

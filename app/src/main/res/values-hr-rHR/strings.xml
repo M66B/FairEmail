@@ -119,6 +119,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_other">Drugi davatelj usluga</string>
     <string name="title_setup_gmail_rationale">Molimo dajte dopuštenje za izbor računa i čitanje vašeg imena</string>
+    <string name="title_setup_select_account">Odaberi račun</string>
     <string name="title_setup_instructions">Upute za postavljanje</string>
     <string name="title_setup_no_settings">Nije pronađena nijedna postavka za domenu \'%1$s\'</string>
     <string name="title_setup_quick_success">Račun i identitet uspješno su dodani</string>
@@ -368,6 +369,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_pop_support">POP3 protokol podržava samo preuzimanje i brisanje poruka. Dakle, neće biti moguće označiti poruke kao omiljene, premjestiti poruke itd. POP3 će trošiti više snage baterije od IMAP-a. Stoga razmislite o uporabi IMAP protokola kad god je to moguće.</string>
     <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
+    <string name="title_review">Recenzija</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
     <string name="title_synchronize_all">Sinkroniziraj sve poruke</string>
     <string name="title_synchronize_enabled">Sinkroniziraj</string>
@@ -577,6 +579,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_answer_template_email">$email$ bit će zamijenjen adresom pošiljatelja e-pošte</string>
     <string name="title_rule_seen">Označi pročitano</string>
     <string name="title_rule_unseen">Označi nepročitano</string>
+    <string name="title_rule_ignore">Potisni obavijest</string>
     <string name="title_rule_snooze">Utišaj</string>
     <string name="title_rule_flag">Dodaj zvjezdicu</string>
     <string name="title_rule_move">Premjesti</string>
@@ -590,6 +593,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_rule_enabled">Omogućeno</string>
     <string name="title_rule_stop">Zaustavite pravila obrade nakon izvršavanja ovog pravila</string>
     <string name="title_rule_sender">Pošiljatelj sadrži</string>
+    <string name="title_rule_sender_known">Pošiljatelj je kontakt</string>
     <string name="title_rule_recipient">Primatelj sadrži</string>
     <string name="title_rule_subject">Predmet sadrži</string>
     <string name="title_rule_header">Zaglavlje sadrži</string>

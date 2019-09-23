@@ -567,6 +567,7 @@
     <string name="title_answer_template_email">$email$ bliver erstattet med afsenders e-mailadresse</string>
     <string name="title_rule_seen">Markér som læst</string>
     <string name="title_rule_unseen">Markér som ulæst</string>
+    <string name="title_rule_ignore">Undertryk notifikationer</string>
     <string name="title_rule_snooze">Udsæt</string>
     <string name="title_rule_flag">Tilføj stjerne</string>
     <string name="title_rule_move">Flyt</string>
@@ -580,6 +581,7 @@
     <string name="title_rule_enabled">Aktiveret</string>
     <string name="title_rule_stop">Stop afvikling af regler efter eksekvering af denne regel</string>
     <string name="title_rule_sender">Afsender indeholder</string>
+    <string name="title_rule_sender_known">Afsender er en kontakt</string>
     <string name="title_rule_recipient">Modtager indeholder</string>
     <string name="title_rule_subject">Emne indeholder</string>
     <string name="title_rule_header">Overskrift indeholder</string>

@@ -131,6 +131,7 @@
     <string name="title_setup_wizard">Kreator</string>
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać swoje imię</string>
+    <string name="title_setup_select_account">Wybierz konto</string>
     <string name="title_setup_instructions">Instrukcja konfiguracji</string>
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
     <string name="title_setup_quick_success">Pomyślnie dodano konto i tożsamość</string>
@@ -377,8 +378,10 @@
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
+    <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości. Nie będzie możliwe oznaczanie wiadomości jako ulubionych, przenoszenie wiadomości itp. POP3 zużywa więcej energii baterii niż IMAP. Dlatego w miarę możliwości rozważ użycie protokołu IMAP.</string>
     <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
+    <string name="title_review">Przejrzyj</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_synchronize_all">Synchronizuj wszystkie wiadomości</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>
@@ -588,6 +591,7 @@
     <string name="title_answer_template_email">$email$ zostanie zastąpiony przez adres nadawcy wiadomości</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>
+    <string name="title_rule_ignore">Pomiń powiadomienie</string>
     <string name="title_rule_snooze">Drzemka</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
     <string name="title_rule_move">Przenieś</string>
@@ -601,6 +605,7 @@
     <string name="title_rule_enabled">Włączone</string>
     <string name="title_rule_stop">Zatrzymaj przetwarzanie reguł po uruchomieniu tej reguły</string>
     <string name="title_rule_sender">Nadawca zawiera</string>
+    <string name="title_rule_sender_known">Nadawca jest kontaktem</string>
     <string name="title_rule_recipient">Odbiorca zawiera</string>
     <string name="title_rule_subject">Tytuł zawiera</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
@@ -780,6 +785,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_search_special_unseen">nieodczytana</string>
     <string name="title_search_special_flagged">oznaczona</string>
     <string name="title_search_special_snoozed">odłożona</string>
+    <string name="title_widget_account">Konto</string>
+    <string name="title_widget_account_all">Wszystkie</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
     <string-array name="pollIntervalNames">

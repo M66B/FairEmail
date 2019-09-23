@@ -120,6 +120,7 @@
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
+    <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
     <string name="title_setup_no_settings">Nu s-au găsit setări pentru domeniul \'%1$s\'</string>
     <string name="title_setup_quick_success">Un cont şi o identitate au fost adăugate cu succes</string>
@@ -313,6 +314,7 @@
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
     <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
+    <string name="title_advanced_sender_regex">Regex pentru găsirea adresei editate</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_encrypt">Criptare în mod implicit</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
@@ -368,6 +370,7 @@
     <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_activesync_support">ActiveSync nu este suportat</string>
     <string name="title_oauth_support">OAuth nu este suportat</string>
+    <string name="title_review">Revizuire</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_all">Sincronizează toate mesajele</string>
     <string name="title_synchronize_enabled">Sincronizare</string>
@@ -577,6 +580,7 @@
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>
+    <string name="title_rule_ignore">Suprimă notificare</string>
     <string name="title_rule_snooze">Amână</string>
     <string name="title_rule_flag">Adaugă stea</string>
     <string name="title_rule_move">Mută</string>
@@ -590,6 +594,7 @@
     <string name="title_rule_enabled">Activată</string>
     <string name="title_rule_stop">Oprește procesarea regulilor după ce se execută acesta</string>
     <string name="title_rule_sender">Expeditorul conține</string>
+    <string name="title_rule_sender_known">Expeditorul este un contact</string>
     <string name="title_rule_recipient">Destinatarul conține</string>
     <string name="title_rule_subject">Subiectul conține</string>
     <string name="title_rule_header">Antetul conține</string>
@@ -766,6 +771,8 @@
     <string name="title_search_special_unseen">necitit</string>
     <string name="title_search_special_flagged">stea</string>
     <string name="title_search_special_snoozed">amanat</string>
+    <string name="title_widget_account">Cont</string>
+    <string name="title_widget_account_all">Toate</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
     <string-array name="pollIntervalNames">

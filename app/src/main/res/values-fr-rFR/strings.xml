@@ -303,6 +303,7 @@
     <string name="title_identity_email">Votre adresse e-mail</string>
     <string name="title_identity_color_hint">Les couleurs d\'identité sont prioritaires par rapport aux couleurs de compte</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
+    <string name="title_advanced_sender_regex">Regex pour correspondre aux adresses modifiées</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_encrypt">Chiffrer par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"connexion invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
@@ -569,6 +570,7 @@
     <string name="title_answer_template_email">$email$ sera remplacé par l\'adresse e-mail de l\'expéditeur</string>
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>
+    <string name="title_rule_ignore">Supprimer les notifications</string>
     <string name="title_rule_snooze">Différer</string>
     <string name="title_rule_flag">Marquer comme suivi</string>
     <string name="title_rule_move">Déplacer</string>
@@ -582,6 +584,7 @@
     <string name="title_rule_enabled">Activée</string>
     <string name="title_rule_stop">Arrêter le traitement des règles après avoir exécuté cette règle</string>
     <string name="title_rule_sender">L\'expéditeur contient</string>
+    <string name="title_rule_sender_known">L\'expéditeur est un contact</string>
     <string name="title_rule_recipient">Le destinataire contient</string>
     <string name="title_rule_subject">L’objet contient</string>
     <string name="title_rule_header">L’en-tête contient</string>

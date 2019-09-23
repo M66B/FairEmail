@@ -302,6 +302,7 @@
     <string name="title_identity_email">Il tuo indirizzo email</string>
     <string name="title_identity_color_hint">I colori dell\'identità hanno la precedenza sui colori dell\'account</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
+    <string name="title_advanced_sender_regex">Regex per abbinare gli indirizzi modificati</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
     <string name="title_identity_encrypt">Cripta di default</string>
     <string name="title_identity_use_ip_hint">In caso di \"saluto non valido\", \"richiede un indirizzo valido\" o un errore simile, provare a modificare questa impostazione</string>
@@ -568,6 +569,7 @@
     <string name="title_answer_template_email">$email$ verrà sostituito con l\'indirizzo email del mittente</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>
+    <string name="title_rule_ignore">Sopprimi notifica</string>
     <string name="title_rule_snooze">Posticipa</string>
     <string name="title_rule_flag">Aggiungi ai preferiti</string>
     <string name="title_rule_move">Muovi</string>

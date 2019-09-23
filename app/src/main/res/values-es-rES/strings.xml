@@ -303,6 +303,7 @@
     <string name="title_identity_email">Su dirección de correo electrónico</string>
     <string name="title_identity_color_hint">Los colores de identidad tienen prioridad sobre los colores de cuenta</string>
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
+    <string name="title_advanced_sender_regex">Expresión regular que coincida con las direcciones editadas</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_encrypt">Encriptar por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
@@ -569,6 +570,7 @@
     <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>
+    <string name="title_rule_ignore">Suprimir notificación</string>
     <string name="title_rule_snooze">Posponer</string>
     <string name="title_rule_flag">Destacar</string>
     <string name="title_rule_move">Mover</string>
@@ -582,6 +584,7 @@
     <string name="title_rule_enabled">Activada</string>
     <string name="title_rule_stop">Detener procesamiento de reglas después de ejecutar esta regla</string>
     <string name="title_rule_sender">Remitente contiene</string>
+    <string name="title_rule_sender_known">El remitente es un contacto</string>
     <string name="title_rule_recipient">El destinatario contiene</string>
     <string name="title_rule_subject">Asunto contiene</string>
     <string name="title_rule_header">Encabezado contiene</string>

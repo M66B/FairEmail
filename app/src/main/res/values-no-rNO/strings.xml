@@ -303,6 +303,7 @@
     <string name="title_identity_email">Din e-postadresse</string>
     <string name="title_identity_color_hint">Identitetsfarger har forrang fremfor kontofarger</string>
     <string name="title_advanced_sender">Tillat redigering av avsenderadresse</string>
+    <string name="title_advanced_sender_regex">Regex for å matche redigerte adresser</string>
     <string name="title_identity_reply_to">Svar til adressen</string>
     <string name="title_identity_encrypt">Krypter som standard</string>
     <string name="title_identity_use_ip_hint">I tilfelle \'ugyldig hilsen\', \'krever gyldig adresse\' eller en lignende feil, prøv å endre denne innstillingen</string>
@@ -569,6 +570,7 @@
     <string name="title_answer_template_email">$email$ vil bli erstattet med avsenderens e-postadresse</string>
     <string name="title_rule_seen">Merk som lest</string>
     <string name="title_rule_unseen">Merk som ulest</string>
+    <string name="title_rule_ignore">Undertrykke varsling</string>
     <string name="title_rule_snooze">Utsett</string>
     <string name="title_rule_flag">Legg til stjerne</string>
     <string name="title_rule_move">Flytt</string>
