@@ -2096,12 +2096,9 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.inreplyto = ref.msgid;
                             data.draft.thread = ref.thread;
 
-                            EntityIdentity identity = null;
-                            if (ref.identity != null) {
-                                identity = db.identity().getIdentity(ref.identity);
-                                if (identity != null)
-                                    data.draft.from = new Address[]{new InternetAddress(identity.email, identity.name)};
-                            }
+                            EntityIdentity ridentity = null;
+                            if (ref.identity != null)
+                                ridentity = db.identity().getIdentity(ref.identity);
 
                             if ("list".equals(action) && ref.list_post != null)
                                 data.draft.to = ref.list_post;
@@ -2109,15 +2106,17 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
-                                if (ref.replySelf(identity)) {
-                                    data.draft.to = ref.to;
+                                if (ref.replySelf(ridentity)) {
                                     data.draft.from = ref.from;
-                                } else
+                                    data.draft.to = ref.to;
+                                } else {
+                                    data.draft.from = ref.to;
                                     data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                }
                             }
 
                             if ("reply_all".equals(action))
-                                data.draft.cc = ref.getAllRecipients(identity);
+                                data.draft.cc = ref.getAllRecipients(ridentity);
                             else if ("receipt".equals(action))
                                 data.draft.receipt_request = true;
 
@@ -2167,6 +2166,7 @@ public class FragmentCompose extends FragmentBase {
                         data.draft.plain_only = true;
 
                     // Select identity matching from address
+                    Address from = null;
                     EntityIdentity selected = null;
                     long aid = args.getLong("account", -1);
 
@@ -2175,6 +2175,7 @@ public class FragmentCompose extends FragmentBase {
                             for (EntityIdentity identity : data.identities)
                                 if (identity.account.equals(aid) &&
                                         identity.sameAddress(sender)) {
+                                    from = sender;
                                     selected = identity;
                                     break;
                                 }
@@ -2184,6 +2185,7 @@ public class FragmentCompose extends FragmentBase {
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.account.equals(aid) &&
                                             identity.similarAddress(sender)) {
+                                        from = sender;
                                         selected = identity;
                                         break;
                                     }
@@ -2192,6 +2194,7 @@ public class FragmentCompose extends FragmentBase {
                             for (Address sender : data.draft.from)
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.sameAddress(sender)) {
+                                        from = sender;
                                         selected = identity;
                                         break;
                                     }
@@ -2200,6 +2203,7 @@ public class FragmentCompose extends FragmentBase {
                             for (Address sender : data.draft.from)
                                 for (EntityIdentity identity : data.identities)
                                     if (identity.similarAddress(sender)) {
+                                        from = sender;
                                         selected = identity;
                                         break;
                                     }
@@ -2244,9 +2248,9 @@ public class FragmentCompose extends FragmentBase {
                     data.draft.identity = selected.id;
                     data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name)};
 
-                    int at = selected.email.indexOf('@');
-                    if (at > 0)
-                        data.draft.extra = selected.email.substring(0, at);
+                    String extra = (from == null ? selected.email : ((InternetAddress) from).getAddress());
+                    if (extra != null && extra.contains("@"))
+                        data.draft.extra = extra.substring(0, extra.indexOf("@"));
 
                     data.draft.sender = MessageHelper.getSortKey(data.draft.from);
                     Uri lookupUri = ContactInfo.getLookupUri(context, data.draft.from);
