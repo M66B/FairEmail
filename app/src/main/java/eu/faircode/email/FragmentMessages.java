@@ -2161,6 +2161,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         for (String name : values.keySet())
             outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
+        long[] skeys = new long[sizes.size()];
+        float[] svalues = new float[sizes.size()];
+        for (int i = 0; i < sizes.size(); i++) {
+            skeys[i] = sizes.keyAt(i);
+            svalues[i] = sizes.valueAt(i);
+        }
+        outState.putLongArray("fair:sizes:keys", skeys);
+        outState.putFloatArray("fair:sizes:values", svalues);
+
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
@@ -2188,6 +2197,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
                     values.get(name).add(value);
             }
+
+            long[] skeys = savedInstanceState.getLongArray("fair:sizes:keys");
+            float[] svalues = savedInstanceState.getFloatArray("fair:sizes:values");
+
+            for (int i = 0; i < skeys.length; i++)
+                sizes.put(skeys[i], svalues[i]);
 
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");
