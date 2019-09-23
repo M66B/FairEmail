@@ -198,7 +198,6 @@
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
     <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
-    <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Toon kaarten</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
@@ -220,6 +219,7 @@
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik vaste breedte lettertype voor berichttekst</string>
+    <string name="title_advanced_text_color">Tekstkleuren weergeven</string>
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_collapse_quotes">Geciteerde tekst samenvouwen</string>
     <string name="title_advanced_remote_content">Externe inhoud automatisch weergeven bij het bekijken van originele berichten</string>
@@ -230,7 +230,6 @@
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
     <string name="title_advanced_reversed">Keer navigatierichting om</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
-    <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
     <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
@@ -361,6 +360,8 @@
     <string name="title_activesync_support">ActiveSync wordt niet ondersteund</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_review">Review</string>
+    <string name="title_advanced_browse">Blader door berichten op de server</string>
+    <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
     <string name="title_synchronize_all">Alle berichten synchroniseren</string>
     <string name="title_synchronize_enabled">Synchroniseren</string>

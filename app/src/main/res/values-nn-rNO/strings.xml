@@ -198,7 +198,6 @@
     <string name="title_advanced_roaming">Laste ned meldinger og vedlegg under roaming</string>
     <string name="title_advanced_rlah">Roam som hjemme</string>
     <string name="title_advanced_manage_connectivity">Administrer tilkobling</string>
-    <string name="title_advanced_browse">Bla gjennom meldinger på serveren</string>
     <string name="title_advanced_startup">Vis på startskjermen</string>
     <string name="title_advanced_cards">Vis kort</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
@@ -220,6 +219,7 @@
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
     <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst</string>
+    <string name="title_advanced_text_color">Vis tekstfarger</string>
     <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
     <string name="title_advanced_collapse_quotes">Kollapse sitert tekst</string>
     <string name="title_advanced_remote_content">Vis automatisk fjerninnhold når du ser på originale meldinger</string>
@@ -230,7 +230,6 @@
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
     <string name="title_advanced_reversed">Omvendt navigasjonsretning</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
-    <string name="title_advanced_expand_read">Merk meldinger som er lest når de utvides</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_expand_one">Utvid bare en melding om gangen</string>
     <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
@@ -361,6 +360,8 @@
     <string name="title_activesync_support">ActiveSync støttes ikke</string>
     <string name="title_oauth_support">OAuth støttes ikke</string>
     <string name="title_review">Anmeldelse</string>
+    <string name="title_advanced_browse">Bla gjennom meldinger på serveren</string>
+    <string name="title_advanced_expand_read">Merk meldinger som er lest når de utvides</string>
     <string name="title_synchronize_now">Synkroniser nå</string>
     <string name="title_synchronize_all">Synkroniser alle meldinger</string>
     <string name="title_synchronize_enabled">Synkroniser</string>

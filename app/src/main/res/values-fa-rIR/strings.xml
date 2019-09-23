@@ -77,7 +77,6 @@
     <string name="title_advanced_section_misc">متفرقه</string>
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>
-    <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
     <string name="title_advanced_date_header">گروه بندی بر اساس تاریخ</string>
     <string name="title_advanced_threading">دسته بندی مکالمه</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
@@ -147,6 +146,7 @@
     <string name="title_identity_delete">حذف همیشگی این هویت؟</string>
     <string name="title_edit_html">ویرایش به صورت HTML</string>
     <string name="title_last_connected">آخرین اتصال: %1$s</string>
+    <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
     <string name="title_synchronize_now">هم اکنون همگام سازی شود</string>
     <string name="title_delete_local">حذف پیام های داخلی</string>
     <string name="title_empty_trash">خالی کردن سطل آشغال</string>

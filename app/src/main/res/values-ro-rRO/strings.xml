@@ -209,7 +209,6 @@
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
-    <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Arată carduri</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
@@ -241,7 +240,6 @@
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_reversed">Inversează direcția de navigare</string>
     <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
-    <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>
@@ -371,6 +369,8 @@
     <string name="title_activesync_support">ActiveSync nu este suportat</string>
     <string name="title_oauth_support">OAuth nu este suportat</string>
     <string name="title_review">Revizuire</string>
+    <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
+    <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
     <string name="title_synchronize_all">Sincronizează toate mesajele</string>
     <string name="title_synchronize_enabled">Sincronizare</string>

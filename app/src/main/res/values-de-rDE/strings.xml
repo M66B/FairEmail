@@ -197,7 +197,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
     <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_manage_connectivity">Verbindungsfähigkeiten verwalten</string>
-    <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
     <string name="title_advanced_startup">Zum Start anzeigen</string>
     <string name="title_advanced_cards">Karten anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
@@ -219,6 +218,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_attachments_alt">Anhänge nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für Nachrichtentext verwenden</string>
+    <string name="title_advanced_text_color">Textfarben anzeigen</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierter Text ausblenden</string>
     <string name="title_advanced_remote_content">Zeige Remote-Inhalte automatisch beim Betrachten von Originalnachrichten</string>
@@ -229,7 +229,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_swipenav">Wische nach links/rechts, um zum nächsten/vorherigen Gespräch zu gehen</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
-    <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Nur eine Nachricht zu jeder Zeit erweitern</string>
     <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
@@ -359,6 +358,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_pop_support">Das POP3-Protokoll unterstützt nur das Herunterladen und Löschen von Nachrichten. Es wird also nicht möglich sein, Nachrichten als Favoriten zu markieren, Nachrichten zu verschieben, etc. POP3 wird mehr Akku-Leistung als IMAP verwenden. Daher erwägen Sie, das IMAP-Protokoll zu verwenden, wann immer möglich.</string>
     <string name="title_activesync_support">ActiveSync wird nicht unterstützt</string>
     <string name="title_oauth_support">OAuth wird nicht unterstützt</string>
+    <string name="title_advanced_browse">E-Mails auf dem Server durchsuchen</string>
+    <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_all">Alle Nachrichten synchronisieren</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>

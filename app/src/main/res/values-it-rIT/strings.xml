@@ -197,7 +197,6 @@
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
-    <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_cards">Mostra carte</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
@@ -219,6 +218,7 @@
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa il carattere monospaziale per il testo del messaggio</string>
+    <string name="title_advanced_text_color">Mostra colori testo</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
     <string name="title_advanced_collapse_quotes">Comprimi testo citato</string>
     <string name="title_advanced_remote_content">Mostra automaticamente il contenuto remoto quando si visualizzano i messaggi originali</string>
@@ -229,7 +229,6 @@
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
     <string name="title_advanced_reversed">Inverti direzione di navigazione</string>
     <string name="title_advanced_double_tap">Doppio tocco per segnare il messaggio letto/non letto</string>
-    <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_expand_one">Espandi solo un messaggio alla volta</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
@@ -360,6 +359,8 @@
     <string name="title_activesync_support">ActiveSync non è supportato</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_review">Revisione</string>
+    <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
+    <string name="title_advanced_expand_read">Segna i messaggi come letti in fase di espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
     <string name="title_synchronize_all">Sincronizza tutti i messaggi</string>
     <string name="title_synchronize_enabled">Sincronizza</string>

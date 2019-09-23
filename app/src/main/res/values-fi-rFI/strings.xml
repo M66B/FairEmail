@@ -198,7 +198,6 @@
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
-    <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Näytä kortit</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
@@ -220,6 +219,7 @@
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
+    <string name="title_advanced_text_color">Näytä tekstin värit</string>
     <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
     <string name="title_advanced_remote_content">Näytä ulkoinen sisältö automaattisesti alkuperäisissä viesteissä</string>
@@ -230,7 +230,6 @@
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
-    <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
     <string name="title_advanced_collapse">Tiivistä viestit keskusteluissa takaisin-painikkeella</string>
@@ -303,6 +302,7 @@
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
     <string name="title_identity_color_hint">Identiteettien värit ovat etusijalla ennen tilien värejä</string>
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
+    <string name="title_advanced_sender_regex">Regex muokattavien osoitteiden täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_encrypt">Salaa oletusarvoisesti</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
@@ -360,6 +360,8 @@
     <string name="title_activesync_support">ActiveSync ei ole tuettu</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>
+    <string name="title_advanced_browse">Selaa palvelimella olevia viestejä</string>
+    <string name="title_advanced_expand_read">Merkitse viestit luetuiksi laajennettaessa</string>
     <string name="title_synchronize_now">Synkronoi nyt</string>
     <string name="title_synchronize_all">Synkronoi kaikki viestit</string>
     <string name="title_synchronize_enabled">Synkronoi</string>

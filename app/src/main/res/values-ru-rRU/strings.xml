@@ -211,7 +211,6 @@
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
     <string name="title_advanced_rlah">В роуминге, как дома</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
-    <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_startup">Показать на стартовом экране</string>
     <string name="title_advanced_cards">\"Карточная\" компоновка</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
@@ -239,7 +238,6 @@
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_swipenav">Свайп влево/вправо, чтобы перейти к следующему/предыдущему диалогу</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
-    <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развертывании</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
@@ -360,6 +358,8 @@
     <string name="title_identity_delete">Удалить эту учетную запись навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
+    <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
+    <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развертывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
     <string name="title_synchronize_all">Синхронизировать все сообщения</string>
     <string name="title_synchronize_enabled">Синхронизировать</string>

@@ -189,7 +189,6 @@
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
     <string name="title_advanced_rlah">Roaming som hemma</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
-    <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Visa kort</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
@@ -217,7 +216,6 @@
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
     <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>
     <string name="title_advanced_double_tap">Dubbeltryck för att markera meddelande läst/oläst</string>
-    <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_advanced_autoexpand">Utöka meddelanden automatiskt</string>
     <string name="title_advanced_collapse">Kollapsa meddelanden i konversationer på \"tillbaka\"</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
@@ -338,6 +336,8 @@
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
+    <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
+    <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
     <string name="title_synchronize_all">Synkronisera alla meddelanden</string>
     <string name="title_synchronize_enabled">Synkronisera</string>

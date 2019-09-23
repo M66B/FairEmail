@@ -195,7 +195,6 @@
     <string name="title_advanced_roaming">Baixeu missatges i fitxers adjunts en itinerància</string>
     <string name="title_advanced_rlah">Itinerant com a casa</string>
     <string name="title_advanced_manage_connectivity">Gestiona la connectivitat</string>
-    <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
     <string name="title_advanced_startup">Mostra a la pantalla d\'inici</string>
     <string name="title_advanced_cards">Mostra les targetes</string>
     <string name="title_advanced_date_header">Agrupa per data</string>
@@ -227,7 +226,6 @@
     <string name="title_advanced_swipenav">Llisca cap a l\'esquerra/dreta per anar a la conversa següent/anterior</string>
     <string name="title_advanced_reversed">Capgirar el sentit de navegació</string>
     <string name="title_advanced_double_tap">Toca dues vegades per marcar el missatge llegit/sense llegir</string>
-    <string name="title_advanced_expand_read">Marca els missatges llegits en expandir-se</string>
     <string name="title_advanced_autoexpand">Ampliar automàticament els missatges</string>
     <string name="title_advanced_expand_one">Expandir només un missatge alhora</string>
     <string name="title_advanced_collapse">Contraure missatges a les converses a la \"part posterior\"</string>
@@ -355,6 +353,8 @@
     <string name="title_last_connected">Darrera connexió: %1$s</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
+    <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
+    <string name="title_advanced_expand_read">Marca els missatges llegits en expandir-se</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
     <string name="title_synchronize_all">Sincronitza tots els missatges</string>
     <string name="title_synchronize_enabled">Sincronitza</string>

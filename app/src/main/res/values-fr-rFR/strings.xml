@@ -198,7 +198,6 @@
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
     <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
-    <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
     <string name="title_advanced_cards">Afficher sous forme de cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>
@@ -220,6 +219,7 @@
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
+    <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_collapse_quotes">Réduire le texte cité</string>
     <string name="title_advanced_remote_content">Afficher automatiquement le contenu distant lors de la visualisation des messages originaux</string>
@@ -230,7 +230,6 @@
     <string name="title_advanced_swipenav">Balayez vers la gauche/droite pour passer à la conversation suivante/précédente</string>
     <string name="title_advanced_reversed">Inverser les directions de navigation</string>
     <string name="title_advanced_double_tap">Appuyez deux fois pour marquer le message lu/non lu</string>
-    <string name="title_advanced_expand_read">Marquer les messages comme lus à l\'ouverture</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_expand_one">Développer un seul message à la fois</string>
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
@@ -361,6 +360,8 @@
     <string name="title_activesync_support">ActiveSync n\'est pas pris en charge</string>
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
     <string name="title_review">Récapitulatif</string>
+    <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
+    <string name="title_advanced_expand_read">Marquer les messages comme lus à l\'ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
     <string name="title_synchronize_all">Synchroniser tous les messages</string>
     <string name="title_synchronize_enabled">Synchroniser</string>

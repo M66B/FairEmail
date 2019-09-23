@@ -220,7 +220,6 @@
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
-    <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_startup">Zobrazit na úvodní obrazovce</string>
     <string name="title_advanced_cards">Zobrazit karty</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
@@ -252,7 +251,6 @@
     <string name="title_advanced_swipenav">Tažením doleva/doprava přejít na předešlou/následující konverzaci</string>
     <string name="title_advanced_reversed">Obrátit směr navigace</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
-    <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>
     <string name="title_advanced_collapse">Sbalit zprávy v konverzacích při pohybu zpět</string>
@@ -382,6 +380,8 @@
     <string name="title_activesync_support">ActiveSync není podporován</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_review">Zkontrolovat</string>
+    <string name="title_advanced_browse">Procházet zprávy na serveru</string>
+    <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
     <string name="title_synchronize_all">Synchronizovat všechny zprávy</string>
     <string name="title_synchronize_enabled">Synchronizovat</string>

@@ -208,7 +208,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_roaming">Download messages and attachments while roaming</string>
     <string name="title_advanced_rlah">Roaming kao kod kuće</string>
     <string name="title_advanced_manage_connectivity">Upravljanje povezivanjem</string>
-    <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_startup">Prikaži na početnom zaslonu</string>
     <string name="title_advanced_cards">Prikaži kartice</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
@@ -240,7 +239,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_swipenav">Prijeđite prstom ulijevo / udesno da biste prešli na sljedeći / prethodni razgovor</string>
     <string name="title_advanced_reversed">Obrnuti smjer navigacije</string>
     <string name="title_advanced_double_tap">Dvaput dodirnite da biste označili poruku pročitanu / nepročitanu</string>
-    <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
     <string name="title_advanced_expand_one">Proširiti samo jednu poruku istodobno</string>
     <string name="title_advanced_collapse">Sažmi poruke u razgovorima na \"natrag\"</string>
@@ -370,6 +368,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Recenzija</string>
+    <string name="title_advanced_browse">Browse messages on the server</string>
+    <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
     <string name="title_synchronize_all">Sinkroniziraj sve poruke</string>
     <string name="title_synchronize_enabled">Sinkroniziraj</string>

@@ -220,7 +220,6 @@
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
     <string name="title_advanced_rlah">Roaming jak w domu</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
-    <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Pokaż karty</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
@@ -252,7 +251,6 @@
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
     <string name="title_advanced_reversed">Odwróć kierunek nawigacji</string>
     <string name="title_advanced_double_tap">Kliknij podwójnie, aby oznaczyć odczytane/nieodczytane</string>
-    <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>
     <string name="title_advanced_collapse">Zwiń wiadomości w konwersacji przy \'cofnij\'</string>
@@ -382,6 +380,8 @@
     <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
+    <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
+    <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
     <string name="title_synchronize_all">Synchronizuj wszystkie wiadomości</string>
     <string name="title_synchronize_enabled">Synchronizuj</string>

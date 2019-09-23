@@ -196,7 +196,6 @@
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
-    <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Vis Kort</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
@@ -228,7 +227,6 @@
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
     <string name="title_advanced_reversed">Omvendt navigeringsretning</string>
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
-    <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
     <string name="title_advanced_collapse">Sammenfold beskeder i samtaler ved tryk på Tilbage</string>
@@ -358,6 +356,8 @@
     <string name="title_activesync_support">ActiveSync er uunderstøttet</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
+    <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
+    <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
     <string name="title_synchronize_all">Synkronisér alle beskeder</string>
     <string name="title_synchronize_enabled">Synkroniserer</string>

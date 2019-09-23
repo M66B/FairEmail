@@ -186,7 +186,6 @@
     <string name="title_advanced_roaming">漫游时下载消息和附件</string>
     <string name="title_advanced_rlah">像在国内那样漫游</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
-    <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
@@ -218,7 +217,6 @@
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
     <string name="title_advanced_reversed">翻转导航方向</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
-    <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
@@ -349,6 +347,8 @@
     <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">查看</string>
+    <string name="title_advanced_browse">浏览服务器上的消息</string>
+    <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">现在同步</string>
     <string name="title_synchronize_all">同步所有消息</string>
     <string name="title_synchronize_enabled">同步</string>

@@ -193,7 +193,6 @@
     <string name="title_advanced_roaming">Fazer o download de mensagens e anexos de roaming</string>
     <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_manage_connectivity">Gerenciar conectividade</string>
-    <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
     <string name="title_advanced_cards">Mostrar cartões</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
@@ -225,7 +224,6 @@
     <string name="title_advanced_swipenav">Deslize para a esquerda/direita para ir para próxima/anterior conversa</string>
     <string name="title_advanced_reversed">Reverter a direção de navegação</string>
     <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
-    <string name="title_advanced_expand_read">Marcar mensagens lidas ao expandir</string>
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem por vez</string>
     <string name="title_advanced_collapse">Recolher mensagens em conversas ao \'voltar\'</string>
@@ -354,6 +352,8 @@
     <string name="title_pop_support">O protocolo POP3 suporta somente o download e exclusão de mensagens. Então, não será possível marcar mensagem favorita, mover mensagens, etc. POP3 usará mais energia da bateria do que IMAP. Por conseguinte, considere usar o protocolo IMAP sempre que possível.</string>
     <string name="title_activesync_support">O ActiveSync não é suportado</string>
     <string name="title_oauth_support">OAuth não é suportado</string>
+    <string name="title_advanced_browse">Procurar mensagens no servidor</string>
+    <string name="title_advanced_expand_read">Marcar mensagens lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
     <string name="title_synchronize_all">Sincronizar todas as mensagens</string>
     <string name="title_synchronize_enabled">Sincronizar</string>
