@@ -147,9 +147,9 @@ public class ServiceSynchronize extends ServiceBase {
             }
         });
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        db.message().liveUnseen().observe(this, new Observer<TupleMessageStats>() {
+        db.message().liveUnseenWidget().observe(this, new Observer<TupleMessageStats>() {
             private Integer lastUnseen = null;
 
             @Override

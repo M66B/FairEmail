@@ -25,7 +25,10 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.RemoteViews;
+
+import androidx.preference.PreferenceManager;
 
 import java.text.NumberFormat;
 import java.util.concurrent.ExecutorService;
@@ -41,7 +44,15 @@ public class Widget extends AppWidgetProvider {
             @Override
             public void run() {
                 DB db = DB.getInstance(context);
-                update(context, appWidgetManager, appWidgetIds, db.message().getUnseenUnified());
+                TupleMessageStats stats = db.message().getUnseenWidget();
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean unseen_ignored = prefs.getBoolean("unseen_ignored", false);
+                Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
+                if (unseen == null)
+                    unseen = 0;
+
+                update(context, appWidgetManager, appWidgetIds, unseen);
             }
         });
     }

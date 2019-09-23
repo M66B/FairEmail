@@ -248,14 +248,19 @@ public interface DaoMessage {
             " WHERE message.id = :id")
     LiveData<TupleMessageEx> liveMessage(long id);
 
-    @Query("SELECT COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
+    String widget = "SELECT COUNT(message.id) AS unseen, SUM(ABS(notifying)) AS notifying" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
             " AND folder.notify" +
-            " AND NOT (message.ui_seen OR message.ui_hide <> 0)")
-    LiveData<TupleMessageStats> liveUnseen();
+            " AND NOT (message.ui_seen OR message.ui_hide <> 0)";
+
+    @Query(widget)
+    LiveData<TupleMessageStats> liveUnseenWidget();
+
+    @Query(widget)
+    TupleMessageStats getUnseenWidget();
 
     @Query("SELECT message.*" +
             ", account.pop AS accountPop, account.name AS accountName, IFNULL(identity.color, account.color) AS accountColor, account.notify AS accountNotify" +
@@ -279,7 +284,7 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
-    String widget = "SELECT message.*, account.name AS accountName" +
+    String widget_unified = "SELECT message.*, account.name AS accountName" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", COUNT(message.id) - SUM(message.ui_flagged) AS unflagged" +
             ", MAX(message.received) AS dummy" +
@@ -297,25 +302,13 @@ public interface DaoMessage {
             " ORDER BY message.received DESC" +
             " LIMIT 100";
 
-    @Query(widget)
+    @Query(widget_unified)
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     LiveData<List<TupleMessageWidget>> liveWidgetUnified(boolean threading, boolean unseen, boolean flagged);
 
-    @Query(widget)
+    @Query(widget_unified)
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     List<TupleMessageWidget> getWidgetUnified(boolean threading, boolean unseen, boolean flagged);
-
-    @Query("SELECT COUNT(message.id) FROM message" +
-            " JOIN account ON account.id = message.account" +
-            " JOIN folder ON folder.id = message.folder" +
-            " WHERE account.`synchronize`" +
-            " AND folder.unified" +
-            " AND (account.created IS NULL OR message.received > account.created)" +
-            " AND NOT message.ui_seen" +
-            " AND NOT message.ui_ignored" +
-            " AND message.ui_hide = 0" +
-            " ORDER BY message.received")
-    int getUnseenUnified();
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
