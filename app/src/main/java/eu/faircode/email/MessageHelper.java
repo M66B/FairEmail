@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.net.Uri;
+import android.text.Html;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 
@@ -898,8 +899,46 @@ public class MessageHelper {
             // Prevent Jsoup throwing an exception
             result = result.replace("\0", "");
 
-            if (part.isMimeType("text/plain"))
-                result = "<pre>" + TextUtils.htmlEncode(result) + "</pre>";
+            if (part.isMimeType("text/plain")) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("<span>");
+
+                int level = 0;
+                String[] lines = result.split("\\r?\\n");
+                for (String line : lines) {
+                    int tlevel = 0;
+                    while (line.startsWith("> ")) {
+                        tlevel++;
+                        if (tlevel > level)
+                            sb.append("<blockquote>");
+                        line = line.substring(2);
+                    }
+                    for (int i = 0; i < level - tlevel; i++)
+                        sb.append("</blockquote>");
+                    level = tlevel;
+
+                    line = Html.escapeHtml(line);
+
+                    int len = line.length();
+                    for (int j = 0; j < len; j++) {
+                        char kar = line.charAt(j);
+                        if (kar == ' ' &&
+                                j + 1 < len && line.charAt(j + 1) == ' ')
+                            sb.append("&nbsp;");
+                        else
+                            sb.append(kar);
+                    }
+
+                    sb.append("<br>");
+                }
+
+                for (int i = 0; i < level; i++)
+                    sb.append("</blockquote>");
+
+                sb.append("</span>");
+
+                result = sb.toString();
+            }
 
             return result;
         }

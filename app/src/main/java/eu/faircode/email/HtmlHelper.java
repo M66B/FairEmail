@@ -191,17 +191,14 @@ public class HtmlHelper {
                     line = Html.escapeHtml(line);
 
                     StringBuilder sb = new StringBuilder();
-                    if ("-- ".equals(line))
-                        sb.append(line);
-                    else {
-                        int len = line.length();
-                        for (int j = 0; j < len; j++) {
-                            char kar = line.charAt(j);
-                            if (kar == ' ' && j + 1 < len && line.charAt(j + 1) == ' ')
-                                sb.append("&nbsp;");
-                            else
-                                sb.append(kar);
-                        }
+                    int len = line.length();
+                    for (int j = 0; j < len; j++) {
+                        char kar = line.charAt(j);
+                        if (kar == ' ' &&
+                                j + 1 < len && line.charAt(j + 1) == ' ')
+                            sb.append("&nbsp;");
+                        else
+                            sb.append(kar);
                     }
 
                     Element span = document.createElement("span");
