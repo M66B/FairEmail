@@ -161,6 +161,8 @@ public class FragmentAnswer extends FragmentBase {
     }
 
     private void onActionSave() {
+        etText.clearComposingText();
+
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", etName.getText().toString());

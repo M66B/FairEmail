@@ -524,6 +524,8 @@ public class FragmentIdentity extends FragmentBase {
                 name = hint.toString();
         }
 
+        etSignature.clearComposingText();
+
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putString("name", name);
