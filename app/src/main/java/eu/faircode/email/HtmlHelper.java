@@ -93,7 +93,7 @@ public class HtmlHelper {
     private static final ExecutorService executor =
             Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    static String sanitize(Context context, String html, boolean show_images) {
+    static String sanitize(Context context, String html, boolean text_color, boolean show_images) {
         Document parsed = Jsoup.parse(html);
 
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
@@ -133,13 +133,15 @@ public class HtmlHelper {
 
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big")
-                .addAttributes("span", "style")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
                 .removeAttributes("th", "colspan", "rowspan", "width")
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data");
+        if (text_color)
+            whitelist.addAttributes("span", "style");
+
         final Document document = new Cleaner(whitelist).clean(parsed);
 
         // Sanitize span styles

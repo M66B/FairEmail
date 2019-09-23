@@ -66,8 +66,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swContrast;
     private SwitchCompat swMonospaced;
-    private SwitchCompat swImagesInline;
+    private SwitchCompat swTextColor;
     private SwitchCompat swCollapseQuotes;
+    private SwitchCompat swImagesInline;
     private SwitchCompat swRemoteContent;
     private SwitchCompat swSeekbar;
     private SwitchCompat swActionbar;
@@ -77,7 +78,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "avatars", "generated_icons", "identicons", "circular", "name_email",
             "authentication", "subject_top", "subject_italic", "subject_ellipsize",
             "flags", "preview", "preview_italic", "addresses", "attachments_alt",
-            "contrast", "monospaced", "inline_images", "collapse_quotes", "autocontent", "seekbar", "actionbar",
+            "contrast", "monospaced", "text_color",
+            "inline_images", "collapse_quotes", "autocontent", "seekbar", "actionbar",
     };
 
     @Override
@@ -112,8 +114,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swContrast = view.findViewById(R.id.swContrast);
         swMonospaced = view.findViewById(R.id.swMonospaced);
-        swImagesInline = view.findViewById(R.id.swImagesInline);
+        swTextColor = view.findViewById(R.id.swTextColor);
         swCollapseQuotes = view.findViewById(R.id.swCollapseQuotes);
+        swImagesInline = view.findViewById(R.id.swImagesInline);
         swRemoteContent = view.findViewById(R.id.swRemoteContent);
         swSeekbar = view.findViewById(R.id.swSeekbar);
         swActionbar = view.findViewById(R.id.swActionbar);
@@ -297,10 +300,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swImagesInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swTextColor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("inline_images", checked).apply();
+                prefs.edit().putBoolean("text_color", checked).apply();
             }
         });
 
@@ -308,6 +311,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("collapse_quotes", checked).apply();
+            }
+        });
+
+        swImagesInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("inline_images", checked).apply();
             }
         });
 
@@ -416,8 +426,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swContrast.setChecked(prefs.getBoolean("contrast", false));
         swMonospaced.setChecked(prefs.getBoolean("monospaced", false));
-        swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
+        swTextColor.setChecked(prefs.getBoolean("text_color", true));
         swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
+        swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swRemoteContent.setChecked(prefs.getBoolean("autocontent", false));
         swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));

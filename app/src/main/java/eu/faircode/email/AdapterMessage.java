@@ -2527,6 +2527,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean show_quotes = args.getBoolean("show_quotes");
                 int zoom = args.getInt("zoom");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean text_color = prefs.getBoolean("text_color", true);
+                boolean inline = prefs.getBoolean("inline_images", false);
+
                 if (message == null || !message.content)
                     return null;
 
@@ -2536,9 +2540,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 String body = Helper.readText(file);
                 Document document = Jsoup.parse(body);
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean inline = prefs.getBoolean("inline_images", false);
 
                 boolean has_images = false;
                 for (Element img : document.select("img")) {
@@ -2561,7 +2562,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     body = document.html();
                 }
 
-                String html = HtmlHelper.sanitize(context, body, show_images);
+                String html = HtmlHelper.sanitize(context, body, text_color, show_images);
                 if (debug) {
                     Document format = Jsoup.parse(html);
                     format.outputSettings().prettyPrint(true).outline(true).indentAmount(1);

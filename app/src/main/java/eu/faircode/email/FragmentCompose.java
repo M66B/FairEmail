@@ -2011,6 +2011,7 @@ public class FragmentCompose extends FragmentBase {
             long answer = args.getLong("answer", -1);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean text_color = prefs.getBoolean("text_color", true);
             boolean plain_only = prefs.getBoolean("plain_only", false);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
@@ -2071,7 +2072,7 @@ public class FragmentCompose extends FragmentBase {
                         data.draft.subject = args.getString("subject", "");
                         body = args.getString("body", "");
                         if (!TextUtils.isEmpty(body))
-                            body = HtmlHelper.sanitize(context, body, false);
+                            body = HtmlHelper.sanitize(context, body, text_color, false);
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
@@ -2137,7 +2138,7 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.subject = ref.subject;
                             if (ref.content) {
                                 String html = Helper.readText(ref.getFile(context));
-                                body = HtmlHelper.sanitize(context, html, true);
+                                body = HtmlHelper.sanitize(context, html, text_color, true);
                             }
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
@@ -2371,7 +2372,7 @@ public class FragmentCompose extends FragmentBase {
                     if (data.draft.content) {
                         File file = data.draft.getFile(context);
                         String html = Helper.readText(file);
-                        html = HtmlHelper.sanitize(context, html, true);
+                        html = HtmlHelper.sanitize(context, html, true, true);
                         Helper.writeText(file, html);
                     } else {
                         if (data.draft.uid == null)
@@ -3065,6 +3066,9 @@ public class FragmentCompose extends FragmentBase {
                 final long id = args.getLong("id");
                 final boolean show_images = args.getBoolean("show_images", false);
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean text_color = prefs.getBoolean("text_color", true);
+
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
                 if (draft == null || !draft.content)
@@ -3076,7 +3080,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedRef = null;
                 File refFile = draft.getRefFile(context);
                 if (refFile.exists()) {
-                    String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), show_images);
+                    String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), text_color, show_images);
                     Spanned spannedQuote = HtmlHelper.fromHtml(quote,
                             new Html.ImageGetter() {
                                 @Override
