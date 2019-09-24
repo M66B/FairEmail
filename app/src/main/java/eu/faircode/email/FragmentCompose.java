@@ -3070,6 +3070,8 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean text_color = prefs.getBoolean("text_color", true);
 
+                int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
                 if (draft == null || !draft.content)
@@ -3077,6 +3079,19 @@ public class FragmentCompose extends FragmentBase {
 
                 String body = Helper.readText(draft.getFile(context));
                 Spanned spannedBody = HtmlHelper.fromHtml(body, cidGetter, null);
+
+                SpannableStringBuilder bodyBuilder = new SpannableStringBuilder(spannedBody);
+                QuoteSpan[] bodySpans = bodyBuilder.getSpans(0, bodyBuilder.length(), QuoteSpan.class);
+                for (QuoteSpan quoteSpan : bodySpans) {
+                    bodyBuilder.setSpan(
+                            new StyledQuoteSpan(context, colorPrimary),
+                            bodyBuilder.getSpanStart(quoteSpan),
+                            bodyBuilder.getSpanEnd(quoteSpan),
+                            bodyBuilder.getSpanFlags(quoteSpan));
+                    bodyBuilder.removeSpan(quoteSpan);
+                }
+
+                spannedBody = bodyBuilder;
 
                 Spanned spannedRef = null;
                 File refFile = draft.getRefFile(context);
@@ -3091,19 +3106,18 @@ public class FragmentCompose extends FragmentBase {
                             },
                             null);
 
-                    int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-                    SpannableStringBuilder builder = new SpannableStringBuilder(spannedQuote);
-                    QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
-                    for (QuoteSpan quoteSpan : quoteSpans) {
-                        builder.setSpan(
+                    SpannableStringBuilder refBuilder = new SpannableStringBuilder(spannedQuote);
+                    QuoteSpan[] refSpans = refBuilder.getSpans(0, refBuilder.length(), QuoteSpan.class);
+                    for (QuoteSpan quoteSpan : refSpans) {
+                        refBuilder.setSpan(
                                 new StyledQuoteSpan(context, colorPrimary),
-                                builder.getSpanStart(quoteSpan),
-                                builder.getSpanEnd(quoteSpan),
-                                builder.getSpanFlags(quoteSpan));
-                        builder.removeSpan(quoteSpan);
+                                refBuilder.getSpanStart(quoteSpan),
+                                refBuilder.getSpanEnd(quoteSpan),
+                                refBuilder.getSpanFlags(quoteSpan));
+                        refBuilder.removeSpan(quoteSpan);
                     }
 
-                    spannedRef = builder;
+                    spannedRef = refBuilder;
                 }
 
                 args.putBoolean("ref_has_images", spannedRef != null &&
