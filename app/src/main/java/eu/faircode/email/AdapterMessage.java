@@ -3690,10 +3690,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             final TextView tvHost = view.findViewById(R.id.tvHost);
             final Group grpOwner = view.findViewById(R.id.grpOwner);
 
-            tvTitle.setText(title);
-            tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
-
-            cbSecure.setVisibility(View.GONE);
             etLink.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -3704,27 +3700,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 @Override
-                public void afterTextChanged(Editable text) {
-                    Uri uri = Uri.parse(text.toString());
-                    cbSecure.setVisibility(!uri.isOpaque() &&
-                            ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()))
-                            ? View.VISIBLE : View.GONE);
+                public void afterTextChanged(Editable editable) {
+                    Uri uri = Uri.parse(editable.toString());
+
+                    boolean secure = (!uri.isOpaque() &&
+                            "https".equals(uri.getScheme()));
+                    boolean hyperlink = (!uri.isOpaque() &&
+                            ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())));
+
+                    cbSecure.setTag(secure);
+                    cbSecure.setChecked(secure);
+
+                    cbSecure.setText(
+                            secure ? R.string.title_link_secured : R.string.title_secure_link);
+                    cbSecure.setTextColor(Helper.resolveColor(getContext(),
+                            secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
+                    cbSecure.setTypeface(
+                            secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+
+                    cbSecure.setVisibility(hyperlink ? View.VISIBLE : View.GONE);
                 }
             });
-            etLink.setText(uri.toString());
-
-            boolean secure = "https".equals(uri.getScheme());
-            cbSecure.setChecked(secure);
-            cbSecure.setText(
-                    secure ? R.string.title_link_secured : R.string.title_secure_link);
-            cbSecure.setTextColor(Helper.resolveColor(getContext(),
-                    secure ? android.R.attr.textColorSecondary : R.attr.colorWarning));
-            cbSecure.setTypeface(
-                    secure ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             cbSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    boolean tag = (Boolean) compoundButton.getTag();
+                    if (tag == checked)
+                        return;
+
                     Uri uri = Uri.parse(etLink.getText().toString());
                     Uri.Builder builder = uri.buildUpon();
 
@@ -3737,13 +3741,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
 
                     etLink.setText(builder.build().toString());
-
-                    cbSecure.setText(
-                            checked ? R.string.title_link_secured : R.string.title_secure_link);
-                    cbSecure.setTextColor(Helper.resolveColor(getContext(),
-                            checked ? android.R.attr.textColorSecondary : R.attr.colorWarning));
-                    cbSecure.setTypeface(
-                            checked ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
                 }
             });
 
@@ -3805,6 +3802,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }.execute(FragmentDialogLink.this, args, "link:owner");
                 }
             });
+
+            tvTitle.setText(title);
+            tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
+            etLink.setText(uri.toString());
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)
