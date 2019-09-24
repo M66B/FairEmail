@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.Layout;
@@ -27,13 +28,18 @@ import android.text.style.QuoteSpan;
 import androidx.annotation.NonNull;
 
 public class StyledQuoteSpan extends QuoteSpan {
-    StyledQuoteSpan(int color) {
+    private int stripeWidth;
+    private int gapWidth;
+
+    StyledQuoteSpan(Context context, int color) {
         super(color);
+        stripeWidth = Helper.dp2pixels(context, 3);
+        gapWidth = Helper.dp2pixels(context, 6);
     }
 
     @Override
     public int getLeadingMargin(boolean first) {
-        return 6 /* stripeWidth */ + 12 /* gapWidth */;
+        return stripeWidth + gapWidth;
     }
 
     @Override
@@ -48,7 +54,7 @@ public class StyledQuoteSpan extends QuoteSpan {
         p.setStyle(Paint.Style.FILL);
         p.setColor(getColor());
 
-        c.drawRect(x, top, x + dir * 6 /* stripeWidth */, bottom, p);
+        c.drawRect(x, top, x + dir * stripeWidth, bottom, p);
 
         p.setStyle(style);
         p.setColor(color);

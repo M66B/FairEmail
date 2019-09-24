@@ -3096,7 +3096,7 @@ public class FragmentCompose extends FragmentBase {
                     QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
                     for (QuoteSpan quoteSpan : quoteSpans) {
                         builder.setSpan(
-                                new StyledQuoteSpan(colorPrimary),
+                                new StyledQuoteSpan(context, colorPrimary),
                                 builder.getSpanStart(quoteSpan),
                                 builder.getSpanEnd(quoteSpan),
                                 builder.getSpanFlags(quoteSpan));
