@@ -165,6 +165,7 @@ public class HtmlHelper {
                                         .toLowerCase(Locale.ROOT)
                                         .replace(" ", "")
                                         .replace("inherit", "")
+                                        .replace("transparent", "")
                                         .replace("!important", "");
 
                                 Integer color = null;
