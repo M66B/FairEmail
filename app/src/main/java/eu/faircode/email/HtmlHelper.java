@@ -141,12 +141,12 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data");
         if (text_color)
-            whitelist.addAttributes("span", "style");
+            whitelist.addAttributes(":all", "style");
 
         final Document document = new Cleaner(whitelist).clean(parsed);
 
         // Sanitize span styles
-        for (Element span : document.select("span")) {
+        for (Element span : document.select("*")) {
             String style = span.attr("style");
             if (!TextUtils.isEmpty(style)) {
                 StringBuilder sb = new StringBuilder();
