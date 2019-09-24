@@ -206,9 +206,9 @@ public class MailService implements AutoCloseable {
                         }
 
                     throw new IllegalArgumentException("Account not found");
-                } catch (Throwable ex1) {
+                } catch (Exception ex1) {
                     Log.e(ex1);
-                    throw ex;
+                    throw new AuthenticationFailedException(ex.getMessage(), ex1);
                 }
             else
                 throw ex;
