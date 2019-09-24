@@ -47,6 +47,7 @@ import com.bugsnag.android.BeforeNotify;
 import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
+import com.bugsnag.android.Callback;
 import com.bugsnag.android.Client;
 import com.bugsnag.android.Error;
 import com.bugsnag.android.Report;
@@ -70,6 +71,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -105,8 +107,16 @@ public class Log {
     }
 
     public static int e(String msg) {
-        if (BuildConfig.BETA_RELEASE)
-            Bugsnag.notify(new Throwable(msg), Severity.ERROR);
+        if (BuildConfig.BETA_RELEASE) {
+            List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(new Throwable().getStackTrace()));
+            ss.remove(0);
+            Bugsnag.notify("Internal error", msg, ss.toArray(new StackTraceElement[0]), new Callback() {
+                @Override
+                public void beforeNotify(@NonNull Report report) {
+                    report.getError().setSeverity(Severity.ERROR);
+                }
+            });
+        }
         return android.util.Log.e(TAG, msg);
     }
 
