@@ -162,19 +162,17 @@ public class HtmlHelper {
                         switch (kv[0].trim().toLowerCase(Locale.ROOT)) {
                             case "color":
                                 String c = kv[1].trim().toLowerCase(Locale.ROOT);
+
                                 Integer color = null;
-                                if (!c.startsWith("#"))
-                                    try {
-                                        color = Color.parseColor(c);
-                                    } catch (IllegalArgumentException ex) {
-                                        Log.e("Color=" + c);
-                                    }
-                                if (color == null)
-                                    try {
+                                try {
+                                    if (c.startsWith("#"))
                                         color = Integer.decode(c) | 0xFF000000;
-                                    } catch (NumberFormatException ex) {
-                                        Log.e("Color=" + c);
-                                    }
+                                    else
+                                        color = Color.parseColor(c);
+                                } catch (Throwable ex) {
+                                    Log.e("Color=" + c);
+                                }
+
                                 if (color != null) {
                                     double lum = ColorUtils.calculateLuminance(color);
                                     if (dark
