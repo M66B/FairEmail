@@ -247,6 +247,7 @@
     <string name="title_advanced_notify_action_reply_direct">Direkt svar</string>
     <string name="title_advanced_notify_action_flag">Stjärna</string>
     <string name="title_advanced_notify_action_seen">Läst</string>
+    <string name="title_advanced_notify_action_snooze">Slumra</string>
     <string name="title_advanced_biometrics_notify">Visa aviseringsinnehåll när du använder biometrisk autentisering</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
