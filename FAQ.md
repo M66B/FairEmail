@@ -712,9 +712,11 @@ The error *... Read timed out ...* means that the email server is not responding
 The error *... Failed to load IMAP envelope ...* is caused by a bug in the IMAP server of your provider.
 One or more messages could not be retrieved due to an unrecoverable error in the IMAP protocol.
 
-The error *Account not found* means that a previously selected Gmail account was not found anymore, see also [this FAQ](#user-content-faq136).
-
-The error *No token on refresh* means that no token was returned on refreshing the authentication of Gmail account, see also [this FAQ](#user-content-faq136).
+The error *... Invalid credentials ...* for a Gmail account which was added with the quick setup wizard
+might be caused by having removed the selected account from your device or by having revoked account (contact) permissions from FairEmail.
+Account permissions are required to periodically refresh the [OAuth](https://developers.google.com/gmail/imap/xoauth2-protocol) token
+(a kind of password used to login to your Gmail account).
+Just start the wizard (but do not select an account) to grant the required permissions again.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
@@ -2290,17 +2292,6 @@ Note that this irreversible.
 
 Similarly, drafts are shown in conversations to find them back in the context where they belong.
 It is easy to read through the received messages before continuing to write the draft later.
-
-<br />
-
-<a name="faq136"></a>
-**(136) Why does my Gmail account show 'Invalid credentials'?**
-
-Assuming you used the Gmail wizard: you have likely revoked account (contact) permissions from FairEmail.
-Account permissions are required to periodically refresh the [OAuth](https://developers.google.com/gmail/imap/xoauth2-protocol) token
-(a kind of password used to login to your Gmail account).
-
-Just start the wizard (but do not select an account) to grant the required permissions again.
 
 <br />
 
