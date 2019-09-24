@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
@@ -44,6 +45,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.graphics.ColorUtils;
 import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
@@ -145,6 +147,8 @@ public class HtmlHelper {
 
         final Document document = new Cleaner(whitelist).clean(parsed);
 
+        boolean dark = Helper.isDarkTheme(context);
+
         // Sanitize span styles
         for (Element span : document.select("*")) {
             String style = span.attr("style");
@@ -157,11 +161,38 @@ public class HtmlHelper {
                     if (kv.length == 2)
                         switch (kv[0].trim().toLowerCase(Locale.ROOT)) {
                             case "color":
-                                sb.append(param).append(";");
+                                String c = kv[1].trim().toLowerCase(Locale.ROOT);
+                                Integer color = null;
+                                if (!c.startsWith("#"))
+                                    try {
+                                        color = Color.parseColor(c);
+                                    } catch (IllegalArgumentException ex) {
+                                        Log.e("Color=" + c);
+                                    }
+                                if (color == null)
+                                    try {
+                                        color = Integer.decode(c) | 0xFF000000;
+                                    } catch (NumberFormatException ex) {
+                                        Log.e("Color=" + c);
+                                    }
+                                if (color != null) {
+                                    double lum = ColorUtils.calculateLuminance(color);
+                                    if (dark
+                                            ? lum < Helper.MIN_LUMINANCE
+                                            : lum > 1 - Helper.MIN_LUMINANCE)
+                                        color = ColorUtils.blendARGB(color,
+                                                dark ? Color.WHITE : Color.BLACK, Helper.MIN_LUMINANCE);
+                                    c = String.format("#%06x", 0xFFFFFF & color);
+                                    sb.append("color:").append(c).append(";");
+                                }
                                 break;
 
                             case "background":
                             case "background-color":
+                                break;
+
+                            case "line-through":
+                                sb.append(param).append(";");
                                 break;
                         }
                 }

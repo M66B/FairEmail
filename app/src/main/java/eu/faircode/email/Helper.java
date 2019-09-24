@@ -111,6 +111,8 @@ public class Helper {
     static final int NOTIFICATION_UPDATE = 4;
 
     static final float LOW_LIGHT = 0.6f;
+    static final float MIN_LUMINANCE = 0.33f;
+
     static final int BUFFER_SIZE = 8192; // Same as in Files class
 
     static final String FAQ_URI = "https://github.com/M66B/FairEmail/blob/master/FAQ.md";
