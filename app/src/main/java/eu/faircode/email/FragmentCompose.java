@@ -1840,16 +1840,19 @@ public class FragmentCompose extends FragmentBase {
         String name = uri.getLastPathSegment();
         String s = null;
 
-        try (Cursor cursor = context.getContentResolver().query(uri, null, null, null, null, null)) {
-            if (cursor != null && cursor.moveToFirst()) {
-                int colName = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-                int colSize = cursor.getColumnIndex(OpenableColumns.SIZE);
-                if (colName >= 0)
-                    name = cursor.getString(colName);
-                if (colSize >= 0)
-                    s = cursor.getString(colSize);
+        try {
+            try (Cursor cursor = context.getContentResolver().query(uri, null, null, null, null, null)) {
+                if (cursor != null && cursor.moveToFirst()) {
+                    int colName = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                    int colSize = cursor.getColumnIndex(OpenableColumns.SIZE);
+                    if (colName >= 0)
+                        name = cursor.getString(colName);
+                    if (colSize >= 0)
+                        s = cursor.getString(colSize);
+                }
             }
-
+        } catch (SecurityException ex) {
+            Log.w(ex);
         }
 
         DB db = DB.getInstance(context);
@@ -1935,7 +1938,7 @@ public class FragmentCompose extends FragmentBase {
 
             resizeAttachment(context, attachment);
 
-        } catch (IOException ex) {
+        } catch (Throwable ex) {
             // Reset progress on failure
             Log.e(ex);
             db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
