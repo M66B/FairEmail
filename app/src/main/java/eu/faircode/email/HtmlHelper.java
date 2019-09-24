@@ -170,7 +170,9 @@ public class HtmlHelper {
 
                                 Integer color = null;
                                 try {
-                                    if (c.startsWith("#"))
+                                    if (TextUtils.isEmpty(c))
+                                        ; // Do nothing
+                                    else if (c.startsWith("#"))
                                         color = Integer.decode(c) | 0xFF000000;
                                     else if (c.startsWith("rgb")) {
                                         int s = c.indexOf("(");
