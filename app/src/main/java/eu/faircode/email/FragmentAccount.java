@@ -29,9 +29,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -284,21 +282,6 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onClick(View view) {
                 Helper.viewFAQ(getContext(), 133);
-            }
-        });
-
-        etDomain.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence text, int start, int before, int count) {
-                btnAutoConfig.setEnabled(text.length() > 0);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
             }
         });
 

@@ -320,10 +320,10 @@ public class FragmentIdentity extends FragmentBase {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-                SpannableStringBuilder ssb = new SpannableStringBuilder(s);
+            public void afterTextChanged(Editable editable) {
+                SpannableStringBuilder ssb = new SpannableStringBuilder(editable);
                 Helper.clearComposingText(ssb);
-                if (TextUtils.isEmpty(s.toString()))
+                if (TextUtils.isEmpty(editable.toString()))
                     etSignature.setTag(null);
                 else
                     etSignature.setTag(HtmlHelper.toHtml(ssb));
@@ -386,18 +386,11 @@ public class FragmentIdentity extends FragmentBase {
 
             @Override
             public void onTextChanged(CharSequence text, int start, int before, int count) {
-                btnAutoConfig.setEnabled(text.length() > 0);
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-
-        btnAutoConfig.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onAutoConfig();
+            public void afterTextChanged(Editable editable) {
+                btnAutoConfig.setEnabled(editable.length() > 0);
             }
         });
 
