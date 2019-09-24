@@ -105,6 +105,8 @@ public class Log {
     }
 
     public static int e(String msg) {
+        if (BuildConfig.BETA_RELEASE)
+            Bugsnag.notify(new Throwable(msg), Severity.ERROR);
         return android.util.Log.e(TAG, msg);
     }
 
