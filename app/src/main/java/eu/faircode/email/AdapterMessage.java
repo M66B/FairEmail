@@ -44,6 +44,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.text.Editable;
@@ -127,6 +128,7 @@ import org.jsoup.nodes.Element;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -140,6 +142,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.Executor;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -3194,6 +3197,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }
         });
+
+        try {
+            // https://issuetracker.google.com/issues/135628748
+            Handler handler = new Handler(Looper.getMainLooper());
+            Field mMainThreadExecutor = this.differ.getClass().getDeclaredField("mMainThreadExecutor");
+            mMainThreadExecutor.setAccessible(true);
+            mMainThreadExecutor.set(this.differ, new Executor() {
+                @Override
+                public void execute(Runnable command) {
+                    try {
+                        handler.post(command);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                }
+            });
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
