@@ -219,7 +219,7 @@ class Core {
                                     onDelete(context, jargs, folder, message, (POP3Folder) ifolder, state);
                                     break;
                                 case EntityOperation.SYNC:
-                                    onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, state);
+                                    onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
                                 default:
                                     Log.w(folder.name + " ignored=" + op.name);
@@ -1173,7 +1173,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            final POP3Folder ifolder, State state) throws MessagingException {
+            POP3Folder ifolder, POP3Store istore, State state) throws MessagingException {
         DB db = DB.getInstance(context);
 
         Log.i(folder.name + " POP sync type=" + folder.type + " connected=" + (ifolder != null));
@@ -1186,10 +1186,19 @@ class Core {
         try {
             db.folder().setFolderSyncState(folder.id, "syncing");
 
+            Map<String, String> caps = istore.capabilities();
+            Log.i(folder.name + "POP capabilities= " + caps.keySet());
+
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
             if (imessages.length == 0)
                 return;
+
+            if (caps.containsKey("UIDL")) {
+                FetchProfile ifetch = new FetchProfile();
+                ifetch.add(UIDFolder.FetchProfileItem.UID);
+                ifolder.fetch(imessages, ifetch);
+            }
 
             db.folder().setFolderSyncState(folder.id, "downloading");
 
@@ -1202,8 +1211,30 @@ class Core {
                         return;
 
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-                    String msgid = helper.getMessageID();
-                    if (msgid == null) {
+
+                    String msgid = null;
+                    if (caps.containsKey("UIDL")) {
+                        String uid = ifolder.getUID(imessage);
+                        if (existing.contains(uid))
+                            msgid = uid;
+                        else {
+                            msgid = helper.getMessageID();
+                            if (existing.contains(msgid)) {
+                                List<EntityMessage> messages = db.message().getMessageByMsgId(account.id, msgid);
+                                if (messages.size() == 1) {
+                                    messages.get(0).msgid = uid;
+                                    db.message().updateMessage(messages.get(0));
+                                    existing.remove(msgid);
+                                    existing.add(uid);
+                                    msgid = uid;
+                                    Log.w(folder.name + " POP update uid=" + uid + " msgid=" + msgid);
+                                }
+                            }
+                        }
+                    } else
+                        msgid = helper.getMessageID();
+
+                    if (TextUtils.isEmpty(msgid)) {
                         Log.w(folder.name + " POP no message ID");
                         continue;
                     }
@@ -1316,6 +1347,8 @@ class Core {
                 Log.i(folder.name + " POP deleted=" + msgid);
                 db.message().deleteMessage(folder.id, msgid);
             }
+
+            Log.i(folder.name + " done");
         } finally {
             db.folder().setFolderSyncState(folder.id, null);
         }
