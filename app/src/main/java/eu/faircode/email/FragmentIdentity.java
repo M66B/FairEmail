@@ -379,18 +379,10 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
-        etDomain.addTextChangedListener(new TextWatcher() {
+        btnAutoConfig.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence text, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                btnAutoConfig.setEnabled(editable.length() > 0);
+            public void onClick(View v) {
+                onAutoConfig();
             }
         });
 
