@@ -235,7 +235,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(133) Why is ActiveSync not supported?](#user-content-faq133)
 * [(134) Can you add deleting local messages?](#user-content-faq134)
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) Why does my Gmail account show 'Invalid credentials'?](#user-content-faq136)
+* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
 
 [I have another question.](#user-content-support)
 
@@ -2297,6 +2297,19 @@ Note that this irreversible.
 
 Similarly, drafts are shown in conversations to find them back in the context where they belong.
 It is easy to read through the received messages before continuing to write the draft later.
+
+<br />
+
+<a name="faq136"></a>
+**(136) How can I delete an account/identity/folder?**
+
+Deleting an account/identity/folder is a little bit hidden to prevent accidents.
+
+* Account: Setup > Step 1 > Manage > Tap account
+* Identity: Setup > Step 2 > Manage > Tap identity
+* Folder: Long press the folder in the folder list > Edit properties
+
+In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
 
 <br />
 
