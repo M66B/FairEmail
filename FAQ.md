@@ -712,6 +712,10 @@ The error *... Read timed out ...* means that the email server is not responding
 The error *... Failed to load IMAP envelope ...* is caused by a bug in the IMAP server of your provider.
 One or more messages could not be retrieved due to an unrecoverable error in the IMAP protocol.
 
+The error *Account not found* means that a previously selected Gmail account was not found anymore, see also [this FAQ](#user-content-faq136).
+
+The error *No token on refresh* means that no token was returned on refreshing the authentication of Gmail account, see also [this FAQ](#user-content-faq136).
+
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
 Possible causes are:

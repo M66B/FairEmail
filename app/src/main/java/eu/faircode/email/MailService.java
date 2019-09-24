@@ -199,13 +199,13 @@ public class MailService implements AutoCloseable {
                             am.invalidateAuthToken(type, password);
                             String token = am.blockingGetAuthToken(account, getAuthTokenType(type), true);
                             if (token == null)
-                                throw new IllegalArgumentException("no token");
+                                throw new IllegalArgumentException("No token on refresh");
 
                             _connect(context, host, port, user, token);
                             return token;
                         }
 
-                    throw new IllegalArgumentException("no account");
+                    throw new IllegalArgumentException("Account not found");
                 } catch (Throwable ex1) {
                     Log.e(ex1);
                     throw ex;
