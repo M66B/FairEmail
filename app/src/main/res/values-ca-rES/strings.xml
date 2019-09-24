@@ -107,6 +107,9 @@
     <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>
     <string name="title_setup_go">Vés-hi</string>
     <string name="title_setup_wizard">Assistent</string>
+    <string name="title_setup_other">Altres proveïdors</string>
+    <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
+    <string name="title_setup_select_account">Selecciona un compte</string>
     <string name="title_setup_instructions">Instruccions per la configuració</string>
     <string name="title_setup_no_settings">No s\'ha trobat cap configuració pel domini \'%1$s\'</string>
     <string name="title_setup_quick_success">S\'han afegit correctament un compte i una identitat</string>
@@ -216,6 +219,7 @@
     <string name="title_advanced_attachments_alt">Mostra fitxers adjunts després del text del missatge</string>
     <string name="title_advanced_contrast">Utilitzeu un alt contrast per al text del missatge</string>
     <string name="title_advanced_monospaced">Utilitzeu tipus de lletra mono per al text del missatge</string>
+    <string name="title_advanced_text_color">Mostra els colors del text</string>
     <string name="title_advanced_collapse_quotes">Aplega el text citat</string>
     <string name="title_advanced_images_inline">Mostra automàticament imatges en línia</string>
     <string name="title_advanced_remote_content">Mostra automàticament contingut remot quan visualitzeu missatges originals</string>
@@ -245,6 +249,7 @@
     <string name="title_advanced_notify_action_reply_direct">Resposta directa</string>
     <string name="title_advanced_notify_action_flag">Destacat</string>
     <string name="title_advanced_notify_action_seen">Llegir</string>
+    <string name="title_advanced_notify_action_snooze">Posposa</string>
     <string name="title_advanced_notify_remove">Esborra notificacions de nous missatges en tocar les notificacions</string>
     <string name="title_advanced_biometrics_notify">Mostra el contingut de notificacions quan utilitzeu l\'autenticació biomètrica</string>
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
@@ -298,6 +303,7 @@
     <string name="title_identity_email">La teva adreça de correu electrònic</string>
     <string name="title_identity_color_hint">Els colors identitaris tenen prioritat sobre els colors del compte</string>
     <string name="title_advanced_sender">Permet editar l\'adreça del remitent</string>
+    <string name="title_advanced_sender_regex">Expressió regular per trobar adreces editades</string>
     <string name="title_identity_reply_to">Respon a l’adreça</string>
     <string name="title_identity_encrypt">Xifra per defecte</string>
     <string name="title_identity_use_ip_hint">En cas de \"salutació no vàlida\", \"requereix una adreça vàlida\" o un error similar, intenteu canviar aquesta configuració</string>
@@ -351,8 +357,10 @@
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
+    <string name="title_pop_support">El protocol POP3 només permet descarregar i eliminar missatges. No deixa marcar missatges com a favorits, moure missatges, etc. i també necessita més bateria en comparació amb l\'IMAP. Així, es recomana utilitzar la opció d\'IMAP sempre que es pugui.</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
+    <string name="title_review">Revisa</string>
     <string name="title_advanced_browse">Busca missatges en el servidor remot</string>
     <string name="title_advanced_expand_read">Marca els missatges llegits en expandir-se</string>
     <string name="title_synchronize_now">Sincronitza ara</string>
@@ -404,6 +412,7 @@
     <string name="title_folders_unified">Carpetes unificades de la safata d\'entrada</string>
     <string name="title_no_folders">No carpetes</string>
     <string name="title_no_messages">No hi ha missatges</string>
+    <string name="title_filters_active">S\'han activat un o més filtres</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>
     <string name="title_seen">Marca com a llegit</string>
@@ -563,6 +572,7 @@
     <string name="title_answer_template_email">$email$ serà substituït pel l\'adreça de correu electrònic del remitent</string>
     <string name="title_rule_seen">Marca com a llegit</string>
     <string name="title_rule_unseen">Marca com a no llegit</string>
+    <string name="title_rule_ignore">Elimina les notificacions</string>
     <string name="title_rule_snooze">Posposa</string>
     <string name="title_rule_flag">Afegeix a destacats</string>
     <string name="title_rule_move">Mou</string>
@@ -576,6 +586,7 @@
     <string name="title_rule_enabled">Activat</string>
     <string name="title_rule_stop">Deixeu de processar les regles després d\'executar aquesta regla</string>
     <string name="title_rule_sender">El remitent conté</string>
+    <string name="title_rule_sender_known">El remitent és un contacte</string>
     <string name="title_rule_recipient">El destinatari conté</string>
     <string name="title_rule_subject">L\'assumpte conté</string>
     <string name="title_rule_header">La capçalera conté</string>
@@ -727,6 +738,7 @@
     <string name="title_now">Ara</string>
     <string name="title_after">Després de %1$s</string>
     <string name="title_reset">Restablir</string>
+    <string name="title_minutes">Minuts</string>
     <string name="title_icalendar_accept">Acceptar</string>
     <string name="title_icalendar_decline">Rebutja</string>
     <string name="title_icalendar_maybe">Potser</string>
@@ -756,6 +768,8 @@
     <string name="title_search_special_unseen">sense llegir</string>
     <string name="title_search_special_flagged">destacats</string>
     <string name="title_search_special_snoozed">posposada</string>
+    <string name="title_widget_account">Compte</string>
+    <string name="title_widget_account_all">Tots</string>
     <string name="title_widget_unseen">Missatges no llegits només</string>
     <string name="title_widget_flagged">Missatges senyalats només</string>
     <string-array name="pollIntervalNames">
