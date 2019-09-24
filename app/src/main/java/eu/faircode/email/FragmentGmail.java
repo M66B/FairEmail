@@ -24,7 +24,6 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerCallback;
 import android.accounts.AccountManagerFuture;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -53,6 +52,7 @@ import java.util.Date;
 import java.util.List;
 
 import static android.accounts.AccountManager.newChooseAccountIntent;
+import static android.app.Activity.RESULT_OK;
 
 public class FragmentGmail extends FragmentBase {
     private ViewGroup view;
@@ -173,7 +173,7 @@ public class FragmentGmail extends FragmentBase {
 
         switch (requestCode) {
             case ActivitySetup.REQUEST_CHOOSE_ACCOUNT:
-                if (resultCode == Activity.RESULT_OK && data != null)
+                if (resultCode == RESULT_OK && data != null)
                     onAccountSelected(data);
                 break;
             case ActivitySetup.REQUEST_DONE:
