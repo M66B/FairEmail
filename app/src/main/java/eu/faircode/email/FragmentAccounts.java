@@ -128,8 +128,7 @@ public class FragmentAccounts extends FragmentBase {
             public void onClick(View view) {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fab);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_imap, 1, R.string.title_imap)
-                        .setEnabled(Helper.hasValidFingerprint(getContext()));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_imap, 1, R.string.title_imap);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_pop3, 2, R.string.title_pop3);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
