@@ -300,7 +300,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         primary = args.getLong("primary", -1);
         connected = args.getBoolean("connected", false);
 
-        if (folder > 0 && type == null)
+        if (folder > 0 && type == null && TextUtils.isEmpty(query))
             Log.e("Messages for folder without type");
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
