@@ -167,7 +167,19 @@ public class HtmlHelper {
                                 try {
                                     if (c.startsWith("#"))
                                         color = Integer.decode(c) | 0xFF000000;
-                                    else
+                                    else if (c.startsWith("rgb")) {
+                                        int s = c.indexOf("(");
+                                        int e = c.indexOf(")");
+                                        if (s > 0 && e > s) {
+                                            String[] rgb = c.substring(s + 1, e).split(",");
+                                            if (rgb.length == 3)
+                                                color = Color.rgb(
+                                                        Integer.parseInt(rgb[0].trim()),
+                                                        Integer.parseInt(rgb[1].trim()),
+                                                        Integer.parseInt(rgb[2].trim())
+                                                );
+                                        }
+                                    } else
                                         color = Color.parseColor(c);
                                 } catch (Throwable ex) {
                                     Log.e("Color=" + c);
