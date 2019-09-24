@@ -46,8 +46,9 @@ public class ServiceUI extends IntentService {
     static final int PI_REPLY_DIRECT = 4;
     static final int PI_FLAG = 5;
     static final int PI_SEEN = 6;
-    static final int PI_IGNORED = 7;
-    static final int PI_SNOOZED = 8;
+    static final int PI_SNOOZE = 7;
+    static final int PI_IGNORED = 8;
+    static final int PI_WAKEUP = 9;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -120,16 +121,21 @@ public class ServiceUI extends IntentService {
                     onSeen(id);
                     break;
 
+                case "snooze":
+                    cancel(group, id);
+                    onSnooze(id);
+                    break;
+
                 case "ignore":
                     onIgnore(id);
                     break;
 
-                case "snooze":
+                case "wakeup":
                     // AlarmManager.RTC_WAKEUP
                     // When the alarm is dispatched, the app will also be added to the system's temporary whitelist
                     // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
                     // https://developer.android.com/reference/android/app/AlarmManager
-                    onSnooze(id);
+                    onWakeup(id);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown UI action: " + parts[0]);
@@ -158,11 +164,12 @@ public class ServiceUI extends IntentService {
             db.beginTransaction();
 
             EntityMessage message = db.message().getMessage(id);
-            if (message != null) {
-                EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                if (trash != null)
-                    EntityOperation.queue(this, message, EntityOperation.MOVE, trash.id);
-            }
+            if (message == null)
+                return;
+
+            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+            if (trash != null)
+                EntityOperation.queue(this, message, EntityOperation.MOVE, trash.id);
 
             db.setTransactionSuccessful();
         } finally {
@@ -176,13 +183,14 @@ public class ServiceUI extends IntentService {
             db.beginTransaction();
 
             EntityMessage message = db.message().getMessage(id);
-            if (message != null) {
-                EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-                if (archive == null)
-                    archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                if (archive != null)
-                    EntityOperation.queue(this, message, EntityOperation.MOVE, archive.id);
-            }
+            if (message == null)
+                return;
+
+            EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+            if (archive == null)
+                archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+            if (archive != null)
+                EntityOperation.queue(this, message, EntityOperation.MOVE, archive.id);
 
             db.setTransactionSuccessful();
         } finally {
@@ -262,13 +270,14 @@ public class ServiceUI extends IntentService {
             db.beginTransaction();
 
             EntityMessage message = db.message().getMessage(id);
-            if (message != null) {
-                List<EntityMessage> messages = db.message().getMessagesByThread(
-                        message.account, message.thread, threading ? null : id, null);
-                for (EntityMessage threaded : messages) {
-                    EntityOperation.queue(this, threaded, EntityOperation.FLAG, true);
-                    EntityOperation.queue(this, threaded, EntityOperation.SEEN, true);
-                }
+            if (message == null)
+                return;
+
+            List<EntityMessage> messages = db.message().getMessagesByThread(
+                    message.account, message.thread, threading ? null : id, null);
+            for (EntityMessage threaded : messages) {
+                EntityOperation.queue(this, threaded, EntityOperation.FLAG, true);
+                EntityOperation.queue(this, threaded, EntityOperation.SEEN, true);
             }
 
             db.setTransactionSuccessful();
@@ -283,10 +292,37 @@ public class ServiceUI extends IntentService {
             db.beginTransaction();
 
             EntityMessage message = db.message().getMessage(id);
-            if (message != null)
-                EntityOperation.queue(this, message, EntityOperation.SEEN, true);
+            if (message == null)
+                return;
+
+            EntityOperation.queue(this, message, EntityOperation.SEEN, true);
 
             db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    private void onSnooze(long id) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int notify_snooze_duration = prefs.getInt("notify_snooze_duration", 60);
+
+        long wakeup = new Date().getTime() + notify_snooze_duration * 60 * 1000L;
+
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            EntityMessage message = db.message().getMessage(id);
+            if (message == null)
+                return;
+
+            db.message().setMessageSnoozed(id, wakeup);
+            EntityOperation.queue(this, message, EntityOperation.SEEN, true);
+            EntityMessage.snooze(this, id, wakeup);
+
+            db.setTransactionSuccessful();
+
         } finally {
             db.endTransaction();
         }
@@ -303,8 +339,10 @@ public class ServiceUI extends IntentService {
             db.beginTransaction();
 
             EntityMessage message = db.message().getMessage(id);
-            if (message != null)
-                db.message().setMessageUiIgnored(message.id, true);
+            if (message == null)
+                return;
+
+            db.message().setMessageUiIgnored(message.id, true);
 
             db.setTransactionSuccessful();
         } finally {
@@ -312,7 +350,7 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onSnooze(long id) {
+    private void onWakeup(long id) {
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();

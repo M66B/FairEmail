@@ -288,6 +288,7 @@
     <string name="title_advanced_notify_action_reply_direct">Direct reply</string>
     <string name="title_advanced_notify_action_flag">Star</string>
     <string name="title_advanced_notify_action_seen">Read</string>
+    <string name="title_advanced_notify_action_snooze">Snooze</string>
     <string name="title_advanced_notify_remove">Remove new message notification on tapping on notification</string>
     <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_light">Use notification light</string>
@@ -831,6 +832,7 @@
     <string name="title_now">Now</string>
     <string name="title_after">After %1$s</string>
     <string name="title_reset">Reset</string>
+    <string name="title_minutes">Minutes</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

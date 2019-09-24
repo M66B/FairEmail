@@ -2382,6 +2382,7 @@ class Core {
         boolean notify_reply_direct = (prefs.getBoolean("notify_reply_direct", false) && pro);
         boolean notify_flag = (prefs.getBoolean("notify_flag", false) && flags && pro);
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
+        boolean notify_snooze = (prefs.getBoolean("notify_snooze", false) || !pro);
         boolean light = prefs.getBoolean("light", false);
         String sound = prefs.getString("sound", null);
         boolean alert_once = prefs.getBoolean("alert_once", true);
@@ -2632,6 +2633,18 @@ class Core {
                         context.getString(R.string.title_advanced_notify_action_seen),
                         piSeen);
                 mbuilder.addAction(actionSeen.build());
+            }
+
+            if (notify_snooze) {
+                Intent snooze = new Intent(context, ServiceUI.class)
+                        .setAction("snooze:" + message.id)
+                        .putExtra("group", group);
+                PendingIntent piSnooze = PendingIntent.getService(context, ServiceUI.PI_SNOOZE, snooze, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionSnooze = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_timelapse_24,
+                        context.getString(R.string.title_advanced_notify_action_snooze),
+                        piSnooze);
+                mbuilder.addAction(actionSnooze.build());
             }
 
             if (!biometrics || biometric_notify) {
