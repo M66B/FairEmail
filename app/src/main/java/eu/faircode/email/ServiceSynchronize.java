@@ -289,7 +289,12 @@ public class ServiceSynchronize extends ServiceBase {
         setUnseen(null);
 
         if (state != null && state.isRunning()) {
-            Log.e("Destroy while running");
+            Boolean ignoring = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                ignoring = (pm != null && pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID));
+            }
+            Log.e("Destroy while running ignoring=" + ignoring);
             state.stop();
         }
 
