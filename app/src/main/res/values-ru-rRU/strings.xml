@@ -231,8 +231,8 @@
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
-    <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_collapse_quotes">Свернуть цитируемый текст</string>
+    <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_remote_content">Автоматически показывать удаленное содержимое при просмотре оригиналов сообщений</string>
     <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>

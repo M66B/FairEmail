@@ -230,8 +230,9 @@
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește fontul proporțional pentru textul mesajului</string>
-    <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
+    <string name="title_advanced_text_color">Arată culori text</string>
     <string name="title_advanced_collapse_quotes">Restrânge textul citat</string>
+    <string name="title_advanced_images_inline">Arată automat imaginile integrate</string>
     <string name="title_advanced_remote_content">Arată automat conținutul găzduit pe servere la vizualizarea mesajului original</string>
     <string name="title_advanced_seekbar">Arată poziția relativă în conversație cu un punct</string>
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
@@ -259,6 +260,7 @@
     <string name="title_advanced_notify_action_reply_direct">Răspuns</string>
     <string name="title_advanced_notify_action_flag">Stea</string>
     <string name="title_advanced_notify_action_seen">Citit</string>
+    <string name="title_advanced_notify_action_snooze">Amână</string>
     <string name="title_advanced_notify_remove">Elimina notificarea de mesaj nou dacă se atinge</string>
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
@@ -746,6 +748,7 @@
     <string name="title_now">Acum</string>
     <string name="title_after">După %1$s</string>
     <string name="title_reset">Resetare</string>
+    <string name="title_minutes">Minute</string>
     <string name="title_icalendar_accept">Acceptă</string>
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>

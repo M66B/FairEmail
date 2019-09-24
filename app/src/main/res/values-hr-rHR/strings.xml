@@ -229,8 +229,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_attachments_alt">Prikažite privitke nakon teksta poruke</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
     <string name="title_advanced_monospaced">Upotrijebiti font u jednolikim razmjerima za tekst poruke</string>
-    <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_collapse_quotes">Sažmi citirani tekst</string>
+    <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_remote_content">Automatsko prikazivanje udaljenog sadržaja pri pregledavanju izvornih poruka</string>
     <string name="title_advanced_seekbar">Prikaži relativni položaj razgovora s točkom</string>
     <string name="title_advanced_actionbar">Prikaži traku s akcijama razgovora</string>

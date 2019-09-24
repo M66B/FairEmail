@@ -241,8 +241,9 @@
     <string name="title_advanced_attachments_alt">Přemístit zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Použít neproporcionální písmo pro text zprávy</string>
-    <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
+    <string name="title_advanced_text_color">Zobrazit barvy textu</string>
     <string name="title_advanced_collapse_quotes">Sbalit citovaný text</string>
+    <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_remote_content">Automaticky zobrazovat vzdálený obsah při prohlížení původních zpráv</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>

@@ -220,8 +220,8 @@
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
     <string name="title_advanced_monospaced">Utiliser la police mono-espacée pour le texte du message</string>
     <string name="title_advanced_text_color">Afficher les couleurs du texte</string>
-    <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_collapse_quotes">Réduire le texte cité</string>
+    <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_remote_content">Afficher automatiquement le contenu distant lors de la visualisation des messages originaux</string>
     <string name="title_advanced_seekbar">Afficher la position relative dans la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
@@ -249,6 +249,7 @@
     <string name="title_advanced_notify_action_reply_direct">Répondre directement</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
+    <string name="title_advanced_notify_action_snooze">Différer</string>
     <string name="title_advanced_notify_remove">Supprimer la notification de nouveau message en tapant sur la notification</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
@@ -737,6 +738,7 @@
     <string name="title_now">Maintenant</string>
     <string name="title_after">Après %1$s</string>
     <string name="title_reset">Réinitialiser</string>
+    <string name="title_minutes">Minutes</string>
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>

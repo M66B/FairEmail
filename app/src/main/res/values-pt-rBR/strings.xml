@@ -214,8 +214,8 @@
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
-    <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_collapse_quotes">Recolher texto citado</string>
+    <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_remote_content">Mostrar automaticamente conteúdo remoto ao visualizar mensagens originais</string>
     <string name="title_advanced_seekbar">Mostrar posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de ação de conversa</string>

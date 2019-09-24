@@ -216,8 +216,8 @@
     <string name="title_advanced_attachments_alt">Mostra fitxers adjunts després del text del missatge</string>
     <string name="title_advanced_contrast">Utilitzeu un alt contrast per al text del missatge</string>
     <string name="title_advanced_monospaced">Utilitzeu tipus de lletra mono per al text del missatge</string>
-    <string name="title_advanced_images_inline">Mostra automàticament imatges en línia</string>
     <string name="title_advanced_collapse_quotes">Aplega el text citat</string>
+    <string name="title_advanced_images_inline">Mostra automàticament imatges en línia</string>
     <string name="title_advanced_remote_content">Mostra automàticament contingut remot quan visualitzeu missatges originals</string>
     <string name="title_advanced_seekbar">Mostra la posició de conversa relativa amb un punt</string>
     <string name="title_advanced_actionbar">Mostra la barra d’acció de conversa</string>

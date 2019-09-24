@@ -220,8 +220,8 @@
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä kiinteävälistä kirjaisinta viestien tekstille</string>
     <string name="title_advanced_text_color">Näytä tekstin värit</string>
-    <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_collapse_quotes">Tiivistä lainattu teksti</string>
+    <string name="title_advanced_images_inline">Näytä tekstiin upotetut kuvat oletuksena</string>
     <string name="title_advanced_remote_content">Näytä ulkoinen sisältö automaattisesti alkuperäisissä viesteissä</string>
     <string name="title_advanced_seekbar">Näytä suhteellinen sijainti keskustelussa pisteellä</string>
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
@@ -249,6 +249,7 @@
     <string name="title_advanced_notify_action_reply_direct">Vastaus</string>
     <string name="title_advanced_notify_action_flag">Tähti</string>
     <string name="title_advanced_notify_action_seen">Luettu</string>
+    <string name="title_advanced_notify_action_snooze">Torkku</string>
     <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
@@ -737,6 +738,7 @@
     <string name="title_now">Nyt</string>
     <string name="title_after">%1$s päästä</string>
     <string name="title_reset">Palauta oletukset</string>
+    <string name="title_minutes">Minuuttia</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>

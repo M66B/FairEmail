@@ -219,8 +219,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Unproportionale Schriftart für Nachrichtentext verwenden</string>
     <string name="title_advanced_text_color">Textfarben anzeigen</string>
-    <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierter Text ausblenden</string>
+    <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
     <string name="title_advanced_remote_content">Zeige Remote-Inhalte automatisch beim Betrachten von Originalnachrichten</string>
     <string name="title_advanced_seekbar">Zeige relative Gesprächsposition mit einem Punkt an</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen anzeigen</string>
@@ -248,6 +248,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_notify_action_reply_direct">Direktantwort</string>
     <string name="title_advanced_notify_action_flag">Kennzeichnen</string>
     <string name="title_advanced_notify_action_seen">Gelesen</string>
+    <string name="title_advanced_notify_action_snooze">Zurückstellen</string>
     <string name="title_advanced_notify_remove">Neue Nachricht-Benachrichtigungen beim Tippen auf die Benachrichtigungen entfernen</string>
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
@@ -735,6 +736,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_now">Jetzt</string>
     <string name="title_after">Nach %1$s</string>
     <string name="title_reset">Zurücksetzen</string>
+    <string name="title_minutes">Minuten</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>

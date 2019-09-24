@@ -220,8 +220,8 @@
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
     <string name="title_advanced_monospaced">Bruk monospaced skrift for meldingstekst</string>
     <string name="title_advanced_text_color">Vis tekstfarger</string>
-    <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
     <string name="title_advanced_collapse_quotes">Kollapse sitert tekst</string>
+    <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
     <string name="title_advanced_remote_content">Vis automatisk fjerninnhold når du ser på originale meldinger</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
     <string name="title_advanced_actionbar">Vis samtale handlingslinje</string>
@@ -249,6 +249,7 @@
     <string name="title_advanced_notify_action_reply_direct">Direkte svar</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Les</string>
+    <string name="title_advanced_notify_action_snooze">Utsett</string>
     <string name="title_advanced_notify_remove">Fjern varsel om ny melding når du trykker på varslingen</string>
     <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
     <string name="title_advanced_light">Bruk meldingslys</string>
@@ -737,6 +738,7 @@
     <string name="title_now">Nå</string>
     <string name="title_after">Etter %1$s</string>
     <string name="title_reset">Tilbakestill</string>
+    <string name="title_minutes">Minutter</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>
