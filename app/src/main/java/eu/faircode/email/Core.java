@@ -759,7 +759,7 @@ class Core {
                 ifolder.fetch(new Message[]{imessage}, fp);
 
                 EntityMessage message = synchronizeMessage(context, account, folder, ifolder, imessage, false, download, rules, state);
-                if (download)
+                if (message != null && download)
                     downloadMessage(context, folder, ifolder, imessage, message.id, state);
             } finally {
                 imessage.invalidateHeaders();
