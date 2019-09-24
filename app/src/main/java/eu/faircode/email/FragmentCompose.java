@@ -3614,11 +3614,13 @@ public class FragmentCompose extends FragmentBase {
 
                 @Override
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    tvInsecure.setVisibility("http".equals(Uri.parse(s.toString()).getScheme()) ? View.VISIBLE : View.GONE);
                 }
 
                 @Override
-                public void afterTextChanged(Editable s) {
+                public void afterTextChanged(Editable editable) {
+                    Uri uri = Uri.parse(editable.toString());
+                    tvInsecure.setVisibility(!uri.isOpaque() &&
+                            "http".equals(uri.getScheme()) ? View.VISIBLE : View.GONE);
                 }
             });
 
