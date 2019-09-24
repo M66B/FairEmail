@@ -161,7 +161,11 @@ public class HtmlHelper {
                     if (kv.length == 2)
                         switch (kv[0].trim().toLowerCase(Locale.ROOT)) {
                             case "color":
-                                String c = kv[1].trim().toLowerCase(Locale.ROOT);
+                                String c = kv[1]
+                                        .toLowerCase(Locale.ROOT)
+                                        .replace(" ", "")
+                                        .replace("inherit", "")
+                                        .replace("!important", "");
 
                                 Integer color = null;
                                 try {
@@ -174,9 +178,9 @@ public class HtmlHelper {
                                             String[] rgb = c.substring(s + 1, e).split(",");
                                             if (rgb.length == 3)
                                                 color = Color.rgb(
-                                                        Integer.parseInt(rgb[0].trim()),
-                                                        Integer.parseInt(rgb[1].trim()),
-                                                        Integer.parseInt(rgb[2].trim())
+                                                        Integer.parseInt(rgb[0]),
+                                                        Integer.parseInt(rgb[1]),
+                                                        Integer.parseInt(rgb[2])
                                                 );
                                         }
                                     } else
