@@ -271,6 +271,7 @@
     <string name="title_advanced_notify_action_reply_direct">Přímá odpověď</string>
     <string name="title_advanced_notify_action_flag">Hvězdička</string>
     <string name="title_advanced_notify_action_seen">Přečteno</string>
+    <string name="title_advanced_notify_action_snooze">Odložit</string>
     <string name="title_advanced_notify_remove">Odebrat oznámení nové zprávy při stisku oznámení</string>
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při používání biometrického ověření</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
@@ -758,6 +759,7 @@
     <string name="title_now">Nyní</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Obnovit</string>
+    <string name="title_minutes">Minuty</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>

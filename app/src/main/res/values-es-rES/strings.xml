@@ -249,6 +249,7 @@
     <string name="title_advanced_notify_action_reply_direct">Responder</string>
     <string name="title_advanced_notify_action_flag">Destacar</string>
     <string name="title_advanced_notify_action_seen">Leer</string>
+    <string name="title_advanced_notify_action_snooze">Posponer</string>
     <string name="title_advanced_notify_remove">Eliminar notificación de nuevos mensajes al pulsar en la notificación</string>
     <string name="title_advanced_biometrics_notify">Mostrar contenido de notificación al usar autenticación biométrica</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
@@ -737,6 +738,7 @@
     <string name="title_now">Ahora</string>
     <string name="title_after">Después de %1$s</string>
     <string name="title_reset">Restablecer</string>
+    <string name="title_minutes">Minutos</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>
