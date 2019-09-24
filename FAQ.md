@@ -235,6 +235,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(133) Why is ActiveSync not supported?](#user-content-faq133)
 * [(134) Can you add deleting local messages?](#user-content-faq134)
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
+* [(136) Why does my Gmail account show 'Invalid credentials'?](#user-content-faq136)
 
 [I have another question.](#user-content-support)
 
@@ -2288,6 +2289,16 @@ It is easy to read through the received messages before continuing to write the 
 
 <br />
 
+<a name="faq136"></a>
+**(136) Why does my Gmail account show 'Invalid credentials'?**
+
+Assuming you used the Gmail wizard: you have likely revoked account (contact) permissions from FairEmail.
+Account permissions are required to periodically refresh the [OAuth](https://developers.google.com/gmail/imap/xoauth2-protocol) token
+(a kind of password used to login to your Gmail account).
+
+Just start the wizard (but do not select an account) to grant the required permissions again.
+
+<br />
 
 ## Support
 
