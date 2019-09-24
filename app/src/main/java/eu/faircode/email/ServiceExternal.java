@@ -33,9 +33,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ServiceExternal extends Service {
+    private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
     private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
     private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
 
+    // adb shell am startservice -a eu.faircode.email.POLL
     // adb shell am startservice -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am startservice -a eu.faircode.email.DISABLE --es account Gmail
 
@@ -44,14 +46,22 @@ public class ServiceExternal extends Service {
 
     @Override
     public void onCreate() {
+        Log.i("Service external create");
         super.onCreate();
         startForeground(Helper.NOTIFICATION_EXTERNAL, getNotification().build());
     }
 
     @Override
+    public void onDestroy() {
+        Log.i("Service external destroy");
+        stopForeground(true);
+        super.onDestroy();
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         try {
-            Log.i("Received intent=" + intent);
+            EntityLog.log(this, "Service external intent=" + intent);
             Log.logExtras(intent);
 
             super.onStartCommand(intent, flags, startId);
@@ -63,10 +73,17 @@ public class ServiceExternal extends Service {
             if (!ActivityBilling.isPro(this))
                 return START_NOT_STICKY;
 
+            String action = intent.getAction();
+
+            if (ACTION_POLL.equals(action)) {
+                ServiceSynchronize.process(this, true);
+                return START_NOT_STICKY;
+            }
+
             final Boolean enabled;
-            if (ACTION_ENABLE.equals(intent.getAction()))
+            if (ACTION_ENABLE.equals(action))
                 enabled = true;
-            else if (ACTION_DISABLE.equals(intent.getAction()))
+            else if (ACTION_DISABLE.equals(action))
                 enabled = false;
             else
                 enabled = null;
@@ -100,7 +117,7 @@ public class ServiceExternal extends Service {
 
             return START_NOT_STICKY;
         } finally {
-            stopForeground(true);
+            stopSelf(startId);
         }
     }
 

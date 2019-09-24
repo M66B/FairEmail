@@ -225,6 +225,7 @@
             android:foregroundServiceType="dataSync">
 
             <intent-filter>
+                <action android:name="${applicationId}.POLL" />
                 <action android:name="${applicationId}.ENABLE" />
                 <action android:name="${applicationId}.DISABLE" />
             </intent-filter>

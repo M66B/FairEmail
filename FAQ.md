@@ -1571,10 +1571,15 @@ You can also automate turning synchronization on and off by sending these comman
 Sending these commands will automatically turn scheduling off.
 
 It is also possible to just enable/disable one account, for example the account with the name *Gmail*:
-
 ```
 (adb shell) am startservice -a eu.faircode.email.ENABLE --es account Gmail
 (adb shell) am startservice -a eu.faircode.email.DISABLE --es account Gmail
+```
+
+If you just want to automate checking for new messages, you can do this:
+
+```
+(adb shell) adb shell am startservice -a eu.faircode.email.POLL
 ```
 
 You can automatically send commands with for example [Tasker](https://tasker.joaoapps.com/userguide/en/intents.html):
