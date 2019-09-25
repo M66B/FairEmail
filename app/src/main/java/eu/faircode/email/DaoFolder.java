@@ -61,7 +61,7 @@ public interface DaoFolder {
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE folder.id = :folder" +
-            " AND (:search OR (account.synchronize AND account.browse))")
+            " AND (:search OR (account.synchronize AND account.browse AND NOT account.pop))")
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
     @Query("SELECT folder.*" +
