@@ -956,8 +956,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
                     ? message.color == null || !ActivityBilling.isPro(context)
                     ? colorAccent : message.color : textColorSecondary));
-            ibFlagged.setVisibility(flags && !message.folderReadOnly ? View.VISIBLE : View.GONE);
             ibFlagged.setEnabled(message.uid != null);
+
+            if (flags)
+                ibFlagged.setVisibility(message.folderReadOnly || message.accountPop ? View.INVISIBLE : View.VISIBLE);
+            else
+                ibFlagged.setVisibility(View.GONE);
         }
 
         private void bindContactInfo(ContactInfo info, TupleMessageEx message) {
