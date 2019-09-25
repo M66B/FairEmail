@@ -199,7 +199,9 @@ public class HtmlHelper {
                                                         Integer.parseInt(rgb[2])
                                                 );
                                         }
-                                    } else
+                                    } else if (c.equals("orange"))
+                                        color = 0Xffa500; // CSS Level 2
+                                    else
                                         color = Color.parseColor(c);
                                 } catch (Throwable ex) {
                                     Log.e("Color=" + c);
