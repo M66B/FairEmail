@@ -155,7 +155,9 @@ public class HtmlHelper {
         // Font
         for (Element font : document.select("font")) {
             String color = font.attr("color");
-            font.removeAttr("color");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                font.removeAttr("color");
+            font.removeAttr("face");
             font.attr("style", "color:" + color + ";");
             font.tagName("span");
         }
@@ -215,6 +217,9 @@ public class HtmlHelper {
                                                 dark ? MIN_LUMINANCE - lum : lum - (1 - MIN_LUMINANCE));
                                     c = String.format("#%06x", color & 0xFFFFFF);
                                     sb.append("color:").append(c).append(";");
+
+                                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+                                        span.attr("color", c);
                                 }
                                 break;
 
@@ -491,6 +496,11 @@ public class HtmlHelper {
 
         for (Element div : document.select("div"))
             div.tagName("span");
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+            for (Element span : document.select("span"))
+                if (!TextUtils.isEmpty(span.attr("color")))
+                    span.tagName("font");
 
         Element body = document.body();
         return (body == null ? "" : body.html());
