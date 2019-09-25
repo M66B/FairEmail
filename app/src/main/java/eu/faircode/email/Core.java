@@ -1967,7 +1967,8 @@ class Core {
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " seen=" + seen);
             }
 
-            if ((!message.answered.equals(answered) || !message.ui_answered.equals(message.answered))) {
+            if ((!message.answered.equals(answered) || !message.ui_answered.equals(message.answered)) &&
+                    db.operation().getOperationCount(folder.id, message.id, EntityOperation.ANSWERED) == 0) {
                 update = true;
                 message.answered = answered;
                 message.ui_answered = answered;
