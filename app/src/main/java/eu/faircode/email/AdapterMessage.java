@@ -1613,18 +1613,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else {
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
+                        args.putBoolean("pop", message.accountPop);
 
                         new SimpleTask<Void>() {
                             @Override
                             protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
+                                boolean pop = args.getBoolean("pop");
 
                                 DB db = DB.getInstance(context);
                                 try {
                                     db.beginTransaction();
 
                                     EntityMessage message = db.message().getMessage(id);
-                                    if (message != null) {
+                                    if (message == null)
+                                        return null;
+
+                                    if (message.uid == null) {
+                                        if (pop)
+                                            EntityOperation.queue(context, message, EntityOperation.SEEN, !message.ui_seen);
+                                    } else {
                                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                                 message.account, message.thread, threading ? null : id, message.ui_seen ? message.folder : null);
                                         for (EntityMessage threaded : messages)
