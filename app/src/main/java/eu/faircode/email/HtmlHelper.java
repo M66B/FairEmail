@@ -166,6 +166,8 @@ public class HtmlHelper {
                                         .toLowerCase(Locale.ROOT)
                                         .replace(" ", "")
                                         .replace("inherit", "")
+                                        .replace("initial", "")
+                                        .replace("windowtext", "")
                                         .replace("transparent", "")
                                         .replace("!important", "");
 
