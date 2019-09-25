@@ -233,7 +233,10 @@ public class HtmlHelper {
                         }
                 }
 
-                span.attr("style", sb.toString());
+                if (sb.length() == 0)
+                    span.removeAttr("style");
+                else
+                    span.attr("style", sb.toString());
             }
         }
 
@@ -255,30 +258,28 @@ public class HtmlHelper {
 
         // Pre formatted text
         for (Element pre : document.select("pre")) {
-            Element div = document.createElement("div");
+            Element div = document.createElement("font");
+            div.attr("face", "monospace");
 
-            for (TextNode tnode : pre.textNodes()) {
-                String[] lines = tnode.getWholeText().split("\\r?\\n");
-                for (String line : lines) {
-                    line = Html.escapeHtml(line);
+            String[] lines = pre.wholeText().split("\\r?\\n");
+            for (String line : lines) {
+                line = Html.escapeHtml(line);
 
-                    StringBuilder sb = new StringBuilder();
-                    int len = line.length();
-                    for (int j = 0; j < len; j++) {
-                        char kar = line.charAt(j);
-                        if (kar == ' ' &&
-                                j + 1 < len && line.charAt(j + 1) == ' ')
-                            sb.append("&nbsp;");
-                        else
-                            sb.append(kar);
-                    }
-
-                    Element span = document.createElement("span");
-                    span.html(sb.toString());
-                    div.appendChild(span);
-                    div.appendElement("br");
-                    Log.i("span html=" + span.html());
+                StringBuilder sb = new StringBuilder();
+                int len = line.length();
+                for (int j = 0; j < len; j++) {
+                    char kar = line.charAt(j);
+                    if (kar == ' ' &&
+                            j + 1 < len && line.charAt(j + 1) == ' ')
+                        sb.append("&nbsp;");
+                    else
+                        sb.append(kar);
                 }
+
+                Element span = document.createElement("span");
+                span.html(sb.toString());
+                div.appendChild(span);
+                div.appendElement("br");
             }
 
             pre.replaceWith(div);
