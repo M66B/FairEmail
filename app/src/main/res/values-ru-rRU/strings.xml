@@ -34,10 +34,10 @@
     <string name="shortcut_compose">Написать</string>
     <string name="shortcut_setup">Настройки</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Синхронизация %1$d учетной записи</item>
+        <item quantity="one">Синхронизация %1$d учётной записи</item>
         <item quantity="few">Синхронизация %1$d учетных записей</item>
         <item quantity="many">Синхронизация %1$d учетных записей</item>
-        <item quantity="other">Синхронизация %1$d учетных записей</item>
+        <item quantity="other">Синхронизация %1$d учётных записей</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d Операция в ожидании</item>
@@ -47,7 +47,7 @@
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d новое сообщение</item>
-        <item quantity="few">%1$d новых сообщений</item>
+        <item quantity="few">%1$d новых сообщения</item>
         <item quantity="many">%1$d новых сообщений</item>
         <item quantity="other">%1$d новых сообщений</item>
     </plurals>
@@ -60,12 +60,12 @@
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d новое</item>
         <item quantity="few">%1$d новых</item>
-        <item quantity="many">%1$d новые</item>
+        <item quantity="many">%1$d новых</item>
         <item quantity="other">%1$d новых</item>
     </plurals>
     <plurals name="title_selected_messages">
         <item quantity="one">Выбрано %1$d сообщение</item>
-        <item quantity="few">Выбрано %1$d сообщений</item>
+        <item quantity="few">Выбрано %1$d сообщения</item>
         <item quantity="many">Выбрано %1$d сообщений</item>
         <item quantity="other">Выбрано %1$d сообщений</item>
     </plurals>
@@ -73,13 +73,13 @@
         <item quantity="one">Переместить сообщение %1$d %2$s?</item>
         <item quantity="few">Перемещение сообщений %1$d к %2$s?</item>
         <item quantity="many">Перемещение сообщений %1$d к %2$s?</item>
-        <item quantity="other">Перемещение сообщений %1$d к %2$s?</item>
+        <item quantity="other">Переместить %1$d сообщений в %2$s?</item>
     </plurals>
     <plurals name="title_deleting_messages">
         <item quantity="one">Удалить %1$d сообщение навсегда?</item>
         <item quantity="few">Удалить %1$d сообщения навсегда?</item>
-        <item quantity="many">Удалить %1$d сообщения навсегда?</item>
-        <item quantity="other">Удалить %1$d сообщения навсегда?</item>
+        <item quantity="many">Удалить %1$d сообщений навсегда?</item>
+        <item quantity="other">Удалить %1$d сообщений навсегда?</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Считать %1$d сообщение спамом?</item>
@@ -99,7 +99,7 @@
     <string name="menu_legend">Легенда</string>
     <string name="menu_faq">Поддержка</string>
     <string name="menu_issue">Сообщить о проблеме</string>
-    <string name="menu_attribution">Атрибуция</string>
+    <string name="menu_attribution">Авторство</string>
     <string name="menu_privacy">Конфиденциальность</string>
     <string name="menu_about">О приложении</string>
     <string name="menu_pro">Функции Pro</string>
@@ -113,38 +113,38 @@
     <string name="title_version">Версия %1$s</string>
     <string name="title_list_accounts">Учётные записи</string>
     <string name="title_list_identities">Идентификаторы</string>
-    <string name="title_edit_account">Изменить учетную запись</string>
+    <string name="title_edit_account">Изменить учётную запись</string>
     <string name="title_edit_identity">Изменить идентификацию</string>
     <string name="title_edit_folder">Редактировать папку</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
-    <string name="title_setup_welcome">        Получение и отправка сообщений требует настройки учетной записи и идентификатора, как в любом другом приложении электронной почты.
+    <string name="title_setup_welcome">        Получение и отправка сообщений требует настройки учётной записи и идентификатора, как в любом другом приложении электронной почты.
         Быстрая настройка создаст учётную запись и идентификатор, просто запросив имя, адрес электронной почты и пароль.
-        Учетные записи и идентификаторы (псевдонимы) могут быть также установлены вручную, если это необходимо.
+        Учётные записи и идентификаторы (псевдонимы) могут быть также установлены вручную, если это необходимо.
     </string>
     <string name="title_setup_quick">Быстрая настройка</string>
     <string name="title_setup_quick_remark">Быстрая настройка учётной записи и идентификатора для большинства провайдеров</string>
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
-    <string name="title_setup_quick_imap">IMAP сервер для получения сообщений</string>
-    <string name="title_setup_quick_smtp">SMTP сервер для отправки сообщений</string>
+    <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
+    <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
     <string name="title_setup_go">Далее</string>
     <string name="title_setup_wizard">Мастер</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
     <string name="title_setup_no_settings">Не найдено настроек для домена \'%1$s\'</string>
     <string name="title_setup_quick_success">Учётная запись и идентификатор добавлены успешно</string>
-    <string name="title_setup_quick_failed">Вы также можете настроить учетную запись и идентификатор ниже</string>
+    <string name="title_setup_quick_failed">Вы также можете настроить учётную запись и идентификатор ниже</string>
     <string name="title_setup_manage">Редактировать</string>
     <string name="title_setup_grant">Предоставить</string>
     <string name="title_setup_account">Настроить учётные записи</string>
     <string name="title_setup_account_remark">Подключить почтовый ящик</string>
-    <string name="title_setup_account_hint">Для изменения цвета, свайп целевой папки влево/вправо и т.д.</string>
+    <string name="title_setup_account_hint">Для изменения цвета смахните нужную папку влево/вправо и т.д.</string>
     <string name="title_setup_identity">Настроить идентификаторы</string>
     <string name="title_setup_identity_remark">Конфигурация отправки почты</string>
     <string name="title_setup_identity_hint">Изменение имени, цвета, подписи и т.д.</string>
     <string name="title_setup_permissions">Предоставить доступ</string>
-    <string name="title_setup_permissions_remark">Доступ к контактной информации (опционально)</string>
-    <string name="title_setup_doze">Настроить оптимизацию энергопотребления</string>
-    <string name="title_setup_doze_remark">Непрерывно получать электронную почту (опционально)</string>
+    <string name="title_setup_permissions_remark">Доступ к контактной информации (необязательно)</string>
+    <string name="title_setup_doze">Настроить энергосбережение</string>
+    <string name="title_setup_doze_remark">Непрерывно получать электронную почту (необязательно)</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне выберите «Все приложения» вверху, выберите это приложение, выберите и подтвердите «Не оптимизировать»</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_data">Сохранение данных включено</string>
@@ -175,15 +175,15 @@
     <string name="title_setup_dark_theme">Тёмная тема</string>
     <string name="title_setup_black_theme">Чёрная тема</string>
     <string name="title_setup_system_theme">Системная тема</string>
-    <string name="title_setup_advanced">Дополнительные опции</string>
-    <string name="title_setup_options">Опции</string>
+    <string name="title_setup_advanced">Дополнительные параметры</string>
+    <string name="title_setup_options">Параметры</string>
     <string name="title_setup_defaults">Восстановить настройки по умолчанию</string>
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
     <string name="title_advanced_section_main">Основные</string>
     <string name="title_advanced_section_synchronize">Получение</string>
     <string name="title_advanced_section_send">Отправка</string>
     <string name="title_advanced_section_connection">Соединение</string>
-    <string name="title_advanced_section_display">Дисплей</string>
+    <string name="title_advanced_section_display">Отображение</string>
     <string name="title_advanced_section_behavior">Режимы</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
@@ -202,22 +202,22 @@
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
-    <string name="title_advanced_autoresize">Автоматически изменять размер прикрепленных и встроенных изображений</string>
+    <string name="title_advanced_autoresize">Автоматически изменять размер прикреплённых и встроенных изображений</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d пикселей</string>
     <string name="title_advanced_lookup_mx">Проверить адрес электронной почты получателя перед отправкой</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_metered">Использовать лимитированные подключения</string>
     <string name="title_advanced_download">Автоматически загружать сообщения и вложения для лимитного подключения до</string>
     <string name="title_advanced_roaming">Загружать сообщения и вложения в роуминге</string>
-    <string name="title_advanced_rlah">В роуминге, как дома</string>
+    <string name="title_advanced_rlah">В роуминге как дома</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_startup">Показать на стартовом экране</string>
     <string name="title_advanced_cards">\"Карточная\" компоновка</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_highlight_unread">Выделить непрочитанные сообщения</string>
-    <string name="title_advanced_avatars">Показать фотографии контакта</string>
-    <string name="title_advanced_generated_icons">Показать сгенерированные иконки</string>
+    <string name="title_advanced_avatars">Показывать фотографии контакта</string>
+    <string name="title_advanced_generated_icons">Показывать сгенерированные иконки</string>
     <string name="title_advanced_identicons">Показать идентики</string>
     <string name="title_advanced_circular">Использовать круглые иконки</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
@@ -233,10 +233,10 @@
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения</string>
     <string name="title_advanced_collapse_quotes">Свернуть цитируемый текст</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
-    <string name="title_advanced_remote_content">Автоматически показывать удаленное содержимое при просмотре оригиналов сообщений</string>
-    <string name="title_advanced_pull_refresh">Потяните вниз, для обновления</string>
+    <string name="title_advanced_remote_content">Автоматически показывать удалённое содержимое при просмотре оригиналов сообщений</string>
+    <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
-    <string name="title_advanced_swipenav">Свайп влево/вправо, чтобы перейти к следующему/предыдущему диалогу</string>
+    <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \'назад\'</string>
@@ -246,7 +246,7 @@
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
-    <string name="title_advanced_badge">Показать значок запуска с числом новых сообщений</string>
+    <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
@@ -261,8 +261,8 @@
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
-    <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \'Уведомления\' для установки звука уведомлений по умолчанию и т. д.</string>
-    <string name="title_advanced_double_back">Двойное \'назад\' для выхода</string>
+    <string name="title_advanced_notify_manage_hint">Нажмите на имя канала \"Уведомления\" для установки звука уведомлений по умолчанию и т.д.</string>
+    <string name="title_advanced_double_back">Двойное \"Назад\" для выхода</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>

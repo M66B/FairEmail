@@ -241,6 +241,7 @@
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
+    <string name="title_advanced_text_color">Pokaż kolory tekstu</string>
     <string name="title_advanced_collapse_quotes">Zwiń cytowany tekst</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_remote_content">Automatycznie wyświetlaj zawartość zdalną podczas przeglądania oryginalnych wiadomości</string>
@@ -270,6 +271,7 @@
     <string name="title_advanced_notify_action_reply_direct">Odpowiedź</string>
     <string name="title_advanced_notify_action_flag">Oznacz</string>
     <string name="title_advanced_notify_action_seen">Odczytana</string>
+    <string name="title_advanced_notify_action_snooze">Odłóż</string>
     <string name="title_advanced_notify_remove">Usuń powiadomienie o nowej wiadomości po dotknięciu powiadomienia</string>
     <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
@@ -376,6 +378,7 @@
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
+    <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości ze skrzynki odbiorczej. POP3 nie może oznaczać wiadomości jako przeczytanej, przenosić wiadomości itp. POP3 zużywa więcej energii baterii i danych niż IMAP. Dlatego rozważ użycie protokołu IMAP, gdy tylko jest to możliwe.</string>
     <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
@@ -756,6 +759,7 @@
     <string name="title_now">Teraz</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Resetuj</string>
+    <string name="title_minutes">Minuty</string>
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>
