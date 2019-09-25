@@ -76,6 +76,7 @@ public class FragmentPop extends FragmentBase {
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
+    private CheckBox cbLeave;
     private EditText etInterval;
 
     private Button btnSave;
@@ -125,6 +126,7 @@ public class FragmentPop extends FragmentBase {
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
+        cbLeave = view.findViewById(R.id.cbLeave);
         etInterval = view.findViewById(R.id.etInterval);
 
         btnSave = view.findViewById(R.id.btnSave);
@@ -193,8 +195,9 @@ public class FragmentPop extends FragmentBase {
         args.putString("name", etName.getText().toString());
         args.putInt("color", color);
 
-        args.putBoolean("primary", cbPrimary.isChecked());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
+        args.putBoolean("primary", cbPrimary.isChecked());
+        args.putBoolean("leave", cbLeave.isChecked());
         args.putString("interval", etInterval.getText().toString());
 
         new SimpleTask<Boolean>() {
@@ -230,6 +233,7 @@ public class FragmentPop extends FragmentBase {
 
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean primary = args.getBoolean("primary");
+                boolean leave = args.getBoolean("leave");
                 String interval = args.getString("interval");
 
                 boolean pro = ActivityBilling.isPro(context);
@@ -267,6 +271,7 @@ public class FragmentPop extends FragmentBase {
                         !user.equals(account.user) || !password.equals(account.password)));
                 boolean reload = (check || account == null ||
                         account.synchronize != synchronize ||
+                        account.browse != leave ||
                         !account.poll_interval.equals(Integer.parseInt(interval)));
                 Log.i("Account check=" + check + " reload=" + reload);
 
@@ -314,7 +319,7 @@ public class FragmentPop extends FragmentBase {
 
                     account.synchronize = synchronize;
                     account.primary = (account.synchronize && primary);
-                    account.browse = false;
+                    account.browse = leave;
                     account.poll_interval = Integer.parseInt(interval);
 
                     if (!update)
@@ -459,6 +464,7 @@ public class FragmentPop extends FragmentBase {
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? false : account.primary);
+                    cbLeave.setChecked(account == null ? true : account.browse);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
 
                     color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);

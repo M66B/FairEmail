@@ -55,7 +55,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Long id;
 
     @NonNull
-    public Boolean pop = false; // obsolete
+    public Boolean pop = false;
     @NonNull
     public String host; // POP3/IMAP
     @NonNull
@@ -85,7 +85,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean notify = false;
     @NonNull
-    public Boolean browse = true;
+    public Boolean browse = true; // Leave messages on server
     @NonNull
     public Boolean auto_seen = true;
     public Character separator;

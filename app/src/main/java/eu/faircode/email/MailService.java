@@ -85,8 +85,6 @@ public class MailService implements AutoCloseable {
             properties.put("mail." + protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
             properties.put("mail." + protocol + ".timeout", Integer.toString(READ_TIMEOUT));
 
-            //properties.put("mail." + protocol + ".rsetbeforequit", "true");
-
         } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             // https://javaee.github.io/javamail/docs/api/com/sun/mail/imap/package-summary.html#properties
             properties.put("mail." + protocol + ".ssl.checkserveridentity", checkserveridentity);
@@ -156,6 +154,10 @@ public class MailService implements AutoCloseable {
 
     void setSeparateStoreConnection() {
         properties.put("mail." + protocol + ".separatestoreconnection", "true");
+    }
+
+    void setLeaveOnServer(boolean keep) {
+        properties.put("mail." + protocol + ".rsetbeforequit", Boolean.toString(keep));
     }
 
     public void connect(EntityAccount account) throws MessagingException {

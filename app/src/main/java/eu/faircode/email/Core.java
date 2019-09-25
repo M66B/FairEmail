@@ -216,7 +216,7 @@ class Core {
                                     // Do nothing
                                     break;
                                 case EntityOperation.DELETE:
-                                    onDelete(context, jargs, folder, message, (POP3Folder) ifolder, state);
+                                    onDelete(context, jargs, account, folder, message, (POP3Folder) ifolder, state);
                                     break;
                                 case EntityOperation.SYNC:
                                     onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
@@ -818,11 +818,11 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder, State state) throws MessagingException {
+    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, State state) throws MessagingException {
         // Delete message
         DB db = DB.getInstance(context);
 
-        if (EntityFolder.INBOX.equals(folder.type)) {
+        if (!account.browse && EntityFolder.INBOX.equals(folder.type)) {
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
 
