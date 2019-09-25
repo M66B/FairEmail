@@ -19,10 +19,13 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
@@ -50,10 +53,40 @@ public class EditTextCompose extends AppCompatEditText {
     @Override
     public boolean onTextContextMenuItem(int id) {
         try {
-            if (id == android.R.id.paste && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                return super.onTextContextMenuItem(android.R.id.pasteAsPlainText);
-            else
-                return super.onTextContextMenuItem(id);
+            if (id == android.R.id.paste) {
+                Context context = getContext();
+                ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                if (clipboard.hasPrimaryClip()) {
+                    ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
+
+                    String html = item.coerceToHtmlText(context);
+                    html = HtmlHelper.sanitize(context, html, true, false);
+                    Spanned paste = HtmlHelper.fromHtml(html);
+
+                    int start = getSelectionStart();
+                    int end = getSelectionEnd();
+
+                    if (start < 0)
+                        start = 0;
+                    if (end < 0)
+                        end = 0;
+
+                    if (start > end) {
+                        int tmp = start;
+                        start = end;
+                        end = tmp;
+                    }
+
+                    if (start == end)
+                        getText().insert(start, paste);
+                    else
+                        getText().replace(start, end, paste);
+
+                    return true;
+                }
+            }
+
+            return super.onTextContextMenuItem(id);
         } catch (Throwable ex) {
             /*
                 java.lang.RuntimeException: PARAGRAPH span must start at paragraph boundary
