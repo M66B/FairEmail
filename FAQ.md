@@ -179,7 +179,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
 * [(78) How do I use schedules?](#user-content-faq78)
 * [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [(80) How can I fix 'Unable to load BODYSTRUCTURE'?](#user-content-faq80)
+* [~~(80) How can I fix 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
 * [~~(81) Can you make the background of the original message dark in the dark theme?~~](#user-content-faq81)
 * [(82) What is a tracking image?](#user-content-faq82)
 * [(83) What does 'User is authenticated but not connected' mean?](#user-content-faq83)
@@ -1637,12 +1637,12 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 <br />
 
 <a name="faq80"></a>
-**(80) How can I fix 'Unable to load BODYSTRUCTURE' ?**
+**~~(80) How can I fix 'Unable to load BODYSTRUCTURE' ?~~**
 
-The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,
-see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.
+~~The error message *Unable to load BODYSTRUCTURE* is caused by bugs in the email server,~~
+~~see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.~~
 
-FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.
+~~FairEmail already tries to workaround these bugs, but if this fail you'll need to ask for support from your provider.~~
 
 <br />
 
@@ -2241,6 +2241,10 @@ FairEmail will workaround this is in most cases, so this message can mostly be c
 
 The error *...SendFailedException...* means that there was a problem while sending a message.
 The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
+
+The error *... Unable to load BODYSTRUCTURE ...* is caused by bugs in the email server,
+see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.
+FairEmail already tries to workaround these bugs, but if this fail you'll need to ask your provider for support.
 
 Please see [here](#user-content-faq22) for other error messages in the outbox.
 
