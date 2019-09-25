@@ -85,6 +85,7 @@ import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 public class HtmlHelper {
     static final int PREVIEW_SIZE = 250; // characters
 
+    private static final float MIN_LUMINANCE = 0.5f;
     private static final int MAX_AUTO_LINK = 250;
     private static final int TRACKING_PIXEL_SURFACE = 25; // pixels
 
@@ -193,13 +194,12 @@ public class HtmlHelper {
                                 }
 
                                 if (color != null) {
-                                    double lum = ColorUtils.calculateLuminance(color);
-                                    if (dark
-                                            ? lum < Helper.MIN_LUMINANCE
-                                            : lum > 1 - Helper.MIN_LUMINANCE)
+                                    float lum = (float) ColorUtils.calculateLuminance(color);
+                                    if (dark ? lum < MIN_LUMINANCE : lum > 1 - MIN_LUMINANCE)
                                         color = ColorUtils.blendARGB(color,
-                                                dark ? Color.WHITE : Color.BLACK, Helper.MIN_LUMINANCE);
-                                    c = String.format("#%06x", 0xFFFFFF & color);
+                                                dark ? Color.WHITE : Color.BLACK,
+                                                dark ? MIN_LUMINANCE - lum : lum - (1 - MIN_LUMINANCE));
+                                    c = String.format("#%06x", color & 0xFFFFFF);
                                     sb.append("color:").append(c).append(";");
                                 }
                                 break;
