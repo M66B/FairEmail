@@ -1210,6 +1210,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
 
+            boolean iencrypted = properties.getValue("iencrypted", message.id);
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
 
@@ -1260,7 +1261,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
-            ibDecrypt.setVisibility(is_encrypted ? View.VISIBLE : View.GONE);
+            ibDecrypt.setVisibility(iencrypted || is_encrypted ? View.VISIBLE : View.GONE);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -2432,9 +2433,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
 
-            popupMenu.getMenu().findItem(R.id.menu_decrypt).setEnabled(
-                    message.content && message.to != null && message.to.length > 0);
-
             popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
 
             popupMenu.getMenu().findItem(R.id.menu_create_rule).setEnabled(!message.accountPop);
@@ -2460,9 +2458,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_junk:
                             onMenuJunk(message);
-                            return true;
-                        case R.id.menu_decrypt:
-                            onActionDecrypt(message);
                             return true;
                         case R.id.menu_resync:
                             onMenuResync(message);
@@ -2545,6 +2540,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 String body = Helper.readText(file);
                 Document document = Jsoup.parse(body);
 
+                // Check for inline encryption
+                int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
+                int end = body.indexOf(Helper.PGP_END_MESSAGE);
+                args.putBoolean("iencrypted", begin >= 0 && begin < end);
+
+                // Check for images
                 boolean has_images = false;
                 for (Element img : document.select("img")) {
                     if (inline) {
@@ -2560,12 +2561,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
                 args.putBoolean("has_images", has_images);
 
+                // Collapse quotes
                 if (!show_quotes) {
                     for (Element quote : document.select("blockquote"))
                         quote.html("&#8230;");
                     body = document.html();
                 }
 
+                // Cleanup message
                 String html = HtmlHelper.sanitize(context, body, text_color, show_images);
                 if (debug) {
                     Document format = Jsoup.parse(html);
@@ -2590,6 +2593,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }, null);
 
+                // Replace quote spans
                 SpannableStringBuilder builder = new SpannableStringBuilder(spanned);
                 QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
                 for (QuoteSpan quoteSpan : quoteSpans) {
@@ -2601,6 +2605,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     builder.removeSpan(quoteSpan);
                 }
 
+                // Make collapsed quotes clickable
                 if (!show_quotes) {
                     final int px = Helper.dp2pixels(context, 24 + (zoom) * 8);
 
@@ -2627,6 +2632,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             protected void onExecuted(Bundle args, SpannableStringBuilder body) {
                 TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
                 properties.setBody(message.id, body);
+                properties.setValue("iencrypted", message.id, args.getBoolean("iencrypted"));
 
                 TupleMessageEx amessage = getMessage();
                 if (amessage == null || !amessage.id.equals(message.id))

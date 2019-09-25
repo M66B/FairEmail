@@ -266,10 +266,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
 
-    private static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
-    private static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
-
-
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
             EntityFolder.OUTBOX,
@@ -3803,10 +3799,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (file.exists()) {
                             // https://tools.ietf.org/html/rfc4880#section-6.2
                             String body = Helper.readText(file);
-                            int begin = body.indexOf(PGP_BEGIN_MESSAGE);
-                            int end = body.indexOf(PGP_END_MESSAGE);
+                            int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
+                            int end = body.indexOf(Helper.PGP_END_MESSAGE);
                             if (begin >= 0 && begin < end) {
-                                String section = body.substring(begin, end + PGP_END_MESSAGE.length());
+                                String section = body.substring(begin, end + Helper.PGP_END_MESSAGE.length());
                                 String[] lines = section.split("<br>");
                                 List<String> disarmored = new ArrayList<>();
                                 for (String line : lines)

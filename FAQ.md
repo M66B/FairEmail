@@ -517,9 +517,10 @@ So, unless your provider can enable this extension, you cannot use FairEmail for
 **(12) How does encryption/decryption work?**
 
 First of all you need to install and configure [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/).
+
 To encrypt and send a message just check the menu *Encrypt* and the message will be encrypted on sending.
-To decrypt a received message, open the message and tap the padlock icon just below the grey message action bar.
-If the message is inline encrypted (not advised), select the menu *Decrypt* in the message 'more' three dots menu.
+
+To decrypt a received message, open the message and just tap the padlock icon just below the grey message action bar.
 
 The first time you send an encrypted message you might be asked for a sign key.
 FairEmail will automatically store the sign key ID in the selected identity for the next time.
