@@ -136,7 +136,7 @@ public class HtmlHelper {
         }
 
         Whitelist whitelist = Whitelist.relaxed()
-                .addTags("hr", "abbr", "big")
+                .addTags("hr", "abbr", "big", "font")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -144,11 +144,21 @@ public class HtmlHelper {
                 .addProtocols("img", "src", "cid")
                 .addProtocols("img", "src", "data");
         if (text_color)
-            whitelist.addAttributes(":all", "style");
+            whitelist
+                    .addAttributes(":all", "style")
+                    .addAttributes("font", "color");
 
         final Document document = new Cleaner(whitelist).clean(parsed);
 
         boolean dark = Helper.isDarkTheme(context);
+
+        // Font
+        for (Element font : document.select("font")) {
+            String color = font.attr("color");
+            font.removeAttr("color");
+            font.attr("style", "color:" + color + ";");
+            font.tagName("span");
+        }
 
         // Sanitize span styles
         for (Element span : document.select("*")) {
