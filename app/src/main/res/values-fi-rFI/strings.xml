@@ -357,7 +357,6 @@
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
-    <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. Sitä käytettäessä ei ole mahdollista merkitä viestejä suosikeiksi, siirtää viestejä, jne. POP3 käyttää enemmän akkua kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
     <string name="title_activesync_support">ActiveSync ei ole tuettu</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>

@@ -349,7 +349,6 @@
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última vez conectado: %1$s</string>
-    <string name="title_pop_support">O protocolo POP3 suporta somente o download e exclusão de mensagens. Então, não será possível marcar mensagem favorita, mover mensagens, etc. POP3 usará mais energia da bateria do que IMAP. Por conseguinte, considere usar o protocolo IMAP sempre que possível.</string>
     <string name="title_activesync_support">O ActiveSync não é suportado</string>
     <string name="title_oauth_support">OAuth não é suportado</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>

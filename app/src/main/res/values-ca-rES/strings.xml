@@ -357,7 +357,6 @@
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
-    <string name="title_pop_support">El protocol POP3 només permet descarregar i eliminar missatges. No deixa marcar missatges com a favorits, moure missatges, etc. i també necessita més bateria en comparació amb l\'IMAP. Així, es recomana utilitzar la opció d\'IMAP sempre que es pugui.</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
     <string name="title_review">Revisa</string>

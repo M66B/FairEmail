@@ -376,7 +376,6 @@
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
-    <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości. Nie będzie możliwe oznaczanie wiadomości jako ulubionych, przenoszenie wiadomości itp. POP3 zużywa więcej energii baterii niż IMAP. Dlatego w miarę możliwości rozważ użycie protokołu IMAP.</string>
     <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>

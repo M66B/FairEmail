@@ -357,7 +357,7 @@
     <string name="title_identity_delete">Slett denne identiteten permanent?</string>
     <string name="title_edit_html">Rediger som HTML</string>
     <string name="title_last_connected">Sist tilkoblet: %1$s</string>
-    <string name="title_pop_support">POP3 - protokollen støtter bare nedlasting og sletting av meldinger. Så det vil ikke være mulig å merke melding som favoritt, flytte meldinger osv. POP3 vil bruke mer batterikraft enn IMAP. Vurder derfor å bruke IMAP - protokollen når det er mulig.</string>
+    <string name="title_pop_support">POP3-protokollen støtter bare nedlasting og sletting av meldinger fra innboksen. POP3 kan ikke merke meldinger som er lest, flytte meldinger, etc. POP3 vil bruke mer batteristrøm og data enn IMAP. Så vurder å bruke IMAP-protokollen når det er mulig.</string>
     <string name="title_activesync_support">ActiveSync støttes ikke</string>
     <string name="title_oauth_support">OAuth støttes ikke</string>
     <string name="title_review">Anmeldelse</string>

@@ -364,7 +364,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
     <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
-    <string name="title_pop_support">POP3 protokol podržava samo preuzimanje i brisanje poruka. Dakle, neće biti moguće označiti poruke kao omiljene, premjestiti poruke itd. POP3 će trošiti više snage baterije od IMAP-a. Stoga razmislite o uporabi IMAP protokola kad god je to moguće.</string>
     <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Recenzija</string>

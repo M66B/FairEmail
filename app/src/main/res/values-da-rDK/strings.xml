@@ -217,6 +217,7 @@
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
     <string name="title_advanced_monospaced">Benyt monospatieret skrifttype til beskedtekst</string>
+    <string name="title_advanced_text_color">Vis skriftfarver</string>
     <string name="title_advanced_collapse_quotes">Skjul citeret tekst</string>
     <string name="title_advanced_images_inline">Auto-vis indlejrede/vehæftede billeder</string>
     <string name="title_advanced_remote_content">Auto-vis fjernindhold, når originale beskeder læses</string>
@@ -246,6 +247,7 @@
     <string name="title_advanced_notify_action_reply_direct">Direkte besvarelse</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
     <string name="title_advanced_notify_action_seen">Læs</string>
+    <string name="title_advanced_notify_action_snooze">Udsæt</string>
     <string name="title_advanced_notify_remove">Fjern nye beskednotifikationer ved tryk på notifikationen</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
     <string name="title_advanced_light">Benyt notifikations-LED</string>
@@ -353,7 +355,6 @@
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
-    <string name="title_pop_support">POP3-protokollen understøtter kun download og sletning af beskeder. Det vil ikke være muligt at markere foretrukne beskeder, flytte beskeder mv. POP3 forbruger mere batteri end IMAP. Overvej derfor at benytte IMAP-protokollen, når det er muligt.</string>
     <string name="title_activesync_support">ActiveSync er uunderstøttet</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
@@ -734,6 +735,7 @@
     <string name="title_now">Nu</string>
     <string name="title_after">Efter %1$s</string>
     <string name="title_reset">Nulstil</string>
+    <string name="title_minutes">Minutter</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>
