@@ -2253,6 +2253,8 @@ public class FragmentCompose extends FragmentBase {
                     String extra = (from == null ? selected.email : ((InternetAddress) from).getAddress());
                     if (extra != null && extra.contains("@"))
                         data.draft.extra = extra.substring(0, extra.indexOf("@"));
+                    else
+                        data.draft.extra = null;
 
                     data.draft.sender = MessageHelper.getSortKey(data.draft.from);
                     Uri lookupUri = ContactInfo.getLookupUri(context, data.draft.from);
