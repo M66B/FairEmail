@@ -718,6 +718,9 @@ Account permissions are required to periodically refresh the [OAuth](https://dev
 (a kind of password used to login to your Gmail account).
 Just start the wizard (but do not select an account) to grant the required permissions again.
 
+The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
+FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
+
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
 Possible causes are:

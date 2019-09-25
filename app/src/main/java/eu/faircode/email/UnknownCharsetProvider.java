@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.charset.spi.CharsetProvider;
 import java.util.Collections;
 import java.util.Iterator;
@@ -36,8 +37,9 @@ public class UnknownCharsetProvider extends CharsetProvider {
         // UseInqueCodePage
         // none
         // unknown-8bit
+        // X-UNKNOWN
         // https://javaee.github.io/javamail/FAQ#unsupen
-        Log.w("Unknown charset=" + name);
-        return Charset.forName("US-ASCII");
+        Log.e("Unknown charset=" + name);
+        return StandardCharsets.US_ASCII;
     }
 }

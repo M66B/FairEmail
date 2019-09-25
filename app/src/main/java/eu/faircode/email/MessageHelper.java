@@ -882,15 +882,19 @@ public class MessageHelper {
                 if (charset != null) {
                     charset = charset.replace("\"", "");
                     if ("ASCII".equals(charset.toUpperCase()))
-                        charset = "us-ascii";
+                        charset = "US-ASCII";
                 }
 
                 if (TextUtils.isEmpty(charset) || "US-ASCII".equals(charset.toUpperCase())) {
                     // The first 127 characters are the same as in US-ASCII
                     result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
                 } else {
-                    if ("US-ASCII".equals(Charset.forName(charset).name()))
+                    // See UnknownCharsetProvider class
+                    if ("US-ASCII".equals(Charset.forName(charset).name())) {
+                        Log.w("Unsupported encoding charset=" + charset);
                         warnings.add(context.getString(R.string.title_no_charset, charset));
+                        result = new String(result.getBytes(StandardCharsets.ISO_8859_1));
+                    }
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
