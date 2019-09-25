@@ -56,6 +56,7 @@
     </provider>
     <provider
         name="Posteo.de"
+        domain="posteo.net"
         link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp">
         <imap
             host="posteo.de"
