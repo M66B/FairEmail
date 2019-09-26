@@ -1826,13 +1826,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean outgoing = EntityFolder.isOutgoing(folder.type);
 
                     if (message.identity != null) {
-                        Address[] senders = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
-                        if (senders != null && senders.length > 0) {
+                        if (message.from != null && message.from.length > 0) {
                             EntityIdentity identity = db.identity().getIdentity(message.identity);
                             if (identity == null)
                                 return null;
 
-                            for (Address sender : senders)
+                            for (Address sender : message.from)
                                 if (identity.similarAddress(sender)) {
                                     outgoing = true;
                                     break;

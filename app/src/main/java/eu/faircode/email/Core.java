@@ -1788,7 +1788,7 @@ class Core {
         }
     }
 
-    static EntityMessage _synchronizeMessage(
+    private static EntityMessage _synchronizeMessage(
             Context context,
             EntityAccount account, EntityFolder folder,
             long uid, MimeMessage imessage,
@@ -2148,7 +2148,7 @@ class Core {
     }
 
     private static void updateContactInfo(Context context, final EntityFolder folder, final EntityMessage message) {
-        final DB db = DB.getInstance(context);
+        DB db = DB.getInstance(context);
 
         if (EntityFolder.DRAFTS.equals(folder.type) ||
                 EntityFolder.ARCHIVE.equals(folder.type) ||
@@ -2156,7 +2156,25 @@ class Core {
                 EntityFolder.JUNK.equals(folder.type))
             return;
 
-        final int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);
+        int type = (folder.isOutgoing() ? EntityContact.TYPE_TO : EntityContact.TYPE_FROM);
+
+        // Check if from self
+        if (type == EntityContact.TYPE_FROM) {
+            if (message.from != null) {
+                List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(folder.account);
+                if (identities != null) {
+                    for (Address sender : message.from) {
+                        for (EntityIdentity identity : identities)
+                            if (identity.similarAddress(sender)) {
+                                type = EntityContact.TYPE_TO;
+                                break;
+                            }
+                        if (type == EntityContact.TYPE_TO)
+                            break;
+                    }
+                }
+            }
+        }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean suggest_sent = prefs.getBoolean("suggest_sent", false);
@@ -2167,61 +2185,55 @@ class Core {
         if (type == EntityContact.TYPE_FROM && !suggest_received)
             return;
 
-        Address[] recipients = (type == EntityContact.TYPE_TO
-                ? message.to
-                : (message.reply != null ? message.reply : message.from));
-
-        // Check if from self
-        if (type == EntityContact.TYPE_FROM && recipients != null && recipients.length > 0) {
-            boolean me = false;
-            List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(folder.account);
-            if (identities != null)
-                for (Address recipient : recipients) {
-                    for (EntityIdentity identity : identities)
-                        if (identity.similarAddress(recipient)) {
-                            me = true;
-                            break;
-                        }
-                    if (me)
-                        break;
-                }
-            if (me)
-                recipients = message.to;
+        List<Address> addresses = new ArrayList<>();
+        if (type == EntityContact.TYPE_FROM) {
+            if (message.reply == null || message.reply.length == 0) {
+                if (message.from != null)
+                    addresses.addAll(Arrays.asList(message.from));
+            } else
+                addresses.addAll(Arrays.asList(message.reply));
+        } else if (type == EntityContact.TYPE_TO) {
+            if (message.to != null)
+                addresses.addAll(Arrays.asList(message.to));
+            if (message.cc != null)
+                addresses.addAll(Arrays.asList(message.cc));
         }
 
-        if (recipients != null) {
-            for (Address recipient : recipients) {
-                final String email = ((InternetAddress) recipient).getAddress();
-                final String name = ((InternetAddress) recipient).getPersonal();
-                final Uri avatar = ContactInfo.getLookupUri(context, new Address[]{recipient});
-                db.runInTransaction(new Runnable() {
-                    @Override
-                    public void run() {
-                        EntityContact contact = db.contact().getContact(folder.account, type, email);
-                        if (contact == null) {
-                            contact = new EntityContact();
-                            contact.account = folder.account;
-                            contact.type = type;
-                            contact.email = email;
-                            contact.name = name;
-                            contact.avatar = (avatar == null ? null : avatar.toString());
-                            contact.times_contacted = 1;
-                            contact.first_contacted = message.received;
-                            contact.last_contacted = message.received;
-                            contact.id = db.contact().insertContact(contact);
-                            Log.i("Inserted contact=" + contact + " type=" + type);
-                        } else {
-                            if (!TextUtils.isEmpty(name))
-                                contact.name = name;
-                            contact.avatar = (avatar == null ? null : avatar.toString());
-                            contact.times_contacted++;
-                            contact.first_contacted = Math.min(contact.first_contacted, message.received);
-                            contact.last_contacted = message.received;
-                            db.contact().updateContact(contact);
-                            Log.i("Updated contact=" + contact + " type=" + type);
-                        }
-                    }
-                });
+        for (Address address : addresses) {
+            final String email = ((InternetAddress) address).getAddress();
+            final String name = ((InternetAddress) address).getPersonal();
+            final Uri avatar = ContactInfo.getLookupUri(context, new Address[]{address});
+
+            try {
+                db.beginTransaction();
+
+                EntityContact contact = db.contact().getContact(folder.account, type, email);
+                if (contact == null) {
+                    contact = new EntityContact();
+                    contact.account = folder.account;
+                    contact.type = type;
+                    contact.email = email;
+                    contact.name = name;
+                    contact.avatar = (avatar == null ? null : avatar.toString());
+                    contact.times_contacted = 1;
+                    contact.first_contacted = message.received;
+                    contact.last_contacted = message.received;
+                    contact.id = db.contact().insertContact(contact);
+                    Log.i("Inserted contact=" + contact + " type=" + type);
+                } else {
+                    if (!TextUtils.isEmpty(name))
+                        contact.name = name;
+                    contact.avatar = (avatar == null ? null : avatar.toString());
+                    contact.times_contacted++;
+                    contact.first_contacted = Math.min(contact.first_contacted, message.received);
+                    contact.last_contacted = message.received;
+                    db.contact().updateContact(contact);
+                    Log.i("Updated contact=" + contact + " type=" + type);
+                }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
             }
         }
     }

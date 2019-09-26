@@ -163,14 +163,11 @@ public class EntityMessage implements Serializable {
     }
 
     boolean replySelf(List<TupleIdentityEx> identities) {
-        if (identities != null) {
-            Address[] senders = (reply == null || reply.length == 0 ? from : reply);
-            if (senders != null)
-                for (Address sender : senders)
-                    for (TupleIdentityEx identity : identities)
-                        if (identity.similarAddress(sender))
-                            return true;
-        }
+        if (identities != null && from != null)
+            for (Address sender : from)
+                for (TupleIdentityEx identity : identities)
+                    if (identity.similarAddress(sender))
+                        return true;
 
         return false;
     }
