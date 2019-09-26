@@ -453,10 +453,7 @@ public class Log {
             sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
         if (log != null)
             sb.append(log);
-        String body = "<div>" +
-                TextUtils.htmlEncode(sb.toString())
-                        .replaceAll("\\r?\\n", "<br>") +
-                "</div>";
+        String body = "<pre>" + TextUtils.htmlEncode(sb.toString()) + "</pre>";
 
         EntityMessage draft;
 
