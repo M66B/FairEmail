@@ -811,6 +811,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putString("action", a.getString("action"));
                 args.putLong("id", a.getLong("id", -1));
                 args.putLong("account", a.getLong("account", -1));
+                args.putLong("identity", a.getLong("identity", -1));
                 args.putLong("reference", a.getLong("reference", -1));
                 args.putSerializable("ics", a.getSerializable("ics"));
                 args.putString("status", a.getString("status"));
@@ -827,9 +828,6 @@ public class FragmentCompose extends FragmentBase {
                 Bundle args = new Bundle();
                 args.putString("action", "edit");
                 args.putLong("id", working);
-                args.putLong("account", -1);
-                args.putLong("reference", -1);
-                args.putLong("answer", -1);
                 draftLoader.execute(this, args, "compose:edit");
             }
         } else {
@@ -840,9 +838,6 @@ public class FragmentCompose extends FragmentBase {
             Bundle args = new Bundle();
             args.putString("action", working < 0 ? "new" : "edit");
             args.putLong("id", working);
-            args.putLong("account", -1);
-            args.putLong("reference", -1);
-            args.putLong("answer", -1);
             draftLoader.execute(this, args, "compose:instance");
         }
     }
@@ -2297,16 +2292,25 @@ public class FragmentCompose extends FragmentBase {
                     Address from = null;
                     EntityIdentity selected = null;
                     long aid = args.getLong("account", -1);
+                    long iid = args.getLong("identity", -1);
+
+                    if (iid >= 0)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.id.equals(iid)) {
+                                selected = identity;
+                                break;
+                            }
 
                     if (data.draft.from != null && data.draft.from.length > 0) {
-                        for (Address sender : data.draft.from)
-                            for (EntityIdentity identity : data.identities)
-                                if (identity.account.equals(aid) &&
-                                        identity.sameAddress(sender)) {
-                                    from = sender;
-                                    selected = identity;
-                                    break;
-                                }
+                        if (selected == null)
+                            for (Address sender : data.draft.from)
+                                for (EntityIdentity identity : data.identities)
+                                    if (identity.account.equals(aid) &&
+                                            identity.sameAddress(sender)) {
+                                        from = sender;
+                                        selected = identity;
+                                        break;
+                                    }
 
                         if (selected == null)
                             for (Address sender : data.draft.from)
