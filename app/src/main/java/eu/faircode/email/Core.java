@@ -1907,6 +1907,16 @@ class Core {
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
 
+            // Borrow reply name from sender name
+            if (message.from != null && message.from.length == 1 &&
+                    message.reply != null && message.reply.length == 1) {
+                InternetAddress reply = (InternetAddress) message.reply[0];
+                if (TextUtils.isEmpty(reply.getPersonal())) {
+                    InternetAddress from = (InternetAddress) message.from[0];
+                    reply.setPersonal(from.getPersonal());
+                }
+            }
+
             EntityIdentity identity = matchIdentity(context, folder, message);
             message.identity = (identity == null ? null : identity.id);
 
