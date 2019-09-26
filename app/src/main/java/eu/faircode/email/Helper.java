@@ -40,6 +40,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcel;
+import android.os.PowerManager;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.format.DateUtils;
@@ -176,6 +177,20 @@ public class Helper {
     static boolean canPrint(Context context) {
         PackageManager pm = context.getPackageManager();
         return pm.hasSystemFeature(PackageManager.FEATURE_PRINTING);
+    }
+
+    static Boolean isIgnoringOptimizations(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            if (pm == null)
+                return null;
+            return pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID);
+        }
+        return null;
+    }
+
+    static boolean isPlayStoreInstall() {
+        return BuildConfig.PLAY_STORE_RELEASE;
     }
 
     // View
@@ -522,6 +537,20 @@ public class Helper {
         }
     }
 
+    static void linkPro(final TextView tv) {
+        if (ActivityBilling.isPro(tv.getContext()) && !BuildConfig.DEBUG)
+            hide(tv);
+        else {
+            tv.getPaint().setUnderlineText(true);
+            tv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    tv.getContext().startActivity(new Intent(tv.getContext(), ActivityBilling.class));
+                }
+            });
+        }
+    }
+
     // Files
 
     static String sanitizeFilename(String name) {
@@ -795,49 +824,6 @@ public class Helper {
     }
 
     // Miscellaneous
-
-    static String sanitizeKeyword(String keyword) {
-        // https://tools.ietf.org/html/rfc3501
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < keyword.length(); i++) {
-            // flag-keyword    = atom
-            // atom            = 1*ATOM-CHAR
-            // ATOM-CHAR       = <any CHAR except atom-specials>
-            char kar = keyword.charAt(i);
-            // atom-specials   = "(" / ")" / "{" / SP / CTL / list-wildcards / quoted-specials / resp-specials
-            if (kar == '(' || kar == ')' || kar == '{' || kar == ' ' || Character.isISOControl(kar))
-                continue;
-            // list-wildcards  = "%" / "*"
-            if (kar == '%' || kar == '*')
-                continue;
-            // quoted-specials = DQUOTE / "\"
-            if (kar == '"' || kar == '\\')
-                continue;
-            // resp-specials   = "]"
-            if (kar == ']')
-                continue;
-            sb.append(kar);
-        }
-        return sb.toString();
-    }
-
-    static boolean isPlayStoreInstall() {
-        return BuildConfig.PLAY_STORE_RELEASE;
-    }
-
-    static void linkPro(final TextView tv) {
-        if (ActivityBilling.isPro(tv.getContext()) && !BuildConfig.DEBUG)
-            hide(tv);
-        else {
-            tv.getPaint().setUnderlineText(true);
-            tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    tv.getContext().startActivity(new Intent(tv.getContext(), ActivityBilling.class));
-                }
-            });
-        }
-    }
 
     static <T> List<List<T>> chunkList(List<T> list, int size) {
         List<List<T>> result = new ArrayList<>(list.size() / size);

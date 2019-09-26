@@ -32,7 +32,6 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PowerManager;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -380,12 +379,13 @@ public class FragmentSetup extends FragmentBase {
         super.onResume();
 
         // Doze
-        boolean ignoring = true;
+        Boolean ignoring = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
             if (intent.resolveActivity(getContext().getPackageManager()) != null) {
-                PowerManager pm = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
-                ignoring = (pm != null && pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID));
+                ignoring = Helper.isIgnoringOptimizations(getContext());
+                if (ignoring == null)
+                    ignoring = true;
             }
         }
 

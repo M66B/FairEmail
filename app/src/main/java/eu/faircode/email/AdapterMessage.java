@@ -4201,7 +4201,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return;
                             }
 
-                            String keyword = Helper.sanitizeKeyword(etKeyword.getText().toString());
+                            String keyword = MessageHelper.sanitizeKeyword(etKeyword.getText().toString());
                             if (!TextUtils.isEmpty(keyword)) {
                                 Bundle args = new Bundle();
                                 args.putLong("id", id);

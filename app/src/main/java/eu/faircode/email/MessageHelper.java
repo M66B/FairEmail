@@ -1266,6 +1266,31 @@ public class MessageHelper {
                 "Unable to load BODYSTRUCTURE".equals(ex.getMessage()));
     }
 
+    static String sanitizeKeyword(String keyword) {
+        // https://tools.ietf.org/html/rfc3501
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < keyword.length(); i++) {
+            // flag-keyword    = atom
+            // atom            = 1*ATOM-CHAR
+            // ATOM-CHAR       = <any CHAR except atom-specials>
+            char kar = keyword.charAt(i);
+            // atom-specials   = "(" / ")" / "{" / SP / CTL / list-wildcards / quoted-specials / resp-specials
+            if (kar == '(' || kar == ')' || kar == '{' || kar == ' ' || Character.isISOControl(kar))
+                continue;
+            // list-wildcards  = "%" / "*"
+            if (kar == '%' || kar == '*')
+                continue;
+            // quoted-specials = DQUOTE / "\"
+            if (kar == '"' || kar == '\\')
+                continue;
+            // resp-specials   = "]"
+            if (kar == ']')
+                continue;
+            sb.append(kar);
+        }
+        return sb.toString();
+    }
+
     static boolean equal(Address[] a1, Address[] a2) {
         if (a1 == null && a2 == null)
             return true;

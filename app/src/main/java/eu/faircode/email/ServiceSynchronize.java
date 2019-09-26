@@ -289,12 +289,7 @@ public class ServiceSynchronize extends ServiceBase {
         setUnseen(null);
 
         if (state != null && state.isRunning()) {
-            Boolean ignoring = null;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                ignoring = (pm != null && pm.isIgnoringBatteryOptimizations(BuildConfig.APPLICATION_ID));
-            }
-            Log.e("Destroy while running ignoring=" + ignoring);
+            Log.e("Destroy while monitor running ignoring=" + Helper.isIgnoringOptimizations(this));
             state.stop();
         }
 
@@ -575,6 +570,11 @@ public class ServiceSynchronize extends ServiceBase {
         EntityLog.log(this, "Main start");
 
         final Thread main = Thread.currentThread();
+
+        if (state != null && state.isRunning()) {
+            Log.e("Monitor running ignoring=" + Helper.isIgnoringOptimizations(this));
+            state.stop();
+        }
 
         state = new Core.State(networkState);
         state.runnable(new Runnable() {

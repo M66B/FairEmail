@@ -407,11 +407,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                                     if (keywords)
                                         term = new OrTerm(term, new FlagTerm(
-                                                new Flags(Helper.sanitizeKeyword(search)), true));
+                                                new Flags(MessageHelper.sanitizeKeyword(search)), true));
 
                                     return state.ifolder.search(term);
                                 }
-
                             } catch (MessagingException ex) {
                                 Log.e(ex);
                                 return ex;
