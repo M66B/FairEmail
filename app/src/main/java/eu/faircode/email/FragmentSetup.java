@@ -42,6 +42,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -161,8 +162,7 @@ public class FragmentSetup extends FragmentBase {
             public void onClick(View v) {
                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), btnQuick);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, 1, R.string.title_setup_gmail)
-                        .setEnabled(Helper.hasValidFingerprint(getContext()));
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, 1, R.string.title_setup_gmail);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, 2, R.string.title_setup_other);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -171,7 +171,10 @@ public class FragmentSetup extends FragmentBase {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                         switch (item.getItemId()) {
                             case R.string.title_setup_gmail:
-                                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
+                                if (Helper.hasValidFingerprint(getContext()))
+                                    lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_GMAIL));
+                                else
+                                    ToastEx.makeText(getContext(), R.string.title_setup_gmail_support, Toast.LENGTH_LONG).show();
                                 return true;
                             case R.string.title_setup_other:
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
