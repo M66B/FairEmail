@@ -1026,18 +1026,35 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuClear() {
+        int start = etBody.getSelectionStart();
         int end = etBody.getSelectionEnd();
+
+        if (start < 0)
+            start = 0;
         if (end < 0)
             end = 0;
 
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+
+        boolean selected = (start != end);
+        if (start == end) {
+            start = 0;
+            end = etBody.length();
+        }
+
         SpannableString ss = new SpannableString(etBody.getText());
 
-        for (Object span : ss.getSpans(0, ss.length(), Object.class))
+        for (Object span : ss.getSpans(start, end, Object.class))
             if (!(span instanceof ImageSpan))
                 ss.removeSpan(span);
 
         etBody.setText(ss);
-        etBody.setSelection(end, end);
+        if (selected)
+            etBody.setSelection(start, end);
     }
 
     private void onMenuContactGroup() {
