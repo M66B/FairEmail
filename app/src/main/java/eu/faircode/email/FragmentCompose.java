@@ -74,7 +74,6 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -183,6 +182,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibReferenceDelete;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
+    private BottomNavigationView style_bar;
     private BottomNavigationView media_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -278,6 +278,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceDelete = view.findViewById(R.id.ibReferenceDelete);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
+        style_bar = view.findViewById(R.id.style_bar);
         media_bar = view.findViewById(R.id.media_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
@@ -346,12 +347,17 @@ public class FragmentCompose extends FragmentBase {
 
         setZoom();
 
-        etBody.setCustomSelectionActionModeCallback(actionCallback);
-
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
             public void onInputContent(Uri uri) {
                 onAddAttachment(uri, true);
+            }
+        });
+
+        etBody.setSelectionListener(new EditTextCompose.ISelection() {
+            @Override
+            public void onSelected(boolean selection) {
+                style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
             }
         });
 
@@ -421,6 +427,13 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
         tvReference.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
+
+        style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                return onActionStyle(item.getItemId());
+            }
+        });
 
         PackageManager pm = getContext().getPackageManager();
         Intent take_photo = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -497,6 +510,7 @@ public class FragmentCompose extends FragmentBase {
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
+        style_bar.setVisibility(View.GONE);
         media_bar.setVisibility(View.GONE);
         bottom_navigation.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -1046,6 +1060,106 @@ public class FragmentCompose extends FragmentBase {
         fragment.setArguments(new Bundle());
         fragment.setTargetFragment(this, REQUEST_ANSWER);
         fragment.show(getFragmentManager(), "compose:answer");
+    }
+
+    private boolean onActionStyle(int action) {
+        Log.i("Style action=" + action);
+
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+
+        if (start < 0)
+            start = 0;
+        if (end < 0)
+            end = 0;
+
+        if (start > end) {
+            int tmp = start;
+            start = end;
+            end = tmp;
+        }
+
+        SpannableString ss = new SpannableString(etBody.getText());
+
+        switch (action) {
+            case R.id.menu_bold:
+            case R.id.menu_italic: {
+                int style = (action == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
+                boolean has = false;
+                for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
+                    if (span.getStyle() == style) {
+                        has = true;
+                        ss.removeSpan(span);
+                    }
+
+                if (!has)
+                    ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                etBody.setText(ss);
+                etBody.setSelection(start, end);
+
+                return true;
+            }
+
+            case R.id.menu_underline: {
+                boolean has = false;
+                for (UnderlineSpan span : ss.getSpans(start, end, UnderlineSpan.class)) {
+                    has = true;
+                    ss.removeSpan(span);
+                }
+
+                if (!has)
+                    ss.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                etBody.setText(ss);
+                etBody.setSelection(start, end);
+
+                return true;
+            }
+
+            case R.id.menu_size: {
+                RelativeSizeSpan[] spans = ss.getSpans(start, end, RelativeSizeSpan.class);
+                float size = (spans.length > 0 ? spans[0].getSizeChange() : 1.0f);
+
+                // Match small/big
+                if (size == 0.8f)
+                    size = 1.0f;
+                else if (size == 1.0)
+                    size = 1.25f;
+                else
+                    size = 0.8f;
+
+                for (RelativeSizeSpan span : spans)
+                    ss.removeSpan(span);
+
+                if (size != 1.0f)
+                    ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                etBody.setText(ss);
+                etBody.setSelection(start, end);
+
+                return true;
+            }
+
+            case R.id.menu_color: {
+                Bundle args = new Bundle();
+                args.putInt("start", start);
+                args.putInt("end", end);
+
+                ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
+                int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
+
+                FragmentDialogColor fragment = new FragmentDialogColor();
+                fragment.initialize(R.string.title_style_color, color, args, getContext());
+                fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
+                fragment.show(getFragmentManager(), "account:color");
+
+                return true;
+            }
+
+            default:
+                return false;
+        }
     }
 
     private void onActionRecordAudio() {
@@ -1607,8 +1721,9 @@ public class FragmentCompose extends FragmentBase {
         for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
             ss.removeSpan(span);
         ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         etBody.setText(ss);
-        etBody.setSelection(end, end);
+        etBody.setSelection(start, end);
     }
 
     private void onContactGroupSelected(Bundle args) {
@@ -3346,129 +3461,6 @@ public class FragmentCompose extends FragmentBase {
 
             tvSignature.setText(null);
             grpSignature.setVisibility(View.GONE);
-        }
-    };
-
-    private ActionMode.Callback actionCallback = new ActionMode.Callback() {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            menu.add(1, R.string.title_style_bold, 1, R.string.title_style_bold).setIcon(R.drawable.baseline_format_bold_24);
-            menu.add(1, R.string.title_style_italic, 2, R.string.title_style_italic).setIcon(R.drawable.baseline_format_italic_24);
-            menu.add(1, R.string.title_style_underline, 3, R.string.title_style_underline).setIcon(R.drawable.baseline_format_underlined_24);
-            menu.add(1, R.string.title_style_size, 4, R.string.title_style_size).setIcon(R.drawable.baseline_format_size_24);
-            menu.add(1, R.string.title_style_color, 5, R.string.title_style_color).setIcon(R.drawable.baseline_format_color_text_24);
-            return true;
-        }
-
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return false;
-        }
-
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            Log.i("Action=" + item.getGroupId() + ":" + item.getItemId());
-
-            if (item.getGroupId() != 1)
-                return false;
-
-            int start = etBody.getSelectionStart();
-            int end = etBody.getSelectionEnd();
-
-            if (start < 0)
-                start = 0;
-            if (end < 0)
-                end = 0;
-
-            if (start > end) {
-                int tmp = start;
-                start = end;
-                end = tmp;
-            }
-
-            SpannableString ss = new SpannableString(etBody.getText());
-
-            switch (item.getItemId()) {
-                case R.string.title_style_bold:
-                case R.string.title_style_italic: {
-                    int style = (item.getItemId() == R.string.title_style_bold ? Typeface.BOLD : Typeface.ITALIC);
-                    boolean has = false;
-                    for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
-                        if (span.getStyle() == style) {
-                            has = true;
-                            ss.removeSpan(span);
-                        }
-
-                    if (!has)
-                        ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    etBody.setText(ss);
-                    etBody.setSelection(end, end);
-                    return true;
-                }
-
-                case R.string.title_style_underline: {
-                    boolean has = false;
-                    for (UnderlineSpan span : ss.getSpans(start, end, UnderlineSpan.class)) {
-                        has = true;
-                        ss.removeSpan(span);
-                    }
-
-                    if (!has)
-                        ss.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    etBody.setText(ss);
-                    etBody.setSelection(end, end);
-                    return true;
-                }
-
-                case R.string.title_style_size: {
-                    RelativeSizeSpan[] spans = ss.getSpans(start, end, RelativeSizeSpan.class);
-                    float size = (spans.length > 0 ? spans[0].getSizeChange() : 1.0f);
-
-                    // Match small/big
-                    if (size == 0.8f)
-                        size = 1.0f;
-                    else if (size == 1.0)
-                        size = 1.25f;
-                    else
-                        size = 0.8f;
-
-                    for (RelativeSizeSpan span : spans)
-                        ss.removeSpan(span);
-
-                    if (size != 1.0f)
-                        ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    etBody.setText(ss);
-                    etBody.setSelection(end, end);
-                    return true;
-                }
-
-                case R.string.title_style_color: {
-                    Bundle args = new Bundle();
-                    args.putInt("start", start);
-                    args.putInt("end", end);
-
-                    ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
-                    int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
-
-                    FragmentDialogColor fragment = new FragmentDialogColor();
-                    fragment.initialize(R.string.title_style_color, color, args, getContext());
-                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
-                    fragment.show(getFragmentManager(), "account:color");
-
-                    etBody.setSelection(end, end);
-                    return true;
-                }
-
-                default:
-                    return false;
-            }
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
         }
     };
 

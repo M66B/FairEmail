@@ -36,7 +36,8 @@ import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
 
 public class EditTextCompose extends AppCompatEditText {
-    private IInputContentListener listener = null;
+    private ISelection selectionListener = null;
+    private IInputContentListener inputContentListener = null;
 
     public EditTextCompose(Context context) {
         super(context);
@@ -48,6 +49,13 @@ public class EditTextCompose extends AppCompatEditText {
 
     public EditTextCompose(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void onSelectionChanged(int selStart, int selEnd) {
+        super.onSelectionChanged(selStart, selEnd);
+        if (selectionListener != null)
+            selectionListener.onSelected(hasSelection());
     }
 
     @Override
@@ -117,14 +125,14 @@ public class EditTextCompose extends AppCompatEditText {
             public boolean onCommitContent(InputContentInfoCompat info, int flags, Bundle opts) {
                 Log.i("Uri=" + info.getContentUri());
                 try {
-                    if (listener == null)
+                    if (inputContentListener == null)
                         throw new IllegalArgumentException("InputContent listener not set");
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1 &&
                             (flags & InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION) != 0)
                         info.requestPermission();
 
-                    listener.onInputContent(info.getContentUri());
+                    inputContentListener.onInputContent(info.getContentUri());
                     return true;
                 } catch (Throwable ex) {
                     Log.w(ex);
@@ -135,10 +143,18 @@ public class EditTextCompose extends AppCompatEditText {
     }
 
     void setInputContentListener(IInputContentListener listener) {
-        this.listener = listener;
+        this.inputContentListener = listener;
     }
 
     interface IInputContentListener {
         void onInputContent(Uri uri);
+    }
+
+    void setSelectionListener(ISelection listener) {
+        this.selectionListener = listener;
+    }
+
+    interface ISelection {
+        void onSelected(boolean selection);
     }
 }

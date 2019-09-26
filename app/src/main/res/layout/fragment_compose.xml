@@ -14,7 +14,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/media_bar"
+            app:layout_constraintBottom_toTopOf="@+id/style_bar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -418,6 +418,19 @@
         </ScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/style_bar"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="?attr/colorActionBackground"
+            app:itemIconTint="@color/action_foreground"
+            app:itemTextColor="@color/action_foreground"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toTopOf="@+id/media_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/action_compose_style" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/media_bar"
             android:layout_width="match_parent"
             android:layout_height="36dp"
@@ -428,7 +441,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/action_media" />
+            app:menu="@menu/action_compose_media" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
