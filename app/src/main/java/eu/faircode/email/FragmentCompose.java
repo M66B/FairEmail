@@ -2534,7 +2534,7 @@ public class FragmentCompose extends FragmentBase {
             Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
 
             // Show identities
-            IdentityAdapter iadapter = new IdentityAdapter(getContext(), data.identities);
+            AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), data.identities);
             spIdentity.setAdapter(iadapter);
 
             // Select identity
@@ -3407,45 +3407,6 @@ public class FragmentCompose extends FragmentBase {
             return lld;
         }
     };
-
-    public class IdentityAdapter extends ArrayAdapter<TupleIdentityEx> {
-        private Context context;
-        private List<TupleIdentityEx> identities;
-
-        IdentityAdapter(@NonNull Context context, List<TupleIdentityEx> identities) {
-            super(context, 0, identities);
-            this.context = context;
-            this.identities = identities;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            return getLayout(position, convertView, parent, R.layout.spinner_item2);
-        }
-
-        @Override
-        public View getDropDownView(int position, View convertView, ViewGroup parent) {
-            return getLayout(position, convertView, parent, R.layout.spinner_item2_dropdown);
-        }
-
-        View getLayout(int position, View convertView, ViewGroup parent, int resid) {
-            View view = LayoutInflater.from(context).inflate(resid, parent, false);
-
-            TupleIdentityEx identity = identities.get(position);
-
-            View vwColor = view.findViewById(R.id.vwColor);
-            vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
-
-            TextView text1 = view.findViewById(android.R.id.text1);
-            text1.setText(identity.accountName + "/" + identity.getDisplayName() + (identity.primary ? " ★" : ""));
-
-            TextView text2 = view.findViewById(android.R.id.text2);
-            text2.setText(identity.email);
-
-            return view;
-        }
-    }
 
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
         @Override
