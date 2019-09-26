@@ -43,6 +43,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvExplanation" />
 
+        <ImageView
+            android:id="@+id/ivExternal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@id/btnInfo"
+            app:layout_constraintStart_toEndOf="@id/btnInfo"
+            app:layout_constraintTop_toTopOf="@id/btnInfo"
+            app:srcCompat="@drawable/baseline_open_in_new_24" />
+
         <CheckBox
             android:id="@+id/cbNotAgain"
             android:layout_width="wrap_content"
