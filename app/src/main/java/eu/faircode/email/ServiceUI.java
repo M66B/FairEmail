@@ -42,13 +42,14 @@ import javax.mail.internet.InternetAddress;
 public class ServiceUI extends IntentService {
     static final int PI_CLEAR = 1;
     static final int PI_TRASH = 2;
-    static final int PI_ARCHIVE = 3;
-    static final int PI_REPLY_DIRECT = 4;
-    static final int PI_FLAG = 5;
-    static final int PI_SEEN = 6;
-    static final int PI_SNOOZE = 7;
-    static final int PI_IGNORED = 8;
-    static final int PI_WAKEUP = 9;
+    static final int PI_JUNK = 3;
+    static final int PI_ARCHIVE = 4;
+    static final int PI_REPLY_DIRECT = 5;
+    static final int PI_FLAG = 6;
+    static final int PI_SEEN = 7;
+    static final int PI_SNOOZE = 8;
+    static final int PI_IGNORED = 9;
+    static final int PI_WAKEUP = 10;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -97,12 +98,17 @@ public class ServiceUI extends IntentService {
 
                 case "trash":
                     cancel(group, id);
-                    onTrash(id);
+                    onMove(id, EntityFolder.TRASH);
+                    break;
+
+                case "junk":
+                    cancel(group, id);
+                    onMove(id, EntityFolder.JUNK);
                     break;
 
                 case "archive":
                     cancel(group, id);
-                    onArchive(id);
+                    onMove(id, EntityFolder.ARCHIVE);
                     break;
 
                 case "reply":
@@ -158,7 +164,7 @@ public class ServiceUI extends IntentService {
         nm.cancel(tag, 1);
     }
 
-    private void onTrash(long id) {
+    private void onMove(long id, String folderType) {
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
@@ -167,30 +173,9 @@ public class ServiceUI extends IntentService {
             if (message == null)
                 return;
 
-            EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+            EntityFolder trash = db.folder().getFolderByType(message.account, folderType);
             if (trash != null)
                 EntityOperation.queue(this, message, EntityOperation.MOVE, trash.id);
-
-            db.setTransactionSuccessful();
-        } finally {
-            db.endTransaction();
-        }
-    }
-
-    private void onArchive(long id) {
-        DB db = DB.getInstance(this);
-        try {
-            db.beginTransaction();
-
-            EntityMessage message = db.message().getMessage(id);
-            if (message == null)
-                return;
-
-            EntityFolder archive = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
-            if (archive == null)
-                archive = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-            if (archive != null)
-                EntityOperation.queue(this, message, EntityOperation.MOVE, archive.id);
 
             db.setTransactionSuccessful();
         } finally {

@@ -2475,6 +2475,7 @@ class Core {
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
+        boolean notify_junk = (prefs.getBoolean("notify_junk", true) && pro);
         boolean notify_archive = (prefs.getBoolean("notify_archive", true) || !pro);
         boolean notify_reply = (prefs.getBoolean("notify_reply", false) && pro);
         boolean notify_reply_direct = (prefs.getBoolean("notify_reply_direct", false) && pro);
@@ -2669,6 +2670,19 @@ class Core {
                         context.getString(R.string.title_advanced_notify_action_trash),
                         piTrash);
                 mbuilder.addAction(actionTrash.build());
+            }
+
+            if (notify_junk &&
+                    db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null) {
+                Intent junk = new Intent(context, ServiceUI.class)
+                        .setAction("junk:" + message.id)
+                        .putExtra("group", group);
+                PendingIntent piJunk = PendingIntent.getService(context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
+                NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
+                        R.drawable.baseline_flag_24,
+                        context.getString(R.string.title_advanced_notify_action_junk),
+                        piJunk);
+                mbuilder.addAction(actionJunk.build());
             }
 
             if (notify_archive &&
