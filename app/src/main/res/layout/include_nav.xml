@@ -6,93 +6,104 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAccount"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/vSeparatorAccount"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvAccount" />
 
     <ImageButton
         android:id="@+id/ibExpanderUnified"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/title_legend_expander"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorAccount"
         app:srcCompat="@drawable/expander" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUnified"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderUnified" />
 
     <View
         android:id="@+id/vSeparatorUnified"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvUnified" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFolder"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorUnified" />
 
     <View
         android:id="@+id/vSeparatorFolder"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvFolder" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMenu"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorFolder" />
 
     <View
         android:id="@+id/vSeparatorMenu"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:background="?attr/colorSeparator"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvMenu" />
 
     <ImageButton
         android:id="@+id/ibExpanderExtra"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/title_legend_expander"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorMenu"
         app:srcCompat="@drawable/expander" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMenuExtra"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderExtra" />
 

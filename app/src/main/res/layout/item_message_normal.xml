@@ -22,16 +22,18 @@
             <include
                 android:id="@+id/inHeader"
                 layout="@layout/include_message_normal"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ViewStub
                 android:id="@+id/vsBody"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout="@layout/include_message_body"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/inHeader" />
         </androidx.constraintlayout.widget.ConstraintLayout>

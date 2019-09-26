@@ -17,12 +17,13 @@
 
     <EditText
         android:id="@+id/etKeyword"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:imeOptions="actionDone"
         android:inputType="text"
         android:text="Keyword"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvKeyword">
 

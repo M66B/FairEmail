@@ -15,13 +15,14 @@
 
         <EditText
             android:id="@+id/etName"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:hint="@string/title_identity_name"
             android:imeOptions="actionNext"
             android:inputType="textPersonName|textCapWords"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -30,20 +31,22 @@
 
         <EditText
             android:id="@+id/etEmail"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:hint="@string/title_identity_email"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etEmail"
             app:passwordToggleEnabled="true">

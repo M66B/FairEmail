@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/etHtml"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@null"
         android:fontFamily="monospace"
@@ -16,6 +16,7 @@
         android:minHeight="120dp"
         android:padding="12dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

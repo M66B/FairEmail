@@ -40,9 +40,10 @@
 
             <View
                 android:id="@+id/vSeparatorActions"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintActions" />
 
@@ -71,9 +72,10 @@
 
             <View
                 android:id="@+id/vSeparatorSync"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="?attr/colorSeparator"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHintSync" />
 

@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="24dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,15 +11,16 @@
 
         <RadioGroup
             android:id="@+id/rgTheme"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
                 android:id="@+id/rbThemeLight"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp"
                 android:text="@string/title_setup_light_theme"
@@ -27,7 +28,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeDark"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:padding="6dp"
@@ -36,7 +37,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeBlack"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:padding="6dp"
@@ -45,7 +46,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeGreyLight"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:padding="6dp"
@@ -54,7 +55,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeGreyDark"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:padding="6dp"
@@ -63,7 +64,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeSystem"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:padding="6dp"
@@ -72,7 +73,7 @@
 
             <RadioButton
                 android:id="@+id/rbThemeGreySystem"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:padding="6dp"

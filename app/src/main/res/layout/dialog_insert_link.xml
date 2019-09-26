@@ -19,12 +19,13 @@
 
     <EditText
         android:id="@+id/etLink"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:imeOptions="actionDone"
         android:inputType="textUri|textMultiLine"
         android:text="https://email.faircode.eu/"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvOpenLink">
 

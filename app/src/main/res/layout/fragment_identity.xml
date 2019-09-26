@@ -47,11 +47,12 @@
 
         <EditText
             android:id="@+id/etName"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:inputType="textPersonName|textCapWords"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
@@ -70,11 +71,12 @@
 
         <EditText
             android:id="@+id/etEmail"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEmail" />
 
@@ -92,12 +94,13 @@
 
         <EditText
             android:id="@+id/etDisplay"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:hint="@string/title_optional"
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDisplay" />
 
@@ -258,11 +261,12 @@
 
         <EditText
             android:id="@+id/etDomain"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="domain.tld"
             android:inputType="textUri"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDomainHint" />
 
@@ -314,11 +318,12 @@
 
         <EditText
             android:id="@+id/etHost"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="smtp.domain.tld"
             android:inputType="textUri"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHost" />
 
@@ -326,10 +331,11 @@
 
         <RadioGroup
             android:id="@+id/rgEncryption"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etHost">
 
@@ -370,11 +376,12 @@
 
         <EditText
             android:id="@+id/etPort"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="465"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPort" />
 
@@ -393,11 +400,12 @@
 
         <EditText
             android:id="@+id/etUser"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="username"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvUser" />
 
@@ -415,8 +423,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPassword"
             app:passwordToggleEnabled="true">
@@ -441,11 +450,12 @@
 
         <EditText
             android:id="@+id/etRealm"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/title_optional"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvRealm" />
 
@@ -507,10 +517,11 @@
 
         <EditText
             android:id="@+id/etSenderExtra"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/title_optional"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSenderExtra" />
 
@@ -538,12 +549,13 @@
 
         <EditText
             android:id="@+id/etReplyTo"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:hint="@string/title_optional"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
 
@@ -559,12 +571,13 @@
 
         <EditText
             android:id="@+id/etBcc"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:hint="@string/title_optional"
             android:inputType="textEmailAddress"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 

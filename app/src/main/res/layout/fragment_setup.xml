@@ -37,10 +37,11 @@
 
         <View
             android:id="@+id/vSeparatorWelcome"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
 
@@ -109,10 +110,11 @@
 
         <View
             android:id="@+id/vSeparatorAccount"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnQuick" />
 
@@ -207,10 +209,11 @@
 
         <View
             android:id="@+id/vSeparatorIdentity"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNoPrimaryDrafts" />
 
@@ -305,10 +308,11 @@
 
         <View
             android:id="@+id/vSeparatorPermissions"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNoIdentities" />
 
@@ -370,10 +374,11 @@
 
         <View
             android:id="@+id/vSeparatorDoze"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnPermissions" />
 
@@ -471,10 +476,11 @@
 
         <View
             android:id="@+id/vSeparatorInbox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
             android:background="?attr/colorSeparator"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDataSaver" />
 

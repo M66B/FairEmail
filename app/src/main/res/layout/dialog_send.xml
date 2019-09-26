@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
@@ -70,7 +70,7 @@
 
         <CheckBox
             android:id="@+id/cbPlainOnly"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_send_plain_text"
@@ -80,7 +80,7 @@
 
         <CheckBox
             android:id="@+id/cbEncrypt"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_encrypt"
@@ -146,7 +146,7 @@
 
         <CheckBox
             android:id="@+id/cbNotAgain"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_no_ask_again"
