@@ -130,6 +130,7 @@
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_wizard">Průvodce</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
+    <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
@@ -294,7 +295,7 @@
     <string name="title_advanced_poll_hint">Synchronizování periodicky bude pokaždé porovnávat místní a vzdálené zprávy, což je náročná operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_check_mx">Zkontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>
-    <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což například může způsobit, že se budou synchronizovat úplně všechny zprávy</string>
+    <string name="title_advanced_unseen_hint">Někteří poskytovatelé toto nepodporují korektně, což může způsobit synchronizaci všech nebo žádných zpráv</string>
     <string name="title_advanced_sync_kept_hint">Zvýší spotřebu dat a baterie, zvláště pokud v zařízení uchováváte velké množství zpráv</string>
     <string name="title_advanced_sync_folders_hint">Vypnutí o něco sníží množství přenesených dat a spotřebu baterie, zároveň však znemožní aktualizovat seznam složek</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
@@ -357,6 +358,7 @@
     <string name="title_use_ip">Použít lokální IP adresu namísto názvu hostitele</string>
     <string name="title_primary_account">Hlavní (výchozí účet)</string>
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
+    <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
     <string name="title_check">Ověřit</string>
     <string name="title_no_name">Chybí jméno</string>
@@ -379,6 +381,7 @@
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
+    <string name="title_pop_support">Protokol POP3 podporuje stahování a odstraňování zpráv pouze ze složky doručené. POP3 neumí zprávu označit jako oblíbenou, přesouvat zprávy, atd. Oproti IMAP bude POP3 také více zatěžovat baterii. Zvažte tak použití protokolu IMAP, kdykoli to bude možné.</string>
     <string name="title_activesync_support">ActiveSync není podporován</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_review">Zkontrolovat</string>
@@ -760,6 +763,7 @@
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Obnovit</string>
     <string name="title_minutes">Minuty</string>
+    <string name="title_dismiss">Zavřít</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>

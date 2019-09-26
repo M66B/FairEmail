@@ -96,6 +96,7 @@
     <string name="title_setup_go">转到</string>
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_other">其他邮件服务提供商</string>
+    <string name="title_setup_gmail_support">授权谷歌帐户只能用于官方版本，因为Android检查应用签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
@@ -260,7 +261,7 @@
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是一个昂贵的操作，可能导致额外的电池使用，特别是在有很多消息要同步的时候。始终同步将通过持续比较变化以避免发生上述情形。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
-    <string name="title_advanced_unseen_hint">一些提供商未正确支持支持该功能，这可能导致同步所有信息。</string>
+    <string name="title_advanced_unseen_hint">一些邮件服务提供商未恰当地支持该功能，这可能导致同步所有消息或一条消息也不同步</string>
     <string name="title_advanced_sync_kept_hint">这将传输额外数据，消耗额外的电池电量，特别是如果有许多消息存储在设备上</string>
     <string name="title_advanced_sync_folders_hint">禁用此功能会降低数据和电池使用量，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
@@ -323,6 +324,7 @@
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
     <string name="title_primary_account">默认账户</string>
     <string name="title_primary_identity">默认身份</string>
+    <string name="title_leave_on_server">把消息留在服务器上</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
     <string name="title_check">检查</string>
     <string name="title_no_name">缺少名称</string>
@@ -727,6 +729,7 @@
     <string name="title_after">%1$s之后</string>
     <string name="title_reset">重置</string>
     <string name="title_minutes">分钟</string>
+    <string name="title_dismiss">忽略</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

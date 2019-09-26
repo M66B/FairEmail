@@ -108,6 +108,7 @@
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_wizard">Assistant</string>
     <string name="title_setup_other">Autre fournisseur</string>
+    <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement dans les versions officielles parce que Android vérifie la signature de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
@@ -272,7 +273,7 @@
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une heure</string>
     <string name="title_advanced_check_mx">Vérifier l\'adresse mail de l\'expéditeur lors de la synchronisation des messages</string>
-    <string name="title_advanced_unseen_hint">Certains fournisseurs ne supportent pas ceci correctement, ce qui pourrait par exemple entraîner la synchronisation de tous les messages</string>
+    <string name="title_advanced_unseen_hint">Certains fournisseurs ne supportent pas ceci correctement, ce qui peut causer la synchronisation de tous les messages, ou d\'aucun</string>
     <string name="title_advanced_sync_kept_hint">Ceci utilisera des données et de la batterie supplémentaires, surtout s\'il y a beaucoup de messages conservés sur l\'appareil</string>
     <string name="title_advanced_sync_folders_hint">Désactiver ceci réduira quelque peu l\'utilisation des données et de la batterie mais désactivera également la mise à jour de la liste des dossiers</string>
     <string name="title_advanced_sync_delay_hint">Cela ralentira la synchronisation des messages</string>
@@ -335,6 +336,7 @@
     <string name="title_use_ip">Utiliser l\'adresse IP locale au lieu du nom de domaine</string>
     <string name="title_primary_account">Principal (compte par défaut)</string>
     <string name="title_primary_identity">Principal (identité par défaut)</string>
+    <string name="title_leave_on_server">Laisser les messages sur le serveur</string>
     <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
     <string name="title_check">Vérifier</string>
     <string name="title_no_name">Nom manquant</string>
@@ -500,6 +502,7 @@
     <string name="title_discard">Supprimer</string>
     <string name="title_save">Enregistrer</string>
     <string name="title_send">Envoyer</string>
+    <string name="title_send_via">Envoyer avec</string>
     <string name="title_send_with_options">Envoyer &#8230;</string>
     <string name="title_send_at">Envoyer à &#8230;</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>
@@ -739,6 +742,7 @@
     <string name="title_after">Après %1$s</string>
     <string name="title_reset">Réinitialiser</string>
     <string name="title_minutes">Minutes</string>
+    <string name="title_dismiss">Rejeter</string>
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>

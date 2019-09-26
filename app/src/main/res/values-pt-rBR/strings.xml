@@ -104,7 +104,9 @@
     <string name="title_setup_go">Iniciar</string>
     <string name="title_setup_wizard">Assistente</string>
     <string name="title_setup_other">Outro provedor</string>
+    <string name="title_setup_gmail_support">Autorizar contas do Google funcionará apenas em versões oficiais porque o Android verifica a assinatura do aplicativo</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissão para selecionar uma conta e ler seu nome</string>
+    <string name="title_setup_select_account">Selecionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
@@ -214,6 +216,7 @@
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar fonte mono-espaçada para o texto da mensagem</string>
+    <string name="title_advanced_text_color">Mostrar cores do texto</string>
     <string name="title_advanced_collapse_quotes">Recolher texto citado</string>
     <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_remote_content">Mostrar automaticamente conteúdo remoto ao visualizar mensagens originais</string>
@@ -243,6 +246,7 @@
     <string name="title_advanced_notify_action_reply_direct">Resposta direta</string>
     <string name="title_advanced_notify_action_flag">Estrela</string>
     <string name="title_advanced_notify_action_seen">Ler</string>
+    <string name="title_advanced_notify_action_snooze">Soneca</string>
     <string name="title_advanced_notify_remove">Remover nova notificação de mensagem ao tocar na notificação</string>
     <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
     <string name="title_advanced_light">Usar luz de notificação</string>
@@ -265,7 +269,7 @@
     <string name="title_advanced_poll_hint">Sincronizar periodicamente irá cada vez comparar mensagens locais e remotas, o que é uma operação pesada, possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso através de um acompanhamento contínuo para somente alterações.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>
-    <string name="title_advanced_unseen_hint">Alguns provedores de e-mail não suportam isso corretamente, o que, por exemplo, pode resultar em todas as mensagens sendo sincronizadas</string>
+    <string name="title_advanced_unseen_hint">Alguns provedores não suportam isso adequadamente, o que pode causar a sincronização de nenhuma ou de todas as mensagens</string>
     <string name="title_advanced_sync_kept_hint">Isto irá transferir dados extras e consumir energia extra da bateria, especialmente se uma série de mensagens forem armazenadas no dispositivo</string>
     <string name="title_advanced_sync_folders_hint">Desativar isto irá reduzir um pouco o uso de dados e bateria, mas irá também desativar a atualização da lista de pastas</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
@@ -296,6 +300,7 @@
     <string name="title_identity_email">Seu endereço de e-mail</string>
     <string name="title_identity_color_hint">Cores de identidade têm precedência sobre as cores da conta</string>
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
+    <string name="title_advanced_sender_regex">Regex para corresponder aos endereços editados</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
     <string name="title_identity_encrypt">Criptografar por padrão</string>
     <string name="title_identity_use_ip_hint">Em caso de \'saudação inválida\', \'requer um endereço válido\' ou um erro similar, tente alterar esta configuração</string>
@@ -327,6 +332,7 @@
     <string name="title_use_ip">Usar endereço IP local em vez do nome do host</string>
     <string name="title_primary_account">Principal (identidade padrão)</string>
     <string name="title_primary_identity">Primária (identidade padrão)</string>
+    <string name="title_leave_on_server">Deixar mensagens no servidor</string>
     <string name="title_keep_alive_interval">Intervalo de manutenção da conexão (minutos)</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Nome ausente</string>
@@ -349,8 +355,10 @@
     <string name="title_identity_delete">Excluir esta identidade permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
     <string name="title_last_connected">Última vez conectado: %1$s</string>
+    <string name="title_pop_support">O protocolo POP3 suporta o download e a exclusão de mensagens apenas da caixa de entrada. O POP3 não pode marcar mensagens como lidas, mover mensagens etc. O POP3 usará mais energia e dados da bateria que o IMAP. Portanto, considere usar o protocolo IMAP sempre que possível.</string>
     <string name="title_activesync_support">O ActiveSync não é suportado</string>
     <string name="title_oauth_support">OAuth não é suportado</string>
+    <string name="title_review">Revisar</string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_expand_read">Marcar mensagens lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
@@ -562,6 +570,7 @@
     <string name="title_answer_template_email">$email$ será substituído pelo endereço de e-mail do remetente</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como não lida</string>
+    <string name="title_rule_ignore">Suprimir notificação</string>
     <string name="title_rule_snooze">Soneca</string>
     <string name="title_rule_flag">Adicionar estrela</string>
     <string name="title_rule_move">Mover</string>
@@ -575,6 +584,7 @@
     <string name="title_rule_enabled">Ativado</string>
     <string name="title_rule_stop">Parar o processamento de regras após a execução desta regra</string>
     <string name="title_rule_sender">Remetente contém</string>
+    <string name="title_rule_sender_known">Remetente é um contato</string>
     <string name="title_rule_recipient">Destinatário contém</string>
     <string name="title_rule_subject">Assunto contém</string>
     <string name="title_rule_header">Cabeçalho contém</string>
@@ -726,6 +736,7 @@
     <string name="title_now">Agora</string>
     <string name="title_after">Após %1$s</string>
     <string name="title_reset">Resetar</string>
+    <string name="title_minutes">Minutos</string>
     <string name="title_icalendar_accept">Aceitar</string>
     <string name="title_icalendar_decline">Recusar</string>
     <string name="title_icalendar_maybe">Talvez</string>

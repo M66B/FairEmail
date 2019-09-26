@@ -272,7 +272,6 @@
     <string name="title_advanced_poll_hint">Sincronitzar periòdicament es compararà cada vegada més missatges locals i remots, la qual cosa és una operació costosa que possiblement produeixi un ús addicional de la bateria, especialment quan hi ha molts missatges per sincronitzar. Sempre la sincronització evitarà això mitjançant un control continuat només per a canvis.</string>
     <string name="title_advanced_schedule_hint">Toqueu una hora per definir-la</string>
     <string name="title_advanced_check_mx">Comproveu les adreces de correu electrònic del remitent sobre la sincronització de missatges</string>
-    <string name="title_advanced_unseen_hint">Alguns proveïdors no ho admeten correctament, cosa que, per exemple, pot provocar la sincronització de tots els missatges</string>
     <string name="title_advanced_sync_kept_hint">Això transferirà dades addicionals i consumeix energia addicional per a la bateria, especialment si es desen el dispositiu de molts missatges</string>
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>

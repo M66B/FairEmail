@@ -108,6 +108,7 @@
     <string name="title_setup_go">Utfør</string>
     <string name="title_setup_wizard">Veiviser</string>
     <string name="title_setup_other">Annen leverandør</string>
+    <string name="title_setup_gmail_support">Å autorisere Google kontoer fungerer bare i offisielle versjoner fordi Android sjekker appens signatur</string>
     <string name="title_setup_gmail_rationale">Gi tillatelser til å velge en konto og lese navnet ditt</string>
     <string name="title_setup_select_account">Velg konto</string>
     <string name="title_setup_instructions">Oppsett instruksjoner</string>
@@ -272,7 +273,7 @@
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en kostbar operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger å synkronisere. Alltid synkronisering vil unngå dette ved kontinuerlig overvåking for endringer.</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_check_mx">Sjekk avsenderens e-postadresser når meldinger synkroniseres</string>
-    <string name="title_advanced_unseen_hint">Noen leverandører støtter ikke dette ordentlig, noe som for eksempel kan føre til at alle meldinger blir synkronisert</string>
+    <string name="title_advanced_unseen_hint">Noen leverandører støtter ikke dette ordentlig, noe som kan føre til synkronisering av ingen eller alle meldinger</string>
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og bruke ekstra batteristrøm, spesielt hvis det er lagret mange meldinger på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
     <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
@@ -335,6 +336,7 @@
     <string name="title_use_ip">Bruk lokal IP-adresse i stedet for vertsnavn</string>
     <string name="title_primary_account">Primær (standardkonto)</string>
     <string name="title_primary_identity">Primær (standardidentitet)</string>
+    <string name="title_leave_on_server">Legg igjen meldingene på serveren</string>
     <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>
     <string name="title_check">Sjekk</string>
     <string name="title_no_name">Navn mangler</string>
@@ -500,6 +502,7 @@
     <string name="title_discard">Forkast</string>
     <string name="title_save">Lagre</string>
     <string name="title_send">Send</string>
+    <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sender &#8230;</string>
     <string name="title_no_server">Ingen server funnet på \'%1$s\'</string>
@@ -739,6 +742,7 @@
     <string name="title_after">Etter %1$s</string>
     <string name="title_reset">Tilbakestill</string>
     <string name="title_minutes">Minutter</string>
+    <string name="title_dismiss">Avvis</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>

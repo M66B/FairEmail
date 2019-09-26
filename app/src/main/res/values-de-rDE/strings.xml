@@ -107,6 +107,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_go">Los</string>
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_other">Anderer Anbieter</string>
+    <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
@@ -271,7 +272,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Batterieverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch die ständige Synchronisation wird dies vermieden, indem man ständig nur auf Änderungen achtet.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen bei Synchronisierung von Nachrichten</string>
-    <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht korrekt, was zum Beispiel dazu führen könnte, dass alle Nachrichten synchronisiert werden</string>
+    <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_sync_folders_hint">Wenn Sie dies deaktivieren, wird der Daten- und Akkubedarf etwas reduziert, aber auch die Aktualisierung der Ordnerliste deaktiviert.</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
@@ -334,6 +335,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
     <string name="title_primary_account">Primäres Konto</string>
     <string name="title_primary_identity">Primäre Identität</string>
+    <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
     <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
     <string name="title_check">Prüfen</string>
     <string name="title_no_name">Name fehlt</string>
@@ -498,6 +500,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_discard">Verwerfen</string>
     <string name="title_save">Speichern</string>
     <string name="title_send">Senden</string>
+    <string name="title_send_via">Senden über</string>
     <string name="title_send_with_options">Sende-Optionen &#8230;</string>
     <string name="title_send_at">Später senden &#8230;</string>
     <string name="title_no_server">Kein Server gefunden bei \'%1$s\'</string>
@@ -737,6 +740,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_after">Nach %1$s</string>
     <string name="title_reset">Zurücksetzen</string>
     <string name="title_minutes">Minuten</string>
+    <string name="title_dismiss">Abbrechen</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>
