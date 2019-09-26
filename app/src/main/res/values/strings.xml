@@ -835,6 +835,7 @@
     <string name="title_after">After %1$s</string>
     <string name="title_reset">Reset</string>
     <string name="title_minutes">Minutes</string>
+    <string name="title_dismiss">Dismiss</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

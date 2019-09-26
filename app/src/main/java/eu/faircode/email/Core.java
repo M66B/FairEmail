@@ -2499,6 +2499,12 @@ class Core {
             Intent clear = new Intent(context, ServiceUI.class).setAction("clear:" + group);
             PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
 
+            // Wearable action
+            NotificationCompat.Action.Builder actionDismiss = new NotificationCompat.Action.Builder(
+                    R.drawable.baseline_clear_all_24,
+                    context.getString(R.string.title_dismiss),
+                    piClear);
+
             // Build title
             String title = context.getResources().getQuantityString(
                     R.plurals.title_notification_unseen, messages.size(), messages.size());
@@ -2517,7 +2523,9 @@ class Core {
                             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                             .setGroup(Long.toString(group))
                             .setGroupSummary(true)
-                            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
+                            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN)
+                            .extend(new NotificationCompat.WearableExtender()
+                                    .addAction(actionDismiss.build()));
 
             if (pro && group != 0 && messages.size() > 0) {
                 TupleMessageEx amessage = messages.get(0);
