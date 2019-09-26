@@ -4588,6 +4588,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            prefs.edit().putBoolean("crash_reports", true).apply();
                             Log.setCrashReporting(true);
                         }
                     })
