@@ -2261,13 +2261,13 @@ public class FragmentCompose extends FragmentBase {
                         if ("reply".equals(action) || "reply_all".equals(action)) {
                             if (prefix_once) {
                                 String re = context.getString(R.string.title_subject_reply, "");
-                                subject = subject.replaceAll("(?i)" + Pattern.quote(re.trim()), "").trim();
+                                subject = unprefix(subject, re);
                             }
                             data.draft.subject = context.getString(R.string.title_subject_reply, subject);
                         } else if ("forward".equals(action)) {
                             if (prefix_once) {
                                 String fwd = context.getString(R.string.title_subject_forward, "");
-                                subject = subject.replaceAll("(?i)" + Pattern.quote(fwd.trim()), "").trim();
+                                subject = unprefix(subject, fwd);
                             }
                             data.draft.subject = context.getString(R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
@@ -3153,6 +3153,14 @@ public class FragmentCompose extends FragmentBase {
             getActivity().invalidateOptionsMenu();
         }
     };
+
+    private String unprefix(String subject, String prefix) {
+        subject = subject.trim();
+        prefix = prefix.trim().toLowerCase(Locale.ROOT);
+        while (subject.toLowerCase(Locale.ROOT).startsWith(prefix))
+            subject = subject.substring(prefix.length()).trim();
+        return subject;
+    }
 
     private void showDraft(long id) {
         Bundle args = new Bundle();
