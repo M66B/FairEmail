@@ -3227,8 +3227,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (account == null)
                         return null;
 
-                    if (message.uid == null) {
-                        if (!message.ui_seen && account.pop)
+                    if (account.pop) {
+                        if (!message.ui_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     } else {
                         if (!message.content)

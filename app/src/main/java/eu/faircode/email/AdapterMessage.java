@@ -1633,10 +1633,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     if (message == null)
                                         return null;
 
-                                    if (message.uid == null) {
-                                        if (pop)
-                                            EntityOperation.queue(context, message, EntityOperation.SEEN, !message.ui_seen);
-                                    } else {
+                                    if (pop)
+                                        EntityOperation.queue(context, message, EntityOperation.SEEN, !message.ui_seen);
+                                    else {
                                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                                 message.account, message.thread, threading ? null : id, message.ui_seen ? message.folder : null);
                                         for (EntityMessage threaded : messages)
