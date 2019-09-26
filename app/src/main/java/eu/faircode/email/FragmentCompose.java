@@ -80,7 +80,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
@@ -3476,29 +3475,6 @@ public class FragmentCompose extends FragmentBase {
 
             tvSignature.setText(null);
             grpSignature.setVisibility(View.GONE);
-        }
-    };
-
-    private ViewTreeObserver.OnGlobalLayoutListener layoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-        @Override
-        public void onGlobalLayout() {
-            int bottom = view.getBottom()
-                    - media_bar.getHeight()
-                    - Helper.dp2pixels(view.getContext(), 56); // full bottom navigation
-            int remain = bottom - etBody.getTop();
-            int threshold = Helper.dp2pixels(view.getContext(), 100);
-            Log.i("Reduce remain=" + remain + " threshold=" + threshold);
-
-            boolean reduce = (remain < threshold);
-            boolean reduced = (bottom_navigation.getLabelVisibilityMode() == LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED);
-            if (reduce != reduced) {
-                bottom_navigation.setLabelVisibilityMode(reduce
-                        ? LabelVisibilityMode.LABEL_VISIBILITY_UNLABELED
-                        : LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-                ViewGroup.LayoutParams params = bottom_navigation.getLayoutParams();
-                params.height = Helper.dp2pixels(view.getContext(), reduce ? 36 : 56);
-                bottom_navigation.setLayoutParams(params);
-            }
         }
     };
 
