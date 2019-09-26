@@ -1909,16 +1909,6 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private boolean isEmpty() {
-        if (!TextUtils.isEmpty(etExtra.getText().toString().trim()))
-            return false;
-        if (!etTo.getText().toString().trim().equals(etTo.getTag()))
-            return false;
-        if (!TextUtils.isEmpty(etCc.getText().toString().trim()))
-            return false;
-        if (!TextUtils.isEmpty(etBcc.getText().toString().trim()))
-            return false;
-        if (!etSubject.getText().toString().trim().equals(etSubject.getTag()))
-            return false;
         if (!TextUtils.isEmpty(Jsoup.parse(HtmlHelper.toHtml(etBody.getText())).text().trim()))
             return false;
         if (rvAttachment.getAdapter().getItemCount() > 0)
