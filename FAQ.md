@@ -710,9 +710,6 @@ see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/)
 
 The error *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
 
-The error *... Failed to load IMAP envelope ...* is caused by a bug in the IMAP server of your provider.
-One or more messages could not be retrieved due to an unrecoverable error in the IMAP protocol.
-
 The error *... Invalid credentials ...* for a Gmail account which was added with the quick setup wizard
 might be caused by having removed the selected account from your device or by having revoked account (contact) permissions from FairEmail.
 Account permissions are required to periodically refresh the [OAuth](https://developers.google.com/gmail/imap/xoauth2-protocol) token
@@ -2241,10 +2238,6 @@ FairEmail will workaround this is in most cases, so this message can mostly be c
 
 The error *...SendFailedException...* means that there was a problem while sending a message.
 The error will almost always include a reason. Common reasons are that the message was too big or that one or more recipient addresses were invalid.
-
-The error *... Unable to load BODYSTRUCTURE ...* is caused by bugs in the email server,
-see [here](https://javaee.github.io/javamail/FAQ#imapserverbug) for more details.
-FairEmail already tries to workaround these bugs, but if this fail you'll need to ask your provider for support.
 
 Please see [here](#user-content-faq22) for other error messages in the outbox.
 
