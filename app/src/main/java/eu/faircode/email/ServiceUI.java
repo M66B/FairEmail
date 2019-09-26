@@ -356,17 +356,18 @@ public class ServiceUI extends IntentService {
             db.beginTransaction();
 
             EntityMessage message = db.message().getMessage(id);
-            if (message != null) {
-                db.message().setMessageSnoozed(message.id, null);
+            if (message == null)
+                return;
 
-                EntityFolder folder = db.folder().getFolder(message.folder);
-                if (EntityFolder.OUTBOX.equals(folder.type)) {
-                    Log.i("Delayed send id=" + message.id);
-                    EntityOperation.queue(this, message, EntityOperation.SEND);
-                } else {
-                    if (folder.notify)
-                        EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
-                }
+            db.message().setMessageSnoozed(message.id, null);
+
+            EntityFolder folder = db.folder().getFolder(message.folder);
+            if (EntityFolder.OUTBOX.equals(folder.type)) {
+                Log.i("Delayed send id=" + message.id);
+                EntityOperation.queue(this, message, EntityOperation.SEND);
+            } else {
+                if (folder.notify)
+                    EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
             }
 
             db.setTransactionSuccessful();
