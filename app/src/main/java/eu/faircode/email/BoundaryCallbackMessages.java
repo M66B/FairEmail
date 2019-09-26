@@ -56,6 +56,7 @@ import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.UIDFolder;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.mail.search.AndTerm;
 import javax.mail.search.BodyTerm;
 import javax.mail.search.ComparisonTerm;
@@ -466,7 +467,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         if (message == null) {
                             message = Core.synchronizeMessage(context,
                                     account, browsable,
-                                    state.ifolder, (IMAPMessage) isub[j],
+                                    state.ifolder, (MimeMessage) isub[j],
                                     true, true,
                                     rules, null);
                             found++;

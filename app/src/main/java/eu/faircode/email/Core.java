@@ -61,6 +61,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -742,7 +744,7 @@ class Core {
         List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
 
         try {
-            IMAPMessage imessage = (IMAPMessage) ifolder.getMessageByUID(uid);
+            MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
             if (imessage == null)
                 throw new MessageRemovedException();
 
@@ -762,7 +764,7 @@ class Core {
                 if (download && message != null)
                     downloadMessage(context, folder, ifolder, imessage, message.id, state);
             } finally {
-                imessage.invalidateHeaders();
+                ((IMAPMessage) imessage).invalidateHeaders();
             }
         } catch (MessageRemovedException ex) {
             Log.i(ex);
@@ -1641,7 +1643,7 @@ class Core {
                         EntityMessage message = synchronizeMessage(
                                 context,
                                 account, folder,
-                                ifolder, (IMAPMessage) isub[j],
+                                ifolder, (MimeMessage) isub[j],
                                 false, download,
                                 rules, state);
                         ids[from + j] = message.id;
@@ -1706,7 +1708,7 @@ class Core {
                                 downloadMessage(
                                         context,
                                         folder, ifolder,
-                                        (IMAPMessage) isub[j], ids[from + j], state);
+                                        (MimeMessage) isub[j], ids[from + j], state);
                         } catch (FolderClosedException ex) {
                             throw ex;
                         } catch (Throwable ex) {
@@ -1748,10 +1750,50 @@ class Core {
     static EntityMessage synchronizeMessage(
             Context context,
             EntityAccount account, EntityFolder folder,
-            IMAPFolder ifolder, IMAPMessage imessage,
+            IMAPFolder ifolder, MimeMessage imessage,
             boolean browsed, boolean download,
             List<EntityRule> rules, State state) throws MessagingException, IOException {
+
         long uid = ifolder.getUID(imessage);
+
+        try {
+            return _synchronizeMessage(context, account, folder, uid, imessage, browsed, download, rules, state);
+        } catch (MessagingException ex) {
+            // https://javaee.github.io/javamail/FAQ#imapserverbug
+            if (MessageHelper.retryRaw(ex)) try {
+                Log.w(folder.name + " " + ex.getMessage());
+
+                Log.i(folder.name + " fetching raw message uid=" + uid);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                imessage.writeTo(bos);
+                bos.close();
+
+                Properties properties = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(properties, null);
+
+                Log.i(folder.name + " decoding again uid=" + uid);
+                ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+                imessage = new MimeMessage(isession, bis);
+                bis.close();
+
+                Log.i(folder.name + " synchronizing again uid=" + uid);
+                return _synchronizeMessage(context, account, folder, uid, imessage, browsed, download, rules, state);
+            } catch (MessagingException ex1) {
+                if (MessageHelper.retryRaw(ex1))
+                    Log.e(ex1);
+                throw ex1;
+            }
+
+            throw ex;
+        }
+    }
+
+    static EntityMessage _synchronizeMessage(
+            Context context,
+            EntityAccount account, EntityFolder folder,
+            long uid, MimeMessage imessage,
+            boolean browsed, boolean download,
+            List<EntityRule> rules, State state) throws MessagingException, IOException {
 
         if (imessage.isExpunged()) {
             Log.i(folder.name + " expunged uid=" + uid);
@@ -2187,7 +2229,7 @@ class Core {
     static void downloadMessage(
             Context context,
             EntityFolder folder, IMAPFolder ifolder,
-            IMAPMessage imessage, long id, State state) throws MessagingException, IOException {
+            MimeMessage imessage, long id, State state) throws MessagingException, IOException {
         if (state.getNetworkState().isRoaming())
             return;
 

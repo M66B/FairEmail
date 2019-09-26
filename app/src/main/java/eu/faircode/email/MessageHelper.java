@@ -1106,31 +1106,13 @@ public class MessageHelper {
         EntityAttachment attachment;
     }
 
-    MessageParts getMessageParts() throws IOException, FolderClosedException {
+    MessageParts getMessageParts() throws IOException, MessagingException {
         MessageParts parts = new MessageParts();
-
-        MimeMessage cmessage = imessage;
-        try {
-            // Load body structure
-            cmessage.getContentID();
-        } catch (MessagingException ex) {
-            // https://javaee.github.io/javamail/FAQ#imapserverbug
-            if ("Unable to load BODYSTRUCTURE".equals(ex.getMessage())) {
-                Log.w(ex);
-                parts.warnings.add(Helper.formatThrowable(ex, false));
-                try {
-                    cmessage = new MimeMessage(imessage);
-                } catch (MessagingException ignored) {
-                }
-            }
-        }
-
-        getMessageParts(cmessage, parts, false);
-
+        getMessageParts(imessage, parts, false);
         return parts;
     }
 
-    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws IOException, FolderClosedException {
+    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws IOException, MessagingException {
         try {
             if (BuildConfig.DEBUG)
                 Log.i("Part class=" + part.getClass() + " type=" + part.getContentType());
@@ -1272,9 +1254,16 @@ public class MessageHelper {
         } catch (FolderClosedException ex) {
             throw ex;
         } catch (MessagingException ex) {
+            if (retryRaw(ex))
+                throw ex;
             Log.w(ex);
             parts.warnings.add(Helper.formatThrowable(ex, false));
         }
+    }
+
+    static boolean retryRaw(MessagingException ex) {
+        return ("Failed to load IMAP envelope".equals(ex.getMessage()) ||
+                "Unable to load BODYSTRUCTURE".equals(ex.getMessage()));
     }
 
     static boolean equal(Address[] a1, Address[] a2) {
