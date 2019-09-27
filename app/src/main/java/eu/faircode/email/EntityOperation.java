@@ -35,7 +35,6 @@ import org.json.JSONException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -154,13 +153,6 @@ public class EntityOperation {
                     message.ui_snoozed = null;
                     EntityMessage.snooze(context, message.id, null);
                 }
-
-                Calendar cal_keep = Calendar.getInstance();
-                cal_keep.add(Calendar.DAY_OF_MONTH, -target.keep_days);
-                cal_keep.set(Calendar.HOUR_OF_DAY, 0);
-                cal_keep.set(Calendar.MINUTE, 0);
-                cal_keep.set(Calendar.SECOND, 0);
-                cal_keep.set(Calendar.MILLISECOND, 0);
 
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive
