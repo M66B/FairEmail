@@ -84,12 +84,22 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 protected void onExecuted(Bundle args, Boolean hasAccounts) {
                     if (hasAccounts) {
                         Log.logBundle(args);
-                        Intent view = args.containsKey("intent")
-                                ? args.getParcelable("intent")
-                                : new Intent(ActivityMain.this, ActivityView.class);
+
+                        Intent view = new Intent(ActivityMain.this, ActivityView.class);
                         if (ACTION_REFRESH.equals(getIntent().getAction()))
                             view.putExtra("refresh", true);
-                        startActivity(view);
+
+                        Intent saved = args.getParcelable("intent");
+                        if (saved == null)
+                            startActivity(view);
+                        else
+                            try {
+                                startActivity(saved);
+                            } catch (SecurityException ex) {
+                                Log.w(ex);
+                                startActivity(view);
+                            }
+
                         ServiceSynchronize.watchdog(ActivityMain.this);
                         ServiceSend.watchdog(ActivityMain.this);
                     } else
