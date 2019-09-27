@@ -146,7 +146,7 @@ public class EntityOperation {
 
                 if (!EntityFolder.ARCHIVE.equals(source.type) ||
                         EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type))
-                    db.message().setMessageUiHide(message.id, new Date().getTime());
+                    db.message().setMessageUiHide(message.id, true);
 
                 if (message.ui_snoozed != null &&
                         (EntityFolder.ARCHIVE.equals(target.type) || EntityFolder.TRASH.equals(target.type))) {
@@ -168,7 +168,7 @@ public class EntityOperation {
                     int notifying = message.notifying;
                     boolean seen = message.seen;
                     boolean ui_seen = message.ui_seen;
-                    Long ui_hide = message.ui_hide;
+                    Boolean ui_hide = message.ui_hide;
                     boolean ui_browsed = message.ui_browsed;
                     String error = message.error;
 
@@ -182,7 +182,7 @@ public class EntityOperation {
                         message.seen = true;
                         message.ui_seen = true;
                     }
-                    message.ui_hide = 0L;
+                    message.ui_hide = false;
                     message.ui_browsed = false;
                     message.error = null;
                     message.id = db.message().insertMessage(message);
@@ -222,7 +222,7 @@ public class EntityOperation {
                         name = RAW;
 
             } else if (DELETE.equals(name))
-                db.message().setMessageUiHide(message.id, Long.MAX_VALUE);
+                db.message().setMessageUiHide(message.id, true);
 
         } catch (JSONException ex) {
             Log.e(ex);

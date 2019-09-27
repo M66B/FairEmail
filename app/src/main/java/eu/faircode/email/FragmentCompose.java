@@ -2158,7 +2158,7 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalStateException(getString(R.string.title_no_identities));
 
                 data.draft = db.message().getMessage(id);
-                if (data.draft == null || data.draft.ui_hide != 0) {
+                if (data.draft == null || data.draft.ui_hide) {
                     // New draft
                     if ("edit".equals(action))
                         throw new MessageRemovedException("Draft for edit was deleted hide=" + (data.draft != null));
@@ -2615,7 +2615,7 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onChanged(EntityMessage draft) {
                     // Draft was deleted
-                    if (draft == null || draft.ui_hide != 0)
+                    if (draft == null || draft.ui_hide)
                         finish();
                     else {
                         Log.i("Draft content=" + draft.content);
@@ -2708,7 +2708,7 @@ public class FragmentCompose extends FragmentBase {
                 EntityIdentity identity = db.identity().getIdentity(iid);
 
                 // Draft deleted by server
-                if (draft == null || draft.ui_hide != 0)
+                if (draft == null || draft.ui_hide)
                     throw new MessageRemovedException("Draft for action was deleted hide=" + (draft != null));
 
                 Log.i("Load action id=" + draft.id + " action=" + getActionName(action));
@@ -2737,7 +2737,7 @@ public class FragmentCompose extends FragmentBase {
                         Long uid = draft.uid;
                         String msgid = draft.msgid;
                         boolean content = draft.content;
-                        long ui_hide = draft.ui_hide;
+                        Boolean ui_hide = draft.ui_hide;
 
                         // To prevent violating constraints
                         draft.uid = null;
@@ -2749,7 +2749,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.uid = uid;
                         draft.msgid = msgid;
                         draft.content = false;
-                        draft.ui_hide = new Date().getTime();
+                        draft.ui_hide = true;
                         draft.id = db.message().insertMessage(draft);
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
 
@@ -3014,7 +3014,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.id = null;
                         draft.folder = db.folder().getOutbox().id;
                         draft.uid = null;
-                        draft.ui_hide = 0L;
+                        draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
                         Helper.writeText(draft.getFile(context), body);
                         if (refDraftFile.exists()) {

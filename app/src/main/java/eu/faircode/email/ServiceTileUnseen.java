@@ -48,7 +48,7 @@ public class ServiceTileUnseen extends TileService {
 
                 int unseen = 0;
                 for (TupleMessageEx message : messages)
-                    if (!message.ui_seen && !message.ui_ignored && message.ui_hide == 0)
+                    if (!message.ui_seen && !message.ui_ignored && !message.ui_hide)
                         unseen++;
 
                 Log.i("Update tile unseen=" + unseen);

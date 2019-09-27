@@ -53,7 +53,7 @@ public interface DaoAccount {
             "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT ui_seen" +
-            "    AND ui_hide = 0) AS unseen" +
+            "    AND NOT ui_hide) AS unseen" +
             ", (SELECT COUNT(identity.id)" +
             "    FROM identity" +
             "    WHERE identity.account = account.id" +

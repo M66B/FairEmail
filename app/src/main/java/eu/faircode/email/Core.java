@@ -123,7 +123,6 @@ class Core {
     private static final int SYNC_BATCH_SIZE = 20;
     private static final int DOWNLOAD_BATCH_SIZE = 20;
     private static final long YIELD_DURATION = 200L; // milliseconds
-    private static final long MIN_HIDE = 60 * 1000L; // milliseconds
 
     static void processOperations(
             Context context,
@@ -353,7 +352,7 @@ class Core {
                                 // Delete temporary copy in target folder
                                 if (newid != null) {
                                     db.message().deleteMessage(newid);
-                                    db.message().setMessageUiHide(message.id, 0L);
+                                    db.message().setMessageUiHide(message.id, false);
                                 }
                             }
 
@@ -1306,7 +1305,7 @@ class Core {
                     message.ui_seen = false;
                     message.ui_answered = false;
                     message.ui_flagged = false;
-                    message.ui_hide = 0L;
+                    message.ui_hide = false;
                     message.ui_found = false;
                     message.ui_ignored = false;
                     message.ui_browsed = false;
@@ -1691,7 +1690,7 @@ class Core {
                 Log.i(folder.name + " sent orphans=" + orphans.size());
                 for (EntityMessage orphan : orphans) {
                     Log.i(folder.name + " adding orphan id=" + orphan.id);
-                    if (orphan.content && orphan.ui_hide == 0L)
+                    if (orphan.content && !orphan.ui_hide)
                         EntityOperation.queue(context, orphan, EntityOperation.ADD);
                 }
             } else {
@@ -1921,7 +1920,7 @@ class Core {
             message.ui_seen = seen;
             message.ui_answered = answered;
             message.ui_flagged = flagged;
-            message.ui_hide = 0L;
+            message.ui_hide = false;
             message.ui_found = false;
             message.ui_ignored = seen;
             message.ui_browsed = browsed;
@@ -2067,10 +2066,10 @@ class Core {
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
-            if (message.ui_hide != 0 && message.ui_hide + MIN_HIDE < new Date().getTime() &&
+            if (message.ui_hide &&
                     db.operation().getOperationCount(folder.id, message.id) == 0) {
                 update = true;
-                message.ui_hide = 0L;
+                message.ui_hide = false;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " unhide");
             }
 
@@ -2405,7 +2404,7 @@ class Core {
                 }
             }
 
-            if (!(message.ui_seen || message.ui_ignored || message.ui_hide != 0)) {
+            if (!(message.ui_seen || message.ui_ignored || message.ui_hide)) {
                 // This assumes the messages are properly ordered
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);

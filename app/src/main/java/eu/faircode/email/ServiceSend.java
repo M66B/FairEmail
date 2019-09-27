@@ -374,7 +374,7 @@ public class ServiceSend extends ServiceBase {
             message.received = new Date().getTime();
             message.seen = true;
             message.ui_seen = true;
-            message.ui_hide = Long.MAX_VALUE;
+            message.ui_hide = true;
             message.error = null;
             message.id = db.message().insertMessage(message);
 
@@ -420,7 +420,7 @@ public class ServiceSend extends ServiceBase {
                             parts.getWarnings(message.warning));
 
                     db.message().setMessageSent(sid, time);
-                    db.message().setMessageUiHide(sid, 0L);
+                    db.message().setMessageUiHide(sid, false);
 
                     // Check for sent orphans
                     EntityMessage orphan = db.message().getMessage(sid);

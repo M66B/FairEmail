@@ -40,7 +40,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
-            ", COUNT(DISTINCT CASE WHEN message.ui_seen = 0 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
@@ -77,7 +77,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
-            ", COUNT(DISTINCT CASE WHEN message.ui_seen = 0 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
@@ -97,7 +97,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
-            ", COUNT(DISTINCT CASE WHEN message.ui_seen = 0 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
@@ -111,13 +111,13 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor" +
-            ", SUM(CASE WHEN message.ui_seen = 0 THEN 1 ELSE 0 END) AS unseen" +
+            ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
             ", SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) AS snoozed" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id) AS operations" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id AND message.ui_hide = 0" +
+            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE account.id IS NULL" +
             " OR (account.`synchronize` AND folder.navigation)" +
             " GROUP BY folder.id")
@@ -134,7 +134,7 @@ public interface DaoFolder {
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
-            ", COUNT(DISTINCT CASE WHEN message.ui_seen = 0 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
+            ", COUNT(DISTINCT CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN message.id ELSE NULL END) AS unseen" +
             ", COUNT(DISTINCT CASE WHEN operation.state = 'executing' THEN operation.id ELSE NULL END) AS executing" +
             " FROM folder" +
             " LEFT JOIN account ON account.id = folder.account" +
@@ -154,7 +154,7 @@ public interface DaoFolder {
     List<EntityFolder> getSystemFolders(long account);
 
     @Query("SELECT folder.type," +
-            " SUM(CASE WHEN NOT message.ui_seen AND message.ui_hide = 0 THEN 1 ELSE 0 END) AS unseen" +
+            " SUM(CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id" +
