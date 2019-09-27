@@ -2475,7 +2475,7 @@ class Core {
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
-        boolean notify_junk = (prefs.getBoolean("notify_junk", true) && pro);
+        boolean notify_junk = (prefs.getBoolean("notify_junk", false) && pro);
         boolean notify_archive = (prefs.getBoolean("notify_archive", true) || !pro);
         boolean notify_reply = (prefs.getBoolean("notify_reply", false) && pro);
         boolean notify_reply_direct = (prefs.getBoolean("notify_reply_direct", false) && pro);
