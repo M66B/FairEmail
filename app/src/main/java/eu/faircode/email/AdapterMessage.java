@@ -96,6 +96,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
@@ -194,6 +195,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private String subject_ellipsize;
 
     private boolean flags;
+    private boolean flags_background;
     private boolean preview;
     private boolean preview_italic;
     private boolean attachments_alt;
@@ -240,7 +242,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View.OnLongClickListener,
             View.OnTouchListener,
             BottomNavigationView.OnNavigationItemSelectedListener {
-        private View card;
+        private ViewCardOptional card;
         private View view;
 
         private View vwColor;
@@ -951,11 +953,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindFlagged(TupleMessageEx message) {
+            boolean pro = ActivityBilling.isPro(context);
+            if (!pro)
+                message.color = null;
+
             int flagged = (message.count - message.unflagged);
             ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-            ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0
-                    ? message.color == null || !ActivityBilling.isPro(context)
-                    ? colorAccent : message.color : textColorSecondary));
+
+            if (flags_background) {
+                if (message.color == null)
+                    card.setCardBackgroundColor(Color.TRANSPARENT);
+                else
+                    card.setCardBackgroundColor(ColorUtils.setAlphaComponent(message.color, 127));
+            } else {
+                card.setCardBackgroundColor(Color.TRANSPARENT);
+                if (message.color == null)
+                    ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
+                else
+                    ibFlagged.setImageTintList(ColorStateList.valueOf(message.color));
+            }
+
             ibFlagged.setEnabled(message.uid != null);
 
             if (flags)
@@ -3195,6 +3212,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
         this.flags = prefs.getBoolean("flags", true);
+        this.flags_background = prefs.getBoolean("flags_background", false);
         this.preview = prefs.getBoolean("preview", false);
         this.preview_italic = prefs.getBoolean("preview_italic", true);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);

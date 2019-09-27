@@ -59,6 +59,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swSubjectItalic;
     private Spinner spSubjectEllipsize;
     private SwitchCompat swFlags;
+    private SwitchCompat swFlagsBackground;
     private SwitchCompat swPreview;
     private SwitchCompat swPreviewItalic;
     private SwitchCompat swAddresses;
@@ -77,7 +78,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "theme", "startup", "cards", "date", "threading", "highlight_unread",
             "avatars", "generated_icons", "identicons", "circular", "name_email",
             "authentication", "subject_top", "subject_italic", "subject_ellipsize",
-            "flags", "preview", "preview_italic", "addresses", "attachments_alt",
+            "flags", "flags_background", "preview", "preview_italic", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color",
             "inline_images", "collapse_quotes", "autocontent", "seekbar", "actionbar",
     };
@@ -108,6 +109,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
         swFlags = view.findViewById(R.id.swFlags);
+        swFlagsBackground = view.findViewById(R.id.swFlagsBackground);
         swPreview = view.findViewById(R.id.swPreview);
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
         swAddresses = view.findViewById(R.id.swAddresses);
@@ -254,6 +256,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("flags", checked).apply();
+            }
+        });
+
+        swFlagsBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("flags_background", checked).apply();
             }
         });
 
@@ -419,6 +428,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
 
         swFlags.setChecked(prefs.getBoolean("flags", true));
+        swFlagsBackground.setChecked(prefs.getBoolean("flags_background", false));
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swPreviewItalic.setChecked(prefs.getBoolean("preview_italic", true));
         swPreviewItalic.setEnabled(swPreview.isChecked());
