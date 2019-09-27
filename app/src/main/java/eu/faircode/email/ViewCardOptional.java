@@ -33,15 +33,19 @@ import androidx.preference.PreferenceManager;
 public class ViewCardOptional extends CardView {
     public ViewCardOptional(@NonNull Context context) {
         super(context);
+        setCardBackgroundColor(Color.TRANSPARENT);
     }
 
     public ViewCardOptional(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        setCardBackgroundColor(Color.TRANSPARENT);
     }
 
     public ViewCardOptional(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        setCardBackgroundColor(Color.TRANSPARENT);
     }
+
 
     @Override
     protected void onAttachedToWindow() {
@@ -66,8 +70,6 @@ public class ViewCardOptional extends CardView {
             setRadius(0);
             setElevation(0);
         }
-
-        setCardBackgroundColor(Color.TRANSPARENT);
     }
 
     @Override
