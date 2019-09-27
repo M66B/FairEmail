@@ -66,6 +66,8 @@ public class ViewCardOptional extends CardView {
             setRadius(0);
             setElevation(0);
         }
+
+        setCardBackgroundColor(Color.TRANSPARENT);
     }
 
     @Override
