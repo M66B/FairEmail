@@ -242,6 +242,7 @@ public class MailService implements AutoCloseable {
         //System.setProperty("mail.socket.debug", Boolean.toString(debug));
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
+            isession.setDebug(true);
             iservice = isession.getStore(protocol);
             iservice.connect(host, port, user, password);
 

@@ -1207,6 +1207,9 @@ class Core {
 
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
+
+            // Some servers send messages once only
+            // Prevent deleting all local messages
             if (imessages.length == 0)
                 return;
 
@@ -1228,7 +1231,7 @@ class Core {
 
                     MessageHelper helper = new MessageHelper((MimeMessage) imessage);
 
-                    String msgid = null;
+                    String msgid;
                     if (caps.containsKey("UIDL")) {
                         String uid = ifolder.getUID(imessage);
                         if (existing.contains(uid))

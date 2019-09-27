@@ -85,7 +85,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean notify = false;
     @NonNull
-    public Boolean browse = true; // Leave messages on server
+    public Boolean browse = true; // POP3: Leave messages on server
     @NonNull
     public Boolean auto_seen = true;
     public Character separator;
