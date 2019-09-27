@@ -20,8 +20,10 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
 import android.view.LayoutInflater;
@@ -46,8 +48,9 @@ public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
     private CheckBox cbHide;
-    private EditText etText;
+    private EditTextCompose etText;
     private ImageButton ibInfo;
+    private BottomNavigationView style_bar;
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -55,7 +58,8 @@ public class FragmentAnswer extends FragmentBase {
     private long id = -1;
     private long copy = -1;
 
-    private final static int REQUEST_DELETE = 1;
+    private static final int REQUEST_LINK = 1;
+    private final static int REQUEST_DELETE = 2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,15 +87,30 @@ public class FragmentAnswer extends FragmentBase {
         etText = view.findViewById(R.id.etText);
         ibInfo = view.findViewById(R.id.ibInfo);
 
+        style_bar = view.findViewById(R.id.style_bar);
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
 
+        etText.setSelectionListener(new EditTextCompose.ISelection() {
+            @Override
+            public void onSelected(boolean selection) {
+                style_bar.setVisibility(selection ? View.VISIBLE : View.GONE);
+            }
+        });
+
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new FragmentInfo().show(getFragmentManager(), "rule:info");
+            }
+        });
+
+        style_bar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                return onActionStyle(item.getItemId());
             }
         });
 
@@ -113,6 +132,7 @@ public class FragmentAnswer extends FragmentBase {
 
         // Initialize
         grpReady.setVisibility(View.GONE);
+        style_bar.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
 
         return view;
@@ -223,6 +243,10 @@ public class FragmentAnswer extends FragmentBase {
 
         try {
             switch (requestCode) {
+                case REQUEST_LINK:
+                    if (resultCode == RESULT_OK && data != null)
+                        onLinkSelected(data.getBundleExtra("args"));
+                    break;
                 case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
                         onDelete();
@@ -231,6 +255,11 @@ public class FragmentAnswer extends FragmentBase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private void onLinkSelected(Bundle args) {
+        String link = args.getString("link");
+        StyleHelper.apply(R.id.menu_link, etText, link);
     }
 
     private void onDelete() {
@@ -265,6 +294,33 @@ public class FragmentAnswer extends FragmentBase {
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "answer:delete");
+    }
+
+    private boolean onActionStyle(int action) {
+        Log.i("Style action=" + action);
+
+        if (action == R.id.menu_link) {
+            Uri uri = null;
+
+            ClipboardManager cbm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            if (cbm.hasPrimaryClip()) {
+                String link = cbm.getPrimaryClip().getItemAt(0).coerceToText(getContext()).toString();
+                uri = Uri.parse(link);
+                if (uri.getScheme() == null)
+                    uri = null;
+            }
+
+            Bundle args = new Bundle();
+            args.putParcelable("uri", uri);
+
+            FragmentDialogLink fragment = new FragmentDialogLink();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(this, REQUEST_LINK);
+            fragment.show(getFragmentManager(), "compose:link");
+
+            return true;
+        } else
+            return StyleHelper.apply(action, etText);
     }
 
     public static class FragmentInfo extends FragmentDialogBase {

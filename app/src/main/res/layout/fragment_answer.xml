@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbHide" />
 
-    <EditText
+    <eu.faircode.email.EditTextCompose
         android:id="@+id/etText"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -55,7 +55,7 @@
         android:isScrollContainer="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:windowSoftInputMode="adjustPan"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintBottom_toTopOf="@+id/style_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparator" />
@@ -68,6 +68,19 @@
         app:layout_constraintBottom_toBottomOf="@id/etText"
         app:layout_constraintEnd_toEndOf="@id/etText"
         app:srcCompat="@drawable/baseline_info_24" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/style_bar"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="?attr/colorActionBackground"
+        app:itemIconTint="@color/action_foreground"
+        app:itemTextColor="@color/action_foreground"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/action_answer_style" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
