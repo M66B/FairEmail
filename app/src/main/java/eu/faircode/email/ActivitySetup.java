@@ -577,8 +577,22 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 JSONArray jsettings = new JSONArray();
                 for (String key : prefs.getAll().keySet()) {
                     JSONObject jsetting = new JSONObject();
+                    Object value = prefs.getAll().get(key);
                     jsetting.put("key", key);
-                    jsetting.put("value", prefs.getAll().get(key));
+                    jsetting.put("value", value);
+                    if (value instanceof Boolean)
+                        jsetting.put("type", "bool");
+                    else if (value instanceof Integer)
+                        jsetting.put("type", "int");
+                    else if (value instanceof Long)
+                        jsetting.put("type", "long");
+                    else if (value instanceof String)
+                        jsetting.put("type", "string");
+                    else if (value != null) {
+                        String type = value.getClass().getName();
+                        Log.w("Unknown type=" + type);
+                        jsetting.put("type", type);
+                    }
                     jsettings.put(jsetting);
                 }
 
@@ -894,16 +908,40 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             continue;
 
                         Object value = jsetting.get("value");
-                        if (value instanceof Boolean)
-                            editor.putBoolean(key, (Boolean) value);
-                        else if (value instanceof Integer)
-                            editor.putInt(key, (Integer) value);
-                        else if (value instanceof Long)
-                            editor.putLong(key, (Long) value);
-                        else if (value instanceof String)
-                            editor.putString(key, (String) value);
-                        else
-                            throw new IllegalArgumentException("Unknown settings type key=" + key);
+                        String type = jsetting.optString("type");
+                        Log.i("Setting name=" + key + " value=" + value + " type=" + type);
+                        switch (type) {
+                            case "bool":
+                                editor.putBoolean(key, (Boolean) value);
+                                break;
+                            case "int":
+                                editor.putInt(key, (Integer) value);
+                                break;
+                            case "long":
+                                if (value instanceof Integer)
+                                    editor.putLong(key, Long.valueOf((Integer) value));
+                                else
+                                    editor.putLong(key, (Long) value);
+                                break;
+                            case "string":
+                                editor.putString(key, (String) value);
+                                break;
+                            default:
+                                Log.w("Inferring type of value=" + value);
+                                if (value instanceof Boolean)
+                                    editor.putBoolean(key, (Boolean) value);
+                                else if (value instanceof Integer)
+                                    if (key.endsWith(".account"))
+                                        editor.putLong(key, (Long) value);
+                                    else
+                                        editor.putInt(key, (Integer) value);
+                                else if (value instanceof Long)
+                                    editor.putLong(key, (Long) value);
+                                else if (value instanceof String)
+                                    editor.putString(key, (String) value);
+                                else
+                                    throw new IllegalArgumentException("Unknown settings type key=" + key);
+                        }
 
                         Log.i("Imported setting=" + key);
                     }
