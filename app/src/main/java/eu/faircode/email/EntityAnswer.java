@@ -66,33 +66,28 @@ public class EntityAnswer implements Serializable {
     static String getAnswerText(EntityAnswer answer, Address[] from) {
         String name = null;
         String email = null;
-        String first = null;
-        String last = null;
         if (from != null && from.length > 0) {
             name = ((InternetAddress) from[0]).getPersonal();
             email = ((InternetAddress) from[0]).getAddress();
         }
-        if (name != null) {
-            name = name.trim();
-            int c = name.lastIndexOf(",");
-            if (c < 0) {
-                c = name.lastIndexOf(" ");
-                if (c < 0) {
-                    first = name;
-                    last = name;
-                } else {
-                    first = name.substring(0, c).trim();
-                    last = name.substring(c + 1).trim();
-                }
-            } else {
+
+        return replacePlaceholders(answer.text, name, email);
+    }
+
+    static String replacePlaceholders(String text, String fullName, String email) {
+        String firstName = null;
+        String lastName = null;
+        if (fullName != null) {
+            fullName = fullName.trim();
+            int c = fullName.lastIndexOf(",");
+            if (c < 0)
+                c = fullName.lastIndexOf(" ");
+            if (c > 0) {
+                firstName = fullName.substring(0, c).trim();
+                lastName = fullName.substring(c + 1).trim();
             }
         }
 
-        return replacePlaceholders(answer.text, name, first, last, email);
-    }
-
-    static String replacePlaceholders(
-            String text, String fullName, String firstName, String lastName, String email) {
         text = text.replace("$name$", fullName == null ? "" : fullName);
         text = text.replace("$firstname$", firstName == null ? "" : firstName);
         text = text.replace("$lastname$", lastName == null ? "" : lastName);

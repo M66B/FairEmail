@@ -1839,7 +1839,13 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAnswerSelected(Bundle args) {
-        String text = args.getString("answer");
+        String answer = args.getString("answer");
+
+        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+        String name = (identity == null ? null : identity.name);
+        String email = (identity == null ? null : identity.email);
+        String text = EntityAnswer.replacePlaceholders(answer, name, email);
+
         Spanned spanned = HtmlHelper.fromHtml(text);
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
     }
@@ -3548,10 +3554,7 @@ public class FragmentCompose extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             EntityAnswer answer = adapter.getItem(which);
-                            String text = EntityAnswer.replacePlaceholders(
-                                    answer.text, null, null, null, null);
-
-                            getArguments().putString("answer", text);
+                            getArguments().putString("answer", answer.text);
 
                             sendResult(RESULT_OK);
                         }
