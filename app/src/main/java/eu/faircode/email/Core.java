@@ -720,22 +720,24 @@ class Core {
             ifolder.expunge();
         }
 
-        // Fetch appended/copied
-        try {
-            itarget.open(READ_WRITE);
+        // Fetch appended/copied when needed
+        if (!TextUtils.isEmpty(message.msgid) &&
+                (!folder.synchronize || !istore.hasCapability("IDLE")))
             try {
-                Long uid = findUid(itarget, message.msgid, false);
-                if (uid != null) {
-                    JSONArray fargs = new JSONArray();
-                    fargs.put(uid);
-                    onFetch(context, fargs, target, itarget, state);
+                itarget.open(READ_WRITE);
+                try {
+                    Long uid = findUid(itarget, message.msgid, false);
+                    if (uid != null) {
+                        JSONArray fargs = new JSONArray();
+                        fargs.put(uid);
+                        onFetch(context, fargs, target, itarget, state);
+                    }
+                } finally {
+                    itarget.close();
                 }
-            } finally {
-                itarget.close();
+            } catch (Throwable ex) {
+                Log.w(ex);
             }
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
 
         // Delete junk contacts
         if (EntityFolder.JUNK.equals(target.type)) {
