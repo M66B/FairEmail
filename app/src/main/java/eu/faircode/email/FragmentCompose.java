@@ -65,13 +65,8 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
-import android.text.style.URLSpan;
-import android.text.style.UnderlineSpan;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -1076,106 +1071,14 @@ public class FragmentCompose extends FragmentBase {
     private boolean onActionStyle(int action) {
         Log.i("Style action=" + action);
 
-        try {
-            int start = etBody.getSelectionStart();
-            int end = etBody.getSelectionEnd();
-
-            if (start < 0)
-                start = 0;
-            if (end < 0)
-                end = 0;
-
-            if (start > end) {
-                int tmp = start;
-                start = end;
-                end = tmp;
-            }
-
-            SpannableString ss = new SpannableString(etBody.getText());
-
-            switch (action) {
-                case R.id.menu_bold:
-                case R.id.menu_italic: {
-                    int style = (action == R.id.menu_bold ? Typeface.BOLD : Typeface.ITALIC);
-                    boolean has = false;
-                    for (StyleSpan span : ss.getSpans(start, end, StyleSpan.class))
-                        if (span.getStyle() == style) {
-                            has = true;
-                            ss.removeSpan(span);
-                        }
-
-                    if (!has)
-                        ss.setSpan(new StyleSpan(style), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    etBody.setText(ss);
-                    etBody.setSelection(start, end);
-
-                    return true;
-                }
-
-                case R.id.menu_underline: {
-                    boolean has = false;
-                    for (UnderlineSpan span : ss.getSpans(start, end, UnderlineSpan.class)) {
-                        has = true;
-                        ss.removeSpan(span);
-                    }
-
-                    if (!has)
-                        ss.setSpan(new UnderlineSpan(), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    etBody.setText(ss);
-                    etBody.setSelection(start, end);
-
-                    return true;
-                }
-
-                case R.id.menu_size: {
-                    RelativeSizeSpan[] spans = ss.getSpans(start, end, RelativeSizeSpan.class);
-                    float size = (spans.length > 0 ? spans[0].getSizeChange() : 1.0f);
-
-                    // Match small/big
-                    if (size == 0.8f)
-                        size = 1.0f;
-                    else if (size == 1.0)
-                        size = 1.25f;
-                    else
-                        size = 0.8f;
-
-                    for (RelativeSizeSpan span : spans)
-                        ss.removeSpan(span);
-
-                    if (size != 1.0f)
-                        ss.setSpan(new RelativeSizeSpan(size), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                    etBody.setText(ss);
-                    etBody.setSelection(start, end);
-
-                    return true;
-                }
-
-                case R.id.menu_color: {
-                    Bundle args = new Bundle();
-                    args.putInt("start", start);
-                    args.putInt("end", end);
-
-                    ForegroundColorSpan[] spans = ss.getSpans(start, end, ForegroundColorSpan.class);
-                    int color = (spans.length > 0 ? spans[0].getForegroundColor() : Color.TRANSPARENT);
-
-                    FragmentDialogColor fragment = new FragmentDialogColor();
-                    fragment.initialize(R.string.title_style_color, color, args, getContext());
-                    fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
-                    fragment.show(getFragmentManager(), "account:color");
-
-                    return true;
-                }
-
-                default:
-                    return false;
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-            return false;
-        }
+        if (action == R.id.menu_color) {
+            FragmentDialogColor fragment = new FragmentDialogColor();
+            fragment.initialize(R.string.title_style_color, Color.TRANSPARENT, new Bundle(), getContext());
+            fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
+            fragment.show(getFragmentManager(), "account:color");
+            return true;
+        } else
+            return StyleHelper.apply(action, etBody);
     }
 
     private void onActionRecordAudio() {
@@ -1333,10 +1236,6 @@ public class FragmentCompose extends FragmentBase {
                         onPgp(data);
                     }
                     break;
-                case REQUEST_COLOR:
-                    if (resultCode == RESULT_OK && data != null)
-                        onColorSelected(data.getBundleExtra("args"));
-                    break;
                 case REQUEST_REF_DELETE:
                     if (resultCode == RESULT_OK)
                         onReferenceDeleteConfirmed();
@@ -1352,6 +1251,10 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_ANSWER:
                     if (resultCode == RESULT_OK && data != null)
                         onAnswerSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_COLOR:
+                    if (resultCode == RESULT_OK && data != null)
+                        onColorSelected(data.getBundleExtra("args"));
                     break;
                 case REQUEST_LINK:
                     if (resultCode == RESULT_OK && data != null)
@@ -1728,20 +1631,6 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:encrypt");
     }
 
-    private void onColorSelected(Bundle args) {
-        int color = args.getInt("color");
-        int start = args.getInt("start");
-        int end = args.getInt("end");
-
-        SpannableString ss = new SpannableString(etBody.getText());
-        for (ForegroundColorSpan span : ss.getSpans(start, end, ForegroundColorSpan.class))
-            ss.removeSpan(span);
-        ss.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        etBody.setText(ss);
-        etBody.setSelection(start, end);
-    }
-
     private void onContactGroupSelected(Bundle args) {
         if (args.getInt("target") > 0)
             grpAddresses.setVisibility(View.VISIBLE);
@@ -1850,44 +1739,14 @@ public class FragmentCompose extends FragmentBase {
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
     }
 
+    private void onColorSelected(Bundle args) {
+        int color = args.getInt("color");
+        StyleHelper.apply(R.id.menu_color, etBody, color);
+    }
+
     private void onLinkSelected(Bundle args) {
         String link = args.getString("link");
-
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-
-        if (start < 0)
-            start = 0;
-        if (end < 0)
-            end = 0;
-
-        if (start > end) {
-            int tmp = start;
-            start = end;
-            end = tmp;
-        }
-
-        if (start == end) {
-            etBody.setText(etBody.getText().insert(start, link));
-            end = start + link.length();
-        }
-
-        SpannableString ss = new SpannableString(etBody.getText());
-
-        List<Object> spans = new ArrayList<>();
-        for (Object span : ss.getSpans(start, end, Object.class)) {
-            if (!(span instanceof URLSpan))
-                spans.add(span);
-            ss.removeSpan(span);
-        }
-
-        ss.setSpan(new URLSpan(link), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        for (Object span : spans)
-            ss.setSpan(span, start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        etBody.setText(ss);
-        etBody.setSelection(end, end);
+        StyleHelper.apply(R.id.menu_link, etBody, link);
     }
 
     private void onActionDiscardConfirmed() {
