@@ -1160,7 +1160,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     if (!message.folderReadOnly) {
                         bnvActions.getMenu().findItem(R.id.action_delete).setVisible(
-                                (delete ? message.uid != null || message.msgid != null : message.uid != null));
+                                (delete ? message.uid != null || !TextUtils.isEmpty(message.msgid) : message.uid != null));
                         bnvActions.getMenu().findItem(R.id.action_delete).setTitle(
                                 delete ? R.string.title_delete : R.string.title_trash);
 

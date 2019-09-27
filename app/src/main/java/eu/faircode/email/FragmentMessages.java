@@ -3024,7 +3024,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         // Mark duplicates
         Map<String, List<TupleMessageEx>> duplicates = new HashMap<>();
         for (TupleMessageEx message : messages)
-            if (message != null && message.msgid != null) {
+            if (message != null && !TextUtils.isEmpty(message.msgid)) {
                 if (!duplicates.containsKey(message.msgid))
                     duplicates.put(message.msgid, new ArrayList<TupleMessageEx>());
                 duplicates.get(message.msgid).add(message);
@@ -4455,7 +4455,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     List<Long> ids = db.message().getMessageByFolder(folder);
                     for (Long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
-                        if (message.msgid != null || message.uid != null)
+                        if (message.uid != null || !TextUtils.isEmpty(message.msgid))
                             EntityOperation.queue(context, message, EntityOperation.DELETE);
                     }
 

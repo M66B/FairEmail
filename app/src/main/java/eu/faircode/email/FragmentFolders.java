@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -568,7 +569,7 @@ public class FragmentFolders extends FragmentBase {
                     List<Long> ids = db.message().getMessageByFolder(folder);
                     for (Long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
-                        if (message.msgid != null || message.uid != null)
+                        if (message.uid != null || !TextUtils.isEmpty(message.msgid))
                             EntityOperation.queue(context, message, EntityOperation.DELETE);
                     }
 
