@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -164,8 +165,7 @@ public class EntityOperation {
                 // Create copy without uid in target folder
                 // Message with same msgid can be in archive
                 if (message.uid != null &&
-                        target.synchronize &&
-                        message.received > cal_keep.getTimeInMillis() &&
+                        !TextUtils.isEmpty(message.msgid) &&
                         db.message().countMessageByMsgId(target.id, message.msgid) == 0) {
                     File msource = message.getFile(context);
 

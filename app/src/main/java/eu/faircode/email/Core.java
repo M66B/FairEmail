@@ -114,6 +114,7 @@ import javax.mail.search.SearchTerm;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
 import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
+import static javax.mail.Folder.READ_WRITE;
 
 class Core {
     private static final int MAX_NOTIFICATION_COUNT = 100; // per group
@@ -251,11 +252,11 @@ class Core {
                                     break;
 
                                 case EntityOperation.MOVE:
-                                    onMove(context, jargs, false, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                    onMove(context, jargs, false, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.COPY:
-                                    onMove(context, jargs, true, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder);
+                                    onMove(context, jargs, true, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.FETCH:
@@ -649,7 +650,7 @@ class Core {
         }
     }
 
-    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
+    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -669,6 +670,7 @@ class Core {
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
+        // Some providers do not support copying drafts
         if (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type)) {
             Log.i(folder.name + " move from " + folder.type + " to " + target.type);
 
@@ -716,6 +718,23 @@ class Core {
             } catch (MessageRemovedException ignored) {
             }
             ifolder.expunge();
+        }
+
+        // Fetch appended/copied
+        try {
+            itarget.open(READ_WRITE);
+            try {
+                Long uid = findUid(itarget, message.msgid, false);
+                if (uid != null) {
+                    JSONArray fargs = new JSONArray();
+                    fargs.put(uid);
+                    onFetch(context, fargs, target, itarget, state);
+                }
+            } finally {
+                itarget.close();
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
         }
 
         // Delete junk contacts
