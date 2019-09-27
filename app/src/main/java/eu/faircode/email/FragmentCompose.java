@@ -1730,10 +1730,13 @@ public class FragmentCompose extends FragmentBase {
     private void onAnswerSelected(Bundle args) {
         String answer = args.getString("answer");
 
-        EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
-        String name = (identity == null ? null : identity.name);
-        String email = (identity == null ? null : identity.email);
-        String text = EntityAnswer.replacePlaceholders(answer, name, email);
+        InternetAddress[] to = null;
+        try {
+            to = InternetAddress.parse(etTo.getText().toString());
+        } catch (AddressException ignored) {
+        }
+
+        String text = EntityAnswer.replacePlaceholders(answer, to);
 
         Spanned spanned = HtmlHelper.fromHtml(text);
         etBody.getText().insert(etBody.getSelectionStart(), spanned);
@@ -2068,7 +2071,7 @@ public class FragmentCompose extends FragmentBase {
                             EntityAnswer a = db.answer().getAnswer(answer);
                             if (a != null) {
                                 data.draft.subject = a.name;
-                                body = EntityAnswer.getAnswerText(a, null) + body;
+                                body = a.getText(null) + body;
                             }
                         }
                     } else {
@@ -2146,8 +2149,12 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.subject = status + ": " + ref.subject;
 
                         data.draft.plain_only = ref.plain_only;
-                        if (answer > 0)
-                            body = EntityAnswer.getAnswerText(context, answer, data.draft.to) + body;
+
+                        if (answer > 0) {
+                            EntityAnswer a = db.answer().getAnswer(answer);
+                            if (a != null)
+                                body = a.getText(data.draft.to) + body;
+                        }
                     }
 
                     if (plain_only)

@@ -19,8 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -54,43 +52,34 @@ public class EntityAnswer implements Serializable {
     @NonNull
     public String text;
 
-    static String getAnswerText(Context context, long id, Address[] from) {
-        DB db = DB.getInstance(context);
-        EntityAnswer answer = db.answer().getAnswer(id);
-        if (answer == null)
-            return null;
-
-        return getAnswerText(answer, from);
+    String getText(Address[] address) {
+        return replacePlaceholders(text, address);
     }
 
-    static String getAnswerText(EntityAnswer answer, Address[] from) {
-        String name = null;
+    static String replacePlaceholders(String text, Address[] address) {
+        String fullName = null;
         String email = null;
-        if (from != null && from.length > 0) {
-            name = ((InternetAddress) from[0]).getPersonal();
-            email = ((InternetAddress) from[0]).getAddress();
+        if (address != null && address.length > 0) {
+            fullName = ((InternetAddress) address[0]).getPersonal();
+            email = ((InternetAddress) address[0]).getAddress();
         }
 
-        return replacePlaceholders(answer.text, name, email);
-    }
-
-    static String replacePlaceholders(String text, String fullName, String email) {
-        String firstName = null;
-        String lastName = null;
+        String first = fullName;
+        String last = null;
         if (fullName != null) {
             fullName = fullName.trim();
             int c = fullName.lastIndexOf(",");
             if (c < 0)
                 c = fullName.lastIndexOf(" ");
             if (c > 0) {
-                firstName = fullName.substring(0, c).trim();
-                lastName = fullName.substring(c + 1).trim();
+                first = fullName.substring(0, c).trim();
+                last = fullName.substring(c + 1).trim();
             }
         }
 
         text = text.replace("$name$", fullName == null ? "" : fullName);
-        text = text.replace("$firstname$", firstName == null ? "" : firstName);
-        text = text.replace("$lastname$", lastName == null ? "" : lastName);
+        text = text.replace("$firstname$", first == null ? "" : first);
+        text = text.replace("$lastname$", last == null ? "" : last);
         text = text.replace("$email$", email == null ? "" : email);
 
         return text;

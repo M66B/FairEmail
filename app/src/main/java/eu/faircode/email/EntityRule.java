@@ -352,9 +352,10 @@ public class EntityRule {
         if (identity == null)
             throw new IllegalArgumentException("Rule identity not found");
 
-        String body = EntityAnswer.getAnswerText(context, aid, message.from);
-        if (body == null)
+        EntityAnswer answer = db.answer().getAnswer(aid);
+        if (answer == null)
             throw new IllegalArgumentException("Rule answer not found");
+
 
         EntityMessage reply = new EntityMessage();
         reply.account = message.account;
@@ -376,6 +377,8 @@ public class EntityRule {
         reply.avatar = (lookupUri == null ? null : lookupUri.toString());
 
         reply.id = db.message().insertMessage(reply);
+
+        String body = answer.getText(message.from);
         Helper.writeText(reply.getFile(context), body);
         db.message().setMessageContent(reply.id,
                 true,
