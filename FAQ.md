@@ -236,6 +236,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(134) Can you add deleting local messages?](#user-content-faq134)
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
 * [(136) How can I delete an account/identity/folder?](#user-content-faq136)
+* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
 
 [I have another question.](#user-content-support)
 
@@ -2311,6 +2312,13 @@ Deleting an account/identity/folder is a little bit hidden to prevent accidents.
 * Folder: Long press the folder in the folder list > Edit properties
 
 In the three-dots overflow menu at the top right there is an item to delete the account/identity/folder.
+
+<br />
+
+<a name="faq137"></a>
+**(137) How can I reset 'Don't ask again'?**
+
+You can reset all questions set to not to be asked again in the three-dots overflow menu of the miscellaneous settings.
 
 <br />
 
