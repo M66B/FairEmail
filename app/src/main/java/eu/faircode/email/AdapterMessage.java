@@ -1839,6 +1839,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     }
 
+                    if (outgoing && message.reply != null &&
+                            MessageHelper.equal(message.from, message.to))
+                        return message.reply;
+
                     return (outgoing ? message.to : message.from);
                 }
 
