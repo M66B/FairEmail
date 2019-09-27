@@ -173,6 +173,7 @@ public class EntityOperation {
                     long id = message.id;
                     Long identity = message.identity;
                     long uid = message.uid;
+                    int notifying = message.notifying;
                     boolean seen = message.seen;
                     boolean ui_seen = message.ui_seen;
                     Long ui_hide = message.ui_hide;
@@ -184,6 +185,7 @@ public class EntityOperation {
                     message.folder = target.id;
                     message.identity = null;
                     message.uid = null;
+                    message.notifying = 0;
                     if (autoread) {
                         message.seen = true;
                         message.ui_seen = true;
@@ -200,6 +202,7 @@ public class EntityOperation {
                     message.folder = source.id;
                     message.identity = identity;
                     message.uid = uid;
+                    message.notifying = notifying;
                     message.seen = seen;
                     message.ui_seen = ui_seen;
                     message.ui_hide = ui_hide;
