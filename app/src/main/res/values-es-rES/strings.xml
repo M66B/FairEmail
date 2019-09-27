@@ -214,6 +214,7 @@
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
     <string name="title_advanced_subject_elipsed">Acortar el asunto cuando sea necesario</string>
     <string name="title_advanced_flags">Mostrar estrellas</string>
+    <string name="title_advanced_flags_background">Mostrar fondo coloreado en lugar de estrellas de color</string>
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_preview_italic">Mostrar vista previa de mensaje en cursiva</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
@@ -245,6 +246,7 @@
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
     <string name="title_advanced_notify_action_trash">Papelera</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivar</string>
     <string name="title_advanced_notify_action_reply">Responder</string>
     <string name="title_advanced_notify_action_reply_direct">Responder</string>

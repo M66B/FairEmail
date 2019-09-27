@@ -214,6 +214,7 @@
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
     <string name="title_advanced_subject_elipsed">Wanneer nodig, verkort het onderwerp</string>
     <string name="title_advanced_flags">Toon sterren</string>
+    <string name="title_advanced_flags_background">Toon gekleurde achtergrond in plaats van gekleurde sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_preview_italic">Toon berichtvoorbeeld cursief</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
@@ -245,6 +246,7 @@
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
     <string name="title_advanced_notify_action_trash">Weggooien</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archiveren</string>
     <string name="title_advanced_notify_action_reply">Beantwoorden</string>
     <string name="title_advanced_notify_action_reply_direct">Direct antwoord</string>

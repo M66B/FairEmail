@@ -213,6 +213,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_subject_elipsed">Wenn nötig, den Betreff kürzen</string>
     <string name="title_advanced_flags">Sterne anzeigen</string>
+    <string name="title_advanced_flags_background">Farbigen Hintergrund statt farbiger Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
@@ -244,6 +245,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_notify_preview">Zeige die Nachrichten-Vorschau in den Benachrichtigungen</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Löschen</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivieren</string>
     <string name="title_advanced_notify_action_reply">Antworten</string>
     <string name="title_advanced_notify_action_reply_direct">Direktantwort</string>

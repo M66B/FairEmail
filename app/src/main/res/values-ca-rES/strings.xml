@@ -108,6 +108,7 @@
     <string name="title_setup_go">Vés-hi</string>
     <string name="title_setup_wizard">Assistent</string>
     <string name="title_setup_other">Altres proveïdors</string>
+    <string name="title_setup_gmail_support">Com que Android comprova les firmes dels aplicatius, es podran autoritzar comptes de Google des des les versions oficials</string>
     <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
     <string name="title_setup_select_account">Selecciona un compte</string>
     <string name="title_setup_instructions">Instruccions per la configuració</string>
@@ -213,6 +214,7 @@
     <string name="title_advanced_subject_italic">Mostra els assumptes en cursiva</string>
     <string name="title_advanced_subject_elipsed">Si cal, escurça l\'assumpte</string>
     <string name="title_advanced_flags">Mostra estels</string>
+    <string name="title_advanced_flags_background">Mostra fons de colors en comptes d\'estrelles de colors</string>
     <string name="title_advanced_preview">Mostra la vista prèvia del missatge</string>
     <string name="title_advanced_preview_italic">Mostra la vista prèvia del missatge en cursiva</string>
     <string name="title_advanced_addresses">Mostra els detalls de les adreces per defecte</string>
@@ -244,6 +246,7 @@
     <string name="title_advanced_notify_preview">Mostra la previsualització del missatge a les notificacions</string>
     <string name="title_advanced_notify_actions">Accions de les notificacions</string>
     <string name="title_advanced_notify_action_trash">Paperera</string>
+    <string name="title_advanced_notify_action_junk">Correu brossa</string>
     <string name="title_advanced_notify_action_archive">Arxiu</string>
     <string name="title_advanced_notify_action_reply">Respon</string>
     <string name="title_advanced_notify_action_reply_direct">Resposta directa</string>
@@ -272,6 +275,7 @@
     <string name="title_advanced_poll_hint">Sincronitzar periòdicament es compararà cada vegada més missatges locals i remots, la qual cosa és una operació costosa que possiblement produeixi un ús addicional de la bateria, especialment quan hi ha molts missatges per sincronitzar. Sempre la sincronització evitarà això mitjançant un control continuat només per a canvis.</string>
     <string name="title_advanced_schedule_hint">Toqueu una hora per definir-la</string>
     <string name="title_advanced_check_mx">Comproveu les adreces de correu electrònic del remitent sobre la sincronització de missatges</string>
+    <string name="title_advanced_unseen_hint">Alguns proveïdors no suporten aquesta funció degudament, cosa que pot evitar la sincronització d\'alguns o tots els missatges</string>
     <string name="title_advanced_sync_kept_hint">Això transferirà dades addicionals i consumeix energia addicional per a la bateria, especialment si es desen el dispositiu de molts missatges</string>
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
@@ -334,6 +338,7 @@
     <string name="title_use_ip">Utilitzeu l\'adreça IP local en lloc del nom d\'amfitrió</string>
     <string name="title_primary_account">Primària (compte per defecte)</string>
     <string name="title_primary_identity">Primària (identitat per defecte)</string>
+    <string name="title_leave_on_server">Deixa els missatges al servidor</string>
     <string name="title_keep_alive_interval">Interval d\'activitat (minuts)</string>
     <string name="title_check">Comprovar</string>
     <string name="title_no_name">Falta nom</string>
@@ -356,6 +361,7 @@
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
+    <string name="title_pop_support">El protocol POP3 només permet descarregar i esborrar missatges de la safata d\'entrada. No deixa marcar missatges com a llegits, moure missatges, etc. Com que POP3 també necessita més bateria i dades, pot ser preferible utilitzar el protocol IMAP.</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
     <string name="title_review">Revisa</string>
@@ -498,6 +504,7 @@
     <string name="title_discard">Descartar</string>
     <string name="title_save">Desa</string>
     <string name="title_send">Enviar</string>
+    <string name="title_send_via">Envia per</string>
     <string name="title_send_with_options">Envia &#8230;</string>
     <string name="title_send_at">Envia a les &#8230;</string>
     <string name="title_no_server">No s\'ha trobat servidor per \'%1$s\'</string>
@@ -737,6 +744,7 @@
     <string name="title_after">Després de %1$s</string>
     <string name="title_reset">Restablir</string>
     <string name="title_minutes">Minuts</string>
+    <string name="title_dismiss">Descartar</string>
     <string name="title_icalendar_accept">Acceptar</string>
     <string name="title_icalendar_decline">Rebutja</string>
     <string name="title_icalendar_maybe">Potser</string>

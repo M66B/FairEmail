@@ -236,6 +236,7 @@
     <string name="title_advanced_subject_italic">Temat wyświetlaj kursywą</string>
     <string name="title_advanced_subject_elipsed">W razie potrzeby skróć temat</string>
     <string name="title_advanced_flags">Oznacz gwiazdkami</string>
+    <string name="title_advanced_flags_background">Pokazuj kolorowe tło zamiast kolorowych gwiazdek</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_preview_italic">Pokaż podgląd wiadomości kursywą</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
@@ -267,6 +268,7 @@
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
     <string name="title_advanced_notify_action_trash">Kosz</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archiwum</string>
     <string name="title_advanced_notify_action_reply">Odpowiedz</string>
     <string name="title_advanced_notify_action_reply_direct">Odpowiedź</string>
@@ -523,6 +525,7 @@
     <string name="title_discard">Odrzuć</string>
     <string name="title_save">Zapisz</string>
     <string name="title_send">Wyślij</string>
+    <string name="title_send_via">Wyślij przez</string>
     <string name="title_send_with_options">Wyślij &#8230;</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
     <string name="title_no_server">Nie znaleziono serwera na \'%1$s\'</string>

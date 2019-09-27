@@ -214,6 +214,7 @@
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
     <string name="title_advanced_subject_elipsed">Forkorte emnet ved behov</string>
     <string name="title_advanced_flags">Vis stjerner</string>
+    <string name="title_advanced_flags_background">Vis farget bakgrunn i stedet for fargede stjerner</string>
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
     <string name="title_advanced_preview_italic">Vis forhåndsvisning av melding i kursiv</string>
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
@@ -245,6 +246,7 @@
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
     <string name="title_advanced_notify_action_trash">Søppel</string>
+    <string name="title_advanced_notify_action_junk">Søppelpost</string>
     <string name="title_advanced_notify_action_archive">Arkiver</string>
     <string name="title_advanced_notify_action_reply">Besvar</string>
     <string name="title_advanced_notify_action_reply_direct">Direkte svar</string>

@@ -106,6 +106,7 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i officielle versioner, da Android tjekker app-signaturen</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
     <string name="title_setup_select_account">Vælg konto</string>
@@ -243,6 +244,7 @@
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_actions">Notifikationshandlinger</string>
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Arkiv</string>
     <string name="title_advanced_notify_action_reply">Besvar</string>
     <string name="title_advanced_notify_action_reply_direct">Direkte besvarelse</string>
@@ -500,6 +502,7 @@
     <string name="title_discard">Kassér</string>
     <string name="title_save">Gem</string>
     <string name="title_send">Send</string>
+    <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
     <string name="title_no_server">Ingen server fundet på \'%1$s\'</string>
@@ -739,6 +742,7 @@
     <string name="title_after">Efter %1$s</string>
     <string name="title_reset">Nulstil</string>
     <string name="title_minutes">Minutter</string>
+    <string name="title_dismiss">Afvis</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>
@@ -767,6 +771,8 @@
     <string name="title_search_special_unseen">ulæst</string>
     <string name="title_search_special_flagged">stjernemarkeret</string>
     <string name="title_search_special_snoozed">udsat</string>
+    <string name="title_widget_account">Konto</string>
+    <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
     <string-array name="pollIntervalNames">

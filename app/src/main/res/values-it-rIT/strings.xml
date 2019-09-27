@@ -213,6 +213,7 @@
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_subject_elipsed">Quando necessario, accorcia l\'oggetto</string>
     <string name="title_advanced_flags">Mostra stelle</string>
+    <string name="title_advanced_flags_background">Mostra lo sfondo colorato invece delle stelle colorate</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_preview_italic">Mostra anteprima messaggio corsivo</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
@@ -244,6 +245,7 @@
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivio</string>
     <string name="title_advanced_notify_action_reply">Rispondi</string>
     <string name="title_advanced_notify_action_reply_direct">Risposta diretta</string>

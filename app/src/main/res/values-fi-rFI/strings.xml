@@ -214,6 +214,7 @@
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
     <string name="title_advanced_flags">Näytä tähdet</string>
+    <string name="title_advanced_flags_background">Näytä värillinen tausta värillisten tähtien sijaan</string>
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
     <string name="title_advanced_preview_italic">Näytä viestin esikatselu kursiivilla</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
@@ -245,6 +246,7 @@
     <string name="title_advanced_notify_preview">Näytä viestin esikatselu ilmoituksissa</string>
     <string name="title_advanced_notify_actions">Ilmoituksen toiminnot</string>
     <string name="title_advanced_notify_action_trash">Roskakori</string>
+    <string name="title_advanced_notify_action_junk">Roskaposti</string>
     <string name="title_advanced_notify_action_archive">Arkisto</string>
     <string name="title_advanced_notify_action_reply">Vastaus sovelluksessa</string>
     <string name="title_advanced_notify_action_reply_direct">Vastaus</string>

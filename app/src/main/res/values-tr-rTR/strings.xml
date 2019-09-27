@@ -214,6 +214,7 @@
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_subject_elipsed">Gerektiğinde konuyu kısaltın</string>
     <string name="title_advanced_flags">Yıldızları göster</string>
+    <string name="title_advanced_flags_background">Renkli yıldızlar yerine renkli arka plan göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_preview_italic">İleti önizlemesini italik olarak göster</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
@@ -245,6 +246,7 @@
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
+    <string name="title_advanced_notify_action_junk">İstenmeyen posta</string>
     <string name="title_advanced_notify_action_archive">Arşiv</string>
     <string name="title_advanced_notify_action_reply">Yanıtla</string>
     <string name="title_advanced_notify_action_reply_direct">Doğrudan yanıt</string>
@@ -502,6 +504,7 @@
     <string name="title_discard">Sil</string>
     <string name="title_save">Kaydet</string>
     <string name="title_send">Gönder</string>
+    <string name="title_send_via">Üzerinden gönder</string>
     <string name="title_send_with_options">Gönder &#8230;</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
     <string name="title_no_server">%1$s\'de sunucu bulunamadı</string>

@@ -119,6 +119,7 @@
     <string name="title_setup_go">Start</string>
     <string name="title_setup_wizard">Asistent</string>
     <string name="title_setup_other">Alt furnizor</string>
+    <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
     <string name="title_setup_select_account">Selectare cont</string>
     <string name="title_setup_instructions">Instrucțiuni de configurare</string>
@@ -255,6 +256,7 @@
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
+    <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Arhivare</string>
     <string name="title_advanced_notify_action_reply">Răspunde</string>
     <string name="title_advanced_notify_action_reply_direct">Răspuns</string>
@@ -283,6 +285,7 @@
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>
     <string name="title_advanced_schedule_hint">Atingeţi data pentru a seta un timp</string>
     <string name="title_advanced_check_mx">Verifică adresa expeditorului la sincronizarea mesajelor</string>
+    <string name="title_advanced_unseen_hint">Unii furnizori nu suportă asta în mod corect, fapt ce va duce la sincronizarea tuturor mesajelor sau a nici unuia</string>
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
@@ -511,6 +514,7 @@
     <string name="title_discard">Renunță</string>
     <string name="title_save">Salvează</string>
     <string name="title_send">Trimite</string>
+    <string name="title_send_via">Trimite prin</string>
     <string name="title_send_with_options">Trimite &#8230;</string>
     <string name="title_send_at">Trimite la &#8230;</string>
     <string name="title_no_server">Nu există un server la \'%1$s\'</string>
@@ -750,6 +754,7 @@
     <string name="title_after">După %1$s</string>
     <string name="title_reset">Resetare</string>
     <string name="title_minutes">Minute</string>
+    <string name="title_dismiss">Renunță</string>
     <string name="title_icalendar_accept">Acceptă</string>
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>

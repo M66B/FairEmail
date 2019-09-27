@@ -236,6 +236,7 @@
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_subject_elipsed">При необходимости сокращать тему</string>
     <string name="title_advanced_flags">Показывать звёзды</string>
+    <string name="title_advanced_flags_background">Цветной фон вместо цветных звёзд</string>
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
@@ -267,6 +268,7 @@
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
+    <string name="title_advanced_notify_action_junk">Спам</string>
     <string name="title_advanced_notify_action_archive">Архив</string>
     <string name="title_advanced_notify_action_reply">Ответить</string>
     <string name="title_advanced_notify_action_reply_direct">Прямой ответ</string>
@@ -524,6 +526,7 @@
     <string name="title_discard">Отклонить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
+    <string name="title_send_via">Отправить через</string>
     <string name="title_send_with_options">Отправить&#8230;</string>
     <string name="title_send_at">Отправить в&#8230;</string>
     <string name="title_no_server">Сервер не найден на \'%1$s\'</string>

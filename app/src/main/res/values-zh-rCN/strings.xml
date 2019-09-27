@@ -202,6 +202,7 @@
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
     <string name="title_advanced_flags">显示星标</string>
+    <string name="title_advanced_flags_background">显示有色背景而非有色星星</string>
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_preview_italic">斜体字显示消息预览</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
@@ -233,6 +234,7 @@
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
+    <string name="title_advanced_notify_action_junk">垃圾邮件</string>
     <string name="title_advanced_notify_action_archive">存档</string>
     <string name="title_advanced_notify_action_reply">回复</string>
     <string name="title_advanced_notify_action_reply_direct">直接回复</string>
@@ -490,6 +492,7 @@
     <string name="title_discard">舍弃</string>
     <string name="title_save">保存</string>
     <string name="title_send">发送</string>
+    <string name="title_send_via">发送方式</string>
     <string name="title_send_with_options">发送 &#8230;</string>
     <string name="title_send_at">发送于 &#8230;</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
