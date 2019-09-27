@@ -76,11 +76,15 @@ public class EntityAnswer implements Serializable {
             name = name.trim();
             int c = name.lastIndexOf(",");
             if (c < 0) {
-                first = name;
-                last = name;
+                c = name.lastIndexOf(" ");
+                if (c < 0) {
+                    first = name;
+                    last = name;
+                } else {
+                    first = name.substring(0, c).trim();
+                    last = name.substring(c + 1).trim();
+                }
             } else {
-                first = name.substring(c + 1).trim();
-                last = name.substring(0, c).trim();
             }
         }
 
