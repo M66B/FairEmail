@@ -722,7 +722,7 @@ class Core {
 
         // Fetch appended/copied when needed
         if (!TextUtils.isEmpty(message.msgid) &&
-                (!folder.synchronize || !istore.hasCapability("IDLE")))
+                (!target.synchronize || !istore.hasCapability("IDLE")))
             try {
                 itarget.open(READ_WRITE);
                 try {
