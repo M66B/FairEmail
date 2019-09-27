@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
@@ -30,6 +31,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -92,6 +94,17 @@ public class FragmentAnswer extends FragmentBase {
 
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
+
+        int height = getContext().getResources().getDisplayMetrics().heightPixels;
+        View decor = getActivity().getWindow().getDecorView();
+        decor.getViewTreeObserver()
+                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    public void onGlobalLayout() {
+                        Rect rect = new Rect();
+                        decor.getWindowVisibleDisplayFrame(rect);
+                        view.setPadding(0, 0, 0, height - rect.bottom);
+                    }
+                });
 
         etText.setSelectionListener(new EditTextCompose.ISelection() {
             @Override
