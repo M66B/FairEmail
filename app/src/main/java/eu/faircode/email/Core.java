@@ -674,7 +674,7 @@ class Core {
         if (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type)) {
             Log.i(folder.name + " move from " + folder.type + " to " + target.type);
 
-            File file = message.getRawFile(context);
+            File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
             try (OutputStream os = new FileOutputStream(file)) {
                 imessage.writeTo(os);
             }
