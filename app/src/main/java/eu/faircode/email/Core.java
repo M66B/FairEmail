@@ -375,6 +375,7 @@ class Core {
     private static void ensureUid(Context context, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException {
         if (message == null || message.uid != null)
             return;
+
         if (EntityOperation.ADD.equals(op.name))
             return;
         if (EntityOperation.FETCH.equals(op.name))
@@ -387,25 +388,47 @@ class Core {
         Log.i(folder.name + " ensure uid op=" + op.name + " msgid=" + message.msgid);
 
         if (TextUtils.isEmpty(message.msgid))
-            throw new IllegalArgumentException("Message without ID for " + op.name);
+            throw new IllegalArgumentException("Message without msgid for " + op.name);
 
-        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
-        if (imessages == null || imessages.length == 0)
+        message.uid = findUid(ifolder, message.msgid, false);
+        if (message.uid == null)
             throw new IllegalArgumentException("Message not found for " + op.name);
 
-        long uid = -1;
-        for (Message iexisting : imessages) {
-            long muid = ifolder.getUID(iexisting);
-            Log.i(folder.name + " found uid=" + muid);
-            // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-            if (muid > uid)
-                uid = muid;
+        DB db = DB.getInstance(context);
+        db.message().setMessageUid(message.id, message.uid);
+    }
+
+    private static Long findUid(IMAPFolder ifolder, String msgid, boolean purge) throws MessagingException {
+        String name = ifolder.getFullName();
+        Log.i(name + " searching for msgid=" + msgid);
+
+        Long uid = null;
+
+        Message[] imessages = ifolder.search(new MessageIDTerm(msgid));
+        if (imessages != null) {
+            for (Message iexisting : imessages) {
+                long muid = ifolder.getUID(iexisting);
+                Log.i(name + " found uid=" + muid + " for msgid=" + msgid);
+                // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
+                if (uid == null || muid > uid)
+                    uid = muid;
+            }
+
+            if (uid != null && purge)
+                for (Message iexisting : imessages) {
+                    long muid = ifolder.getUID(iexisting);
+                    if (muid != uid)
+                        try {
+                            Log.i(name + " deleting uid=" + muid + " for msgid=" + msgid);
+                            iexisting.setFlag(Flags.Flag.DELETED, true);
+                        } catch (MessageRemovedException ignored) {
+                            Log.w(name + " existing gone uid=" + muid + " for msgid=" + msgid);
+                        }
+                }
         }
 
-        message.uid = uid;
-
-        DB db = DB.getInstance(context);
-        db.message().setMessageUid(message.id, uid);
+        Log.i(name + " got uid=" + uid + " for msgid=" + msgid);
+        return uid;
     }
 
     private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
@@ -588,59 +611,31 @@ class Core {
         // Add message
         ifolder.appendMessages(new Message[]{imessage});
 
+        // Delete previous (external) version
+        if (message.uid != null) {
+            db.message().setMessageUid(message.id, null);
+
+            Message iexisting = ifolder.getMessageByUID(message.uid);
+            if (iexisting == null)
+                Log.w(folder.name + " existing not found uid=" + message.uid);
+            else
+                try {
+                    Log.i(folder.name + " deleting uid=" + message.uid);
+                    iexisting.setFlag(Flags.Flag.DELETED, true);
+                } catch (MessageRemovedException ignored) {
+                    Log.w(folder.name + " existing gone uid=" + message.uid);
+                }
+        }
+
         if (folder.id.equals(message.folder)) {
+            message.uid = findUid(ifolder, message.msgid, true);
             if (message.uid != null) {
-                db.message().setMessageUid(message.id, null);
+                Log.i(folder.name + " appended uid=" + message.uid);
+                db.message().setMessageUid(message.id, message.uid);
 
-                // External draft might have a uid only
-                Message iexisting = ifolder.getMessageByUID(message.uid);
-                if (iexisting == null)
-                    Log.w(folder.name + " existing not found uid=" + message.uid);
-                else
-                    try {
-                        Log.i(folder.name + " deleting uid=" + message.uid);
-                        iexisting.setFlag(Flags.Flag.DELETED, true);
-                    } catch (MessageRemovedException ignored) {
-                        Log.w(folder.name + " existing gone uid=" + message.uid);
-                    }
-            }
-
-            Log.i(folder.name + " searching for msgid=" + message.msgid);
-            Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
-            if (imessages == null)
-                Log.w(folder.name + " search for msgid=" + message.msgid + " returned null");
-            else {
-                long uid = -1;
-
-                for (Message iexisting : imessages) {
-                    long muid = ifolder.getUID(iexisting);
-                    Log.i(folder.name + " found uid=" + muid);
-                    // RFC3501: Unique identifiers are assigned in a strictly ascending fashion
-                    if (muid > uid)
-                        uid = muid;
-                }
-
-                if (uid < 0)
-                    Log.w(folder.name + " appended msgid=" + message.msgid + " not found");
-                else {
-                    Log.i(folder.name + " appended uid=" + uid);
-                    db.message().setMessageUid(message.id, uid);
-
-                    List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
-                    runRules(context, imessage, message, rules);
-                    updateContactInfo(context, folder, message);
-
-                    for (Message iexisting : imessages) {
-                        long muid = ifolder.getUID(iexisting);
-                        if (muid != uid)
-                            try {
-                                Log.i(folder.name + " deleting uid=" + muid);
-                                iexisting.setFlag(Flags.Flag.DELETED, true);
-                            } catch (MessageRemovedException ignored) {
-                                Log.w(folder.name + " existing gone uid=" + muid);
-                            }
-                    }
-                }
+                List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
+                runRules(context, imessage, message, rules);
+                updateContactInfo(context, folder, message);
             }
 
             ifolder.expunge();
