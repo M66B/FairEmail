@@ -237,6 +237,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
 * [(136) How can I delete an account/identity/folder?](#user-content-faq136)
 * [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
+* [(138) Can you add calendar / contact management?](#user-content-faq138)
 
 [I have another question.](#user-content-support)
 
@@ -2319,6 +2320,25 @@ In the three-dots overflow menu at the top right there is an item to delete the 
 **(137) How can I reset 'Don't ask again'?**
 
 You can reset all questions set to not to be asked again in the three-dots overflow menu of the miscellaneous settings.
+
+<br />
+
+<a name="faq138"></a>
+**(138) Can you add calendar / contact management?**
+
+Calendar and contact management can better be done in a separate, specialized app
+and is too complex to add to FairEmail, which is in itself already complex enough.
+
+Note that FairEmail does support replying to calendar invites.
+
+Please see here for some open source apps:
+
+* [Calendar](https://search.f-droid.org/?q=calendar)
+* [Contacts](https://search.f-droid.org/?q=contacts)
+
+I prefer to do a few things very well instead of many things half.
+Developing, maintaining and supporting my current apps already take most of my spare time,
+so adding yet another app is not really possible.
 
 <br />
 
