@@ -25,11 +25,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
-    <ListView
-        android:id="@+id/lvIdentity"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
+    <Spinner
+        android:id="@+id/spIdentity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pbWait" />
 
@@ -41,7 +42,7 @@
         android:text="@string/title_no_ask_again"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lvIdentity" />
+        app:layout_constraintTop_toBottomOf="@id/spIdentity" />
 
     <TextView
         android:id="@+id/tvNoIdenties"
@@ -66,7 +67,7 @@
         android:id="@+id/grpIdentities"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="lvIdentity,cbNotAgain" />
+        app:constraint_referenced_ids="spIdentity,cbNotAgain" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/grpNoIdentities"

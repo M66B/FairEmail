@@ -82,7 +82,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -146,7 +145,9 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
+import static android.widget.AdapterView.INVALID_POSITION;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
@@ -3334,7 +3335,7 @@ public class FragmentCompose extends FragmentBase {
             final long working = getArguments().getLong("working");
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_contact_group, null);
-            final ListView lvGroup = dview.findViewById(R.id.lvGroup);
+            final Spinner spGroup = dview.findViewById(R.id.spGroup);
             final Spinner spTarget = dview.findViewById(R.id.spTarget);
 
             Cursor groups = getContext().getContentResolver().query(
@@ -3350,39 +3351,37 @@ public class FragmentCompose extends FragmentBase {
                     ContactsContract.Groups.TITLE
             );
 
-            final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+            SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                     getContext(),
                     R.layout.spinner_item1_dropdown,
                     groups,
                     new String[]{ContactsContract.Groups.TITLE},
                     new int[]{android.R.id.text1},
                     0);
+            spGroup.setAdapter(adapter);
 
-            lvGroup.setAdapter(adapter);
-
-            final AlertDialog dialog = new AlertDialog.Builder(getContext())
+            return new AlertDialog.Builder(getContext())
                     .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            int target = spTarget.getSelectedItemPosition();
+                            Cursor cursor = (Cursor) spGroup.getSelectedItem();
+                            if (target != INVALID_POSITION && cursor != null) {
+                                long group = cursor.getLong(0);
+
+                                Bundle args = getArguments();
+                                args.putLong("id", working);
+                                args.putInt("target", target);
+                                args.putLong("group", group);
+
+                                sendResult(RESULT_OK);
+                            } else
+                                sendResult(RESULT_CANCELED);
+                        }
+                    })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
-
-            lvGroup.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    int target = spTarget.getSelectedItemPosition();
-                    Cursor cursor = (Cursor) adapter.getItem(position);
-                    long group = cursor.getLong(0);
-
-                    Bundle args = getArguments();
-                    args.putLong("id", working);
-                    args.putInt("target", target);
-                    args.putLong("group", group);
-
-                    sendResult(Activity.RESULT_OK);
-                    dismiss();
-                }
-            });
-
-            return dialog;
         }
     }
 
