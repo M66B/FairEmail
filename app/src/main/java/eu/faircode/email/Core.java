@@ -195,8 +195,9 @@ class Core {
                                 case EntityOperation.MOVE:
                                     if (EntityOperation.MOVE.equals(next.name)) {
                                         JSONArray jnext = new JSONArray(next.args);
-                                        // Same target, etc
-                                        if (jargs.equals(jnext)) {
+                                        // Same target, autoread
+                                        if (jargs.getLong(0) == jnext.getLong(0) &&
+                                                jargs.getBoolean(1) == jnext.getBoolean(1)) {
                                             EntityMessage m = db.message().getMessage(next.message);
                                             if (m != null) {
                                                 processed.add(next.id);
@@ -421,16 +422,21 @@ class Core {
                                 for (EntityOperation s : similar.keySet())
                                     db.operation().deleteOperation(s.id);
 
-                                // Cleanup
+                                // Cleanup folder
                                 if (EntityOperation.SYNC.equals(op.name))
                                     db.folder().setFolderSyncState(folder.id, null);
 
-                                // Cleanup
+                                // Cleanup messages
                                 if (message != null && ex instanceof MessageRemovedException) {
                                     db.message().deleteMessage(message.id);
                                     for (EntityMessage m : similar.values())
                                         db.message().deleteMessage(m.id);
                                 }
+
+                                // Cleanup operations
+                                op.cleanup(context);
+                                for (EntityOperation s : similar.keySet())
+                                    s.cleanup(context);
 
                                 db.setTransactionSuccessful();
                             } finally {

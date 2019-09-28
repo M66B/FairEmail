@@ -92,6 +92,24 @@ public class EntityOperation {
     static final String SEND = "send";
     static final String EXISTS = "exists";
 
+    void cleanup(Context context) {
+        if (EntityOperation.MOVE.equals(name) ||
+                EntityOperation.ADD.equals(name) ||
+                EntityOperation.RAW.equals(name))
+            try {
+                JSONArray jargs = new JSONArray(args);
+                long tmpid = jargs.optLong(2, -1);
+                if (tmpid < 0)
+                    return;
+
+                DB db = DB.getInstance(context);
+                db.message().deleteMessage(tmpid);
+                db.message().setMessageUiHide(message, false);
+            } catch (JSONException ex) {
+                Log.e(ex);
+            }
+    }
+
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
 
@@ -125,6 +143,7 @@ public class EntityOperation {
                 // Parameters:
                 // 0: target folder
                 // 1: auto read
+                // 2: temporary message
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
@@ -188,6 +207,7 @@ public class EntityOperation {
                     message.id = db.message().insertMessage(message);
                     File mtarget = message.getFile(context);
                     long tmpid = message.id;
+                    jargs.put(2, tmpid);
 
                     message.id = id;
                     message.account = source.account;
