@@ -564,7 +564,7 @@ class Core {
 
         if (!ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED)) {
             db.message().setMessageFlagged(message.id, false);
-            db.message().setMessageUiFlagged(message.id, false);
+            db.message().setMessageUiFlagged(message.id, false, null);
             return;
         }
 
@@ -760,6 +760,8 @@ class Core {
         // Get arguments
         long id = jargs.getLong(0);
         boolean autoread = jargs.optBoolean(1, false);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean autounflag = prefs.getBoolean("autounflag", false);
         Flags flags = ifolder.getPermanentFlags();
 
         // Get target folder
@@ -806,6 +808,11 @@ class Core {
                 if (autoread && flags.contains(Flags.Flag.SEEN))
                     icopy.setFlag(Flags.Flag.SEEN, true);
 
+                // Auto unflag
+                if (autounflag && flags.contains(Flags.Flag.FLAGGED))
+                    icopy.setFlag(Flags.Flag.FLAGGED, false);
+
+                // Answered fix
                 if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
                     icopy.setFlag(Flags.Flag.ANSWERED, true);
 
@@ -824,6 +831,11 @@ class Core {
                 if (autoread && flags.contains(Flags.Flag.SEEN))
                     imessage.setFlag(Flags.Flag.SEEN, true);
 
+                // Auto unflag
+                if (autounflag && flags.contains(Flags.Flag.FLAGGED))
+                    imessage.setFlag(Flags.Flag.FLAGGED, false);
+
+                // Answered fix
                 if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
                     imessage.setFlag(Flags.Flag.ANSWERED, true);
             }
@@ -2182,6 +2194,8 @@ class Core {
                 update = true;
                 message.flagged = flagged;
                 message.ui_flagged = flagged;
+                if (!flagged)
+                    message.color = null;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid + " flagged=" + flagged);
             }
 

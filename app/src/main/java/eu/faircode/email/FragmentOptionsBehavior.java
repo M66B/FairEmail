@@ -51,13 +51,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private Spinner spOnClose;
     private SwitchCompat swCollapse;
     private SwitchCompat swAutoRead;
+    private SwitchCompat swAutoUnflag;
     private SwitchCompat swAutoMove;
     private SwitchCompat swDiscardDelete;
     private SwitchCompat swDisableTracking;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "pull", "autoscroll", "swipenav", "reversed", "doubletap", "autoexpand", "expand_one", "autoclose", "onclose",
-            "collapse", "autoread", "automove", "discard_delete", "disable_tracking"
+            "collapse", "autoread", "autounflag", "automove", "discard_delete", "disable_tracking"
     };
 
     @Override
@@ -81,6 +82,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         spOnClose = view.findViewById(R.id.spOnClose);
         swCollapse = view.findViewById(R.id.swCollapse);
         swAutoRead = view.findViewById(R.id.swAutoRead);
+        swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoMove = view.findViewById(R.id.swAutoMove);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
@@ -179,6 +181,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swAutoUnflag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autounflag", checked).apply();
+            }
+        });
+
         swAutoMove.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -267,6 +276,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         swCollapse.setChecked(prefs.getBoolean("collapse", false));
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
+        swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));

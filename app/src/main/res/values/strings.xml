@@ -276,6 +276,7 @@
     <string name="title_advanced_autoclose">Automatically close conversations</string>
     <string name="title_advanced_onclose">On closing a conversation</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
+    <string name="title_advanced_autounstar">Automatically remove star from messages on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>

@@ -130,10 +130,8 @@ public class EntityOperation {
             } else if (FLAG.equals(name)) {
                 boolean flagged = jargs.getBoolean(0);
                 Integer color = (jargs.length() > 1 && !jargs.isNull(1) ? jargs.getInt(1) : null);
-                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
-                    db.message().setMessageUiFlagged(similar.id, flagged);
-                    db.message().setMessageColor(similar.id, flagged ? color : null);
-                }
+                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
+                    db.message().setMessageUiFlagged(similar.id, flagged, flagged ? color : null);
 
             } else if (ANSWERED.equals(name))
                 for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
