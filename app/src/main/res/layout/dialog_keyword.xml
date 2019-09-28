@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp">
+    android:padding="24dp">
 
     <TextView
         android:id="@+id/tvKeyword"
@@ -19,6 +19,7 @@
         android:id="@+id/etKeyword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:imeOptions="actionDone"
         android:inputType="text"
         android:text="Keyword"
