@@ -157,17 +157,17 @@ class Core {
                     if (op.message != null)
                         message = db.message().getMessage(op.message);
 
-                    if (message == null &&
-                            !EntityOperation.FETCH.equals(op.name) &&
-                            !EntityOperation.SYNC.equals(op.name) &&
-                            !EntityOperation.SUBSCRIBE.equals(op.name))
-                        throw new MessageRemovedException();
-
                     JSONArray jargs = new JSONArray(op.args);
                     Map<EntityOperation, EntityMessage> similar = new HashMap<>();
 
                     try {
                         // Operations should use database transaction when needed
+
+                        if (message == null &&
+                                !EntityOperation.FETCH.equals(op.name) &&
+                                !EntityOperation.SYNC.equals(op.name) &&
+                                !EntityOperation.SUBSCRIBE.equals(op.name))
+                            throw new MessageRemovedException();
 
                         // Process similar operations
                         boolean skip = false;
