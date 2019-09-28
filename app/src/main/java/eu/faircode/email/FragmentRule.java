@@ -1100,6 +1100,8 @@ public class FragmentRule extends FragmentBase {
                                     db.beginTransaction();
 
                                     EntityMessage message = db.message().getMessage(mid);
+                                    if (message == null)
+                                        continue;
 
                                     if (rule.matches(context, message, null))
                                         if (rule.execute(context, message))
