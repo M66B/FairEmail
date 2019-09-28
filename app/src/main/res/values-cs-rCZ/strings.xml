@@ -236,6 +236,7 @@
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
     <string name="title_advanced_subject_elipsed">V případě potřeby zestručnit předmět</string>
     <string name="title_advanced_flags">Zobrazit hvězdičky</string>
+    <string name="title_advanced_flags_background">Zobrazit obarvené pozadí namísto obarvených hvězdiček</string>
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
     <string name="title_advanced_addresses">Ve výchozím nastavení zobrazit detaily adresy</string>
@@ -267,6 +268,7 @@
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
     <string name="title_advanced_notify_action_trash">Koš</string>
+    <string name="title_advanced_notify_action_junk">Nevyžádané</string>
     <string name="title_advanced_notify_action_archive">Archiv</string>
     <string name="title_advanced_notify_action_reply">Odpověď</string>
     <string name="title_advanced_notify_action_reply_direct">Přímá odpověď</string>
@@ -524,6 +526,7 @@
     <string name="title_discard">Zahodit</string>
     <string name="title_save">Uložit</string>
     <string name="title_send">Odeslat</string>
+    <string name="title_send_via">Odeslat přes</string>
     <string name="title_send_with_options">Odeslat &#8230;</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
     <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
