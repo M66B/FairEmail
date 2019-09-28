@@ -157,22 +157,16 @@ class Core {
                     if (op.message != null)
                         message = db.message().getMessage(op.message);
 
+                    if (message == null &&
+                            !EntityOperation.FETCH.equals(op.name) &&
+                            !EntityOperation.SYNC.equals(op.name) &&
+                            !EntityOperation.SUBSCRIBE.equals(op.name))
+                        throw new MessageRemovedException();
+
                     JSONArray jargs = new JSONArray(op.args);
                     Map<EntityOperation, EntityMessage> similar = new HashMap<>();
 
                     try {
-                        db.operation().setOperationError(op.id, null);
-                        if (!EntityOperation.SYNC.equals(op.name))
-                            db.operation().setOperationState(op.id, "executing");
-
-                        if (message == null) {
-                            if (!EntityOperation.FETCH.equals(op.name) &&
-                                    !EntityOperation.SYNC.equals(op.name) &&
-                                    !EntityOperation.SUBSCRIBE.equals(op.name))
-                                throw new MessageRemovedException();
-                        } else
-                            db.message().setMessageError(message.id, null);
-
                         // Operations should use database transaction when needed
 
                         // Process similar operations
@@ -207,8 +201,6 @@ class Core {
                                             if (m != null) {
                                                 processed.add(next.id);
                                                 similar.put(next, m);
-                                                db.operation().setOperationState(next.id, "executing");
-                                                db.message().setMessageError(m.id, null);
                                             }
                                         }
                                     }
@@ -242,6 +234,30 @@ class Core {
                         crumb.put("thread", Long.toString(Thread.currentThread().getId()));
                         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                         Log.breadcrumb("start operation", crumb);
+
+                        try {
+                            db.beginTransaction();
+
+                            db.operation().setOperationError(op.id, null);
+                            for (EntityOperation s : similar.keySet())
+                                db.operation().setOperationError(s.id, null);
+
+                            if (message != null) {
+                                db.message().setMessageError(message.id, null);
+                                for (EntityMessage m : similar.values())
+                                    db.message().setMessageError(m.id, null);
+                            }
+
+                            if (!EntityOperation.SYNC.equals(op.name)) {
+                                db.operation().setOperationState(op.id, "executing");
+                                for (EntityOperation s : similar.keySet())
+                                    db.operation().setOperationState(s.id, "executing");
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
 
                         if (istore instanceof POP3Store)
                             switch (op.name) {
@@ -351,21 +367,37 @@ class Core {
                         Log.breadcrumb("end operation", crumb);
 
                         // Operation succeeded
-                        db.operation().deleteOperation(op.id);
-                        for (EntityOperation s : similar.keySet())
-                            db.operation().deleteOperation(s.id);
+                        try {
+                            db.beginTransaction();
+
+                            db.operation().deleteOperation(op.id);
+                            for (EntityOperation s : similar.keySet())
+                                db.operation().deleteOperation(s.id);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
                         EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex, false));
 
-                        db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
-                        for (EntityOperation s : similar.keySet())
-                            db.operation().setOperationError(s.id, Helper.formatThrowable(ex));
+                        try {
+                            db.beginTransaction();
 
-                        if (message != null && !(ex instanceof IllegalArgumentException)) {
-                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
-                            for (EntityMessage m : similar.values())
-                                db.message().setMessageError(m.id, Helper.formatThrowable(ex));
+                            db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+                            for (EntityOperation s : similar.keySet())
+                                db.operation().setOperationError(s.id, Helper.formatThrowable(ex));
+
+                            if (message != null && !(ex instanceof IllegalArgumentException)) {
+                                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+                                for (EntityMessage m : similar.values())
+                                    db.message().setMessageError(m.id, Helper.formatThrowable(ex));
+                            }
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
                         }
 
                         if (ex instanceof OutOfMemoryError ||
@@ -381,20 +413,28 @@ class Core {
                             // com.sun.mail.iap.CommandFailedException: B16 NO [ALERT] Cannot MOVE messages out of the Drafts folder
                             Log.w("Unrecoverable");
 
-                            // There is no use in repeating
-                            db.operation().deleteOperation(op.id);
-                            for (EntityOperation s : similar.keySet())
-                                db.operation().deleteOperation(s.id);
+                            try {
+                                db.beginTransaction();
 
-                            // Cleanup
-                            if (EntityOperation.SYNC.equals(op.name))
-                                db.folder().setFolderSyncState(folder.id, null);
+                                // There is no use in repeating
+                                db.operation().deleteOperation(op.id);
+                                for (EntityOperation s : similar.keySet())
+                                    db.operation().deleteOperation(s.id);
 
-                            // Cleanup
-                            if (message != null && ex instanceof MessageRemovedException) {
-                                db.message().deleteMessage(message.id);
-                                for (EntityMessage m : similar.values())
-                                    db.message().deleteMessage(m.id);
+                                // Cleanup
+                                if (EntityOperation.SYNC.equals(op.name))
+                                    db.folder().setFolderSyncState(folder.id, null);
+
+                                // Cleanup
+                                if (message != null && ex instanceof MessageRemovedException) {
+                                    db.message().deleteMessage(message.id);
+                                    for (EntityMessage m : similar.values())
+                                        db.message().deleteMessage(m.id);
+                                }
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
                             }
 
                             continue;
@@ -402,9 +442,17 @@ class Core {
 
                         throw ex;
                     } finally {
-                        db.operation().setOperationState(op.id, null);
-                        for (EntityOperation s : similar.keySet())
-                            db.operation().setOperationState(s.id, null);
+                        try {
+                            db.beginTransaction();
+
+                            db.operation().setOperationState(op.id, null);
+                            for (EntityOperation s : similar.keySet())
+                                db.operation().setOperationState(s.id, null);
+
+                            db.setTransactionSuccessful();
+                        } finally {
+                            db.endTransaction();
+                        }
                     }
                 } finally {
                     Log.i(folder.name + " end op=" + op.id + "/" + op.name);
