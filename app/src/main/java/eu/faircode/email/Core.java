@@ -259,11 +259,11 @@ class Core {
                                     break;
 
                                 case EntityOperation.MOVE:
-                                    onMove(context, jargs, false, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onMove(context, jargs, false, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.COPY:
-                                    onMove(context, jargs, true, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    onMove(context, jargs, true, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.FETCH:
@@ -665,7 +665,7 @@ class Core {
         }
     }
 
-    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+    private static void onMove(Context context, JSONArray jargs, boolean copy, EntityFolder folder, List<EntityMessage> messages, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         // Move message
         DB db = DB.getInstance(context);
 
@@ -674,96 +674,120 @@ class Core {
         boolean autoread = jargs.optBoolean(1, false);
         Flags flags = ifolder.getPermanentFlags();
 
-        // Get source message
-        Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
-
         // Get target folder
         EntityFolder target = db.folder().getFolder(id);
         if (target == null)
             throw new FolderNotFoundException();
         IMAPFolder itarget = (IMAPFolder) istore.getFolder(target.name);
 
-        // Some providers do not support copying drafts
+        // Get source messages
+        Map<Message, EntityMessage> map = new HashMap<>();
+        for (EntityMessage message : messages)
+            try {
+                Message imessage = ifolder.getMessageByUID(message.uid);
+                if (imessage != null)
+                    map.put(imessage, message);
+            } catch (MessageRemovedException ex) {
+                Log.w(ex);
+            }
+
+        // Some providers do not support the COPY operation for drafts
         if (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type)) {
             Log.i(folder.name + " move from " + folder.type + " to " + target.type);
 
-            File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
-            try (OutputStream os = new FileOutputStream(file)) {
-                imessage.writeTo(os);
+            List<Message> icopies = new ArrayList<>();
+            for (Message imessage : map.keySet()) {
+                EntityMessage message = map.get(imessage);
+
+                File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
+                try (OutputStream os = new FileOutputStream(file)) {
+                    imessage.writeTo(os);
+                }
+
+                Properties props = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(props, null);
+
+                Message icopy;
+                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                    icopy = new MimeMessage(isession, is);
+                }
+
+                file.delete();
+
+                // Auto read
+                if (autoread && flags.contains(Flags.Flag.SEEN))
+                    icopy.setFlag(Flags.Flag.SEEN, true);
+
+                if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
+                    icopy.setFlag(Flags.Flag.ANSWERED, true);
+
+                // Set drafts flag
+                icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
+
+                icopies.add(icopy);
             }
 
-            Properties props = MessageHelper.getSessionProperties();
-            Session isession = Session.getInstance(props, null);
-
-            Message icopy;
-            try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                icopy = new MimeMessage(isession, is);
-            }
-
-            file.delete();
-
-            // Auto read
-            if (autoread && flags.contains(Flags.Flag.SEEN))
-                icopy.setFlag(Flags.Flag.SEEN, true);
-
-            if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
-                icopy.setFlag(Flags.Flag.ANSWERED, true);
-
-            // Set drafts flag
-            icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
-
-            itarget.appendMessages(new Message[]{icopy});
+            itarget.appendMessages(icopies.toArray(new Message[0]));
         } else {
-            // Auto read
-            if (autoread && flags.contains(Flags.Flag.SEEN))
-                imessage.setFlag(Flags.Flag.SEEN, true);
+            for (Message imessage : map.keySet()) {
+                EntityMessage message = map.get(imessage);
 
-            if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
-                imessage.setFlag(Flags.Flag.ANSWERED, true);
+                // Auto read
+                if (autoread && flags.contains(Flags.Flag.SEEN))
+                    imessage.setFlag(Flags.Flag.SEEN, true);
 
-            ifolder.copyMessages(new Message[]{imessage}, itarget);
+                if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
+                    imessage.setFlag(Flags.Flag.ANSWERED, true);
+            }
+
+            ifolder.copyMessages(map.keySet().toArray(new Message[0]), itarget);
         }
 
         // Delete source
         if (!copy) {
             try {
-                imessage.setFlag(Flags.Flag.DELETED, true);
+                for (Message imessage : map.keySet())
+                    imessage.setFlag(Flags.Flag.DELETED, true);
             } catch (MessageRemovedException ignored) {
             }
             ifolder.expunge();
         }
 
         // Fetch appended/copied when needed
-        if (!TextUtils.isEmpty(message.msgid) &&
-                (!target.synchronize || !istore.hasCapability("IDLE")))
+        if (!target.synchronize || !istore.hasCapability("IDLE"))
             try {
                 itarget.open(READ_WRITE);
-                try {
-                    Long uid = findUid(itarget, message.msgid, false);
-                    if (uid != null) {
-                        JSONArray fargs = new JSONArray();
-                        fargs.put(uid);
-                        onFetch(context, fargs, target, itarget, state);
-                    }
-                } finally {
-                    itarget.close();
-                }
+
+                for (EntityMessage message : map.values())
+                    if (!TextUtils.isEmpty(message.msgid))
+                        try {
+                            Long uid = findUid(itarget, message.msgid, false);
+                            if (uid != null) {
+                                JSONArray fargs = new JSONArray();
+                                fargs.put(uid);
+                                onFetch(context, fargs, target, itarget, state);
+                            }
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
             } catch (Throwable ex) {
                 Log.w(ex);
+            } finally {
+                if (itarget.isOpen())
+                    itarget.close();
             }
 
         // Delete junk contacts
-        if (EntityFolder.JUNK.equals(target.type)) {
-            Address[] recipients = (message.reply != null ? message.reply : message.from);
-            if (recipients != null)
-                for (Address recipient : recipients) {
-                    String email = ((InternetAddress) recipient).getAddress();
-                    int count = db.contact().deleteContact(target.account, EntityContact.TYPE_FROM, email);
-                    Log.i("Deleted contact email=" + email + " count=" + count);
-                }
-        }
+        if (EntityFolder.JUNK.equals(target.type))
+            for (EntityMessage message : map.values()) {
+                Address[] recipients = (message.reply != null ? message.reply : message.from);
+                if (recipients != null)
+                    for (Address recipient : recipients) {
+                        String email = ((InternetAddress) recipient).getAddress();
+                        int count = db.contact().deleteContact(target.account, EntityContact.TYPE_FROM, email);
+                        Log.i("Deleted contact email=" + email + " count=" + count);
+                    }
+            }
     }
 
     private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
