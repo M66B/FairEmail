@@ -188,6 +188,8 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 return false;
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, operation.name + ":" + operation.id)
+                    .setEnabled(false);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 1, R.string.title_delete);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
