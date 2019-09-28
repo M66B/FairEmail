@@ -973,10 +973,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibFlagged.setImageTintList(ColorStateList.valueOf(message.color));
             }
 
-            ibFlagged.setEnabled(message.uid != null);
+            ibFlagged.setEnabled(message.uid != null || message.accountPop);
 
             if (flags)
-                ibFlagged.setVisibility(message.folderReadOnly || message.accountPop ? View.INVISIBLE : View.VISIBLE);
+                ibFlagged.setVisibility(message.folderReadOnly ? View.INVISIBLE : View.VISIBLE);
             else
                 ibFlagged.setVisibility(View.GONE);
         }
@@ -1798,10 +1798,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message == null)
                             return null;
 
-                        List<EntityMessage> messages = db.message().getMessagesByThread(
-                                message.account, message.thread, threading && thread ? null : id, null);
-                        for (EntityMessage threaded : messages)
-                            EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged);
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null)
+                            return null;
+
+                        if (account.pop)
+                            EntityOperation.queue(context, message, EntityOperation.FLAG, flagged);
+                        else {
+                            List<EntityMessage> messages = db.message().getMessagesByThread(
+                                    message.account, message.thread, threading && thread ? null : id, null);
+                            for (EntityMessage threaded : messages)
+                                EntityOperation.queue(context, threaded, EntityOperation.FLAG, flagged);
+                        }
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -2443,8 +2451,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(!message.accountPop);
 
-            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_flag_color).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(
+                    (message.uid != null && !message.folderReadOnly) || message.accountPop);
 
             popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_copy).setVisible(!message.accountPop);

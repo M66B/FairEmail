@@ -212,17 +212,25 @@ class Core {
                                 case EntityOperation.SEEN:
                                     onSeen(context, jargs, folder, message, (POP3Folder) ifolder);
                                     break;
+
+                                case EntityOperation.FLAG:
+                                    onFlag(context, jargs, folder, message, (POP3Folder) ifolder);
+                                    break;
+
                                 case EntityOperation.ANSWERED:
                                 case EntityOperation.ADD:
                                 case EntityOperation.EXISTS:
                                     // Do nothing
                                     break;
+
                                 case EntityOperation.DELETE:
                                     onDelete(context, jargs, account, folder, message, (POP3Folder) ifolder, state);
                                     break;
+
                                 case EntityOperation.SYNC:
                                     onSynchronizeMessages(context, jargs, account, folder, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
+
                                 default:
                                     Log.w(folder.name + " ignored=" + op.name);
                             }
@@ -482,6 +490,14 @@ class Core {
 
         imessage.setFlag(Flags.Flag.FLAGGED, flagged);
 
+        db.message().setMessageFlagged(message.id, flagged);
+    }
+
+    private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws MessagingException, JSONException {
+        // Star/unstar message
+        DB db = DB.getInstance(context);
+
+        boolean flagged = jargs.getBoolean(0);
         db.message().setMessageFlagged(message.id, flagged);
     }
 
