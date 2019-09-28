@@ -2441,9 +2441,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(!message.accountPop);
+
             popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_flag_color).setVisible(!message.accountPop);
 
             popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_copy).setVisible(!message.accountPop);
+
+            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(!message.accountPop);
+
+            popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_resync).setVisible(!message.accountPop);
+
+            popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(!message.accountPop);
+
+            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
+            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(!message.accountPop);
 
             popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(hasJunk && !EntityFolder.JUNK.equals(message.folderType));
@@ -2454,6 +2468,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(!message.accountPop);
 
             popupMenu.getMenu().findItem(R.id.menu_raw_download).setEnabled(
                     message.uid != null && (message.raw == null || !message.raw));
@@ -2462,11 +2477,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_raw_send).setEnabled(
                     message.uid != null && (message.raw != null && message.raw));
 
-            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
-
-            popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
-
-            popupMenu.getMenu().findItem(R.id.menu_create_rule).setEnabled(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_raw_download).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_raw_save).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send).setVisible(!message.accountPop);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
