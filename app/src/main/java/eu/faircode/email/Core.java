@@ -135,9 +135,16 @@ class Core {
 
             DB db = DB.getInstance(context);
             List<EntityOperation> ops = db.operation().getOperations(folder.id);
+
+            List<Long> processed = new ArrayList<>();
             Log.i(folder.name + " pending operations=" + ops.size());
             for (int i = 0; i < ops.size() && state.isRunning() && state.isRecoverable(); i++) {
                 EntityOperation op = ops.get(i);
+                if (processed.contains(op.id)) {
+                    Log.i(folder.name + " already processed op=" + op.id + "/" + op.name);
+                    continue;
+                }
+
                 try {
                     Log.i(folder.name +
                             " start op=" + op.id + "/" + op.name +
@@ -151,6 +158,7 @@ class Core {
                         message = db.message().getMessage(op.message);
 
                     JSONArray jargs = new JSONArray(op.args);
+                    Map<EntityOperation, EntityMessage> similar = new HashMap<>();
 
                     try {
                         db.operation().setOperationError(op.id, null);
@@ -167,26 +175,45 @@ class Core {
 
                         // Operations should use database transaction when needed
 
-                        // Skip redundant operations
+                        // Process similar operations
                         boolean skip = false;
                         for (int j = i + 1; j < ops.size(); j++) {
                             EntityOperation next = ops.get(j);
 
-                            if (EntityOperation.ADD.equals(op.name)) {
-                                if (Objects.equals(op.message, next.message) &&
-                                        (EntityOperation.ADD.equals(next.name) ||
-                                                EntityOperation.DELETE.equals(next.name))) {
-                                    skip = true;
-                                    break;
-                                }
-                            } else if (EntityOperation.FETCH.equals(op.name))
-                                if (EntityOperation.FETCH.equals(next.name)) {
-                                    JSONArray jnext = new JSONArray(next.args);
-                                    if (jargs.getLong(0) == jnext.getLong(0)) {
+                            switch (op.name) {
+                                case EntityOperation.ADD:
+                                    // Same message
+                                    if (Objects.equals(op.message, next.message) &&
+                                            (EntityOperation.ADD.equals(next.name) ||
+                                                    EntityOperation.DELETE.equals(next.name)))
                                         skip = true;
-                                        break;
+                                    break;
+
+                                case EntityOperation.FETCH:
+                                    if (EntityOperation.FETCH.equals(next.name)) {
+                                        JSONArray jnext = new JSONArray(next.args);
+                                        // Same uid
+                                        if (jargs.getLong(0) == jnext.getLong(0))
+                                            skip = true;
                                     }
-                                }
+                                    break;
+
+                                case EntityOperation.MOVE:
+                                    if (EntityOperation.MOVE.equals(next.name)) {
+                                        JSONArray jnext = new JSONArray(next.args);
+                                        // Same target, etc
+                                        if (jargs.equals(jnext)) {
+                                            EntityMessage m = db.message().getMessage(next.message);
+                                            if (m != null) {
+                                                processed.add(next.id);
+                                                similar.put(next, m);
+                                                db.operation().setOperationState(next.id, "executing");
+                                                db.message().setMessageError(m.id, null);
+                                            }
+                                        }
+                                    }
+                                    break;
+                            }
                         }
 
                         if (skip) {
@@ -197,12 +224,21 @@ class Core {
                             continue;
                         }
 
+                        List<Long> sids = new ArrayList<>();
+                        for (EntityOperation s : similar.keySet())
+                            sids.add(s.id);
+
+                        if (similar.size() > 0)
+                            Log.i(folder.name + " similar=" + TextUtils.join(",", sids));
+
+                        // Leave crumb
                         Map<String, String> crumb = new HashMap<>();
                         crumb.put("name", op.name);
                         crumb.put("args", op.args);
                         crumb.put("folder", op.account + ":" + op.folder + ":" + folder.type);
                         if (op.message != null)
                             crumb.put("message", Long.toString(op.message));
+                        crumb.put("similar", TextUtils.join(",", sids));
                         crumb.put("thread", Long.toString(Thread.currentThread().getId()));
                         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                         Log.breadcrumb("start operation", crumb);
@@ -259,7 +295,10 @@ class Core {
                                     break;
 
                                 case EntityOperation.MOVE:
-                                    onMove(context, jargs, false, folder, Arrays.asList(message), (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    List<EntityMessage> messages = new ArrayList<>();
+                                    messages.add(message);
+                                    messages.addAll(similar.values());
+                                    onMove(context, jargs, false, folder, messages, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.COPY:
@@ -313,13 +352,21 @@ class Core {
 
                         // Operation succeeded
                         db.operation().deleteOperation(op.id);
+                        for (EntityOperation s : similar.keySet())
+                            db.operation().deleteOperation(s.id);
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
                         EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex, false));
 
                         db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
-                        if (message != null && !(ex instanceof IllegalArgumentException))
+                        for (EntityOperation s : similar.keySet())
+                            db.operation().setOperationError(s.id, Helper.formatThrowable(ex));
+
+                        if (message != null && !(ex instanceof IllegalArgumentException)) {
                             db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+                            for (EntityMessage m : similar.values())
+                                db.message().setMessageError(m.id, Helper.formatThrowable(ex));
+                        }
 
                         if (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
@@ -336,32 +383,18 @@ class Core {
 
                             // There is no use in repeating
                             db.operation().deleteOperation(op.id);
+                            for (EntityOperation s : similar.keySet())
+                                db.operation().deleteOperation(s.id);
 
                             // Cleanup
                             if (EntityOperation.SYNC.equals(op.name))
                                 db.folder().setFolderSyncState(folder.id, null);
 
                             // Cleanup
-                            if (message != null) {
-                                if (ex instanceof MessageRemovedException)
-                                    db.message().deleteMessage(message.id);
-
-                                Long newid = null;
-
-                                if (EntityOperation.MOVE.equals(op.name) &&
-                                        jargs.length() > 2 && !jargs.isNull(2))
-                                    newid = jargs.getLong(2);
-
-                                if ((EntityOperation.ADD.equals(op.name) ||
-                                        EntityOperation.RAW.equals(op.name)) &&
-                                        jargs.length() > 0 && !jargs.isNull(0))
-                                    newid = jargs.getLong(0);
-
-                                // Delete temporary copy in target folder
-                                if (newid != null) {
-                                    db.message().deleteMessage(newid);
-                                    db.message().setMessageUiHide(message.id, false);
-                                }
+                            if (message != null && ex instanceof MessageRemovedException) {
+                                db.message().deleteMessage(message.id);
+                                for (EntityMessage m : similar.values())
+                                    db.message().deleteMessage(m.id);
                             }
 
                             continue;
@@ -370,6 +403,8 @@ class Core {
                         throw ex;
                     } finally {
                         db.operation().setOperationState(op.id, null);
+                        for (EntityOperation s : similar.keySet())
+                            db.operation().setOperationState(s.id, null);
                     }
                 } finally {
                     Log.i(folder.name + " end op=" + op.id + "/" + op.name);
