@@ -41,6 +41,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private Context context;
     private int appWidgetId;
 
+    private boolean threading;
+    private boolean subject_top;
     private long account;
     private boolean unseen;
     private boolean flagged;
@@ -63,7 +65,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         Log.i("Widget factory changed id=" + appWidgetId);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean threading = prefs.getBoolean("threading", true);
+        threading = prefs.getBoolean("threading", true);
+        subject_top = prefs.getBoolean("subject_top", false);
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
@@ -90,6 +93,10 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     @Override
     public RemoteViews getViewAt(int position) {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.item_widget_unified);
+        int idFrom = (subject_top ? R.id.tvSubject : R.id.tvFrom);
+        int idTime = (subject_top ? R.id.tvAccount : R.id.tvTime);
+        int idSubject = (subject_top ? R.id.tvFrom : R.id.tvSubject);
+        int idAccount = (subject_top ? R.id.tvTime : R.id.tvAccount);
 
         if (position >= messages.size())
             return views;
@@ -113,17 +120,18 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             SpannableString ssAccount = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);
 
             if (!message.ui_seen) {
-                ssFrom.setSpan(new StyleSpan(Typeface.BOLD), 0, ssFrom.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                ssTime.setSpan(new StyleSpan(Typeface.BOLD), 0, ssTime.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                ssSubject.setSpan(new StyleSpan(Typeface.BOLD), 0, ssSubject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-                ssAccount.setSpan(new StyleSpan(Typeface.BOLD), 0, ssAccount.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssFrom.setSpan(new StyleSpan(Typeface.BOLD_ITALIC), 0, ssFrom.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssTime.setSpan(new StyleSpan(Typeface.BOLD_ITALIC), 0, ssTime.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssSubject.setSpan(new StyleSpan(Typeface.BOLD_ITALIC), 0, ssSubject.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                ssAccount.setSpan(new StyleSpan(Typeface.BOLD_ITALIC), 0, ssAccount.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
             }
 
-            views.setTextViewText(R.id.tvFrom, ssFrom);
-            views.setTextViewText(R.id.tvTime, ssTime);
-            views.setTextViewText(R.id.tvSubject, ssSubject);
-            views.setTextViewText(R.id.tvAccount, ssAccount);
-            views.setViewVisibility(R.id.tvAccount, account < 0 ? View.VISIBLE : View.GONE);
+            views.setTextViewText(idFrom, ssFrom);
+            views.setTextViewText(idTime, ssTime);
+            views.setTextViewText(idSubject, ssSubject);
+            views.setTextViewText(idAccount, ssAccount);
+            views.setViewVisibility(idAccount, account < 0 ? View.VISIBLE : View.GONE);
+
         } catch (Throwable ex) {
             Log.e(ex);
         }

@@ -229,6 +229,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subject_top", checked).apply();
+                WidgetUnified.update(getContext());
             }
         });
 
