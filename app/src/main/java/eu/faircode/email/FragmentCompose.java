@@ -114,6 +114,7 @@ import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -1528,8 +1529,8 @@ public class FragmentCompose extends FragmentBase {
                                     Log.i("Writing " + file + " size=" + bytes.length);
                                 try (OutputStream out = new FileOutputStream(file)) {
                                     out.write(bytes);
-                                    db.attachment().setDownloaded(attachment.id, (long) bytes.length);
                                 }
+                                db.attachment().setDownloaded(attachment.id, (long) bytes.length);
 
                                 db.setTransactionSuccessful();
                             } finally {
@@ -1973,7 +1974,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     File tmp = File.createTempFile("image", ".resized", context.getCacheDir());
-                    try (OutputStream out = new FileOutputStream(tmp)) {
+                    try (OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
                         resized.compress("image/jpeg".equals(attachment.type)
                                         ? Bitmap.CompressFormat.JPEG
                                         : Bitmap.CompressFormat.PNG,

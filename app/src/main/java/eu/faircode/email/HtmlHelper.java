@@ -61,6 +61,7 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -702,7 +703,7 @@ public class HtmlHelper {
 
                     Log.i("Downloaded image source=" + a.source);
 
-                    try (OutputStream os = new FileOutputStream(file)) {
+                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                         bm.compress(Bitmap.CompressFormat.PNG, 90, os);
                     }
 

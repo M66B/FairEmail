@@ -601,18 +601,17 @@ public class Log {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
+        long size = 0;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             Map<String, ?> settings = prefs.getAll();
             for (String key : settings.keySet())
                 size += write(os, key + "=" + settings.get(key) + "\r\n");
-
-            db.attachment().setDownloaded(attachment.id, size);
         }
+
+        db.attachment().setDownloaded(attachment.id, size);
     }
 
     private static void attachAccounts(Context context, long id, int sequence) throws IOException {
@@ -628,11 +627,9 @@ public class Log {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
+        long size = 0;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
-
             List<EntityAccount> accounts = db.account().getAccounts();
             for (EntityAccount account : accounts)
                 try {
@@ -656,9 +653,9 @@ public class Log {
                 } catch (JSONException ex) {
                     size += write(os, ex.toString() + "\r\n");
                 }
-
-            db.attachment().setDownloaded(attachment.id, size);
         }
+
+        db.attachment().setDownloaded(attachment.id, size);
     }
 
     private static void attachNetworkInfo(Context context, long id, int sequence) throws IOException {
@@ -674,10 +671,9 @@ public class Log {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
+        long size = 0;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
             Network active = null;
@@ -688,9 +684,9 @@ public class Log {
                 NetworkCapabilities caps = cm.getNetworkCapabilities(network);
                 size += write(os, (network.equals(active) ? "active=" : "network=") + network + " capabilities=" + caps + "\r\n\r\n");
             }
-
-            db.attachment().setDownloaded(attachment.id, size);
         }
+
+        db.attachment().setDownloaded(attachment.id, size);
     }
 
     private static void attachLog(Context context, long id, int sequence) throws IOException {
@@ -706,18 +702,17 @@ public class Log {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
+        long size = 0;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
             long from = new Date().getTime() - 24 * 3600 * 1000L;
             DateFormat TF = Helper.getTimeInstance(context);
 
             for (EntityLog entry : db.log().getLogs(from))
                 size += write(os, String.format("%s %s\r\n", TF.format(entry.time), entry.data));
-
-            db.attachment().setDownloaded(attachment.id, size);
         }
+
+        db.attachment().setDownloaded(attachment.id, size);
     }
 
     private static void attachOperations(Context context, long id, int sequence) throws IOException {
@@ -733,10 +728,9 @@ public class Log {
         attachment.progress = 0;
         attachment.id = db.attachment().insertAttachment(attachment);
 
+        long size = 0;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
-            long size = 0;
             DateFormat TF = Helper.getTimeInstance(context);
 
             for (EntityOperation op : db.operation().getOperations())
@@ -746,9 +740,9 @@ public class Log {
                         op.name,
                         op.args,
                         op.error));
-
-            db.attachment().setDownloaded(attachment.id, size);
         }
+
+        db.attachment().setDownloaded(attachment.id, size);
     }
 
     private static void attachLogcat(Context context, long id, int sequence) throws IOException {
@@ -767,7 +761,6 @@ public class Log {
         Process proc = null;
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-
             String[] cmd = new String[]{"logcat",
                     "-d",
                     "-v", "threadtime",
@@ -781,7 +774,6 @@ public class Log {
                 while ((line = br.readLine()) != null)
                     size += write(os, line + "\r\n");
             }
-
 
             db.attachment().setDownloaded(attachment.id, size);
         } finally {

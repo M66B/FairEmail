@@ -61,8 +61,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -696,7 +695,7 @@ class Core {
                 throw new IllegalArgumentException("raw message file not found");
 
             Log.i(folder.name + " reading " + file);
-            try (InputStream is = new FileInputStream(file)) {
+            try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
                 imessage = new MimeMessage(isession, is);
             }
         }
@@ -776,7 +775,7 @@ class Core {
                 Message imessage = ifolder.getMessageByUID(message.uid);
                 if (imessage != null)
                     map.put(imessage, message);
-            } catch (MessageRemovedException ex) {
+            } catch (MessagingException ex) {
                 Log.w(ex);
             }
 
@@ -789,7 +788,7 @@ class Core {
                 EntityMessage message = map.get(imessage);
 
                 File file = File.createTempFile("draft", "." + message.id, context.getCacheDir());
-                try (OutputStream os = new FileOutputStream(file)) {
+                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                     imessage.writeTo(os);
                 }
 
@@ -1026,10 +1025,11 @@ class Core {
                 throw new MessageRemovedException();
 
             File file = message.getRawFile(context);
-            try (OutputStream os = new FileOutputStream(file)) {
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);
-                db.message().setMessageRaw(message.id, true);
             }
+
+            db.message().setMessageRaw(message.id, true);
         }
 
         if (jargs.length() > 0) {
@@ -1911,17 +1911,20 @@ class Core {
                 Log.w(folder.name + " " + ex.getMessage());
 
                 Log.i(folder.name + " fetching raw message uid=" + uid);
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                imessage.writeTo(bos);
-                bos.close();
+                File file = File.createTempFile("serverbug", "." + uid, context.getCacheDir());
+                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                    imessage.writeTo(os);
+                }
 
-                Properties properties = MessageHelper.getSessionProperties();
-                Session isession = Session.getInstance(properties, null);
+                Properties props = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(props, null);
 
                 Log.i(folder.name + " decoding again uid=" + uid);
-                ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-                imessage = new MimeMessage(isession, bis);
-                bis.close();
+                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                    imessage = new MimeMessage(isession, is);
+                }
+
+                file.delete();
 
                 Log.i(folder.name + " synchronizing again uid=" + uid);
                 return _synchronizeMessage(context, account, folder, uid, imessage, browsed, download, rules, state);
