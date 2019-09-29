@@ -37,13 +37,15 @@ public class FragmentDialogColor extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        int color = getArguments().getInt("color");
-        String title = getArguments().getString("title");
+        Bundle args = getArguments();
+        int color = args.getInt("color");
+        String title = args.getString("title");
+        boolean reset = args.getBoolean("reset", false);
 
         if (color == Color.TRANSPARENT)
             color = Color.BLUE;
 
-        return ColorPickerDialogBuilder
+        ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
                 .with(getContext())
                 .setTitle(title)
                 .initialColor(color)
@@ -56,14 +58,17 @@ public class FragmentDialogColor extends FragmentDialogBase {
                         getArguments().putInt("color", selectedColor);
                         sendResult(RESULT_OK);
                     }
-                })
-                .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        getArguments().putInt("color", Color.TRANSPARENT);
-                        sendResult(RESULT_OK);
-                    }
-                })
-                .build();
+                });
+
+        if (reset)
+            builder.setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    getArguments().putInt("color", Color.TRANSPARENT);
+                    sendResult(RESULT_OK);
+                }
+            });
+
+        return builder.build();
     }
 }

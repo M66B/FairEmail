@@ -135,6 +135,7 @@ public class FragmentPop extends FragmentBase {
                 Bundle args = new Bundle();
                 args.putInt("color", btnColor.getColor());
                 args.putString("title", getString(R.string.title_color));
+                args.putBoolean("reset", true);
 
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
