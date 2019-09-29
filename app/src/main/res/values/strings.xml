@@ -436,6 +436,7 @@
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_delete_browsed">Delete browsed/searched messages</string>
     <string name="title_empty_trash">Empty trash</string>
+    <string name="title_empty_spam">Empty spam</string>
     <string name="title_edit_properties">Edit properties</string>
     <string name="title_edit_rules">Edit rules</string>
     <string name="title_create_channel">Create notification channel</string>
@@ -444,6 +445,7 @@
     <string name="title_create_sub_folder">Create sub folder</string>
 
     <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
+    <string name="title_empty_spam_ask">Move all spam to the trash folder?</string>
     <string name="title_delete_operation">Delete operations with an error message?</string>
     <string name="title_delete_contacts">Delete all local contacts?</string>
     <string name="title_no_operations">No pending operations</string>
