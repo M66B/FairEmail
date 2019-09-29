@@ -1630,6 +1630,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             }
                         }, ViewConfiguration.getDoubleTapTimeout());
                     } else {
+                        message.ui_seen = !message.ui_seen;
+                        message.unseen = (message.ui_seen ? 0 : message.count);
+                        bindTo(message);
+
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
                         args.putBoolean("pop", message.accountPop);
