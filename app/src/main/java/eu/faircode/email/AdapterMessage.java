@@ -792,7 +792,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Starred
-            bindFlagged(message);
+            bindFlagged(message, expanded);
 
             // Message text preview
             tvPreview.setTextColor(contrast ? textColorPrimary : textColorSecondary);
@@ -952,7 +952,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetBody.setVisibility(View.GONE);
         }
 
-        private void bindFlagged(TupleMessageEx message) {
+        private void bindFlagged(TupleMessageEx message, boolean expanded) {
             boolean pro = ActivityBilling.isPro(context);
             if (!pro)
                 message.color = null;
@@ -960,18 +960,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int flagged = (message.count - message.unflagged);
             ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
 
-            if (flags_background) {
-                if (message.color == null)
-                    card.setCardBackgroundColor(Color.TRANSPARENT);
-                else
-                    card.setCardBackgroundColor(ColorUtils.setAlphaComponent(message.color, 127));
-            } else {
+            if (message.color == null || expanded || !flags_background)
                 card.setCardBackgroundColor(Color.TRANSPARENT);
-                if (message.color == null)
-                    ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
-                else
-                    ibFlagged.setImageTintList(ColorStateList.valueOf(message.color));
-            }
+            else
+                card.setCardBackgroundColor(ColorUtils.setAlphaComponent(message.color, 127));
+
+            if (message.color == null)
+                ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
+            else
+                ibFlagged.setImageTintList(ColorStateList.valueOf(expanded ? message.color : textColorSecondary));
 
             ibFlagged.setEnabled(message.uid != null || message.accountPop);
 
@@ -1781,7 +1778,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             message.unflagged = message.ui_flagged ? message.count : 0;
             message.ui_flagged = !message.ui_flagged;
-            bindFlagged(message);
+
+            boolean expanded = properties.getValue("expanded", message.id);
+            bindFlagged(message, expanded);
 
             new SimpleTask<Void>() {
                 @Override
@@ -2024,6 +2023,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     bindExpanded(message, true);
                 else
                     clearExpanded(message);
+
+                bindFlagged(message, expanded);
             }
         }
 
