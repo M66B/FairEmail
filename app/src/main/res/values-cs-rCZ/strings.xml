@@ -260,6 +260,7 @@
     <string name="title_advanced_autoclose">Automaticky zavírat konverzace</string>
     <string name="title_advanced_onclose">Při zavření konverzace</string>
     <string name="title_advanced_autoread">Automaticky označit zprávy jako přečtené při přesunu</string>
+    <string name="title_advanced_autounstar">Automaticky odebrat zprávám hvězdičku při přesunu</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>

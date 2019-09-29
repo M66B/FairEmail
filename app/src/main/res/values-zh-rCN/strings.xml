@@ -95,6 +95,7 @@
     <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
     <string name="title_setup_go">转到</string>
     <string name="title_setup_wizard">向导</string>
+    <string name="title_setup_wizard_remark">按返回键前往收件箱</string>
     <string name="title_setup_other">其他邮件服务提供商</string>
     <string name="title_setup_gmail_support">授权谷歌帐户只能用于官方版本，因为Android检查应用签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
@@ -226,6 +227,7 @@
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
+    <string name="title_advanced_autounstar">移动消息时自动从消息中去除消息星号</string>
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_discard_delete">丢弃草稿时永久删除草稿</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>

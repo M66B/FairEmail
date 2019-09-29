@@ -107,6 +107,7 @@
     <string name="title_setup_quick_smtp">Serveur SMTP pour envoyer des messages</string>
     <string name="title_setup_go">Aller</string>
     <string name="title_setup_wizard">Assistant</string>
+    <string name="title_setup_wizard_remark">Faites \'retour\' pour aller à la boîte de réception</string>
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement dans les versions officielles parce que Android vérifie la signature de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
@@ -238,6 +239,7 @@
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
+    <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile des messages lors de leur déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
