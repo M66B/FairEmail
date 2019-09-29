@@ -2813,8 +2813,10 @@ class Core {
             }
 
             if (biometrics && !biometric_notify)
-                mbuilder.setContentTitle(context.getResources().getQuantityString(
-                        R.plurals.title_notification_unseen, 1, 1));
+                mbuilder
+                        .setContentTitle(context.getResources().getQuantityString(
+                                R.plurals.title_notification_unseen, 1, 1))
+                        .setContentText(context.getString(R.string.title_setup_biometrics));
             else {
                 String folderName = message.folderDisplay == null
                         ? Helper.localizeFolderName(context, message.folderName)
