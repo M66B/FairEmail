@@ -3099,8 +3099,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     expand = messages.get(0);
 
                 if (expand != null &&
-                        (expand.content || unmetered || (expand.size != null && expand.size < download)))
+                        (expand.content || unmetered || (expand.size != null && expand.size < download))) {
+                    // Prevent flicker
+                    if (expand.accountPop ||
+                            (expand.accountAutoSeen && !expand.ui_seen && !expand.folderReadOnly)) {
+                        expand.unseen = 0;
+                        expand.ui_seen = true;
+                    }
+
                     iProperties.setValue("expanded", expand.id, true);
+                }
             }
         } else {
             if (autoCloseCount > 0 && (autoclose || onclose != null)) {
