@@ -2449,8 +2449,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_unseen).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
+                    (message.uid != null && !message.folderReadOnly) || message.accountPop);
 
             popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(
                     (message.uid != null && !message.folderReadOnly) || message.accountPop);
