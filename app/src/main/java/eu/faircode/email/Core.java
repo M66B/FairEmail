@@ -1923,7 +1923,7 @@ class Core {
                 Log.w(folder.name + " " + ex.getMessage());
 
                 Log.i(folder.name + " fetching raw message uid=" + uid);
-                File file = File.createTempFile("serverbug", "." + uid, context.getCacheDir());
+                File file = File.createTempFile("serverbug." + folder.id, "." + uid, context.getCacheDir());
                 try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                     imessage.writeTo(os);
                 }
@@ -1933,7 +1933,7 @@ class Core {
 
                 Log.i(folder.name + " decoding again uid=" + uid);
                 try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                    imessage = new MimeMessage(isession, is);
+                    imessage = new MimeMessageEx(isession, is, imessage);
                 }
 
                 file.delete();
