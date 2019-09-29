@@ -759,7 +759,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             .putExtra("account", account)
                     );
                 else {
+                    Bundle args = new Bundle();
+                    args.putLong("account", account);
+
                     FragmentDialogIdentity fragment = new FragmentDialogIdentity();
+                    fragment.setArguments(args);
                     fragment.show(getFragmentManager(), "messages:identities");
                 }
             }
@@ -4689,6 +4693,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
                     AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), identities);
                     spIdentity.setAdapter(iadapter);
+
+                    Integer fallback = null;
+                    long account = getArguments().getLong("account");
+                    for (int pos = 0; pos < identities.size(); pos++) {
+                        EntityIdentity identity = identities.get(pos);
+                        if (identity.account.equals(account)) {
+                            if (identity.primary) {
+                                fallback = null;
+                                spIdentity.setSelection(pos);
+                                break;
+                            }
+                            if (fallback == null)
+                                fallback = pos;
+                        }
+                    }
+                    if (fallback != null)
+                        spIdentity.setSelection(fallback);
 
                     grpIdentities.setVisibility(identities.size() > 0 ? View.VISIBLE : View.GONE);
                     grpNoIdentities.setVisibility(identities.size() > 0 ? View.GONE : View.VISIBLE);
