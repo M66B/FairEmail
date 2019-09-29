@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
@@ -121,6 +122,24 @@ public class StyleHelper {
 
                     etBody.setText(ss);
                     etBody.setSelection(end, end);
+
+                    return true;
+                }
+
+                case R.id.menu_clear: {
+                    boolean selected = (start != end);
+                    if (start == end) {
+                        start = 0;
+                        end = etBody.length();
+                    }
+
+                    for (Object span : ss.getSpans(start, end, Object.class))
+                        if (!(span instanceof ImageSpan))
+                            ss.removeSpan(span);
+
+                    etBody.setText(ss);
+                    if (selected)
+                        etBody.setSelection(start, end);
 
                     return true;
                 }

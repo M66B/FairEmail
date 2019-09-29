@@ -947,7 +947,7 @@ public class FragmentCompose extends FragmentBase {
                 onMenuCompact();
                 return true;
             case R.id.menu_clear:
-                onMenuClear();
+                StyleHelper.apply(R.id.menu_clear, etBody);
                 return true;
             case R.id.menu_contact_group:
                 onMenuContactGroup();
@@ -1012,38 +1012,6 @@ public class FragmentCompose extends FragmentBase {
         ViewGroup.LayoutParams params = bottom_navigation.getLayoutParams();
         params.height = Helper.dp2pixels(view.getContext(), compact ? 36 : 56);
         bottom_navigation.setLayoutParams(params);
-    }
-
-    private void onMenuClear() {
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-
-        if (start < 0)
-            start = 0;
-        if (end < 0)
-            end = 0;
-
-        if (start > end) {
-            int tmp = start;
-            start = end;
-            end = tmp;
-        }
-
-        boolean selected = (start != end);
-        if (start == end) {
-            start = 0;
-            end = etBody.length();
-        }
-
-        SpannableString ss = new SpannableString(etBody.getText());
-
-        for (Object span : ss.getSpans(start, end, Object.class))
-            if (!(span instanceof ImageSpan))
-                ss.removeSpan(span);
-
-        etBody.setText(ss);
-        if (selected)
-            etBody.setSelection(start, end);
     }
 
     private void onMenuContactGroup() {
