@@ -237,6 +237,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subject_italic", checked).apply();
+                WidgetUnified.update(getContext());
             }
         });
 
