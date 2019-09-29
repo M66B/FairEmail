@@ -395,6 +395,9 @@ class Core {
                                     db.message().setMessageError(m.id, Helper.formatThrowable(ex));
                             }
 
+                            if (similar.size() > 0 && !(ex instanceof IllegalArgumentException))
+                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+
                             db.setTransactionSuccessful();
                         } finally {
                             db.endTransaction();
