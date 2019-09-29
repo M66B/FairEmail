@@ -75,6 +75,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swLight;
     private Button btnSound;
     private SwitchCompat swAlertOnce;
+    private TextView tvNoGrouping;
+    private TextView tvNoChannels;
 
     private Group grpNotification;
 
@@ -117,6 +119,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
         swAlertOnce = view.findViewById(R.id.swAlertOnce);
+        tvNoGrouping = view.findViewById(R.id.tvNoGrouping);
+        tvNoChannels = view.findViewById(R.id.tvNoChannels);
 
         grpNotification = view.findViewById(R.id.grpNotification);
 
@@ -294,6 +298,12 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         swAlertOnce.setVisibility(Log.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         grpNotification.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+
+        // https://developer.android.com/training/notify-user/group
+        tvNoGrouping.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
+
+        // https://developer.android.com/training/notify-user/channels
+        tvNoChannels.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 

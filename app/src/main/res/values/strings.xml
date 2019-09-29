@@ -304,6 +304,8 @@
     <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
     <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name \'Notifications\' to set the default notification sound, etc</string>
+    <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
+    <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
 
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>

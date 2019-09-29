@@ -303,6 +303,32 @@
             app:layout_constraintTop_toBottomOf="@id/btnSound"
             app:switchPadding="12dp" />
 
+        <TextView
+            android:id="@+id/tvNoGrouping"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_no_grouping"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swAlertOnce" />
+
+        <TextView
+            android:id="@+id/tvNoChannels"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_no_channels"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoGrouping" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpNotification"
             android:layout_width="0dp"
