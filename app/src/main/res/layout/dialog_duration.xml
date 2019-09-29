@@ -53,6 +53,7 @@
             android:layout_height="wrap_content"
             android:timePickerMode="spinner"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="180dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn1hour" />
 
@@ -63,6 +64,7 @@
             android:calendarViewShown="false"
             android:datePickerMode="spinner"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_max="180dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/timePicker" />
     </androidx.constraintlayout.widget.ConstraintLayout>
