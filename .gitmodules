@@ -1,3 +1,6 @@
 [submodule "colorpicker"]
 	path = colorpicker
 	url = https://github.com/M66B/colorpicker.git
+[submodule "qcolorpicker"]
+	path = qcolorpicker
+	url = https://github.com/QuadFlask/colorpicker.git

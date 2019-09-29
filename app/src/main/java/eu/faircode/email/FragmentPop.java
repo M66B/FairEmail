@@ -23,7 +23,6 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,7 +37,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -69,9 +67,7 @@ public class FragmentPop extends FragmentBase {
     private TextInputLayout tilPassword;
 
     private EditText etName;
-    private Button btnColor;
-    private View vwColor;
-    private ImageButton ibColorDefault;
+    private ButtonColor btnColor;
     private TextView tvColorPro;
 
     private CheckBox cbSynchronize;
@@ -87,7 +83,6 @@ public class FragmentPop extends FragmentBase {
 
     private long id = -1;
     private boolean saving = false;
-    private int color = Color.TRANSPARENT;
 
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_DELETE = 2;
@@ -120,8 +115,6 @@ public class FragmentPop extends FragmentBase {
 
         etName = view.findViewById(R.id.etName);
         btnColor = view.findViewById(R.id.btnColor);
-        vwColor = view.findViewById(R.id.vwColor);
-        ibColorDefault = view.findViewById(R.id.ibColorDefault);
         tvColorPro = view.findViewById(R.id.tvColorPro);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
@@ -136,21 +129,13 @@ public class FragmentPop extends FragmentBase {
 
         pbWait = view.findViewById(R.id.pbWait);
 
-        setColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentDialogColor fragment = new FragmentDialogColor();
-                fragment.initialize(R.string.title_color, color, new Bundle(), getContext());
+                fragment.initialize(R.string.title_color, btnColor.getColor(), new Bundle(), getContext());
                 fragment.setTargetFragment(FragmentPop.this, REQUEST_COLOR);
                 fragment.show(getFragmentManager(), "account:color");
-            }
-        });
-
-        ibColorDefault.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setColor(Color.TRANSPARENT);
             }
         });
 
@@ -193,7 +178,7 @@ public class FragmentPop extends FragmentBase {
         args.putString("password", tilPassword.getEditText().getText().toString());
 
         args.putString("name", etName.getText().toString());
-        args.putInt("color", color);
+        args.putInt("color", btnColor.getColor());
 
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
@@ -428,7 +413,6 @@ public class FragmentPop extends FragmentBase {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
-        outState.putInt("fair:color", color);
         super.onSaveInstanceState(outState);
     }
 
@@ -461,13 +445,12 @@ public class FragmentPop extends FragmentBase {
                     tilPassword.getEditText().setText(account == null ? null : account.password);
 
                     etName.setText(account == null ? null : account.name);
+                    btnColor.setColor(account == null ? null : account.color);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbPrimary.setChecked(account == null ? false : account.primary);
                     cbLeave.setChecked(account == null ? true : account.browse);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
-
-                    color = (account == null || account.color == null ? Color.TRANSPARENT : account.color);
 
                     new SimpleTask<EntityAccount>() {
                         @Override
@@ -488,10 +471,8 @@ public class FragmentPop extends FragmentBase {
                     }.execute(FragmentPop.this, new Bundle(), "account:primary");
                 } else {
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
-                    color = savedInstanceState.getInt("fair:color");
                 }
 
-                setColor(color);
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 Helper.setViewsEnabled(view, true);
@@ -529,15 +510,6 @@ public class FragmentPop extends FragmentBase {
         }
     }
 
-    private void setColor(int color) {
-        this.color = color;
-
-        GradientDrawable border = new GradientDrawable();
-        border.setColor(color);
-        border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
-        vwColor.setBackground(border);
-    }
-
     private void onMenuDelete() {
         Bundle aargs = new Bundle();
         aargs.putString("question", getString(R.string.title_account_delete));
@@ -558,7 +530,7 @@ public class FragmentPop extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null) {
                         if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
-                            setColor(args.getInt("color"));
+                            btnColor.setColor(args.getInt("color"));
                         } else
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }

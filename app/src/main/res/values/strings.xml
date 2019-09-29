@@ -1022,22 +1022,28 @@
         <item>@color/pink</item>
         <item>@color/purple</item>
         <item>@color/deep_purple</item>
+
         <item>@color/indigo</item>
         <item>@color/blue</item>
         <item>@color/light_blue</item>
         <item>@color/cyan</item>
+
         <item>@color/teal</item>
         <item>@color/green</item>
         <item>@color/light_green</item>
         <item>@color/lime</item>
+
         <item>@color/yellow</item>
         <item>@color/amber</item>
         <item>@color/orange</item>
         <item>@color/deep_orange</item>
+
         <item>@color/brown</item>
         <item>@color/blue_grey</item>
         <item>@color/grey</item>
         <item>@color/dark_grey</item>
+
+        <item>@android:color/transparent</item>
     </array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

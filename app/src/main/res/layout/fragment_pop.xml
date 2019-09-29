@@ -194,11 +194,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <Button
+        <eu.faircode.email.ButtonColor
             android:id="@+id/btnColor"
             style="@style/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:tag="disable"
@@ -206,32 +207,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvColor" />
 
-        <View
-            android:id="@+id/vwColor"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="12dp"
-            android:background="?attr/colorAccent"
-            app:layout_constraintBottom_toBottomOf="@id/btnColor"
-            app:layout_constraintStart_toEndOf="@id/btnColor"
-            app:layout_constraintTop_toTopOf="@id/btnColor" />
-
-        <ImageButton
-            android:id="@+id/ibColorDefault"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/title_legend_default_color"
-            app:layout_constraintBottom_toBottomOf="@id/btnColor"
-            app:layout_constraintStart_toEndOf="@id/vwColor"
-            app:layout_constraintTop_toTopOf="@id/btnColor"
-            app:srcCompat="@drawable/baseline_delete_24" />
-
         <TextView
             android:id="@+id/tvColorHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:text="@string/title_identity_color_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textStyle="italic"

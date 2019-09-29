@@ -25,7 +25,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -47,7 +46,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -84,9 +82,7 @@ public class FragmentIdentity extends FragmentBase {
     private Spinner spAccount;
 
     private EditText etDisplay;
-    private Button btnColor;
-    private View vwColor;
-    private ImageButton ibColorDefault;
+    private ButtonColor btnColor;
     private TextView tvColorPro;
     private EditText etSignature;
     private Button btnHtml;
@@ -133,7 +129,6 @@ public class FragmentIdentity extends FragmentBase {
     private long copy = -1;
     private int auth = MailService.AUTH_TYPE_PASSWORD;
     private boolean saving = false;
-    private int color = Color.TRANSPARENT;
 
     private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_SAVE = 2;
@@ -167,8 +162,6 @@ public class FragmentIdentity extends FragmentBase {
         spAccount = view.findViewById(R.id.spAccount);
         etDisplay = view.findViewById(R.id.etDisplay);
         btnColor = view.findViewById(R.id.btnColor);
-        vwColor = view.findViewById(R.id.vwColor);
-        ibColorDefault = view.findViewById(R.id.ibColorDefault);
         tvColorPro = view.findViewById(R.id.tvColorPro);
         etSignature = view.findViewById(R.id.etSignature);
         btnHtml = view.findViewById(R.id.btnHtml);
@@ -290,21 +283,13 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
-        setColor(color);
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentDialogColor fragment = new FragmentDialogColor();
-                fragment.initialize(R.string.title_flag_color, color, new Bundle(), getContext());
+                fragment.initialize(R.string.title_flag_color, btnColor.getColor(), new Bundle(), getContext());
                 fragment.setTargetFragment(FragmentIdentity.this, REQUEST_COLOR);
                 fragment.show(getFragmentManager(), "identity:color");
-            }
-        });
-
-        ibColorDefault.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setColor(Color.TRANSPARENT);
             }
         });
 
@@ -516,6 +501,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("name", name);
         args.putString("email", etEmail.getText().toString().trim());
         args.putString("display", etDisplay.getText().toString());
+        args.putInt("color", btnColor.getColor());
         args.putBoolean("sender_extra", cbSenderExtra.isChecked());
         args.putString("sender_extra_regex", etSenderExtra.getText().toString());
         args.putString("replyto", etReplyTo.getText().toString().trim());
@@ -533,7 +519,6 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putString("realm", etRealm.getText().toString());
         args.putBoolean("use_ip", cbUseIp.isChecked());
-        args.putInt("color", color);
         args.putString("signature", (String) etSignature.getTag());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
@@ -858,7 +843,6 @@ public class FragmentIdentity extends FragmentBase {
         outState.putString("fair:password", tilPassword.getEditText().getText().toString());
         outState.putInt("fair:advanced", grpAdvanced.getVisibility());
         outState.putInt("fair:auth", auth);
-        outState.putInt("fair:color", color);
         outState.putString("fair:html", (String) etSignature.getTag());
         super.onSaveInstanceState(outState);
     }
@@ -884,6 +868,7 @@ public class FragmentIdentity extends FragmentBase {
                     etEmail.setText(identity == null ? null : identity.email);
 
                     etDisplay.setText(identity == null ? null : identity.display);
+                    btnColor.setColor(identity == null ? null : identity.color);
 
                     String signature = (identity == null ? null : identity.signature);
                     etSignature.setText(TextUtils.isEmpty(signature) ? null : HtmlHelper.fromHtml(signature));
@@ -909,7 +894,6 @@ public class FragmentIdentity extends FragmentBase {
                     cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
 
                     auth = (identity == null ? MailService.AUTH_TYPE_PASSWORD : identity.auth_type);
-                    color = (identity == null || identity.color == null ? Color.TRANSPARENT : identity.color);
 
                     if (identity == null || copy > 0)
                         new SimpleTask<Integer>() {
@@ -932,7 +916,6 @@ public class FragmentIdentity extends FragmentBase {
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                     grpAdvanced.setVisibility(savedInstanceState.getInt("fair:advanced"));
                     auth = savedInstanceState.getInt("fair:auth");
-                    color = savedInstanceState.getInt("fair:color");
                     etSignature.setTag(savedInstanceState.getString("fair:html"));
                 }
 
@@ -942,8 +925,6 @@ public class FragmentIdentity extends FragmentBase {
                     etUser.setEnabled(false);
                     tilPassword.setEnabled(false);
                 }
-
-                setColor(color);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
 
@@ -1073,7 +1054,7 @@ public class FragmentIdentity extends FragmentBase {
                     if (resultCode == RESULT_OK && data != null) {
                         if (ActivityBilling.isPro(getContext())) {
                             Bundle args = data.getBundleExtra("args");
-                            setColor(args.getInt("color"));
+                            btnColor.setColor(args.getInt("color"));
                         } else
                             startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
@@ -1102,15 +1083,6 @@ public class FragmentIdentity extends FragmentBase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
-    }
-
-    private void setColor(int color) {
-        this.color = color;
-
-        GradientDrawable border = new GradientDrawable();
-        border.setColor(color);
-        border.setStroke(1, Helper.resolveColor(getContext(), R.attr.colorSeparator));
-        vwColor.setBackground(border);
     }
 
     private void onDelete() {
