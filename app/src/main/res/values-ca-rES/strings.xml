@@ -229,9 +229,9 @@
     <string name="title_advanced_actionbar">Mostra la barra d’acció de conversa</string>
     <string name="title_advanced_pull_refresh">Arrossegueu avall per actualitzar</string>
     <string name="title_advanced_autoscroll">Desplaceu-vos cap amunt per rebre nous missatges</string>
+    <string name="title_advanced_double_tap">Toca dues vegades per marcar el missatge llegit/sense llegir</string>
     <string name="title_advanced_swipenav">Llisca cap a l\'esquerra/dreta per anar a la conversa següent/anterior</string>
     <string name="title_advanced_reversed">Capgirar el sentit de navegació</string>
-    <string name="title_advanced_double_tap">Toca dues vegades per marcar el missatge llegit/sense llegir</string>
     <string name="title_advanced_autoexpand">Ampliar automàticament els missatges</string>
     <string name="title_advanced_expand_one">Expandir només un missatge alhora</string>
     <string name="title_advanced_collapse">Contraure missatges a les converses a la \"part posterior\"</string>

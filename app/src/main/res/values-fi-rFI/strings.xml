@@ -75,6 +75,7 @@
     <string name="menu_contacts">Paikalliset yhteystiedot</string>
     <string name="menu_setup">Asetukset</string>
     <string name="menu_legend">Selite</string>
+    <string name="menu_test">Testaa ohjelmaa</string>
     <string name="menu_faq">Tuki</string>
     <string name="menu_issue">Ilmoita ongelmasta</string>
     <string name="menu_attribution">Käytettävät teknologiat</string>
@@ -107,6 +108,7 @@
     <string name="title_setup_quick_smtp">SMTP-palvelin viestien lähettämiseen</string>
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_wizard">Asetusvelho</string>
+    <string name="title_setup_wizard_remark">Mene \'takaisin\' palataksesi saapuneet-kansioon</string>
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_support">Google-tilien vahvistaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet, että tili voidaan valita ja nimesi voidaan lukea</string>
@@ -229,15 +231,16 @@
     <string name="title_advanced_actionbar">Näytä keskustelun toimintopalkki</string>
     <string name="title_advanced_pull_refresh">Vedä alas päivittääksesi</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
+    <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
-    <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
     <string name="title_advanced_collapse">Tiivistä viestit keskusteluissa takaisin-painikkeella</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>
+    <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
     <string name="title_advanced_discard_delete">Luonnosta hylättäessä poista se pysyvästi</string>
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
@@ -261,6 +264,8 @@
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
     <string name="title_advanced_notify_manage_hint">Näpäytä kanavan nimeä \'Ilmoitukset\' asettaaksesi oletusilmoitusäänen yms.</string>
+    <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
+    <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
@@ -373,6 +378,7 @@
     <string name="title_delete_local">Poista paikalliset viestit</string>
     <string name="title_delete_browsed">Poista selatut/haetut viestit</string>
     <string name="title_empty_trash">Tyhjennä roskakori</string>
+    <string name="title_empty_spam">Poista roskapostit</string>
     <string name="title_edit_properties">Muokkaa ominaisuuksia</string>
     <string name="title_edit_rules">Muokkaa sääntöjä</string>
     <string name="title_create_channel">Luo ilmoituskanava</string>
@@ -380,6 +386,7 @@
     <string name="title_delete_channel">Poista ilmoituskanava</string>
     <string name="title_create_sub_folder">Luo alikansio</string>
     <string name="title_empty_trash_ask">Tyhjennetäänkö roskakori pysyvästi?</string>
+    <string name="title_empty_spam_ask">Siirrä kaikki roskapostit roskakoriin?</string>
     <string name="title_delete_operation">Poistetaanko toimenpiteet, joille on virheilmoitus?</string>
     <string name="title_delete_contacts">Poistetaanko kaikki paikalliset yhteystiedot?</string>
     <string name="title_no_operations">Ei odottavia toimenpiteitä</string>

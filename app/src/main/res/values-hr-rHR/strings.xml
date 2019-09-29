@@ -236,9 +236,9 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_actionbar">Prikaži traku s akcijama razgovora</string>
     <string name="title_advanced_pull_refresh">Povucite prema dolje za osvježavanje</string>
     <string name="title_advanced_autoscroll">Pomakniti se na vrh po prijemu novih poruka</string>
+    <string name="title_advanced_double_tap">Dvaput dodirnite da biste označili poruku pročitanu / nepročitanu</string>
     <string name="title_advanced_swipenav">Prijeđite prstom ulijevo / udesno da biste prešli na sljedeći / prethodni razgovor</string>
     <string name="title_advanced_reversed">Obrnuti smjer navigacije</string>
-    <string name="title_advanced_double_tap">Dvaput dodirnite da biste označili poruku pročitanu / nepročitanu</string>
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
     <string name="title_advanced_expand_one">Proširiti samo jednu poruku istodobno</string>
     <string name="title_advanced_collapse">Sažmi poruke u razgovorima na \"natrag\"</string>

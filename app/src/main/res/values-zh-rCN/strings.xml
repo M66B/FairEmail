@@ -218,9 +218,9 @@
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
+    <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
     <string name="title_advanced_reversed">翻转导航方向</string>
-    <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
     <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
@@ -363,6 +363,7 @@
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
     <string name="title_empty_trash">清空垃圾箱</string>
+    <string name="title_empty_spam">清空垃圾邮件</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
     <string name="title_create_channel">创建通知通道</string>
@@ -370,6 +371,7 @@
     <string name="title_delete_channel">删除通知通道</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
     <string name="title_empty_trash_ask">是否永久删除所有垃圾邮件？</string>
+    <string name="title_empty_spam_ask">将所有垃圾邮件移动到垃圾箱文件夹吗？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>

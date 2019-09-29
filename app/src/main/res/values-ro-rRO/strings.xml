@@ -240,9 +240,9 @@
     <string name="title_advanced_actionbar">Arată bara de acțiuni pentru conversație</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
+    <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_reversed">Inversează direcția de navigare</string>
-    <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
     <string name="title_advanced_collapse">Pliază mesajele din discuție când se apasă \'înapoi\'</string>

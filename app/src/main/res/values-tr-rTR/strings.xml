@@ -75,6 +75,7 @@
     <string name="menu_contacts">Yerel rehber</string>
     <string name="menu_setup">Ayarlar</string>
     <string name="menu_legend">Simgelerin anlamları</string>
+    <string name="menu_test">Test programı</string>
     <string name="menu_faq">Destek</string>
     <string name="menu_issue">Sorun bildir</string>
     <string name="menu_attribution">Öznitelik</string>
@@ -107,6 +108,7 @@
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
     <string name="title_setup_go">Git</string>
     <string name="title_setup_wizard">Yardımcı</string>
+    <string name="title_setup_wizard_remark">Gelen kutusuna gitmek için \'geri\' gidin</string>
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek sadece resmi versiyonlarda çalışacaktır çünkü Android uygulama imzasını kontrol etmektedir</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
@@ -229,9 +231,9 @@
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
+    <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
     <string name="title_advanced_reversed">Gezinti yönünü tersine çevir</string>
-    <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_expand_one">Bir kerede yalnızca bir mesaj genişlet</string>
     <string name="title_advanced_collapse">Konuşmalardaki mesajları \'geri\' seçeneğinde daralt</string>
@@ -262,6 +264,8 @@
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
     <string name="title_advanced_notify_manage_hint">Öntanımlı bildirim sesi vs. ayarlamak için \'Bildirimler\' yazan yere dokunun</string>
+    <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>
+    <string name="title_advanced_notify_no_channels">Bu Android versiyonu bildirim kanallarını desteklememektedir</string>
     <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
@@ -374,6 +378,7 @@
     <string name="title_delete_local">Yerel iletileri sil</string>
     <string name="title_delete_browsed">Gözatılmış/aranmış iletileri sil</string>
     <string name="title_empty_trash">Çöpü boşalt</string>
+    <string name="title_empty_spam">Spam kutusunu boşalt</string>
     <string name="title_edit_properties">Özellikleri düzenle</string>
     <string name="title_edit_rules">Kuralları düzenle</string>
     <string name="title_create_channel">Bildirim kanalı oluştur</string>
@@ -381,6 +386,7 @@
     <string name="title_delete_channel">Bildirim kanalını sil</string>
     <string name="title_create_sub_folder">Alt dizin oluştur</string>
     <string name="title_empty_trash_ask">Çöpe atılmış tüm iletiler kalıcı olarak silinsin mi?</string>
+    <string name="title_empty_spam_ask">Tüm spamları çöp kutusu klasörüne taşı?</string>
     <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
     <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>

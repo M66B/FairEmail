@@ -97,6 +97,7 @@
     <string name="menu_contacts">Локальные контакты</string>
     <string name="menu_setup">Настройки</string>
     <string name="menu_legend">Легенда</string>
+    <string name="menu_test">Тестовая программа</string>
     <string name="menu_faq">Поддержка</string>
     <string name="menu_issue">Сообщить о проблеме</string>
     <string name="menu_attribution">Авторство</string>
@@ -252,9 +253,9 @@
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
+    <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>
     <string name="title_advanced_reversed">Обратное направление навигации</string>
-    <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_expand_one">Разворачивать только одно сообщение за раз</string>
     <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \"Назад\"</string>
@@ -285,6 +286,8 @@
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала \"Уведомления\" для установки звука уведомлений по умолчанию и т.д.</string>
+    <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
+    <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
     <string name="title_advanced_double_back">Двойное \"Назад\" для выхода</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
@@ -397,6 +400,7 @@
     <string name="title_delete_local">Удалить локальные сообщения</string>
     <string name="title_delete_browsed">Удалить просмотренные/найденные сообщения</string>
     <string name="title_empty_trash">Очистить корзину</string>
+    <string name="title_empty_spam">Очистить \"Спам\"</string>
     <string name="title_edit_properties">Изменить свойства</string>
     <string name="title_edit_rules">Редактировать правила</string>
     <string name="title_create_channel">Создать канал уведомлений</string>
@@ -404,6 +408,7 @@
     <string name="title_delete_channel">Удалить канал уведомлений</string>
     <string name="title_create_sub_folder">Создать вложенную папку</string>
     <string name="title_empty_trash_ask">Удалить все сообщения в корзине навсегда?</string>
+    <string name="title_empty_spam_ask">Переместить весь спам в \"Корзину\"?</string>
     <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
     <string name="title_no_operations">Нет операций в очереди</string>

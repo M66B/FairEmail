@@ -75,6 +75,7 @@
     <string name="menu_contacts">Lokale kontakter</string>
     <string name="menu_setup">Innstillinger</string>
     <string name="menu_legend">Forklaring</string>
+    <string name="menu_test">Testprogram</string>
     <string name="menu_faq">Støtte</string>
     <string name="menu_issue">Rapporter en feil</string>
     <string name="menu_attribution">Attributter</string>
@@ -230,9 +231,9 @@
     <string name="title_advanced_actionbar">Vis samtale handlingslinje</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
+    <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
     <string name="title_advanced_reversed">Omvendt navigasjonsretning</string>
-    <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_expand_one">Utvid bare en melding om gangen</string>
     <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
@@ -263,6 +264,8 @@
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_notify_remove_hint">Varsler om nye meldinger vil alltid bli fjernet når de blir sveipet og når merking av meldinger er lest</string>
     <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet \'Varsler\' for å angi standard varslings lyd, osv</string>
+    <string name="title_advanced_notify_no_grouping">Denne Android versjonen støtter ikke varslingsgruppering</string>
+    <string name="title_advanced_notify_no_channels">Denne Android versjonen støtter ikke varslingskanaler</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
@@ -375,6 +378,7 @@
     <string name="title_delete_local">Slett lokale meldinger</string>
     <string name="title_delete_browsed">Slett bladde/søkte meldinger</string>
     <string name="title_empty_trash">Tøm papirkurven</string>
+    <string name="title_empty_spam">Tøm søppelpost</string>
     <string name="title_edit_properties">Redigere egenskaper</string>
     <string name="title_edit_rules">Redigere regler</string>
     <string name="title_create_channel">Opprett varselkanal</string>
@@ -382,6 +386,7 @@
     <string name="title_delete_channel">Slett varselkanal</string>
     <string name="title_create_sub_folder">Lag undermappe</string>
     <string name="title_empty_trash_ask">Slett alle slettede meldinger permanent?</string>
+    <string name="title_empty_spam_ask">Vil du flytte all spam til søppelmappen?</string>
     <string name="title_delete_operation">Slett operasjoner med en feilmelding?</string>
     <string name="title_delete_contacts">Slette alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen ventende operasjoner</string>

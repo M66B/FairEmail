@@ -75,6 +75,7 @@
     <string name="menu_contacts">Lokale Kontakte</string>
     <string name="menu_setup">Einstellungen</string>
     <string name="menu_legend">Legende</string>
+    <string name="menu_test">Test-Programm</string>
     <string name="menu_faq">Unterstützung</string>
     <string name="menu_issue">Problem melden</string>
     <string name="menu_attribution">Danksagung</string>
@@ -229,9 +230,9 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen anzeigen</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Nach oben scrollen, wenn Sie neue Nachrichten erhalten</string>
+    <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
     <string name="title_advanced_swipenav">Wische nach links/rechts, um zum nächsten/vorherigen Gespräch zu gehen</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
-    <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Nur eine Nachricht zu jeder Zeit erweitern</string>
     <string name="title_advanced_collapse">\'Zurück\' klappt die Konversationsansicht zusammen</string>
@@ -262,6 +263,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_remove_hint">Neue Nachrichten-Benachrichtigungen werden immer entfernt, wenn sie weggewischt werden oder Nachrichten gelesen werden</string>
     <string name="title_advanced_notify_manage_hint">„Benachrichtigungen” antippen, um den Standard-Benachrichtigungston usw. einzustellen</string>
+    <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine gruppierten Benachrichtigungen</string>
+    <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
     <string name="title_advanced_double_back">Doppelt „Zurück” drücken zum Beenden</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
@@ -381,6 +384,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_delete_channel">Benachrichtigungskanal löschen</string>
     <string name="title_create_sub_folder">Unterordner erstellen</string>
     <string name="title_empty_trash_ask">Alle E-Mails im Papierkorb unwiderruflich löschen?</string>
+    <string name="title_empty_spam_ask">Alle Spam in den Papierkorb verschieben?</string>
     <string name="title_delete_operation">Lösche Operationen mit einer Fehlermeldung?</string>
     <string name="title_delete_contacts">Alle lokale Kontakte löschen?</string>
     <string name="title_no_operations">Keine weiteren Vorgänge</string>

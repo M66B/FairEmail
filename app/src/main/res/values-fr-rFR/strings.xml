@@ -75,6 +75,7 @@
     <string name="menu_contacts">Contacts locaux</string>
     <string name="menu_setup">Configuration</string>
     <string name="menu_legend">Légende</string>
+    <string name="menu_test">Programme de test</string>
     <string name="menu_faq">Support</string>
     <string name="menu_issue">Signaler un problème</string>
     <string name="menu_attribution">Attribution</string>
@@ -230,9 +231,9 @@
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
+    <string name="title_advanced_double_tap">Appuyez deux fois pour marquer le message lu/non lu</string>
     <string name="title_advanced_swipenav">Balayez vers la gauche/droite pour passer à la conversation suivante/précédente</string>
     <string name="title_advanced_reversed">Inverser les directions de navigation</string>
-    <string name="title_advanced_double_tap">Appuyez deux fois pour marquer le message lu/non lu</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_expand_one">Développer un seul message à la fois</string>
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
@@ -263,6 +264,8 @@
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et lors du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyez sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
+    <string name="title_advanced_notify_no_grouping">Cette version Android ne supporte pas le regroupement de notifications</string>
+    <string name="title_advanced_notify_no_channels">Cette version Android ne supporte pas les chaînes de notification</string>
     <string name="title_advanced_double_back">Faire \"Retour\" deux fois pour quitter</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
@@ -375,6 +378,7 @@
     <string name="title_delete_local">Supprimer les messages locaux</string>
     <string name="title_delete_browsed">Supprimer les messages consultés/recherchés</string>
     <string name="title_empty_trash">Vider la corbeille</string>
+    <string name="title_empty_spam">Vider le dossier de spam</string>
     <string name="title_edit_properties">Éditer les propriétés</string>
     <string name="title_edit_rules">Modifier les règles</string>
     <string name="title_create_channel">Créer un canal de notification</string>
@@ -382,6 +386,7 @@
     <string name="title_delete_channel">Supprimer un canal de notification</string>
     <string name="title_create_sub_folder">Créer un sous-dossier</string>
     <string name="title_empty_trash_ask">Supprimer définitivement tous les messages de la corbeille ?</string>
+    <string name="title_empty_spam_ask">Déplacer tous les pourriels dans le dossier de corbeille ?</string>
     <string name="title_delete_operation">Supprimer les opérations avec un message d\'erreur ?</string>
     <string name="title_delete_contacts">Supprimer tous les contacts locaux ?</string>
     <string name="title_no_operations">Aucune opération en attente</string>

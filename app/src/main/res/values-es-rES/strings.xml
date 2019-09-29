@@ -75,6 +75,7 @@
     <string name="menu_contacts">Contactos locales</string>
     <string name="menu_setup">Ajustes</string>
     <string name="menu_legend">Leyenda</string>
+    <string name="menu_test">Probar programa</string>
     <string name="menu_faq">Soporte</string>
     <string name="menu_issue">Reportar problema</string>
     <string name="menu_attribution">Atribución</string>
@@ -107,6 +108,7 @@
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
     <string name="title_setup_go">Comenzar</string>
     <string name="title_setup_wizard">Asistente</string>
+    <string name="title_setup_wizard_remark">Ir \'atrás\' para ir a la bandeja de entrada</string>
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_gmail_support">La autorización de cuentas de Google sólo funcionará en versiones oficiales ya que Android comprueba la firma de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
@@ -229,9 +231,9 @@
     <string name="title_advanced_actionbar">Mostrar barra de acción de conversación</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
+    <string name="title_advanced_double_tap">Doble toque para marcar mensaje leído/no leído</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
     <string name="title_advanced_reversed">Invertir la dirección de navegación</string>
-    <string name="title_advanced_double_tap">Doble toque para marcar mensaje leído/no leído</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
     <string name="title_advanced_collapse">Contraer mensajes en conversaciones al ir \'atrás\'</string>
@@ -262,6 +264,8 @@
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
     <string name="title_advanced_notify_manage_hint">Pulse el nombre del canal \"Notificaciones\" para establecer el sonido de notificación por defecto, etc</string>
+    <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
+    <string name="title_advanced_notify_no_channels">Esta versión de Android no es compatible con canales de notificación</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
@@ -374,6 +378,7 @@
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
     <string name="title_empty_trash">Vaciar papelera</string>
+    <string name="title_empty_spam">Vaciar spam</string>
     <string name="title_edit_properties">Editar propiedades</string>
     <string name="title_edit_rules">Editar reglas</string>
     <string name="title_create_channel">Crear canal de notificación</string>
@@ -381,6 +386,7 @@
     <string name="title_delete_channel">Eliminar canal de notificación</string>
     <string name="title_create_sub_folder">Crear subcarpeta</string>
     <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
+    <string name="title_empty_spam_ask">¿Mover todo el spam a la papelera?</string>
     <string name="title_delete_operation">¿Eliminar operaciones con un mensaje de error?</string>
     <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>

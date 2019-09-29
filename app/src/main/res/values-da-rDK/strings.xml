@@ -106,6 +106,7 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_wizard_remark">Returnér til indbakken</string>
     <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i officielle versioner, da Android tjekker app-signaturen</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
@@ -228,9 +229,9 @@
     <string name="title_advanced_actionbar">Vis samtale-handlingsbjælke</string>
     <string name="title_advanced_pull_refresh">Træk ned for at opfriske</string>
     <string name="title_advanced_autoscroll">Rul til toppen, når ny besked modtages</string>
+    <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
     <string name="title_advanced_reversed">Omvendt navigeringsretning</string>
-    <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
     <string name="title_advanced_collapse">Sammenfold beskeder i samtaler ved tryk på Tilbage</string>

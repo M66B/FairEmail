@@ -97,6 +97,7 @@
     <string name="menu_contacts">Místní kontakty</string>
     <string name="menu_setup">Nastavení</string>
     <string name="menu_legend">Legenda</string>
+    <string name="menu_test">Testovací program</string>
     <string name="menu_faq">Podpora</string>
     <string name="menu_issue">Nahlásit problém</string>
     <string name="menu_attribution">Zásluhy</string>
@@ -129,6 +130,7 @@
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_wizard">Průvodce</string>
+    <string name="title_setup_wizard_remark">Jděte \"zpět\" pro přejítí do doručených</string>
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
@@ -251,9 +253,9 @@
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
+    <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_swipenav">Tažením doleva/doprava přejít na předešlou/následující konverzaci</string>
     <string name="title_advanced_reversed">Obrátit směr navigace</string>
-    <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>
     <string name="title_advanced_collapse">Sbalit zprávy v konverzacích při pohybu zpět</string>
@@ -284,6 +286,8 @@
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
     <string name="title_advanced_notify_manage_hint">Stiskněte název kanálu \"Oznámení\" pro nastavení výchozího zvuku oznámení, atd</string>
+    <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
+    <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
@@ -396,6 +400,7 @@
     <string name="title_delete_local">Smazat místní zprávy</string>
     <string name="title_delete_browsed">Smazat prohlédnuté/vyhledané zprávy</string>
     <string name="title_empty_trash">Vysypat koš</string>
+    <string name="title_empty_spam">Vyprázdnit nevyžádané</string>
     <string name="title_edit_properties">Upravit vlastnosti</string>
     <string name="title_edit_rules">Upravit pravidla</string>
     <string name="title_create_channel">Vytvořit kanál oznámení</string>
@@ -403,6 +408,7 @@
     <string name="title_delete_channel">Smazat kanál oznámení</string>
     <string name="title_create_sub_folder">Vytvořit podsložku</string>
     <string name="title_empty_trash_ask">Trvale odstranit všechny zprávy v koši?</string>
+    <string name="title_empty_spam_ask">Přesunout všechny nevyžádané do koše?</string>
     <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
     <string name="title_delete_contacts">Smazat všechny místní kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>

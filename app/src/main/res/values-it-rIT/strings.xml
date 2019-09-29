@@ -75,6 +75,7 @@
     <string name="menu_contacts">Contatti locali</string>
     <string name="menu_setup">Impostazioni</string>
     <string name="menu_legend">Legenda</string>
+    <string name="menu_test">Programma di test</string>
     <string name="menu_faq">Supporto</string>
     <string name="menu_issue">Segnala problema</string>
     <string name="menu_attribution">Attribuzione</string>
@@ -229,9 +230,9 @@
     <string name="title_advanced_actionbar">Mostra barra azione conversazione</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
+    <string name="title_advanced_double_tap">Doppio tocco per segnare il messaggio letto/non letto</string>
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
     <string name="title_advanced_reversed">Inverti direzione di navigazione</string>
-    <string name="title_advanced_double_tap">Doppio tocco per segnare il messaggio letto/non letto</string>
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_expand_one">Espandi solo un messaggio alla volta</string>
     <string name="title_advanced_collapse">Raggruppa i messaggi in conversazioni premendo \'indietro\'</string>
@@ -262,6 +263,8 @@
     <string name="title_advanced_notify_action_hint">Verranno mostrate al massimo tre azioni</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche di nuovo messaggio verranno sempre rimosse quando vengono eliminate via scorrimento e quando i messaggi vengono contrassegnati come letti</string>
     <string name="title_advanced_notify_manage_hint">Tocca il nome del canale \'Notifiche\' per impostare il suono di notifica predefinito, ecc</string>
+    <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
+    <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
@@ -374,6 +377,7 @@
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_delete_browsed">Elimina i messaggi sfogliati/ricercati</string>
     <string name="title_empty_trash">Svuota cestino</string>
+    <string name="title_empty_spam">Svuota spam</string>
     <string name="title_edit_properties">Modifica le proprietà</string>
     <string name="title_edit_rules">Modifica regole</string>
     <string name="title_create_channel">Crea un canale di notifica</string>
@@ -381,6 +385,7 @@
     <string name="title_delete_channel">Elimina canale di notifica</string>
     <string name="title_create_sub_folder">Crea sottocartella</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
+    <string name="title_empty_spam_ask">Spostare tutti gli spam nella cartella cestino?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>

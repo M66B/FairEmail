@@ -224,9 +224,9 @@
     <string name="title_advanced_actionbar">Mostrar barra de ação de conversa</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Role para cima ao receber novas mensagens</string>
+    <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
     <string name="title_advanced_swipenav">Deslize para a esquerda/direita para ir para próxima/anterior conversa</string>
     <string name="title_advanced_reversed">Reverter a direção de navegação</string>
-    <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem por vez</string>
     <string name="title_advanced_collapse">Recolher mensagens em conversas ao \'voltar\'</string>

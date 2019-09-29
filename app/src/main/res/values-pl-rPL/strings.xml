@@ -251,9 +251,9 @@
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_pull_refresh">Pociągnij w dół, aby odświeżyć</string>
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
+    <string name="title_advanced_double_tap">Kliknij podwójnie, aby oznaczyć odczytane/nieodczytane</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
     <string name="title_advanced_reversed">Odwróć kierunek nawigacji</string>
-    <string name="title_advanced_double_tap">Kliknij podwójnie, aby oznaczyć odczytane/nieodczytane</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>
     <string name="title_advanced_collapse">Zwiń wiadomości w konwersacji przy \'cofnij\'</string>

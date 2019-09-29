@@ -75,6 +75,7 @@
     <string name="menu_contacts">Lokale contacten</string>
     <string name="menu_setup">Instellingen</string>
     <string name="menu_legend">Legenda</string>
+    <string name="menu_test">Test programma</string>
     <string name="menu_faq">Ondersteuning</string>
     <string name="menu_issue">Probleem melden</string>
     <string name="menu_attribution">Attributie</string>
@@ -230,9 +231,9 @@
     <string name="title_advanced_actionbar">Toon actiebalk gesprek</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
+    <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
     <string name="title_advanced_reversed">Keer navigatierichting om</string>
-    <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
     <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
     <string name="title_advanced_collapse">Berichten in gesprekken samenvouwen bij \'terug\'</string>
@@ -263,6 +264,8 @@
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de naam van het kanaal \'Meldingen\' om het standaard meldingsgeluid in te stellen, etc</string>
+    <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>
+    <string name="title_advanced_notify_no_channels">Deze Android-versie ondersteunt geen meldingskanalen</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
