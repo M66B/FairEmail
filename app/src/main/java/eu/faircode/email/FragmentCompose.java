@@ -1040,8 +1040,12 @@ public class FragmentCompose extends FragmentBase {
         Log.i("Style action=" + action);
 
         if (action == R.id.menu_color) {
+            Bundle args = new Bundle();
+            args.putInt("color", Color.TRANSPARENT);
+            args.putString("title", getString(R.string.title_style_color));
+
             FragmentDialogColor fragment = new FragmentDialogColor();
-            fragment.initialize(R.string.title_style_color, Color.TRANSPARENT, new Bundle(), getContext());
+            fragment.setArguments(args);
             fragment.setTargetFragment(FragmentCompose.this, REQUEST_COLOR);
             fragment.show(getFragmentManager(), "account:color");
             return true;

@@ -2882,13 +2882,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuColoredStar(final TupleMessageEx message) {
-            int color = (message.color == null ? Color.TRANSPARENT : message.color);
-
             Bundle args = new Bundle();
             args.putLong("id", message.id);
+            args.putInt("color", message.color == null ? Color.TRANSPARENT : message.color);
+            args.putString("title", context.getString(R.string.title_flag_color));
 
             FragmentDialogColor fragment = new FragmentDialogColor();
-            fragment.initialize(R.string.title_flag_color, color, args, context);
+            fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_COLOR);
             fragment.show(parentFragment.getFragmentManager(), "message:color");
         }

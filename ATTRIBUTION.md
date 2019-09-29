@@ -6,7 +6,6 @@ FairEmail uses:
 * [jsoup](https://jsoup.org/). Copyright © 2009 - 2017 Jonathan Hedley. [MIT license](https://jsoup.org/license).
 * [Android Support Library](https://developer.android.com/tools/support-library/). Copyright (C) 2011 The Android Open Source Project. [Apache license 2.0](https://android.googlesource.com/platform/frameworks/support/+/master/LICENSE.txt).
 * [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/). Copyright 2018 The Android Open Source Project, Inc. [Apache license 2.0](https://github.com/googlesamples/android-architecture-components/blob/master/LICENSE).
-* [colorpicker](https://android.googlesource.com/platform/frameworks/opt/colorpicker). Copyright (C) 2013 The Android Open Source Project. [Apache license 2.0](https://android.googlesource.com/platform/frameworks/opt/colorpicker/+/master/src/com/android/colorpicker/ColorPickerDialog.java).
 * [dnsjava](http://www.xbill.org/dnsjava/). Copyright (c) 1998-2011, Brian Wellington. [BSD License](https://sourceforge.net/p/dnsjava/code/HEAD/tree/trunk/LICENSE).
 * [OpenPGP API library](https://github.com/open-keychain/openpgp-api). Copyright (C) 2014-2015 Dominik Schürmann. [Apache License 2.0](https://github.com/open-keychain/openpgp-api/blob/master/LICENSE).
 * [Android SQLite support library](https://github.com/requery/sqlite-android). Copyright (C) 2017 requery.io. [Apache License 2.0](https://github.com/requery/sqlite-android/blob/master/LICENSE).
@@ -18,3 +17,4 @@ FairEmail uses:
 * [PhotoView](https://github.com/chrisbanes/PhotoView). Copyright 2018 Chris Banes. [Apache License 2.0](https://github.com/chrisbanes/PhotoView/blob/master/LICENSE).
 * [ReLinker](https://github.com/KeepSafe/ReLinker). Copyright 2015 - 2016 KeepSafe Software, Inc. [Apache License 2.0](https://github.com/KeepSafe/ReLinker/blob/master/LICENSE).
 * [Markwon](https://github.com/noties/Markwon). Copyright 2019 Dimitry Ivanov. [Apache License 2.0](https://github.com/noties/Markwon/blob/master/LICENSE).
+* [Color Picker](https://github.com/QuadFlask/colorpicker). Copyright 2014-2017 QuadFlask. [Apache License 2.0](https://github.com/QuadFlask/colorpicker#user-content-license).

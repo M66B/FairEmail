@@ -312,6 +312,5 @@ dependencies {
     // https://github.com/noties/Markwon
     implementation "io.noties.markwon:core:$markwon_version"
 
-    // git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
-    implementation project(path: ':colorpicker')
+    implementation project(':qcolorpicker')
 }

@@ -1017,35 +1017,6 @@
         <item>At the end</item>
     </string-array>
 
-    <array name="colorPicker">
-        <item>@color/red</item>
-        <item>@color/pink</item>
-        <item>@color/purple</item>
-        <item>@color/deep_purple</item>
-
-        <item>@color/indigo</item>
-        <item>@color/blue</item>
-        <item>@color/light_blue</item>
-        <item>@color/cyan</item>
-
-        <item>@color/teal</item>
-        <item>@color/green</item>
-        <item>@color/light_green</item>
-        <item>@color/lime</item>
-
-        <item>@color/yellow</item>
-        <item>@color/amber</item>
-        <item>@color/orange</item>
-        <item>@color/deep_orange</item>
-
-        <item>@color/brown</item>
-        <item>@color/blue_grey</item>
-        <item>@color/grey</item>
-        <item>@color/dark_grey</item>
-
-        <item>@android:color/transparent</item>
-    </array>
-
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
     <string name="public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtFbxEbzL8u5accPGgBw/XdyiSS5BBE6ZQ9ELpKyJ/OQN+kdYniCAOw3lsQ/GuJScy4Y2HobqbBgLL8GLHG+Yu2EHC9dLjA3v2Mc25vvnfn86BsrpQvz1poN2n+roTBdq09FWbtebJ8m0hDBVmtfRi7RhTKIL4No3kodLhksdnucKjcFheubebWKgpmvbmw7NwuELhaZmyhw8WTtnQ4rZPMhjY1JJZgzwNExXgD7zzg4pJPkuQlfkuRkkvBpHpi3C7VDnYjrBlLHngI4wv3wxQBVwJqlvAT9PmX8dOVnTsWWdJdLQBZVWphuqVY54kjBIovN+o8w03WjsV9QiOQq+XwIDAQAB</string>
 </resources>

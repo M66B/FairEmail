@@ -19,49 +19,51 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
-import android.content.Intent;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import com.android.colorpicker.ColorPickerDialog;
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentDialogColor extends ColorPickerDialog {
-    private Bundle args;
-
-    public void initialize(int title, int color, Bundle args, Context context) {
-        this.args = args;
-        int[] colors = context.getResources().getIntArray(R.array.colorPicker);
-        super.initialize(title, colors, color, 4, colors.length);
-    }
-
+public class FragmentDialogColor extends FragmentDialogBase {
+    @NonNull
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState != null)
-            this.args = savedInstanceState.getBundle("fair:extra");
-    }
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        int color = getArguments().getInt("color");
+        String title = getArguments().getString("title");
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putBundle("fair:extra", args);
-        super.onSaveInstanceState(outState);
-    }
+        if (color == Color.TRANSPARENT)
+            color = Color.BLUE;
 
-    @Override
-    public void onColorSelected(int color) {
-        Fragment target = getTargetFragment();
-        if (target != null) {
-            args.putInt("color", color);
-
-            Intent data = new Intent();
-            data.putExtra("args", args);
-            target.onActivityResult(getTargetRequestCode(), RESULT_OK, data);
-        }
-
-        dismiss();
+        return ColorPickerDialogBuilder
+                .with(getContext())
+                .setTitle(title)
+                .initialColor(color)
+                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                .density(12)
+                .lightnessSliderOnly()
+                .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                        getArguments().putInt("color", selectedColor);
+                        sendResult(RESULT_OK);
+                    }
+                })
+                .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        getArguments().putInt("color", Color.TRANSPARENT);
+                        sendResult(RESULT_OK);
+                    }
+                })
+                .build();
     }
 }

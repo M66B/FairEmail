@@ -286,8 +286,12 @@ public class FragmentIdentity extends FragmentBase {
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putInt("color", btnColor.getColor());
+                args.putString("title", getString(R.string.title_color));
+
                 FragmentDialogColor fragment = new FragmentDialogColor();
-                fragment.initialize(R.string.title_flag_color, btnColor.getColor(), new Bundle(), getContext());
+                fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentIdentity.this, REQUEST_COLOR);
                 fragment.show(getFragmentManager(), "identity:color");
             }

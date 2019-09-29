@@ -1589,13 +1589,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 private void onMenuColor() {
-                    int color = (message.color == null ? Color.TRANSPARENT : message.color);
-
                     Bundle args = new Bundle();
                     args.putLong("id", message.id);
+                    args.putInt("color", message.color == null ? Color.TRANSPARENT : message.color);
+                    args.putString("title", getString(R.string.title_flag_color));
 
                     FragmentDialogColor fragment = new FragmentDialogColor();
-                    fragment.initialize(R.string.title_flag_color, color, args, getContext());
+                    fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_COLOR);
                     fragment.show(getFragmentManager(), "message:color");
                 }
@@ -1973,8 +1973,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onActionFlagColorSelection() {
+        Bundle args = new Bundle();
+        args.putInt("color", Color.TRANSPARENT);
+        args.putString("title", getString(R.string.title_flag_color));
+
         FragmentDialogColor fragment = new FragmentDialogColor();
-        fragment.initialize(R.string.title_flag_color, Color.TRANSPARENT, new Bundle(), getContext());
+        fragment.setArguments(args);
         fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_COLOR);
         fragment.show(getFragmentManager(), "messages:color");
     }
