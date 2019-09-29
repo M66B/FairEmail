@@ -96,6 +96,7 @@
     <string name="menu_setup">Settings</string>
 
     <string name="menu_legend">Legend</string>
+    <string name="menu_test">Test program</string>
     <string name="menu_faq">Support</string>
     <string name="menu_issue">Report issue</string>
     <string name="menu_attribution">Attribution</string>

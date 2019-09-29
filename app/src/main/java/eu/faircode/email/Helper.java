@@ -124,6 +124,7 @@ public class Helper {
     static final String PGP_URI = "https://f-droid.org/en/packages/org.sufficientlysecure.keychain/";
     static final String PLAY_APPS_URI = "https://play.google.com/store/apps/dev?id=8420080860664580239";
     static final String GITHUB_APPS_URI = "https://github.com/M66B?tab=repositories";
+    static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
 
     static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
         private final AtomicInteger threadId = new AtomicInteger();
