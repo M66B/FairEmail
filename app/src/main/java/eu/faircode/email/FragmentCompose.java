@@ -965,6 +965,16 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuAddresses() {
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                if (grpAddresses.getVisibility() == View.GONE)
+                    etSubject.requestFocus();
+                else
+                    etCc.requestFocus();
+            }
+        });
     }
 
     private void onMenuZoom() {
