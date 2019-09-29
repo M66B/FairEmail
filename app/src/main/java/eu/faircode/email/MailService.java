@@ -66,6 +66,9 @@ public class MailService implements AutoCloseable {
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
 
+        properties.put("mail." + protocol + ".sasl.realm", realm == null ? "" : realm);
+        properties.put("mail." + protocol + ".auth.ntlm.domain", realm == null ? "" : realm);
+
         String checkserveridentity = Boolean.toString(!insecure).toLowerCase(Locale.ROOT);
 
         if ("pop3".equals(protocol) || "pop3s".equals(protocol)) {
@@ -94,9 +97,6 @@ public class MailService implements AutoCloseable {
 
             properties.put("mail.imap.starttls.enable", "true");
             properties.put("mail.imap.starttls.required", "true");
-
-            if (realm != null)
-                properties.put("mail." + protocol + ".auth.ntlm.domain", realm);
 
             // TODO: make timeouts configurable?
             properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
@@ -131,9 +131,6 @@ public class MailService implements AutoCloseable {
             properties.put("mail.smtp.starttls.required", "true");
 
             properties.put("mail." + protocol + ".auth", "true");
-
-            if (realm != null)
-                properties.put("mail." + protocol + ".auth.ntlm.domain", realm);
 
             properties.put("mail." + protocol + ".connectiontimeout", Integer.toString(CONNECT_TIMEOUT));
             properties.put("mail." + protocol + ".writetimeout", Integer.toString(WRITE_TIMEOUT)); // one thread overhead
