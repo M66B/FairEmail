@@ -23,6 +23,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -235,7 +236,10 @@ public class EntityMessage implements Serializable {
             am.cancel(pi);
         } else {
             Log.i("Set snooze id=" + id + " wakeup=" + new Date(wakeup));
-            am.set(AlarmManager.RTC_WAKEUP, wakeup, pi);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                am.set(AlarmManager.RTC_WAKEUP, wakeup, pi);
+            else
+                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, wakeup, pi);
         }
     }
 
