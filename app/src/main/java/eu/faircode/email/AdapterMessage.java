@@ -207,6 +207,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private int answers = -1;
     private boolean gotoTop = false;
+    private boolean firstClick = false;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
     private Map<Long, Integer> keyPosition = new HashMap<>();
     private SelectionTracker<Long> selectionTracker = null;
@@ -1508,8 +1509,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             return differ.getItem(pos);
         }
-
-        private boolean firstClick = false;
 
         @Override
         public boolean onTouch(View view, MotionEvent ev) {
