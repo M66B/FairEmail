@@ -42,9 +42,9 @@ import androidx.preference.PreferenceManager;
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
+    private SwitchCompat swDoubleTap;
     private SwitchCompat swSwipeNav;
     private SwitchCompat swReversed;
-    private SwitchCompat swDoubleTap;
     private SwitchCompat swAutoExpand;
     private SwitchCompat swExpandOne;
     private SwitchCompat swAutoClose;
@@ -57,7 +57,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swDisableTracking;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "pull", "autoscroll", "swipenav", "reversed", "doubletap", "autoexpand", "expand_one", "autoclose", "onclose",
+            "pull", "autoscroll", "doubletap", "swipenav", "reversed", "autoexpand", "expand_one", "autoclose", "onclose",
             "collapse", "autoread", "autounflag", "automove", "discard_delete", "disable_tracking"
     };
 
@@ -73,9 +73,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
+        swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swSwipeNav = view.findViewById(R.id.swSwipeNav);
         swReversed = view.findViewById(R.id.swReversed);
-        swDoubleTap = view.findViewById(R.id.swDoubleTap);
         swAutoExpand = view.findViewById(R.id.swAutoExpand);
         swExpandOne = view.findViewById(R.id.swExpandOne);
         swAutoClose = view.findViewById(R.id.swAutoClose);
@@ -104,6 +104,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoscroll", checked).apply();
+                swDoubleTap.setEnabled(!checked);
+            }
+        });
+
+        swDoubleTap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("doubletap", checked).apply();
             }
         });
 
@@ -118,13 +126,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("reversed", checked).apply();
-            }
-        });
-
-        swDoubleTap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("doubletap", checked).apply();
             }
         });
 
@@ -257,9 +258,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
+        swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
+        swDoubleTap.setEnabled(!swAutoScroll.isChecked());
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swReversed.setChecked(prefs.getBoolean("reversed", false));
-        swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
         swExpandOne.setChecked(prefs.getBoolean("expand_one", true));
         swAutoClose.setChecked(prefs.getBoolean("autoclose", true));

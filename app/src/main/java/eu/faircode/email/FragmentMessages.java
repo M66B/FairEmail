@@ -303,7 +303,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swipenav = prefs.getBoolean("swipenav", true);
-        autoscroll = (prefs.getBoolean("autoscroll", false) || viewType == AdapterMessage.ViewType.THREAD);
+        autoscroll =
+                (prefs.getBoolean("autoscroll", false) ||
+                        viewType == AdapterMessage.ViewType.THREAD);
         cards = prefs.getBoolean("cards", true);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);

@@ -1609,7 +1609,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("found", viewType == ViewType.SEARCH);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean doubletap = prefs.getBoolean("doubletap", false);
+                    boolean doubletap =
+                            (!prefs.getBoolean("autoscroll", false) &&
+                                    prefs.getBoolean("doubletap", false));
 
                     if (!doubletap || message.folderReadOnly || EntityFolder.OUTBOX.equals(message.folderType)) {
                         lbm.sendBroadcast(viewThread);
