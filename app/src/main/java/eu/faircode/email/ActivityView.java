@@ -297,15 +297,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         }));
 
-        if (Helper.isPlayStoreInstall())
-            extra.add(new NavMenuItem(R.drawable.baseline_bug_report_24, R.string.menu_test, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onMenuTest();
-                }
-            }).setExternal(true));
-
         extra.add(new NavMenuItem(R.drawable.baseline_question_answer_24, R.string.menu_faq, new Runnable() {
             @Override
             public void run() {
@@ -326,6 +317,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 public void run() {
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuIssue();
+                }
+            }).setExternal(true));
+
+        if (Helper.isPlayStoreInstall())
+            extra.add(new NavMenuItem(R.drawable.baseline_bug_report_24, R.string.menu_test, new Runnable() {
+                @Override
+                public void run() {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onMenuTest();
                 }
             }).setExternal(true));
 
