@@ -79,7 +79,7 @@
                 android:id="@+id/etOrder"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="1"
+                android:hint="10"
                 android:inputType="number"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"

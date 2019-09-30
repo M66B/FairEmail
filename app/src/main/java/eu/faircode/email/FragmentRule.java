@@ -825,7 +825,7 @@ public class FragmentRule extends FragmentBase {
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
                     if (TextUtils.isEmpty(order))
-                        order = "1";
+                        order = "10";
 
                     DB db = DB.getInstance(context);
                     if (id < 0) {
