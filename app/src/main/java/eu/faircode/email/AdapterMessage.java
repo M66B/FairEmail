@@ -650,7 +650,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
 
                 int px = Math.round(TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_PX, textSize * (compact ? 1.5f : 3.0f),
+                        TypedValue.COMPLEX_UNIT_PX, textSize * (compact ? 2.0f : 3.0f),
                         context.getResources().getDisplayMetrics()));
                 if (compact && tvFrom.getMinHeight() != px)
                     tvFrom.setMinimumHeight(px);
