@@ -28,17 +28,28 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.OnColorChangedListener;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogColor extends FragmentDialogBase {
+    private int color;
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putInt("fair:color", color);
+        super.onSaveInstanceState(outState);
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         Bundle args = getArguments();
-        int color = args.getInt("color");
+        color = (savedInstanceState == null
+                ? args.getInt("color")
+                : savedInstanceState.getInt("fair:color"));
         String title = args.getString("title");
         boolean reset = args.getBoolean("reset", false);
 
@@ -50,8 +61,14 @@ public class FragmentDialogColor extends FragmentDialogBase {
                 .setTitle(title)
                 .initialColor(color)
                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                .density(12)
+                .density(6)
                 .lightnessSliderOnly()
+                .setOnColorChangedListener(new OnColorChangedListener() {
+                    @Override
+                    public void onColorChanged(int selectedColor) {
+                        color = selectedColor;
+                    }
+                })
                 .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
