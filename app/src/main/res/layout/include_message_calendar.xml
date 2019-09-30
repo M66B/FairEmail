@@ -108,6 +108,18 @@
         app:layout_constraintStart_toEndOf="@id/btnCalendarDecline"
         app:layout_constraintTop_toBottomOf="@id/tvAttendees" />
 
+    <ImageButton
+        android:id="@+id/ibCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorActionBackground"
+        android:contentDescription="@string/title_decrypt"
+        android:tint="@color/action_foreground"
+        android:tooltipText="@string/title_icalendar_accept"
+        app:layout_constraintBottom_toBottomOf="@id/btnCalendarAccept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/baseline_event_24" />
+
     <View
         android:id="@+id/paddingBottom"
         android:layout_width="wrap_content"
@@ -137,5 +149,5 @@
         android:id="@+id/grpCalendarResponse"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="btnCalendarAccept,btnCalendarDecline,btnCalendarMaybe" />
+        app:constraint_referenced_ids="btnCalendarAccept,btnCalendarDecline,btnCalendarMaybe,ibCalendar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

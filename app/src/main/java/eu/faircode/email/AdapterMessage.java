@@ -45,6 +45,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.text.Editable;
@@ -155,7 +156,6 @@ import biweekly.parameter.ParticipationStatus;
 import biweekly.property.Attendee;
 import biweekly.property.Method;
 import biweekly.property.Organizer;
-import biweekly.property.Summary;
 import biweekly.util.ICalDate;
 
 import static android.app.Activity.RESULT_OK;
@@ -328,6 +328,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Button btnCalendarAccept;
         private Button btnCalendarDecline;
         private Button btnCalendarMaybe;
+        private ImageButton ibCalendar;
         private ContentLoadingProgressBar pbCalendarWait;
 
         private RecyclerView rvImage;
@@ -440,6 +441,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnCalendarAccept = vsBody.findViewById(R.id.btnCalendarAccept);
             btnCalendarDecline = vsBody.findViewById(R.id.btnCalendarDecline);
             btnCalendarMaybe = vsBody.findViewById(R.id.btnCalendarMaybe);
+            ibCalendar = vsBody.findViewById(R.id.ibCalendar);
             pbCalendarWait = vsBody.findViewById(R.id.pbCalendarWait);
 
             rvAttachment = attachments.findViewById(R.id.rvAttachment);
@@ -544,6 +546,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarAccept.setOnClickListener(this);
                 btnCalendarDecline.setOnClickListener(this);
                 btnCalendarMaybe.setOnClickListener(this);
+                ibCalendar.setOnClickListener(this);
 
                 gestureDetector = new ScaleGestureDetector(context, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
                     @Override
@@ -595,6 +598,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarAccept.setOnClickListener(null);
                 btnCalendarDecline.setOnClickListener(null);
                 btnCalendarMaybe.setOnClickListener(null);
+                ibCalendar.setOnClickListener(null);
             }
         }
 
@@ -1353,7 +1357,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     VEvent event = icalendar.getEvents().get(0);
 
-                    Summary summary = event.getSummary();
+                    String summary = event.getSummary() == null ? null : event.getSummary().getValue();
 
                     ICalDate start = event.getDateStart() == null ? null : event.getDateStart().getValue();
                     ICalDate end = event.getDateEnd() == null ? null : event.getDateEnd().getValue();
@@ -1375,7 +1379,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     Organizer organizer = event.getOrganizer();
 
-                    tvCalendarSummary.setText(summary == null ? null : summary.getValue());
+                    tvCalendarSummary.setText(summary);
                     tvCalendarSummary.setVisibility(summary == null ? View.GONE : View.VISIBLE);
 
                     tvCalendarStart.setText(start == null ? null : DTF.format(start.getTime()));
@@ -1411,9 +1415,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putLong("id", message.id);
             args.putInt("action", action);
 
-            new SimpleTask<File>() {
+            new SimpleTask<Object>() {
                 @Override
-                protected File onExecute(Context context, Bundle args) throws Throwable {
+                protected Object onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
                     int action = args.getInt("action");
 
@@ -1429,6 +1433,44 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             File file = attachment.getFile(context);
                             ICalendar icalendar = Biweekly.parse(file).first();
                             VEvent event = icalendar.getEvents().get(0);
+
+                            if (action == R.id.ibCalendar) {
+                                String summary = event.getSummary() == null ? null : event.getSummary().getValue();
+
+                                ICalDate start = event.getDateStart() == null ? null : event.getDateStart().getValue();
+                                ICalDate end = event.getDateEnd() == null ? null : event.getDateEnd().getValue();
+
+                                String location = event.getLocation() == null ? null : event.getLocation().getValue();
+
+                                List<String> attendee = new ArrayList<>();
+                                for (Attendee a : event.getAttendees()) {
+                                    String email = a.getEmail();
+                                    if (!TextUtils.isEmpty(email))
+                                        attendee.add(email);
+                                }
+
+                                // https://developer.android.com/guide/topics/providers/calendar-provider.html#intent-insert
+                                Intent intent = new Intent(Intent.ACTION_INSERT)
+                                        .setData(CalendarContract.Events.CONTENT_URI)
+                                        .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY);
+
+                                if (summary != null)
+                                    intent.putExtra(CalendarContract.Events.TITLE, summary);
+
+                                if (start != null)
+                                    intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, start.getTime());
+
+                                if (end != null)
+                                    intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, end.getTime());
+
+                                if (location != null)
+                                    intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location);
+
+                                if (attendee.size() > 0)
+                                    intent.putExtra(Intent.EXTRA_EMAIL, TextUtils.join(",", attendee));
+
+                                return intent;
+                            }
 
                             // https://tools.ietf.org/html/rfc5546#section-4.2.2
                             VEvent ev = new VEvent();
@@ -1473,26 +1515,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 @Override
-                protected void onExecuted(Bundle args, File ics) {
-                    String status = null;
-                    switch (action) {
-                        case R.id.btnCalendarAccept:
-                            status = context.getString(R.string.title_icalendar_accept);
-                            break;
-                        case R.id.btnCalendarDecline:
-                            status = context.getString(R.string.title_icalendar_decline);
-                            break;
-                        case R.id.btnCalendarMaybe:
-                            status = context.getString(R.string.title_icalendar_maybe);
-                            break;
-                    }
+                protected void onExecuted(Bundle args, Object result) {
+                    if (result instanceof File) {
+                        String status = null;
+                        switch (action) {
+                            case R.id.btnCalendarAccept:
+                                status = context.getString(R.string.title_icalendar_accept);
+                                break;
+                            case R.id.btnCalendarDecline:
+                                status = context.getString(R.string.title_icalendar_decline);
+                                break;
+                            case R.id.btnCalendarMaybe:
+                                status = context.getString(R.string.title_icalendar_maybe);
+                                break;
+                        }
 
-                    Intent reply = new Intent(context, ActivityCompose.class)
-                            .putExtra("action", "participation")
-                            .putExtra("reference", args.getLong("id"))
-                            .putExtra("ics", ics)
-                            .putExtra("status", status);
-                    context.startActivity(reply);
+                        Intent reply = new Intent(context, ActivityCompose.class)
+                                .putExtra("action", "participation")
+                                .putExtra("reference", args.getLong("id"))
+                                .putExtra("ics", (File) result)
+                                .putExtra("status", status);
+                        context.startActivity(reply);
+                    } else if (result instanceof Intent) {
+                        context.startActivity((Intent) result);
+                    }
                 }
 
                 @Override
@@ -1572,6 +1618,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.btnCalendarAccept:
                     case R.id.btnCalendarDecline:
                     case R.id.btnCalendarMaybe:
+                    case R.id.ibCalendar:
                         onActionCalendar(message, view.getId());
                         break;
                     default:

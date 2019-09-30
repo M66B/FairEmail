@@ -2329,7 +2329,7 @@ You can reset all questions set to not to be asked again in the three-dots overf
 Calendar and contact management can better be done in a separate, specialized app
 and is too complex to add to FairEmail, which is in itself already complex enough.
 
-Note that FairEmail does support replying to calendar invites.
+Note that FairEmail does support replying to calendar invites and adding calendar invites to your personal calendar.
 
 Please see here for some open source apps:
 
