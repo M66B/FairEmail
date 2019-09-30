@@ -1438,7 +1438,8 @@ class Core {
                     message.list_post = helper.getListPost();
                     message.unsubscribe = helper.getListUnsubscribe();
                     message.subject = helper.getSubject();
-                    message.size = helper.getSize();
+                    message.size = parts.getBodySize();
+                    message.total = helper.getSize();
                     message.content = false;
                     message.received = helper.getReceived();
                     message.sent = helper.getSent();
@@ -2008,9 +2009,6 @@ class Core {
                         dup.uid = uid;
                         dup.thread = thread;
 
-                        if (dup.size == null)
-                            dup.size = helper.getSize();
-
                         if (EntityFolder.SENT.equals(folder.type)) {
                             dup.received = helper.getReceived();
                             dup.sent = helper.getSent();
@@ -2057,7 +2055,8 @@ class Core {
             message.list_post = helper.getListPost();
             message.unsubscribe = helper.getListUnsubscribe();
             message.subject = helper.getSubject();
-            message.size = helper.getSize();
+            message.size = parts.getBodySize();
+            message.total = helper.getSize();
             message.content = false;
             message.received = helper.getReceived();
             message.sent = helper.getSent();

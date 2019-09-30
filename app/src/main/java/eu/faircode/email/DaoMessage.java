@@ -52,7 +52,7 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
-            ", SUM(message.size) AS totalSize" +
+            ", SUM(message.total) AS totalSize" +
             ", MAX(CASE WHEN" +
             "   ((:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND folder.type <> '" + EntityFolder.DRAFTS + "')" +
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
@@ -101,7 +101,7 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
-            ", SUM(message.size) AS totalSize" +
+            ", SUM(message.total) AS totalSize" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
             " FROM (SELECT * FROM message ORDER BY received DESC) AS message" +
             " JOIN account ON account.id = message.account" +
@@ -144,7 +144,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
-            ", message.size AS totalSize" +
+            ", message.total AS totalSize" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -244,7 +244,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
             ", 1 AS visible" +
-            ", message.size AS totalSize" +
+            ", message.total AS totalSize" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -277,7 +277,7 @@ public interface DaoMessage {
             ", 0 AS unflagged" +
             ", 0 AS drafts" +
             ", 1 AS visible" +
-            ", message.size AS totalSize" +
+            ", message.total AS totalSize" +
             " FROM message" +
             " JOIN account ON account.id = message.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
@@ -421,8 +421,8 @@ public interface DaoMessage {
     @Query("UPDATE message SET content = :content, plain_only = :plain_only, preview = :preview, warning = :warning WHERE id = :id")
     int setMessageContent(long id, boolean content, Boolean plain_only, String preview, String warning);
 
-    @Query("UPDATE message SET size = :size WHERE id = :id")
-    int setMessageSize(long id, Long size);
+    @Query("UPDATE message SET size = :size, total = :total WHERE id = :id")
+    int setMessageSize(long id, Long size, Long total);
 
     @Query("UPDATE message SET headers = :headers WHERE id = :id")
     int setMessageHeaders(long id, String headers);

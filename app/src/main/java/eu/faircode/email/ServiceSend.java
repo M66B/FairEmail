@@ -419,6 +419,13 @@ public class ServiceSend extends ServiceBase {
                             HtmlHelper.getPreview(body),
                             parts.getWarnings(message.warning));
 
+                    Long total = null;
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(sid);
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.size != null)
+                            total = (total == null ? 0 : total) + attachment.size;
+
+                    db.message().setMessageSize(sid, (long) body.length(), total);
                     db.message().setMessageSent(sid, time);
                     db.message().setMessageUiHide(sid, false);
 

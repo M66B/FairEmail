@@ -1098,8 +1098,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (!message.duplicate)
                 tvSizeEx.setAlpha(message.content ? 1.0f : Helper.LOW_LIGHT);
             tvSizeExTitle.setVisibility(!show_addresses || message.size == null ? View.GONE : View.VISIBLE);
-            tvSizeEx.setVisibility(!show_addresses || message.size == null ? View.GONE : View.VISIBLE);
-            tvSizeEx.setText(message.size == null ? null : Helper.humanReadableByteCount(message.size, true));
+            tvSizeEx.setVisibility(!show_addresses || (message.size == null && message.total == null) ? View.GONE : View.VISIBLE);
+            StringBuilder size = new StringBuilder();
+            size
+                    .append(message.size == null ? "-" : Helper.humanReadableByteCount(message.size, true))
+                    .append("/")
+                    .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total, true));
+            tvSizeEx.setText(size.toString());
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);
@@ -3530,6 +3535,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!Objects.equals(prev.size, next.size)) {
                         same = false;
                         Log.i("size changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.total, next.total)) {
+                        same = false;
+                        Log.i("total changed id=" + next.id);
                     }
                     if (!Objects.equals(prev.attachments, next.attachments)) {
                         same = false;

@@ -892,6 +892,17 @@ public class MessageHelper {
             return (html == null);
         }
 
+        Long getBodySize() throws MessagingException {
+            Part part = (html == null ? plain : html);
+            if (part == null)
+                return null;
+            int size = part.getSize();
+            if (size < 0)
+                return null;
+            else
+                return (long) size;
+        }
+
         String getHtml(Context context) throws MessagingException, IOException {
             if (plain == null && html == null) {
                 Log.i("No body part");
