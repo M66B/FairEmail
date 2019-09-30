@@ -1456,8 +1456,8 @@ public class FragmentAccount extends FragmentBase {
             }
         }
 
-        grpFolders.setVisibility(_folders.size() > 1 ? View.VISIBLE : View.GONE);
-        btnSave.setVisibility(_folders.size() > 1 ? View.VISIBLE : View.GONE);
+        grpFolders.setVisibility(View.VISIBLE);
+        btnSave.setVisibility(View.VISIBLE);
     }
 
     private class CheckResult {
