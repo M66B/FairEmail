@@ -21,7 +21,6 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -122,17 +121,6 @@ public class FragmentFolder extends FragmentBase {
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
         grpParent = view.findViewById(R.id.grpParent);
-
-        cbUnified.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    cbNotify.setChecked(true);
-            }
-        });
-
-        // Navigating to individual messages requires notification grouping
-        cbNotify.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
 
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -322,7 +310,7 @@ public class FragmentFolder extends FragmentBase {
         args.putBoolean("hide", cbHide.isChecked());
         args.putBoolean("unified", cbUnified.isChecked());
         args.putBoolean("navigation", cbNavigation.isChecked());
-        args.putBoolean("notify", cbNotify.getVisibility() == View.VISIBLE && cbNotify.isChecked());
+        args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("poll", cbPoll.isChecked());
         args.putBoolean("download", cbDownload.isChecked());
