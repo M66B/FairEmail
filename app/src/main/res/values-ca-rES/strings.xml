@@ -75,6 +75,7 @@
     <string name="menu_contacts">Contactes locals</string>
     <string name="menu_setup">Preferències</string>
     <string name="menu_legend">Llegenda</string>
+    <string name="menu_test">Prova de programa</string>
     <string name="menu_faq">Assistència</string>
     <string name="menu_issue">Informa d\'un problema</string>
     <string name="menu_attribution">Reconeixement</string>
@@ -107,6 +108,7 @@
     <string name="title_setup_quick_smtp">Servidor SMTP per enviar missatges</string>
     <string name="title_setup_go">Vés-hi</string>
     <string name="title_setup_wizard">Assistent</string>
+    <string name="title_setup_wizard_remark">Vés \"enrere\" per anar a la safata d\'entrada</string>
     <string name="title_setup_other">Altres proveïdors</string>
     <string name="title_setup_gmail_support">Com que Android comprova les firmes dels aplicatius, es podran autoritzar comptes de Google des des les versions oficials</string>
     <string name="title_setup_gmail_rationale">Doneu permís per seleccionar un compte i llegir el vostre nom</string>
@@ -238,11 +240,13 @@
     <string name="title_advanced_autoclose">Tanca automàticament les converses</string>
     <string name="title_advanced_onclose">En tancar una conversa</string>
     <string name="title_advanced_autoread">Automàticament marca els missatges llegits en missatges moguts</string>
+    <string name="title_advanced_autounstar">Elimina automàticament les estrelles dels missatges quan es moguin els missatges</string>
     <string name="title_advanced_automove">Confirma moure missatges</string>
     <string name="title_advanced_discard_delete">En descartar l\'esborrany, suprimeix el projecte permanent</string>
     <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_badge">Mostra la icona del llançador amb nombre de missatges nous</string>
     <string name="title_advanced_unseen_ignored">Permet que el nombre de missatges nous coincideixi amb el nombre de notificacions</string>
+    <string name="title_advanced_notify_summary">Mostrar només notificació de resum</string>
     <string name="title_advanced_notify_preview">Mostra la previsualització del missatge a les notificacions</string>
     <string name="title_advanced_notify_actions">Accions de les notificacions</string>
     <string name="title_advanced_notify_action_trash">Paperera</string>
@@ -261,6 +265,8 @@
     <string name="title_advanced_notify_action_hint">Com a màxim es mostraran tres accions</string>
     <string name="title_advanced_notify_remove_hint">Les notificacions de nous missatges sempre s\'esborraran quan es llisquin cap als costats o al marcar els missatges com a llegits</string>
     <string name="title_advanced_notify_manage_hint">Toqueu el nom del canal \"Notificacions\" per definir el so de notificació per defecte, etc</string>
+    <string name="title_advanced_notify_no_grouping">Aquesta versió d\'Android no admet l\'agrupació de notificacions</string>
+    <string name="title_advanced_notify_no_channels">Aquesta versió d\'Android no admet els canals de notificacions</string>
     <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_english">Forçar idioma anglès</string>
@@ -373,6 +379,7 @@
     <string name="title_delete_local">Esborra els missatges locals</string>
     <string name="title_delete_browsed">Suprimeix els missatges cercats/navegats</string>
     <string name="title_empty_trash">Buida la paperera</string>
+    <string name="title_empty_spam">Buidar Correu Brossa</string>
     <string name="title_edit_properties">Edita les propietats</string>
     <string name="title_edit_rules">Edita les regles</string>
     <string name="title_create_channel">Crea un canal de notificació</string>
@@ -380,6 +387,7 @@
     <string name="title_delete_channel">Esborra un canal de notificació</string>
     <string name="title_create_sub_folder">Crea una nova carpeta</string>
     <string name="title_empty_trash_ask">Vols buidar la paperera?</string>
+    <string name="title_empty_spam_ask">Vols buidar el correu brossa per sempre?</string>
     <string name="title_delete_operation">Vols suprimir les operacions amb un missatge d\'error?</string>
     <string name="title_delete_contacts">Esborrar tots els contactes locals?</string>
     <string name="title_no_operations">Sense operacions pendents</string>
@@ -507,6 +515,7 @@
     <string name="title_send_via">Envia per</string>
     <string name="title_send_with_options">Envia &#8230;</string>
     <string name="title_send_at">Envia a les &#8230;</string>
+    <string name="title_send_priority">Prioritat</string>
     <string name="title_no_server">No s\'ha trobat servidor per \'%1$s\'</string>
     <string name="title_style_bold">Negreta</string>
     <string name="title_style_italic">Cursiva</string>
@@ -838,5 +847,10 @@
         <item>Al començament</item>
         <item>Al mig</item>
         <item>Al final</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Baixa</item>
+        <item>Normal</item>
+        <item>Alta</item>
     </string-array>
 </resources>

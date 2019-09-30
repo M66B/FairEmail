@@ -75,6 +75,7 @@
     <string name="menu_contacts">Lokale kontakter</string>
     <string name="menu_setup">Indstillinger</string>
     <string name="menu_legend">Tegnforklaring</string>
+    <string name="menu_test">Testprogram</string>
     <string name="menu_faq">Support</string>
     <string name="menu_issue">Anmeld problem</string>
     <string name="menu_attribution">Kreditering</string>
@@ -244,6 +245,7 @@
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
+    <string name="title_advanced_notify_summary">Vis kun resuménotifikationer</string>
     <string name="title_advanced_notify_preview">Beskedforhåndsvisning i notifikationer</string>
     <string name="title_advanced_notify_actions">Notifikationshandlinger</string>
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
@@ -262,6 +264,8 @@
     <string name="title_advanced_notify_action_hint">Maksimalt tre handlinger vises</string>
     <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet \'Notifikationer\' for at opsætte standardnotifikationslyd mv.</string>
+    <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
+    <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
@@ -374,6 +378,7 @@
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
     <string name="title_empty_trash">Tøm papirkurven</string>
+    <string name="title_empty_spam">Tøm spam</string>
     <string name="title_edit_properties">Redigér egenskaber</string>
     <string name="title_edit_rules">Redigér regler</string>
     <string name="title_create_channel">Opret notifikationskanal</string>
@@ -381,6 +386,7 @@
     <string name="title_delete_channel">Slet notifikationskanal</string>
     <string name="title_create_sub_folder">Opret undermappe</string>
     <string name="title_empty_trash_ask">Slet alt indhold i papirkurven permanent?</string>
+    <string name="title_empty_spam_ask">Slet alle spambeskeder permanent?</string>
     <string name="title_delete_operation">Slet operationer med en fejlmeddelelse?</string>
     <string name="title_delete_contacts">Slet alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen afventende handlinger</string>

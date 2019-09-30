@@ -129,6 +129,7 @@
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_go">Idż</string>
     <string name="title_setup_wizard">Kreator</string>
+    <string name="title_setup_wizard_remark">Idź \"wstecz\", aby przejść do skrzynki odbiorczej</string>
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w oficjalnych wersjach, ponieważ system Android sprawdza podpis aplikacji</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać swoje imię</string>
@@ -260,11 +261,13 @@
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
+    <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej trwale usuń wersję roboczą</string>
     <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_unseen_ignored">Niech liczba nowych wiadomości odpowiada liczbie powiadomień</string>
+    <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
     <string name="title_advanced_notify_action_trash">Kosz</string>
@@ -283,6 +286,8 @@
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału \'Powiadomienia\', aby ustawić domyślny dźwięk powiadomienia, itd.</string>
+    <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
+    <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
@@ -394,6 +399,7 @@
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
     <string name="title_empty_trash">Opróżnij kosz</string>
+    <string name="title_empty_spam">Opróżnij Spam</string>
     <string name="title_edit_properties">Edytuj właściwości</string>
     <string name="title_edit_rules">Edytuj reguły</string>
     <string name="title_create_channel">Utwórz kanał powiadomień</string>
@@ -401,6 +407,7 @@
     <string name="title_delete_channel">Usuń kanał powiadomień</string>
     <string name="title_create_sub_folder">Utwórz podfolder</string>
     <string name="title_empty_trash_ask">Trwale usunąć wszystkie wiadomości z kosza?</string>
+    <string name="title_empty_spam_ask">Czy trwale usunąć wszystkie wiadomości - spam?</string>
     <string name="title_delete_operation">Usunąć działania z informacją o błędzie?</string>
     <string name="title_delete_contacts">Usunąć wszystkie lokalne kontakty?</string>
     <string name="title_no_operations">Nie ma oczekujących operacji</string>
@@ -858,5 +865,10 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Na początku</item>
         <item>W środku</item>
         <item>Na końcu</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Niski</item>
+        <item>Normalny</item>
+        <item>Wysoki</item>
     </string-array>
 </resources>

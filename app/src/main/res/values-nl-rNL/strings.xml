@@ -246,6 +246,7 @@
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
+    <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
     <string name="title_advanced_notify_action_trash">Weggooien</string>
@@ -386,7 +387,7 @@
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>
     <string name="title_create_sub_folder">Maak submap</string>
     <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
-    <string name="title_empty_spam_ask">Verplaats alle spam naar de prullenbak?</string>
+    <string name="title_empty_spam_ask">Alle spam berichten permanent verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
@@ -514,6 +515,7 @@
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_with_options">Verzenden &#8230;</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
+    <string name="title_send_priority">Prioriteit</string>
     <string name="title_no_server">Geen server gevonden op \'%1$s\'</string>
     <string name="title_style_bold">Vet</string>
     <string name="title_style_italic">Cursief</string>
@@ -659,6 +661,7 @@
     <string name="title_legend_thread">Gesprek</string>
     <string name="title_legend_zoom">Tekstgrootte wijzigen</string>
     <string name="title_legend_draft">Heeft concept</string>
+    <string name="title_legend_priority">Heeft hoge prioriteit</string>
     <string name="title_legend_auth">Authenticatie mislukt</string>
     <string name="title_legend_snoozed">Is gesluimerd</string>
     <string name="title_legend_browsed">Is gebladerd of gezocht</string>
@@ -842,5 +845,10 @@
         <item>Aan het begin</item>
         <item>In het midden</item>
         <item>Aan het einde</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Laag</item>
+        <item>Normaal</item>
+        <item>Hoog</item>
     </string-array>
 </resources>

@@ -245,6 +245,7 @@
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
+    <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
     <string name="title_advanced_notify_preview">Mostra anteprima messaggio nelle notifiche</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
@@ -385,7 +386,7 @@
     <string name="title_delete_channel">Elimina canale di notifica</string>
     <string name="title_create_sub_folder">Crea sottocartella</string>
     <string name="title_empty_trash_ask">Eliminare definitivamente tutti i messaggi cestinati?</string>
-    <string name="title_empty_spam_ask">Spostare tutti gli spam nella cartella cestino?</string>
+    <string name="title_empty_spam_ask">Eliminare tutti i messaggi spam definitivamente?</string>
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>

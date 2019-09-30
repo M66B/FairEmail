@@ -64,6 +64,7 @@
     <string name="menu_contacts">本地联系人</string>
     <string name="menu_setup">设置</string>
     <string name="menu_legend">图例</string>
+    <string name="menu_test">测试程序</string>
     <string name="menu_faq">支持</string>
     <string name="menu_issue">报告问题</string>
     <string name="menu_attribution">归属</string>
@@ -233,6 +234,7 @@
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
+    <string name="title_advanced_notify_summary">仅显示通知摘要</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
@@ -251,6 +253,8 @@
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
     <string name="title_advanced_notify_remove_hint">滑动走并标记消息已读时将总是移除新消息通知</string>
     <string name="title_advanced_notify_manage_hint">点击频道名称“通知”设置默认通知声音等</string>
+    <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
+    <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时</string>
     <string name="title_advanced_english">强制使用英语</string>
@@ -371,7 +375,7 @@
     <string name="title_delete_channel">删除通知通道</string>
     <string name="title_create_sub_folder">创建子文件夹</string>
     <string name="title_empty_trash_ask">是否永久删除所有垃圾邮件？</string>
-    <string name="title_empty_spam_ask">将所有垃圾邮件移动到垃圾箱文件夹吗？</string>
+    <string name="title_empty_spam_ask">永久删除所有垃圾邮件？</string>
     <string name="title_delete_operation">是否删除带有错误消息的操作？</string>
     <string name="title_delete_contacts">删除所有本地联系人？</string>
     <string name="title_no_operations">没有待执行操作</string>
@@ -499,6 +503,7 @@
     <string name="title_send_via">发送方式</string>
     <string name="title_send_with_options">发送 &#8230;</string>
     <string name="title_send_at">发送于 &#8230;</string>
+    <string name="title_send_priority">优先级</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
     <string name="title_style_bold">粗体</string>
     <string name="title_style_italic">斜体</string>
@@ -829,5 +834,10 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>从开头起</item>
         <item>主题中部</item>
         <item>主题末尾</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>低</item>
+        <item>正常</item>
+        <item>高</item>
     </string-array>
 </resources>

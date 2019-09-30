@@ -268,6 +268,7 @@
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
     <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv souhlasí s počtem oznámení</string>
+    <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
     <string name="title_advanced_notify_preview">Zobrazit náhled zprávy v oznámení</string>
     <string name="title_advanced_notify_actions">Akce oznámení</string>
     <string name="title_advanced_notify_action_trash">Koš</string>
@@ -408,7 +409,7 @@
     <string name="title_delete_channel">Smazat kanál oznámení</string>
     <string name="title_create_sub_folder">Vytvořit podsložku</string>
     <string name="title_empty_trash_ask">Trvale odstranit všechny zprávy v koši?</string>
-    <string name="title_empty_spam_ask">Přesunout všechny nevyžádané do koše?</string>
+    <string name="title_empty_spam_ask">Trvale odstranit všechny nevyžádané zprávy?</string>
     <string name="title_delete_operation">Smazat operace s chybovou hláškou?</string>
     <string name="title_delete_contacts">Smazat všechny místní kontakty?</string>
     <string name="title_no_operations">Žádné probíhající operace</string>
@@ -536,6 +537,7 @@
     <string name="title_send_via">Odeslat přes</string>
     <string name="title_send_with_options">Odeslat &#8230;</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
+    <string name="title_send_priority">Důležitost</string>
     <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
     <string name="title_style_bold">Tučně</string>
     <string name="title_style_italic">Kurzíva</string>
@@ -681,6 +683,7 @@
     <string name="title_legend_thread">Konverzace</string>
     <string name="title_legend_zoom">Změnit velikost textu</string>
     <string name="title_legend_draft">Má koncept</string>
+    <string name="title_legend_priority">Má vysokou prioritu</string>
     <string name="title_legend_auth">Ověřování selhalo</string>
     <string name="title_legend_snoozed">Je odloženo</string>
     <string name="title_legend_browsed">Je prohlédnuto/vyhledáno</string>
@@ -866,5 +869,10 @@
         <item>Na začátku</item>
         <item>Uprostřed</item>
         <item>Na konci</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Nízká</item>
+        <item>Normální</item>
+        <item>Vysoká</item>
     </string-array>
 </resources>

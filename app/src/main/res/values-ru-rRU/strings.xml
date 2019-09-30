@@ -100,7 +100,7 @@
     <string name="menu_test">Тестовая программа</string>
     <string name="menu_faq">Поддержка</string>
     <string name="menu_issue">Сообщить о проблеме</string>
-    <string name="menu_attribution">Авторство</string>
+    <string name="menu_attribution">Благодарности</string>
     <string name="menu_privacy">Конфиденциальность</string>
     <string name="menu_about">О приложении</string>
     <string name="menu_pro">Функции Pro</string>
@@ -227,7 +227,7 @@
     <string name="title_advanced_cards">\"Карточная\" компоновка</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
-    <string name="title_advanced_highlight_unread">Выделить непрочитанные сообщения</string>
+    <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
@@ -237,8 +237,8 @@
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_subject_elipsed">При необходимости сокращать тему</string>
-    <string name="title_advanced_flags">Показывать звёзды</string>
-    <string name="title_advanced_flags_background">Цветной фон вместо цветных звёзд</string>
+    <string name="title_advanced_flags">Показывать метки избранного</string>
+    <string name="title_advanced_flags_background">Цветной фон вместо цветных меток избранного</string>
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
@@ -268,6 +268,7 @@
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
+    <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
@@ -408,7 +409,7 @@
     <string name="title_delete_channel">Удалить канал уведомлений</string>
     <string name="title_create_sub_folder">Создать вложенную папку</string>
     <string name="title_empty_trash_ask">Удалить все сообщения в корзине навсегда?</string>
-    <string name="title_empty_spam_ask">Переместить весь спам в \"Корзину\"?</string>
+    <string name="title_empty_spam_ask">Удалить все сообщения в папке \"Спам\" навсегда?</string>
     <string name="title_delete_operation">Удалить операции с сообщением об ошибке?</string>
     <string name="title_delete_contacts">Удалить все локальные контакты?</string>
     <string name="title_no_operations">Нет операций в очереди</string>
@@ -451,7 +452,7 @@
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
     <string name="title_flag">В избранное</string>
-    <string name="title_flag_color">Цветная звезда&#8230;</string>
+    <string name="title_flag_color">Цветная метка&#8230;</string>
     <string name="title_unflag">Удалить из избранного</string>
     <string name="title_forward">Переслать</string>
     <string name="title_editasnew">Редактировать как новое</string>
@@ -536,6 +537,7 @@
     <string name="title_send_via">Отправить через</string>
     <string name="title_send_with_options">Отправить&#8230;</string>
     <string name="title_send_at">Отправить в&#8230;</string>
+    <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Сервер не найден на \'%1$s\'</string>
     <string name="title_style_bold">Жирный</string>
     <string name="title_style_italic">Курсив</string>
@@ -867,5 +869,10 @@
         <item>В начале</item>
         <item>В середине</item>
         <item>В конце</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Низкий</item>
+        <item>Обычный</item>
+        <item>Высокий</item>
     </string-array>
 </resources>

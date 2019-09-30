@@ -246,6 +246,7 @@
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
+    <string name="title_advanced_notify_summary">Mostrar notificación resumen únicamente</string>
     <string name="title_advanced_notify_preview">Mostrar vista previa del mensaje en notificaciones</string>
     <string name="title_advanced_notify_actions">Acciones de notificación</string>
     <string name="title_advanced_notify_action_trash">Papelera</string>
@@ -386,7 +387,7 @@
     <string name="title_delete_channel">Eliminar canal de notificación</string>
     <string name="title_create_sub_folder">Crear subcarpeta</string>
     <string name="title_empty_trash_ask">¿Eliminar todos los mensajes borrados permanentemente?</string>
-    <string name="title_empty_spam_ask">¿Mover todo el spam a la papelera?</string>
+    <string name="title_empty_spam_ask">¿Eliminar todos los mensajes spam permanentemente?</string>
     <string name="title_delete_operation">¿Eliminar operaciones con un mensaje de error?</string>
     <string name="title_delete_contacts">¿Eliminar todos los contactos locales?</string>
     <string name="title_no_operations">No hay operaciones pendientes</string>
@@ -514,6 +515,7 @@
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_with_options">Enviar &#8230;</string>
     <string name="title_send_at">Enviar a &#8230;</string>
+    <string name="title_send_priority">Prioridad</string>
     <string name="title_no_server">No se encontró ningún servidor en \'%1$s\'</string>
     <string name="title_style_bold">Negrita</string>
     <string name="title_style_italic">Cursiva</string>
@@ -659,6 +661,7 @@
     <string name="title_legend_thread">Conversación</string>
     <string name="title_legend_zoom">Cambiar tamaño del texto</string>
     <string name="title_legend_draft">Tiene borrador</string>
+    <string name="title_legend_priority">Tiene prioridad alta</string>
     <string name="title_legend_auth">Error de autenticación</string>
     <string name="title_legend_snoozed">Está postergado</string>
     <string name="title_legend_browsed">Está navegado o buscado</string>
@@ -845,5 +848,10 @@
         <item>Al principio</item>
         <item>En el medio</item>
         <item>Al final</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Baja</item>
+        <item>Normal</item>
+        <item>Alta</item>
     </string-array>
 </resources>

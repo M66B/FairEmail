@@ -246,6 +246,7 @@
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
+    <string name="title_advanced_notify_summary">Vis bare sammendragsvarsel</string>
     <string name="title_advanced_notify_preview">Vis forhåndsvisning av melding i varsler</string>
     <string name="title_advanced_notify_actions">Varselshandlinger</string>
     <string name="title_advanced_notify_action_trash">Søppel</string>
@@ -386,7 +387,7 @@
     <string name="title_delete_channel">Slett varselkanal</string>
     <string name="title_create_sub_folder">Lag undermappe</string>
     <string name="title_empty_trash_ask">Slett alle slettede meldinger permanent?</string>
-    <string name="title_empty_spam_ask">Vil du flytte all spam til søppelmappen?</string>
+    <string name="title_empty_spam_ask">Vil du slette alle spam meldinger permanent?</string>
     <string name="title_delete_operation">Slett operasjoner med en feilmelding?</string>
     <string name="title_delete_contacts">Slette alle lokale kontakter?</string>
     <string name="title_no_operations">Ingen ventende operasjoner</string>
@@ -514,6 +515,7 @@
     <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sender &#8230;</string>
+    <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen server funnet på \'%1$s\'</string>
     <string name="title_style_bold">Fet</string>
     <string name="title_style_italic">Kursiv</string>
@@ -845,5 +847,10 @@
         <item>I begynnelsen</item>
         <item>I midten</item>
         <item>På slutten</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Lav</item>
+        <item>Normal</item>
+        <item>Høy</item>
     </string-array>
 </resources>

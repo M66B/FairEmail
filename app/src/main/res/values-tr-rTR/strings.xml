@@ -246,6 +246,7 @@
     <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
+    <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
@@ -386,7 +387,7 @@
     <string name="title_delete_channel">Bildirim kanalını sil</string>
     <string name="title_create_sub_folder">Alt dizin oluştur</string>
     <string name="title_empty_trash_ask">Çöpe atılmış tüm iletiler kalıcı olarak silinsin mi?</string>
-    <string name="title_empty_spam_ask">Tüm spamları çöp kutusu klasörüne taşı?</string>
+    <string name="title_empty_spam_ask">Tüm spam mesajlarını kalıcı olarak sil?</string>
     <string name="title_delete_operation">Hata iletisi olan işlemler silinsin mi?</string>
     <string name="title_delete_contacts">Tüm yerel rehber silinsin mi?</string>
     <string name="title_no_operations">Bekleyen işlem yok</string>
@@ -514,6 +515,7 @@
     <string name="title_send_via">Üzerinden gönder</string>
     <string name="title_send_with_options">Gönder &#8230;</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
+    <string name="title_send_priority">Öncelik</string>
     <string name="title_no_server">%1$s\'de sunucu bulunamadı</string>
     <string name="title_style_bold">Kalın yazı</string>
     <string name="title_style_italic">Eğik yazı</string>
@@ -845,5 +847,10 @@
         <item>Başlangıçta</item>
         <item>Ortada</item>
         <item>Sonunda</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Düşük</item>
+        <item>Normal</item>
+        <item>Yüksek</item>
     </string-array>
 </resources>
