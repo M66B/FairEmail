@@ -47,10 +47,10 @@
     <ImageView
         android:id="@+id/ivAvatar"
         android:layout_width="0dp"
-        android:layout_height="24dp"
+        android:layout_height="0dp"
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_avatar"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
@@ -106,7 +106,7 @@
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_folder_type"
         app:layout_constraintBottom_toBottomOf="@+id/tvSubject"
-        app:layout_constraintStart_toEndOf="@id/paddingStart"
+        app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintTop_toTopOf="@+id/tvSubject"
         app:srcCompat="@drawable/baseline_edit_24" />
 
