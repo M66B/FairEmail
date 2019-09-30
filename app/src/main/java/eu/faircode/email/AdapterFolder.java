@@ -390,6 +390,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 if (EntityFolder.TRASH.equals(folder.type))
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
+                else if (EntityFolder.JUNK.equals(folder.type))
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, 5, R.string.title_empty_spam);
             }
 
             if (folder.account != null) {
@@ -465,7 +467,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             return true;
 
                         case R.string.title_empty_trash:
-                            onActionEmptyTrash();
+                            onActionEmpty(EntityFolder.TRASH);
+                            return true;
+
+                        case R.string.title_empty_spam:
+                            onActionEmpty(EntityFolder.JUNK);
                             return true;
 
                         case R.string.title_edit_rules:
@@ -602,15 +608,21 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     ask.show(parentFragment.getFragmentManager(), "folder:delete_local");
                 }
 
-                private void onActionEmptyTrash() {
+                private void onActionEmpty(String type) {
                     Bundle aargs = new Bundle();
-                    aargs.putString("question", context.getString(R.string.title_empty_trash_ask));
+                    if (EntityFolder.TRASH.equals(type))
+                        aargs.putString("question", context.getString(R.string.title_empty_trash_ask));
+                    else if (EntityFolder.JUNK.equals(type))
+                        aargs.putString("question", context.getString(R.string.title_empty_spam_ask));
+                    else
+                        throw new IllegalArgumentException("Invalid folder type=" + type);
                     aargs.putLong("folder", folder.id);
+                    aargs.putString("type", type);
 
                     FragmentDialogAsk ask = new FragmentDialogAsk();
                     ask.setArguments(aargs);
-                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EMPTY_TRASH);
-                    ask.show(parentFragment.getFragmentManager(), "folder:empty_trash");
+                    ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EMPTY_FOLDER);
+                    ask.show(parentFragment.getFragmentManager(), "folder:empty");
                 }
 
                 private void onActionEditRules() {

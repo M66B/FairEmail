@@ -106,6 +106,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_empty_spam"
+        android:icon="@drawable/baseline_delete_24"
+        android:title="@string/title_empty_spam"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_force_sync"
         android:icon="@drawable/baseline_sync_24"
         android:title="@string/title_force_sync"

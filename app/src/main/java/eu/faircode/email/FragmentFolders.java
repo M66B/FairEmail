@@ -77,7 +77,7 @@ public class FragmentFolders extends FragmentBase {
 
     static final int REQUEST_SYNC = 1;
     static final int REQUEST_DELETE_LOCAL = 2;
-    static final int REQUEST_EMPTY_TRASH = 3;
+    static final int REQUEST_EMPTY_FOLDER = 3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -425,22 +425,16 @@ public class FragmentFolders extends FragmentBase {
         try {
             switch (requestCode) {
                 case REQUEST_SYNC:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Bundle args = data.getBundleExtra("args");
-                        onSync(args.getLong("folder"), args.getBoolean("all"));
-                    }
+                    if (resultCode == RESULT_OK && data != null)
+                        onSync(data.getBundleExtra("args"));
                     break;
                 case REQUEST_DELETE_LOCAL:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Bundle args = data.getBundleExtra("args");
-                        onDeleteLocal(args.getLong("folder"), args.getBoolean("browsed"));
-                    }
+                    if (resultCode == RESULT_OK && data != null)
+                        onDeleteLocal(data.getBundleExtra("args"));
                     break;
-                case REQUEST_EMPTY_TRASH:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Bundle args = data.getBundleExtra("args");
-                        onEmptyTrash(args.getLong("folder"));
-                    }
+                case REQUEST_EMPTY_FOLDER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onEmptyFolder(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -448,11 +442,7 @@ public class FragmentFolders extends FragmentBase {
         }
     }
 
-    private void onSync(long folder, boolean all) {
-        Bundle args = new Bundle();
-        args.putBoolean("all", all);
-        args.putLong("folder", folder);
-
+    private void onSync(Bundle args) {
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
@@ -518,11 +508,7 @@ public class FragmentFolders extends FragmentBase {
         }.execute(this, args, "folder:sync");
     }
 
-    private void onDeleteLocal(long folder, boolean browsed) {
-        Bundle args = new Bundle();
-        args.putLong("id", folder);
-        args.putBoolean("browsed", browsed);
-
+    private void onDeleteLocal(Bundle args) {
         new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
@@ -536,13 +522,15 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             protected Void onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
+                long fid = args.getLong("folder");
                 boolean browsed = args.getBoolean("browsed");
                 Log.i("Delete local messages browsed=" + browsed);
+
+                DB db = DB.getInstance(context);
                 if (browsed)
-                    DB.getInstance(context).message().deleteBrowsedMessages(id);
+                    db.message().deleteBrowsedMessages(fid);
                 else
-                    DB.getInstance(context).message().deleteLocalMessages(id);
+                    db.message().deleteLocalMessages(fid);
                 return null;
             }
 
@@ -553,20 +541,25 @@ public class FragmentFolders extends FragmentBase {
         }.execute(this, args, "folder:delete:local");
     }
 
-    private void onEmptyTrash(long folder) {
-        Bundle args = new Bundle();
-        args.putLong("folder", folder);
-
+    private void onEmptyFolder(Bundle args) {
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
-                long folder = args.getLong("folder");
+                long fid = args.getLong("folder");
+                String type = args.getString("type");
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    List<Long> ids = db.message().getMessageByFolder(folder);
+                    EntityFolder folder = db.folder().getFolder(fid);
+                    if (folder == null)
+                        return null;
+
+                    if (!folder.type.equals(type))
+                        throw new IllegalStateException("Invalid folder type=" + type);
+
+                    List<Long> ids = db.message().getMessageByFolder(folder.id);
                     for (Long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
                         if (message.uid != null || !TextUtils.isEmpty(message.msgid))

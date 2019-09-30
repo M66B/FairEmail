@@ -262,7 +262,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_SEARCH = 18;
     private static final int REQUEST_ACCOUNT = 19;
     static final int REQUEST_MESSAGE_PROPERTY = 20;
-    private static final int REQUEST_EMPTY_TRASH = 21;
+    private static final int REQUEST_EMPTY_FOLDER = 21;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -2597,6 +2597,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
         menu.findItem(R.id.menu_empty_trash).setVisible(
                 viewType == AdapterMessage.ViewType.FOLDER && EntityFolder.TRASH.equals(type));
+        menu.findItem(R.id.menu_empty_spam).setVisible(
+                viewType == AdapterMessage.ViewType.FOLDER && EntityFolder.JUNK.equals(type));
 
         menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
 
@@ -2687,7 +2689,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return true;
 
             case R.id.menu_empty_trash:
-                onMenuEmptyTrash();
+                onMenuEmpty(EntityFolder.TRASH);
+                return true;
+
+            case R.id.menu_empty_spam:
+                onMenuEmpty(EntityFolder.JUNK);
                 return true;
 
             case R.id.menu_force_sync:
@@ -2803,14 +2809,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         });
     }
 
-    private void onMenuEmptyTrash() {
+    private void onMenuEmpty(String type) {
         Bundle aargs = new Bundle();
-        aargs.putString("question", getString(R.string.title_empty_trash_ask));
+        if (EntityFolder.TRASH.equals(type))
+            aargs.putString("question", getString(R.string.title_empty_trash_ask));
+        else if (EntityFolder.JUNK.equals(type))
+            aargs.putString("question", getString(R.string.title_empty_spam_ask));
+        else
+            throw new IllegalArgumentException("Invalid folder type=" + type);
+        aargs.putLong("folder", folder);
+        aargs.putString("type", type);
 
         FragmentDialogAsk ask = new FragmentDialogAsk();
         ask.setArguments(aargs);
-        ask.setTargetFragment(this, FragmentMessages.REQUEST_EMPTY_TRASH);
-        ask.show(getFragmentManager(), "messages:empty_trash");
+        ask.setTargetFragment(this, FragmentMessages.REQUEST_EMPTY_FOLDER);
+        ask.show(getFragmentManager(), "messages:empty");
     }
 
     private void onMenuForceSync() {
@@ -3641,7 +3654,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_MESSAGES_DELETE:
                     if (resultCode == RESULT_OK && data != null)
-                        onDelete(data.getBundleExtra("args").getLongArray("ids"));
+                        onDelete(data.getBundleExtra("args"));
                     break;
                 case REQUEST_MESSAGE_JUNK:
                     if (resultCode == RESULT_OK && data != null)
@@ -3716,9 +3729,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (resultCode == RESULT_OK)
                         onPropertySet(data.getBundleExtra("args"));
                     break;
-                case REQUEST_EMPTY_TRASH:
+                case REQUEST_EMPTY_FOLDER:
                     if (resultCode == RESULT_OK)
-                        onEmptyTrash();
+                        onEmptyFolder(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -4032,10 +4045,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "message:delete");
     }
 
-    private void onDelete(long[] ids) {
-        Bundle args = new Bundle();
-        args.putLongArray("ids", ids);
-
+    private void onDelete(Bundle args) {
         selectionTracker.clearSelection();
 
         new SimpleTask<Void>() {
@@ -4456,20 +4466,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         iProperties.setValue(name, id, value);
     }
 
-    private void onEmptyTrash() {
-        Bundle args = new Bundle();
-        args.putLong("folder", folder);
-
+    private void onEmptyFolder(Bundle args) {
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
-                long folder = args.getLong("folder");
+                long fid = args.getLong("folder");
+                String type = args.getString("type");
 
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
-                    List<Long> ids = db.message().getMessageByFolder(folder);
+                    EntityFolder folder = db.folder().getFolder(fid);
+                    if (folder == null)
+                        return null;
+
+                    if (!folder.type.equals(type))
+                        throw new IllegalStateException("Invalid folder type=" + type);
+
+                    List<Long> ids = db.message().getMessageByFolder(folder.id);
                     for (Long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
                         if (message.uid != null || !TextUtils.isEmpty(message.msgid))
