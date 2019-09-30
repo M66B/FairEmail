@@ -59,10 +59,34 @@ public class MimeMessageEx extends MimeMessage {
     }
 
     @Override
+    public synchronized Flags getFlags() throws MessagingException {
+        if (original == null)
+            return super.getFlags();
+        else
+            return original.getFlags();
+    }
+
+    @Override
     public synchronized boolean isSet(Flags.Flag flag) throws MessagingException {
         if (original == null)
             return super.isSet(flag);
         else
             return original.isSet(flag);
+    }
+
+    @Override
+    public void setFlag(Flags.Flag flag, boolean set) throws MessagingException {
+        if (original == null)
+            super.setFlag(flag, set);
+        else
+            original.setFlag(flag, set);
+    }
+
+    @Override
+    public synchronized void setFlags(Flags flag, boolean set) throws MessagingException {
+        if (original == null)
+            super.setFlags(flag, set);
+        else
+            original.setFlags(flag, set);
     }
 }
