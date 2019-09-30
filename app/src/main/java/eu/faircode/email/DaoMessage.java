@@ -460,6 +460,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET notifying = 0")
     int clearNotifyingMessages();
 
+    @Query("UPDATE message SET headers = NULL WHERE headers IS NOT NULL")
+    int clearMessageHeaders();
+
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);
 
