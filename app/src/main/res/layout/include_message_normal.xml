@@ -135,6 +135,18 @@
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
         app:srcCompat="@drawable/baseline_edit_24" />
 
+    <ImageView
+        android:id="@+id/ivPriority"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_send_priority"
+        android:tint="@color/colorError"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
+        app:layout_constraintStart_toEndOf="@id/ivType"
+        app:layout_constraintTop_toTopOf="@+id/tvFolder"
+        app:srcCompat="@drawable/baseline_priority_high_24" />
+
     <ImageButton
         android:id="@+id/ibAuth"
         android:layout_width="21dp"
@@ -144,7 +156,7 @@
         android:contentDescription="@string/title_legend_auth"
         android:tint="@color/colorError"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivType"
+        app:layout_constraintStart_toEndOf="@id/ivPriority"
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
         app:srcCompat="@drawable/baseline_flag_24" />
 

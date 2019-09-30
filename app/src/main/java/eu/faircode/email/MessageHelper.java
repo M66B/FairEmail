@@ -119,6 +119,20 @@ public class MessageHelper {
         DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
+        if (EntityMessage.PRIORITIY_LOW.equals(message.priority)) {
+            // Low
+            imessage.addHeader("Importance", "Low");
+            imessage.addHeader("Priority", "Non-Urgent");
+            imessage.addHeader("X-Priority", "5"); // Lowest
+            imessage.addHeader("X-MSMail-Priority", "Low");
+        } else if (EntityMessage.PRIORITIY_HIGH.equals(message.priority)) {
+            // High
+            imessage.addHeader("Importance", "High");
+            imessage.addHeader("Priority", "Urgent");
+            imessage.addHeader("X-Priority", "1"); // Highest
+            imessage.addHeader("X-MSMail-Priority", "High");
+        }
+
         if (message.references != null)
             imessage.addHeader("References", message.references);
         if (message.inreplyto != null)
@@ -454,6 +468,43 @@ public class MessageHelper {
 
         String msgid = getMessageID();
         return (TextUtils.isEmpty(msgid) ? Long.toString(uid) : msgid);
+    }
+
+    Integer getPriority() throws MessagingException {
+        Integer priority = null;
+
+        // https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-oxcmail/2bb19f1b-b35e-4966-b1cb-1afd044e83ab
+        String header = imessage.getHeader("Importance", null);
+        if (header == null)
+            header = imessage.getHeader("Priority", null);
+        if (header == null)
+            header = imessage.getHeader("X-Priority", null);
+        if (header == null)
+            header = imessage.getHeader("X-MSMail-Priority", null);
+
+        if ("high".equalsIgnoreCase(header) || "urgent".equalsIgnoreCase(header))
+            priority = EntityMessage.PRIORITIY_HIGH;
+        else if ("normal".equalsIgnoreCase(header) || "medium".equalsIgnoreCase(header))
+            priority = EntityMessage.PRIORITIY_NORMAL;
+        else if ("low".equalsIgnoreCase(header) || "non-urgent".equalsIgnoreCase(header))
+            priority = EntityMessage.PRIORITIY_LOW;
+        else if (header != null)
+            try {
+                priority = Integer.parseInt(header);
+                if (priority < 3)
+                    priority = EntityMessage.PRIORITIY_HIGH;
+                else if (priority > 3)
+                    priority = EntityMessage.PRIORITIY_LOW;
+                else
+                    priority = EntityMessage.PRIORITIY_NORMAL;
+            } catch (NumberFormatException ex) {
+                Log.e("priority=" + header);
+            }
+
+        if (EntityMessage.PRIORITIY_NORMAL.equals(priority))
+            priority = null;
+
+        return priority;
     }
 
     boolean getReceiptRequested() throws MessagingException {

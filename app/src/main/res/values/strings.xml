@@ -585,6 +585,7 @@
     <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Send at &#8230;</string>
+    <string name="title_send_priority">Priority</string>
     <string name="title_no_server">No server found at \'%1$s\'</string>
 
     <string name="title_style_bold">Bold</string>
@@ -749,6 +750,7 @@
     <string name="title_legend_thread">Conversation</string>
     <string name="title_legend_zoom">Change text size</string>
     <string name="title_legend_draft">Has draft</string>
+    <string name="title_legend_priority">Has high priority</string>
     <string name="title_legend_auth">Authentication failed</string>
     <string name="title_legend_snoozed">Is snoozed</string>
     <string name="title_legend_browsed">Is browsed or searched</string>
@@ -1021,6 +1023,12 @@
         <item>At the start</item>
         <item>In the middle</item>
         <item>At the end</item>
+    </string-array>
+
+    <string-array name="priorityNames">
+        <item>Low</item>
+        <item>Normal</item>
+        <item>High</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

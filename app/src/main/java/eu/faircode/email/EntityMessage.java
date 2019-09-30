@@ -78,6 +78,10 @@ import static androidx.room.ForeignKey.SET_NULL;
 public class EntityMessage implements Serializable {
     static final String TABLE_NAME = "message";
 
+    static final Integer PRIORITIY_LOW = 0;
+    static final Integer PRIORITIY_NORMAL = 1;
+    static final Integer PRIORITIY_HIGH = 2;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
@@ -94,6 +98,7 @@ public class EntityMessage implements Serializable {
     public String deliveredto;
     public String inreplyto;
     public String thread; // compose = null
+    public Integer priority;
     public Boolean receipt_request;
     public Address[] receipt_to;
     public Boolean dkim;

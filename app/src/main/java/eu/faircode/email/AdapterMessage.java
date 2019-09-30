@@ -254,6 +254,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvSize;
         private TextView tvTime;
         private ImageView ivType;
+        private ImageView ivPriority;
         private ImageView ibAuth;
         private ImageView ibSnoozed;
         private ImageView ivBrowsed;
@@ -365,6 +366,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivType = itemView.findViewById(R.id.ivType);
+            ivPriority = itemView.findViewById(R.id.ivPriority);
             ibAuth = itemView.findViewById(R.id.ibAuth);
             ibSnoozed = itemView.findViewById(R.id.ibSnoozed);
             ivBrowsed = itemView.findViewById(R.id.ivBrowsed);
@@ -611,6 +613,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setText(null);
             tvTime.setText(null);
             ivType.setVisibility(View.GONE);
+            ivPriority.setVisibility(View.GONE);
             ibAuth.setVisibility(View.GONE);
             ibSnoozed.setVisibility(View.GONE);
             ivBrowsed.setVisibility(View.GONE);
@@ -677,6 +680,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivType.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivPriority.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivBrowsed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -763,6 +767,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
                         ? View.VISIBLE : View.GONE);
             }
+
+            ivPriority.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(message.priority) ? View.VISIBLE : View.GONE);
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
             ibSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
             ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);

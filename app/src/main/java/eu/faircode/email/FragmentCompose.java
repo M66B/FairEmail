@@ -3435,6 +3435,7 @@ public class FragmentCompose extends FragmentBase {
             final CheckBox cbEncrypt = dview.findViewById(R.id.cbEncrypt);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
+            final Spinner spPriority = dview.findViewById(R.id.spPriority);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
@@ -3443,6 +3444,8 @@ public class FragmentCompose extends FragmentBase {
             tvTo.setText(null);
             tvVia.setText(null);
             tvSendAt.setText(null);
+            spPriority.setTag(1);
+            spPriority.setSelection(1);
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
             cbNotAgain.setChecked(!send_dialog);
@@ -3487,6 +3490,10 @@ public class FragmentCompose extends FragmentBase {
                         DateFormat D = new SimpleDateFormat("E");
                         tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     }
+
+                    int priority = (draft.priority == null ? 1 : draft.priority);
+                    spPriority.setTag(priority);
+                    spPriority.setSelection(priority);
                 }
             });
 
@@ -3555,6 +3562,47 @@ public class FragmentCompose extends FragmentBase {
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentDialogSend.this, 1);
                     fragment.show(getFragmentManager(), "send:snooze");
+                }
+            });
+
+            spPriority.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    int last = (int) spPriority.getTag();
+                    if (last != position) {
+                        spPriority.setTag(position);
+                        setPriority(position);
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                    spPriority.setTag(1);
+                    setPriority(1);
+                }
+
+                private void setPriority(int priority) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", id);
+                    args.putInt("priority", priority);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            int priority = args.getInt("priority");
+
+                            DB db = DB.getInstance(context);
+                            db.message().setMessagePriority(id, priority);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getFragmentManager(), ex);
+                        }
+                    }.execute(FragmentDialogSend.this, args, "compose:priority");
                 }
             });
 

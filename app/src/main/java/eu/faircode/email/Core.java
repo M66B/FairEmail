@@ -1424,6 +1424,7 @@ class Core {
                     message.inreplyto = helper.getInReplyTo();
                     message.deliveredto = helper.getDeliveredTo();
                     message.thread = helper.getThreadId(context, account.id, 0);
+                    message.priority = helper.getPriority();
                     message.receipt_request = helper.getReceiptRequested();
                     message.receipt_to = helper.getReceiptTo();
                     message.dkim = MessageHelper.getAuthentication("dkim", authentication);
@@ -2042,6 +2043,7 @@ class Core {
             // Local address contains control or whitespace in string ``mailing list someone@example.org''
             message.deliveredto = helper.getDeliveredTo();
             message.thread = helper.getThreadId(context, account.id, uid);
+            message.priority = helper.getPriority();
             message.receipt_request = helper.getReceiptRequested();
             message.receipt_to = helper.getReceiptTo();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
