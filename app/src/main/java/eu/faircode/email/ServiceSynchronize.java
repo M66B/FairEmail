@@ -122,6 +122,7 @@ public class ServiceSynchronize extends ServiceBase {
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
         cm.registerNetworkCallback(builder.build(), onNetworkCallback);
 
+        registerReceiver(onConnectionChanged, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
         DB db = DB.getInstance(this);
@@ -282,6 +283,7 @@ public class ServiceSynchronize extends ServiceBase {
         EntityLog.log(this, "Service destroy");
 
         unregisterReceiver(onScreenOff);
+        unregisterReceiver(onConnectionChanged);
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(onNetworkCallback);
@@ -1413,6 +1415,14 @@ public class ServiceSynchronize extends ServiceBase {
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                 nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastStats).build());
             }
+        }
+    };
+
+    private BroadcastReceiver onConnectionChanged = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            EntityLog.log(ServiceSynchronize.this, "Connection intent=" + intent);
+            onNetworkCallback.onAvailable(null);
         }
     };
 
