@@ -80,7 +80,7 @@
         <activity
             android:name=".ActivitySetup"
             android:exported="true"
-            android:launchMode="singleInstance"
+            android:launchMode="singleTop"
             android:parentActivityName=".ActivityMain">
 
             <intent-filter>
