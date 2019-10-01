@@ -195,8 +195,7 @@ class Core {
                                     if (EntityOperation.MOVE.equals(next.name)) {
                                         JSONArray jnext = new JSONArray(next.args);
                                         // Same target, autoread
-                                        if (jargs.getLong(0) == jnext.getLong(0) &&
-                                                jargs.getBoolean(1) == jnext.getBoolean(1)) {
+                                        if (jargs.getLong(0) == jnext.getLong(0)) {
                                             EntityMessage m = db.message().getMessage(next.message);
                                             if (m != null) {
                                                 processed.add(next.id);
