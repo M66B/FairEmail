@@ -649,7 +649,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
 
-                int px = Math.round(tvFrom.getTextSize() + tvSubject.getTextSize());
+                int px = Math.round(
+                        textSize * (message.unseen > 0 ? 1.1f : 1f) +
+                                textSize * 0.9f +
+                                (compact ? 0 : textSize * 0.9f));
                 ViewGroup.LayoutParams lparams = ivAvatar.getLayoutParams();
                 if (lparams.height != px) {
                     lparams.width = px;
