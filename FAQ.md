@@ -699,7 +699,13 @@ but such apps cannot be updated anymore and recent Android versions will show a 
 **(22) What does account/folder error ... mean?**
 
 FairEmail does not hide errors like similar apps often do, so it is easier to diagnose problems.
-Also, FairEmail will always retry again later, so transient errors will automatically be solved.
+
+FairEmail will automatically try to connect again after a delay.
+This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+
+There are general errors and errors specific to Gmail accounts (see below).
+
+**General errors**
 
 The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
 mean that FairEmail was not able to connect to the email server.
@@ -714,12 +720,6 @@ The error *... Connection closed by peer ...* might be caused by a not updated E
 see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
 The error *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
-
-The error *... Invalid credentials ...* for a Gmail account which was added with the quick setup wizard
-might be caused by having removed the selected account from your device or by having revoked account (contact) permissions from FairEmail.
-Account permissions are required to periodically refresh the [OAuth](https://developers.google.com/gmail/imap/xoauth2-protocol) token
-(a kind of password used to login to your Gmail account).
-Just start the wizard (but do not select an account) to grant the required permissions again.
 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
 FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
@@ -740,8 +740,22 @@ Sometimes you can workaround this by using another SMTP port. See the documentat
 
 If you are using a VPN, the VPN provider might block the connection because it is too aggressively trying to prevent spam.
 
-FairEmail will automatically try to connect again after a delay.
-This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
+**Gmail errors**
+
+The authorization of Gmail accounts setup with the quick wizard needs to be periodically refreshed
+via the [Android account manager](https://developer.android.com/reference/android/accounts/AccountManager).
+This requires contact/account permissions and internet connectivity.
+
+The error *... Authentication failed ... Account not found ...* means that a previously authorized Gmail account was removed from the device.
+
+The errors *... Authentication failed ... No token on refresh ...* means that the Android account manager failed to refresh the authorization of a Gmail account.
+
+The error *... Authentication failed ... Invalid credentials ... network error ...*
+means that the Android account manager was not able to refresh the authorization of a Gmail account due to problems with the internet connection
+
+The error *... Authentication failed ... Invalid credentials ...* could be caused by having revoked the required account/contacts permissions.
+Just start the wizard (but do not select an account) to grant the required permissions again.
+
 
 When in doubt, you can ask for [support](#user-content-support).
 
