@@ -120,6 +120,12 @@ public class MessageHelper {
         DB db = DB.getInstance(context);
         MimeMessageEx imessage = new MimeMessageEx(isession, message.msgid);
 
+        // Flags
+        imessage.setFlag(Flags.Flag.SEEN, message.seen);
+        imessage.setFlag(Flags.Flag.FLAGGED, message.flagged);
+        imessage.setFlag(Flags.Flag.ANSWERED, message.answered);
+
+        // Priority
         if (EntityMessage.PRIORITIY_LOW.equals(message.priority)) {
             // Low
             imessage.addHeader("Importance", "Low");
@@ -134,17 +140,14 @@ public class MessageHelper {
             imessage.addHeader("X-MSMail-Priority", "High");
         }
 
+        // References
         if (message.references != null)
             imessage.addHeader("References", message.references);
         if (message.inreplyto != null)
             imessage.addHeader("In-Reply-To", message.inreplyto);
-
         imessage.addHeader("X-Correlation-ID", message.msgid);
 
-        imessage.setFlag(Flags.Flag.SEEN, message.seen);
-        imessage.setFlag(Flags.Flag.FLAGGED, message.flagged);
-        imessage.setFlag(Flags.Flag.ANSWERED, message.answered);
-
+        // Addresses
         if (message.from != null && message.from.length > 0) {
             String email = ((InternetAddress) message.from[0]).getAddress();
             String name = ((InternetAddress) message.from[0]).getPersonal();
@@ -195,6 +198,10 @@ public class MessageHelper {
                 imessage.addHeader("Disposition-Notification-To", to);
             }
         }
+
+        // Auto answer
+        if (message.unsubscribe != null)
+            imessage.addHeader("List-Unsubscribe", "<" + message.unsubscribe + ">");
 
         MailDateFormat mdf = new MailDateFormat();
         mdf.setTimeZone(TimeZone.getTimeZone("UTC"));

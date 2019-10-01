@@ -372,6 +372,7 @@ public class EntityRule {
         reply.from = new InternetAddress[]{new InternetAddress(identity.email, identity.name)};
         if (cc)
             reply.cc = message.cc;
+        reply.unsubscribe = "mailto:" + identity.email;
         reply.subject = context.getString(R.string.title_subject_reply, message.subject == null ? "" : message.subject);
         reply.received = new Date().getTime();
 
