@@ -2416,7 +2416,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if ("pro".equals(key)) {
-            boolean pro = prefs.getBoolean(key, false);
+            boolean pro = ActivityBilling.isPro(getContext());
             grpSupport.setVisibility(
                     !pro && viewType == AdapterMessage.ViewType.UNIFIED
                             ? View.VISIBLE : View.GONE);

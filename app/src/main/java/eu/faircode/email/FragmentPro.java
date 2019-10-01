@@ -179,7 +179,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if ("pro".equals(key)) {
-            boolean pro = prefs.getBoolean(key, false);
+            boolean pro = ActivityBilling.isPro(getContext());
             tvActivated.setVisibility(pro ? View.VISIBLE : View.GONE);
 
             if (!Helper.isPlayStoreInstall())
