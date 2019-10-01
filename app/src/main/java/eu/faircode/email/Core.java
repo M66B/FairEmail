@@ -2842,7 +2842,9 @@ class Core {
                 NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_delete_24,
                         context.getString(R.string.title_advanced_notify_action_trash),
-                        piTrash);
+                        piTrash)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_DELETE)
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionTrash.build());
             }
 
@@ -2855,7 +2857,8 @@ class Core {
                 NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_flag_24,
                         context.getString(R.string.title_advanced_notify_action_junk),
-                        piJunk);
+                        piJunk)
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionJunk.build());
             }
 
@@ -2868,7 +2871,9 @@ class Core {
                 NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_archive_24,
                         context.getString(R.string.title_advanced_notify_action_archive),
-                        piArchive);
+                        piArchive)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_ARCHIVE)
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionArchive.build());
             }
 
@@ -2882,7 +2887,9 @@ class Core {
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply),
-                        piReply);
+                        piReply)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_REPLY)
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionReply.build());
             }
 
@@ -2898,7 +2905,9 @@ class Core {
                 NotificationCompat.Action.Builder actionReply = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_reply_24,
                         context.getString(R.string.title_advanced_notify_action_reply_direct),
-                        piReply);
+                        piReply)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_REPLY)
+                        .setAllowGeneratedReplies(false);
                 RemoteInput.Builder input = new RemoteInput.Builder("text")
                         .setLabel(context.getString(R.string.title_advanced_notify_action_reply));
                 actionReply.addRemoteInput(input.build()).setAllowGeneratedReplies(false);
@@ -2913,7 +2922,9 @@ class Core {
                 NotificationCompat.Action.Builder actionFlag = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_star_24,
                         context.getString(R.string.title_advanced_notify_action_flag),
-                        piFlag);
+                        piFlag)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_THUMBS_UP)
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionFlag.build());
             }
 
@@ -2925,7 +2936,9 @@ class Core {
                 NotificationCompat.Action.Builder actionSeen = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_visibility_24,
                         context.getString(R.string.title_advanced_notify_action_seen),
-                        piSeen);
+                        piSeen)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MARK_AS_READ)
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionSeen.build());
             }
 
@@ -2937,7 +2950,9 @@ class Core {
                 NotificationCompat.Action.Builder actionSnooze = new NotificationCompat.Action.Builder(
                         R.drawable.baseline_timelapse_24,
                         context.getString(R.string.title_advanced_notify_action_snooze),
-                        piSnooze);
+                        piSnooze)
+                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MUTE)
+                        .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionSnooze.build());
             }
 
