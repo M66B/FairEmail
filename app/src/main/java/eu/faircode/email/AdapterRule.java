@@ -121,6 +121,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 JSONObject jaction = new JSONObject(rule.action);
                 int type = jaction.getInt("type");
                 switch (type) {
+                    case EntityRule.TYPE_NOOP:
+                        tvAction.setText(R.string.title_rule_noop);
+                        break;
                     case EntityRule.TYPE_SEEN:
                         tvAction.setText(R.string.title_rule_seen);
                         break;
