@@ -762,9 +762,6 @@ class Core {
 
         // Get arguments
         long id = jargs.getLong(0);
-        boolean autoread = jargs.optBoolean(1, false);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean autounflag = prefs.getBoolean("autounflag", false);
         Flags flags = ifolder.getPermanentFlags();
 
         // Get target folder
@@ -808,16 +805,16 @@ class Core {
                 file.delete();
 
                 // Auto read
-                if (autoread && flags.contains(Flags.Flag.SEEN))
-                    icopy.setFlag(Flags.Flag.SEEN, true);
+                if (flags.contains(Flags.Flag.SEEN))
+                    icopy.setFlag(Flags.Flag.SEEN, message.ui_seen);
 
                 // Auto unflag
-                if (autounflag && flags.contains(Flags.Flag.FLAGGED))
-                    icopy.setFlag(Flags.Flag.FLAGGED, false);
+                if (flags.contains(Flags.Flag.FLAGGED))
+                    icopy.setFlag(Flags.Flag.FLAGGED, message.ui_flagged);
 
                 // Answered fix
-                if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
-                    icopy.setFlag(Flags.Flag.ANSWERED, true);
+                if (flags.contains(Flags.Flag.ANSWERED))
+                    icopy.setFlag(Flags.Flag.ANSWERED, message.ui_answered);
 
                 // Set drafts flag
                 icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
@@ -831,16 +828,16 @@ class Core {
                 EntityMessage message = map.get(imessage);
 
                 // Auto read
-                if (autoread && flags.contains(Flags.Flag.SEEN))
-                    imessage.setFlag(Flags.Flag.SEEN, true);
+                if (flags.contains(Flags.Flag.SEEN))
+                    imessage.setFlag(Flags.Flag.SEEN, message.ui_seen);
 
                 // Auto unflag
-                if (autounflag && flags.contains(Flags.Flag.FLAGGED))
-                    imessage.setFlag(Flags.Flag.FLAGGED, false);
+                if (flags.contains(Flags.Flag.FLAGGED))
+                    imessage.setFlag(Flags.Flag.FLAGGED, message.ui_flagged);
 
                 // Answered fix
-                if (message.ui_answered && flags.contains(Flags.Flag.ANSWERED))
-                    imessage.setFlag(Flags.Flag.ANSWERED, true);
+                if (flags.contains(Flags.Flag.ANSWERED))
+                    imessage.setFlag(Flags.Flag.ANSWERED, message.ui_answered);
             }
 
             ifolder.copyMessages(map.keySet().toArray(new Message[0]), itarget);

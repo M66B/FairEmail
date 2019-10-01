@@ -140,13 +140,12 @@ public class EntityOperation {
             else if (MOVE.equals(name)) {
                 // Parameters:
                 // 0: target folder
-                // 1: auto read
+                // (1: auto read)
                 // 2: temporary message
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
-                autoread = (autoread && jargs.optBoolean(1, true));
-                jargs.put(1, autoread);
+                boolean autounflag = prefs.getBoolean("autounflag", false);
 
                 EntityFolder source = db.folder().getFolder(message.folder);
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
@@ -156,10 +155,13 @@ public class EntityOperation {
                 EntityLog.log(context, "Move message=" + message.id + ":" + message.subject +
                         " source=" + source.id + ":" + source.name + "" +
                         " target=" + target.id + ":" + target.name +
-                        " autoread=" + autoread);
+                        " auto read=" + autoread + " flag=" + autounflag);
 
                 if (autoread)
                     db.message().setMessageUiSeen(message.id, true);
+
+                if (autounflag)
+                    db.message().setMessageUiFlagged(message.id, false, null);
 
                 if (!EntityFolder.ARCHIVE.equals(source.type) ||
                         EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type))
