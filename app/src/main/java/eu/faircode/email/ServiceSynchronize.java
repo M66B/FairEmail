@@ -35,6 +35,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.AlarmManagerCompat;
@@ -1421,8 +1422,9 @@ public class ServiceSynchronize extends ServiceBase {
     private BroadcastReceiver onConnectionChanged = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            EntityLog.log(ServiceSynchronize.this, "Connection intent=" + intent);
-            onNetworkCallback.onAvailable(null);
+            EntityLog.log(ServiceSynchronize.this, "Connection intent=" + intent +
+                    " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
+            onNetworkCallback.onCapabilitiesChanged(null, null);
         }
     };
 
