@@ -56,20 +56,18 @@ public class ViewCardOptional extends CardView {
         boolean compact = prefs.getBoolean("compact", false);
 
         if (cards) {
-            int dp6 = Helper.dp2pixels(getContext(), 6);
+            int dp = Helper.dp2pixels(getContext(), compact ? 3 : 6);
 
             FrameLayout.LayoutParams lparam = (FrameLayout.LayoutParams) getLayoutParams();
-            lparam.setMargins(dp6, compact ? 0 : dp6, dp6, dp6);
+            lparam.setMargins(dp, dp, dp, dp);
             setLayoutParams(lparam);
 
-            setRadius(dp6);
-            setCardElevation(compact ? dp6 / 2f : dp6);
-            setMaxCardElevation(compact ? dp6 / 2f : dp6);
-            setContentPadding(dp6, dp6, dp6, dp6);
-        } else {
+            setRadius(dp);
+            setContentPadding(dp, dp, dp, dp);
+        } else
             setRadius(0);
-            setCardElevation(0);
-        }
+
+        setCardElevation(0);
     }
 
     @Override
