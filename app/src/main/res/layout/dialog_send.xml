@@ -34,7 +34,7 @@
             android:id="@+id/tvRemindAttachment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="@string/title_attachment_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
@@ -45,7 +45,7 @@
             android:id="@+id/tvToTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:text="@string/title_to"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +110,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPlainOnly" />
 
+        <CheckBox
+            android:id="@+id/cbReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_send_receipt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbEncrypt" />
+
+        <TextView
+            android:id="@+id/tvReceipt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_send_receipt_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbReceipt" />
+
         <TextView
             android:id="@+id/tvPriority"
             android:layout_width="wrap_content"
@@ -118,7 +138,7 @@
             android:text="@string/title_send_priority"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbEncrypt" />
+            app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
 
         <Spinner
             android:id="@+id/spPriority"

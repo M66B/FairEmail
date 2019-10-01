@@ -99,6 +99,7 @@ public class EntityMessage implements Serializable {
     public String inreplyto;
     public String thread; // compose = null
     public Integer priority;
+    public Boolean receipt; // is receipt
     public Boolean receipt_request;
     public Address[] receipt_to;
     public Boolean dkim;
@@ -262,6 +263,8 @@ public class EntityMessage implements Serializable {
                     Objects.equals(this.deliveredto, other.deliveredto) &&
                     Objects.equals(this.inreplyto, other.inreplyto) &&
                     Objects.equals(this.thread, other.thread) &&
+                    Objects.equals(this.priority, other.priority) &&
+                    Objects.equals(this.receipt, other.receipt) &&
                     Objects.equals(this.receipt_request, other.receipt_request) &&
                     MessageHelper.equal(this.receipt_to, other.receipt_to) &&
                     Objects.equals(this.dkim, other.dkim) &&

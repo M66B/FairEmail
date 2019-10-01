@@ -367,6 +367,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET priority = :priority WHERE id = :id")
     int setMessagePriority(long id, Integer priority);
 
+    @Query("UPDATE message SET receipt_request = :receipt_request WHERE id = :id")
+    int setMessageReceiptRequest(long id, Boolean receipt_request);
+
     @Query("UPDATE message SET notifying = :notifying WHERE id = :id")
     int setMessageNotifying(long id, int notifying);
 

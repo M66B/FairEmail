@@ -583,32 +583,13 @@
             app:layout_constraintTop_toBottomOf="@id/cbEncrypt" />
 
         <CheckBox
-            android:id="@+id/cbDeliveryReceipt"
+            android:id="@+id/cbReceipt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_identity_delivery_receipt"
+            android:text="@string/title_identity_receipt"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEncryptPro" />
-
-        <CheckBox
-            android:id="@+id/cbReadReceipt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_identity_read_receipt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbDeliveryReceipt" />
-
-        <TextView
-            android:id="@+id/tvReceipt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_identity_receipt_remark"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbReadReceipt" />
 
         <Button
             android:id="@+id/btnSave"
@@ -618,7 +599,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReceipt" />
+            app:layout_constraintTop_toBottomOf="@id/cbReceipt" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"

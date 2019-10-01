@@ -39,7 +39,6 @@ import androidx.preference.PreferenceManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -50,12 +49,10 @@ import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
-import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.SendFailedException;
 import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -325,30 +322,6 @@ public class ServiceSend extends ServiceBase {
         Session isession = Session.getInstance(props, null);
         MimeMessage imessage = MessageHelper.from(this, message, ident, isession);
 
-        // Add reply to
-        if (ident.replyto != null)
-            imessage.setReplyTo(InternetAddress.parse(ident.replyto));
-
-        // Add bcc
-        if (ident.bcc != null) {
-            List<Address> bcc = new ArrayList<>();
-            Address[] existing = imessage.getRecipients(Message.RecipientType.BCC);
-            if (existing != null)
-                bcc.addAll(Arrays.asList(existing));
-            bcc.addAll(Arrays.asList(InternetAddress.parse(ident.bcc)));
-            imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
-        }
-
-        if (message.receipt_request == null || !message.receipt_request) {
-            // defacto standard
-            if (ident.delivery_receipt)
-                imessage.addHeader("Return-Receipt-To", ident.replyto == null ? ident.email : ident.replyto);
-
-            // https://tools.ietf.org/html/rfc3798
-            if (ident.read_receipt)
-                imessage.addHeader("Disposition-Notification-To", ident.replyto == null ? ident.email : ident.replyto);
-        }
-
         // Prepare sent message
         Long sid = null;
         EntityFolder sent = db.folder().getFolderByType(message.account, EntityFolder.SENT);
@@ -367,7 +340,6 @@ public class ServiceSend extends ServiceBase {
             message.id = null;
             message.folder = sent.id;
             message.identity = null;
-            message.receipt_request = helper.getReceiptRequested();
             message.from = helper.getFrom();
             message.bcc = helper.getBcc();
             message.reply = helper.getReply();

@@ -2091,7 +2091,7 @@ public class FragmentCompose extends FragmentBase {
                             if ("reply_all".equals(action))
                                 data.draft.cc = ref.getAllRecipients(data.identities);
                             else if ("receipt".equals(action))
-                                data.draft.receipt_request = true;
+                                data.draft.receipt = true;
 
                         } else if ("forward".equals(action) || "editasnew".equals(action))
                             data.draft.thread = data.draft.msgid; // new thread
@@ -2807,11 +2807,11 @@ public class FragmentCompose extends FragmentBase {
                             if (draft.to == null && draft.cc == null && draft.bcc == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
 
-                            if (identity.plain_only)
-                                db.message().setMessagePlainOnly(draft.id, true);
+                            db.message().setMessagePlainOnly(draft.id, identity.plain_only);
 
-                            if (identity.encrypt)
-                                db.message().setMessageEncrypt(draft.id, true);
+                            db.message().setMessageEncrypt(draft.id, identity.encrypt);
+
+                            db.message().setMessageReceiptRequest(draft.id, identity.delivery_receipt || identity.read_receipt);
 
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
@@ -3435,6 +3435,8 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
             final CheckBox cbEncrypt = dview.findViewById(R.id.cbEncrypt);
+            final CheckBox cbReceipt = dview.findViewById(R.id.cbReceipt);
+            final TextView tvReceipt = dview.findViewById(R.id.tvReceipt);
             final Spinner spPriority = dview.findViewById(R.id.spPriority);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
@@ -3445,6 +3447,7 @@ public class FragmentCompose extends FragmentBase {
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
             tvTo.setText(null);
             tvVia.setText(null);
+            tvReceipt.setVisibility(View.GONE);
             spPriority.setTag(1);
             spPriority.setSelection(1);
             tvSendAt.setText(null);
@@ -3512,6 +3515,35 @@ public class FragmentCompose extends FragmentBase {
                             Helper.unexpectedError(getFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogSend.this, args, "compose:encrypt");
+                }
+            });
+
+            cbReceipt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                    tvReceipt.setVisibility(checked ? View.VISIBLE : View.GONE);
+
+                    Bundle args = new Bundle();
+                    args.putLong("id", id);
+                    args.putBoolean("receipt", checked);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean receipt = args.getBoolean("receipt");
+
+                            DB db = DB.getInstance(context);
+                            db.message().setMessageReceiptRequest(id, receipt);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(getFragmentManager(), ex);
+                        }
+                    }.execute(FragmentDialogSend.this, args, "compose:receipt");
                 }
             });
 
@@ -3586,6 +3618,7 @@ public class FragmentCompose extends FragmentBase {
 
                     cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only);
                     cbEncrypt.setChecked(draft.encrypt != null && draft.encrypt);
+                    cbReceipt.setChecked(draft.receipt_request != null && draft.receipt_request);
 
                     int priority = (draft.priority == null ? 1 : draft.priority);
                     spPriority.setTag(priority);

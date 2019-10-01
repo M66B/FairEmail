@@ -110,8 +110,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etBcc;
     private TextView tvEncryptPro;
     private CheckBox cbEncrypt;
-    private CheckBox cbDeliveryReceipt;
-    private CheckBox cbReadReceipt;
+    private CheckBox cbReceipt;
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
@@ -191,8 +190,7 @@ public class FragmentIdentity extends FragmentBase {
         etBcc = view.findViewById(R.id.etBcc);
         tvEncryptPro = view.findViewById(R.id.tvEncryptPro);
         cbEncrypt = view.findViewById(R.id.cbEncrypt);
-        cbDeliveryReceipt = view.findViewById(R.id.cbDeliveryReceipt);
-        cbReadReceipt = view.findViewById(R.id.cbReadReceipt);
+        cbReceipt = view.findViewById(R.id.cbReceipt);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -512,8 +510,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putBoolean("encrypt", cbEncrypt.isChecked());
-        args.putBoolean("delivery_receipt", cbDeliveryReceipt.isChecked());
-        args.putBoolean("read_receipt", cbReadReceipt.isChecked());
+        args.putBoolean("receipt", cbReceipt.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
@@ -579,8 +576,7 @@ public class FragmentIdentity extends FragmentBase {
                 String replyto = args.getString("replyto");
                 String bcc = args.getString("bcc");
                 boolean encrypt = args.getBoolean("encrypt");
-                boolean delivery_receipt = args.getBoolean("delivery_receipt");
-                boolean read_receipt = args.getBoolean("read_receipt");
+                boolean receipt = args.getBoolean("receipt");
 
                 boolean should = args.getBoolean("should");
 
@@ -691,9 +687,9 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.encrypt, encrypt))
                         return true;
-                    if (!Objects.equals(identity.delivery_receipt, delivery_receipt))
+                    if (!Objects.equals(identity.delivery_receipt, receipt))
                         return true;
-                    if (!Objects.equals(identity.read_receipt, read_receipt))
+                    if (!Objects.equals(identity.read_receipt, receipt))
                         return true;
                     if (identity.error != null)
                         return true;
@@ -758,8 +754,8 @@ public class FragmentIdentity extends FragmentBase {
                     identity.replyto = replyto;
                     identity.bcc = bcc;
                     identity.encrypt = encrypt;
-                    identity.delivery_receipt = delivery_receipt;
-                    identity.read_receipt = read_receipt;
+                    identity.delivery_receipt = receipt;
+                    identity.read_receipt = receipt;
                     identity.sent_folder = null;
                     identity.sign_key = null;
                     identity.error = null;
@@ -895,8 +891,7 @@ public class FragmentIdentity extends FragmentBase {
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etBcc.setText(identity == null ? null : identity.bcc);
                     cbEncrypt.setChecked(identity == null ? false : identity.encrypt);
-                    cbDeliveryReceipt.setChecked(identity == null ? false : identity.delivery_receipt);
-                    cbReadReceipt.setChecked(identity == null ? false : identity.read_receipt);
+                    cbReceipt.setChecked(identity == null ? false : identity.delivery_receipt || identity.read_receipt);
 
                     auth = (identity == null ? MailService.AUTH_TYPE_PASSWORD : identity.auth_type);
 
