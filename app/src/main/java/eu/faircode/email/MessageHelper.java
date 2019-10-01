@@ -482,6 +482,12 @@ public class MessageHelper {
         if (header == null)
             header = imessage.getHeader("X-MSMail-Priority", null);
 
+        if (header != null) {
+            int sp = header.indexOf(" ");
+            if (sp >= 0)
+                header = header.substring(0, sp); // "2 (High)"
+        }
+
         if ("high".equalsIgnoreCase(header) || "urgent".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_HIGH;
         else if ("normal".equalsIgnoreCase(header) || "medium".equalsIgnoreCase(header))
