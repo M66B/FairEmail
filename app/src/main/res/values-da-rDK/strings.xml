@@ -314,10 +314,8 @@
     <string name="title_advanced_sender_regex">Regex, der matcher redigerede adresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_encrypt">Kryptér som standard</string>
+    <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
-    <string name="title_identity_read_receipt">Anmod om kvittering for læsning</string>
-    <string name="title_identity_delivery_receipt">Anmod om kvittering for levering</string>
-    <string name="title_identity_receipt_remark">De fleste udbydere ignorerer kvitteringsanmodninger</string>
     <string name="title_optional">Valgfrit</string>
     <string name="title_recommended">Anbefalet</string>
     <string name="title_account_linked">Forbundet konto</string>
@@ -514,6 +512,7 @@
     <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sendt kl. &#8230;</string>
+    <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen server fundet på \'%1$s\'</string>
     <string name="title_style_bold">Fed</string>
     <string name="title_style_italic">Kursiv</string>
@@ -532,6 +531,8 @@
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
     <string name="title_send_plain_text">Kun klartekst</string>
+    <string name="title_send_receipt">Bed om leverings-/læstkvittering</string>
+    <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
     <string name="title_from_missing">Afsender mangler</string>
     <string name="title_to_missing">Modtager mangler</string>
     <string name="title_subject_reminder">Emne er tomt</string>
@@ -582,6 +583,7 @@
     <string name="title_answer_text">Skabelontekst</string>
     <string name="title_answer_template_name">$name$ bliver erstattet med afsenders fulde navn</string>
     <string name="title_answer_template_email">$email$ bliver erstattet med afsenders e-mailadresse</string>
+    <string name="title_rule_noop">Ingen handling</string>
     <string name="title_rule_seen">Markér som læst</string>
     <string name="title_rule_unseen">Markér som ulæst</string>
     <string name="title_rule_ignore">Undertryk notifikationer</string>
@@ -659,6 +661,7 @@
     <string name="title_legend_thread">Samtale</string>
     <string name="title_legend_zoom">Ændr tekststørrelse</string>
     <string name="title_legend_draft">Har kladde</string>
+    <string name="title_legend_priority">Har høj prioritet</string>
     <string name="title_legend_auth">Godkendelse mislykkedes</string>
     <string name="title_legend_snoozed">Er udsat</string>
     <string name="title_legend_browsed">Gennemses eller søges i</string>
@@ -844,5 +847,10 @@
         <item>I starten</item>
         <item>I midten</item>
         <item>Ved slutningen</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Lav</item>
+        <item>Normal</item>
+        <item>Høj</item>
     </string-array>
 </resources>

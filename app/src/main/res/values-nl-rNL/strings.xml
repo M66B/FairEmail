@@ -315,10 +315,8 @@
     <string name="title_advanced_sender_regex">Regex om bewerkte adressen te matchen</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_encrypt">Standaard versleutelen</string>
+    <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
-    <string name="title_identity_read_receipt">Vraag leesbevestiging</string>
-    <string name="title_identity_delivery_receipt">Vraag ontvangstbevestiging</string>
-    <string name="title_identity_receipt_remark">De meeste providers negeren bevestigingsverzoeken</string>
     <string name="title_optional">Optioneel</string>
     <string name="title_recommended">Aanbevolen</string>
     <string name="title_account_linked">Gekoppeld account</string>
@@ -425,6 +423,7 @@
     <string name="title_no_folders">Geen mappen</string>
     <string name="title_no_messages">Geen berichten</string>
     <string name="title_filters_active">Eén of meer filters actief</string>
+    <string name="title_duplicate_in">Duplicaat in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Markeer als gelezen</string>
@@ -534,6 +533,8 @@
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
     <string name="title_send_plain_text">Alleen platte tekst</string>
+    <string name="title_send_receipt">Vraag ontvangst/leesbevestiging</string>
+    <string name="title_send_receipt_remark">De meeste aanbieders en e-mail clients negeren bevestigingsverzoeken</string>
     <string name="title_from_missing">Zender ontbreekt</string>
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_subject_reminder">Onderwerp is leeg</string>
@@ -584,6 +585,7 @@
     <string name="title_answer_text">Sjabloontekst</string>
     <string name="title_answer_template_name">$name$ zal worden vervangen door de volledige naam van de afzender</string>
     <string name="title_answer_template_email">$email$ zal worden vervangen door het e-mail adres van de afzender</string>
+    <string name="title_rule_noop">Geen actie</string>
     <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_unseen">Markeren als ongelezen</string>
     <string name="title_rule_ignore">Melding onderdrukken</string>

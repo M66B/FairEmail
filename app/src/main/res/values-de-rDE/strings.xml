@@ -314,10 +314,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sender_regex">Regex um bearbeitete Adressen zu finden</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_encrypt">Standardmäßig verschlüsseln</string>
+    <string name="title_identity_receipt">Lieferung/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
-    <string name="title_identity_read_receipt">Lesebestätigung anfordern</string>
-    <string name="title_identity_delivery_receipt">Übermittlungsbestätigung anfordern</string>
-    <string name="title_identity_receipt_remark">Die meisten Anbieter ignorieren Lesebestätigungsanfragen</string>
     <string name="title_optional">Optional</string>
     <string name="title_recommended">Empfohlen</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
@@ -424,6 +422,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_folders">Keine Ordner</string>
     <string name="title_no_messages">Keine E-Mails</string>
     <string name="title_filters_active">Ein oder mehrere Filter aktiv</string>
+    <string name="title_duplicate_in">Duplikat in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Als gelesen kennzeichnen</string>
@@ -533,6 +532,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_send_plain_text">Nur Text</string>
+    <string name="title_send_receipt">Lieferung/Lesebestätigung anfordern</string>
+    <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Clients ignorieren Quittungsanfragen</string>
     <string name="title_from_missing">Absender fehlt</string>
     <string name="title_to_missing">Empfänger fehlt</string>
     <string name="title_subject_reminder">Betreff ist leer</string>
@@ -583,6 +584,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_answer_text">Vorlagentext</string>
     <string name="title_answer_template_name">$name$ wird durch den vollständigen Absendernamen ersetzt</string>
     <string name="title_answer_template_email">$email$ wird durch die E-Mail-Adresse des Absenders ersetzt</string>
+    <string name="title_rule_noop">Keine Aktion</string>
     <string name="title_rule_seen">Als gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>

@@ -300,9 +300,6 @@
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_encrypt">Kryptera som standard</string>
     <string name="title_identity_use_ip_hint">Vid \"invalid greeting\", \"requires valid address\" eller ett liknande fel, försök ändra den här inställningen</string>
-    <string name="title_identity_read_receipt">Begär läskvitto</string>
-    <string name="title_identity_delivery_receipt">Begär leveranskvitto</string>
-    <string name="title_identity_receipt_remark">De flesta leverantörer ignorerar kvittobegäran</string>
     <string name="title_optional">Valfritt</string>
     <string name="title_recommended">Rekommenderat</string>
     <string name="title_account_linked">Länkade kontot</string>

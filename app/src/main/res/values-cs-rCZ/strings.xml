@@ -337,10 +337,8 @@
     <string name="title_advanced_sender_regex">Regulární výraz, který bude odpovídat upraveným adresám</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
     <string name="title_identity_encrypt">Šifrovat jako výchozí</string>
+    <string name="title_identity_receipt">Požadovat potvrzení doručení/přečtení jako výchozí</string>
     <string name="title_identity_use_ip_hint">V případech \"neplatný pozdrav\", \"nutná platná adresa\" či podobné chyby zkuste změnit toto nastavení</string>
-    <string name="title_identity_read_receipt">Požadovat potvrzení o přečtení</string>
-    <string name="title_identity_delivery_receipt">Požadovat potvrzení doručení</string>
-    <string name="title_identity_receipt_remark">Většina poskytovatelů ignoruje žádosti o potvrzení</string>
     <string name="title_optional">Nepovinné</string>
     <string name="title_recommended">Doporučeno</string>
     <string name="title_account_linked">Připojený účet</string>
@@ -447,6 +445,7 @@
     <string name="title_no_folders">Žádné složky</string>
     <string name="title_no_messages">Žádné zprávy</string>
     <string name="title_filters_active">Jeden nebo více filtrů aktivních</string>
+    <string name="title_duplicate_in">Duplikát v %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Označit přečtené</string>
@@ -556,6 +555,8 @@
     <string name="title_insert_contact_group">Vložit skupinu kontaktů</string>
     <string name="title_insert_template">Vložit šablonu</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
+    <string name="title_send_receipt">Požadovat potvrzení doručení/přečtení</string>
+    <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_subject_reminder">Chybí předmět</string>
@@ -606,6 +607,7 @@
     <string name="title_answer_text">Text šablony</string>
     <string name="title_answer_template_name">$name$ bude nahrazeno celým jménem odesílatele</string>
     <string name="title_answer_template_email">$email$ bude nahrazeno e-mailovou adresou odesílatele</string>
+    <string name="title_rule_noop">Žádná akce</string>
     <string name="title_rule_seen">Označit přečtené</string>
     <string name="title_rule_unseen">Označit nepřečtené</string>
     <string name="title_rule_ignore">Potlačit oznámení</string>

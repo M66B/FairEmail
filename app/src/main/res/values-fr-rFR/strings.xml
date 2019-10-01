@@ -315,10 +315,8 @@
     <string name="title_advanced_sender_regex">Regex pour correspondre aux adresses modifiées</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_encrypt">Chiffrer par défaut</string>
+    <string name="title_identity_receipt">Demander un accusé de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"connexion invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
-    <string name="title_identity_read_receipt">Demander une confirmation de lecture</string>
-    <string name="title_identity_delivery_receipt">Demander un accusé de réception</string>
-    <string name="title_identity_receipt_remark">La plupart des fournisseurs ignorent les demandes d\'accusé de réception</string>
     <string name="title_optional">Facultatif</string>
     <string name="title_recommended">Recommandé</string>
     <string name="title_account_linked">Compte associé</string>
@@ -425,6 +423,7 @@
     <string name="title_no_folders">Aucun dossier</string>
     <string name="title_no_messages">Aucun message</string>
     <string name="title_filters_active">Un ou plusieurs filtres actifs</string>
+    <string name="title_duplicate_in">Dupliquer dans %1$s</string>
     <string name="title_subject_reply">Re : %1$s</string>
     <string name="title_subject_forward">Tr : %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
@@ -534,6 +533,8 @@
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
+    <string name="title_send_receipt">Demander un accusé de réception/lecture</string>
+    <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>
     <string name="title_from_missing">Expéditeur manquant</string>
     <string name="title_to_missing">Destinataire manquant</string>
     <string name="title_subject_reminder">L\'objet est vide</string>
@@ -584,6 +585,7 @@
     <string name="title_answer_text">Texte du modèle</string>
     <string name="title_answer_template_name">$name$ sera remplacé par le nom complet de l\'expéditeur</string>
     <string name="title_answer_template_email">$email$ sera remplacé par l\'adresse e-mail de l\'expéditeur</string>
+    <string name="title_rule_noop">Aucune action</string>
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>
     <string name="title_rule_ignore">Supprimer les notifications</string>

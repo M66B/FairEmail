@@ -106,9 +106,6 @@
     <string name="title_identity_email">آدرس ایمیل شما</string>
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
-    <string name="title_identity_read_receipt">درخواست اعلان خوانده شدن</string>
-    <string name="title_identity_delivery_receipt">درخواست اعلان تحویل</string>
-    <string name="title_identity_receipt_remark">اکثر سرویس دهندگان درخواست اعلان را نادیده می‌گیرند</string>
     <string name="title_optional">اختیاری</string>
     <string name="title_account_linked">حساب مرتبط</string>
     <string name="title_account_name">نام حساب</string>

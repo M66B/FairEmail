@@ -118,6 +118,7 @@
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_go">Start</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_setup_wizard_remark">Apasă \'înapoi\' pentru a merge la mesaje primite</string>
     <string name="title_setup_other">Alt furnizor</string>
     <string name="title_setup_gmail_support">Autorizarea conturilor Google v-a funcționa doar în versiunile oficiale pentru că Android verifică semnătura aplicației</string>
     <string name="title_setup_gmail_rationale">Vă rugăm să acordați permisiunea de a selecta un cont și a vă citi numele</string>
@@ -255,6 +256,7 @@
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_unseen_ignored">Fie ca numărul de mesaje noi să corespundă cu numărul de notificări</string>
+    <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
@@ -273,6 +275,8 @@
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
     <string name="title_advanced_notify_remove_hint">Notificările de mesaj nou vor fi mereu eliminate dacă sunt glisate la o parte sau când mesajele sunt marcate drept citite</string>
     <string name="title_advanced_notify_manage_hint">Atingeți numele canalului \'Notificări\' pentru a configura sunetul implicit, etc</string>
+    <string name="title_advanced_notify_no_grouping">Această versiune de Android nu suportă gruparea notificărilor</string>
+    <string name="title_advanced_notify_no_channels">Această versiune de Android nu suportă canale de notificare</string>
     <string name="title_advanced_double_back">Apăsați de două ori \'înapoi\' pentru a ieși</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
@@ -321,10 +325,8 @@
     <string name="title_advanced_sender_regex">Regex pentru găsirea adresei editate</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_encrypt">Criptare în mod implicit</string>
+    <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
-    <string name="title_identity_read_receipt">Solicitare confirmare citire</string>
-    <string name="title_identity_delivery_receipt">Solicitare confirmare livrare</string>
-    <string name="title_identity_receipt_remark">Majoritatea furnizorilor ignoră cererile de confirmare a livrării</string>
     <string name="title_optional">Opțional</string>
     <string name="title_recommended">Recomandat</string>
     <string name="title_account_linked">Cont asociat</string>
@@ -385,6 +387,7 @@
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
     <string name="title_empty_trash">Golire coș de gunoi</string>
+    <string name="title_empty_spam">Golire spam</string>
     <string name="title_edit_properties">Editare proprietăți</string>
     <string name="title_edit_rules">Editare reguli</string>
     <string name="title_create_channel">Creare canal de notificare</string>
@@ -392,6 +395,7 @@
     <string name="title_delete_channel">Șterge canal de notificare</string>
     <string name="title_create_sub_folder">Creează sub-dosar</string>
     <string name="title_empty_trash_ask">Şterge permanent toate mesajele din coșul de gunoi?</string>
+    <string name="title_empty_spam_ask">Se șterg permanent toate mesajele spam?</string>
     <string name="title_delete_operation">Se șterg operațiunile cu mesaj de eroare?</string>
     <string name="title_delete_contacts">Ștergeți toate contactele locale?</string>
     <string name="title_no_operations">Nici o operațiune în așteptare</string>
@@ -429,6 +433,7 @@
     <string name="title_no_folders">Nici un dosar</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_filters_active">Unul sau mai multe filtre active</string>
+    <string name="title_duplicate_in">Duplicat în %1$s</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
@@ -519,6 +524,7 @@
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_with_options">Trimite &#8230;</string>
     <string name="title_send_at">Trimite la &#8230;</string>
+    <string name="title_send_priority">Prioritate</string>
     <string name="title_no_server">Nu există un server la \'%1$s\'</string>
     <string name="title_style_bold">Îngroșat</string>
     <string name="title_style_italic">Cursiv</string>
@@ -537,6 +543,8 @@
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
     <string name="title_send_plain_text">Doar text simplu</string>
+    <string name="title_send_receipt">Solicitare confirmare livrare/citire</string>
+    <string name="title_send_receipt_remark">Majoritatea furnizorilor și clienților de email ignoră cererile de confirmare</string>
     <string name="title_from_missing">Expeditor lipsă</string>
     <string name="title_to_missing">Destinatar lipsă</string>
     <string name="title_subject_reminder">Subiectul este gol</string>
@@ -587,6 +595,7 @@
     <string name="title_answer_text">Text șablon</string>
     <string name="title_answer_template_name">$name$ va fi înlocuit cu numele expeditorului</string>
     <string name="title_answer_template_email">$email$ va fi înlocuit cu adresa de e-mail a expeditorului</string>
+    <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>
     <string name="title_rule_ignore">Suprimă notificare</string>
@@ -664,6 +673,7 @@
     <string name="title_legend_thread">Conversație</string>
     <string name="title_legend_zoom">Modificare dimensiune text</string>
     <string name="title_legend_draft">Are ciornă</string>
+    <string name="title_legend_priority">Prioritate ridicată</string>
     <string name="title_legend_auth">Autentificare eșuată</string>
     <string name="title_legend_snoozed">Este amânat</string>
     <string name="title_legend_browsed">Este răsfoit sau căutat</string>
@@ -850,5 +860,10 @@
         <item>La început</item>
         <item>La mijloc</item>
         <item>La sfârșit</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Redusă</item>
+        <item>Normală</item>
+        <item>Ridicată</item>
     </string-array>
 </resources>

@@ -15,8 +15,8 @@
     <string name="channel_error">Errors</string>
     <string name="channel_group_contacts">Contactes</string>
     <plurals name="page_conversation">
-        <item quantity="one">Conversació</item>
-        <item quantity="other">Converses</item>
+        <item quantity="one">Conversa</item>
+        <item quantity="other">Conversa</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Missatge</item>
@@ -315,10 +315,8 @@
     <string name="title_advanced_sender_regex">Expressió regular per trobar adreces editades</string>
     <string name="title_identity_reply_to">Respon a l’adreça</string>
     <string name="title_identity_encrypt">Xifra per defecte</string>
+    <string name="title_identity_receipt">Sol·liciteu el lliurament/llegida del rebut per defecte</string>
     <string name="title_identity_use_ip_hint">En cas de \"salutació no vàlida\", \"requereix una adreça vàlida\" o un error similar, intenteu canviar aquesta configuració</string>
-    <string name="title_identity_read_receipt">Sol·liciteu el rebut de la lectura</string>
-    <string name="title_identity_delivery_receipt">Sol·liciteu el rebut d\'entrega</string>
-    <string name="title_identity_receipt_remark">La majoria de proveïdors ignoren les sol·licituds de recepció</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomanat</string>
     <string name="title_account_linked">Compte vinculat</string>
@@ -425,6 +423,7 @@
     <string name="title_no_folders">No carpetes</string>
     <string name="title_no_messages">No hi ha missatges</string>
     <string name="title_filters_active">S\'han activat un o més filtres</string>
+    <string name="title_duplicate_in">Duplicar a %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>
     <string name="title_seen">Marca com a llegit</string>
@@ -534,6 +533,8 @@
     <string name="title_insert_contact_group">Introdueixi la informació de grup</string>
     <string name="title_insert_template">Inserta plantilla</string>
     <string name="title_send_plain_text">Només text pla</string>
+    <string name="title_send_receipt">Sol·liciteu el lliurament/llegida del rebut</string>
+    <string name="title_send_receipt_remark">La majoria de proveïdors i clients de correu electrònic ignoren les sol·licituds de recepció</string>
     <string name="title_from_missing">Falta l\'emissor</string>
     <string name="title_to_missing">Falta el receptor</string>
     <string name="title_subject_reminder">L\'assumpte és buit</string>
@@ -584,6 +585,7 @@
     <string name="title_answer_text">Text de la plantilla</string>
     <string name="title_answer_template_name">$name$ serà substituït pel nom complet del remitent</string>
     <string name="title_answer_template_email">$email$ serà substituït pel l\'adreça de correu electrònic del remitent</string>
+    <string name="title_rule_noop">Cap acció</string>
     <string name="title_rule_seen">Marca com a llegit</string>
     <string name="title_rule_unseen">Marca com a no llegit</string>
     <string name="title_rule_ignore">Elimina les notificacions</string>
@@ -658,9 +660,10 @@
     <string name="title_legend_sync_keep">Nombre de dies per sincronitzar/guardar missatges</string>
     <string name="title_legend_download_fetch">Nombre de missatges descarregats/capçaleres obtingudes</string>
     <string name="title_legend_stop">Atura processament de regles</string>
-    <string name="title_legend_thread">Conversació</string>
+    <string name="title_legend_thread">Conversa</string>
     <string name="title_legend_zoom">Canvia la mida del text</string>
     <string name="title_legend_draft">Té un esborrany</string>
+    <string name="title_legend_priority">Té prioritat alta</string>
     <string name="title_legend_auth">Autenticació ha fallat</string>
     <string name="title_legend_snoozed">Està posposada</string>
     <string name="title_legend_browsed">És vist o cercat</string>

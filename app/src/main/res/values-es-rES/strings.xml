@@ -315,10 +315,8 @@
     <string name="title_advanced_sender_regex">Expresión regular que coincida con las direcciones editadas</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_encrypt">Encriptar por defecto</string>
+    <string name="title_identity_receipt">Solicitar recibo de entrega/lectura por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
-    <string name="title_identity_read_receipt">Solicitar confirmación de lectura</string>
-    <string name="title_identity_delivery_receipt">Solicitar confirmación de entrega</string>
-    <string name="title_identity_receipt_remark">La mayoría de los proveedores ignoran las solicitudes de confirmación</string>
     <string name="title_optional">Opcional</string>
     <string name="title_recommended">Recomendado</string>
     <string name="title_account_linked">Cuenta vinculada</string>
@@ -425,6 +423,7 @@
     <string name="title_no_folders">No hay carpetas</string>
     <string name="title_no_messages">Sin mensajes</string>
     <string name="title_filters_active">Uno o más filtros activos</string>
+    <string name="title_duplicate_in">Duplicar en %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Marcar como leído</string>
@@ -534,6 +533,8 @@
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
+    <string name="title_send_receipt">Solicitar recibo de entrega/lectura</string>
+    <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
     <string name="title_from_missing">Falta remitente</string>
     <string name="title_to_missing">Falta destinatario</string>
     <string name="title_subject_reminder">El asunto está vacío</string>
@@ -584,6 +585,7 @@
     <string name="title_answer_text">Texto de plantilla</string>
     <string name="title_answer_template_name">$name$ será reemplazado por el nombre completo del remitente</string>
     <string name="title_answer_template_email">$email$ será reemplazado por la dirección de correo electrónico del remitente</string>
+    <string name="title_rule_noop">Sin acción</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>
     <string name="title_rule_ignore">Suprimir notificación</string>

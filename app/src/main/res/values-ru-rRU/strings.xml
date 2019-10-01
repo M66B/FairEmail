@@ -337,10 +337,8 @@
     <string name="title_advanced_sender_regex">Регулярное выражение для сопоставления отредактированных адресов</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_encrypt">Шифровать по умолчанию</string>
+    <string name="title_identity_receipt">Запрашивать уведомление о доставке/прочтении по умолчанию</string>
     <string name="title_identity_use_ip_hint">В случае ошибки \'invalid greeting\', \'requires valid address\' или аналогичной, попробуйте изменить этот параметр</string>
-    <string name="title_identity_read_receipt">Запросить уведомление о прочтении</string>
-    <string name="title_identity_delivery_receipt">Запросить уведомление о доставке</string>
-    <string name="title_identity_receipt_remark">Большинство провайдеров игнорируют запросы о доставке</string>
     <string name="title_optional">Необязательно</string>
     <string name="title_recommended">Рекомендуется</string>
     <string name="title_account_linked">Связанная учётная запись</string>
@@ -447,6 +445,7 @@
     <string name="title_no_folders">Нет папок</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_filters_active">Один или несколько фильтров активны</string>
+    <string name="title_duplicate_in">Дублировать в папку \"%1$s\"</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
@@ -556,6 +555,8 @@
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
     <string name="title_send_plain_text">Только простой текст</string>
+    <string name="title_send_receipt">Запросить уведомление о доставке/прочтении</string>
+    <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
     <string name="title_to_missing">Отсутствует получатель</string>
     <string name="title_subject_reminder">Тема пуста</string>
@@ -606,6 +607,7 @@
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">$name$ будет заменено на полное имя отправителя</string>
     <string name="title_answer_template_email">$email$ будет заменён на адрес электронной почты отправителя</string>
+    <string name="title_rule_noop">Нет действия</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>
     <string name="title_rule_ignore">Подавить уведомление</string>
@@ -683,6 +685,7 @@
     <string name="title_legend_thread">Диалог</string>
     <string name="title_legend_zoom">Изменить размер текста</string>
     <string name="title_legend_draft">Имеет черновик</string>
+    <string name="title_legend_priority">Имеет высокий приоритет</string>
     <string name="title_legend_auth">Ошибка аутентификации</string>
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>

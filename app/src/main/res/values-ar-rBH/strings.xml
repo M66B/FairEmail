@@ -129,8 +129,6 @@
     <string name="title_advanced_sender">السماح بتغيير عنوان المُرسِل</string>
     <string name="title_identity_reply_to">الرد على العنوان</string>
     <string name="title_identity_encrypt">تشفير بشكل افتراضي</string>
-    <string name="title_identity_read_receipt">طلب إيصال بالقراءة</string>
-    <string name="title_identity_delivery_receipt">طلب إيصال بالقراءة</string>
     <string name="title_optional">اختياري</string>
     <string name="title_recommended">موصى به</string>
     <string name="title_account_linked">الحساب المرتبط</string>

@@ -315,10 +315,8 @@
     <string name="title_advanced_sender_regex">Düzenlenen adreslerle eşleşecek düzenli ifade (regex)</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_encrypt">Öntanımlı olarak şifrele</string>
+    <string name="title_identity_receipt">Varsayılan olarak iletildi/okundu bilgisi iste</string>
     <string name="title_identity_use_ip_hint">\'Geçersiz selamlaşma\', \'geçerli adres gerekir\' veya benzer bir hata olması durumunda, bu ayarı değiştirmeyi deneyin</string>
-    <string name="title_identity_read_receipt">Okundu bilgisi iste</string>
-    <string name="title_identity_delivery_receipt">Alındı belgesi iste</string>
-    <string name="title_identity_receipt_remark">Çoğu sağlayıcı alındı isteklerini yok sayıyor</string>
     <string name="title_optional">İsteğe bağlı</string>
     <string name="title_recommended">Önerilen</string>
     <string name="title_account_linked">Bağlı hesap</string>
@@ -425,6 +423,7 @@
     <string name="title_no_folders">Klasör yok</string>
     <string name="title_no_messages">İleti yok</string>
     <string name="title_filters_active">Bir ya da daha fazla filtre aktif</string>
+    <string name="title_duplicate_in">%1$s içinde kopyala</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
     <string name="title_seen">Okundu olarak işaretle</string>
@@ -534,6 +533,8 @@
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
     <string name="title_insert_template">Kalıp ekle</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
+    <string name="title_send_receipt">İletildi/okundu bilgisi iste</string>
+    <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_to_missing">Alıcı eksik</string>
     <string name="title_subject_reminder">Konu boş</string>
@@ -584,6 +585,7 @@
     <string name="title_answer_text">Kalıp metni</string>
     <string name="title_answer_template_name">$name$ gönderenin tam adı ile değiştirilecek</string>
     <string name="title_answer_template_email">$email$ gönderenin e-posta adresi ile değiştirilecek</string>
+    <string name="title_rule_noop">Eylem yok</string>
     <string name="title_rule_seen">Okundu olarak işaretle</string>
     <string name="title_rule_unseen">Okunmadı olarak işaretle</string>
     <string name="title_rule_ignore">Bildirimi gizle</string>
@@ -661,6 +663,7 @@
     <string name="title_legend_thread">Söyleşi</string>
     <string name="title_legend_zoom">Metin boyutunu değiştir</string>
     <string name="title_legend_draft">Taslak var</string>
+    <string name="title_legend_priority">Yüksek önceliğe sahip</string>
     <string name="title_legend_auth">Kimlik doğrulama başarısız</string>
     <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_browsed">Gözatılmış ve aranmış</string>

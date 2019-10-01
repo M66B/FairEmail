@@ -335,10 +335,8 @@
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_encrypt">Szyfruj domyślnie</string>
+    <string name="title_identity_receipt">Domyślnie żądaj potwierdzenia odbioru/odczytu</string>
     <string name="title_identity_use_ip_hint">W przypadku „nieprawidłowego powitania”, „wymaga prawidłowego adresu” lub podobnego błędu spróbuj zmienić to ustawienie</string>
-    <string name="title_identity_read_receipt">Poproś o potwierdzenie odczytu</string>
-    <string name="title_identity_delivery_receipt">Poproś o potwierdzenie dostarczenia</string>
-    <string name="title_identity_receipt_remark">Większość dostawców ignoruje prośby otrzymania</string>
     <string name="title_optional">Opcjonalnie</string>
     <string name="title_recommended">Zalecane</string>
     <string name="title_account_linked">Połączone konto</string>
@@ -445,6 +443,7 @@
     <string name="title_no_folders">Brak folderów</string>
     <string name="title_no_messages">Brak wiadomości</string>
     <string name="title_filters_active">Jeden lub więcej filtrów jest aktywnych</string>
+    <string name="title_duplicate_in">Duplikat w %1$s</string>
     <string name="title_subject_reply">Odp: %1$s</string>
     <string name="title_subject_forward">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
@@ -535,6 +534,7 @@
     <string name="title_send_via">Wyślij przez</string>
     <string name="title_send_with_options">Wyślij &#8230;</string>
     <string name="title_send_at">Wysłać o &#8230;</string>
+    <string name="title_send_priority">Priorytet</string>
     <string name="title_no_server">Nie znaleziono serwera na \'%1$s\'</string>
     <string name="title_style_bold">Pogrubienie</string>
     <string name="title_style_italic">Kursywa</string>
@@ -553,6 +553,8 @@
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
+    <string name="title_send_receipt">Poproś o potwierdzenie odbioru/odczytu</string>
+    <string name="title_send_receipt_remark">Większość dostawców i klientów e-mail ignoruje prośby o potwierdzenie</string>
     <string name="title_from_missing">Brak nadawcy</string>
     <string name="title_to_missing">Brak adresata</string>
     <string name="title_subject_reminder">Temat jest pusty</string>
@@ -603,6 +605,7 @@
     <string name="title_answer_text">Tekst szablonu</string>
     <string name="title_answer_template_name">$name$ zostanie zastąpiony przez pełną nazwę nadawcy</string>
     <string name="title_answer_template_email">$email$ zostanie zastąpiony przez adres nadawcy wiadomości</string>
+    <string name="title_rule_noop">Brak akcji</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>
     <string name="title_rule_ignore">Pomiń powiadomienie</string>
@@ -680,6 +683,7 @@
     <string name="title_legend_thread">Konwersacja</string>
     <string name="title_legend_zoom">Zmień rozmiaru tekstu</string>
     <string name="title_legend_draft">Posiada szkic</string>
+    <string name="title_legend_priority">Posiada wysoki priorytet</string>
     <string name="title_legend_auth">Uwierzytelnianie nie powiodło się</string>
     <string name="title_legend_snoozed">Jest uśpiony</string>
     <string name="title_legend_browsed">Jest przeglądany lub przeszukiwany</string>

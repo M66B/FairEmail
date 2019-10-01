@@ -303,10 +303,8 @@
     <string name="title_advanced_sender_regex">正则表达式匹配编辑的地址</string>
     <string name="title_identity_reply_to">回复地址</string>
     <string name="title_identity_encrypt">默认加密</string>
+    <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
-    <string name="title_identity_read_receipt">请求读取回执</string>
-    <string name="title_identity_delivery_receipt">请求发出凭据</string>
-    <string name="title_identity_receipt_remark">大部份提供商忽略接收请求</string>
     <string name="title_optional">可选</string>
     <string name="title_recommended">推荐</string>
     <string name="title_account_linked">已绑定的账户</string>
@@ -413,6 +411,7 @@
     <string name="title_no_folders">无文件夹</string>
     <string name="title_no_messages">没有邮件</string>
     <string name="title_filters_active">一个或多个过滤器已启用</string>
+    <string name="title_duplicate_in">%1$s中的重复邮件</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>
@@ -522,6 +521,8 @@
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
     <string name="title_send_plain_text">仅纯文本</string>
+    <string name="title_send_receipt">请求送达／已读回执</string>
+    <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
     <string name="title_from_missing">缺少发件人</string>
     <string name="title_to_missing">缺少收件人</string>
     <string name="title_subject_reminder">主题为空</string>
@@ -572,6 +573,7 @@
     <string name="title_answer_text">模板内容</string>
     <string name="title_answer_template_name">$name$ 将被发件人的全名取代</string>
     <string name="title_answer_template_email">$email$ 将被发件人的邮件地址取代</string>
+    <string name="title_rule_noop">无操作</string>
     <string name="title_rule_seen">标记为已读</string>
     <string name="title_rule_unseen">标记为未读</string>
     <string name="title_rule_ignore">禁止通知</string>
@@ -649,6 +651,7 @@
     <string name="title_legend_thread">对话</string>
     <string name="title_legend_zoom">改变文字大小</string>
     <string name="title_legend_draft">有草稿</string>
+    <string name="title_legend_priority">具备高优先级</string>
     <string name="title_legend_auth">认证失败</string>
     <string name="title_legend_snoozed">已暂停</string>
     <string name="title_legend_browsed">已浏览或搜索</string>

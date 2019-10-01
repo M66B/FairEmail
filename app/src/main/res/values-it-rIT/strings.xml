@@ -314,10 +314,8 @@
     <string name="title_advanced_sender_regex">Regex per abbinare gli indirizzi modificati</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
     <string name="title_identity_encrypt">Cripta di default</string>
+    <string name="title_identity_receipt">Richiedi ricevuta di consegna/lettura per default</string>
     <string name="title_identity_use_ip_hint">In caso di \"saluto non valido\", \"richiede un indirizzo valido\" o un errore simile, provare a modificare questa impostazione</string>
-    <string name="title_identity_read_receipt">Richiedi conferma di lettura</string>
-    <string name="title_identity_delivery_receipt">Richiedi ricevuta di consegna</string>
-    <string name="title_identity_receipt_remark">La maggior parte dei fornitori ignora le richieste di conferma</string>
     <string name="title_optional">Facoltativo</string>
     <string name="title_recommended">Consigliati</string>
     <string name="title_account_linked">Account collegato</string>
@@ -424,6 +422,7 @@
     <string name="title_no_folders">Nessuna cartella</string>
     <string name="title_no_messages">Nessun messaggio</string>
     <string name="title_filters_active">Uno o più filtri attivi</string>
+    <string name="title_duplicate_in">Duplica in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Segna come letto</string>
@@ -514,6 +513,7 @@
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_with_options">Invia &#8230;</string>
     <string name="title_send_at">Invia alle &#8230;</string>
+    <string name="title_send_priority">Priorità</string>
     <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>
     <string name="title_style_bold">Grassetto</string>
     <string name="title_style_italic">Corsivo</string>
@@ -532,6 +532,8 @@
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
+    <string name="title_send_receipt">Richiedi ricevuta di consegna/lettura</string>
+    <string name="title_send_receipt_remark">La maggior parte dei provider e dei client di posta elettronica ignora le richieste di ricevuta</string>
     <string name="title_from_missing">Mittente mancante</string>
     <string name="title_to_missing">Destinatario mancante</string>
     <string name="title_subject_reminder">Oggetto vuoto</string>
@@ -659,6 +661,7 @@
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_zoom">Cambia dimensione testo</string>
     <string name="title_legend_draft">Ha bozza</string>
+    <string name="title_legend_priority">Ha priorità alta</string>
     <string name="title_legend_auth">Autenticazione fallita</string>
     <string name="title_legend_snoozed">È posticipato</string>
     <string name="title_legend_browsed">È browser o ricercato</string>
@@ -845,5 +848,10 @@
         <item>All\'inizio</item>
         <item>Nel mezzo</item>
         <item>Alla fine</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Basso</item>
+        <item>Normale</item>
+        <item>Alto</item>
     </string-array>
 </resources>

@@ -180,9 +180,6 @@
     <string name="title_identity_email">E-poçt ünvanınız</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_identity_reply_to">Cavablama ünvanı</string>
-    <string name="title_identity_read_receipt">Oxuma bildirişlərini tələb et</string>
-    <string name="title_identity_delivery_receipt">Çatdırılma bildirişlərini tələb et</string>
-    <string name="title_identity_receipt_remark">Bir çox təchizatçı bildiriş tələblərinə əhəmiyyət vermir</string>
     <string name="title_optional">İstənilən</string>
     <string name="title_account_linked">Birləşdirilmiş hesablar</string>
     <string name="title_account_name">Hesab adı</string>

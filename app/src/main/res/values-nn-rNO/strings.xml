@@ -315,10 +315,8 @@
     <string name="title_advanced_sender_regex">Regex for å matche redigerte adresser</string>
     <string name="title_identity_reply_to">Svar til adressen</string>
     <string name="title_identity_encrypt">Krypter som standard</string>
+    <string name="title_identity_receipt">Be om levert/lest kvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfelle \'ugyldig hilsen\', \'krever gyldig adresse\' eller en lignende feil, prøv å endre denne innstillingen</string>
-    <string name="title_identity_read_receipt">Be om lesebekreftelse</string>
-    <string name="title_identity_delivery_receipt">Be om leveringskvittering</string>
-    <string name="title_identity_receipt_remark">De fleste tilbydere ignorerer forespørsler om kvittering</string>
     <string name="title_optional">Valgfri</string>
     <string name="title_recommended">Anbefalt</string>
     <string name="title_account_linked">Koble kontoen</string>
@@ -425,6 +423,7 @@
     <string name="title_no_folders">Ingen mapper</string>
     <string name="title_no_messages">Ingen meldinger</string>
     <string name="title_filters_active">En eller flere filtre aktive</string>
+    <string name="title_duplicate_in">Dupliser inn %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Videresend: %1$s</string>
     <string name="title_seen">Merk som lest</string>
@@ -534,6 +533,8 @@
     <string name="title_insert_contact_group">Sett inn kontaktgruppe</string>
     <string name="title_insert_template">Sett inn mal</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
+    <string name="title_send_receipt">Be om levert/lest kvittering</string>
+    <string name="title_send_receipt_remark">De fleste tilbydere og e-post klienter ignorerer kvitterings forespørsler</string>
     <string name="title_from_missing">Avsender mangler</string>
     <string name="title_to_missing">Mottaker mangler</string>
     <string name="title_subject_reminder">Emnet er tomt</string>
@@ -584,6 +585,7 @@
     <string name="title_answer_text">Maltekst</string>
     <string name="title_answer_template_name">$name$ vil bli erstattet med avsenderens fulle navn</string>
     <string name="title_answer_template_email">$email$ vil bli erstattet med avsenderens e-postadresse</string>
+    <string name="title_rule_noop">Ingen handling</string>
     <string name="title_rule_seen">Merk som lest</string>
     <string name="title_rule_unseen">Merk som ulest</string>
     <string name="title_rule_ignore">Undertrykke varsling</string>
@@ -661,6 +663,7 @@
     <string name="title_legend_thread">Samtale</string>
     <string name="title_legend_zoom">Endre tekststørrelse</string>
     <string name="title_legend_draft">Kladd finnes</string>
+    <string name="title_legend_priority">Har høy prioritet</string>
     <string name="title_legend_auth">Godkjenning mislyktes</string>
     <string name="title_legend_snoozed">Er utsatt</string>
     <string name="title_legend_browsed">Er bladd eller søkt etter</string>

@@ -315,10 +315,8 @@
     <string name="title_advanced_sender_regex">Regex muokattavien osoitteiden täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_encrypt">Salaa oletusarvoisesti</string>
+    <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
-    <string name="title_identity_read_receipt">Pyydä vastaanottokuittausta</string>
-    <string name="title_identity_delivery_receipt">Pyydä toimituskuittausta</string>
-    <string name="title_identity_receipt_remark">Useimmat palveluntarjoajat ohittavat vastaanottokuittauspyynnöt</string>
     <string name="title_optional">Valinnainen</string>
     <string name="title_recommended">Suositeltu</string>
     <string name="title_account_linked">Linkitetty tili</string>
@@ -425,6 +423,7 @@
     <string name="title_no_folders">Ei kansioita</string>
     <string name="title_no_messages">Ei viestejä</string>
     <string name="title_filters_active">Yksi tai useampi suodatin aktiivinen</string>
+    <string name="title_duplicate_in">Kopioi kansioon %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Merkitse luetuksi</string>
@@ -515,6 +514,7 @@
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_with_options">Lähetä &#8230;</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
+    <string name="title_send_priority">Tärkeysjärjestys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
     <string name="title_style_bold">Lihavointi</string>
     <string name="title_style_italic">Kursiivi</string>
@@ -533,6 +533,8 @@
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
+    <string name="title_send_receipt">Pyydä toimitus-/lukukuittaus</string>
+    <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
     <string name="title_from_missing">Lähettäjä puuttuu</string>
     <string name="title_to_missing">Vastaanottaja puuttuu</string>
     <string name="title_subject_reminder">Aihe puuttuu</string>
@@ -583,6 +585,7 @@
     <string name="title_answer_text">Viestipohjan teksti</string>
     <string name="title_answer_template_name">$name$ korvataan lähettäjän koko nimellä</string>
     <string name="title_answer_template_email">$email$ korvataan lähettäjän sähköpostiosoitteella</string>
+    <string name="title_rule_noop">Ei toimintoa</string>
     <string name="title_rule_seen">Merkitse luetuksi</string>
     <string name="title_rule_unseen">Merkitse lukemattomaksi</string>
     <string name="title_rule_ignore">Vaimenna ilmoitus</string>
@@ -660,6 +663,7 @@
     <string name="title_legend_thread">Keskustelu</string>
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>
     <string name="title_legend_draft">Sisältää luonnoksen</string>
+    <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>
     <string name="title_legend_auth">Tunnistautuminen epäonnistui</string>
     <string name="title_legend_snoozed">Torkutettu</string>
     <string name="title_legend_browsed">Selattu tai haettu</string>
@@ -846,5 +850,10 @@
         <item>Alusta</item>
         <item>Keskeltä</item>
         <item>Lopusta</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Alhainen</item>
+        <item>Tavallinen</item>
+        <item>Korkea</item>
     </string-array>
 </resources>
