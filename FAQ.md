@@ -2007,7 +2007,9 @@ However, not all servers support IMAP keywords and besides that there are no sta
 
 Empty messages and/or corrupt attachments are probably being caused by a bug in the server software.
 Older Microsoft Exchange software is known to cause this problem.
-Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings.
+Mostly you can workaround this by disabling *Partial fetch* in the advanced account settings:
+
+Setup > Step 1 > Manage > Tap account > Tap advanced > Partial fetch > check
 
 After disabling this setting, you can use the message 'more' (three dots) menu to 'resync' empty messages.
 Alternatively, you can *Delete local messages* by long pressing the folder(s) in the folder list and synchronize all messages again.
