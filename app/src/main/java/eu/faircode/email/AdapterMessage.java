@@ -1661,9 +1661,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .putExtra("found", viewType == ViewType.SEARCH);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    boolean doubletap =
-                            (!prefs.getBoolean("autoscroll", false) &&
-                                    prefs.getBoolean("doubletap", false));
+                    boolean doubletap = prefs.getBoolean("doubletap", false);
 
                     if (!doubletap || message.folderReadOnly || EntityFolder.OUTBOX.equals(message.folderType)) {
                         lbm.sendBroadcast(viewThread);
@@ -3308,7 +3306,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
             @Override
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
-                if (gotoTop) {
+                int prev = (previousList == null ? 0 : previousList.size());
+                int cur = (currentList == null ? 0 : currentList.size());
+                boolean autoscroll =
+                        (prefs.getBoolean("autoscroll", false) ||
+                                viewType == AdapterMessage.ViewType.THREAD);
+
+                if (gotoTop || (autoscroll && cur > prev)) {
                     gotoTop = false;
                     properties.scrollTo(0);
                 }

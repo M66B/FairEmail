@@ -201,7 +201,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean date;
     private boolean threading;
     private boolean swipenav;
-    private boolean autoscroll;
     private boolean seekbar;
     private boolean actionbar;
     private boolean autoexpand;
@@ -219,7 +218,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean initialized = false;
     private boolean loading = false;
     private boolean manual = false;
-    private Integer lastUnseen = null;
     private boolean swiping = false;
 
     private AdapterMessage adapter;
@@ -303,9 +301,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swipenav = prefs.getBoolean("swipenav", true);
-        autoscroll =
-                (prefs.getBoolean("autoscroll", false) ||
-                        viewType == AdapterMessage.ViewType.THREAD);
         cards = prefs.getBoolean("cards", true);
         date = prefs.getBoolean("date", true);
         threading = prefs.getBoolean("threading", true);
@@ -2324,20 +2319,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             case THREAD:
                 db.message().liveThreadStats(account, thread, null).observe(getViewLifecycleOwner(), new Observer<TupleThreadStats>() {
-                    Integer lastUnseen = null;
-
                     @Override
                     public void onChanged(TupleThreadStats stats) {
-                        setSubtitle(stats == null || stats.accountName == null ? "" : stats.accountName);
+                        if (stats == null)
+                            return;
 
-                        if (stats != null && stats.count != null && stats.seen != null) {
-                            int unseen = stats.count - stats.seen;
-                            if (lastUnseen == null || lastUnseen != unseen) {
-                                if (autoscroll && lastUnseen != null && lastUnseen < unseen)
-                                    loadMessages(true);
-                                lastUnseen = unseen;
-                            }
-                        }
+                        int unseen = stats.count - stats.seen;
+                        setSubtitle(getString(R.string.title_name_count, stats.accountName, NF.format(unseen)));
                     }
                 });
                 db.message().liveHiddenThread(account, thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
@@ -2875,15 +2863,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fabError.show();
         else
             fabError.hide();
-
-        // Auto scroll
-        if (lastUnseen == null || lastUnseen != unseen) {
-            if ((!refreshing && manual) ||
-                    (autoscroll && lastUnseen != null && lastUnseen < unseen))
-                loadMessages(true);
-            manual = false;
-            lastUnseen = unseen;
-        }
 
         swipeRefresh.setRefreshing(refreshing);
     }

@@ -104,7 +104,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("autoscroll", checked).apply();
-                swDoubleTap.setEnabled(!checked);
             }
         });
 
@@ -259,7 +258,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
-        swDoubleTap.setEnabled(!swAutoScroll.isChecked());
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swReversed.setChecked(prefs.getBoolean("reversed", false));
         swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
