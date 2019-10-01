@@ -3428,72 +3428,36 @@ public class FragmentCompose extends FragmentBase {
             final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
             final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
+            final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
+            final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
+            final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
             final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
             final CheckBox cbEncrypt = dview.findViewById(R.id.cbEncrypt);
+            final Spinner spPriority = dview.findViewById(R.id.spPriority);
             final TextView tvSendAt = dview.findViewById(R.id.tvSendAt);
             final ImageButton ibSendAt = dview.findViewById(R.id.ibSendAt);
-            final Spinner spPriority = dview.findViewById(R.id.spPriority);
-            final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
-            final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
             final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
-            tvTo.setText(null);
-            tvVia.setText(null);
-            tvSendAt.setText(null);
-            spPriority.setTag(1);
-            spPriority.setSelection(1);
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
+            tvTo.setText(null);
+            tvVia.setText(null);
+            spPriority.setTag(1);
+            spPriority.setSelection(1);
+            tvSendAt.setText(null);
             cbNotAgain.setChecked(!send_dialog);
             cbNotAgain.setVisibility(dialog ? View.VISIBLE : View.GONE);
             tvNotAgain.setVisibility(cbNotAgain.isChecked() && send_dialog ? View.VISIBLE : View.GONE);
+
+            Helper.setViewsEnabled(dview, false);
 
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     tvNotAgain.setVisibility(isChecked && send_dialog ? View.VISIBLE : View.GONE);
-                }
-            });
-
-            DB db = DB.getInstance(getContext());
-            db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
-                @Override
-                public void onChanged(TupleMessageEx draft) {
-                    if (draft == null) {
-                        dismiss();
-                        return;
-                    }
-
-                    int plus = (draft.cc == null ? 0 : draft.cc.length) +
-                            (draft.bcc == null ? 0 : draft.bcc.length);
-                    tvTo.setText(MessageHelper.formatAddressesShort(draft.to) + (plus > 0 ? " +" + plus : ""));
-                    tvVia.setText(draft.identityEmail);
-
-                    cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only);
-                    cbEncrypt.setChecked(draft.encrypt != null && draft.encrypt);
-
-                    if (draft.ui_snoozed == null) {
-                        if (send_delayed == 0)
-                            tvSendAt.setText(getString(R.string.title_now));
-                        else
-                            for (int pos = 0; pos < sendDelayedValues.length; pos++)
-                                if (sendDelayedValues[pos] == send_delayed) {
-                                    tvSendAt.setText(getString(R.string.title_after, sendDelayedNames[pos]));
-                                    break;
-                                }
-                    } else {
-                        DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
-                        DateFormat D = new SimpleDateFormat("E");
-                        tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
-                    }
-
-                    int priority = (draft.priority == null ? 1 : draft.priority);
-                    spPriority.setTag(priority);
-                    spPriority.setSelection(priority);
                 }
             });
 
@@ -3551,20 +3515,6 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
 
-            ibSendAt.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Bundle args = new Bundle();
-                    args.putString("title", getString(R.string.title_send_at));
-                    args.putLong("id", id);
-
-                    FragmentDialogDuration fragment = new FragmentDialogDuration();
-                    fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentDialogSend.this, 1);
-                    fragment.show(getFragmentManager(), "send:snooze");
-                }
-            });
-
             spPriority.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -3603,6 +3553,60 @@ public class FragmentCompose extends FragmentBase {
                             Helper.unexpectedError(getFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogSend.this, args, "compose:priority");
+                }
+            });
+
+            ibSendAt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle args = new Bundle();
+                    args.putString("title", getString(R.string.title_send_at));
+                    args.putLong("id", id);
+
+                    FragmentDialogDuration fragment = new FragmentDialogDuration();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(FragmentDialogSend.this, 1);
+                    fragment.show(getFragmentManager(), "send:snooze");
+                }
+            });
+
+            DB db = DB.getInstance(getContext());
+            db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
+                @Override
+                public void onChanged(TupleMessageEx draft) {
+                    if (draft == null) {
+                        dismiss();
+                        return;
+                    }
+
+                    int plus = (draft.cc == null ? 0 : draft.cc.length) +
+                            (draft.bcc == null ? 0 : draft.bcc.length);
+                    tvTo.setText(MessageHelper.formatAddressesShort(draft.to) + (plus > 0 ? " +" + plus : ""));
+                    tvVia.setText(draft.identityEmail);
+
+                    cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only);
+                    cbEncrypt.setChecked(draft.encrypt != null && draft.encrypt);
+
+                    int priority = (draft.priority == null ? 1 : draft.priority);
+                    spPriority.setTag(priority);
+                    spPriority.setSelection(priority);
+
+                    if (draft.ui_snoozed == null) {
+                        if (send_delayed == 0)
+                            tvSendAt.setText(getString(R.string.title_now));
+                        else
+                            for (int pos = 0; pos < sendDelayedValues.length; pos++)
+                                if (sendDelayedValues[pos] == send_delayed) {
+                                    tvSendAt.setText(getString(R.string.title_after, sendDelayedNames[pos]));
+                                    break;
+                                }
+                    } else {
+                        DateFormat DTF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
+                        DateFormat D = new SimpleDateFormat("E");
+                        tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
+                    }
+
+                    Helper.setViewsEnabled(dview, true);
                 }
             });
 
