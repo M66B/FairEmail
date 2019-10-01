@@ -2829,6 +2829,8 @@ class Core {
 
             DB db = DB.getInstance(context);
 
+            List<NotificationCompat.Action> wactions = new ArrayList<>();
+
             if (notify_trash &&
                     db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null) {
                 Intent trash = new Intent(context, ServiceUI.class)
@@ -2842,6 +2844,8 @@ class Core {
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_DELETE)
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionTrash.build());
+
+                wactions.add(actionTrash.build());
             }
 
             if (notify_junk &&
@@ -2856,6 +2860,8 @@ class Core {
                         piJunk)
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionJunk.build());
+
+                wactions.add(actionJunk.build());
             }
 
             if (notify_archive &&
@@ -2871,6 +2877,8 @@ class Core {
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_ARCHIVE)
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionArchive.build());
+
+                wactions.add(actionArchive.build());
             }
 
             if (notify_reply && message.content &&
@@ -2922,6 +2930,8 @@ class Core {
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_THUMBS_UP)
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionFlag.build());
+
+                wactions.add(actionFlag.build());
             }
 
             if (notify_seen) {
@@ -2936,6 +2946,8 @@ class Core {
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MARK_AS_READ)
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionSeen.build());
+
+                wactions.add(actionSeen.build());
             }
 
             if (notify_snooze) {
@@ -2950,7 +2962,12 @@ class Core {
                         .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MUTE)
                         .setAllowGeneratedReplies(false);
                 mbuilder.addAction(actionSnooze.build());
+
+                wactions.add(actionSnooze.build());
             }
+
+            if (wactions.size() > 0)
+                mbuilder.extend(new NotificationCompat.WearableExtender().addActions(wactions));
 
             if (!TextUtils.isEmpty(message.subject))
                 mbuilder.setContentText(message.subject);
