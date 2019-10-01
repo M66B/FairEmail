@@ -695,6 +695,6 @@
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvBcc,etBcc,
                 cbEncrypt,tvEncryptPro,
-                cbDeliveryReceipt,cbReadReceipt,tvReceipt" />
+                cbReceipt,tvReceipt" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
