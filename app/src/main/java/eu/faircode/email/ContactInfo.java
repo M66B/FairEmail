@@ -163,7 +163,7 @@ public class ContactInfo {
 
         boolean identicon = false;
         if (info.bitmap == null) {
-            int dp = Helper.dp2pixels(context, 48);
+            int dp = Helper.dp2pixels(context, 96);
             boolean dark = Helper.isDarkTheme(context);
             boolean generated = prefs.getBoolean("generated_icons", true);
             if (generated) {
