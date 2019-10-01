@@ -82,7 +82,7 @@ public class FragmentIdentity extends FragmentBase {
     private Spinner spAccount;
 
     private EditText etDisplay;
-    private ButtonColor btnColor;
+    private ViewButtonColor btnColor;
     private TextView tvColorPro;
     private EditText etSignature;
     private Button btnHtml;

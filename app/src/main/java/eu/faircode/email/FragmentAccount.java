@@ -91,7 +91,7 @@ public class FragmentAccount extends FragmentBase {
     private EditText etRealm;
 
     private EditText etName;
-    private ButtonColor btnColor;
+    private ViewButtonColor btnColor;
     private TextView tvColorPro;
 
     private Button btnAdvanced;

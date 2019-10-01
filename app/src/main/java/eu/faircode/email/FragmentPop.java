@@ -67,7 +67,7 @@ public class FragmentPop extends FragmentBase {
     private TextInputLayout tilPassword;
 
     private EditText etName;
-    private ButtonColor btnColor;
+    private ViewButtonColor btnColor;
     private TextView tvColorPro;
 
     private CheckBox cbSynchronize;

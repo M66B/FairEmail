@@ -110,7 +110,7 @@ public class FragmentRule extends FragmentBase {
     private NumberPicker npDuration;
     private CheckBox cbScheduleEnd;
 
-    private ButtonColor btnColor;
+    private ViewButtonColor btnColor;
 
     private Spinner spTarget;
     private CheckBox cbMoveSeen;

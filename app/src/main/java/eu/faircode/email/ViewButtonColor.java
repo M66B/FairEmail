@@ -30,18 +30,18 @@ import android.view.View;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.ColorUtils;
 
-public class ButtonColor extends AppCompatButton {
+public class ViewButtonColor extends AppCompatButton {
     private int color = Color.TRANSPARENT;
 
-    public ButtonColor(Context context) {
+    public ViewButtonColor(Context context) {
         super(context);
     }
 
-    public ButtonColor(Context context, AttributeSet attrs) {
+    public ViewButtonColor(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ButtonColor(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ViewButtonColor(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
