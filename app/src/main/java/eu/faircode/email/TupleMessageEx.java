@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import androidx.room.Ignore;
 
 import java.util.Objects;
@@ -47,7 +49,13 @@ public class TupleMessageEx extends EntityMessage {
     public Long totalSize;
 
     @Ignore
-    public boolean duplicate;
+    boolean duplicate;
+
+    String getFolderName(Context context) {
+        return (folderDisplay == null
+                ? Helper.localizeFolderName(context, folderName)
+                : folderDisplay);
+    }
 
     @Override
     public boolean equals(Object obj) {

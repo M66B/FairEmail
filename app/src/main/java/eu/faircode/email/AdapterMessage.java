@@ -383,7 +383,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibHelp = itemView.findViewById(R.id.ibHelp);
             pbLoading = itemView.findViewById(R.id.pbLoading);
 
-            if (compact)
+            if (compact && tvSubject != null)
                 if ("start".equals(subject_ellipsize))
                     tvSubject.setEllipsize(TextUtils.TruncateAt.START);
                 else if ("end".equals(subject_ellipsize))
@@ -641,7 +641,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
 
             if (viewType == ViewType.THREAD)
-                view.setVisibility(!filter_duplicates || !message.duplicate ? View.VISIBLE : View.GONE);
+                card.setVisibility(!filter_duplicates || !message.duplicate ? View.VISIBLE : View.GONE);
 
             // Text size
             if (textSize != 0) {
@@ -779,17 +779,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (viewType == ViewType.FOLDER)
                 tvFolder.setText(outbox ? message.identityEmail : message.accountName);
-            else if (type == null) {
-                String folderName = (message.folderDisplay == null
-                        ? Helper.localizeFolderName(context, message.folderName)
-                        : message.folderDisplay);
-                tvFolder.setText((compact ? "" : message.accountName + "/") + folderName);
-            } else {
-                String folderName = (message.folderDisplay == null
-                        ? Helper.localizeFolderName(context, message.folderName)
-                        : message.folderDisplay);
-                tvFolder.setText(message.accountName + "/" + folderName);
-            }
+            else if (type == null)
+                tvFolder.setText((compact ? "" : message.accountName + "/") + message.getFolderName(context));
+            else
+                tvFolder.setText(message.accountName + "/" + message.getFolderName(context));
+
             tvFolder.setVisibility(compact &&
                     ((viewType == ViewType.FOLDER && !outbox) || (viewType == ViewType.UNIFIED && type == null && inbox))
                     ? View.GONE : View.VISIBLE);
@@ -3420,6 +3414,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public int getItemViewType(int position) {
+        TupleMessageEx message = differ.getItem(position);
+        if (filter_duplicates && message != null && message.duplicate)
+            return R.layout.item_message_duplicate;
         return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
     }
 
@@ -3700,9 +3697,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        TupleMessageEx message = differ.getItem(position);
+        if (filter_duplicates && message != null && message.duplicate) {
+            holder.tvFolder.setText(context.getString(R.string.title_duplicate_in, message.getFolderName(context)));
+            holder.tvFolder.setAlpha(Helper.LOW_LIGHT);
+            return;
+        }
+
         holder.unwire();
 
-        TupleMessageEx message = differ.getItem(position);
         if (message == null || context == null)
             holder.clear();
         else {

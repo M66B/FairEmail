@@ -487,6 +487,7 @@
     <string name="title_no_folders">No folders</string>
     <string name="title_no_messages">No messages</string>
     <string name="title_filters_active">One or more filters active</string>
+    <string name="title_duplicate_in">Duplicate in %1$s</string>
 
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>

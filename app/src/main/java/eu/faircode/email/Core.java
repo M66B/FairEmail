@@ -2824,12 +2824,8 @@ class Core {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                 setLightAndSound(mbuilder, light, sound);
 
-            String folderName = message.folderDisplay == null
-                    ? Helper.localizeFolderName(context, message.folderName)
-                    : message.folderDisplay;
-
             mbuilder.setContentTitle(info.getDisplayName(name_email))
-                    .setSubText(message.accountName + " · " + folderName);
+                    .setSubText(message.accountName + " · " + message.getFolderName(context));
 
             DB db = DB.getInstance(context);
 
