@@ -80,7 +80,7 @@
         <activity
             android:name=".ActivitySetup"
             android:exported="true"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:parentActivityName=".ActivityMain">
 
             <intent-filter>
@@ -101,7 +101,7 @@
         <activity
             android:name=".ActivityView"
             android:exported="false"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:parentActivityName=".ActivityMain" />
 
         <activity
@@ -111,7 +111,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_search"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:theme="@style/Theme.AppCompat.Translucent">
 
             <intent-filter>
@@ -124,7 +124,7 @@
         <activity
             android:name=".ActivityCompose"
             android:exported="true"
-            android:launchMode="singleTop"
+            android:launchMode="singleTask"
             android:parentActivityName=".ActivityView">
 
             <intent-filter>
@@ -155,7 +155,7 @@
             android:name=".ActivityEML"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTop">
+            android:launchMode="singleTask">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -189,7 +189,7 @@
             android:name=".ActivityDSN"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTop">
+            android:launchMode="singleTask">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -208,7 +208,7 @@
         <activity
             android:name=".ActivityBilling"
             android:icon="@mipmap/ic_launcher"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTask" />
 
         <service
             android:name=".ServiceSynchronize"
