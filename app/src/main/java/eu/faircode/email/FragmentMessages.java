@@ -2325,7 +2325,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return;
 
                         int unseen = stats.count - stats.seen;
-                        setSubtitle(getString(R.string.title_name_count, stats.accountName, NF.format(unseen)));
+                        if (unseen == 0)
+                            setSubtitle(stats.accountName);
+                        else
+                            setSubtitle(getString(R.string.title_name_count, stats.accountName, NF.format(unseen)));
                     }
                 });
                 db.message().liveHiddenThread(account, thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {

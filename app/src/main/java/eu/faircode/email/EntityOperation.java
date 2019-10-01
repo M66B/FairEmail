@@ -157,11 +157,14 @@ public class EntityOperation {
                         " target=" + target.id + ":" + target.name +
                         " auto read=" + autoread + " flag=" + autounflag);
 
-                if (autoread)
-                    db.message().setMessageUiSeen(message.id, true);
+                if (autoread || autounflag)
+                    for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
+                        if (autoread)
+                            db.message().setMessageUiSeen(similar.id, true);
+                        if (autounflag)
+                            db.message().setMessageUiFlagged(similar.id, false, null);
+                    }
 
-                if (autounflag)
-                    db.message().setMessageUiFlagged(message.id, false, null);
 
                 if (!EntityFolder.ARCHIVE.equals(source.type) ||
                         EntityFolder.TRASH.equals(target.type) || EntityFolder.JUNK.equals(target.type))
