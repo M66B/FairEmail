@@ -652,8 +652,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 int px = Math.round(TypedValue.applyDimension(
                         TypedValue.COMPLEX_UNIT_PX, textSize * (compact ? 2.0f : 3.0f),
                         context.getResources().getDisplayMetrics()));
-                if (compact && tvFrom.getMinHeight() != px)
-                    tvFrom.setMinimumHeight(px);
 
                 ViewGroup.LayoutParams lparams = ivAvatar.getLayoutParams();
                 if (lparams.height != px) {
