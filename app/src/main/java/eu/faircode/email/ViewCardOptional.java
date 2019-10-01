@@ -63,12 +63,12 @@ public class ViewCardOptional extends CardView {
             setLayoutParams(lparam);
 
             setRadius(dp6);
-            setElevation(compact ? dp6 / 2f : dp6);
-
-            getChildAt(0).setPadding(dp6, dp6, dp6, dp6);
+            setCardElevation(compact ? dp6 / 2f : dp6);
+            setMaxCardElevation(compact ? dp6 / 2f : dp6);
+            setContentPadding(dp6, dp6, dp6, dp6);
         } else {
             setRadius(0);
-            setElevation(0);
+            setCardElevation(0);
         }
     }
 
