@@ -228,6 +228,7 @@
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
+    <string name="title_advanced_distinguish_contacts">Odlišit zprávy známých a neznámých kontaktů</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>

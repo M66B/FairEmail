@@ -228,6 +228,7 @@
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
+    <string name="title_advanced_distinguish_contacts">Разделять сообщения от известных и неизвестных контактов</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
     <string name="title_advanced_generated_icons">Показывать сгенерированные значки</string>
     <string name="title_advanced_identicons">Показывать идентификаторы</string>
@@ -314,6 +315,7 @@
     <string name="title_advanced_rlah_hint">Предполагать отсутствие роуминга внутри ЕС</string>
     <string name="title_advanced_roaming_hint">Заголовки сообщений всегда будут загружаться в роуминге. Вы можете использовать настройки устройства для отключения интернета в роуминге.</string>
     <string name="title_advanced_browse_hint">Получать больше сообщений при прокрутке вниз</string>
+    <string name="title_advanced_layout_hint">Переключиться на компактный вид и изменить размера текста сообщения можно через верхнее меню панели действий при просмотре сообщения</string>
     <string name="title_advanced_date_hint">Сообщения группируются только по дате, если они сортируются по времени</string>
     <string name="title_advanced_threading_hint">Группировать сообщения, связанные друг с другом</string>
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
@@ -424,6 +426,7 @@
     <string name="title_sync_days">Синхронизация сообщений (дни)</string>
     <string name="title_sync_days_remark">Увеличение этого значения увеличит потребление трафика и заряда батареи</string>
     <string name="title_keep_days">Хранение сообщений (дни)</string>
+    <string name="title_keep_days_remark">Старые сообщения будут удалены с устройства, но останутся на сервере</string>
     <string name="title_keep_all">Хранить все сообщения</string>
     <string name="title_auto_trash">Автоматически перемещать старые сообщения в корзину</string>
     <string name="title_auto_delete">Автоматически навсегда удалять старые сообщения</string>

@@ -205,6 +205,7 @@
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
+    <string name="title_advanced_distinguish_contacts">Distingui i messaggi tra contatti noti e sconosciuti</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>

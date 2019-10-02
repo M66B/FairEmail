@@ -205,6 +205,7 @@
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
+    <string name="title_advanced_distinguish_contacts">Skeln mellem beskeder fra kendte og ukendte kontakter</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
@@ -422,6 +423,7 @@
     <string name="title_no_folders">Ingen mapper</string>
     <string name="title_no_messages">Ingen beskeder</string>
     <string name="title_filters_active">Ét eller flere filtre er aktive</string>
+    <string name="title_duplicate_in">Dublet oprettet i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vs: %1$s</string>
     <string name="title_seen">Markér som læst</string>

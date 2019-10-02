@@ -206,6 +206,7 @@
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
+    <string name="title_advanced_distinguish_contacts">Faire la distinction entre les messages des contacts connus et inconnus</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
@@ -239,7 +240,7 @@
     <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
-    <string name="title_advanced_autoread">Marquer automatiquement le message comme lu lors de son déplacement</string>
+    <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile des messages lors de leur déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
@@ -292,6 +293,7 @@
     <string name="title_advanced_rlah_hint">On considère qu\'il n\'y a pas d\'itinérance au sein de l\'UE (roam like at home)</string>
     <string name="title_advanced_roaming_hint">Les en-têtes des messages seront toujours récupérés en itinérance. Vous pouvez utiliser le paramètre d\'itinérance de l\'appareil pour désactiver internet pendant l\'itinérance.</string>
     <string name="title_advanced_browse_hint">Télécharger plus de messages en faisant défiler vers le bas</string>
+    <string name="title_advanced_layout_hint">Passer à une disposition plus compacte et changer la taille du texte des messages peut être fait dans le menu de la barre d\'action en haut dans la vue message</string>
     <string name="title_advanced_date_hint">Les messages ne sont regroupés par date que s\'ils sont triés par ordre chronologique</string>
     <string name="title_advanced_threading_hint">Groupe de messages liés les uns aux autres</string>
     <string name="title_advanced_name_email_hint">Si désactivé, seuls les noms seront affichés si disponibles</string>
@@ -402,6 +404,7 @@
     <string name="title_sync_days">Synchroniser les messages (jours)</string>
     <string name="title_sync_days_remark">Augmenter cette valeur augmentera l\'utilisation de la batterie et des données</string>
     <string name="title_keep_days">Conserver les messages (jours)</string>
+    <string name="title_keep_days_remark">Les anciens messages seront supprimés de l\'appareil, mais resteront sur le serveur</string>
     <string name="title_keep_all">Garder tous les messages</string>
     <string name="title_auto_trash">Déplacer automatiquement les anciens messages vers la corbeille</string>
     <string name="title_auto_delete">Supprimer automatiquement et définitivement les anciens messages</string>

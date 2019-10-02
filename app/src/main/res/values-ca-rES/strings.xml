@@ -206,6 +206,7 @@
     <string name="title_advanced_date_header">Agrupa per data</string>
     <string name="title_advanced_threading">Fil de conversa</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
+    <string name="title_advanced_distinguish_contacts">Diferencia els missatges de contactes coneguts i no coneguts</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
     <string name="title_advanced_generated_icons">Mostra les icones generades</string>
     <string name="title_advanced_identicons">Mostra identicons</string>
@@ -292,6 +293,7 @@
     <string name="title_advanced_rlah_hint">Si no se suposa una itinerància a la UE</string>
     <string name="title_advanced_roaming_hint">Les capçaleres de missatges sempre es recuperaran en itinerància. Podeu utilitzar la configuració d\'itinerància del dispositiu per desactivar Internet durant la itinerància de dades.</string>
     <string name="title_advanced_browse_hint">Obteniu més missatges en desplaçar-vos cap avall</string>
+    <string name="title_advanced_layout_hint">Podeu canviar a un disseny més compacte i canviar la mida del text del missatge al menú de la barra d’acció superior de la vista de missatges</string>
     <string name="title_advanced_date_hint">Els missatges només s\'agruparan per data si s\'ordena per ordre temporal</string>
     <string name="title_advanced_threading_hint">Agrupa missatges relacionats entre ells</string>
     <string name="title_advanced_name_email_hint">Quan estigui desactivat només es mostraran noms quan estiguin disponibles</string>
@@ -402,6 +404,7 @@
     <string name="title_sync_days">Sincronitza els missatges (dies)</string>
     <string name="title_sync_days_remark">Si augmenta aquest valor, augmentarà l’ús de la bateria i de les dades</string>
     <string name="title_keep_days">Mantenir els missatges (Dies)</string>
+    <string name="title_keep_days_remark">Els missatges antics es suprimeixen del dispositiu, però quedaran al servidor</string>
     <string name="title_keep_all">Mantenir tots els missatges</string>
     <string name="title_auto_trash">Moveu automàticament els missatges antics a la paperera</string>
     <string name="title_auto_delete">Eliminar automàticament missatges antics de manera permanent</string>

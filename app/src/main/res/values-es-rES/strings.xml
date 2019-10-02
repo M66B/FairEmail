@@ -206,6 +206,7 @@
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
+    <string name="title_advanced_distinguish_contacts">Distinguir mensajes de contactos conocidos y desconocidos</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
@@ -292,6 +293,7 @@
     <string name="title_advanced_rlah_hint">Suponiendo que no hay itinerancia dentro de la UE</string>
     <string name="title_advanced_roaming_hint">Los encabezados de mensajes siempre se obtendrán cuando en itinerancia. Puede usar la configuración de itinerancia del dispositivo para desactivar internet mientras se está en itinerancia.</string>
     <string name="title_advanced_browse_hint">Buscar más mensajes al desplazarse hacia abajo</string>
+    <string name="title_advanced_layout_hint">Cambiar a un diseño más compacto y cambiar el tamaño del texto del mensaje puede hacerse en el menú de la barra de acción superior en la vista de mensaje</string>
     <string name="title_advanced_date_hint">Los mensajes sólo se agrupan por fecha si se ordenan por antigüedad</string>
     <string name="title_advanced_threading_hint">Agrupar mensajes relacionados entre sí</string>
     <string name="title_advanced_name_email_hint">Si está desactivado, solo se mostrarán los nombres cuando estén disponibles</string>
@@ -402,6 +404,7 @@
     <string name="title_sync_days">Sincronizar mensajes (días)</string>
     <string name="title_sync_days_remark">Incrementar este valor hará que aumente el consumo de datos y batería</string>
     <string name="title_keep_days">Mantener mensajes (días)</string>
+    <string name="title_keep_days_remark">Los mensajes antiguos se eliminarán del dispositivo, pero permanecerán en el servidor</string>
     <string name="title_keep_all">Mantener todos los mensajes</string>
     <string name="title_auto_trash">Mover mensajes antiguos a la papelera de manera automática</string>
     <string name="title_auto_delete">Eliminar mensajes antiguos permanentemente de manera automática</string>
