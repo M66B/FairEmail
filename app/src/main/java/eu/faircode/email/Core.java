@@ -194,7 +194,7 @@ class Core {
                                 case EntityOperation.MOVE:
                                     if (EntityOperation.MOVE.equals(next.name)) {
                                         JSONArray jnext = new JSONArray(next.args);
-                                        // Same target, autoread
+                                        // Same target
                                         if (jargs.getLong(0) == jnext.getLong(0)) {
                                             EntityMessage m = db.message().getMessage(next.message);
                                             if (m != null) {
