@@ -187,7 +187,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
     private void onSave(boolean check) {
         Bundle args = new Bundle();
-        args.putString("name", etName.getText().toString());
+        args.putString("name", etName.getText().toString().trim());
         args.putString("email", etEmail.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
         args.putBoolean("check", check);
@@ -216,8 +216,8 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
-                String name = args.getString("name").trim();
-                String email = args.getString("email").trim();
+                String name = args.getString("name");
+                String email = args.getString("email");
                 String password = args.getString("password");
                 boolean check = args.getBoolean("check");
 

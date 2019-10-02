@@ -268,7 +268,6 @@ public class FragmentGmail extends FragmentBase {
                 etName.setEnabled(false);
                 btnSelect.setEnabled(false);
                 pbSelect.setVisibility(View.VISIBLE);
-                tvError.setVisibility(View.GONE);
             }
 
             @Override
