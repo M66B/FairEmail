@@ -2756,6 +2756,8 @@ class Core {
                     sb.append("<br>");
                 }
 
+                builder.setContentText(sb.toString());
+
                 builder.setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(HtmlHelper.fromHtml(sb.toString()))
                         .setSummaryText(title));
