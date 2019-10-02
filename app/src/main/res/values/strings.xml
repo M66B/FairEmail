@@ -342,6 +342,8 @@
     <string name="title_advanced_roaming_hint">Messages headers will always be fetched when roaming. You can use the device\'s roaming setting to disable internet while roaming.</string>
 
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
+
+    <string name="title_advanced_layout_hint">Switching to a more compact layout and changing the message text size can be done in the top action bar menu in the message view</string>
     <string name="title_advanced_date_hint">Messages are only grouped by date if they are sorted by time</string>
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
@@ -466,6 +468,7 @@
     <string name="title_sync_days">Synchronize messages (days)</string>
     <string name="title_sync_days_remark">Increasing this value will increase battery and data usage</string>
     <string name="title_keep_days">Keep messages (days)</string>
+    <string name="title_keep_days_remark">Old messages will be removed from the device, but will remain on the server</string>
     <string name="title_keep_all">Keep all messages</string>
     <string name="title_auto_trash">Automatically move old messages to trash</string>
     <string name="title_auto_delete">Automatically permanently delete old messages</string>
