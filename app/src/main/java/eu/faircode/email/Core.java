@@ -781,7 +781,8 @@ class Core {
             }
 
         // Some providers do not support the COPY operation for drafts
-        if (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type)) {
+        boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
+        if (draft) {
             Log.i(folder.name + " move from " + folder.type + " to " + target.type);
 
             List<Message> icopies = new ArrayList<>();
@@ -802,21 +803,6 @@ class Core {
                 }
 
                 file.delete();
-
-                // Auto read
-                if (flags.contains(Flags.Flag.SEEN))
-                    icopy.setFlag(Flags.Flag.SEEN, message.ui_seen);
-
-                // Auto unflag
-                if (flags.contains(Flags.Flag.FLAGGED))
-                    icopy.setFlag(Flags.Flag.FLAGGED, message.ui_flagged);
-
-                // Answered fix
-                if (flags.contains(Flags.Flag.ANSWERED))
-                    icopy.setFlag(Flags.Flag.ANSWERED, message.ui_answered);
-
-                // Set drafts flag
-                icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
 
                 icopies.add(icopy);
             }
@@ -853,7 +839,7 @@ class Core {
         }
 
         // Fetch appended/copied when needed
-        if (!target.synchronize || !istore.hasCapability("IDLE"))
+        if (draft || !target.synchronize || !istore.hasCapability("IDLE"))
             try {
                 itarget.open(READ_WRITE);
 
@@ -862,9 +848,30 @@ class Core {
                         try {
                             Long uid = findUid(itarget, message.msgid, false);
                             if (uid != null) {
-                                JSONArray fargs = new JSONArray();
-                                fargs.put(uid);
-                                onFetch(context, fargs, target, itarget, state);
+                                if (draft) {
+                                    Message icopy = itarget.getMessageByUID(uid);
+
+                                    // Auto read
+                                    if (flags.contains(Flags.Flag.SEEN))
+                                        icopy.setFlag(Flags.Flag.SEEN, message.ui_seen);
+
+                                    // Auto unflag
+                                    if (flags.contains(Flags.Flag.FLAGGED))
+                                        icopy.setFlag(Flags.Flag.FLAGGED, message.ui_flagged);
+
+                                    // Answered fix
+                                    if (flags.contains(Flags.Flag.ANSWERED))
+                                        icopy.setFlag(Flags.Flag.ANSWERED, message.ui_answered);
+
+                                    // Set drafts flag
+                                    icopy.setFlag(Flags.Flag.DRAFT, EntityFolder.DRAFTS.equals(target.type));
+                                }
+
+                                if (!target.synchronize || !istore.hasCapability("IDLE")) {
+                                    JSONArray fargs = new JSONArray();
+                                    fargs.put(uid);
+                                    onFetch(context, fargs, target, itarget, state);
+                                }
                             }
                         } catch (Throwable ex) {
                             Log.w(ex);
