@@ -314,6 +314,7 @@
     <string name="title_advanced_rlah_hint">Zakładając brak roamingu w UE</string>
     <string name="title_advanced_roaming_hint">Nagłówki wiadomości będą zawsze pobierane podczas roamingu. Możesz użyć ustawienia roamingu urządzenia, aby wyłączyć Internet podczas roamingu.</string>
     <string name="title_advanced_browse_hint">Pobierz więcej wiadomości podczas przewijania w dół</string>
+    <string name="title_advanced_layout_hint">Przełączanie do bardziej zwartego układu i zmianę rozmiaru tekstu wiadomości można wykonać w menu górnego paska działań w widoku wiadomości</string>
     <string name="title_advanced_date_hint">Wiadomości są pogrupowane według daty, tylko jeśli są posortowane według czasu</string>
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
@@ -423,6 +424,7 @@
     <string name="title_sync_days">Synchronizuj wiadomości (dni)</string>
     <string name="title_sync_days_remark">Zwiększenie tej wartości zwiększy zużycie baterii i danych</string>
     <string name="title_keep_days">Zachowuj wiadomości (dni)</string>
+    <string name="title_keep_days_remark">Stare wiadomości zostaną usunięte z urządzenia, ale pozostaną na serwerze</string>
     <string name="title_keep_all">Przechowuj wszystkie wiadomości</string>
     <string name="title_auto_trash">Automatycznie przenieś stare wiadomości do kosza</string>
     <string name="title_auto_delete">Automatycznie trwale usuwaj stare wiadomości</string>

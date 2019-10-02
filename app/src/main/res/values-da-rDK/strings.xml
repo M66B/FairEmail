@@ -292,6 +292,7 @@
     <string name="title_advanced_rlah_hint">Antager ingen roaming inden for EU</string>
     <string name="title_advanced_roaming_hint">Beskedoverskrifter hentes altid under roaming. Du kan benytte enhedens roamingindstilling til at deaktivere mobilnetværk under roaming.</string>
     <string name="title_advanced_browse_hint">Hent flere beskeder, når du ruller nedad</string>
+    <string name="title_advanced_layout_hint">Skift til et mere kompakt layout og ændring af beskedtekststørrelse kan ske via den øverste handlingsbjælkemenu fra beskedvisning</string>
     <string name="title_advanced_date_hint">Beskeder grupperes kun efter dato, hvis de er sorteret efter tid</string>
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
@@ -402,6 +403,7 @@
     <string name="title_sync_days">Beskedsynkronisering (dage)</string>
     <string name="title_sync_days_remark">Øges denne værdi, forøge batteri- og dataforbruget</string>
     <string name="title_keep_days">Behold beskeder (dage)</string>
+    <string name="title_keep_days_remark">Gamle beskeder fjernes fra enheden, men forbliver på serveren</string>
     <string name="title_keep_all">Behold alle beskeder</string>
     <string name="title_auto_trash">Auto-flyt gamle beskeder til Papirkurv</string>
     <string name="title_auto_delete">Auto-slet gamle beskeder permanent</string>
