@@ -1988,6 +1988,8 @@ public class FragmentCompose extends FragmentBase {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean text_color = prefs.getBoolean("text_color", true);
             boolean plain_only = prefs.getBoolean("plain_only", false);
+            boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
+            boolean receipt_default = prefs.getBoolean("receipt_default", false);
 
             Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
 
@@ -2019,6 +2021,13 @@ public class FragmentCompose extends FragmentBase {
 
                     data.draft = new EntityMessage();
                     data.draft.msgid = EntityMessage.generateMessageId();
+
+                    if (plain_only)
+                        data.draft.plain_only = true;
+                    if (encrypt_default)
+                        data.draft.encrypt = true;
+                    if (receipt_default)
+                        data.draft.receipt_request = true;
 
                     if (ref == null) {
                         data.draft.thread = data.draft.msgid;
@@ -2090,8 +2099,10 @@ public class FragmentCompose extends FragmentBase {
 
                             if ("reply_all".equals(action))
                                 data.draft.cc = ref.getAllRecipients(data.identities);
-                            else if ("receipt".equals(action))
+                            else if ("receipt".equals(action)) {
                                 data.draft.receipt = true;
+                                data.draft.receipt_request = false;
+                            }
 
                         } else if ("forward".equals(action) || "editasnew".equals(action))
                             data.draft.thread = data.draft.msgid; // new thread
@@ -2130,7 +2141,8 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
 
-                        data.draft.plain_only = ref.plain_only;
+                        if (ref.plain_only)
+                            data.draft.plain_only = ref.plain_only;
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
@@ -2138,9 +2150,6 @@ public class FragmentCompose extends FragmentBase {
                                 body = a.getText(data.draft.to) + body;
                         }
                     }
-
-                    if (plain_only)
-                        data.draft.plain_only = true;
 
                     // Select identity matching from address
                     Address from = null;
@@ -2806,12 +2815,6 @@ public class FragmentCompose extends FragmentBase {
 
                             if (draft.to == null && draft.cc == null && draft.bcc == null)
                                 throw new IllegalArgumentException(context.getString(R.string.title_to_missing));
-
-                            db.message().setMessagePlainOnly(draft.id, identity.plain_only);
-
-                            db.message().setMessageEncrypt(draft.id, identity.encrypt);
-
-                            db.message().setMessageReceiptRequest(draft.id, identity.delivery_receipt || identity.read_receipt);
 
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
@@ -3619,6 +3622,10 @@ public class FragmentCompose extends FragmentBase {
                     cbPlainOnly.setChecked(draft.plain_only != null && draft.plain_only);
                     cbEncrypt.setChecked(draft.encrypt != null && draft.encrypt);
                     cbReceipt.setChecked(draft.receipt_request != null && draft.receipt_request);
+
+                    cbPlainOnly.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
+                    cbEncrypt.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
+                    cbReceipt.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
 
                     int priority = (draft.priority == null ? 1 : draft.priority);
                     spPriority.setTag(priority);

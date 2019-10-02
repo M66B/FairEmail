@@ -49,12 +49,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAutoResize;
     private Spinner spAutoResize;
     private TextView tvAutoResize;
+    private SwitchCompat swEncrypt;
+    private SwitchCompat swReceipt;
     private SwitchCompat swLookupMx;
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "suggest_sent", "suggested_received", "prefix_once", "plain_only", "usenet_signature",
-            "autoresize", "resize", "lookup_mx", "send_delayed"
+            "autoresize", "encrypt_default", "receipt_default", "resize", "lookup_mx", "send_delayed"
     };
 
     @Override
@@ -76,6 +78,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAutoResize = view.findViewById(R.id.swAutoResize);
         spAutoResize = view.findViewById(R.id.spAutoResize);
         tvAutoResize = view.findViewById(R.id.tvAutoResize);
+        swEncrypt = view.findViewById(R.id.swEncrypt);
+        swReceipt = view.findViewById(R.id.swReceipt);
         swLookupMx = view.findViewById(R.id.swLookupMx);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
 
@@ -146,6 +150,20 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("resize").apply();
+            }
+        });
+
+        swEncrypt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("encrypt_default", checked).apply();
+            }
+        });
+
+        swReceipt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("receipt_default", checked).apply();
             }
         });
 
@@ -234,6 +252,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         spAutoResize.setEnabled(swAutoResize.isChecked());
 
+        swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
+        swReceipt.setChecked(prefs.getBoolean("receipt_default", false));
         swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
 
         int send_delayed = prefs.getInt("send_delayed", 0);

@@ -108,9 +108,6 @@ public class FragmentIdentity extends FragmentBase {
     private TextView etSenderExtra;
     private EditText etReplyTo;
     private EditText etBcc;
-    private TextView tvEncryptPro;
-    private CheckBox cbEncrypt;
-    private CheckBox cbReceipt;
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
@@ -188,9 +185,6 @@ public class FragmentIdentity extends FragmentBase {
         etSenderExtra = view.findViewById(R.id.etSenderExtra);
         etReplyTo = view.findViewById(R.id.etReplyTo);
         etBcc = view.findViewById(R.id.etBcc);
-        tvEncryptPro = view.findViewById(R.id.tvEncryptPro);
-        cbEncrypt = view.findViewById(R.id.cbEncrypt);
-        cbReceipt = view.findViewById(R.id.cbReceipt);
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
@@ -425,8 +419,6 @@ public class FragmentIdentity extends FragmentBase {
         cbInsecure.setVisibility(View.GONE);
         tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
-        Helper.linkPro(tvEncryptPro);
-
         btnAdvanced.setVisibility(View.GONE);
 
         btnSave.setVisibility(View.GONE);
@@ -509,8 +501,6 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("sender_extra_regex", etSenderExtra.getText().toString());
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
-        args.putBoolean("encrypt", cbEncrypt.isChecked());
-        args.putBoolean("receipt", cbReceipt.isChecked());
         args.putLong("account", account == null ? -1 : account.id);
         args.putString("host", etHost.getText().toString());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
@@ -575,8 +565,6 @@ public class FragmentIdentity extends FragmentBase {
                 String sender_extra_regex = args.getString("sender_extra_regex");
                 String replyto = args.getString("replyto");
                 String bcc = args.getString("bcc");
-                boolean encrypt = args.getBoolean("encrypt");
-                boolean receipt = args.getBoolean("receipt");
 
                 boolean should = args.getBoolean("should");
 
@@ -685,12 +673,6 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.bcc, bcc))
                         return true;
-                    if (!Objects.equals(identity.encrypt, encrypt))
-                        return true;
-                    if (!Objects.equals(identity.delivery_receipt, receipt))
-                        return true;
-                    if (!Objects.equals(identity.read_receipt, receipt))
-                        return true;
                     if (identity.error != null)
                         return true;
 
@@ -753,9 +735,6 @@ public class FragmentIdentity extends FragmentBase {
                     identity.sender_extra_regex = sender_extra_regex;
                     identity.replyto = replyto;
                     identity.bcc = bcc;
-                    identity.encrypt = encrypt;
-                    identity.delivery_receipt = receipt;
-                    identity.read_receipt = receipt;
                     identity.sent_folder = null;
                     identity.sign_key = null;
                     identity.error = null;
@@ -890,8 +869,6 @@ public class FragmentIdentity extends FragmentBase {
                     etSenderExtra.setText(identity == null ? null : identity.sender_extra_regex);
                     etReplyTo.setText(identity == null ? null : identity.replyto);
                     etBcc.setText(identity == null ? null : identity.bcc);
-                    cbEncrypt.setChecked(identity == null ? false : identity.encrypt);
-                    cbReceipt.setChecked(identity == null ? false : identity.delivery_receipt || identity.read_receipt);
 
                     auth = (identity == null ? MailService.AUTH_TYPE_PASSWORD : identity.auth_type);
 

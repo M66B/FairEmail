@@ -162,8 +162,9 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("reversed", true);
                 editor.remove("swipe_reversed");
             }
-        }
 
+        } else if (version < 741)
+            editor.remove("send_dialog");
 
         if (BuildConfig.DEBUG && false) {
             editor.remove("app_support");

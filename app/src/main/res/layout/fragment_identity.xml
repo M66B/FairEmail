@@ -561,36 +561,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
-        <CheckBox
-            android:id="@+id/cbEncrypt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_identity_encrypt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etBcc" />
-
-        <TextView
-            android:id="@+id/tvEncryptPro"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@string/title_pro_feature"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorLink"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbEncrypt" />
-
-        <CheckBox
-            android:id="@+id/cbReceipt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_identity_receipt"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvEncryptPro" />
-
         <Button
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
@@ -599,7 +569,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbReceipt" />
+            app:layout_constraintTop_toBottomOf="@id/etBcc" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -693,8 +663,6 @@
                 cbUseIp,tvUseIpHint,
                 cbSynchronize,cbPrimary,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
-                tvReplyTo,etReplyTo,tvBcc,etBcc,
-                cbEncrypt,tvEncryptPro,
-                cbReceipt,tvReceipt" />
+                tvReplyTo,etReplyTo,tvBcc,etBcc" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
