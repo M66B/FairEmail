@@ -263,7 +263,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                 return 0;
 
                             int applied = 0;
-                            List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
+                            List<Long> ids =
+                                    db.message().getMessageIdsByFolder(rule.folder, null, null, null);
                             for (long mid : ids)
                                 try {
                                     db.beginTransaction();

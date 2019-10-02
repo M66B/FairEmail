@@ -1076,7 +1076,8 @@ public class FragmentRule extends FragmentBase {
                             int applied = 0;
 
                             DB db = DB.getInstance(context);
-                            List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
+                            List<Long> ids =
+                                    db.message().getMessageIdsByFolder(rule.folder, null, null, null);
                             for (long mid : ids)
                                 try {
                                     db.beginTransaction();
@@ -1121,7 +1122,8 @@ public class FragmentRule extends FragmentBase {
                     List<EntityMessage> matching = new ArrayList<>();
 
                     DB db = DB.getInstance(context);
-                    List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
+                    List<Long> ids =
+                            db.message().getMessageIdsByFolder(rule.folder, null, null, null);
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
 

@@ -54,6 +54,7 @@ public class ViewModelMessages extends ViewModel {
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;
+    private static final int SEARCH_PAGE_SIZE = 1;
     private static final int LOW_MEM_MB = 32;
 
     Model getModel(
@@ -77,10 +78,13 @@ public class ViewModelMessages extends ViewModel {
             DB db = DB.getInstance(context);
 
             BoundaryCallbackMessages boundary = null;
-            if (viewType == AdapterMessage.ViewType.FOLDER || viewType == AdapterMessage.ViewType.SEARCH)
+            if (viewType == AdapterMessage.ViewType.FOLDER)
                 boundary = new BoundaryCallbackMessages(context,
-                        args.folder, args.server || viewType == AdapterMessage.ViewType.FOLDER,
-                        args.query, REMOTE_PAGE_SIZE);
+                        args.folder, true, args.query, REMOTE_PAGE_SIZE);
+            else if (viewType == AdapterMessage.ViewType.SEARCH)
+                boundary = new BoundaryCallbackMessages(context,
+                        args.folder, args.server, args.query,
+                        args.server ? REMOTE_PAGE_SIZE : SEARCH_PAGE_SIZE);
 
             LivePagedListBuilder<Integer, TupleMessageEx> builder = null;
             switch (viewType) {

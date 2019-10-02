@@ -215,8 +215,14 @@ public interface DaoMessage {
             " FROM message" +
             " WHERE (:folder IS NULL OR folder = :folder)" +
             " AND NOT ui_hide" +
+            " AND (:seen IS NULL OR message.ui_seen = :seen)" +
+            " AND (:flagged IS NULL OR message.ui_flagged = :flagged)" +
+            " AND CASE :snoozed" +
+            "  WHEN 0 THEN message.ui_snoozed IS NULL" +
+            "  WHEN 1 THEN message.ui_snoozed IS NOT NULL" +
+            "  ELSE 1 END" + // NULL: true
             " ORDER BY message.received DESC")
-    List<Long> getMessageIdsByFolder(Long folder);
+    List<Long> getMessageIdsByFolder(Long folder, Boolean seen, Boolean flagged, Boolean snoozed);
 
     @Query("SELECT id" +
             " FROM message" +
@@ -362,6 +368,16 @@ public interface DaoMessage {
             " FROM message" +
             " WHERE folder = :folder")
     Long getMessageOldest(long folder);
+
+    @Query("SELECT * FROM message" +
+            " WHERE id = :id" +
+            " AND (`from` LIKE :find COLLATE NOCASE" +
+            " OR `to` LIKE :find COLLATE NOCASE" +
+            " OR `cc` LIKE :find COLLATE NOCASE" +
+            " OR `subject` LIKE :find COLLATE NOCASE" +
+            " OR `keywords` LIKE :find COLLATE NOCASE" +
+            " OR `preview` LIKE :find COLLATE NOCASE)")
+    EntityMessage match(long id, String find);
 
     @Insert
     long insertMessage(EntityMessage message);

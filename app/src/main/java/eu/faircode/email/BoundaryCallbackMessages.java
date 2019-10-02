@@ -35,6 +35,7 @@ import com.sun.mail.imap.IMAPMessage;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -46,7 +47,6 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import javax.mail.Address;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -55,7 +55,6 @@ import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.UIDFolder;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.AndTerm;
 import javax.mail.search.BodyTerm;
@@ -165,74 +164,60 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int load_device(State state) {
         DB db = DB.getInstance(context);
 
+        Boolean seen = null;
+        Boolean flagged = null;
+        Boolean snoozed = null;
+
+        String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase(Locale.ROOT));
+        if (find != null && find.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
+            String special = find.split(":")[1];
+            if (context.getString(R.string.title_search_special_unseen).equals(special))
+                seen = false;
+            else if (context.getString(R.string.title_search_special_flagged).equals(special))
+                flagged = true;
+            else if (context.getString(R.string.title_search_special_snoozed).equals(special))
+                snoozed = true;
+
+        }
+
         if (state.messages == null) {
-            state.messages = db.message().getMessageIdsByFolder(folder);
-            Log.i("Boundary device folder=" + folder + " query=" + query + " messages=" + state.messages.size());
+            state.messages = db.message().getMessageIdsByFolder(folder, seen, flagged, snoozed);
+            Log.i("Boundary device folder=" + folder +
+                    " query=" + query +
+                    " seen=" + seen +
+                    " flagged=" + flagged +
+                    " snoozed=" + snoozed +
+                    " messages=" + state.messages.size());
         }
 
         int found = 0;
         try {
             db.beginTransaction();
 
-            String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase(Locale.ROOT));
             for (int i = state.index; i < state.messages.size() && found < pageSize && !state.destroyed; i++) {
                 state.index = i + 1;
 
-                EntityMessage message = db.message().getMessage(state.messages.get(i));
-                if (message == null)
-                    continue;
+                long id = state.messages.get(i);
+                EntityMessage message = null;
 
-                boolean match = false;
-                if (find == null)
-                    match = true;
+                if (find == null || seen != null || flagged != null || snoozed != null)
+                    message = db.message().getMessage(id);
                 else {
-                    if (find.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
-                        String special = find.split(":")[1];
-                        if (context.getString(R.string.title_search_special_unseen).equals(special))
-                            match = !message.ui_seen;
-                        else if (context.getString(R.string.title_search_special_flagged).equals(special))
-                            match = message.ui_flagged;
-                        else if (context.getString(R.string.title_search_special_snoozed).equals(special))
-                            match = (message.ui_snoozed != null);
-                    } else {
-                        List<Address> addresses = new ArrayList<>();
-                        if (message.from != null)
-                            addresses.addAll(Arrays.asList(message.from));
-                        if (message.to != null)
-                            addresses.addAll(Arrays.asList(message.to));
-                        if (message.cc != null)
-                            addresses.addAll(Arrays.asList(message.cc));
-
-                        for (Address address : addresses) {
-                            String email = ((InternetAddress) address).getAddress();
-                            String name = ((InternetAddress) address).getPersonal();
-                            if (email != null && email.toLowerCase(Locale.ROOT).contains(find) ||
-                                    name != null && name.toLowerCase(Locale.ROOT).contains(find))
-                                match = true;
-                        }
-
-                        if (!match && message.subject != null)
-                            match = message.subject.toLowerCase(Locale.ROOT).contains(find);
-
-                        if (!match && message.keywords != null && message.keywords.length > 0)
-                            for (String keyword : message.keywords)
-                                if (keyword.toLowerCase(Locale.ROOT).contains(find)) {
-                                    match = true;
-                                    break;
-                                }
-
-                        if (!match && message.content) {
-                            try {
-                                String body = Helper.readText(message.getFile(context));
-                                match = body.toLowerCase(Locale.ROOT).contains(find);
-                            } catch (IOException ex) {
-                                Log.e(ex);
+                    message = db.message().match(id, find);
+                    if (message == null)
+                        try {
+                            File file = EntityMessage.getFile(context, id);
+                            if (file.exists()) {
+                                String body = Helper.readText(file);
+                                if (body.toLowerCase(Locale.ROOT).contains(find))
+                                    message = db.message().getMessage(id);
                             }
+                        } catch (IOException ex) {
+                            Log.e(ex);
                         }
-                    }
                 }
 
-                if (match) {
+                if (message != null) {
                     found++;
                     db.message().setMessageFound(message.account, message.thread);
                 }
