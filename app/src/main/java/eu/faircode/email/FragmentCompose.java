@@ -193,6 +193,7 @@ public class FragmentCompose extends FragmentBase {
 
     private boolean prefix_once = false;
     private boolean monospaced = false;
+    private boolean encrypt = false;
     private boolean media = true;
     private boolean compact = false;
 
@@ -910,6 +911,7 @@ public class FragmentCompose extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
+        menu.findItem(R.id.menu_encrypt).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_zoom).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_media).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setVisible(state == State.LOADED);
@@ -918,6 +920,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer).setVisible(state == State.LOADED);
         menu.findItem(R.id.menu_send).setVisible(state == State.LOADED);
 
+        menu.findItem(R.id.menu_encrypt).setEnabled(!busy);
         menu.findItem(R.id.menu_zoom).setEnabled(!busy);
         menu.findItem(R.id.menu_media).setEnabled(!busy);
         menu.findItem(R.id.menu_compact).setEnabled(!busy);
@@ -926,6 +929,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
         menu.findItem(R.id.menu_send).setEnabled(!busy);
 
+        menu.findItem(R.id.menu_encrypt).setIcon(encrypt ? R.drawable.baseline_lock_24 : R.drawable.baseline_no_encryption_24);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
     }
@@ -936,6 +940,9 @@ public class FragmentCompose extends FragmentBase {
             case android.R.id.home:
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     onExit();
+                return true;
+            case R.id.menu_encrypt:
+                onMenuEncrypt();
                 return true;
             case R.id.menu_zoom:
                 onMenuZoom();
@@ -975,6 +982,33 @@ public class FragmentCompose extends FragmentBase {
                     etCc.requestFocus();
             }
         });
+    }
+
+    private void onMenuEncrypt() {
+        encrypt = !encrypt;
+        getActivity().invalidateOptionsMenu();
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putBoolean("encrypt", encrypt);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("id");
+                boolean encrypt = args.getBoolean("encrypt");
+
+                DB db = DB.getInstance(context);
+                db.message().setMessageEncrypt(id, encrypt);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getFragmentManager(), ex);
+            }
+        }.execute(this, args, "compose:encrypt");
     }
 
     private void onMenuZoom() {
@@ -2399,10 +2433,12 @@ public class FragmentCompose extends FragmentBase {
 
         @Override
         protected void onExecuted(Bundle args, final DraftData data) {
-            working = data.draft.id;
-
             final String action = getArguments().getString("action");
             Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
+
+            working = data.draft.id;
+            encrypt = (data.draft.encrypt != null && data.draft.encrypt);
+            getActivity().invalidateOptionsMenu();
 
             // Show identities
             AdapterIdentitySelect iadapter = new AdapterIdentitySelect(getContext(), data.identities);
@@ -2435,8 +2471,6 @@ public class FragmentCompose extends FragmentBase {
                     data.draft.revision != null && data.draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(
                     data.draft.revision != null && !data.draft.revision.equals(data.draft.revisions));
-
-            getActivity().invalidateOptionsMenu();
 
             if (args.getBoolean("incomplete"))
                 Snackbar.make(view, R.string.title_attachments_incomplete, Snackbar.LENGTH_LONG).show();
@@ -2485,6 +2519,9 @@ public class FragmentCompose extends FragmentBase {
                     if (draft == null || draft.ui_hide)
                         finish();
                     else {
+                        encrypt = (draft.encrypt != null && draft.encrypt);
+                        getActivity().invalidateOptionsMenu();
+
                         Log.i("Draft content=" + draft.content);
                         if (draft.content && state == State.NONE)
                             showDraft(draft);
