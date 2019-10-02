@@ -198,12 +198,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 state.index = i + 1;
 
                 long id = state.messages.get(i);
-                EntityMessage message = null;
+                EntityMessage message;
 
                 if (find == null || seen != null || flagged != null || snoozed != null)
                     message = db.message().getMessage(id);
                 else {
-                    message = db.message().match(id, find);
+                    message = db.message().match(id, "%" + find + "%");
                     if (message == null)
                         try {
                             File file = EntityMessage.getFile(context, id);
