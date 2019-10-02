@@ -183,6 +183,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int textColorPrimary;
     private int textColorSecondary;
     private int colorUnread;
+    private int colorSeparator;
 
     private boolean hasWebView;
     private boolean contacts;
@@ -714,7 +715,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Account color
             vwColor.setBackgroundColor(message.accountColor == null || !ActivityBilling.isPro(context)
-                    ? Color.TRANSPARENT : message.accountColor);
+                    ? colorSeparator : message.accountColor);
 
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
@@ -3285,6 +3286,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
         else
             this.colorUnread = this.textColorPrimary;
+
+        this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
 
         this.hasWebView = Helper.hasWebView(context);
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
