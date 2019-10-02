@@ -282,8 +282,18 @@ public class MessageHelper {
             plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             report.addBodyPart(plainPart);
 
+            String from = null;
+            if (message.from != null && message.from.length > 0)
+                from = ((InternetAddress) message.from[0]).getAddress();
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("Reporting-UA: ").append(BuildConfig.APPLICATION_ID).append("; ").append(BuildConfig.VERSION_NAME).append("\r\n");
+            if (from != null)
+                sb.append("Original-Recipient: rfc822;").append(from).append("\r\n");
+            sb.append("Disposition: manual-action/MDN-sent-manually; displayed").append("\r\n");
+
             BodyPart dnsPart = new MimeBodyPart();
-            dnsPart.setContent("", "message/disposition-notification; name=\"MDNPart2.txt\"");
+            dnsPart.setContent(sb.toString(), "message/disposition-notification; name=\"MDNPart2.txt\"");
             dnsPart.setDisposition(Part.INLINE);
             report.addBodyPart(dnsPart);
 
