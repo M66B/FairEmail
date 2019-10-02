@@ -2179,7 +2179,7 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
 
-                        if (ref.plain_only)
+                        if (ref.plain_only != null && ref.plain_only)
                             data.draft.plain_only = ref.plain_only;
 
                         if (answer > 0) {
