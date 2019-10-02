@@ -1471,7 +1471,7 @@ You can disable a rule and you can stop processing other rules after a rule has 
 
 All the conditions of a rule need to be true for a filter rule to be executed.
 Conditions are optional, but there needs to be at least one condition.
-You can use multiple rules, possibly with a *stop processing*, for an *or* condition.
+You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 
@@ -1479,20 +1479,21 @@ In the *more* message menu there is an item to create a rule for a received mess
 
 You can select one of these actions to apply to matching messages:
 
+* No action (useful for *not*)
 * Mark as read
 * Mark as unread
+* Suppress notification
 * Snooze
 * Add star
 * Move
-* Copy
+* Copy (Gmail: label)
 * Reply template
-* Automation
+* Automation (Tasker, etc)
 
-Filter rules are applied direct after the message header has been fetched, before the message text has been downloaded,
+Filter rules are applied directly after the message header has been fetched, before the message text has been downloaded,
 so it is not possible to apply filter conditions and actions to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save data.
 
-To debug rules you can long press *Operations* to see logging about the evaluation of rule conditions.
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
 it is not possible to preview which messages would match the rule conditions.
 
