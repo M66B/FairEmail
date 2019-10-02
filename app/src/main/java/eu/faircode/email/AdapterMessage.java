@@ -3318,13 +3318,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
             @Override
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
-                int prev = (previousList == null ? 0 : previousList.size());
-                int cur = (currentList == null ? 0 : currentList.size());
                 boolean autoscroll =
-                        (prefs.getBoolean("autoscroll", false) ||
-                                viewType == AdapterMessage.ViewType.THREAD);
+                        (viewType == AdapterMessage.ViewType.THREAD ||
+                                prefs.getBoolean("autoscroll", false));
 
-                if (gotoTop || (autoscroll && cur > prev)) {
+                int prev = 0;
+                if (autoscroll && previousList != null)
+                    for (int i = 0; i < previousList.size(); i++) {
+                        TupleMessageEx message = previousList.get(i);
+                        if (message != null && !message.ui_seen)
+                            prev++;
+                    }
+
+                int cur = 0;
+                if (autoscroll && currentList != null)
+                    for (int i = 0; i < currentList.size(); i++) {
+                        TupleMessageEx message = currentList.get(i);
+                        if (message != null && !message.ui_seen)
+                            cur++;
+                    }
+
+                if (gotoTop || cur > prev) {
                     gotoTop = false;
                     properties.scrollTo(0);
                 }
