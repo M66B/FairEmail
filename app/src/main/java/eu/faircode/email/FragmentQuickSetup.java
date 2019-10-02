@@ -216,7 +216,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
             @Override
             protected EmailProvider onExecute(Context context, Bundle args) throws Throwable {
-                String name = args.getString("name");
+                String name = args.getString("name").trim();
                 String email = args.getString("email").trim();
                 String password = args.getString("password");
                 boolean check = args.getBoolean("check");
@@ -227,6 +227,8 @@ public class FragmentQuickSetup extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_email));
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
                     throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
+                if (TextUtils.isEmpty(password))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                 String[] dparts = email.split("@");
                 EmailProvider provider = EmailProvider.fromDomain(context, dparts[1], EmailProvider.Discover.ALL);
@@ -363,35 +365,44 @@ public class FragmentQuickSetup extends FragmentBase {
             @Override
             protected void onException(final Bundle args, Throwable ex) {
                 Log.e(ex);
-                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
+
+                if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException) {
                     tvError.setText(ex.getMessage());
-                else
+                    tvError.setVisibility(View.VISIBLE);
+
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            scroll.smoothScrollTo(0, tvError.getBottom());
+                        }
+                    });
+                } else {
                     tvError.setText(Helper.formatThrowable(ex, false));
-                tvError.setVisibility(View.VISIBLE);
+                    tvError.setVisibility(View.VISIBLE);
 
-                if (args.containsKey("link")) {
-                    Uri uri = Uri.parse(args.getString("link"));
-                    btnHelp.setTag(uri);
-                    btnHelp.setVisibility(View.VISIBLE);
-                }
-
-                btnSupport.setVisibility(View.VISIBLE);
-
-                if (args.containsKey("documentation")) {
-                    tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation")));
-                    tvInstructions.setVisibility(View.VISIBLE);
-                }
-
-                new Handler().post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (args.containsKey("documentation"))
-                            scroll.smoothScrollTo(0, tvInstructions.getBottom());
-                        else
-                            scroll.smoothScrollTo(0, btnSupport.getBottom());
+                    if (args.containsKey("link")) {
+                        Uri uri = Uri.parse(args.getString("link"));
+                        btnHelp.setTag(uri);
+                        btnHelp.setVisibility(View.VISIBLE);
                     }
-                });
 
+                    btnSupport.setVisibility(View.VISIBLE);
+
+                    if (args.containsKey("documentation")) {
+                        tvInstructions.setText(HtmlHelper.fromHtml(args.getString("documentation")));
+                        tvInstructions.setVisibility(View.VISIBLE);
+                    }
+
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (args.containsKey("documentation"))
+                                scroll.smoothScrollTo(0, tvInstructions.getBottom());
+                            else
+                                scroll.smoothScrollTo(0, btnSupport.getBottom());
+                        }
+                    });
+                }
             }
         }.execute(this, args, "setup:quick");
     }

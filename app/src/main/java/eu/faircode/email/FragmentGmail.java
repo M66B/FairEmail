@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -101,6 +102,15 @@ public class FragmentGmail extends FragmentBase {
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String name = etName.getText().toString().trim();
+                if (TextUtils.isEmpty(name)) {
+                    tvError.setText(R.string.title_no_name);
+                    tvError.setVisibility(View.VISIBLE);
+                    return;
+                }
+
+                tvError.setVisibility(View.GONE);
+
                 startActivityForResult(
                         Helper.getChooser(getContext(), newChooseAccountIntent(
                                 null,
@@ -230,6 +240,7 @@ public class FragmentGmail extends FragmentBase {
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                     tvError.setText(Helper.formatThrowable(ex));
+                                    tvError.setVisibility(View.VISIBLE);
 
                                     new Handler().post(new Runnable() {
                                         @Override
@@ -247,7 +258,7 @@ public class FragmentGmail extends FragmentBase {
 
     private void onAuthorized(String user, String password) {
         Bundle args = new Bundle();
-        args.putString("name", etName.getText().toString());
+        args.putString("name", etName.getText().toString().trim());
         args.putString("user", user);
         args.putString("password", password);
 
@@ -257,6 +268,7 @@ public class FragmentGmail extends FragmentBase {
                 etName.setEnabled(false);
                 btnSelect.setEnabled(false);
                 pbSelect.setVisibility(View.VISIBLE);
+                tvError.setVisibility(View.GONE);
             }
 
             @Override
@@ -272,9 +284,11 @@ public class FragmentGmail extends FragmentBase {
                 String user = args.getString("user");
                 String password = args.getString("password");
 
-                if (!user.contains("@"))
-                    throw new IllegalArgumentException(
-                            context.getString(R.string.title_email_invalid, user));
+                // Safety checks
+                if (!Patterns.EMAIL_ADDRESS.matcher(user).matches())
+                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, user));
+                if (TextUtils.isEmpty(password))
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
                 String domain = user.split("@")[1];
                 EmailProvider provider = EmailProvider.fromDomain(context, domain, EmailProvider.Discover.ALL);
@@ -384,7 +398,12 @@ public class FragmentGmail extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Log.e(ex);
-                tvError.setText(Helper.formatThrowable(ex));
+
+                if (ex instanceof IllegalArgumentException)
+                    tvError.setText(ex.getMessage());
+                else
+                    tvError.setText(Helper.formatThrowable(ex));
+                tvError.setVisibility(View.VISIBLE);
 
                 new Handler().post(new Runnable() {
                     @Override
