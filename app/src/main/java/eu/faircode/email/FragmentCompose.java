@@ -1050,6 +1050,10 @@ public class FragmentCompose extends FragmentBase {
         Log.i("Style action=" + action);
 
         if (action == R.id.menu_color) {
+            InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+            if (imm != null)
+                imm.hideSoftInputFromWindow(etBody.getWindowToken(), 0);
+
             Bundle args = new Bundle();
             args.putInt("color", Color.TRANSPARENT);
             args.putString("title", getString(R.string.title_style_color));
