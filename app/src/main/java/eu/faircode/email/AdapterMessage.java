@@ -642,9 +642,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
 
-            if (viewType == ViewType.THREAD)
-                card.setVisibility(!filter_duplicates || !message.duplicate ? View.VISIBLE : View.GONE);
-
             // Text size
             if (textSize != 0) {
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * (message.unseen > 0 ? 1.1f : 1f));
@@ -716,8 +713,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTime.setTextColor(colorUnseen);
 
             // Account color
-            vwColor.setBackgroundColor(message.accountColor == null ? Color.TRANSPARENT : message.accountColor);
-            vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.INVISIBLE);
+            vwColor.setBackgroundColor(message.accountColor == null || !ActivityBilling.isPro(context)
+                    ? Color.TRANSPARENT : message.accountColor);
 
             // Expander
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
