@@ -335,4 +335,16 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Goneo"
+        link="https://wiki.goneo.de/e_mail_allgemein">
+        <imap
+            host="imap.goneo.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.goneo.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
