@@ -154,7 +154,18 @@ public interface DaoMessage {
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (NOT message.ui_hide OR :debug)" +
             " ORDER BY CASE WHEN :ascending THEN message.received ELSE -message.received END" +
-            ", CASE WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 1 ELSE 0 END")
+            ", CASE" +
+            " WHEN folder.type = '" + EntityFolder.INBOX + "' THEN 1" +
+            " WHEN folder.type = '" + EntityFolder.OUTBOX + "' THEN 2" +
+            " WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 3" +
+            " WHEN folder.type = '" + EntityFolder.SENT + "' THEN 4" +
+            " WHEN folder.type = '" + EntityFolder.SYSTEM + "' THEN 5" +
+            " WHEN folder.type = '" + EntityFolder.USER + "' THEN 6" +
+            " WHEN folder.type = '" + EntityFolder.ARCHIVE + "' THEN 7" +
+            " WHEN folder.type = '" + EntityFolder.TRASH + "' THEN 8" +
+            " WHEN folder.type = '" + EntityFolder.JUNK + "' THEN 9" +
+            " ELSE 999 END")
+        // The folder type sort order should match the duplicate algorithm
     DataSource.Factory<Integer, TupleMessageEx> pagedThread(long account, String thread, Long id, boolean ascending, boolean debug);
 
     @Query("SELECT account.name AS accountName" +
