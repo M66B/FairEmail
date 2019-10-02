@@ -534,11 +534,16 @@ public class MessageHelper {
                 header = header.substring(0, sp); // "2 (High)"
         }
 
-        if ("high".equalsIgnoreCase(header) || "urgent".equalsIgnoreCase(header))
+        if ("high".equalsIgnoreCase(header) ||
+                "urgent".equalsIgnoreCase(header) ||
+                "critical".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_HIGH;
-        else if ("normal".equalsIgnoreCase(header) || "medium".equalsIgnoreCase(header))
+        else if ("normal".equalsIgnoreCase(header) ||
+                "medium".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_NORMAL;
-        else if ("low".equalsIgnoreCase(header) || "non-urgent".equalsIgnoreCase(header))
+        else if ("low".equalsIgnoreCase(header) ||
+                "non-urgent".equalsIgnoreCase(header) ||
+                "marketing".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
         else if (header != null)
             try {
