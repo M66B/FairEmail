@@ -29,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvList;
     private Button btnPurchase;
     private TextView tvPrice;
+    private ImageView ivExternal;
     private TextView tvPriceHint;
     private Button btnCheck;
 
@@ -64,7 +66,9 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
         tvPrice = view.findViewById(R.id.tvPrice);
+        ivExternal = view.findViewById(R.id.ivExternal);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
+
         btnCheck = view.findViewById(R.id.btnCheck);
 
         tvInfo.setText(getString(R.string.title_pro_info)
@@ -85,6 +89,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                 lbm.sendBroadcast(new Intent(ActivityBilling.ACTION_PURCHASE));
             }
         });
+
+        ivExternal.setVisibility(Helper.isPlayStoreInstall() ? View.GONE : View.VISIBLE);
 
         tvPriceHint.setMovementMethod(LinkMovementMethod.getInstance());
 
