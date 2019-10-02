@@ -2088,7 +2088,7 @@ public class FragmentCompose extends FragmentBase {
                                 data.draft.to = ref.receipt_to;
                             else {
                                 // Prevent replying to self
-                                if (ref.replySelf(data.identities)) {
+                                if (ref.replySelf(data.identities, ref.account)) {
                                     data.draft.from = ref.from;
                                     data.draft.to = ref.to;
                                 } else {
@@ -2098,7 +2098,7 @@ public class FragmentCompose extends FragmentBase {
                             }
 
                             if ("reply_all".equals(action))
-                                data.draft.cc = ref.getAllRecipients(data.identities);
+                                data.draft.cc = ref.getAllRecipients(data.identities, ref.account);
                             else if ("receipt".equals(action)) {
                                 data.draft.receipt = true;
                                 data.draft.receipt_request = false;

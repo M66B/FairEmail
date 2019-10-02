@@ -2269,8 +2269,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             new SimpleTask<List<TupleIdentityEx>>() {
                 @Override
                 protected List<TupleIdentityEx> onExecute(Context context, Bundle args) {
+                    TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
+                    if (message == null)
+                        return null;
+
                     DB db = DB.getInstance(context);
-                    return db.identity().getComposableIdentities(null);
+                    return db.identity().getComposableIdentities(message.account);
                 }
 
                 @Override
@@ -2281,7 +2285,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(message.id))
                         return;
 
-                    Address[] recipients = message.getAllRecipients(identities);
+                    Address[] recipients = message.getAllRecipients(identities, message.account);
 
                     View anchor = bnvActions.findViewById(R.id.action_reply);
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, anchor);

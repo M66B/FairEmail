@@ -170,21 +170,21 @@ public class EntityMessage implements Serializable {
         return "<" + UUID.randomUUID() + "@localhost" + '>';
     }
 
-    boolean replySelf(List<TupleIdentityEx> identities) {
+    boolean replySelf(List<TupleIdentityEx> identities, long account) {
         Address[] senders = (reply == null || reply.length == 0 ? from : reply);
         if (identities != null && senders != null)
             for (Address sender : senders)
                 for (TupleIdentityEx identity : identities)
-                    if (identity.similarAddress(sender))
+                    if (identity.account == account && identity.similarAddress(sender))
                         return true;
 
         return false;
     }
 
-    Address[] getAllRecipients(List<TupleIdentityEx> identities) {
+    Address[] getAllRecipients(List<TupleIdentityEx> identities, long account) {
         List<Address> addresses = new ArrayList<>();
 
-        if (to != null && !replySelf(identities))
+        if (to != null && !replySelf(identities, account))
             addresses.addAll(Arrays.asList(to));
 
         if (cc != null)
@@ -194,7 +194,7 @@ public class EntityMessage implements Serializable {
         if (identities != null)
             for (Address address : new ArrayList<>(addresses))
                 for (TupleIdentityEx identity : identities)
-                    if (identity.similarAddress(address))
+                    if (identity.account == account && identity.similarAddress(address))
                         addresses.remove(address);
 
         return addresses.toArray(new Address[0]);
