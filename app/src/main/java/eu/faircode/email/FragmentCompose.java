@@ -2860,6 +2860,9 @@ public class FragmentCompose extends FragmentBase {
                             if (TextUtils.isEmpty(draft.subject))
                                 args.putBoolean("remind_subject", true);
 
+                            if (empty)
+                                args.putBoolean("remind_text", true);
+
                             int attached = 0;
                             for (EntityAttachment attachment : attachments)
                                 if (!attachment.available)
@@ -2990,9 +2993,10 @@ public class FragmentCompose extends FragmentBase {
             } else if (action == R.id.action_check) {
                 boolean dialog = args.getBundle("extras").getBoolean("dialog");
                 boolean remind_subject = args.getBoolean("remind_subject", false);
+                boolean remind_text = args.getBoolean("remind_text", false);
                 boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
-                if (dialog || remind_subject || remind_attachment) {
+                if (dialog || remind_subject || remind_text || remind_attachment) {
                     setBusy(false);
 
                     FragmentDialogSend fragment = new FragmentDialogSend();
@@ -3463,6 +3467,7 @@ public class FragmentCompose extends FragmentBase {
             Bundle args = getArguments();
             boolean dialog = args.getBundle("extras").getBoolean("dialog");
             boolean remind_subject = args.getBoolean("remind_subject", false);
+            boolean remind_text = args.getBoolean("remind_text", false);
             boolean remind_attachment = args.getBoolean("remind_attachment", false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
@@ -3474,6 +3479,7 @@ public class FragmentCompose extends FragmentBase {
 
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_send, null);
             final TextView tvRemindSubject = dview.findViewById(R.id.tvRemindSubject);
+            final TextView tvRemindText = dview.findViewById(R.id.tvRemindText);
             final TextView tvRemindAttachment = dview.findViewById(R.id.tvRemindAttachment);
             final TextView tvTo = dview.findViewById(R.id.tvTo);
             final TextView tvVia = dview.findViewById(R.id.tvVia);
@@ -3488,6 +3494,7 @@ public class FragmentCompose extends FragmentBase {
             final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
 
             tvRemindSubject.setVisibility(remind_subject ? View.VISIBLE : View.GONE);
+            tvRemindText.setVisibility(remind_text ? View.VISIBLE : View.GONE);
             tvRemindAttachment.setVisibility(remind_attachment ? View.VISIBLE : View.GONE);
             tvTo.setText(null);
             tvVia.setText(null);
