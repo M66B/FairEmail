@@ -2674,6 +2674,7 @@ class Core {
         boolean notify_flag = (prefs.getBoolean("notify_flag", false) && flags && pro);
         boolean notify_seen = (prefs.getBoolean("notify_seen", true) || !pro);
         boolean notify_snooze = (prefs.getBoolean("notify_snooze", false) || !pro);
+        boolean notify_remove = prefs.getBoolean("notify_remove", true);
         boolean light = prefs.getBoolean("light", false);
         String sound = prefs.getString("sound", null);
         boolean alert_once = prefs.getBoolean("alert_once", true);
@@ -2686,8 +2687,9 @@ class Core {
         // Summary notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N || notify_summary) {
             // Build pending intents
-            Intent summary = new Intent(context, ActivityView.class).setAction("unified");
-            PendingIntent piSummary = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, summary, PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent unified = new Intent(context, ActivityView.class)
+                    .setAction("unified" + (notify_remove ? ":" + group : ""));
+            PendingIntent piUnified = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, unified, PendingIntent.FLAG_UPDATE_CURRENT);
 
             Intent clear = new Intent(context, ServiceUI.class).setAction("clear:" + group);
             PendingIntent piClear = PendingIntent.getService(context, ServiceUI.PI_CLEAR, clear, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -2701,7 +2703,7 @@ class Core {
                     new NotificationCompat.Builder(context, "notification")
                             .setSmallIcon(R.drawable.baseline_email_white_24)
                             .setContentTitle(title)
-                            .setContentIntent(piSummary)
+                            .setContentIntent(piUnified)
                             .setNumber(messages.size())
                             .setShowWhen(false)
                             .setDeleteIntent(piClear)

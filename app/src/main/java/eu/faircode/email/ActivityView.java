@@ -778,9 +778,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             intent.setAction(null);
             setIntent(intent);
 
-            if ("unified".equals(action)) {
+            if (action.startsWith("unified")) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                     getSupportFragmentManager().popBackStack("unified", 0);
+
+                if (action.contains(":")) {
+                    Intent clear = new Intent(this, ServiceUI.class)
+                            .setAction(action.replace("unified", "clear"));
+                    startService(clear);
+                }
 
             } else if ("why".equals(action)) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
