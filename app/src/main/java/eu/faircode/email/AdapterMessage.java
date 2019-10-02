@@ -36,6 +36,7 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimatedImageDrawable;
@@ -189,6 +190,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean date;
     private boolean threading;
+    private boolean distinguish_contacts;
     private boolean name_email;
     private boolean subject_top;
     private boolean subject_italic;
@@ -737,6 +739,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     outgoing = true;
             Address[] addresses = (outgoing ? message.to : message.senders);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
+            tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             Long size = ("size".equals(sort) ? message.totalSize : message.size);
             tvSize.setText(size == null ? null : Helper.humanReadableByteCount(size, true));
             tvSize.setVisibility(size == null || (message.content && !"size".equals(sort)) ? View.GONE : View.VISIBLE);
@@ -834,10 +837,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             // Contact info
-            ContactInfo info = ContactInfo.get(context, addresses, true);
+            ContactInfo info = ContactInfo.get(context, message.account, addresses, true);
             if (info == null) {
                 Bundle aargs = new Bundle();
                 aargs.putLong("id", message.id);
+                aargs.putLong("account", message.account);
                 aargs.putSerializable("addresses", addresses);
 
                 new SimpleTask<ContactInfo>() {
@@ -850,8 +854,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected ContactInfo onExecute(Context context, Bundle args) {
+                        long account = args.getLong("account");
                         Address[] addresses = (Address[]) args.getSerializable("addresses");
-                        return ContactInfo.get(context, addresses, false);
+
+                        return ContactInfo.get(context, account, addresses, false);
                     }
 
                     @Override
@@ -987,6 +993,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivAvatar.setVisibility(View.VISIBLE);
             } else
                 ivAvatar.setVisibility(View.GONE);
+
+            if (distinguish_contacts && info.isKnown())
+                tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             //tvFrom.setText(info.getDisplayName(name_email));
         }
 
@@ -3286,6 +3295,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
+        this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         this.name_email = prefs.getBoolean("name_email", false);
         this.subject_top = prefs.getBoolean("subject_top", false);
         this.subject_italic = prefs.getBoolean("subject_italic", true);

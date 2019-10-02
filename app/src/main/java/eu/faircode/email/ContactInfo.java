@@ -57,10 +57,11 @@ public class ContactInfo {
     private Bitmap bitmap;
     private String displayName;
     private Uri lookupUri;
+    private boolean known;
     private long time;
 
     private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
-    private static Map<String, ContactInfo> emailContactInfo = new HashMap<>();
+    private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
 
     private static final ExecutorService executor =
             Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
@@ -95,6 +96,10 @@ public class ContactInfo {
         return lookupUri;
     }
 
+    boolean isKnown() {
+        return known;
+    }
+
     private boolean isExpired() {
         return (new Date().getTime() - time > CACHE_CONTACT_DURATION);
     }
@@ -105,7 +110,7 @@ public class ContactInfo {
         }
     }
 
-    static ContactInfo get(Context context, Address[] addresses, boolean cacheOnly) {
+    static ContactInfo get(Context context, long account, Address[] addresses, boolean cacheOnly) {
         if (addresses == null || addresses.length == 0)
             return new ContactInfo();
         InternetAddress address = (InternetAddress) addresses[0];
@@ -155,6 +160,7 @@ public class ContactInfo {
 
                     info.displayName = cursor.getString(colDisplayName);
                     info.lookupUri = lookupUri;
+                    info.known = true;
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
@@ -215,6 +221,13 @@ public class ContactInfo {
 
         if (info.displayName == null)
             info.displayName = address.getPersonal();
+
+        if (!info.known) {
+            DB db = DB.getInstance(context);
+            EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_TO, info.email);
+
+            info.known = (contact != null);
+        }
 
         synchronized (emailContactInfo) {
             emailContactInfo.put(key, info);

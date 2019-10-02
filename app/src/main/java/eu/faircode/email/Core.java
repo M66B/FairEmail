@@ -2682,7 +2682,7 @@ class Core {
         // Get contact info
         Map<TupleMessageEx, ContactInfo> messageContact = new HashMap<>();
         for (TupleMessageEx message : messages)
-            messageContact.put(message, ContactInfo.get(context, message.from, false));
+            messageContact.put(message, ContactInfo.get(context, message.account, message.from, false));
 
         // Summary notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N || notify_summary) {
