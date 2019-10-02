@@ -3320,7 +3320,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             public void onCurrentListChanged(@Nullable PagedList<TupleMessageEx> previousList, @Nullable PagedList<TupleMessageEx> currentList) {
                 boolean autoscroll =
                         (viewType == AdapterMessage.ViewType.THREAD ||
-                                prefs.getBoolean("autoscroll", false));
+                                (viewType != ViewType.SEARCH &&
+                                        prefs.getBoolean("autoscroll", false)));
 
                 int prev = 0;
                 if (autoscroll && previousList != null)
