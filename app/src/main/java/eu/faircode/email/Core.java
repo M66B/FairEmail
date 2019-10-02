@@ -2654,6 +2654,7 @@ class Core {
 
         // Android 7+ N https://developer.android.com/training/notify-user/group
         // Android 8+ O https://developer.android.com/training/notify-user/channels
+        // Android 7+ N https://android-developers.googleblog.com/2016/06/notifications-in-android-n.html
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if (messages == null || messages.size() == 0 || nm == null)
@@ -2970,7 +2971,8 @@ class Core {
             }
 
             if (wactions.size() > 0)
-                mbuilder.extend(new NotificationCompat.WearableExtender().addActions(wactions));
+                mbuilder.extend(new NotificationCompat.WearableExtender()
+                        .addActions(wactions));
 
             if (!TextUtils.isEmpty(message.subject))
                 mbuilder.setContentText(message.subject);
