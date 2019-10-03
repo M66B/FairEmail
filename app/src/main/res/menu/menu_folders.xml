@@ -10,6 +10,12 @@
         app:showAsAction="collapseActionView|always" />
 
     <item
+        android:id="@+id/menu_compact"
+        android:checkable="true"
+        android:title="@string/title_compact"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_show_hidden"
         android:checkable="true"
         android:title="@string/title_show_folders"

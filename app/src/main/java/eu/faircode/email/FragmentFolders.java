@@ -69,6 +69,7 @@ public class FragmentFolders extends FragmentBase {
     private FloatingActionButton fabError;
 
     private boolean cards;
+    private boolean compact;
 
     private long account;
     private boolean show_hidden = false;
@@ -89,6 +90,7 @@ public class FragmentFolders extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        compact = prefs.getBoolean("compact_folders", false);
 
         setTitle(R.string.page_folders);
     }
@@ -160,7 +162,7 @@ public class FragmentFolders extends FragmentBase {
             rvFolder.addItemDecoration(itemDecorator);
         }
 
-        adapter = new AdapterFolder(this, account, show_hidden, null);
+        adapter = new AdapterFolder(this, account, compact, show_hidden, null);
         rvFolder.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -397,6 +399,7 @@ public class FragmentFolders extends FragmentBase {
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
         super.onPrepareOptionsMenu(menu);
     }
@@ -404,12 +407,25 @@ public class FragmentFolders extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.menu_compact:
+                onMenuCompact();
+                return true;
             case R.id.menu_show_hidden:
                 onMenuShowHidden();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuCompact() {
+        compact = !compact;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putBoolean("compact_folders", compact).apply();
+
+        getActivity().invalidateOptionsMenu();
+        adapter.setCompact(compact);
     }
 
     private void onMenuShowHidden() {
