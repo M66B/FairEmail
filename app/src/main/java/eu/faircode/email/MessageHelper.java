@@ -1023,7 +1023,7 @@ public class MessageHelper {
             // Prevent Jsoup throwing an exception
             result = result.replace("\0", "");
 
-            if (part.isMimeType("text/plain")) {
+            if (plain != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("<span>");
 
@@ -1292,17 +1292,24 @@ public class MessageHelper {
                     filename = null;
                 }
 
+                ContentType contentType = new ContentType(part.getContentType());
+                if (part instanceof MimeMessage) {
+                    String header = ((MimeMessage) part).getHeader("Content-Type", null);
+                    ContentType ct = new ContentType(header);
+                    if (!ct.getBaseType().equalsIgnoreCase(contentType.getBaseType())) {
+                        Log.w("Content type message=" + ct + " part=" + contentType);
+                        contentType = ct;
+                    }
+                }
+
                 if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
                         TextUtils.isEmpty(filename) &&
-                        ((parts.plain == null && part.isMimeType("text/plain")) ||
-                                (parts.html == null && part.isMimeType("text/html")))) {
-                    if (part.isMimeType("text/plain")) {
-                        if (parts.plain == null)
-                            parts.plain = part;
-                    } else {
-                        if (parts.html == null)
-                            parts.html = part;
-                    }
+                        ((parts.plain == null && "text/plain".equalsIgnoreCase(contentType.getBaseType())) ||
+                                (parts.html == null && "text/html".equalsIgnoreCase(contentType.getBaseType())))) {
+                    if ("text/plain".equalsIgnoreCase(contentType.getBaseType()))
+                        parts.plain = part;
+                    else
+                        parts.html = part;
                 } else {
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
