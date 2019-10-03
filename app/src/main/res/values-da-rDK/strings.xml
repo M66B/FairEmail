@@ -336,6 +336,7 @@
     <string name="title_custom">Tilpasset</string>
     <string name="title_host">Værtsnavn</string>
     <string name="title_allow_insecure">Tillad usikre forbindelser</string>
+    <string name="title_insecure_remark">Usikre forbindelser bør kun tillades på betroede netværk og aldrig på offentlige netværk</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Brugernavn</string>
     <string name="title_password">Adgangskode</string>
@@ -434,6 +435,7 @@
     <string name="title_flag_color">Farvet stjerne &#8230;</string>
     <string name="title_unflag">Fjern stjerne</string>
     <string name="title_forward">Videresend</string>
+    <string name="title_new_message">Ny besked</string>
     <string name="title_editasnew">Redigér som ny</string>
     <string name="title_create_rule">Opret regel &#8230;</string>
     <string name="title_share">Del</string>

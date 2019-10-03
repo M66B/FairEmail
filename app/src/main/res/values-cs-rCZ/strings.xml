@@ -455,6 +455,7 @@
     <string name="title_flag_color">Barevná hvězdička &#8230;</string>
     <string name="title_unflag">Odebrat hvězdičku</string>
     <string name="title_forward">Přeposlat</string>
+    <string name="title_new_message">Nová zpráva</string>
     <string name="title_editasnew">Upravit jako nové</string>
     <string name="title_create_rule">Vytvořit pravidlo &#8230;</string>
     <string name="title_share">Sdílet</string>
@@ -561,6 +562,7 @@
     <string name="title_from_missing">Chybí odesílatel</string>
     <string name="title_to_missing">Chybí příjemce</string>
     <string name="title_subject_reminder">Chybí předmět</string>
+    <string name="title_text_reminder">Zpráva je prázdná</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_attachments_missing">Nebyly staženy všechny přílohy</string>

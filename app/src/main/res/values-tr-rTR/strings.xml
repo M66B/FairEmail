@@ -337,6 +337,7 @@
     <string name="title_custom">Özel</string>
     <string name="title_host">Sunucu adı</string>
     <string name="title_allow_insecure">Güvensiz bağlantılara izin ver</string>
+    <string name="title_insecure_remark">Güvensiz bağlantılara sadece güvenilen ağlarda izin verilmelidir ve halka açık ağlarda asla izin verilmemelidir</string>
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>
     <string name="title_password">Parola</string>
@@ -435,6 +436,7 @@
     <string name="title_flag_color">Renkli yıldız&#8230;</string>
     <string name="title_unflag">Yıldızı Kaldır</string>
     <string name="title_forward">İlet</string>
+    <string name="title_new_message">Yeni ileti</string>
     <string name="title_editasnew">Yeni olarak düzenle</string>
     <string name="title_create_rule">Kural oluştur &#8230;</string>
     <string name="title_share">Paylaş</string>
@@ -541,6 +543,7 @@
     <string name="title_from_missing">Gönderici Eksik</string>
     <string name="title_to_missing">Alıcı eksik</string>
     <string name="title_subject_reminder">Konu boş</string>
+    <string name="title_text_reminder">İleti boş</string>
     <string name="title_attachment_keywords">eklendi,ek,ekler,dahil edildi</string>
     <string name="title_attachment_reminder">Bir ek eklemek niyetinde misiniz?</string>
     <string name="title_attachments_missing">Tüm ekler indirilmedi</string>
