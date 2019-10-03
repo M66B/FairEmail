@@ -18,7 +18,7 @@
                 android:layout_width="6dp"
                 android:layout_height="0dp"
                 android:background="?attr/colorAccent"
-                app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,17 +51,15 @@
                 android:contentDescription="@string/title_legend_expander"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                app:layout_constraintBottom_toBottomOf="@+id/paddingBottom"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/vwLevel"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/expander" />
-
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
                 android:layout_marginEnd="6dp"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
@@ -72,14 +70,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ibExpander"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:id="@+id/paddingBottom"
-                android:layout_width="0dp"
-                android:layout_height="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ViewCardOptional>
 </FrameLayout>
