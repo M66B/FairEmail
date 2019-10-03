@@ -336,6 +336,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_custom">Benutzerdefiniert</string>
     <string name="title_host">Hostname</string>
     <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
+    <string name="title_insecure_remark">Unsichere Verbindungen sollten nur in vertrauenswürdigen Netzwerken und niemals in öffentlichen Netzwerken erlaubt werden</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Benutzername</string>
     <string name="title_password">Passwort</string>
@@ -434,6 +435,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_flag_color">Farbige Kennzeichnung &#8230;</string>
     <string name="title_unflag">Kennzeichnung entfernen</string>
     <string name="title_forward">Weiterleiten</string>
+    <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
     <string name="title_create_rule">Regel &#8230; erstellen</string>
     <string name="title_share">Teilen</string>

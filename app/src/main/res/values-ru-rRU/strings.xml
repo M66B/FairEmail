@@ -359,7 +359,7 @@
     <string name="title_custom">Пользовательское</string>
     <string name="title_host">Имя хоста</string>
     <string name="title_allow_insecure">Разрешить небезопасные соединения</string>
-    <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда - в публичных сетях</string>
+    <string name="title_insecure_remark">Небезопасные соединения могут быть разрешены только в доверенных сетях и никогда в публичных сетях</string>
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
     <string name="title_password">Пароль</string>
@@ -458,6 +458,7 @@
     <string name="title_flag_color">Цветная метка&#8230;</string>
     <string name="title_unflag">Удалить из избранного</string>
     <string name="title_forward">Переслать</string>
+    <string name="title_new_message">Новое сообщение</string>
     <string name="title_editasnew">Редактировать как новое</string>
     <string name="title_create_rule">Создать правило&#8230;</string>
     <string name="title_share">Поделиться</string>
@@ -563,7 +564,7 @@
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
     <string name="title_from_missing">Отсутствует отправитель</string>
     <string name="title_to_missing">Отсутствует получатель</string>
-    <string name="title_subject_reminder">Тема пуста</string>
+    <string name="title_subject_reminder">Тема пустая</string>
     <string name="title_text_reminder">Сообщение пустое</string>
     <string name="title_attachment_keywords">attached,attachment,attachments,included,вложение,вложения,вложении,приложено</string>
     <string name="title_attachment_reminder">Вы хотите добавить вложение?</string>
@@ -611,7 +612,7 @@
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
     <string name="title_answer_template_name">$name$ будет заменено на полное имя отправителя</string>
-    <string name="title_answer_template_email">$email$ будет заменён на адрес электронной почты отправителя</string>
+    <string name="title_answer_template_email">$email$ будет заменено на адрес электронной почты отправителя</string>
     <string name="title_rule_noop">Нет действия</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>

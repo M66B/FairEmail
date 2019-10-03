@@ -337,6 +337,7 @@
     <string name="title_custom">Personalizado</string>
     <string name="title_host">Nombre de host</string>
     <string name="title_allow_insecure">Permitir conexiones inseguras</string>
+    <string name="title_insecure_remark">Las conexiones inseguras sólo deberían permitirse con redes de confianza y nunca con redes públicas</string>
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>
     <string name="title_password">Contraseña</string>
@@ -435,6 +436,7 @@
     <string name="title_flag_color">Estrella coloreada &#8230;</string>
     <string name="title_unflag">Desmarcar como favorito</string>
     <string name="title_forward">Reenviar</string>
+    <string name="title_new_message">Nuevo mensaje</string>
     <string name="title_editasnew">Editar como nuevo</string>
     <string name="title_create_rule">Crear regla &#8230;</string>
     <string name="title_share">Compartir</string>

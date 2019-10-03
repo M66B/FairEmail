@@ -337,6 +337,7 @@
     <string name="title_custom">Personalitzat</string>
     <string name="title_host">Nom del servidor</string>
     <string name="title_allow_insecure">Permet connexions no segures</string>
+    <string name="title_insecure_remark">Les connexions insegures només s’han de permetre en xarxes de confiança i mai en xarxes públiques</string>
     <string name="title_port">Número de port</string>
     <string name="title_user">Nom d\'usuari</string>
     <string name="title_password">Contrasenya</string>
@@ -435,6 +436,7 @@
     <string name="title_flag_color">Color de l\'estel &#8230;</string>
     <string name="title_unflag">Treure de destacats</string>
     <string name="title_forward">Següent</string>
+    <string name="title_new_message">Missatge nou</string>
     <string name="title_editasnew">Editar com a nou</string>
     <string name="title_create_rule">Crea la regla &#8230;</string>
     <string name="title_share">Compartir</string>
