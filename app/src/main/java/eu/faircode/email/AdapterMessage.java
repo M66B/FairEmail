@@ -2292,6 +2292,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (amessage == null || !amessage.id.equals(message.id))
                         return;
 
+                    final Address[] to =
+                            message.replySelf(identities, message.account)
+                                    ? message.to
+                                    : (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+
                     Address[] recipients = message.getAllRecipients(identities, message.account);
 
                     View anchor = bnvActions.findViewById(R.id.action_reply);
@@ -2301,6 +2306,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     popupMenu.getMenu().findItem(R.id.menu_reply_list).setVisible(message.list_post != null);
                     popupMenu.getMenu().findItem(R.id.menu_reply_receipt).setVisible(message.receipt_to != null);
                     popupMenu.getMenu().findItem(R.id.menu_reply_answer).setVisible(answers != 0 || !ActivityBilling.isPro(context));
+                    popupMenu.getMenu().findItem(R.id.menu_new_message).setVisible(to != null && to.length > 0);
 
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -2323,6 +2329,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     return true;
                                 case R.id.menu_forward:
                                     onMenuReply(message, "forward");
+                                    return true;
+                                case R.id.menu_new_message:
+                                    onMenuNew(message, to);
+                                    return true;
                                 default:
                                     return false;
                             }
@@ -2342,6 +2352,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Intent reply = new Intent(context, ActivityCompose.class)
                     .putExtra("action", action)
                     .putExtra("reference", message.id);
+            context.startActivity(reply);
+        }
+
+        private void onMenuNew(TupleMessageEx message, Address[] to) {
+            Intent reply = new Intent(context, ActivityCompose.class)
+                    .putExtra("action", "new")
+                    .putExtra("to", MessageHelper.formatAddresses(to, true, true));
             context.startActivity(reply);
         }
 

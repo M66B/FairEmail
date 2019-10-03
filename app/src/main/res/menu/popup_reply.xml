@@ -23,4 +23,8 @@
     <item
         android:id="@+id/menu_forward"
         android:title="@string/title_forward" />
+
+    <item
+        android:id="@+id/menu_new_message"
+        android:title="@string/title_new_message" />
 </menu>
