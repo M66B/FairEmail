@@ -975,7 +975,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (message.color == null)
                 ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
             else
-                ibFlagged.setImageTintList(ColorStateList.valueOf(expanded ? message.color : textColorSecondary));
+                ibFlagged.setImageTintList(ColorStateList.valueOf(expanded || !flags_background ? message.color : textColorSecondary));
 
             ibFlagged.setEnabled(message.uid != null || message.accountPop);
 
