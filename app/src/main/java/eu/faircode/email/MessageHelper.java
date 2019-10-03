@@ -543,7 +543,8 @@ public class MessageHelper {
             priority = EntityMessage.PRIORITIY_NORMAL;
         else if ("low".equalsIgnoreCase(header) ||
                 "non-urgent".equalsIgnoreCase(header) ||
-                "marketing".equalsIgnoreCase(header))
+                "marketing".equalsIgnoreCase(header) ||
+                "bulk".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
         else if (header != null)
             try {
