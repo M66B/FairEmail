@@ -31,6 +31,7 @@ import android.net.NetworkRequest;
 import android.os.PowerManager;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
@@ -60,8 +61,8 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 public class ServiceSend extends ServiceBase {
     private int lastUnsent = 0;
     private boolean lastSuitable = false;
-    private TwoStateOwner cowner;
 
+    private PowerManager.WakeLock wlOutbox;
     private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
@@ -72,11 +73,11 @@ public class ServiceSend extends ServiceBase {
         super.onCreate();
         startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null, null).build());
 
-        cowner = new TwoStateOwner(ServiceSend.this, "send");
-        final DB db = DB.getInstance(this);
-        final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
 
         // Observe unsent count
+        DB db = DB.getInstance(this);
         db.operation().liveUnsent().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer unsent) {
@@ -86,10 +87,8 @@ public class ServiceSend extends ServiceBase {
         });
 
         // Observe send operations
-        db.operation().liveOperations(null).observe(cowner, new Observer<List<EntityOperation>>() {
+        db.operation().liveOperations(null).observe(this, new Observer<List<EntityOperation>>() {
             private List<Long> handling = new ArrayList<>();
-            private PowerManager.WakeLock wlFolder = pm.newWakeLock(
-                    PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
 
             @Override
             public void onChanged(final List<EntityOperation> operations) {
@@ -112,95 +111,7 @@ public class ServiceSend extends ServiceBase {
                     executor.submit(new Runnable() {
                         @Override
                         public void run() {
-                            try {
-                                wlFolder.acquire();
-
-                                EntityFolder outbox = db.folder().getOutbox();
-                                try {
-                                    db.folder().setFolderError(outbox.id, null);
-                                    db.folder().setFolderSyncState(outbox.id, "syncing");
-
-                                    List<EntityOperation> ops = db.operation().getOperations(outbox.id);
-                                    Log.i(outbox.name + " pending operations=" + ops.size());
-                                    for (EntityOperation op : ops) {
-                                        EntityMessage message = null;
-                                        try {
-                                            Log.i(outbox.name +
-                                                    " start op=" + op.id + "/" + op.name +
-                                                    " msg=" + op.message +
-                                                    " args=" + op.args);
-
-                                            Map<String, String> crumb = new HashMap<>();
-                                            crumb.put("name", op.name);
-                                            crumb.put("args", op.args);
-                                            crumb.put("folder", op.folder + ":outbox");
-                                            if (op.message != null)
-                                                crumb.put("message", Long.toString(op.message));
-                                            crumb.put("free", Integer.toString(Log.getFreeMemMb()));
-                                            Log.breadcrumb("operation", crumb);
-
-                                            switch (op.name) {
-                                                case EntityOperation.SYNC:
-                                                    db.folder().setFolderError(outbox.id, null);
-                                                    break;
-
-                                                case EntityOperation.SEND:
-                                                    message = db.message().getMessage(op.message);
-                                                    if (message == null)
-                                                        throw new MessageRemovedException();
-                                                    onSend(message);
-                                                    break;
-
-                                                case EntityOperation.ANSWERED:
-                                                    break;
-
-                                                default:
-                                                    throw new IllegalArgumentException("Unknown operation=" + op.name);
-                                            }
-
-                                            db.operation().deleteOperation(op.id);
-                                        } catch (Throwable ex) {
-                                            Log.e(outbox.name, ex);
-                                            EntityLog.log(
-                                                    ServiceSend.this,
-                                                    outbox.name + " " + Helper.formatThrowable(ex, false));
-
-                                            db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
-                                            if (message != null)
-                                                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
-
-                                            if (ex instanceof OutOfMemoryError ||
-                                                    ex instanceof MessageRemovedException ||
-                                                    ex instanceof FileNotFoundException ||
-                                                    ex instanceof SendFailedException ||
-                                                    ex instanceof IllegalArgumentException) {
-                                                Log.w("Unrecoverable");
-                                                db.operation().deleteOperation(op.id);
-                                                continue;
-                                            } else
-                                                throw ex;
-                                        } finally {
-                                            Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
-                                        }
-
-                                        if (!ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable())
-                                            break;
-                                    }
-
-                                    if (db.operation().getOperations(outbox.id).size() == 0)
-                                        stopSelf();
-
-                                } catch (Throwable ex) {
-                                    Log.e(outbox.name, ex);
-                                    db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
-                                } finally {
-                                    db.folder().setFolderState(outbox.id, null);
-                                    db.folder().setFolderSyncState(outbox.id, null);
-                                }
-
-                            } finally {
-                                wlFolder.release();
-                            }
+                            processOperations();
                         }
                     });
                 }
@@ -269,31 +180,135 @@ public class ServiceSend extends ServiceBase {
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
+        private boolean suitable = false;
+
         @Override
         public void onAvailable(Network network) {
             Log.i("Service send available=" + network);
-            check();
+            checkConnectivity();
         }
 
         @Override
         public void onCapabilitiesChanged(Network network, NetworkCapabilities caps) {
             Log.i("Service send network=" + network + " caps=" + caps);
-            check();
+            checkConnectivity();
         }
 
-        private void check() {
-            boolean suitable = ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable();
-            Log.i("OUTBOX suitable=" + suitable);
+        @Override
+        public void onLost(@NonNull Network network) {
+            Log.i("Service send lost=" + network);
+            checkConnectivity();
+        }
 
-            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.notify(Helper.NOTIFICATION_SEND, getNotificationService(null, suitable).build());
+        private void checkConnectivity() {
+            boolean current = ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable();
+            if (suitable != current) {
+                suitable = current;
+                EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
 
-            if (suitable)
-                cowner.start();
-            else
-                cowner.stop();
+                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                nm.notify(Helper.NOTIFICATION_SEND, getNotificationService(null, suitable).build());
+
+                if (suitable)
+                    executor.submit(new Runnable() {
+                        @Override
+                        public void run() {
+                            processOperations();
+                        }
+                    });
+            }
         }
     };
+
+    private void processOperations() {
+        try {
+            wlOutbox.acquire();
+
+            DB db = DB.getInstance(this);
+            EntityFolder outbox = db.folder().getOutbox();
+            try {
+                db.folder().setFolderError(outbox.id, null);
+                db.folder().setFolderSyncState(outbox.id, "syncing");
+
+                List<EntityOperation> ops = db.operation().getOperations(outbox.id);
+                Log.i(outbox.name + " pending operations=" + ops.size());
+                for (EntityOperation op : ops) {
+                    EntityMessage message = null;
+                    try {
+                        Log.i(outbox.name +
+                                " start op=" + op.id + "/" + op.name +
+                                " msg=" + op.message +
+                                " args=" + op.args);
+
+                        Map<String, String> crumb = new HashMap<>();
+                        crumb.put("name", op.name);
+                        crumb.put("args", op.args);
+                        crumb.put("folder", op.folder + ":outbox");
+                        if (op.message != null)
+                            crumb.put("message", Long.toString(op.message));
+                        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+                        Log.breadcrumb("operation", crumb);
+
+                        switch (op.name) {
+                            case EntityOperation.SYNC:
+                                db.folder().setFolderError(outbox.id, null);
+                                break;
+
+                            case EntityOperation.SEND:
+                                message = db.message().getMessage(op.message);
+                                if (message == null)
+                                    throw new MessageRemovedException();
+                                onSend(message);
+                                break;
+
+                            case EntityOperation.ANSWERED:
+                                break;
+
+                            default:
+                                throw new IllegalArgumentException("Unknown operation=" + op.name);
+                        }
+
+                        db.operation().deleteOperation(op.id);
+                    } catch (Throwable ex) {
+                        Log.e(outbox.name, ex);
+                        EntityLog.log(this, outbox.name + " " + Helper.formatThrowable(ex, false));
+
+                        db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+                        if (message != null)
+                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+
+                        if (ex instanceof OutOfMemoryError ||
+                                ex instanceof MessageRemovedException ||
+                                ex instanceof FileNotFoundException ||
+                                ex instanceof SendFailedException ||
+                                ex instanceof IllegalArgumentException) {
+                            Log.w("Unrecoverable");
+                            db.operation().deleteOperation(op.id);
+                            continue;
+                        } else
+                            throw ex;
+                    } finally {
+                        Log.i(outbox.name + " end op=" + op.id + "/" + op.name);
+                    }
+
+                    if (!ConnectionHelper.getNetworkState(this).isSuitable())
+                        break;
+                }
+
+                if (db.operation().getOperations(outbox.id).size() == 0)
+                    stopSelf();
+
+            } catch (Throwable ex) {
+                Log.e(outbox.name, ex);
+                db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
+            } finally {
+                db.folder().setFolderState(outbox.id, null);
+                db.folder().setFolderSyncState(outbox.id, null);
+            }
+        } finally {
+            wlOutbox.release();
+        }
+    }
 
     private void onSend(EntityMessage message) throws MessagingException, IOException {
         DB db = DB.getInstance(this);
@@ -367,13 +382,15 @@ public class ServiceSend extends ServiceBase {
             iservice.connect(ident);
             db.identity().setIdentityState(ident.id, "connected");
 
-            // Send message
             Address[] to = imessage.getAllRecipients();
+            String via = "via " + ident.host + "/" + ident.user +
+                    " to " + TextUtils.join(", ", to);
+
+            // Send message
+            EntityLog.log(this, "Sending " + via);
             iservice.getTransport().sendMessage(imessage, to);
             long time = new Date().getTime();
-            EntityLog.log(this,
-                    "Sent via " + ident.host + "/" + ident.user +
-                            " to " + TextUtils.join(", ", to));
+            EntityLog.log(this, "Sent " + via);
 
             try {
                 db.beginTransaction();
