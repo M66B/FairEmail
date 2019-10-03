@@ -325,6 +325,7 @@
     <string name="title_custom">自定义</string>
     <string name="title_host">主机名称</string>
     <string name="title_allow_insecure">允许不安全的连接</string>
+    <string name="title_insecure_remark">只应在受信任网络中允许不安全连接，在公共网络中请绝不要这么做</string>
     <string name="title_port">端口</string>
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
@@ -423,6 +424,7 @@
     <string name="title_flag_color">有色星号 &#8230;</string>
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
+    <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_share">分享</string>
