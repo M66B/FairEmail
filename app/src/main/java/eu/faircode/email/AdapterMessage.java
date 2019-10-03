@@ -3824,6 +3824,92 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         return key;
     }
 
+    private static void setupWebview(
+            @NonNull Context context,
+            @NonNull FragmentManager fm,
+            @NonNull WebView webView,
+            float textSize, boolean show_images) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean inline = prefs.getBoolean("inline_images", false);
+        boolean autocontent = prefs.getBoolean("autocontent", false);
+
+        WebSettings settings = webView.getSettings();
+        settings.setUseWideViewPort(true);
+        settings.setLoadWithOverviewMode(true);
+
+        settings.setBuiltInZoomControls(true);
+        settings.setDisplayZoomControls(false);
+
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+
+        if (textSize != 0) {
+            settings.setDefaultFontSize(Math.round(textSize));
+            settings.setDefaultFixedFontSize(Math.round(textSize));
+        }
+        boolean monospaced = prefs.getBoolean("monospaced", false);
+        if (monospaced)
+            settings.setStandardFontFamily("monospace");
+
+        settings.setAllowFileAccess(false);
+        settings.setLoadsImagesAutomatically(show_images || inline);
+        settings.setBlockNetworkLoads(!show_images && !autocontent);
+        settings.setBlockNetworkImage(!show_images && !autocontent);
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+
+        webView.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Log.i("Open url=" + url);
+
+                Uri uri = Uri.parse(url);
+                if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                    return false;
+
+                Bundle args = new Bundle();
+                args.putParcelable("uri", uri);
+                args.putString("title", null);
+
+                FragmentDialogLink fragment = new FragmentDialogLink();
+                fragment.setArguments(args);
+                fragment.show(fm, "open:link");
+
+                return true;
+            }
+        });
+
+        webView.setDownloadListener(new DownloadListener() {
+            public void onDownloadStart(
+                    String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                Log.i("Download url=" + url + " mime type=" + mimetype);
+
+                Uri uri = Uri.parse(url);
+                if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                    return;
+
+                Helper.view(context, uri, true);
+            }
+        });
+
+        webView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                WebView.HitTestResult result = ((WebView) view).getHitTestResult();
+                if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
+                        result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
+                    Log.i("Long press url=" + result.getExtra());
+
+                    Uri uri = Uri.parse(result.getExtra());
+                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
+                        return false;
+
+                    Helper.view(context, uri, true);
+
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
+
     interface IProperties {
         void setValue(String name, long id, boolean enabled);
 
@@ -4106,93 +4192,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             float textSize = getArguments().getFloat("text_size");
             boolean show_images = getArguments().getBoolean("show_images");
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean inline = prefs.getBoolean("inline_images", false);
-            boolean autocontent = prefs.getBoolean("autocontent", false);
-
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_webview, null);
             WebView webView = dview.findViewById(R.id.webView);
             ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
-            WebSettings settings = webView.getSettings();
-            settings.setUseWideViewPort(true);
-            settings.setLoadWithOverviewMode(true);
-
-            settings.setBuiltInZoomControls(true);
-            settings.setDisplayZoomControls(false);
-
-            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
-
-            if (textSize != 0) {
-                settings.setDefaultFontSize(Math.round(textSize));
-                settings.setDefaultFixedFontSize(Math.round(textSize));
-            }
-            boolean monospaced = prefs.getBoolean("monospaced", false);
-            if (monospaced)
-                settings.setStandardFontFamily("monospace");
-
-            settings.setAllowFileAccess(false);
-            settings.setLoadsImagesAutomatically(show_images || inline);
-            settings.setBlockNetworkLoads(!show_images && !autocontent);
-            settings.setBlockNetworkImage(!show_images && !autocontent);
-            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-
-            webView.setWebViewClient(new WebViewClient() {
-                public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    Log.i("Open url=" + url);
-
-                    Uri uri = Uri.parse(url);
-                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                        return false;
-
-                    FragmentManager manager = getFragmentManager();
-                    if (manager == null)
-                        return false;
-
-                    Bundle args = new Bundle();
-                    args.putParcelable("uri", uri);
-                    args.putString("title", null);
-
-                    FragmentDialogLink fragment = new FragmentDialogLink();
-                    fragment.setArguments(args);
-                    fragment.show(manager, "open:link");
-
-                    return true;
-                }
-            });
-
-            webView.setDownloadListener(new DownloadListener() {
-                public void onDownloadStart(
-                        String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-                    Log.i("Download url=" + url + " mime type=" + mimetype);
-
-                    Uri uri = Uri.parse(url);
-                    if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                        return;
-
-                    Helper.view(getContext(), uri, true);
-                }
-            });
-
-            webView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View view) {
-                    WebView.HitTestResult result = ((WebView) view).getHitTestResult();
-                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE ||
-                            result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-                        Log.i("Long press url=" + result.getExtra());
-
-                        Uri uri = Uri.parse(result.getExtra());
-                        if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
-                            return false;
-
-                        Helper.view(getContext(), uri, true);
-
-                        return true;
-                    }
-                    return false;
-                }
-            });
+            setupWebview(getContext(), getFragmentManager(), webView, textSize, show_images);
 
             Dialog dialog = new Dialog(getContext(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
             dialog.setContentView(dview);
