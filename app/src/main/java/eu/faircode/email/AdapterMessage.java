@@ -3339,7 +3339,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             cur++;
                     }
 
-                if (gotoTop || cur > prev) {
+                if (gotoTop ||
+                        (previousList != null && currentList != null && cur > prev)) {
                     gotoTop = false;
                     properties.scrollTo(0);
                 }
