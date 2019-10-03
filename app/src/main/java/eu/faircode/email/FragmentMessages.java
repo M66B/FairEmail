@@ -3992,6 +3992,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null)
                         return null;
 
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account == null)
+                        return null;
+
                     EntityFolder folder = db.folder().getFolder(message.folder);
                     if (folder == null)
                         return null;
@@ -4006,7 +4010,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.cancel("send:" + message.identity, 1);
                         }
-                    } else if (message.uid == null) {
+                    } else if (message.uid == null && !account.pop) {
                         db.message().deleteMessage(id);
                         db.folder().setFolderError(message.folder, null);
                     } else
