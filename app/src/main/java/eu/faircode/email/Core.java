@@ -2765,25 +2765,26 @@ class Core {
                     .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
                     .setPublicVersion(pub);
 
-            if (redacted)
-                builder.setContentText(context.getString(R.string.title_setup_biometrics));
-            else {
-                DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
-                StringBuilder sb = new StringBuilder();
-                for (EntityMessage message : messages) {
-                    sb.append("<strong>").append(messageContact.get(message).getDisplayName(name_email)).append("</strong>");
-                    if (!TextUtils.isEmpty(message.subject))
-                        sb.append(": ").append(message.subject);
-                    sb.append(" ").append(DTF.format(message.received));
-                    sb.append("<br>");
+            if (notify_preview)
+                if (redacted)
+                    builder.setContentText(context.getString(R.string.title_setup_biometrics));
+                else {
+                    DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+                    StringBuilder sb = new StringBuilder();
+                    for (EntityMessage message : messages) {
+                        sb.append("<strong>").append(messageContact.get(message).getDisplayName(name_email)).append("</strong>");
+                        if (!TextUtils.isEmpty(message.subject))
+                            sb.append(": ").append(message.subject);
+                        sb.append(" ").append(DTF.format(message.received));
+                        sb.append("<br>");
+                    }
+
+                    builder.setContentText(sb.toString());
+
+                    builder.setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(HtmlHelper.fromHtml(sb.toString()))
+                            .setSummaryText(title));
                 }
-
-                builder.setContentText(sb.toString());
-
-                builder.setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(HtmlHelper.fromHtml(sb.toString()))
-                        .setSummaryText(title));
-            }
 
             notifications.add(builder.build());
         }
