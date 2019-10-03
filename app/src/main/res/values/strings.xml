@@ -396,6 +396,7 @@
     <string name="title_ssl" translatable="false">SSL/TLS</string>
     <string name="title_starttls" translatable="false">STARTTLS</string>
     <string name="title_allow_insecure">Allow insecure connections</string>
+    <string name="title_insecure_remark">Insecure connections should only be allowed on trusted networks and never on public networks</string>
     <string name="title_port">Port number</string>
     <string name="title_user">User name</string>
     <string name="title_password">Password</string>
