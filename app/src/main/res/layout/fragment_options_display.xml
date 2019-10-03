@@ -129,18 +129,6 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swDistinguishContacts"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="@string/title_advanced_distinguish_contacts"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swHighlightUnread"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swAvatars"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -149,7 +137,7 @@
             android:text="@string/title_advanced_avatars"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDistinguishContacts"
+            app:layout_constraintTop_toBottomOf="@id/swHighlightUnread"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -210,6 +198,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swNameEmail" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDistinguishContacts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_distinguish_contacts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNameEmailHint"
+            app:switchPadding="12dp" />
+
         <ImageView
             android:id="@+id/ivAuth"
             android:layout_width="21dp"
@@ -231,7 +231,7 @@
             android:text="@string/title_advanced_authentication"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivAuth"
-            app:layout_constraintTop_toBottomOf="@id/tvNameEmailHint"
+            app:layout_constraintTop_toBottomOf="@id/swDistinguishContacts"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

@@ -49,12 +49,12 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swDate;
     private SwitchCompat swThreading;
     private SwitchCompat swHighlightUnread;
-    private SwitchCompat swDistinguishContacts;
     private SwitchCompat swAvatars;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
     private SwitchCompat swCircular;
     private SwitchCompat swNameEmail;
+    private SwitchCompat swDistinguishContacts;
     private SwitchCompat swAuthentication;
     private SwitchCompat swSubjectTop;
     private SwitchCompat swSubjectItalic;
@@ -76,9 +76,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "startup", "cards", "date", "threading", "highlight_unread", "distinguish_contacts",
-            "avatars", "generated_icons", "identicons", "circular", "name_email",
-            "authentication", "subject_top", "subject_italic", "subject_ellipsize",
+            "theme", "startup", "cards", "date", "threading", "highlight_unread",
+            "avatars", "generated_icons", "identicons", "circular", "name_email", "distinguish_contacts", "authentication",
+            "subject_top", "subject_italic", "subject_ellipsize",
             "flags", "flags_background", "preview", "preview_italic", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color",
             "inline_images", "collapse_quotes", "autocontent", "seekbar", "actionbar",
@@ -100,12 +100,12 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swDate = view.findViewById(R.id.swDate);
         swThreading = view.findViewById(R.id.swThreading);
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
-        swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
         swAvatars = view.findViewById(R.id.swAvatars);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
         swNameEmail = view.findViewById(R.id.swNameEmail);
+        swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
         swAuthentication = view.findViewById(R.id.swAuthentication);
         swSubjectTop = view.findViewById(R.id.swSubjectTop);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
@@ -180,13 +180,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
-        swDistinguishContacts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("distinguish_contacts", checked).apply();
-            }
-        });
-
         swAvatars.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -224,6 +217,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("name_email", checked).apply();
+            }
+        });
+
+        swDistinguishContacts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("distinguish_contacts", checked).apply();
             }
         });
 
@@ -420,13 +420,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swDate.setChecked(prefs.getBoolean("date", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", false));
-        swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());
         swCircular.setChecked(prefs.getBoolean("circular", true));
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
+        swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
         swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));

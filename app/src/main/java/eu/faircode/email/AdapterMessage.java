@@ -191,8 +191,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean date;
     private boolean threading;
-    private boolean distinguish_contacts;
     private boolean name_email;
+    private boolean distinguish_contacts;
     private boolean subject_top;
     private boolean subject_italic;
     private String subject_ellipsize;
@@ -3295,8 +3295,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.date = prefs.getBoolean("date", true);
         this.threading = prefs.getBoolean("threading", true);
-        this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         this.name_email = prefs.getBoolean("name_email", false);
+        this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         this.subject_top = prefs.getBoolean("subject_top", false);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
