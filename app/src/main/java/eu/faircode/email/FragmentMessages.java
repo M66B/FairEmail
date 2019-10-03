@@ -107,7 +107,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.util.FolderClosedIOException;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
@@ -3870,8 +3869,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 db.beginTransaction();
 
                                 // Write decrypted body
-                                Helper.writeText(message.getFile(context),
-                                        decrypted.toString().replace("\0", ""));
+                                Helper.writeText(message.getFile(context), decrypted.toString());
 
                                 db.message().setMessageStored(id, new Date().getTime());
 
@@ -3894,8 +3892,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                 // Write decrypted body
                                 String html = parts.getHtml(context);
-                                if (html != null)
-                                    html = html.replace("\0", "");
                                 Helper.writeText(message.getFile(context), html);
 
                                 // Remove previously decrypted attachments
@@ -4336,7 +4332,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     return null;
 
                 String html = Helper.readText(file);
-                Document document = Jsoup.parse(html);
+                Document document = JsoupEx.parse(html);
                 HtmlHelper.embedImages(context, id, document);
 
                 Element body = document.body();

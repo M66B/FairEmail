@@ -57,7 +57,6 @@ import com.sun.mail.util.MessageRemovedIOException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 
 import java.io.BufferedInputStream;
@@ -2525,7 +2524,7 @@ class Core {
 
     private static void fixAttachments(Context context, long id, String body) {
         DB db = DB.getInstance(context);
-        for (Element element : Jsoup.parse(body).select("img")) {
+        for (Element element : JsoupEx.parse(body).select("img")) {
             String src = element.attr("src");
             if (src.startsWith("cid:")) {
                 EntityAttachment attachment = db.attachment().getAttachment(id, "<" + src.substring(4) + ">");

@@ -124,7 +124,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -2672,7 +2671,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return null;
 
                 String body = Helper.readText(file);
-                Document document = Jsoup.parse(body);
+                Document document = JsoupEx.parse(body);
 
                 // Check for inline encryption
                 int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
@@ -2705,7 +2704,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 // Cleanup message
                 String html = HtmlHelper.sanitize(context, body, text_color, show_images);
                 if (debug) {
-                    Document format = Jsoup.parse(html);
+                    Document format = JsoupEx.parse(html);
                     format.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
                     String[] lines = format.html().split("\\r?\\n");
                     for (int i = 0; i < lines.length; i++)
@@ -4225,7 +4224,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     String html = Helper.readText(file);
 
-                    Document doc = Jsoup.parse(html);
+                    Document doc = JsoupEx.parse(html);
                     HtmlHelper.removeViewportLimitations(doc);
                     HtmlHelper.embedImages(context, id, doc);
 

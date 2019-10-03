@@ -103,7 +103,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -1799,7 +1798,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private boolean isEmpty() {
-        if (!TextUtils.isEmpty(Jsoup.parse(HtmlHelper.toHtml(etBody.getText())).text().trim()))
+        if (!TextUtils.isEmpty(JsoupEx.parse(HtmlHelper.toHtml(etBody.getText())).text().trim()))
             return false;
         if (rvAttachment.getAdapter().getItemCount() > 0)
             return false;
@@ -2330,7 +2329,7 @@ public class FragmentCompose extends FragmentBase {
 
                         boolean usenet = prefs.getBoolean("usenet_signature", false);
                         if (usenet) {
-                            Document rdoc = Jsoup.parse(refText);
+                            Document rdoc = JsoupEx.parse(refText);
 
                             List<Node> tbd = new ArrayList<>();
 
@@ -2832,7 +2831,7 @@ public class FragmentCompose extends FragmentBase {
                     if (rfile.exists())
                         sb.append(Helper.readText(rfile));
                     List<String> cids = new ArrayList<>();
-                    for (Element element : Jsoup.parse(sb.toString()).select("img")) {
+                    for (Element element : JsoupEx.parse(sb.toString()).select("img")) {
                         String src = element.attr("src");
                         if (src.startsWith("cid:"))
                             cids.add("<" + src.substring(4) + ">");

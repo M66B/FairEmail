@@ -32,7 +32,6 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.BufferedReader;
@@ -310,14 +309,14 @@ public class MessageHelper {
         StringBuilder body = new StringBuilder();
         body.append("<html><body>");
 
-        Document mdoc = Jsoup.parse(Helper.readText(message.getFile(context)));
+        Document mdoc = JsoupEx.parse(Helper.readText(message.getFile(context)));
         if (mdoc.body() != null)
             body.append(mdoc.body().html());
 
         // When sending message
         if (identity != null) {
             if (!TextUtils.isEmpty(identity.signature) && message.signature) {
-                Document sdoc = Jsoup.parse(identity.signature);
+                Document sdoc = JsoupEx.parse(identity.signature);
                 if (sdoc.body() != null) {
                     if (usenet) // https://www.ietf.org/rfc/rfc3676.txt
                         body.append("<span>-- <br></span>");
@@ -1022,8 +1021,6 @@ public class MessageHelper {
             }
 
             // Prevent Jsoup throwing an exception
-            result = result.replace("\0", "");
-
             if (part == plain) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("<span>");

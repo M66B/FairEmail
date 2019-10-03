@@ -49,7 +49,6 @@ import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -98,7 +97,7 @@ public class HtmlHelper {
             Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static String sanitize(Context context, String html, boolean text_color, boolean show_images) {
-        Document parsed = Jsoup.parse(html);
+        Document parsed = JsoupEx.parse(html);
 
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
         //   xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -815,7 +814,7 @@ public class HtmlHelper {
         if (body == null)
             return null;
 
-        String text = Jsoup.parse(body).text();
+        String text = JsoupEx.parse(body).text();
 
         String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
         if (preview.length() < text.length())
@@ -897,7 +896,7 @@ public class HtmlHelper {
                     sb.append(' ');
                 nl = true;
             }
-        }, Jsoup.parse(html));
+        }, JsoupEx.parse(html));
 
         sb.append("\n");
 
@@ -999,7 +998,7 @@ public class HtmlHelper {
         String html = HtmlCompat.toHtml(spanned, TO_HTML_PARAGRAPH_LINES_CONSECUTIVE);
 
         // @Google: why convert size to and from in a different way?
-        Document doc = Jsoup.parse(html);
+        Document doc = JsoupEx.parse(html);
         for (Element element : doc.select("span")) {
             String style = element.attr("style");
             if (style.startsWith("font-size:")) {
