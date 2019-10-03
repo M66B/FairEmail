@@ -1305,23 +1305,31 @@ class Core {
             }
         }
 
-        Log.i("Updating folder parents=" + parentFolders.size());
+        Log.i("Creating folders parents=" + parentFolders.size());
         for (String parentName : parentFolders.keySet()) {
             EntityFolder parent = nameFolder.get(parentName);
             if (parent == null && parentName != null) {
-                parent = new EntityFolder();
-                parent.account = account.id;
-                parent.name = parentName;
-                parent.type = EntityFolder.SYSTEM;
-                parent.synchronize = false;
-                parent.subscribed = false;
-                parent.poll = false;
-                parent.sync_days = 0;
-                parent.keep_days = 0;
-                parent.selectable = false;
-                parent.id = db.folder().insertFolder(parent);
+                parent = db.folder().getFolderByName(account.id, parentName);
+                if (parent == null) {
+                    parent = new EntityFolder();
+                    parent.account = account.id;
+                    parent.name = parentName;
+                    parent.type = EntityFolder.SYSTEM;
+                    parent.synchronize = false;
+                    parent.subscribed = false;
+                    parent.poll = false;
+                    parent.sync_days = 0;
+                    parent.keep_days = 0;
+                    parent.selectable = false;
+                    parent.id = db.folder().insertFolder(parent);
+                }
                 nameFolder.put(parentName, parent);
             }
+        }
+
+        Log.i("Updating folders parents=" + parentFolders.size());
+        for (String parentName : parentFolders.keySet()) {
+            EntityFolder parent = nameFolder.get(parentName);
             for (EntityFolder child : parentFolders.get(parentName))
                 db.folder().setFolderParent(child.id, parent == null ? null : parent.id);
         }
