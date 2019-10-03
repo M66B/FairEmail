@@ -929,9 +929,12 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
         menu.findItem(R.id.menu_send).setEnabled(!busy);
 
-        menu.findItem(R.id.menu_encrypt).setIcon(encrypt ? R.drawable.baseline_lock_24 : R.drawable.baseline_no_encryption_24);
+        menu.findItem(R.id.menu_encrypt).setIcon(encrypt ? R.drawable.baseline_no_encryption_24 : R.drawable.baseline_lock_24);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
+
+        bottom_navigation.getMenu().findItem(R.id.action_send)
+                .setTitle(encrypt ? R.string.title_encrypt : R.string.title_send);
     }
 
     @Override
@@ -3280,6 +3283,7 @@ public class FragmentCompose extends FragmentBase {
                                     lld.setLevel(0); // broken
                                 else {
                                     Drawable image = new BitmapDrawable(res, bm);
+
                                     DisplayMetrics dm = res.getDisplayMetrics();
                                     image.setBounds(0, 0,
                                             Math.round(bm.getWidth() * dm.density),
