@@ -83,7 +83,7 @@ import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 
 public class HtmlHelper {
-    static final int PREVIEW_SIZE = 250; // characters
+    private static final int PREVIEW_SIZE = 250; // characters
 
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int MAX_AUTO_LINK = 250;
@@ -812,8 +812,16 @@ public class HtmlHelper {
     }
 
     static String getPreview(String body) {
-        String text = (body == null ? null : Jsoup.parse(body).text());
-        return (text == null ? null : text.substring(0, Math.min(text.length(), PREVIEW_SIZE)));
+        if (body == null)
+            return null;
+
+        String text = Jsoup.parse(body).text();
+
+        String preview = text.substring(0, Math.min(text.length(), PREVIEW_SIZE));
+        if (preview.length() < text.length())
+            preview += "…";
+
+        return preview;
     }
 
     static String getText(String html) {

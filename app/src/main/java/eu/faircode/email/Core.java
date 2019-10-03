@@ -3007,19 +3007,15 @@ class Core {
             if (message.content && notify_preview)
                 try {
                     String body = Helper.readText(message.getFile(context));
+
                     StringBuilder sbm = new StringBuilder();
                     if (!TextUtils.isEmpty(message.subject))
                         sbm.append(message.subject).append("<br>");
-                    String text = Jsoup.parse(body).text();
-                    if (!TextUtils.isEmpty(text)) {
-                        sbm.append("<em>");
-                        if (text.length() > HtmlHelper.PREVIEW_SIZE) {
-                            sbm.append(text.substring(0, HtmlHelper.PREVIEW_SIZE));
-                            sbm.append("…");
-                        } else
-                            sbm.append(text);
-                        sbm.append("</em>");
-                    }
+
+                    String preview = HtmlHelper.getPreview(body);
+                    if (!TextUtils.isEmpty(preview))
+                        sbm.append("<em>").append(preview).append("</em>");
+
                     mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sbm.toString())));
                 } catch (IOException ex) {
                     Log.e(ex);
