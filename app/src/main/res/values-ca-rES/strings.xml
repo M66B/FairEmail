@@ -541,6 +541,7 @@
     <string name="title_from_missing">Falta l\'emissor</string>
     <string name="title_to_missing">Falta el receptor</string>
     <string name="title_subject_reminder">L\'assumpte és buit</string>
+    <string name="title_text_reminder">El missatge és buit</string>
     <string name="title_attachment_keywords">adjunt, fitxer adjunt, fitxers adjunts inclosos</string>
     <string name="title_attachment_reminder">Teníeu la intenció d’afegir un fitxer adjunt?</string>
     <string name="title_attachments_missing">No es descarreguen tots els fitxers adjunts</string>
