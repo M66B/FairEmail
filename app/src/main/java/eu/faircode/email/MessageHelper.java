@@ -1024,7 +1024,7 @@ public class MessageHelper {
             // Prevent Jsoup throwing an exception
             result = result.replace("\0", "");
 
-            if (plain != null) {
+            if (part == plain) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("<span>");
 
@@ -1293,13 +1293,18 @@ public class MessageHelper {
                     filename = null;
                 }
 
-                ContentType contentType = new ContentType(part.getContentType());
+                String pct = part.getContentType();
+                if (TextUtils.isEmpty(pct))
+                    pct = "text/plain";
+                ContentType contentType = new ContentType(pct);
                 if (part instanceof MimeMessage) {
                     String header = ((MimeMessage) part).getHeader("Content-Type", null);
-                    ContentType ct = new ContentType(header);
-                    if (!ct.getBaseType().equalsIgnoreCase(contentType.getBaseType())) {
-                        Log.w("Content type message=" + ct + " part=" + contentType);
-                        contentType = ct;
+                    if (!TextUtils.isEmpty(header)) {
+                        ContentType messageContentType = new ContentType(header);
+                        if (!messageContentType.getBaseType().equalsIgnoreCase(contentType.getBaseType())) {
+                            Log.w("Content type message=" + messageContentType + " part=" + contentType);
+                            contentType = messageContentType;
+                        }
                     }
                 }
 
@@ -1307,10 +1312,10 @@ public class MessageHelper {
                         TextUtils.isEmpty(filename) &&
                         ((parts.plain == null && "text/plain".equalsIgnoreCase(contentType.getBaseType())) ||
                                 (parts.html == null && "text/html".equalsIgnoreCase(contentType.getBaseType())))) {
-                    if ("text/plain".equalsIgnoreCase(contentType.getBaseType()))
-                        parts.plain = part;
-                    else
+                    if ("text/html".equalsIgnoreCase(contentType.getBaseType()))
                         parts.html = part;
+                    else
+                        parts.plain = part;
                 } else {
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
