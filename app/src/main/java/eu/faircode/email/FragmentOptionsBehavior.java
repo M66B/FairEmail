@@ -256,7 +256,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swPull.setChecked(prefs.getBoolean("pull", true));
-        swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
+        swAutoScroll.setChecked(prefs.getBoolean("autoscroll", true));
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
         swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
         swReversed.setChecked(prefs.getBoolean("reversed", false));

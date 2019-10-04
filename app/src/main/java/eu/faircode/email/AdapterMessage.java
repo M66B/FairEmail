@@ -3514,7 +3514,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean autoscroll =
                         (viewType == AdapterMessage.ViewType.THREAD ||
                                 (viewType != ViewType.SEARCH &&
-                                        prefs.getBoolean("autoscroll", false)));
+                                        prefs.getBoolean("autoscroll", true)));
 
                 int prev = 0;
                 if (autoscroll && previousList != null)
