@@ -198,16 +198,4 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             finishAndRemoveTask();
         }
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    onBackPressed();
-                return true;
-            default:
-                return false;
-        }
-    }
 }

@@ -582,14 +582,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
 
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getSupportFragmentManager().popBackStack();
-                return true;
-            default:
-                return false;
-        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void checkFirst() {

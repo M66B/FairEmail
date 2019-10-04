@@ -347,12 +347,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         if (drawerToggle.onOptionsItemSelected(item))
             return true;
 
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getSupportFragmentManager().popBackStack();
-                return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 

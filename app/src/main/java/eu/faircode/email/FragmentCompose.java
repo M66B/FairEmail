@@ -939,10 +939,6 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    onExit();
-                return true;
             case R.id.menu_encrypt:
                 onMenuEncrypt();
                 return true;

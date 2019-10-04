@@ -148,18 +148,6 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
         super.onDestroy();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    onBackPressed();
-                return true;
-            default:
-                return false;
-        }
-    }
-
     @NonNull
     static String getSkuPro() {
         if (BuildConfig.DEBUG)
