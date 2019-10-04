@@ -21,8 +21,10 @@ package eu.faircode.email;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -71,7 +73,7 @@ public class ServiceSend extends ServiceBase {
     public void onCreate() {
         EntityLog.log(this, "Service send create");
         super.onCreate();
-        startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null, null).build());
+        startForeground(Helper.NOTIFICATION_SEND, getNotificationService().build());
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wlOutbox = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":send");
@@ -81,8 +83,12 @@ public class ServiceSend extends ServiceBase {
         db.operation().liveUnsent().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer unsent) {
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(Helper.NOTIFICATION_SEND, getNotificationService(unsent, null).build());
+                if (unsent != null && lastUnsent != unsent) {
+                    lastUnsent = unsent;
+
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+                }
             }
         });
 
@@ -122,11 +128,18 @@ public class ServiceSend extends ServiceBase {
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         cm.registerNetworkCallback(builder.build(), networkCallback);
+
+        IntentFilter iif = new IntentFilter();
+        iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(connectionChangedReceiver, iif);
     }
 
     @Override
     public void onDestroy() {
         EntityLog.log(this, "Service send destroy");
+
+        unregisterReceiver(connectionChangedReceiver);
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
@@ -142,16 +155,11 @@ public class ServiceSend extends ServiceBase {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        startForeground(Helper.NOTIFICATION_SEND, getNotificationService(null, null).build());
+        startForeground(Helper.NOTIFICATION_SEND, getNotificationService().build());
         return START_STICKY;
     }
 
-    NotificationCompat.Builder getNotificationService(Integer unsent, Boolean suitable) {
-        if (unsent != null)
-            lastUnsent = unsent;
-        if (suitable != null)
-            lastSuitable = suitable;
-
+    NotificationCompat.Builder getNotificationService() {
         // Build pending intent
         Intent intent = new Intent(this, ActivityView.class);
         intent.setAction("outbox");
@@ -180,8 +188,6 @@ public class ServiceSend extends ServiceBase {
     }
 
     ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
-        private boolean suitable = false;
-
         @Override
         public void onAvailable(Network network) {
             Log.i("Service send available=" + network);
@@ -199,26 +205,35 @@ public class ServiceSend extends ServiceBase {
             Log.i("Service send lost=" + network);
             checkConnectivity();
         }
+    };
 
-        private void checkConnectivity() {
-            boolean current = ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable();
-            if (suitable != current) {
-                suitable = current;
-                EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
-
-                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(Helper.NOTIFICATION_SEND, getNotificationService(null, suitable).build());
-
-                if (suitable)
-                    executor.submit(new Runnable() {
-                        @Override
-                        public void run() {
-                            processOperations();
-                        }
-                    });
-            }
+    private BroadcastReceiver connectionChangedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i("Received intent=" + intent +
+                    " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
+            checkConnectivity();
         }
     };
+
+    private void checkConnectivity() {
+        boolean suitable = ConnectionHelper.getNetworkState(ServiceSend.this).isSuitable();
+        if (lastSuitable != suitable) {
+            lastSuitable = suitable;
+            EntityLog.log(ServiceSend.this, "Service send suitable=" + suitable);
+
+            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            nm.notify(Helper.NOTIFICATION_SEND, getNotificationService().build());
+
+            if (suitable)
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        processOperations();
+                    }
+                });
+        }
+    }
 
     private void processOperations() {
         try {

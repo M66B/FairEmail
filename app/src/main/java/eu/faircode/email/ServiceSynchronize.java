@@ -121,9 +121,12 @@ public class ServiceSynchronize extends ServiceBase {
         builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         // Removed because of Android VPN service
         // builder.addCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
-        cm.registerNetworkCallback(builder.build(), onNetworkCallback);
+        cm.registerNetworkCallback(builder.build(), networkCallback);
 
-        registerReceiver(onConnectionChanged, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        IntentFilter iif = new IntentFilter();
+        iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(connectionChangedReceiver, iif);
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
         DB db = DB.getInstance(this);
@@ -284,10 +287,10 @@ public class ServiceSynchronize extends ServiceBase {
         EntityLog.log(this, "Service destroy");
 
         unregisterReceiver(onScreenOff);
-        unregisterReceiver(onConnectionChanged);
+        unregisterReceiver(connectionChangedReceiver);
 
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        cm.unregisterNetworkCallback(onNetworkCallback);
+        cm.unregisterNetworkCallback(networkCallback);
 
         setUnseen(null);
 
@@ -1302,7 +1305,7 @@ public class ServiceSynchronize extends ServiceBase {
         }
     }
 
-    private ConnectivityManager.NetworkCallback onNetworkCallback = new ConnectivityManager.NetworkCallback() {
+    private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         private Boolean lastSuitable = null;
 
         @Override
@@ -1419,12 +1422,19 @@ public class ServiceSynchronize extends ServiceBase {
         }
     };
 
-    private BroadcastReceiver onConnectionChanged = new BroadcastReceiver() {
+    private BroadcastReceiver connectionChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            EntityLog.log(ServiceSynchronize.this, "Connection intent=" + intent +
+            EntityLog.log(ServiceSynchronize.this, "Received intent=" + intent +
                     " " + TextUtils.join(" ", Log.getExtras(intent.getExtras())));
-            onNetworkCallback.onCapabilitiesChanged(null, null);
+
+            if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
+                boolean on = intent.getBooleanExtra("state", false);
+                if (!on)
+                    lastLost = 0;
+            }
+
+            networkCallback.onCapabilitiesChanged(null, null);
         }
     };
 
