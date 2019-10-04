@@ -40,17 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inAttachments" />
 
-    <eu.faircode.email.ContentLoadingProgressBar
-        android:id="@+id/pbBody"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:indeterminate="true"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inNavigation" />
-
     <TextView
         android:id="@+id/tvNoInternetBody"
         android:layout_width="wrap_content"

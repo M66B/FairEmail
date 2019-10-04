@@ -1228,6 +1228,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindBody(TupleMessageEx message) {
+            tvBody.setText(null);
+
             if (!message.content)
                 return;
 
@@ -1251,6 +1253,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             int height = properties.getHeight(message.id, dp60);
             Pair<Integer, Integer> position = properties.getPosition(message.id);
             Log.i("Bind size=" + size + " height=" + height);
+
+            ibFull.setEnabled(hasWebView);
+            ibFull.setImageResource(show_full ? R.drawable.baseline_fullscreen_exit_24 : R.drawable.baseline_fullscreen_24);
 
             if (show_full) {
                 // Create web view
@@ -1362,7 +1367,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 WebSettings settings = webView.getSettings();
-                settings.setUseWideViewPort(true);
+                settings.setUseWideViewPort(false);
                 settings.setLoadWithOverviewMode(true);
 
                 settings.setBuiltInZoomControls(true);
@@ -1371,8 +1376,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
 
                 if (textSize != 0) {
-                    settings.setDefaultFontSize(Math.round(textSize));
-                    settings.setDefaultFixedFontSize(Math.round(textSize));
+                    int dp = Helper.pixels2dp(context, textSize);
+                    settings.setDefaultFontSize(Math.round(dp));
+                    settings.setDefaultFixedFontSize(Math.round(dp));
                 }
                 if (monospaced)
                     settings.setStandardFontFamily("monospace");
@@ -1454,7 +1460,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     if (show_full) {
                         HtmlHelper.removeViewportLimitations(document);
-                        if (inline)
+                        if (inline || show_images)
                             HtmlHelper.embedImages(context, message.id, document);
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -1553,20 +1559,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         tvBody.setTextIsSelectable(false);
                         tvBody.setTextIsSelectable(true);
                         tvBody.setMovementMethod(new TouchHandler(message));
-
-                        ibFull.setImageResource(R.drawable.baseline_fullscreen_24);
-                    } else if (result instanceof String) {
+                    } else if (result instanceof String)
                         ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", "UTF-8", null);
-
-                        ibFull.setImageResource(R.drawable.baseline_fullscreen_exit_24);
-                    } else
+                    else
                         throw new IllegalStateException("Result=" + result);
 
                     pbBody.setVisibility(View.GONE);
 
                     // Show attachments/images
                     cowner.start();
-                    ibFull.setEnabled(hasWebView);
                     ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
                 }
 
@@ -3957,6 +3958,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     @Override
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
+        if (holder.wvBody instanceof WebView)
+            ((WebView) holder.wvBody).loadDataWithBaseURL(null, "", "text/html", "UTF-8", null);
         holder.cowner.stop();
         holder.powner.recreate();
     }

@@ -280,6 +280,11 @@ public class Helper {
         return Math.round(dp * scale);
     }
 
+    static int pixels2dp(Context context, float pixels) {
+        float scale = context.getResources().getDisplayMetrics().density;
+        return Math.round(pixels / scale);
+    }
+
     static float getTextSize(Context context, int zoom) {
         TypedArray ta = null;
         try {

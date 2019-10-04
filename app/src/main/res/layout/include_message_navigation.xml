@@ -18,6 +18,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/action_message" />
 
+    <eu.faircode.email.ContentLoadingProgressBar
+        android:id="@+id/pbBody"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="6dp"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@+id/ibFull"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ibFull" />
+
     <ImageButton
         android:id="@+id/ibDecrypt"
         android:layout_width="wrap_content"
