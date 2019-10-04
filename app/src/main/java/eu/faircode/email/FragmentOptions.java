@@ -46,7 +46,7 @@ public class FragmentOptions extends FragmentBase {
             "flags", "flags_background", "preview", "preview_italic",
             "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color",
-            "inline_images", "collapse_quotes", "autocontent", "seekbar", "actionbar",
+            "inline_images", "collapse_quotes", "seekbar", "actionbar",
             "autoscroll", "swipenav", "autoexpand", "autoclose", "onclose",
             "experiments", "debug",
             "biometrics"

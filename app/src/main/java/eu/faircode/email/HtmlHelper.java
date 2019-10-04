@@ -96,7 +96,11 @@ public class HtmlHelper {
     private static final ExecutorService executor =
             Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
-    static String sanitize(Context context, String html, boolean text_color, boolean show_images) {
+    static String sanitize(Context context, String html, boolean show_images) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean text_color = prefs.getBoolean("text_color", true);
+        boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+
         Document parsed = JsoupEx.parse(html);
 
         // <html xmlns:v="urn:schemas-microsoft-com:vml"
@@ -349,40 +353,12 @@ public class HtmlHelper {
             else
                 table.tagName("div");
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
-
-        // Build list of allowed hosts
-        List<String> hosts = new ArrayList<>();
+        // Remove tracking pixels
         if (disable_tracking)
-            for (Element img : document.select("img")) {
-                String src = img.attr("src");
-                if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
-                    Uri uri = Uri.parse(img.attr("src"));
-                    String host = uri.getHost();
-                    if (host != null && !hosts.contains(host))
-                        hosts.add(host);
-                }
-            }
+            removeTrackingPixels(context, document);
 
         // Images
         for (Element img : document.select("img")) {
-            // Remove link tracking pixels
-            if (disable_tracking) {
-                String src = img.attr("src");
-                if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
-                    Uri uri = Uri.parse(img.attr("src"));
-                    String host = uri.getHost();
-                    if (host == null || !hosts.contains(host)) {
-                        img.removeAttr("src");
-                        img.tagName("a");
-                        img.attr("href", src);
-                        img.appendText(context.getString(R.string.title_hint_tracking_image,
-                                img.attr("width"), img.attr("height")));
-                    }
-                }
-            }
-
             if (!show_images) {
                 String alt = img.attr("alt");
                 if (!TextUtils.isEmpty(alt)) {
@@ -513,6 +489,36 @@ public class HtmlHelper {
                     return true;
             }
         return false;
+    }
+
+    static void removeTrackingPixels(Context context, Document document) {
+        // Build list of allowed hosts
+        List<String> hosts = new ArrayList<>();
+        for (Element img : document.select("img")) {
+            String src = img.attr("src");
+            if (!TextUtils.isEmpty(src) && !isTrackingPixel(img)) {
+                Uri uri = Uri.parse(img.attr("src"));
+                String host = uri.getHost();
+                if (host != null && !hosts.contains(host))
+                    hosts.add(host);
+            }
+        }
+
+        // Images
+        for (Element img : document.select("img")) {
+            String src = img.attr("src");
+            if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
+                Uri uri = Uri.parse(img.attr("src"));
+                String host = uri.getHost();
+                if (host == null || !hosts.contains(host)) {
+                    img.removeAttr("src");
+                    img.tagName("a");
+                    img.attr("href", src);
+                    img.appendText(context.getString(R.string.title_hint_tracking_image,
+                            img.attr("width"), img.attr("height")));
+                }
+            }
+        }
     }
 
     static Drawable decodeImage(final Context context, final long id, String source, boolean show, final TextView view) {

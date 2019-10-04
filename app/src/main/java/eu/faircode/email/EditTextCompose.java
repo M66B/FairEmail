@@ -68,7 +68,7 @@ public class EditTextCompose extends AppCompatEditText {
                     ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
 
                     String html = item.coerceToHtmlText(context);
-                    html = HtmlHelper.sanitize(context, html, true, false);
+                    html = HtmlHelper.sanitize(context, html, false);
                     Spanned paste = HtmlHelper.fromHtml(html);
 
                     int start = getSelectionStart();

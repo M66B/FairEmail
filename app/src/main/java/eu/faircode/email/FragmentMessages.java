@@ -48,7 +48,6 @@ import android.os.Parcelable;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.LongSparseArray;
@@ -232,7 +231,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private boolean autoExpanded = true;
     private Map<String, List<Long>> values = new HashMap<>();
     private LongSparseArray<Float> sizes = new LongSparseArray<>();
-    private LongSparseArray<Spanned> bodies = new LongSparseArray<>();
+    private LongSparseArray<Integer> heights = new LongSparseArray<>();
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
@@ -258,8 +257,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     static final int REQUEST_PRINT = 17;
     private static final int REQUEST_SEARCH = 18;
     private static final int REQUEST_ACCOUNT = 19;
-    static final int REQUEST_MESSAGE_PROPERTY = 20;
-    private static final int REQUEST_EMPTY_FOLDER = 21;
+    private static final int REQUEST_EMPTY_FOLDER = 20;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -1253,16 +1251,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }
 
         @Override
-        public void setBody(long id, Spanned value) {
-            if (value == null)
-                bodies.remove(id);
-            else
-                bodies.put(id, value);
+        public void setHeight(long id, int height) {
+            heights.put(id, height);
         }
 
         @Override
-        public Spanned getBody(long id) {
-            return bodies.get(id);
+        public int getHeight(long id, int defaultHeight) {
+            return heights.get(id, defaultHeight);
         }
 
         @Override
@@ -1281,16 +1276,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 @Override
                 public void run() {
                     rvMessage.scrollToPosition(pos);
-                }
-            });
-        }
-
-        @Override
-        public void scrollBy(final int dx, final int dy) {
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    rvMessage.scrollBy(dx, dy);
                 }
             });
         }
@@ -2187,6 +2172,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         outState.putLongArray("fair:sizes:keys", skeys);
         outState.putFloatArray("fair:sizes:values", svalues);
 
+        long[] hkeys = new long[heights.size()];
+        int[] hvalues = new int[heights.size()];
+        for (int i = 0; i < heights.size(); i++) {
+            hkeys[i] = heights.keyAt(i);
+            hvalues[i] = heights.valueAt(i);
+        }
+        outState.putLongArray("fair:heights:keys", hkeys);
+        outState.putIntArray("fair:heights:values", hvalues);
+
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
@@ -2220,6 +2214,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             for (int i = 0; i < skeys.length; i++)
                 sizes.put(skeys[i], svalues[i]);
+
+            long[] hkeys = savedInstanceState.getLongArray("fair:heights:keys");
+            int[] hvalues = savedInstanceState.getIntArray("fair:heights:values");
+
+            for (int i = 0; i < hkeys.length; i++)
+                heights.put(hkeys[i], hvalues[i]);
 
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");
@@ -2338,7 +2338,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Log.i("Hidden id=" + id);
                                 for (String key : values.keySet())
                                     values.get(key).remove(id);
-                                bodies.remove(id);
+                                sizes.remove(id);
+                                heights.remove(id);
                                 attachments.remove(id);
                             }
                             updateExpanded();
@@ -3706,10 +3707,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         onMenuFolders(args.getLong("account"));
                     }
                     break;
-                case REQUEST_MESSAGE_PROPERTY:
-                    if (resultCode == RESULT_OK)
-                        onPropertySet(data.getBundleExtra("args"));
-                    break;
                 case REQUEST_EMPTY_FOLDER:
                     if (resultCode == RESULT_OK)
                         onEmptyFolder(data.getBundleExtra("args"));
@@ -4438,14 +4435,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, pargs, "message:print");
-    }
-
-    private void onPropertySet(Bundle args) {
-        long id = args.getLong("id");
-        String name = args.getString("name");
-        boolean value = args.getBoolean("value");
-        Log.i("Set property " + name + "=" + value + " id=" + id);
-        iProperties.setValue(name, id, value);
     }
 
     private void onEmptyFolder(Bundle args) {
