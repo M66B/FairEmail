@@ -51,6 +51,7 @@ import android.print.PrintManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.LongSparseArray;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -232,6 +233,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private Map<String, List<Long>> values = new HashMap<>();
     private LongSparseArray<Float> sizes = new LongSparseArray<>();
     private LongSparseArray<Integer> heights = new LongSparseArray<>();
+    private LongSparseArray<Pair<Integer, Integer>> positions = new LongSparseArray<>();
     private LongSparseArray<List<EntityAttachment>> attachments = new LongSparseArray<>();
     private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
@@ -1260,6 +1262,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return heights.get(id, defaultHeight);
         }
 
+        public void setPosition(long id, Pair<Integer, Integer> position) {
+            Log.i("Position=" + position);
+            positions.put(id, position);
+        }
+
+        public Pair<Integer, Integer> getPosition(long id) {
+            return positions.get(id);
+        }
+
         @Override
         public void setAttachments(long id, List<EntityAttachment> list) {
             attachments.put(id, list);
@@ -2181,6 +2192,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         outState.putLongArray("fair:heights:keys", hkeys);
         outState.putIntArray("fair:heights:values", hvalues);
 
+        long[] pkeys = new long[positions.size()];
+        int[] xvalues = new int[positions.size()];
+        int[] yvalues = new int[positions.size()];
+        for (int i = 0; i < positions.size(); i++) {
+            pkeys[i] = positions.keyAt(i);
+            Pair<Integer, Integer> position = positions.valueAt(i);
+            xvalues[i] = position.first;
+            yvalues[i] = position.second;
+        }
+        outState.putLongArray("fair:pos:keys", pkeys);
+        outState.putIntArray("fair:posx:values", xvalues);
+        outState.putIntArray("fair:posy:values", yvalues);
+
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
@@ -2220,6 +2244,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             for (int i = 0; i < hkeys.length; i++)
                 heights.put(hkeys[i], hvalues[i]);
+
+            long[] pkeys = savedInstanceState.getLongArray("fair:pos:keys");
+            int[] xvalues = savedInstanceState.getIntArray("fair:posx:values");
+            int[] yvalues = savedInstanceState.getIntArray("fair:posy:values");
+
+            for (int i = 0; i < pkeys.length; i++)
+                positions.put(pkeys[i], new Pair<Integer, Integer>(xvalues[i], yvalues[i]));
 
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");
@@ -2340,6 +2371,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     values.get(key).remove(id);
                                 sizes.remove(id);
                                 heights.remove(id);
+                                positions.remove(id);
                                 attachments.remove(id);
                             }
                             updateExpanded();

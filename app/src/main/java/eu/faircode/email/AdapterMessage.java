@@ -64,6 +64,7 @@ import android.text.style.DynamicDrawableSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.URLSpan;
+import android.util.Pair;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -1248,6 +1249,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_quotes = (properties.getValue("quotes", message.id) || !collapse_quotes);
             float size = properties.getSize(message.id, show_full ? 0 : textSize);
             int height = properties.getHeight(message.id, dp60);
+            Pair<Integer, Integer> position = properties.getPosition(message.id);
             Log.i("Bind size=" + size + " height=" + height);
 
             if (show_full) {
@@ -1315,6 +1317,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     });
 
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                        webView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                            @Override
+                            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                                properties.setPosition(message.id, new Pair<Integer, Integer>(scrollX, scrollY));
+                            }
+                        });
+
                     webView.setDownloadListener(new DownloadListener() {
                         public void onDownloadStart(
                                 String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
@@ -1376,6 +1386,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (size != 0)
                     webView.setInitialScale(Math.round(size * 100));
                 wvBody.setMinimumHeight(height);
+                if (position != null) {
+                    wvBody.setScrollX(position.first);
+                    wvBody.setScrollY(position.second);
+                }
 
                 tvBody.setVisibility(View.GONE);
                 wvBody.setVisibility(View.VISIBLE);
@@ -4015,6 +4029,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void setHeight(long id, int height);
 
         int getHeight(long id, int defaultHeight);
+
+        void setPosition(long id, Pair<Integer, Integer> position);
+
+        Pair<Integer, Integer> getPosition(long id);
 
         void setAttachments(long id, List<EntityAttachment> attachments);
 
