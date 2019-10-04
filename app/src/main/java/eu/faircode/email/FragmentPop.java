@@ -175,7 +175,7 @@ public class FragmentPop extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        args.putString("host", etHost.getText().toString());
+        args.putString("host", etHost.getText().toString().trim());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());

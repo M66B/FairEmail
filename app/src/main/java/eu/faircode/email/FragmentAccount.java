@@ -435,7 +435,7 @@ public class FragmentAccount extends FragmentBase {
 
     private void onAutoConfig() {
         Bundle args = new Bundle();
-        args.putString("domain", etDomain.getText().toString());
+        args.putString("domain", etDomain.getText().toString().trim());
 
         new SimpleTask<EmailProvider>() {
             @Override
@@ -478,7 +478,7 @@ public class FragmentAccount extends FragmentBase {
     private void onCheck() {
         Bundle args = new Bundle();
         args.putLong("id", id);
-        args.putString("host", etHost.getText().toString());
+        args.putString("host", etHost.getText().toString().trim());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
@@ -673,7 +673,7 @@ public class FragmentAccount extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", id);
 
-        args.putString("host", etHost.getText().toString());
+        args.putString("host", etHost.getText().toString().trim());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());

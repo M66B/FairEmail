@@ -439,7 +439,7 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig.setEnabled(false);
 
         Bundle args = new Bundle();
-        args.putString("domain", etDomain.getText().toString());
+        args.putString("domain", etDomain.getText().toString().trim());
 
         new SimpleTask<EmailProvider>() {
             @Override
@@ -502,7 +502,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("replyto", etReplyTo.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putLong("account", account == null ? -1 : account.id);
-        args.putString("host", etHost.getText().toString());
+        args.putString("host", etHost.getText().toString().trim());
         args.putBoolean("starttls", rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls);
         args.putBoolean("insecure", cbInsecure.isChecked());
         args.putString("port", etPort.getText().toString());
