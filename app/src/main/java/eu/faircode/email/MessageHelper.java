@@ -535,7 +535,8 @@ public class MessageHelper {
 
         if ("high".equalsIgnoreCase(header) ||
                 "urgent".equalsIgnoreCase(header) ||
-                "critical".equalsIgnoreCase(header))
+                "critical".equalsIgnoreCase(header) ||
+                "yes".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_HIGH;
         else if ("normal".equalsIgnoreCase(header) ||
                 "medium".equalsIgnoreCase(header))
