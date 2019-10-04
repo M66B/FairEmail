@@ -2826,7 +2826,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 ToastEx.makeText(getContext(),
                         getContext().getResources().getQuantityString(
-                                R.plurals.title_selected_messages, ids.size(), ids.size()),
+                                R.plurals.title_selected_conversations, ids.size(), ids.size()),
                         Toast.LENGTH_LONG).show();
             }
         });

@@ -273,6 +273,7 @@ public class ViewModelMessages extends ViewModel {
                 PagedList<TupleMessageEx> plist = model.list.getValue();
                 if (plist == null)
                     return ids;
+
                 LimitOffsetDataSource<TupleMessageEx> ds = (LimitOffsetDataSource<TupleMessageEx>) plist.getDataSource();
                 int count = ds.countItems();
                 for (int i = 0; i < count; i += 100)
