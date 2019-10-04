@@ -227,7 +227,6 @@
     <string name="title_advanced_text_color">Mostra els colors del text</string>
     <string name="title_advanced_collapse_quotes">Aplega el text citat</string>
     <string name="title_advanced_images_inline">Mostra automàticament imatges en línia</string>
-    <string name="title_advanced_remote_content">Mostra automàticament contingut remot quan visualitzeu missatges originals</string>
     <string name="title_advanced_seekbar">Mostra la posició de conversa relativa amb un punt</string>
     <string name="title_advanced_actionbar">Mostra la barra d’acció de conversa</string>
     <string name="title_advanced_pull_refresh">Arrossegueu avall per actualitzar</string>
@@ -516,7 +515,7 @@
     <string name="title_discard">Descartar</string>
     <string name="title_save">Desa</string>
     <string name="title_send">Enviar</string>
-    <string name="title_send_via">Envia per</string>
+    <string name="title_send_via">Envia com</string>
     <string name="title_send_with_options">Envia &#8230;</string>
     <string name="title_send_at">Envia a les &#8230;</string>
     <string name="title_send_priority">Prioritat</string>

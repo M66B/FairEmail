@@ -220,7 +220,6 @@
     <string name="title_advanced_text_color">Visa textfärger</string>
     <string name="title_advanced_collapse_quotes">Kollapsa citerad text</string>
     <string name="title_advanced_images_inline">Visa automatiskt infogade bilder</string>
-    <string name="title_advanced_remote_content">Visa automatiskt fjärrinnehåll när du visar originalmeddelanden</string>
     <string name="title_advanced_seekbar">Visa relativ konversationsposition med en punkt</string>
     <string name="title_advanced_actionbar">Visa konversationsåtgärdsfältet</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>

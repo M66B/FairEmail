@@ -202,8 +202,8 @@
     <string name="title_advanced_schedule">Расписание</string>
     <string name="title_advanced_unseen">Все непрочитанные сообщения</string>
     <string name="title_advanced_flagged">Все избранные сообщения</string>
-    <string name="title_advanced_delete_unseen">Удалить старые непрочитанные сообщения</string>
-    <string name="title_advanced_kept_removed">Проверить, были ли удалены старые сообщения с сервера</string>
+    <string name="title_advanced_delete_unseen">Удалять старые непрочитанные сообщения</string>
+    <string name="title_advanced_kept_removed">Проверять, были ли удалены старые сообщения с сервера</string>
     <string name="title_advanced_sync_folders">Синхронизировать список папок</string>
     <string name="title_advanced_subscriptions">Управление подпиской на папки</string>
     <string name="title_advanced_sync_subscribed">Синхронизировать только папки с подпиской</string>
@@ -249,7 +249,6 @@
     <string name="title_advanced_text_color">Показывать цвета текста</string>
     <string name="title_advanced_collapse_quotes">Свернуть цитируемый текст</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
-    <string name="title_advanced_remote_content">Автоматически показывать удалённое содержимое при просмотре оригиналов сообщений</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога с точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>

@@ -227,7 +227,6 @@
     <string name="title_advanced_text_color">Metin renklerini göster</string>
     <string name="title_advanced_collapse_quotes">Alıntılanan metni daralt</string>
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
-    <string name="title_advanced_remote_content">Orijinal iletileri görüntülerken uzak içeriği otomatik olarak göster</string>
     <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>

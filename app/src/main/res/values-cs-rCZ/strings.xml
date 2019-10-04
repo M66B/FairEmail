@@ -249,7 +249,6 @@
     <string name="title_advanced_text_color">Zobrazit barvy textu</string>
     <string name="title_advanced_collapse_quotes">Sbalit citovaný text</string>
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
-    <string name="title_advanced_remote_content">Automaticky zobrazovat vzdálený obsah při prohlížení původních zpráv</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
@@ -315,6 +314,7 @@
     <string name="title_advanced_rlah_hint">Nepředpokládat žádný roaming v rámci EU</string>
     <string name="title_advanced_roaming_hint">Hlavičky zpráv budou během roamingu stahovány vždy. Použijte nastavení svého zařízení pro zakázání internetu při roamingu.</string>
     <string name="title_advanced_browse_hint">Načte další zprávy při posouvání dolů</string>
+    <string name="title_advanced_layout_hint">Přepnutí na kompaktnější rozvržení a změna velikosti textu zprávy lze provést při zobrazené zprávě skrze menu v horním panelu akcí</string>
     <string name="title_advanced_date_hint">Zprávy jsou seskupovány podle data, pouze pokud jsou řazeny dle času</string>
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
     <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, pokud budou k dispozici</string>
@@ -358,6 +358,7 @@
     <string name="title_custom">Vlastní</string>
     <string name="title_host">Název hostitele</string>
     <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
+    <string name="title_insecure_remark">Nezabezpečená připojení by měla být povolena pouze v důvěryhodných, a nikdy na veřejných sítích</string>
     <string name="title_port">Číslo portu</string>
     <string name="title_user">Uživatelské jméno</string>
     <string name="title_password">Heslo</string>
@@ -425,6 +426,7 @@
     <string name="title_sync_days">Synchronizovat zprávy (dny)</string>
     <string name="title_sync_days_remark">Navýšení této hodnoty zvýší využití baterie a spotřebu dat</string>
     <string name="title_keep_days">Uchovávat zprávy (dny)</string>
+    <string name="title_keep_days_remark">Staré zprávy budou ze zařízení odstraněny, na serveru však zůstanou</string>
     <string name="title_keep_all">Uchovávat všechny zprávy</string>
     <string name="title_auto_trash">Automaticky přesouvat staré zprávy do koše</string>
     <string name="title_auto_delete">Automaticky trvale mazat staré zprávy</string>

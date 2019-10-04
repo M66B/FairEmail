@@ -227,7 +227,6 @@
     <string name="title_advanced_text_color">Vis tekstfarger</string>
     <string name="title_advanced_collapse_quotes">Kollapse sitert tekst</string>
     <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
-    <string name="title_advanced_remote_content">Vis automatisk fjerninnhold når du ser på originale meldinger</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
     <string name="title_advanced_actionbar">Vis samtale handlingslinje</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>

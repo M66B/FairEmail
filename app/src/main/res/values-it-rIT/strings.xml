@@ -226,7 +226,6 @@
     <string name="title_advanced_text_color">Mostra colori testo</string>
     <string name="title_advanced_collapse_quotes">Comprimi testo citato</string>
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
-    <string name="title_advanced_remote_content">Mostra automaticamente il contenuto remoto quando si visualizzano i messaggi originali</string>
     <string name="title_advanced_seekbar">Mostra la posizione di conversazione relativa con un punto</string>
     <string name="title_advanced_actionbar">Mostra barra azione conversazione</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
