@@ -1491,7 +1491,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
-                                Drawable drawable = HtmlHelper.decodeImage(context, message.id, source, show_images, tvBody);
+                                Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, tvBody);
 
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                                     if (drawable instanceof AnimatedImageDrawable)
@@ -3016,7 +3016,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (!show_images) {
                         ImageSpan[] image = buffer.getSpans(off, off, ImageSpan.class);
                         if (image.length > 0 && image[0].getSource() != null) {
-                            HtmlHelper.AnnotatedSource a = new HtmlHelper.AnnotatedSource(image[0].getSource());
+                            ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(image[0].getSource());
                             Uri uri = Uri.parse(a.getSource());
                             if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme())) {
                                 onOpenLink(uri, null);
@@ -4237,7 +4237,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected Drawable onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
                     String source = args.getString("source");
-                    return HtmlHelper.decodeImage(context, id, source, true, null);
+                    return ImageHelper.decodeImage(context, id, source, true, null);
                 }
 
                 @Override

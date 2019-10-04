@@ -3144,7 +3144,7 @@ public class FragmentCompose extends FragmentBase {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    return HtmlHelper.decodeImage(context, id, source, show_images, tvReference);
+                                    return ImageHelper.decodeImage(context, id, source, show_images, tvReference);
                                 }
                             },
                             null);

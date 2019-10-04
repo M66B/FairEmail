@@ -176,9 +176,9 @@ public class ContactInfo {
                 boolean identicons = prefs.getBoolean("identicons", false);
                 if (identicons) {
                     identicon = true;
-                    info.bitmap = IconHelper.generateIdenticon(key, dp, 5, dark);
+                    info.bitmap = ImageHelper.generateIdenticon(key, dp, 5, dark);
                 } else
-                    info.bitmap = IconHelper.generateLetterIcon(key, dp, dark);
+                    info.bitmap = ImageHelper.generateLetterIcon(key, dp, dark);
             }
         }
 

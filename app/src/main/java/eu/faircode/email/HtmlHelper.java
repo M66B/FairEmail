@@ -21,27 +21,15 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.ImageDecoder;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LevelListDrawable;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Handler;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.Base64;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -59,22 +47,15 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -92,9 +73,6 @@ public class HtmlHelper {
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "table", "br", "hr"));
     private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
-
-    private static final ExecutorService executor =
-            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
 
     static String sanitize(Context context, String html, boolean show_images) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -387,7 +365,7 @@ public class HtmlHelper {
 
                 if (width != 0 || height != 0) {
                     String src = img.attr("src");
-                    AnnotatedSource a = new AnnotatedSource(src, width, height);
+                    ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(src, width, height);
                     img.attr("src", a.getAnnotated());
                 }
             }
@@ -521,299 +499,64 @@ public class HtmlHelper {
         }
     }
 
-    static Drawable decodeImage(final Context context, final long id, String source, boolean show, final TextView view) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
-        boolean inline = prefs.getBoolean("inline_images", false);
+    private static boolean isTrackingPixel(Element img) {
+        String width = img.attr("width").trim();
+        String height = img.attr("height").trim();
 
-        final int px = Helper.dp2pixels(context, (zoom + 1) * 24);
-        final Resources.Theme theme = context.getTheme();
-        final Resources res = context.getResources();
+        if (TextUtils.isEmpty(width) || TextUtils.isEmpty(height))
+            return false;
 
         try {
-            final AnnotatedSource a = new AnnotatedSource(source);
+            return (Integer.parseInt(width) * Integer.parseInt(height) <= TRACKING_PIXEL_SURFACE);
+        } catch (NumberFormatException ignored) {
+            return false;
+        }
+    }
 
-            if (TextUtils.isEmpty(a.source)) {
-                Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
-                d.setBounds(0, 0, px, px);
-                return d;
-            }
-
-            boolean embedded = a.source.startsWith("cid:");
-            boolean data = a.source.startsWith("data:");
-
-            if (BuildConfig.DEBUG)
-                Log.i("Image show=" + show + " inline=" + inline +
-                        " embedded=" + embedded + " data=" + data + " source=" + a.source);
-
-            // Embedded images
-            if (embedded && (show || inline)) {
-                DB db = DB.getInstance(context);
-                String cid = "<" + a.source.substring(4) + ">";
+    static void embedImages(Context context, long id, Document document) throws IOException {
+        DB db = DB.getInstance(context);
+        for (Element img : document.select("img")) {
+            String src = img.attr("src");
+            if (src.startsWith("cid:")) {
+                String cid = '<' + src.substring(4) + '>';
                 EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                if (attachment == null) {
-                    Log.i("Image not found CID=" + cid);
-                    Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
-                    d.setBounds(0, 0, px, px);
-                    return d;
-                } else if (!attachment.available) {
-                    Log.i("Image not available CID=" + cid);
-                    Drawable d = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
-                    d.setBounds(0, 0, px, px);
-                    return d;
-                } else {
-                    int scaleToPixels = res.getDisplayMetrics().widthPixels;
-                    if ("image/gif".equals(attachment.type) &&
-                            Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                        ImageDecoder.Source isource = ImageDecoder.createSource(attachment.getFile(context));
-                        Drawable gif;
-                        try {
-                            gif = ImageDecoder.decodeDrawable(isource, new ImageDecoder.OnHeaderDecodedListener() {
-                                @Override
-                                public void onHeaderDecoded(
-                                        @NonNull ImageDecoder decoder,
-                                        @NonNull ImageDecoder.ImageInfo info,
-                                        @NonNull ImageDecoder.Source source) {
-                                    int factor = 1;
-                                    while (info.getSize().getWidth() / factor > scaleToPixels)
-                                        factor *= 2;
+                if (attachment != null && attachment.available) {
+                    File file = attachment.getFile(context);
+                    try (InputStream is = new FileInputStream(file)) {
+                        byte[] bytes = new byte[(int) file.length()];
+                        if (is.read(bytes) != bytes.length)
+                            throw new IOException("length");
 
-                                    decoder.setTargetSampleSize(factor);
-                                }
-                            });
-                        } catch (IOException ex) {
-                            Log.w(ex);
-                            gif = null;
-                        }
-                        if (gif == null) {
-                            Log.i("GIF not decodable CID=" + cid);
-                            Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
-                            d.setBounds(0, 0, px, px);
-                            return d;
-                        } else {
-                            if (view != null)
-                                fitDrawable(gif, a, view);
-                            return gif;
-                        }
-                    } else {
-                        Bitmap bm = Helper.decodeImage(attachment.getFile(context), scaleToPixels);
-                        if (bm == null) {
-                            Log.i("Image not decodable CID=" + cid);
-                            Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
-                            d.setBounds(0, 0, px, px);
-                            return d;
-                        } else {
-                            Drawable d = new BitmapDrawable(res, bm);
-                            DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                            d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
-                            if (view != null)
-                                fitDrawable(d, a, view);
-                            return d;
-                        }
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("data:");
+                        sb.append(attachment.type);
+                        sb.append(";base64,");
+                        sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
+
+                        img.attr("src", sb.toString());
                     }
                 }
             }
+        }
+    }
 
-            // Data URI
-            if (data && (show || inline))
-                try {
-                    Drawable d = getDataDrawable(context, a.source);
-                    if (view != null)
-                        fitDrawable(d, a, view);
-                    return d;
-                } catch (IllegalArgumentException ex) {
-                    Log.w(ex);
-                    Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
-                    d.setBounds(0, 0, px, px);
-                    return d;
-                }
+    static void removeViewportLimitations(Document document) {
+        for (Element meta : document.select("meta").select("[name=viewport]")) {
+            String content = meta.attr("content");
+            String[] params = content.split(";");
+            if (params.length > 0) {
+                List<String> viewport = new ArrayList<>();
+                for (String param : params)
+                    if (!param.toLowerCase(Locale.ROOT).contains("maximum-scale") &&
+                            !param.toLowerCase(Locale.ROOT).contains("user-scalable"))
+                        viewport.add(param.trim());
 
-            if (!show) {
-                // Show placeholder icon
-                int resid = (embedded || data ? R.drawable.baseline_photo_library_24 : R.drawable.baseline_image_24);
-                Drawable d = res.getDrawable(resid, theme);
-                d.setBounds(0, 0, px, px);
-                return d;
-            }
-
-            // Get cache file name
-            File dir = new File(context.getCacheDir(), "images");
-            if (!dir.exists())
-                dir.mkdir();
-            final File file = new File(dir, id + "_" + Math.abs(a.source.hashCode()) + ".png");
-
-            Drawable cached = getCachedImage(context, file);
-            if (cached != null || view == null) {
-                if (view == null)
-                    if (cached == null) {
-                        Drawable d = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
-                        d.setBounds(0, 0, px, px);
-                        return d;
-                    } else
-                        return cached;
+                if (viewport.size() == 0)
+                    meta.attr("content", "");
                 else
-                    fitDrawable(cached, a, view);
-                return cached;
-            }
-
-            final LevelListDrawable lld = new LevelListDrawable();
-            Drawable wait = res.getDrawable(R.drawable.baseline_hourglass_empty_24, theme);
-            lld.addLevel(1, 1, wait);
-            lld.setBounds(0, 0, px, px);
-            lld.setLevel(1);
-
-            executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Drawable cached = getCachedImage(context, file);
-                        if (cached != null) {
-                            fitDrawable(cached, a, view);
-                            post(cached, a.source);
-                            return;
-                        }
-
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        Log.i("Probe " + a.source);
-                        try (InputStream probe = new URL(a.source).openStream()) {
-                            options.inJustDecodeBounds = true;
-                            BitmapFactory.decodeStream(probe, null, options);
-                        }
-
-                        Log.i("Download " + a.source);
-                        Bitmap bm;
-                        try (InputStream is = new URL(a.source).openStream()) {
-                            int scaleTo = res.getDisplayMetrics().widthPixels;
-                            int factor = 1;
-                            while (options.outWidth / factor > scaleTo)
-                                factor *= 2;
-
-                            if (factor > 1) {
-                                Log.i("Download image factor=" + factor);
-                                options.inJustDecodeBounds = false;
-                                options.inSampleSize = factor;
-                                bm = BitmapFactory.decodeStream(is, null, options);
-                            } else
-                                bm = BitmapFactory.decodeStream(is);
-                        }
-
-                        if (bm == null)
-                            throw new FileNotFoundException("Download image failed source=" + a.source);
-
-                        Log.i("Downloaded image source=" + a.source);
-
-                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                            bm.compress(Bitmap.CompressFormat.PNG, 90, os);
-                        }
-
-                        // Create drawable from bitmap
-                        Drawable d = new BitmapDrawable(res, bm);
-                        DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                        d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
-                        fitDrawable(d, a, view);
-                        post(d, a.source);
-                    } catch (Throwable ex) {
-                        // Show broken icon
-                        Log.w(ex);
-                        int resid = (ex instanceof IOException && !(ex instanceof FileNotFoundException)
-                                ? R.drawable.baseline_cloud_off_24
-                                : R.drawable.baseline_broken_image_24);
-                        Drawable d = res.getDrawable(resid, theme);
-                        d.setBounds(0, 0, px, px);
-                        post(d, a.source);
-                    }
-                }
-
-                private void post(final Drawable d, String source) {
-                    Log.i("Posting image=" + source);
-
-                    new Handler(context.getMainLooper()).post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Rect bounds = d.getBounds();
-
-                            lld.addLevel(0, 0, d);
-                            lld.setBounds(0, 0, bounds.width(), bounds.height());
-                            lld.setLevel(0);
-
-                            view.setText(view.getText());
-                        }
-                    });
-                }
-            });
-
-            return lld;
-        } catch (Throwable ex) {
-            Log.e(ex);
-
-            Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
-            d.setBounds(0, 0, px, px);
-            return d;
-        }
-    }
-
-    private static void fitDrawable(Drawable d, AnnotatedSource a, View view) {
-        Rect bounds = d.getBounds();
-        int w = bounds.width();
-        int h = bounds.height();
-
-        if (a.width == 0 && a.height != 0)
-            a.width = Math.round(a.height * w / (float) h);
-        if (a.height == 0 && a.width != 0)
-            a.height = Math.round(a.width * h / (float) w);
-
-        if (a.width != 0 && a.height != 0) {
-            w = Helper.dp2pixels(view.getContext(), a.width);
-            h = Helper.dp2pixels(view.getContext(), a.height);
-            d.setBounds(0, 0, w, h);
-        }
-
-        float width = view.getWidth();
-        if (w > width) {
-            float scale = width / w;
-            w = Math.round(w * scale);
-            h = Math.round(h * scale);
-            d.setBounds(0, 0, w, h);
-        }
-    }
-
-    private static Drawable getDataDrawable(Context context, String source) {
-        // "<img src=\"data:image/png;base64,iVBORw0KGgoAAA" +
-        // "ANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4" +
-        // "//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU" +
-        // "5ErkJggg==\" alt=\"Red dot\" />";
-
-        String base64 = source.substring(source.indexOf(',') + 1);
-        byte[] bytes = Base64.decode(base64.getBytes(), 0);
-
-        Bitmap bm = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        if (bm == null)
-            throw new IllegalArgumentException("decode byte array failed");
-
-        Drawable d = new BitmapDrawable(context.getResources(), bm);
-
-        DisplayMetrics dm = context.getResources().getDisplayMetrics();
-        d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
-
-        return d;
-    }
-
-    private static Drawable getCachedImage(Context context, File file) {
-        if (file.exists()) {
-            Log.i("Using cached " + file);
-            Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
-            if (bm != null) {
-                Drawable d = new BitmapDrawable(context.getResources(), bm);
-
-                DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
-
-                return d;
+                    meta.attr("content", TextUtils.join(" ;", viewport) + ";");
             }
         }
-
-        return null;
     }
 
     static String getPreview(String body) {
@@ -909,66 +652,6 @@ public class HtmlHelper {
         return sb.toString();
     }
 
-    static void embedImages(Context context, long id, Document document) throws IOException {
-        DB db = DB.getInstance(context);
-        for (Element img : document.select("img")) {
-            String src = img.attr("src");
-            if (src.startsWith("cid:")) {
-                String cid = '<' + src.substring(4) + '>';
-                EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                if (attachment != null && attachment.available) {
-                    File file = attachment.getFile(context);
-                    try (InputStream is = new FileInputStream(file)) {
-                        byte[] bytes = new byte[(int) file.length()];
-                        if (is.read(bytes) != bytes.length)
-                            throw new IOException("length");
-
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("data:");
-                        sb.append(attachment.type);
-                        sb.append(";base64,");
-                        sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
-
-                        img.attr("src", sb.toString());
-                    }
-                }
-            }
-        }
-    }
-
-    static void removeViewportLimitations(Document document) {
-        for (Element meta : document.select("meta").select("[name=viewport]")) {
-            String content = meta.attr("content");
-            String[] params = content.split(";");
-            if (params.length > 0) {
-                List<String> viewport = new ArrayList<>();
-                for (String param : params)
-                    if (!param.toLowerCase(Locale.ROOT).contains("maximum-scale") &&
-                            !param.toLowerCase(Locale.ROOT).contains("user-scalable"))
-                        viewport.add(param.trim());
-
-                if (viewport.size() == 0)
-                    meta.attr("content", "");
-                else
-                    meta.attr("content", TextUtils.join(" ;", viewport) + ";");
-            }
-        }
-    }
-
-    private static boolean isTrackingPixel(Element img) {
-        String width = img.attr("width").trim();
-        String height = img.attr("height").trim();
-
-        if (TextUtils.isEmpty(width) || TextUtils.isEmpty(height))
-            return false;
-
-        try {
-            return (Integer.parseInt(width) * Integer.parseInt(height) <= TRACKING_PIXEL_SURFACE);
-        } catch (NumberFormatException ignored) {
-            return false;
-        }
-    }
-
     static Spanned highlightHeaders(Context context, String headers) {
         int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
         SpannableStringBuilder ssb = new SpannableStringBuilder(headers);
@@ -1023,50 +706,5 @@ public class HtmlHelper {
         }
 
         return doc.html();
-    }
-
-    public static class AnnotatedSource {
-        private String source;
-        private int width = 0;
-        private int height = 0;
-
-        // Encapsulate some ugliness
-
-        AnnotatedSource(String source) {
-            this.source = source;
-
-            if (source != null && source.endsWith("###")) {
-                int pos = source.substring(0, source.length() - 3).lastIndexOf("###");
-                if (pos > 0) {
-                    int x = source.indexOf("x", pos + 3);
-                    if (x > 0)
-                        try {
-                            this.width = Integer.parseInt(source.substring(pos + 3, x));
-                            this.height = Integer.parseInt(source.substring(x + 1, source.length() - 3));
-                            this.source = source.substring(0, pos);
-                        } catch (NumberFormatException ex) {
-                            Log.e(ex);
-                            this.width = 0;
-                            this.height = 0;
-                        }
-                }
-            }
-        }
-
-        private AnnotatedSource(String source, int width, int height) {
-            this.source = source;
-            this.width = width;
-            this.height = height;
-        }
-
-        public String getSource() {
-            return this.source;
-        }
-
-        private String getAnnotated() {
-            return (width == 0 && height == 0
-                    ? source
-                    : source + "###" + width + "x" + height + "###");
-        }
     }
 }
