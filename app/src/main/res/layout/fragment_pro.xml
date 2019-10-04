@@ -79,10 +79,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:contentDescription="@string/title_pro_purchase"
-            android:src="@drawable/baseline_open_in_new_24"
             app:layout_constraintBottom_toBottomOf="@+id/btnPurchase"
             app:layout_constraintStart_toEndOf="@+id/tvPrice"
-            app:layout_constraintTop_toTopOf="@+id/btnPurchase" />
+            app:layout_constraintTop_toTopOf="@+id/btnPurchase"
+            app:srcCompat="@drawable/baseline_open_in_new_24" />
 
         <TextView
             android:id="@+id/tvOnce"
