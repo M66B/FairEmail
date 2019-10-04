@@ -1173,9 +1173,21 @@ class Core {
                 if (ifolder.exists()) {
                     // https://tools.ietf.org/html/rfc3501#section-6.3.9
                     boolean subscribed = ifolder.isSubscribed();
-                    ifolder.setSubscribed(false);
-                    ifolder.renameTo(istore.getFolder(folder.rename));
-                    ifolder.setSubscribed(subscribed);
+                    if (subscribed)
+                        ifolder.setSubscribed(false);
+
+                    Folder itarget = istore.getFolder(folder.rename);
+                    ifolder.renameTo(itarget);
+
+                    if (subscribed)
+                        try {
+                            itarget.open(READ_WRITE);
+                            itarget.setSubscribed(subscribed);
+                            itarget.close();
+                        } catch (MessagingException ex) {
+                            Log.e(ex);
+                        }
+
                     db.folder().renameFolder(folder.account, folder.name, folder.rename);
                     folder.name = folder.rename;
                 }
