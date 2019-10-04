@@ -3925,6 +3925,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         TupleMessageEx message = differ.getItem(position);
         if (filter_duplicates && message != null && message.duplicate) {
             holder.tvFolder.setText(context.getString(R.string.title_duplicate_in, message.getFolderName(context)));
+            holder.tvFolder.setTypeface(message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            holder.tvFolder.setTextColor(message.unseen > 0 ? colorUnread : textColorSecondary);
             holder.tvFolder.setAlpha(Helper.LOW_LIGHT);
             return;
         }
