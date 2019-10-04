@@ -240,7 +240,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref),
                         NF.format(folder.unseen)));
             else
-                tvName.setText(folder.getDisplayName(context, folder.parent_ref == null ? null : folder.parent_ref));
+                tvName.setText(folder.getDisplayName(context, folder.parent_ref));
 
             tvName.setTypeface(folder.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             tvName.setTextColor(folder.unseen > 0 ? colorUnread : textColorSecondary);
