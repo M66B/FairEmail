@@ -712,6 +712,9 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
+The error *... Authentication failed ...* likely means your username or password was incorrect.
+Some providers expect as username just *username* and others your full email address *username@example.com*.
+
 The errors *... Couldn't connect to host ...*, *... Connection refused ...* or *... Network unreachable ...*
 mean that FairEmail was not able to connect to the email server.
 
