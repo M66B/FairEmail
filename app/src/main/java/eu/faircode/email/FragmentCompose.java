@@ -928,7 +928,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
         menu.findItem(R.id.menu_send).setEnabled(!busy);
 
-        menu.findItem(R.id.menu_encrypt).setIcon(encrypt ? R.drawable.baseline_no_encryption_24 : R.drawable.baseline_lock_24);
+        menu.findItem(R.id.menu_encrypt).setIcon(encrypt ? R.drawable.baseline_lock_open_24 : R.drawable.baseline_lock_24);
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
@@ -3000,8 +3000,12 @@ public class FragmentCompose extends FragmentBase {
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
                     fragment.show(getFragmentManager(), "compose:send");
-                } else
-                    onAction(R.id.action_send);
+                } else {
+                    if (encrypt)
+                        onEncrypt();
+                    else
+                        onAction(R.id.action_send);
+                }
 
             } else if (action == R.id.action_send) {
                 autosave = false;
@@ -3506,6 +3510,7 @@ public class FragmentCompose extends FragmentBase {
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    prefs.edit().putBoolean("send_dialog", !isChecked).apply();
                     tvNotAgain.setVisibility(isChecked && send_dialog ? View.VISIBLE : View.GONE);
                 }
             });
@@ -3699,7 +3704,6 @@ public class FragmentCompose extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             getArguments().putBoolean("encrypt", cbEncrypt.isChecked());
-                            prefs.edit().putBoolean("send_dialog", !cbNotAgain.isChecked()).apply();
                             sendResult(Activity.RESULT_OK);
                         }
                     })

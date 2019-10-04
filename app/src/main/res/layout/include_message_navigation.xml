@@ -30,7 +30,7 @@
         android:tooltipText="@string/title_decrypt"
         app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
         app:layout_constraintTop_toBottomOf="@id/bnvActions"
-        app:srcCompat="@drawable/baseline_no_encryption_24" />
+        app:srcCompat="@drawable/baseline_lock_open_24" />
 
     <ImageButton
         android:id="@+id/ibUnsubscribe"
