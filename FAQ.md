@@ -1691,8 +1691,9 @@ You'll likely want to disabled [browse on server](#user-content-faq24) too.
 Please see [here](https://en.wikipedia.org/wiki/Web_beacon) about what a tracking image exactly is.
 In short tracking images keep track if you opened a message.
 
-FairEmail automatically recognizes images with a surface of less than or equal to 25 pixels as tracking images.
-FairEmail automatically removes the link of such images, which makes such images appear as broken, and adds a remark about this below the image.
+FairEmail will in most cases automatically recognize tracking images and replace them by this icon:
+
+![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
 
 Automatic recognition of tracking images can be disabled in the behavior settings.
 

@@ -21,7 +21,10 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.text.Html;
@@ -33,6 +36,7 @@ import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.text.HtmlCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.preference.PreferenceManager;
@@ -47,6 +51,7 @@ import org.jsoup.safety.Whitelist;
 import org.jsoup.select.NodeTraversor;
 import org.jsoup.select.NodeVisitor;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -470,6 +475,24 @@ public class HtmlHelper {
     }
 
     static void removeTrackingPixels(Context context, Document document) {
+        Drawable d = ContextCompat.getDrawable(context, R.drawable.baseline_my_location_24);
+        d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
+        Bitmap bm = Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bm);
+        d.setBounds(0, 0, c.getWidth(), c.getHeight());
+        d.draw(c);
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("data:");
+        sb.append("image/png");
+        sb.append(";base64,");
+        sb.append(Base64.encodeToString(bos.toByteArray(), Base64.DEFAULT));
+
+        boolean dark = Helper.isDarkTheme(context);
+
         // Build list of allowed hosts
         List<String> hosts = new ArrayList<>();
         for (Element img : document.select("img")) {
@@ -489,11 +512,11 @@ public class HtmlHelper {
                 Uri uri = Uri.parse(img.attr("src"));
                 String host = uri.getHost();
                 if (host == null || !hosts.contains(host)) {
-                    img.removeAttr("src");
-                    img.tagName("a");
-                    img.attr("href", src);
-                    img.appendText(context.getString(R.string.title_hint_tracking_image,
-                            img.attr("width"), img.attr("height")));
+                    img.attr("src", sb.toString());
+                    img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
+                    img.attr("height", "24");
+                    img.attr("width", "24");
+                    img.attr("style", "display: block !important;");
                 }
             }
         }

@@ -1468,6 +1468,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (disable_tracking)
                             HtmlHelper.removeTrackingPixels(context, document);
 
+                        if (debug) {
+                            Document format = JsoupEx.parse(document.html());
+                            format.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
+                            Element pre = document.createElement("pre");
+                            pre.text(format.html());
+                            document.body().appendChild(pre);
+                        }
+
                         return document.html();
                     } else {
                         // Collapse quotes
@@ -2511,13 +2519,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
 
-            if (!full) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
-                TextView tvTracking = dview.findViewById(R.id.tvTracking);
-                tvTracking.setVisibility(disable_tracking ? View.VISIBLE : View.GONE);
-            }
-
             if (message.from == null || message.from.length == 0)
                 cbNotAgain.setVisibility(View.GONE);
             else {
@@ -2540,6 +2541,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     editor.apply();
                 }
             });
+
+            if (!full) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
+
+                ImageView ivInfo = dview.findViewById(R.id.ivInfo);
+                Group grpTracking = dview.findViewById(R.id.grpTracking);
+
+                grpTracking.setVisibility(disable_tracking ? View.VISIBLE : View.GONE);
+
+                ivInfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Helper.viewFAQ(context, 82);
+                    }
+                });
+            }
 
             // TODO: dialog fragment
             final Dialog dialog = new AlertDialog.Builder(context)

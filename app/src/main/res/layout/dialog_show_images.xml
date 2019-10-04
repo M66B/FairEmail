@@ -20,17 +20,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvTracking"
+        <ImageView
+            android:id="@+id/ivTracking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTracking"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTracking"
+            app:srcCompat="@drawable/baseline_my_location_24" />
+
+        <TextView
+            android:id="@+id/tvTracking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
             android:text="@string/title_ask_show_image_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="italic"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivInfo"
+            app:layout_constraintStart_toEndOf="@id/ivTracking"
             app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
+        <ImageButton
+            android:id="@+id/ivInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTracking"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTracking"
+            app:srcCompat="@drawable/baseline_info_24" />
 
         <CheckBox
             android:id="@+id/cbNotAgain"
@@ -41,5 +63,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTracking" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpTracking"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="ivTracking,tvTracking,ivInfo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

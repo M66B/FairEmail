@@ -774,6 +774,7 @@
     <string name="title_legend_download">Download content</string>
     <string name="title_legend_external_image">External image placeholder</string>
     <string name="title_legend_embedded_image">Embedded image placeholder</string>
+    <string name="title_legend_tracking_pixel">Tracking pixel</string>
     <string name="title_legend_broken_image">Broken image</string>
 
     <string name="title_legend_pick">Pick contact</string>
@@ -816,8 +817,6 @@
     <string name="title_hint_message_actions">Swipe left to trash; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages; Hold and swipe up or down to select more messages</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection and device and on the number of messages. While downloading messages the app might respond slower.</string>
-    <string name="title_hint_image_link">Image link</string>
-    <string name="title_hint_tracking_image">Tracking image %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Long press for options</string>
 
     <string name="title_open_link">Open link</string>
