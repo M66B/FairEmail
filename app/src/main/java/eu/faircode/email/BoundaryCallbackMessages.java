@@ -32,6 +32,7 @@ import com.sun.mail.iap.Argument;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
+import com.sun.mail.imap.IMAPStore;
 import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 
@@ -451,7 +452,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         if (message == null) {
                             message = Core.synchronizeMessage(context,
                                     account, browsable,
-                                    state.ifolder, (MimeMessage) isub[j],
+                                    (IMAPStore) state.iservice.getStore(), state.ifolder, (MimeMessage) isub[j],
                                     true, true,
                                     rules, null);
                             found++;

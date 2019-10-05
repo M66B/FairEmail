@@ -79,6 +79,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -320,7 +321,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.FETCH:
-                                    onFetch(context, jargs, folder, (IMAPFolder) ifolder, state);
+                                    onFetch(context, jargs, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.DELETE:
@@ -348,7 +349,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.SYNC:
-                                    onSynchronizeMessages(context, jargs, account, folder, (IMAPFolder) ifolder, state);
+                                    onSynchronizeMessages(context, jargs, account, folder, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.SUBSCRIBE:
@@ -869,7 +870,7 @@ class Core {
                                 if (!target.synchronize || !istore.hasCapability("IDLE")) {
                                     JSONArray fargs = new JSONArray();
                                     fargs.put(uid);
-                                    onFetch(context, fargs, target, itarget, state);
+                                    onFetch(context, fargs, target, istore, itarget, state);
                                 }
                             }
                         } catch (Throwable ex) {
@@ -895,7 +896,7 @@ class Core {
             }
     }
 
-    private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+    private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         long uid = jargs.getLong(0);
 
         DB db = DB.getInstance(context);
@@ -920,7 +921,7 @@ class Core {
                 fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
                 ifolder.fetch(new Message[]{imessage}, fp);
 
-                EntityMessage message = synchronizeMessage(context, account, folder, ifolder, imessage, false, download, rules, state);
+                EntityMessage message = synchronizeMessage(context, account, folder, istore, ifolder, imessage, false, download, rules, state);
                 if (download && message != null)
                     downloadMessage(context, folder, ifolder, imessage, message.id, state);
             } finally {
@@ -1559,7 +1560,7 @@ class Core {
     private static void onSynchronizeMessages(
             Context context, JSONArray jargs,
             EntityAccount account, final EntityFolder folder,
-            final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+            IMAPStore istore, final IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         final DB db = DB.getInstance(context);
         try {
             // Legacy
@@ -1843,7 +1844,7 @@ class Core {
                         EntityMessage message = synchronizeMessage(
                                 context,
                                 account, folder,
-                                ifolder, (MimeMessage) isub[j],
+                                istore, ifolder, (MimeMessage) isub[j],
                                 false, download,
                                 rules, state);
                         ids[from + j] = message.id;
@@ -1950,14 +1951,14 @@ class Core {
     static EntityMessage synchronizeMessage(
             Context context,
             EntityAccount account, EntityFolder folder,
-            IMAPFolder ifolder, MimeMessage imessage,
+            IMAPStore istore, IMAPFolder ifolder, MimeMessage imessage,
             boolean browsed, boolean download,
             List<EntityRule> rules, State state) throws MessagingException, IOException {
 
         long uid = ifolder.getUID(imessage);
 
         try {
-            return _synchronizeMessage(context, account, folder, uid, imessage, browsed, download, rules, state);
+            return _synchronizeMessage(context, account, folder, uid, istore, imessage, browsed, download, rules, state);
         } catch (MessagingException ex) {
             // https://javaee.github.io/javamail/FAQ#imapserverbug
             if (MessageHelper.retryRaw(ex)) try {
@@ -1980,7 +1981,7 @@ class Core {
                 file.delete();
 
                 Log.i(folder.name + " synchronizing again uid=" + uid);
-                return _synchronizeMessage(context, account, folder, uid, imessage, browsed, download, rules, state);
+                return _synchronizeMessage(context, account, folder, uid, istore, imessage, browsed, download, rules, state);
             } catch (MessagingException ex1) {
                 if (MessageHelper.retryRaw(ex1))
                     Log.e(ex1);
@@ -1993,8 +1994,8 @@ class Core {
 
     private static EntityMessage _synchronizeMessage(
             Context context,
-            EntityAccount account, EntityFolder folder,
-            long uid, MimeMessage imessage,
+            EntityAccount account, EntityFolder folder, long uid,
+            IMAPStore istore, MimeMessage imessage,
             boolean browsed, boolean download,
             List<EntityRule> rules, State state) throws MessagingException, IOException {
 
@@ -2139,6 +2140,24 @@ class Core {
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
                     message.warning = Helper.formatThrowable(ex, false);
+                }
+
+            if (message.total != null && message.total == 0)
+                try {
+                    if (istore.hasCapability("ID")) {
+                        Map<String, String> id = new LinkedHashMap<>();
+                        id.put("name", context.getString(R.string.app_name));
+                        id.put("version", BuildConfig.VERSION_NAME);
+                        Map<String, String> sid = istore.id(id);
+                        if (sid != null) {
+                            StringBuilder sb = new StringBuilder();
+                            for (String key : sid.keySet())
+                                sb.append(" ").append(key).append("=").append(sid.get(key));
+                            Log.e("Empty message" + sb.toString());
+                        }
+                    }
+                } catch (Throwable ex) {
+                    Log.w(ex);
                 }
 
             try {
