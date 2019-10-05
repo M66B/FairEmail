@@ -56,11 +56,6 @@
         <item quantity="few">%1$d noi</item>
         <item quantity="other">%1$d noi</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">%1$d mesaj selectat</item>
-        <item quantity="few">%1$d mesaje selectate</item>
-        <item quantity="other">%1$d de mesaje selectate</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Se mută %1$d mesaj la %2$s ?</item>
         <item quantity="few">Se mută %1$d mesaje la %2$s ?</item>
@@ -252,7 +247,6 @@
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
     <string name="title_advanced_automove">Confirmă mutarea mesajelor</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
-    <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_badge">Afișează iconița lansatorului cu numărul de mesaje noi</string>
     <string name="title_advanced_unseen_ignored">Fie ca numărul de mesaje noi să corespundă cu numărul de notificări</string>
     <string name="title_advanced_notify_summary">Arată doar sumarul în notificare</string>
@@ -270,6 +264,7 @@
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
+    <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
     <string name="title_advanced_notify_remove_hint">Notificările de mesaj nou vor fi mereu eliminate dacă sunt glisate la o parte sau când mesajele sunt marcate drept citite</string>
@@ -726,8 +721,6 @@
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>
     <string name="title_hint_message_selection">Atingeți lung un mesaj pentru a începe selecția multiplă. Țineți și glisați sus sau jos pentru a selecta mai multe mesaje</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
-    <string name="title_hint_image_link">Legătură imagine</string>
-    <string name="title_hint_tracking_image">Imagine de urmărire %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_secure_link">Securizează adresa</string>

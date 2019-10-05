@@ -63,12 +63,6 @@
         <item quantity="many">%1$d nowe</item>
         <item quantity="other">%1$d nowe</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Wybrano %1$d wiadomość</item>
-        <item quantity="few">Wybrano %1$d wiadomości</item>
-        <item quantity="many">Wybrano %1$d wiadomości</item>
-        <item quantity="other">Wybrano %1$d wiadomości</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Przenieść %1$d wiadomość do %2$s?</item>
         <item quantity="few">Przenieść %1$d wiadomości do %2$s?</item>
@@ -97,6 +91,7 @@
     <string name="menu_contacts">Kontakty lokalne</string>
     <string name="menu_setup">Ustawienia</string>
     <string name="menu_legend">Legenda</string>
+    <string name="menu_test">Program testowy</string>
     <string name="menu_faq">Wsparcie</string>
     <string name="menu_issue">Zgłoś problem</string>
     <string name="menu_attribution">Źródła</string>
@@ -264,7 +259,6 @@
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_automove">Potwierdź przenoszenie wiadomości</string>
     <string name="title_advanced_discard_delete">Po odrzuceniu wersji roboczej trwale usuń wersję roboczą</string>
-    <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_unseen_ignored">Niech liczba nowych wiadomości odpowiada liczbie powiadomień</string>
     <string name="title_advanced_notify_summary">Pokaż tylko podsumowanie</string>
@@ -282,6 +276,7 @@
     <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
+    <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
@@ -334,6 +329,7 @@
     <string name="title_identity_email">Twój adres e-mail</string>
     <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
+    <string name="title_advanced_sender_regex">Wyrażenie regularne pasujące do edytowanych adresów</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_encrypt">Szyfruj domyślnie</string>
     <string name="title_identity_receipt">Domyślnie żądaj potwierdzenia odbioru/odczytu</string>
@@ -742,8 +738,6 @@
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
-    <string name="title_hint_image_link">Adres obrazka</string>
-    <string name="title_hint_tracking_image">Web beacon %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_open_link">Otwórz link</string>
     <string name="title_secure_link">Utwórz bezpieczny link</string>

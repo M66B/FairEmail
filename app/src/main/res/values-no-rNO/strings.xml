@@ -49,9 +49,9 @@
         <item quantity="one">%1$d ny</item>
         <item quantity="other">%1$d ny</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Valgt %1$d melding</item>
-        <item quantity="other">Valgte %1$d meldinger</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Valgt %1$d samtale</item>
+        <item quantity="other">Valgte %1$d samtaler</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flytte %1$d melding til %2$s?</item>
@@ -174,6 +174,7 @@
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Oppførsel</string>
     <string name="title_advanced_section_notifications">Varslinger</string>
+    <string name="title_advanced_section_privacy">Personvern</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_enabled">Aktivert</string>
     <string name="title_advanced_when">Når</string>
@@ -243,7 +244,6 @@
     <string name="title_advanced_autounstar">Fjern stjernen automatisk fra meldinger som blir flyttet</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
     <string name="title_advanced_discard_delete">Ved å kaste utkast permanent slett utkast</string>
-    <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_summary">Vis bare sammendragsvarsel</string>
@@ -261,6 +261,8 @@
     <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
     <string name="title_advanced_light">Bruk meldingslys</string>
     <string name="title_advanced_sound">Velg varslingslyd</string>
+    <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
+    <string name="title_advanced_recents">Skjul fra skjermen med nylige brukte apper</string>
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_notify_remove_hint">Varsler om nye meldinger vil alltid bli fjernet når de blir sveipet og når merking av meldinger er lest</string>
@@ -492,6 +494,7 @@
     <string name="title_ask_delete_rule">Slett regel permanent?</string>
     <string name="title_ask_discard">Kast utkast?</string>
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
+    <string name="title_ask_show_html_remark">Det er ikke mulig å vise den opprinnelige meldingen med mørk bakgrunn fordi den kan forårsake usynlige mørke tekster og bilder</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_image_hint">Bilder som blir gjenkjent som sporingsbilder, vises ikke</string>
     <string name="title_ask_delete_ref">Vil du slette svart/videresendt meldingstekst? Dette kan ikke angres.</string>
@@ -501,6 +504,7 @@
     <string name="title_ask_help">Hjelp til å forbedre FairEmail</string>
     <string name="title_ask_reporting">Send feilrapporter?</string>
     <string name="title_reporting_why">Feilrapportering vil bidra til å forbedre FairEmail</string>
+    <string name="title_download_message">Laster ned &#8230;</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
@@ -684,6 +688,7 @@
     <string name="title_legend_download">Last ned innhold</string>
     <string name="title_legend_external_image">Plassholder for eksternt bilde</string>
     <string name="title_legend_embedded_image">Plassholder for innebygd bilde</string>
+    <string name="title_legend_tracking_pixel">Sporingsbilde</string>
     <string name="title_legend_broken_image">Defekt bilde</string>
     <string name="title_legend_pick">Velg kontakt</string>
     <string name="title_legend_cc">Vis Kopi/Blindkopi</string>
@@ -722,8 +727,6 @@
     <string name="title_hint_message_actions">Sveip til venstre for å slette; Sveip til høyre for å arkivere (hvis tilgjengelig); Sveipe handlingene kan konfigureres i kontoinnstillingene</string>
     <string name="title_hint_message_selection">Trykk lenge på en melding for å begynne å velge flere meldinger; Hold og sveip opp eller ned for å velge flere meldinger</string>
     <string name="title_hint_sync">Nedlasting av meldinger kan ta litt tid, avhengig av leverandørens hastighet, internettforbindelse og enhet og antall meldinger. Mens du laster ned meldinger, kan appen reagere langsommere.</string>
-    <string name="title_hint_image_link">Bildelink</string>
-    <string name="title_hint_tracking_image">Sporer bilde %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Langt trykk for flere instillinger</string>
     <string name="title_open_link">Åpne link</string>
     <string name="title_secure_link">Gjør koblingen sikker</string>

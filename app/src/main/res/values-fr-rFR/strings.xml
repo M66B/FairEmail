@@ -49,9 +49,9 @@
         <item quantity="one">%1$d nouveau</item>
         <item quantity="other">%1$d nouveaux</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">%1$d message sélectionné</item>
-        <item quantity="other">%1$d messages sélectionnés</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d conversation sélectionnée</item>
+        <item quantity="other">%1$d conversations sélectionnées</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Déplacer %1$d message vers %2$s ?</item>
@@ -174,6 +174,7 @@
     <string name="title_advanced_section_display">Affichage</string>
     <string name="title_advanced_section_behavior">Comportement</string>
     <string name="title_advanced_section_notifications">Notifications</string>
+    <string name="title_advanced_section_privacy">Confidentialité</string>
     <string name="title_advanced_section_misc">Divers</string>
     <string name="title_advanced_enabled">Activée</string>
     <string name="title_advanced_when">Quand</string>
@@ -243,7 +244,6 @@
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile des messages lors de leur déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
-    <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
@@ -261,6 +261,8 @@
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
+    <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
+    <string name="title_advanced_recents">Masquer les applications récentes</string>
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et lors du marquage des messages comme lus</string>
@@ -492,6 +494,7 @@
     <string name="title_ask_delete_rule">Supprimer définitivement la règle ?</string>
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
+    <string name="title_ask_show_html_remark">Afficher le message original avec un fond sombre n\'est pas possible car cela peut rendre des textes et des images invisibles</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image_hint">Les images reconnues comme des images de suivi ne seront pas affichées</string>
     <string name="title_ask_delete_ref">Supprimer le texte du message répondu/transmis ? Ceci ne peut pas être annulé.</string>
@@ -501,6 +504,7 @@
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>
+    <string name="title_download_message">Téléchargement de &#8230;</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
@@ -684,6 +688,7 @@
     <string name="title_legend_download">Télécharger le contenu</string>
     <string name="title_legend_external_image">Espace réservé pour une image externe</string>
     <string name="title_legend_embedded_image">Espace réservé pour une image intégrée</string>
+    <string name="title_legend_tracking_pixel">Image de suivi</string>
     <string name="title_legend_broken_image">Image non disponible</string>
     <string name="title_legend_pick">Sélectionner un contact</string>
     <string name="title_legend_cc">Afficher Cc/Cci</string>
@@ -722,8 +727,6 @@
     <string name="title_hint_message_actions">Balayer vers la gauche pour mettre à la corbeille ; balayer vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyer longuement sur un message pour commencer à sélectionner plusieurs messages ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner plus de messages</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur d\'accès, la connexion internet et le périphérique et selon le nombre de messages. Lors du téléchargement des messages, l\'application peut répondre plus lentement.</string>
-    <string name="title_hint_image_link">Lien de l\'image</string>
-    <string name="title_hint_tracking_image">Image de suivi %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Appui long pour les options</string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_secure_link">Sécuriser le lien</string>

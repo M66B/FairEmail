@@ -63,12 +63,6 @@
         <item quantity="many">%1$d nových</item>
         <item quantity="other">%1$d nových</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Vybrána %1$d zpráva</item>
-        <item quantity="few">Vybrány %1$d zprávy</item>
-        <item quantity="many">Vybráno %1$d zpráv</item>
-        <item quantity="other">Vybráno %1$d zpráv</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Přesunout %1$d zprávu do %2$s?</item>
         <item quantity="few">Přesunout %1$d zprávy do %2$s?</item>
@@ -265,7 +259,6 @@
     <string name="title_advanced_autounstar">Automaticky odebrat zprávám hvězdičku při přesunu</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
-    <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
     <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv souhlasí s počtem oznámení</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
@@ -283,6 +276,7 @@
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při používání biometrického ověření</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
+    <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
@@ -744,8 +738,6 @@
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (pokud je k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
-    <string name="title_hint_image_link">Odkaz obrázku</string>
-    <string name="title_hint_tracking_image">Sledovací obrázek %1$sx%2$s px</string>
     <string name="title_hint_contact_actions">Dlouze podržet pro možnosti</string>
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_secure_link">Učinit odkaz bezpečným</string>

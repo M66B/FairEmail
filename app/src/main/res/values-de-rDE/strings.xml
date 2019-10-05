@@ -49,9 +49,9 @@
         <item quantity="one">%1$d neue</item>
         <item quantity="other">%1$d neue</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">%1$d Nachricht ausgewählt</item>
-        <item quantity="other">%1$d Nachrichten ausgewählt</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d Unterhaltung ausgewählt</item>
+        <item quantity="other">%1$d Unterhaltungen ausgewählt</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Verschiebe eine E-Mail nach %2$s ?</item>
@@ -173,6 +173,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_section_display">Anzeige</string>
     <string name="title_advanced_section_behavior">Verhalten</string>
     <string name="title_advanced_section_notifications">Benachrichtigungen</string>
+    <string name="title_advanced_section_privacy">Datenschutz</string>
     <string name="title_advanced_section_misc">Verschiedenes</string>
     <string name="title_advanced_enabled">Aktiviert</string>
     <string name="title_advanced_when">Wann</string>
@@ -242,7 +243,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autounstar">Sterne automatisch von Nachrichten entfernen, wenn sie verschoben werden</string>
     <string name="title_advanced_automove">Verschieben von Nachrichten bestätigen</string>
     <string name="title_advanced_discard_delete">Nach Verwerfen eines Mail-Entwurfes diesen Entwurf dauerhaft löschen</string>
-    <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_unseen_ignored">Lässt die Anzahl der neuen Nachrichten (im Widget) mit der Anzahl der Mails in den Benachrichtigungen übereinstimmen</string>
     <string name="title_advanced_notify_summary">Nur Benachrichtigungs-Zusammenfassung anzeigen</string>
@@ -260,6 +260,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
+    <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
+    <string name="title_advanced_recents">Von Bildschirm mit den zuletzt genutzten Apps ausblenden</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_remove_hint">Neue Nachrichten-Benachrichtigungen werden immer entfernt, wenn sie weggewischt werden oder Nachrichten gelesen werden</string>
@@ -491,6 +493,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_delete_rule">Regel unwiderruflich löschen?</string>
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
+    <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image_hint">Bilder, die als Tracking-Bilder erkannt werden, werden nicht angezeigt</string>
     <string name="title_ask_delete_ref">Den Text der beantworteten/weitergeleiteten Nachricht löschen? Dies kann nicht rückgängig gemacht werden.</string>
@@ -500,6 +503,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
+    <string name="title_download_message">Lädt herunter &#8230;</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
@@ -683,6 +687,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_legend_download">Inhalt herunterladen</string>
     <string name="title_legend_external_image">Platzhalter für externe Bilder</string>
     <string name="title_legend_embedded_image">Platzhalter für eingebettete Bilder</string>
+    <string name="title_legend_tracking_pixel">Tracking-Bild</string>
     <string name="title_legend_broken_image">Defekte Bilddatei</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
     <string name="title_legend_cc">CC/BCC anzeigen</string>
@@ -721,8 +726,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_hint_message_actions">Standard: Wische links zum Papierkorb; Wische rechts zum Archiv (falls verfügbar); Diese Wischgesten können aber in den Kontoeinstellungen auch individuell anders konfiguriert werden</string>
     <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
-    <string name="title_hint_image_link">Bildlink</string>
-    <string name="title_hint_tracking_image">Tracking-Bild %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_open_link">Link öffnen</string>
     <string name="title_secure_link">Link sicher gestalten</string>

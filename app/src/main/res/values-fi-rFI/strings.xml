@@ -49,9 +49,9 @@
         <item quantity="one">%1$d uusi</item>
         <item quantity="other">%1$d uutta</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Valittuna %1$d viesti</item>
-        <item quantity="other">Valittuna %1$d viestiä</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Valittuna %1$d keskustelu</item>
+        <item quantity="other">Valittuna %1$d keskustelua</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Siirrä %1$d viesti kansioon %2$s?</item>
@@ -174,6 +174,7 @@
     <string name="title_advanced_section_display">Ulkoasu</string>
     <string name="title_advanced_section_behavior">Toiminnot</string>
     <string name="title_advanced_section_notifications">Ilmoitukset</string>
+    <string name="title_advanced_section_privacy">Yksityisyys</string>
     <string name="title_advanced_section_misc">Sekalaiset</string>
     <string name="title_advanced_enabled">Käytössä</string>
     <string name="title_advanced_when">Milloin</string>
@@ -243,7 +244,6 @@
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
     <string name="title_advanced_discard_delete">Luonnosta hylättäessä poista se pysyvästi</string>
-    <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän täsmätä ilmoitusten lukumäärän kanssa</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
@@ -261,6 +261,8 @@
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
+    <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
+    <string name="title_advanced_recents">Piilota viimeisimmistä sovelluksista</string>
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
@@ -336,6 +338,7 @@
     <string name="title_custom">Mukautettu</string>
     <string name="title_host">Verkko-osoite</string>
     <string name="title_allow_insecure">Salli salaamattomat yhteydet</string>
+    <string name="title_insecure_remark">Salaamattomat yhteydet tulisi sallia vain turvallisissa verkoissa eikä koskaan julkisissa verkoissa</string>
     <string name="title_port">Porttinumero</string>
     <string name="title_user">Käyttäjätunnus</string>
     <string name="title_password">Salasana</string>
@@ -491,6 +494,7 @@
     <string name="title_ask_delete_rule">Poistetaanko sääntö pysyvästi?</string>
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
+    <string name="title_ask_show_html_remark">Alkuperäisen viestin näyttäminen tummalla taustalla ei ole mahdollista, koska tummat tekstit ja kuvat eivät erotu</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image_hint">Seurantakuviksi tunnistettuja kuvia ei näytetä</string>
     <string name="title_ask_delete_ref">Poista vastattu/edelleenlähetetty viestiteksti? Tätä ei voi perua.</string>
@@ -500,6 +504,7 @@
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
+    <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_from">Lähettäjä:</string>
     <string name="title_to">Vastaanottaja:</string>
@@ -683,6 +688,7 @@
     <string name="title_legend_download">Lataa sisältö</string>
     <string name="title_legend_external_image">Ulkoisen kuvan paikkamerkki</string>
     <string name="title_legend_embedded_image">Upotetun kuvan paikkamerkki</string>
+    <string name="title_legend_tracking_pixel">Seurantakuva</string>
     <string name="title_legend_broken_image">Rikkoutunut kuva</string>
     <string name="title_legend_pick">Valitse yhteystieto</string>
     <string name="title_legend_cc">Näytä kopio/piilokopio</string>
@@ -721,8 +727,6 @@
     <string name="title_hint_message_actions">Pyyhkäise vasemmalle siirtääksesi roskakoriin; Pyyhkäise oikealle arkistoidaksesi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
     <string name="title_hint_message_selection">Paina viestiä pitkään aloittaaksesi useamman viestin valinnan; Paina ja vieritä ylös tai alas valitaksesi lisää viestejä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
-    <string name="title_hint_image_link">Kuvalinkki</string>
-    <string name="title_hint_tracking_image">Seurantakuva %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_open_link">Avaa linkki</string>
     <string name="title_secure_link">Tee linkistä turvallinen</string>

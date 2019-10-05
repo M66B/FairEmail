@@ -49,10 +49,6 @@
         <item quantity="one">%1$d nytt</item>
         <item quantity="other">%1$d nya</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Markerade %1$d meddelande</item>
-        <item quantity="other">Markerade %1$d meddelanden</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flytta %1$d meddelande till %2$s ?</item>
         <item quantity="other">Flytta %1$d meddelanden till %2$s ?</item>
@@ -235,7 +231,6 @@
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
-    <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
@@ -250,6 +245,7 @@
     <string name="title_advanced_biometrics_notify">Visa aviseringsinnehåll när du använder biometrisk autentisering</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
+    <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
     <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
     <string name="title_advanced_notify_manage_hint">Tryck på kanalnamnet \"meddelanden\" för att ställa in standardmeddelande ljud, o.s.v.</string>
@@ -677,8 +673,6 @@
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
-    <string name="title_hint_image_link">Bildlänk</string>
-    <string name="title_hint_tracking_image">Spårar bild %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_secure_link">Gör länken säker</string>

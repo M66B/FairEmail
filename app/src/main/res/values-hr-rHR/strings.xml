@@ -56,11 +56,6 @@
         <item quantity="few">%1$d nove</item>
         <item quantity="other">%1$d novih</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Odabrana je %1$d poruka</item>
-        <item quantity="few">Odabrane su %1$d poruke</item>
-        <item quantity="other">Odabrane su %1$d poruke</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Premjesti %1$d poruku u %2$s?</item>
         <item quantity="few">Premjesti %1$d poruke u %2$s?</item>
@@ -253,7 +248,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_autounstar">Automatsko uklanjanje zvijezda iz poruka prema pokretu</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
     <string name="title_advanced_discard_delete">Pri odbacivanju skice trajno izbrisati skicu</string>
-    <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara sa brojem obavijesti</string>
     <string name="title_advanced_notify_summary">Prikaži samo sažetku obavijesti</string>
@@ -271,6 +265,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_biometrics_notify">Prikažite sadržaj obavijesti kada koristite biometrijsku provjeru autentičnosti</string>
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
+    <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
     <string name="title_advanced_notify_remove_hint">Obavijesti o novim porukama uvijek će se uklanjati nakon što ih povučete i označite kao pročitane poruke</string>
@@ -732,8 +727,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_hint_message_actions">Prijeđite prstom ulijevo za otpad; Prstom povucite udesno za arhivu (ako dostupno); Akcije prelaska prstom možete konfigurirati u postavkama računa</string>
     <string name="title_hint_message_selection">Dugo pritisnite poruku za početak odabiranja više poruka; Držite i prelazite prstom prema gore ili dolje da biste odabrali više poruka</string>
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
-    <string name="title_hint_image_link">Link slike</string>
-    <string name="title_hint_tracking_image">Slika za praćenje %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Dugo pritisni za opcije</string>
     <string name="title_open_link">Otvori link</string>
     <string name="title_secure_link">Osiguraj vezu</string>

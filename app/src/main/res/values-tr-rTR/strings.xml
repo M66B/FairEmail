@@ -49,9 +49,9 @@
         <item quantity="one">%1$d yeni</item>
         <item quantity="other">%1$d yeni</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">%1$d ileti seçildi</item>
-        <item quantity="other">%1$d ileti seçildi</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d sohbet seçildi</item>
+        <item quantity="other">%1$d sohbet seçildi</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">%1$d iletiyi %2$s konumuna taşı?</item>
@@ -174,6 +174,7 @@
     <string name="title_advanced_section_display">Görüntüle</string>
     <string name="title_advanced_section_behavior">Davranış</string>
     <string name="title_advanced_section_notifications">Bildirimler</string>
+    <string name="title_advanced_section_privacy">Gizlilik</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
     <string name="title_advanced_enabled">Etkin</string>
     <string name="title_advanced_when">Ne zaman</string>
@@ -243,7 +244,6 @@
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
-    <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
@@ -261,6 +261,8 @@
     <string name="title_advanced_biometrics_notify">Biyometrik kimlik doğrulamayı kullanırken bildirim içeriğini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
+    <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
+    <string name="title_advanced_recents">Son uygulamalar ekranından gizle</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
@@ -492,6 +494,7 @@
     <string name="title_ask_delete_rule">Kural kalıcı olarak silinsin mi?</string>
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
+    <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
     <string name="title_ask_delete_ref">Yanıtlanan/iletilen ileti metni silinsin mi? Bu geri alınamaz.</string>
@@ -501,6 +504,7 @@
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>
     <string name="title_reporting_why">Hata raporlama FairEmail\'in geliştirilmesine yardımcı olacaktır</string>
+    <string name="title_download_message">İndiriliyor &#8230;</string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
@@ -684,6 +688,7 @@
     <string name="title_legend_download">İçeriği indir</string>
     <string name="title_legend_external_image">Harici resim vekili</string>
     <string name="title_legend_embedded_image">İliştirilmiş resim vekili</string>
+    <string name="title_legend_tracking_pixel">İzleme görseli</string>
     <string name="title_legend_broken_image">Bozuk görüntü</string>
     <string name="title_legend_pick">Kişi seçip al</string>
     <string name="title_legend_cc">CC/BCC\'yi göster</string>
@@ -722,8 +727,6 @@
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
-    <string name="title_hint_image_link">Görsel bağlantısı</string>
-    <string name="title_hint_tracking_image">İzlenen görsel %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Seçenekler için uzun basın</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_secure_link">Bağlantıyı güvenli hale getir</string>

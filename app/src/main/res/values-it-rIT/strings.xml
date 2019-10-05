@@ -49,9 +49,9 @@
         <item quantity="one">%1$d nuovo</item>
         <item quantity="other">%1$d nuovi</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Selezionato il messaggio %1$d</item>
-        <item quantity="other">Selezionati i messaggi %1$d</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d conversazione selezionata</item>
+        <item quantity="other">%1$d conversazioni selezionate</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Spostare %1$d messaggio in %2$s ?</item>
@@ -242,7 +242,6 @@
     <string name="title_advanced_autounstar">Rimuovi automaticamente la stella dai messaggi sullo spostamento dei messaggi</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_discard_delete">In caso la bozza venga scartata, eliminala definitivamente</string>
-    <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
@@ -260,6 +259,7 @@
     <string name="title_advanced_biometrics_notify">Mostra il contenuto delle notifiche quando si utilizza l\'autenticazione biometrica</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
+    <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_notify_action_hint">Verranno mostrate al massimo tre azioni</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche di nuovo messaggio verranno sempre rimosse quando vengono eliminate via scorrimento e quando i messaggi vengono contrassegnati come letti</string>
@@ -291,6 +291,7 @@
     <string name="title_advanced_rlah_hint">Presumi nessun roaming all\'interno dell\'UE</string>
     <string name="title_advanced_roaming_hint">Le intestazioni dei messaggi saranno sempre recuperate quando in roaming. Puoi utilizzare le impostazioni di roaming del dispositivo per disabilitare internet durante il roaming.</string>
     <string name="title_advanced_browse_hint">Scarica più messaggi quando scorri verso il basso</string>
+    <string name="title_advanced_layout_hint">Puoi passare ad un layout più compatto e modificare la dimensione del testo del messaggio nel menu della barra di azione in alto nella vista dei messaggi</string>
     <string name="title_advanced_date_hint">I messaggi sono raggruppati per data solo se sono ordinati cronologicamente</string>
     <string name="title_advanced_threading_hint">Messaggi di gruppo relazionati a vicenda</string>
     <string name="title_advanced_name_email_hint">Quando disabilitati saranno mostrati solo i nomi quando disponibili</string>
@@ -402,6 +403,7 @@
     <string name="title_sync_days">Sincronizza i messaggi (giorni)</string>
     <string name="title_sync_days_remark">Aumentando questo valore aumenterà l\'utilizzo della batteria e dei dati</string>
     <string name="title_keep_days">Mantieni i messaggi (giorni)</string>
+    <string name="title_keep_days_remark">I messaggi vecchi verranno rimossi dal dispositivo, ma rimarranno sul server</string>
     <string name="title_keep_all">Conserva tutti i messaggi</string>
     <string name="title_auto_trash">Sposta automaticamente i vecchi messaggi nel cestino</string>
     <string name="title_auto_delete">Elimina automaticamente i vecchi messaggi</string>
@@ -489,6 +491,7 @@
     <string name="title_ask_delete_rule">Eliminare la regola permanentemente?</string>
     <string name="title_ask_discard">Eliminare la bozza?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
+    <string name="title_ask_show_html_remark">Non è possibile visualizzare il messaggio originale con uno sfondo scuro perché potrebbe nascondere testi e immagini</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come immagini di tracciamento non verranno mostrate</string>
     <string name="title_ask_delete_ref">Elimina testo del messaggio risposto/inoltrato? Questo non può essere annullato.</string>
@@ -498,6 +501,7 @@
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
     <string name="title_ask_reporting">Inviare rapporti di errore?</string>
     <string name="title_reporting_why">Il report di errore aiuterà a migliorare FairEmail</string>
+    <string name="title_download_message">Download &#8230;</string>
     <string name="title_compose">Scrivi</string>
     <string name="title_from">Da:</string>
     <string name="title_to">A:</string>
@@ -587,6 +591,7 @@
     <string name="title_answer_text">Testo del modello</string>
     <string name="title_answer_template_name">$name$ verrà sostituito con il nome completo del mittente</string>
     <string name="title_answer_template_email">$email$ verrà sostituito con l\'indirizzo email del mittente</string>
+    <string name="title_rule_noop">Nessuna azione</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>
     <string name="title_rule_ignore">Sopprimi notifica</string>
@@ -680,6 +685,7 @@
     <string name="title_legend_download">Scarica il contenuto</string>
     <string name="title_legend_external_image">Segnaposto immagine esterna</string>
     <string name="title_legend_embedded_image">Segnaposto immagine incorporata</string>
+    <string name="title_legend_tracking_pixel">Immagine di monitoraggio</string>
     <string name="title_legend_broken_image">Immagine spezzata</string>
     <string name="title_legend_pick">Scegli contatto</string>
     <string name="title_legend_cc">Mostra CC/CCN</string>
@@ -718,8 +724,6 @@
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento possono essere configurate nelle impostazioni dell\'account</string>
     <string name="title_hint_message_selection">Premi a lungo su di un messaggio per iniziare a selezionare più messaggi; Tieni premuto e scorri verso l\'alto o verso il basso per selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
-    <string name="title_hint_image_link">Link Immagine</string>
-    <string name="title_hint_tracking_image">Immagine di tracciamento %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_secure_link">Rendi il link sicuro</string>

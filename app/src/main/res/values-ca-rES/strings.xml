@@ -49,10 +49,6 @@
         <item quantity="one">%1$d nou</item>
         <item quantity="other">%1$d noves</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Seleccionat el missatge %1$d</item>
-        <item quantity="other">Seleccionats els missatges %1$d</item>
-    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Moure el missatge %1$d a %2$s?</item>
         <item quantity="other">Moure els missatges %1$d a %2$s?</item>
@@ -243,7 +239,6 @@
     <string name="title_advanced_autounstar">Elimina automàticament les estrelles dels missatges quan es moguin els missatges</string>
     <string name="title_advanced_automove">Confirma moure missatges</string>
     <string name="title_advanced_discard_delete">En descartar l\'esborrany, suprimeix el projecte permanent</string>
-    <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_badge">Mostra la icona del llançador amb nombre de missatges nous</string>
     <string name="title_advanced_unseen_ignored">Permet que el nombre de missatges nous coincideixi amb el nombre de notificacions</string>
     <string name="title_advanced_notify_summary">Mostrar només notificació de resum</string>
@@ -261,6 +256,7 @@
     <string name="title_advanced_biometrics_notify">Mostra el contingut de notificacions quan utilitzeu l\'autenticació biomètrica</string>
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
     <string name="title_advanced_sound">Selecciona so de notificació</string>
+    <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_badge_hint">Només disponible en llançadors compatibles</string>
     <string name="title_advanced_notify_action_hint">Com a màxim es mostraran tres accions</string>
     <string name="title_advanced_notify_remove_hint">Les notificacions de nous missatges sempre s\'esborraran quan es llisquin cap als costats o al marcar els missatges com a llegits</string>
@@ -722,8 +718,6 @@
     <string name="title_hint_message_actions">Feu lliscar el dit cap a l’esquerra a la paperera; Feu lliscar el dit cap a la dreta a l’arxiu (si està disponible); Les accions de desplaçament es poden configurar a la configuració del compte</string>
     <string name="title_hint_message_selection">Premeu llargament un missatge per començar a seleccionar diversos missatges; Manteniu premuda i lliscada cap amunt o cap avall per seleccionar més missatges</string>
     <string name="title_hint_sync">La descàrrega dels missatges pot trigar un temps, depenent de la velocitat del proveïdor, de la connexió a Internet i del dispositiu i del nombre de missatges. Mentre descarregueu missatges, l\'aplicació pot respondre més lent.</string>
-    <string name="title_hint_image_link">Enllaç a la imatge</string>
-    <string name="title_hint_tracking_image">Imatge de seguiment %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Pulsació llarga per opcions</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
     <string name="title_secure_link">Assegurar la connexió</string>

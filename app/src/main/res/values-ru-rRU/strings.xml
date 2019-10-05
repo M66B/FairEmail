@@ -63,11 +63,11 @@
         <item quantity="many">%1$d новых</item>
         <item quantity="other">%1$d новых</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Выбрано %1$d сообщение</item>
-        <item quantity="few">Выбрано %1$d сообщения</item>
-        <item quantity="many">Выбрано %1$d сообщений</item>
-        <item quantity="other">Выбрано %1$d сообщений</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Выбран %1$d диалог</item>
+        <item quantity="few">Выбрано %1$d диалога</item>
+        <item quantity="many">Выбрано %1$d диалогов</item>
+        <item quantity="other">Выбрано %1$d диалогов</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Переместить %1$d сообщение в %2$s?</item>
@@ -196,6 +196,7 @@
     <string name="title_advanced_section_display">Отображение</string>
     <string name="title_advanced_section_behavior">Режимы</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
+    <string name="title_advanced_section_privacy">Конфиденциальность</string>
     <string name="title_advanced_section_misc">Разное</string>
     <string name="title_advanced_enabled">Включено</string>
     <string name="title_advanced_when">Когда</string>
@@ -265,7 +266,6 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
-    <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
@@ -283,6 +283,8 @@
     <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
+    <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
+    <string name="title_advanced_recents">Не показывать в недавних приложениях</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
@@ -514,6 +516,7 @@
     <string name="title_ask_delete_rule">Удалить правило навсегда?</string>
     <string name="title_ask_discard">Удалить черновик?</string>
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
+    <string name="title_ask_show_html_remark">Отображение исходного сообщения с тёмным фоном невозможно, потому что это может привести к сокрытию тёмного текста и изображений</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
     <string name="title_ask_delete_ref">Удалить цитируемый в ответе/пересылаемый текст сообщения? Это действие не может быть отменено.</string>
@@ -523,6 +526,7 @@
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>
     <string name="title_reporting_why">Отчёты об ошибках помогут улучшить FairEmail</string>
+    <string name="title_download_message">Загрузка&#8230;</string>
     <string name="title_compose">Создать</string>
     <string name="title_from">От:</string>
     <string name="title_to">Кому:</string>
@@ -706,6 +710,7 @@
     <string name="title_legend_download">Загрузить содержимое</string>
     <string name="title_legend_external_image">Внешнее изображение</string>
     <string name="title_legend_embedded_image">Встроенное изображение</string>
+    <string name="title_legend_tracking_pixel">Отслеживающее изображение</string>
     <string name="title_legend_broken_image">Повреждённое изображение</string>
     <string name="title_legend_pick">Выбрать контакт</string>
     <string name="title_legend_cc">Показать копию/скрытую копию</string>
@@ -744,8 +749,6 @@
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
-    <string name="title_hint_image_link">Ссылка на изображение</string>
-    <string name="title_hint_tracking_image">Отслеживающее изображение %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Длительное нажатие для других параметров</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_secure_link">Сделать ссылку безопасной</string>

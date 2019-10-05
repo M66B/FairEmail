@@ -49,9 +49,9 @@
         <item quantity="one">Eén nieuw</item>
         <item quantity="other">%1$d nieuw</item>
     </plurals>
-    <plurals name="title_selected_messages">
-        <item quantity="one">Eén bericht geselecteerd</item>
-        <item quantity="other">%1$d berichten geselecteerd</item>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d gesprek geselecteerd</item>
+        <item quantity="other">%1$d gesprekken geselecteerd</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Eén bericht verplaatsen naar %2$s ?</item>
@@ -174,6 +174,7 @@
     <string name="title_advanced_section_display">Weergave</string>
     <string name="title_advanced_section_behavior">Gedrag</string>
     <string name="title_advanced_section_notifications">Meldingen</string>
+    <string name="title_advanced_section_privacy">Privacy</string>
     <string name="title_advanced_section_misc">Diversen</string>
     <string name="title_advanced_enabled">Ingeschakeld</string>
     <string name="title_advanced_when">Wanneer</string>
@@ -243,7 +244,6 @@
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept permanent verwijderen</string>
-    <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
@@ -261,6 +261,8 @@
     <string name="title_advanced_biometrics_notify">Toon notificatie inhoud bij het gebruik van biometrische verificatie</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
+    <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
+    <string name="title_advanced_recents">Verbergen voor scherm met recente apps</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
@@ -492,6 +494,7 @@
     <string name="title_ask_delete_rule">Verwijder regel permanent?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
+    <string name="title_ask_show_html_remark">Het weergeven van het oorspronkelijke bericht met een donkere achtergrond is niet mogelijk omdat het onzichtbare donkere teksten en afbeeldingen kan veroorzaken</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image_hint">Afbeeldingen die als tracking-afbeeldingen zijn herkend, worden niet getoond</string>
     <string name="title_ask_delete_ref">Verwijder beantwoorde/doorgestuurde berichttekst? Dit kan niet ongedaan worden gemaakt.</string>
@@ -501,6 +504,7 @@
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
     <string name="title_reporting_why">Foutrapportage helpt om FairEmail te verbeteren</string>
+    <string name="title_download_message">Downloaden &#8230;</string>
     <string name="title_compose">Opstellen</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>
@@ -684,6 +688,7 @@
     <string name="title_legend_download">Inhoud downloaden</string>
     <string name="title_legend_external_image">Plaatshouder externe afbeelding</string>
     <string name="title_legend_embedded_image">Plaatshouder ingesloten afbeelding</string>
+    <string name="title_legend_tracking_pixel">Tracking-afbeelding</string>
     <string name="title_legend_broken_image">Defecte afbeelding</string>
     <string name="title_legend_pick">Kies contact</string>
     <string name="title_legend_cc">Toon CC/BCC</string>
@@ -722,8 +727,6 @@
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Hou vast en veeg omhoog of omlaag om meer berichten te selecteren</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
-    <string name="title_hint_image_link">Afbeeldingskoppeling</string>
-    <string name="title_hint_tracking_image">Tracking-afbeelding %1$sx%2$s</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_open_link">Koppeling openen</string>
     <string name="title_secure_link">Maak koppeling veilig</string>
