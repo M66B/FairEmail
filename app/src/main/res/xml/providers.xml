@@ -2,7 +2,7 @@
 <providers>
     <provider
         name="Gmail"
-        domain="gmail.com"
+        domain="gmail\\.com"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq6"
         order="1"
         type="com.google">
@@ -17,6 +17,7 @@
     </provider>
     <provider
         name="Outlook/Office365"
+        domain="outlook.*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="2">
         <imap
@@ -56,7 +57,7 @@
     </provider>
     <provider
         name="Posteo.de"
-        domain="posteo.net"
+        domain="posteo\\.net"
         link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp">
         <imap
             host="posteo.de"
@@ -178,8 +179,8 @@
     <provider
         name="web.de"
         keepalive="9"
-        user="local"
-        link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html">
+        link="https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html"
+        user="local">
         <imap
             host="imap.web.de"
             port="993"
@@ -311,7 +312,7 @@
     </provider>
     <provider
         name="KPN mail"
-        domain="kpnmail.nl,kpnplanet.nl,planet.nl,wxs.nl,hetnet.nl,freeler.nl,snelnet.net,on.nl,onsbrabantnet.nl,onsmail.nl,onsnet.nu,onsneteindhoven.nl,onsnetnuenen.nl"
+        domain="kpnmail\\.nl,kpnplanet\\.nl,planet\\.nl,wxs\\.nl,hetnet\\.nl,freeler\\.nl,snelnet\\.net,on\\.nl,onsbrabantnet\\.nl,onsmail\\.nl,onsnet\\.nu,onsneteindhoven\\.nl,onsnetnuenen\\.nl"
         link="https://www.kpn.com/service/internet/e-mail/instellen-laptop-pc.htm">
         <imap
             host="imap.kpnmail.nl"
@@ -324,7 +325,7 @@
     </provider>
     <provider
         name="/e/"
-        domain="e.email"
+        domain="e\\.email"
         link="https://e.foundation/email-configuration/">
         <imap
             host="mail.ecloud.global"

@@ -160,10 +160,12 @@ public class EmailProvider {
     static EmailProvider fromDomain(Context context, String domain, Discover discover) throws IOException {
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
-            if (provider.domain != null && provider.domain.contains(domain.toLowerCase(Locale.ROOT))) {
-                Log.i("Provider from domain=" + domain);
-                return provider;
-            }
+            if (provider.domain != null)
+                for (String d : provider.domain)
+                    if (domain.toLowerCase(Locale.ROOT).matches(d)) {
+                        Log.i("Provider from domain=" + domain + " (" + d + ")");
+                        return provider;
+                    }
 
         EmailProvider autoconfig = _fromDomain(context, domain.toLowerCase(Locale.ROOT), discover);
 
