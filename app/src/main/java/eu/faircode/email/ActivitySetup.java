@@ -1017,7 +1017,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 jchannel.getString("name"),
                 jchannel.getInt("importance"));
 
-        channel.setGroup(jchannel.getString("group"));
+        String group = jchannel.optString("group");
+        if (!TextUtils.isEmpty(group))
+            channel.setGroup(group);
 
         if (jchannel.has("description") && !jchannel.isNull("description"))
             channel.setDescription(jchannel.getString("description"));
