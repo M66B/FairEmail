@@ -2266,6 +2266,8 @@ so you cannot use FairEmail to access Tutanota.
 <a name="faq130"></a>
 **(130) What does message error ... mean?**
 
+A series of lines with orangish or red texts with technical information means that debug mode was enabled in the miscellaneous settings.
+
 The warning *No server found at ...* means that there was no email server registered at the indicated domain name.
 Replying to the message might not be possible and might result in an error.
 This could indicate a falsified email address and/or spam.
