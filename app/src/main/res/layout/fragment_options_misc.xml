@@ -153,6 +153,18 @@
             app:layout_constraintTop_toBottomOf="@id/swDebug" />
 
         <Button
+            android:id="@+id/btnReset"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_setup_reset_questions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+
+        <Button
             android:id="@+id/btnCleanup"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -162,7 +174,7 @@
             android:minHeight="0dp"
             android:text="@string/title_advanced_cleanup"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDebugHint" />
+            app:layout_constraintTop_toBottomOf="@id/btnReset" />
 
         <TextView
             android:id="@+id/tvCleanupHint"

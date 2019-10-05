@@ -2356,7 +2356,7 @@ In the three-dots overflow menu at the top right there is an item to delete the 
 <a name="faq137"></a>
 **(137) How can I reset 'Don't ask again'?**
 
-You can reset all questions set to not to be asked again in the three-dots overflow menu of the miscellaneous settings.
+You can reset all questions set to be not asked again in the miscellaneous settings.
 
 <br />
 

@@ -56,6 +56,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvExperimentsHint;
     private SwitchCompat swCrashReports;
     private SwitchCompat swDebug;
+    private Button btnReset;
     private Button btnCleanup;
 
     private TextView tvProcessors;
@@ -94,6 +95,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvExperimentsHint = view.findViewById(R.id.tvExperimentsHint);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         swDebug = view.findViewById(R.id.swDebug);
+        btnReset = view.findViewById(R.id.btnReset);
         btnCleanup = view.findViewById(R.id.btnCleanup);
 
         tvProcessors = view.findViewById(R.id.tvProcessors);
@@ -191,6 +193,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onResetQuestions();
+            }
+        });
+
         btnCleanup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -222,7 +231,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_options_misc, menu);
+        inflater.inflate(R.menu.menu_options, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -231,9 +240,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         switch (item.getItemId()) {
             case R.id.menu_default:
                 onMenuDefault();
-                return true;
-            case R.id.menu_reset_questions:
-                onMenuResetQuestions();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -249,7 +255,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ToastEx.makeText(getContext(), R.string.title_setup_done, Toast.LENGTH_LONG).show();
     }
 
-    private void onMenuResetQuestions() {
+    private void onResetQuestions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor editor = prefs.edit();
         for (String option : RESET_QUESTIONS)
