@@ -345,6 +345,7 @@ public class HtmlHelper {
             if (!show_images) {
                 String alt = img.attr("alt");
                 if (!TextUtils.isEmpty(alt)) {
+                    img.append("&nbsp;");
                     img.appendText(alt);
                 }
             }
@@ -477,6 +478,7 @@ public class HtmlHelper {
     static void removeTrackingPixels(Context context, Document document) {
         Drawable d = ContextCompat.getDrawable(context, R.drawable.baseline_my_location_24);
         d.setTint(Helper.resolveColor(context, R.attr.colorWarning));
+
         Bitmap bm = Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(bm);
         d.setBounds(0, 0, c.getWidth(), c.getHeight());
@@ -486,12 +488,8 @@ public class HtmlHelper {
         bm.compress(Bitmap.CompressFormat.PNG, 100, bos);
 
         StringBuilder sb = new StringBuilder();
-        sb.append("data:");
-        sb.append("image/png");
-        sb.append(";base64,");
+        sb.append("data:image/png;base64,");
         sb.append(Base64.encodeToString(bos.toByteArray(), Base64.DEFAULT));
-
-        boolean dark = Helper.isDarkTheme(context);
 
         // Build list of allowed hosts
         List<String> hosts = new ArrayList<>();
