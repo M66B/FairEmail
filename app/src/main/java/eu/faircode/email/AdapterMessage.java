@@ -326,6 +326,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View wvBody;
         private ContentLoadingProgressBar pbBody;
         private TextView tvNoInternetBody;
+        private ImageButton ibDownloading;
+        private Group grpDownloading;
 
         private TextView tvCalendarSummary;
         private TextView tvCalendarStart;
@@ -482,6 +484,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             wvBody = vsBody.findViewById(R.id.wvBody);
             pbBody = vsBody.findViewById(R.id.pbBody);
             tvNoInternetBody = vsBody.findViewById(R.id.tvNoInternetBody);
+            ibDownloading = vsBody.findViewById(R.id.ibDownloading);
+            grpDownloading = vsBody.findViewById(R.id.grpDownloading);
 
             rvImage = vsBody.findViewById(R.id.rvImage);
             rvImage.setHasFixedSize(false);
@@ -549,6 +553,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibUnsubscribe.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
 
+                ibDownloading.setOnClickListener(this);
+
                 tvBody.setOnTouchListener(this);
                 tvBody.addOnLayoutChangeListener(this);
 
@@ -601,6 +607,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibImages.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
+
+                ibDownloading.setOnClickListener(null);
 
                 tvBody.setOnTouchListener(null);
                 tvBody.removeOnLayoutChangeListener(this);
@@ -960,6 +968,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             wvBody.setVisibility(View.GONE);
             pbBody.setVisibility(View.GONE);
             tvNoInternetBody.setVisibility(View.GONE);
+            grpDownloading.setVisibility(View.GONE);
         }
 
         private void bindFlagged(TupleMessageEx message, boolean expanded) {
@@ -1229,6 +1238,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindBody(TupleMessageEx message) {
             tvBody.setText(null);
+            grpDownloading.setVisibility(message.content ? View.GONE : View.VISIBLE);
 
             if (!message.content)
                 return;
@@ -1980,6 +1990,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         break;
                     case R.id.ibDecrypt:
                         onActionDecrypt(message);
+                        break;
+
+                    case R.id.ibDownloading:
+                        Helper.viewFAQ(context, 15);
                         break;
 
                     case R.id.btnCalendarAccept:
