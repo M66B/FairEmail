@@ -4340,13 +4340,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "message:move");
     }
 
-    private WebView printWebView = null;
-
     private void onPrint(Bundle args) {
         Bundle pargs = new Bundle();
         pargs.putLong("id", args.getLong("id"));
 
         new SimpleTask<String[]>() {
+            private WebView printWebView = null;
+
             @Override
             protected String[] onExecute(Context context, Bundle args) throws IOException {
                 long id = args.getLong("id");
@@ -4444,11 +4444,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     @Override
                     public void onPageFinished(WebView view, String url) {
                         try {
+                            if (printWebView == null)
+                                return;
+
                             ActivityBase activity = (ActivityBase) getActivity();
+                            if (activity == null)
+                                return;
+
                             PrintManager printManager = (PrintManager) activity.getOriginalContext().getSystemService(Context.PRINT_SERVICE);
                             String jobName = getString(R.string.app_name);
                             if (!TextUtils.isEmpty(data[0]))
                                 jobName += " - " + data[0];
+
                             PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
                             printManager.print(jobName, adapter, new PrintAttributes.Builder().build());
                         } catch (Throwable ex) {
