@@ -2542,7 +2542,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             });
 
-            if (!full) {
+            if (full) {
+                TextView tvDark = dview.findViewById(R.id.tvDark);
+                tvDark.setVisibility(Helper.isDarkTheme(context) ? View.VISIBLE : View.GONE);
+            } else {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 

@@ -207,6 +207,7 @@
     <string name="title_advanced_section_display">Display</string>
     <string name="title_advanced_section_behavior">Behavior</string>
     <string name="title_advanced_section_notifications">Notifications</string>
+    <string name="title_advanced_section_privacy">Privacy</string>
     <string name="title_advanced_section_misc">Miscellaneous</string>
 
     <string name="title_advanced_enabled">Enabled</string>
@@ -281,7 +282,6 @@
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
-    <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
 
     <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
     <string name="title_advanced_unseen_ignored">Let the number of new messages match the number of notifications</string>
@@ -301,6 +301,9 @@
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
     <string name="title_advanced_alert_once" translatable="false">MIUI notification sound workaround</string>
+
+    <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
+    <string name="title_advanced_recents">Hide from screen with recent apps</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
@@ -562,6 +565,7 @@
     <string name="title_ask_delete_rule">Delete rule permanently?</string>
     <string name="title_ask_discard">Discard draft?</string>
     <string name="title_ask_show_html">Showing the original message can leak privacy sensitive information</string>
+    <string name="title_ask_show_html_remark">Displaying the original message with a dark background is not possible because it can cause invisible dark texts and images</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_ask_show_image_hint">Images recognized as tracking images will not be shown</string>
     <string name="title_ask_delete_ref">Delete replied/forwarded message text? This cannot be undone.</string>
@@ -571,6 +575,7 @@
     <string name="title_ask_help">Help improve FairEmail</string>
     <string name="title_ask_reporting">Send error reports?</string>
     <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
+    <string name="title_download_message">Downloading &#8230;</string>
 
     <string name="title_compose">Compose</string>
     <string name="title_from">From:</string>
@@ -774,7 +779,7 @@
     <string name="title_legend_download">Download content</string>
     <string name="title_legend_external_image">External image placeholder</string>
     <string name="title_legend_embedded_image">Embedded image placeholder</string>
-    <string name="title_legend_tracking_pixel">Tracking pixel</string>
+    <string name="title_legend_tracking_pixel">Tracking image</string>
     <string name="title_legend_broken_image">Broken image</string>
 
     <string name="title_legend_pick">Pick contact</string>
