@@ -250,6 +250,9 @@ public class EntityOperation {
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);
 
+            else if (ATTACHMENT.equals(name))
+                db.attachment().setProgress(jargs.getLong(0), null);
+
         } catch (JSONException ex) {
             Log.e(ex);
         }

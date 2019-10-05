@@ -267,7 +267,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         if (message == null || message.uid == null)
                             return null;
 
-                        db.attachment().setProgress(id, 0);
+                        EntityAttachment attachment = db.attachment().getAttachment(id);
+                        if (attachment == null || attachment.progress != null || attachment.available)
+                            return null;
 
                         EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, id);
 

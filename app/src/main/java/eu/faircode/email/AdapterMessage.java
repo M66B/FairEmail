@@ -2458,19 +2458,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
-                    long id = args.getLong("id");
+                    long mid = args.getLong("id");
 
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
-                        EntityMessage msg = db.message().getMessage(id);
-                        if (msg != null)
-                            for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
-                                if (attachment.progress == null && !attachment.available) {
-                                    db.attachment().setProgress(attachment.id, 0);
-                                    EntityOperation.queue(context, msg, EntityOperation.ATTACHMENT, attachment.id);
-                                }
+                        EntityMessage message = db.message().getMessage(mid);
+                        if (message == null || message.uid == null)
+                            return null;
+
+                        for (EntityAttachment attachment : db.attachment().getAttachments(message.id))
+                            if (attachment.progress == null && !attachment.available)
+                                EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -2621,7 +2621,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                         for (EntityAttachment attachment : attachments)
-                            if (!attachment.available && attachment.isInline() && attachment.isImage())
+                            if (attachment.isInline() && attachment.isImage() &&
+                                    attachment.progress == null && !attachment.available)
                                 EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
 
                         db.setTransactionSuccessful();
@@ -3724,12 +3725,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("thread changed id=" + next.id);
                     }
-                    // receipt_request
+                    if (!Objects.equals(prev.priority, next.priority)) {
+                        same = false;
+                        Log.i("priority changed id=" + next.id);
+                    }
+                    if (!Objects.equals(prev.receipt_request, next.receipt_request)) {
+                        same = false;
+                        Log.i("receipt_request changed id=" + next.id);
+                    }
                     if (!MessageHelper.equal(prev.receipt_to, next.receipt_to)) {
                         same = false;
                         Log.i("receipt_to changed id=" + next.id);
                     }
-
                     if (!Objects.equals(prev.dkim, next.dkim)) {
                         same = false;
                         Log.i("dkim changed id=" + next.id);
@@ -3806,7 +3813,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("content changed id=" + next.id);
                     }
-                    // plain_only
+                    if (!Objects.equals(prev.plain_only, next.plain_only)) {
+                        same = false;
+                        Log.i("plain_only changed id=" + next.id);
+                    }
                     if (!Objects.equals(prev.preview, next.preview)) {
                         same = false;
                         Log.i("preview changed id=" + next.id);
@@ -3835,6 +3845,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("keywords changed id=" + next.id);
                     }
+                    // notifying
                     if (!prev.ui_seen.equals(next.ui_seen)) {
                         same = false;
                         Log.i("ui_seen changed id=" + next.id);
@@ -3880,6 +3891,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                     // last_attempt
 
+                    // accountPop
                     if (!Objects.equals(prev.accountName, next.accountName)) {
                         same = false;
                         Log.i("accountName changed id=" + next.id);
@@ -3889,6 +3901,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Log.i("accountColor changed id=" + next.id);
                     }
                     // accountNotify
+                    // accountAutoSeen
                     if (!prev.folderName.equals(next.folderName)) {
                         same = false;
                         Log.i("folderName changed id=" + next.id);
@@ -3901,6 +3914,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("folderType changed id=" + next.id);
                     }
+                    // folderReadOnly
                     if (!Objects.equals(prev.identityName, next.identityName)) {
                         same = false;
                         Log.i("identityName changed id=" + next.id);
@@ -3913,6 +3927,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("identitySynchronize changed id=" + next.id);
                     }
+                    // senders
                     if (prev.count != next.count) {
                         same = false;
                         Log.i("count changed id=" + next.id);
@@ -3924,10 +3939,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (prev.unflagged != next.unflagged) {
                         same = false;
                         Log.i("unflagged changed id=" + next.id);
-                    }
-                    if (prev.attachments != next.attachments) {
-                        same = false;
-                        Log.i("attachments changed id=" + next.id);
                     }
                     if (prev.drafts != next.drafts) {
                         same = false;
