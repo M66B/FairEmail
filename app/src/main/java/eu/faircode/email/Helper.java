@@ -742,9 +742,11 @@ public class Helper {
         }
     }
 
-    static boolean hasAuthentication(Context context) {
+    static boolean noHistory(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("biometrics", false);
+        boolean biometrics = prefs.getBoolean("biometrics", false);
+        boolean no_history = prefs.getBoolean("no_history", false);
+        return (biometrics || no_history);
     }
 
     static boolean shouldAuthenticate(Context context) {

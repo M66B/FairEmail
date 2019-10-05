@@ -54,11 +54,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swAutoMove;
     private SwitchCompat swDiscardDelete;
-    private SwitchCompat swDisableTracking;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "pull", "autoscroll", "doubletap", "swipenav", "reversed", "autoexpand", "expand_one", "autoclose", "onclose",
-            "collapse", "autoread", "autounflag", "automove", "discard_delete", "disable_tracking"
+            "collapse", "autoread", "autounflag", "automove", "discard_delete"
     };
 
     @Override
@@ -85,7 +84,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoMove = view.findViewById(R.id.swAutoMove);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
-        swDisableTracking = view.findViewById(R.id.swDisableTracking);
 
         setOptions();
 
@@ -202,13 +200,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swDisableTracking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("disable_tracking", checked).apply();
-            }
-        });
-
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -279,6 +270,5 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
-        swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
     }
 }

@@ -205,7 +205,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void startActivity(Intent intent) {
         try {
-            if (Helper.hasAuthentication(this))
+            if (Helper.noHistory(this))
                 intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
@@ -217,7 +217,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         try {
-            if (Helper.hasAuthentication(this))
+            if (Helper.noHistory(this))
                 intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {

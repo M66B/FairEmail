@@ -1695,7 +1695,7 @@ FairEmail will in most cases automatically recognize tracking images and replace
 
 ![External image](https://raw.githubusercontent.com/google/material-design-icons/master/maps/1x_web/ic_my_location_black_48dp.png)
 
-Automatic recognition of tracking images can be disabled in the behavior settings.
+Automatic recognition of tracking images can be disabled in the privacy settings.
 
 <br />
 

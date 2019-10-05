@@ -90,7 +90,7 @@ public class FragmentBase extends Fragment {
     @Override
     public void startActivity(Intent intent) {
         try {
-            if (Helper.hasAuthentication(getContext()))
+            if (Helper.noHistory(getContext()))
                 intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
@@ -102,7 +102,7 @@ public class FragmentBase extends Fragment {
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         try {
-            if (Helper.hasAuthentication(getContext()))
+            if (Helper.noHistory(getContext()))
                 intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
