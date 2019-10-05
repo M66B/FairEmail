@@ -2790,7 +2790,8 @@ class Core {
                         sb.append("<br>");
                     }
 
-                    builder.setContentText(sb.toString());
+                    // Wearable should ignore summary notification
+                    builder.setContentText(title);
 
                     builder.setStyle(new NotificationCompat.BigTextStyle()
                             .bigText(HtmlHelper.fromHtml(sb.toString()))
@@ -3012,27 +3013,40 @@ class Core {
                 mbuilder.extend(new NotificationCompat.WearableExtender()
                         .addActions(wactions));
 
-            if (!TextUtils.isEmpty(message.subject))
-                mbuilder.setContentText(message.subject);
-
             if (message.content && notify_preview)
                 try {
                     String body = Helper.readText(message.getFile(context));
+                    String preview = HtmlHelper.getPreview(body);
+
+                    String summary =
+                            (TextUtils.isEmpty(message.subject) ? "" : message.subject) +
+                                    " - " +
+                                    (TextUtils.isEmpty(preview) ? "" : preview);
+
+                    // Wearable
+                    mbuilder.setContentText(summary);
 
                     StringBuilder sbm = new StringBuilder();
                     if (!TextUtils.isEmpty(message.subject))
                         sbm.append(message.subject).append("<br>");
 
-                    String preview = HtmlHelper.getPreview(body);
                     if (!TextUtils.isEmpty(preview))
                         sbm.append("<em>").append(preview).append("</em>");
 
-                    mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(HtmlHelper.fromHtml(sbm.toString())));
+                    mbuilder.setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(HtmlHelper.fromHtml(sbm.toString()))
+                            .setSummaryText(summary));
                 } catch (IOException ex) {
                     Log.e(ex);
-                    mbuilder.setStyle(new NotificationCompat.BigTextStyle().bigText(ex.toString()));
-                    db.message().setMessageContent(message.id, false, null, null, null);
+                    mbuilder.setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(ex.toString())
+                            .setSummaryText(Helper.formatThrowable(ex)));
                 }
+            else {
+                //mbuilder.setLocalOnly(true);
+                if (!TextUtils.isEmpty(message.subject))
+                    mbuilder.setContentText(message.subject);
+            }
 
             if (info.hasPhoto())
                 mbuilder.setLargeIcon(info.getPhotoBitmap());
