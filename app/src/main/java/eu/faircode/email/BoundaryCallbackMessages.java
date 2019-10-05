@@ -40,8 +40,6 @@ import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
@@ -58,11 +56,9 @@ import javax.mail.UIDFolder;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.AndTerm;
 import javax.mail.search.BodyTerm;
-import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
 import javax.mail.search.FromStringTerm;
 import javax.mail.search.OrTerm;
-import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.RecipientStringTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SubjectTerm;
@@ -270,39 +266,26 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 Log.i("Boundary server query=" + query);
                 if (query == null) {
-                    Calendar cal_browse = Calendar.getInstance();
-                    if (browsable.synchronize)
-                        cal_browse.add(Calendar.DAY_OF_MONTH, -browsable.keep_days);
-                    else {
-                        Long oldest = db.message().getMessageOldest(browsable.id);
-                        Log.i("Boundary oldest=" + oldest);
-                        if (oldest != null)
-                            cal_browse.setTimeInMillis(oldest);
-                    }
-
-                    cal_browse.set(Calendar.HOUR_OF_DAY, 0);
-                    cal_browse.set(Calendar.MINUTE, 0);
-                    cal_browse.set(Calendar.SECOND, 0);
-                    cal_browse.set(Calendar.MILLISECOND, 0);
-
-                    cal_browse.add(Calendar.DAY_OF_MONTH, 1);
-
-                    long browse_time = cal_browse.getTimeInMillis();
-                    if (browse_time < 0)
-                        browse_time = 0;
-
                     boolean filter_seen = prefs.getBoolean("filter_seen", false);
                     boolean filter_unflagged = prefs.getBoolean("filter_unflagged", false);
-                    Log.i("Boundary browse after=" + new Date(browse_time) +
-                            " filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
+                    Log.i("Boundary filter seen=" + filter_seen + " unflagged=" + filter_unflagged);
 
-                    SearchTerm searchTerm = new ReceivedDateTerm(ComparisonTerm.LE, new Date(browse_time));
+                    SearchTerm searchUnseen = null;
                     if (filter_seen && state.ifolder.getPermanentFlags().contains(Flags.Flag.SEEN))
-                        searchTerm = new AndTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.SEEN), false));
-                    if (filter_unflagged && state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
-                        searchTerm = new AndTerm(searchTerm, new FlagTerm(new Flags(Flags.Flag.FLAGGED), true));
+                        searchUnseen = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
 
-                    state.imessages = state.ifolder.search(searchTerm);
+                    SearchTerm searchFlagged = null;
+                    if (filter_unflagged && state.ifolder.getPermanentFlags().contains(Flags.Flag.FLAGGED))
+                        searchFlagged = new FlagTerm(new Flags(Flags.Flag.FLAGGED), true);
+
+                    if (searchUnseen != null && searchFlagged != null)
+                        state.imessages = state.ifolder.search(new AndTerm(searchUnseen, searchFlagged));
+                    else if (searchUnseen != null)
+                        state.imessages = state.ifolder.search(searchUnseen);
+                    else if (searchFlagged != null)
+                        state.imessages = state.ifolder.search(searchFlagged);
+                    else
+                        state.imessages = state.ifolder.getMessages();
                 } else if (query.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
                     String special = query.split(":")[1];
                     if (context.getString(R.string.title_search_special_unseen).equals(special))
@@ -429,16 +412,33 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             Message[] isub = Arrays.copyOfRange(state.imessages, from, state.index + 1);
             state.index -= (pageSize - found);
 
-            FetchProfile fp = new FetchProfile();
-            fp.add(FetchProfile.Item.ENVELOPE);
-            fp.add(FetchProfile.Item.FLAGS);
-            fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
-            fp.add(UIDFolder.FetchProfileItem.UID);
-            fp.add(IMAPFolder.FetchProfileItem.HEADERS);
-            //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
-            fp.add(FetchProfile.Item.SIZE);
-            fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
-            state.ifolder.fetch(isub, fp);
+            FetchProfile fp0 = new FetchProfile();
+            fp0.add(UIDFolder.FetchProfileItem.UID);
+            state.ifolder.fetch(isub, fp0);
+
+            List<Message> add = new ArrayList<>();
+            for (Message m : isub)
+                try {
+                    long uid = state.ifolder.getUID(m);
+                    if (db.message().getMessageByUid(browsable.id, uid) == null)
+                        add.add(m);
+                } catch (Throwable ignored) {
+                    add.add(m);
+                }
+
+            Log.i("Boundary fetching " + add.size() + "/" + isub.length);
+            if (add.size() > 0) {
+                FetchProfile fp = new FetchProfile();
+                fp.add(FetchProfile.Item.ENVELOPE);
+                fp.add(FetchProfile.Item.FLAGS);
+                fp.add(FetchProfile.Item.CONTENT_INFO); // body structure
+                fp.add(UIDFolder.FetchProfileItem.UID);
+                fp.add(IMAPFolder.FetchProfileItem.HEADERS);
+                //fp.add(IMAPFolder.FetchProfileItem.MESSAGE);
+                fp.add(FetchProfile.Item.SIZE);
+                fp.add(IMAPFolder.FetchProfileItem.INTERNALDATE);
+                state.ifolder.fetch(add.toArray(new Message[0]), fp);
+            }
 
             try {
                 db.beginTransaction();

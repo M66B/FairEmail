@@ -364,11 +364,6 @@ public interface DaoMessage {
             " ORDER BY sender, subject")
     Cursor getSuggestions(String query);
 
-    @Query("SELECT MIN(received)" +
-            " FROM message" +
-            " WHERE folder = :folder")
-    Long getMessageOldest(long folder);
-
     @Query("SELECT * FROM message" +
             " WHERE id = :id" +
             " AND (`from` LIKE :find COLLATE NOCASE" +
