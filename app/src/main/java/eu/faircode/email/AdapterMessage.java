@@ -1043,8 +1043,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvNoInternetHeaders.setVisibility(View.GONE);
             }
 
-            grpAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
-
             bnvActions.setVisibility(View.VISIBLE);
             for (int i = 0; i < bnvActions.getMenu().size(); i++)
                 bnvActions.getMenu().getItem(i).setVisible(false);
@@ -1601,6 +1599,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
 
+            grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
+
             boolean iencrypted = properties.getValue("iencrypted", message.id);
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
@@ -1611,6 +1611,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean save = (attachments.size() > 1);
             boolean downloading = false;
             boolean calendar = false;
+
             List<EntityAttachment> a = new ArrayList<>();
             for (EntityAttachment attachment : attachments) {
                 boolean inline = (attachment.isInline() && attachment.isImage());
