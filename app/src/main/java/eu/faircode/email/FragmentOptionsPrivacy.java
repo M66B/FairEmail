@@ -73,7 +73,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swNoHistory.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("no_history", checked).apply();
+                prefs.edit().putBoolean("no_history", checked).commit(); // apply won't work here
+                restart();
             }
         });
 

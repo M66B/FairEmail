@@ -28,6 +28,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -72,6 +73,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         this.contacts = hasPermission(Manifest.permission.READ_CONTACTS);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean no_history = prefs.getBoolean("no_history", false);
+        if (no_history)
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 
         if (!this.getClass().equals(ActivityMain.class)) {
             String theme = prefs.getString("theme", "light");
@@ -205,8 +209,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void startActivity(Intent intent) {
         try {
-            if (Helper.noHistory(this))
-                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             super.startActivity(intent);
         } catch (ActivityNotFoundException ex) {
             Log.e(ex);
@@ -217,8 +219,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
         try {
-            if (Helper.noHistory(this))
-                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             super.startActivityForResult(intent, requestCode);
         } catch (ActivityNotFoundException ex) {
             Log.e(ex);
