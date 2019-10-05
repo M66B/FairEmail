@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -332,12 +331,5 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLastCleanup.setText(
                 getString(R.string.title_advanced_last_cleanup,
                         time < 0 ? "-" : DTF.format(time)));
-    }
-
-    private void restart() {
-        Intent intent = new Intent(getContext(), ActivityMain.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        Runtime.getRuntime().exit(0);
     }
 }

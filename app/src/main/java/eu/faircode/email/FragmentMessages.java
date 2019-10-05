@@ -387,7 +387,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         tvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+                startActivity(new Intent(getContext(), ActivityBilling.class));
             }
         });
 
@@ -1187,7 +1187,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            getContext().startActivity(
+                            startActivity(
                                     new Intent(getContext(), ActivitySetup.class)
                                             .putExtra("tab", "connection"));
                         }
@@ -2993,7 +2993,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            getContext().startActivity(
+                            startActivity(
                                     new Intent(getContext(), ActivitySetup.class)
                                             .putExtra("tab", "connection"));
                         }
@@ -3695,7 +3695,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_MESSAGES_COLOR:
                     if (resultCode == RESULT_OK && data != null) {
                         if (!ActivityBilling.isPro(getContext())) {
-                            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+                            startActivity(new Intent(getContext(), ActivityBilling.class));
                             return;
                         }
 
@@ -4149,7 +4149,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onColor(long id, int color) {
         if (!ActivityBilling.isPro(getContext())) {
-            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+            startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 
@@ -4234,7 +4234,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void onSnoozeSelection(Bundle args) {
         if (!ActivityBilling.isPro(getContext())) {
-            getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+            startActivity(new Intent(getContext(), ActivityBilling.class));
             return;
         }
 

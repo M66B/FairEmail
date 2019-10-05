@@ -4343,7 +4343,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (!ActivityBilling.isPro(getContext())) {
-                                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+                                startActivity(new Intent(getContext(), ActivityBilling.class));
                                 return;
                             }
 
@@ -4420,7 +4420,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             if (!ActivityBilling.isPro(getContext())) {
-                                getContext().startActivity(new Intent(getContext(), ActivityBilling.class));
+                                startActivity(new Intent(getContext(), ActivityBilling.class));
                                 return;
                             }
 

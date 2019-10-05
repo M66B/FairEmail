@@ -346,7 +346,7 @@ public class FragmentAccounts extends FragmentBase {
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            getContext().startActivity(
+                            startActivity(
                                     new Intent(getContext(), ActivitySetup.class)
                                             .putExtra("tab", "connection"));
                         }
