@@ -39,6 +39,8 @@ public class SwipeListener implements View.OnTouchListener {
             public boolean onFling(MotionEvent me1, MotionEvent me2, float vx, float vy) {
                 if (me1 == null || me2 == null)
                     return false;
+                if (me1.getPointerCount() > 1 || me2.getPointerCount() > 1)
+                    return false;
 
                 boolean consumed = false;
                 int dx = Math.round(me2.getX() - me1.getX());
