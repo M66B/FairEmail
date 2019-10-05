@@ -371,7 +371,9 @@ public class HtmlHelper {
 
                 if (width != 0 || height != 0) {
                     String src = img.attr("src");
-                    ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(src, width, height);
+                    String tracking = img.attr("tracking");
+                    ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(
+                            src, width, height, "true".equals(tracking));
                     img.attr("src", a.getAnnotated());
                 }
             }
@@ -489,7 +491,7 @@ public class HtmlHelper {
 
         StringBuilder sb = new StringBuilder();
         sb.append("data:image/png;base64,");
-        sb.append(Base64.encodeToString(bos.toByteArray(), Base64.DEFAULT));
+        sb.append(Base64.encodeToString(bos.toByteArray(), Base64.NO_WRAP));
 
         // Build list of allowed hosts
         List<String> hosts = new ArrayList<>();
@@ -505,6 +507,7 @@ public class HtmlHelper {
 
         // Images
         for (Element img : document.select("img")) {
+            img.removeAttr("tracking");
             String src = img.attr("src");
             if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
                 Uri uri = Uri.parse(img.attr("src"));
@@ -514,7 +517,8 @@ public class HtmlHelper {
                     img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
                     img.attr("height", "24");
                     img.attr("width", "24");
-                    img.attr("style", "display: block !important;");
+                    img.attr("style", "display:block !important; width:24px !important; height:24px !important;");
+                    img.attr("tracking", "true");
                 }
             }
         }
@@ -534,7 +538,7 @@ public class HtmlHelper {
         }
     }
 
-    static void embedImages(Context context, long id, Document document) throws IOException {
+    static void embedInlineImages(Context context, long id, Document document) throws IOException {
         DB db = DB.getInstance(context);
         for (Element img : document.select("img")) {
             String src = img.attr("src");
@@ -552,7 +556,7 @@ public class HtmlHelper {
                         sb.append("data:");
                         sb.append(attachment.type);
                         sb.append(";base64,");
-                        sb.append(Base64.encodeToString(bytes, Base64.DEFAULT));
+                        sb.append(Base64.encodeToString(bytes, Base64.NO_WRAP));
 
                         img.attr("src", sb.toString());
                     }

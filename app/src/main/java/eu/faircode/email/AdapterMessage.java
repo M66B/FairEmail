@@ -1461,7 +1461,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (show_full) {
                         HtmlHelper.removeViewportLimitations(document);
                         if (inline || show_images)
-                            HtmlHelper.embedImages(context, message.id, document);
+                            HtmlHelper.embedInlineImages(context, message.id, document);
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
