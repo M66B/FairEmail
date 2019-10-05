@@ -73,7 +73,7 @@ public class EmailProvider {
     enum UserType {LOCAL, EMAIL}
 
     private static final int DNS_TIMEOUT = 5 * 1000; // milliseconds
-    private static final int ISPDB_TIMEOUT = 20 * 1000; // milliseconds
+    private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
 
     private static final ExecutorService executor =
             Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
@@ -212,16 +212,45 @@ public class EmailProvider {
     private static EmailProvider fromISPDB(Context context, String domain) throws IOException, XmlPullParserException {
         EmailProvider provider = new EmailProvider(domain);
 
-        // https://wiki.mozilla.org/Thunderbird:Autoconfiguration:ConfigFileFormat
-        URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
-        Log.i("Fetching " + url);
+        // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
+        HttpURLConnection request;
+        try {
+            URL url = new URL(" https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=someone@" + domain);
+            Log.i("Fetching " + url);
 
-        HttpURLConnection request = (HttpURLConnection) url.openConnection();
-        request.setReadTimeout(ISPDB_TIMEOUT);
-        request.setConnectTimeout(ISPDB_TIMEOUT);
-        request.setRequestMethod("GET");
-        request.setDoInput(true);
-        request.connect();
+            request = (HttpURLConnection) url.openConnection();
+            request.setReadTimeout(ISPDB_TIMEOUT);
+            request.setConnectTimeout(ISPDB_TIMEOUT);
+            request.setRequestMethod("GET");
+            request.setDoInput(true);
+            request.connect();
+        } catch (IOException ex1) {
+            try {
+                Log.w(ex1.getMessage());
+
+                URL url = new URL("https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml");
+                Log.i("Fetching " + url);
+
+                request = (HttpURLConnection) url.openConnection();
+                request.setReadTimeout(ISPDB_TIMEOUT);
+                request.setConnectTimeout(ISPDB_TIMEOUT);
+                request.setRequestMethod("GET");
+                request.setDoInput(true);
+                request.connect();
+            } catch (IOException ex2) {
+                Log.w(ex2.getMessage());
+
+                URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
+                Log.i("Fetching " + url);
+
+                request = (HttpURLConnection) url.openConnection();
+                request.setReadTimeout(ISPDB_TIMEOUT);
+                request.setConnectTimeout(ISPDB_TIMEOUT);
+                request.setRequestMethod("GET");
+                request.setDoInput(true);
+                request.connect();
+            }
+        }
 
         // https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser
         XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
