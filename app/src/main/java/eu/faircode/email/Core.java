@@ -2452,7 +2452,7 @@ class Core {
         }
     }
 
-    static void downloadMessage(
+    private static void downloadMessage(
             Context context,
             EntityFolder folder, IMAPFolder ifolder,
             MimeMessage imessage, long id, State state) throws MessagingException, IOException {
