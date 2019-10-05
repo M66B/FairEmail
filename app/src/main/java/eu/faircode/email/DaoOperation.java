@@ -28,6 +28,14 @@ import java.util.List;
 
 @Dao
 public interface DaoOperation {
+    String priority = "CASE" +
+            " WHEN operation.name = '" + EntityOperation.BODY + "' THEN -2" +
+            " WHEN operation.name = '" + EntityOperation.ATTACHMENT + "' THEN -1" +
+            " WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
+            "  CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
+            " ELSE 0" +
+            " END";
+
     @Query("SELECT operation.*, account.name AS accountName, folder.name AS folderName" +
             " ,((account.synchronize IS NULL OR account.synchronize)" +
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)) AS synchronize" +
@@ -36,12 +44,7 @@ public interface DaoOperation {
             " LEFT JOIN message ON message.id = operation.message" +
             " LEFT JOIN account ON account.id = operation.account OR account.id = folder.account" +
             " LEFT JOIN identity ON identity.id = message.identity" +
-            " ORDER BY" +
-            "  CASE WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
-            "    CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
-            "    ELSE 0" +
-            "  END" +
-            ", id")
+            " ORDER BY " + priority + ", id")
     LiveData<List<TupleOperationEx>> liveOperations();
 
     String GET_OPS_FOLDER = "SELECT operation.* FROM operation" +
@@ -52,12 +55,7 @@ public interface DaoOperation {
             " WHERE CASE WHEN :folder IS NULL THEN folder.account IS NULL ELSE operation.folder = :folder END" +
             " AND (account.synchronize IS NULL OR account.synchronize)" +
             " AND (NOT folder.account IS NULL OR identity.synchronize IS NULL OR identity.synchronize)" +
-            " ORDER BY" +
-            "  CASE WHEN operation.name = '" + EntityOperation.SYNC + "' THEN" +
-            "    CASE WHEN folder.account IS NULL THEN -1 ELSE 1 END" + // outbox
-            "    ELSE 0" +
-            "  END" +
-            ", id";
+            " ORDER BY " + priority + ", id";
 
     @Query(GET_OPS_FOLDER)
     List<EntityOperation> getOperations(Long folder);
