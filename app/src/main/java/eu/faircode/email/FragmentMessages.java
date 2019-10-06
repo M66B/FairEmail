@@ -1430,10 +1430,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
                 icon = R.drawable.baseline_list_24;
             else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
-                if (message.ui_seen)
-                    icon = R.drawable.baseline_visibility_off_24;
-                else
-                    icon = R.drawable.baseline_visibility_24;
+                icon = (message.ui_seen ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+            else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
+                icon = (message.ui_snoozed == null ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
             Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
@@ -1490,10 +1489,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
-            if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
-                onActionSeenSelection(!message.ui_seen, message.id);
-            else if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
+            if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
                 swipeAsk(message, viewHolder);
+            else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
+                onActionSeenSelection(!message.ui_seen, message.id);
+            else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
+                onActionSnooze(message);
             else
                 swipeFolder(message, action);
         }
@@ -1905,6 +1906,25 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Helper.unexpectedError(getFragmentManager(), ex);
             }
         }.execute(this, args, "messages:seen");
+    }
+
+    private void onActionSnooze(TupleMessageEx message) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        long duration = prefs.getInt("default_snooze", 1) * 3600 * 1000L;
+
+        Bundle args = new Bundle();
+        args.putLong("account", message.account);
+        args.putString("thread", message.thread);
+        args.putLong("id", message.id);
+        if (message.ui_snoozed == null) {
+            args.putLong("duration", duration);
+            args.putLong("time", new Date().getTime() + duration);
+        } else {
+            args.putLong("duration", 0);
+            args.putLong("time", 0);
+        }
+
+        onSnooze(args);
     }
 
     private void onActionSnoozeSelection() {

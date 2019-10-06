@@ -313,6 +313,7 @@
     <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
 
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
+    <string name="title_advanced_default_snooze">Default snooze time</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
@@ -859,8 +860,10 @@
     <string name="title_now">Now</string>
     <string name="title_after">After %1$s</string>
     <string name="title_reset">Reset</string>
+    <string name="title_hours">Hours</string>
     <string name="title_minutes">Minutes</string>
     <string name="title_dismiss">Dismiss</string>
+    <string name="title_snooze_now">Snooze</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

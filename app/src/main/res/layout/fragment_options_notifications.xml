@@ -191,27 +191,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSeen" />
 
-        <EditText
-            android:id="@+id/etNotifyActionSnooze"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:gravity="end"
-            android:inputType="text"
-            android:text="60"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@string/title_minutes"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            app:layout_constraintBottom_toBottomOf="@+id/etNotifyActionSnooze"
-            app:layout_constraintStart_toEndOf="@+id/etNotifyActionSnooze"
-            app:layout_constraintTop_toTopOf="@+id/etNotifyActionSnooze" />
-
         <TextView
             android:id="@+id/tvNotifyActionsHint"
             android:layout_width="0dp"
@@ -223,7 +202,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etNotifyActionSnooze" />
+            app:layout_constraintTop_toBottomOf="@id/cbNotifyActionSnooze" />
 
         <TextView
             android:id="@+id/tvNotifyActionsPro"
