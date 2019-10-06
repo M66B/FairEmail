@@ -1249,8 +1249,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         properties.setValue("full", message.id, true);
                         properties.setValue("full_asked", message.id, true);
                     }
-                    if (prefs.getBoolean(from + ".show_images", false))
+                    if (prefs.getBoolean(from + ".show_images", false)) {
                         properties.setValue("images", message.id, true);
+                        properties.setValue("images_asked", message.id, true);
+                    }
                 }
 
             int dp60 = Helper.dp2pixels(context, 60);
@@ -1264,6 +1266,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFull.setEnabled(hasWebView);
             ibFull.setImageResource(show_full ? R.drawable.baseline_fullscreen_exit_24 : R.drawable.baseline_fullscreen_24);
+            ibImages.setImageResource(show_images ? R.drawable.baseline_format_align_justify_24 : R.drawable.baseline_image_24);
 
             if (show_full) {
                 // Create web view
@@ -1421,8 +1424,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             final Bundle args = new Bundle();
             args.putSerializable("message", message);
-            args.putBoolean("show_images", show_images);
             args.putBoolean("show_full", show_full);
+            args.putBoolean("show_images", show_images);
             args.putBoolean("show_quotes", show_quotes);
             args.putInt("zoom", zoom);
 
@@ -1588,7 +1591,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             // Show attachments/images
                             cowner.start();
-                            ibImages.setVisibility(has_images && !show_images ? View.VISIBLE : View.GONE);
+                            ibImages.setVisibility(has_images ? View.VISIBLE : View.GONE);
                         }
 
                         @Override
@@ -2516,24 +2519,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShow(final TupleMessageEx message, boolean full) {
-            if (full) {
-                boolean current = properties.getValue("full", message.id);
-                boolean asked = properties.getValue("full_asked", message.id);
-                if (current || asked) {
-                    if (current) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        SharedPreferences.Editor editor = prefs.edit();
-                        for (Address address : message.from) {
-                            String from = ((InternetAddress) address).getAddress();
-                            editor.remove(from + ".show_full");
-                        }
-                        editor.apply();
+            boolean current = properties.getValue(full ? "full" : "images", message.id);
+            boolean asked = properties.getValue(full ? "full_asked" : "images_asked", message.id);
+            if (current || asked) {
+                if (current) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    for (Address address : message.from) {
+                        String from = ((InternetAddress) address).getAddress();
+                        editor.remove(from + (full ? ".show_full" : ".show_images"));
                     }
-
-                    properties.setValue("full", message.id, !current);
-                    onShowFullConfirmed(message);
-                    return;
+                    editor.apply();
                 }
+
+                properties.setValue(full ? "full" : "images", message.id, !current);
+                onShowFullConfirmed(message);
+                return;
             }
 
             View dview = LayoutInflater.from(context).inflate(
@@ -2589,14 +2590,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (full) {
-                                properties.setValue("full", message.id, true);
-                                properties.setValue("full_asked", message.id, true);
+                            properties.setValue(full ? "full" : "images", message.id, true);
+                            properties.setValue(full ? "full_asked" : "images_asked", message.id, true);
+                            if (full)
                                 onShowFullConfirmed(message);
-                            } else {
-                                properties.setValue("images", message.id, true);
-                                onShowImagesConfirmed(message);
-                            }
+                            onShowImagesConfirmed(message);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
@@ -2623,8 +2621,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowImagesConfirmed(final TupleMessageEx message) {
-            ibImages.setVisibility(View.GONE);
-
             bindBody(message);
 
             // Download inline images
