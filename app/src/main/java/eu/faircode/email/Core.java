@@ -2155,7 +2155,8 @@ class Core {
                                 sb.append(" ").append(key).append("=").append(sid.get(key));
                             Log.e("Empty message" + sb.toString());
                         }
-                    }
+                    } else
+                        Log.e("Empty message " + account.host);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
