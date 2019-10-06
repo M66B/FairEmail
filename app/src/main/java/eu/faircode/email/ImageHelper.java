@@ -58,8 +58,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 
 class ImageHelper {
     private static final float MIN_LUMINANCE = 0.33f;
@@ -387,33 +385,12 @@ class ImageHelper {
             d.setBounds(0, 0, w, h);
         }
 
-        final Semaphore semaphore = new Semaphore(0);
-
-        view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                view.removeOnLayoutChangeListener(this);
-
-                Rect bounds = d.getBounds();
-                int w = bounds.width();
-                int h = bounds.height();
-
-                float width = view.getWidth();
-                if (w > width) {
-                    float scale = width / w;
-                    w = Math.round(w * scale);
-                    h = Math.round(h * scale);
-                    d.setBounds(0, 0, w, h);
-                }
-
-                semaphore.release();
-            }
-        });
-
-        try {
-            semaphore.tryAcquire(2500, TimeUnit.MILLISECONDS);
-        } catch (InterruptedException ex) {
-            Log.e(ex);
+        float width = view.getWidth();
+        if (w > width) {
+            float scale = width / w;
+            w = Math.round(w * scale);
+            h = Math.round(h * scale);
+            d.setBounds(0, 0, w, h);
         }
     }
 
