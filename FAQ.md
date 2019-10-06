@@ -2055,9 +2055,8 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth is supported for Gmail via the quick setup wizard.
 The Android account manager will be used to fetch and refresh OAuth tokens for the selected account.
 
-Outlook and Hotmail do not properly support OAuth for IMAP/SMTP connections.
-[MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android) is supported for business accounts only
-and requires embedding a client secret in the app, which is not a good idea for an open source app.
+Outlook and Hotmail do not support OAuth for IMAP/SMTP connections:
+"*[We don't support OAuth for IMAP access to Office 365 and we have no plans to do so as](https://stackoverflow.com/a/29747829/1794097)*"
 
 <br />
 
