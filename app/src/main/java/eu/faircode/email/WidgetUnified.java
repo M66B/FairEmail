@@ -40,7 +40,13 @@ public class WidgetUnified extends AppWidgetProvider {
 
     static void init(Context context, int appWidgetId) {
         Log.i("Widget unified init=" + appWidgetId);
+
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        if (appWidgetManager == null) {
+            Log.w("No app widget manager"); // Fairphone FP2
+            return;
+        }
+
         update(context, appWidgetManager, new int[]{appWidgetId});
     }
 
@@ -48,6 +54,11 @@ public class WidgetUnified extends AppWidgetProvider {
         Log.i("Widget unified update");
         if (ActivityBilling.isPro(context)) {
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            if (appWidgetManager == null) {
+                Log.w("No app widget manager"); // Fairphone FP2
+                return;
+            }
+
             int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
         }

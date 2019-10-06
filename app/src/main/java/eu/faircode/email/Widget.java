@@ -59,7 +59,12 @@ public class Widget extends AppWidgetProvider {
 
     static void update(Context context, Integer count) {
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-        int[] appWidgetIds = AppWidgetManager.getInstance(context).getAppWidgetIds(new ComponentName(context, Widget.class));
+        if (appWidgetManager == null) {
+            Log.w("No app widget manager"); // Fairphone FP2
+            return;
+        }
+
+        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, Widget.class));
         update(context, appWidgetManager, appWidgetIds, count);
     }
 
