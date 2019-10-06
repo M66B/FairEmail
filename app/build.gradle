@@ -312,5 +312,6 @@ dependencies {
     // https://github.com/noties/Markwon
     implementation "io.noties.markwon:core:$markwon_version"
 
+    // // https://github.com/QuadFlask/colorpicker
     implementation project(':qcolorpicker')
 }
