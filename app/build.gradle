@@ -49,7 +49,6 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/README.md'
         exclude 'META-INF/CHANGES'
-        exclude 'META-INF/jersey-module-version'
     }
 
     signingConfigs {
@@ -313,9 +312,5 @@ dependencies {
     // https://github.com/noties/Markwon
     implementation "io.noties.markwon:core:$markwon_version"
 
-    // https://github.com/QuadFlask/colorpicker
     implementation project(':qcolorpicker')
-
-    // https://github.com/AzureAD/microsoft-authentication-library-for-android
-    implementation "com.microsoft.identity.client:msal:1.0.+"
 }
