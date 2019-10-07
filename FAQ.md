@@ -35,7 +35,6 @@ Related questions:
 
 * ~~A [bug in Android 5.1 and 6](https://issuetracker.google.com/issues/37054851) causes apps to sometimes show a wrong time format. Toggling the Android setting *Use 24-hour format* might temporarily solve the issue. A workaround was added.~~
 * ~~A [bug in Google Drive](https://issuetracker.google.com/issues/126362828) causes files exported to Google Drive to be empty. Google has fixed this.~~
-* ~~Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug. This seems not be happening anymore.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/78495471) lets FairEmail occasionally crash on long pressing or swiping. Google has fixed this.~~
 * ~~A [bug in AndroidX ROOM](https://issuetracker.google.com/issues/138441698) causes sometimes a crash with "*... Exception while computing database live data ... Couldn't read row ...*". A workaround was added.~~
 * A [bug in Android](https://issuetracker.google.com/issues/119872129) lets FairEmail crash with "*... Bad notification posted ...*" on some devices once after updating FairEmail and tapping on a notification.
@@ -43,6 +42,7 @@ Related questions:
 * A bug in Nova Launcher on Android 5.x lets FairEmail crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * The folder selector sometimes shows no folders for yet unknown reasons.
 * A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller.
+* Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug. This seems not be happening anymore.
 
 ## Planned features
 
