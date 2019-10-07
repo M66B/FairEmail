@@ -366,6 +366,7 @@
     <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
     <string name="title_identity_required">İleti göndermek için bir kimlik gerekli</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
+    <string name="title_hide_remark">Mesajlar erteleme yoluyla gizlenebilir</string>
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>

@@ -388,6 +388,7 @@
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
+    <string name="title_hide_remark">Сообщения могут быть не видны из-за отложенной отправки</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>

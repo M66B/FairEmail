@@ -280,6 +280,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_notify_no_grouping">Ova verzija Androida ne podržava grupiranje obavijesti</string>
     <string name="title_advanced_notify_no_channels">Ova verzija Androida ne podržava kanale za obavijesti</string>
     <string name="title_advanced_double_back">Dvaput \'natrag\' za izlaz</string>
+    <string name="title_advanced_default_snooze">Zadano vrijeme odgode</string>
     <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
@@ -375,6 +376,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_sync">Pogreške sinkronizacije od %1$s</string>
     <string name="title_identity_required">Za slanje poruka potreban je identitet</string>
     <string name="title_drafts_required">Za slanje poruka potrebna je mapa skica</string>
+    <string name="title_hide_remark">Poruke se mogu sakriti odgodom poruka</string>
     <string name="title_account_delete">Želite li trajno izbrisati ovaj račun?</string>
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
@@ -773,8 +775,10 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_now">Sada</string>
     <string name="title_after">Poslije %1$s</string>
     <string name="title_reset">Resetiraj</string>
+    <string name="title_hours">Sati</string>
     <string name="title_minutes">Minuta</string>
     <string name="title_dismiss">Odbaci</string>
+    <string name="title_snooze_now">Odgodi</string>
     <string name="title_icalendar_accept">Prihvati</string>
     <string name="title_icalendar_decline">Odbij</string>
     <string name="title_icalendar_maybe">Možda</string>

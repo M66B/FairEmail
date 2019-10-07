@@ -56,6 +56,11 @@
         <item quantity="few">%1$d noi</item>
         <item quantity="other">%1$d noi</item>
     </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d conversație selectată</item>
+        <item quantity="few">%1$d conversații selectate</item>
+        <item quantity="other">%1$d de conversații selectate</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Se mută %1$d mesaj la %2$s ?</item>
         <item quantity="few">Se mută %1$d mesaje la %2$s ?</item>
@@ -300,6 +305,7 @@
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
     <string name="title_advanced_roaming_hint">Antetele mesajelor vor fi mereu descărcate și în roaming. Puteți folosi setările roaming ale dispozitivului pentru a dezactiva internetul atunci când sunteți în roaming.</string>
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
+    <string name="title_advanced_layout_hint">Selectarea unui aspect mai compact și mărimea textului se poate face din meniul paginii de mesaje</string>
     <string name="title_advanced_date_hint">Mesajele sunt grupate după dată doar dacă sunt sortate așa</string>
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
@@ -369,6 +375,7 @@
     <string name="title_no_sync">Erori de sincronizare începând cu %1$s</string>
     <string name="title_identity_required">O identitate este necesară pentru a trimite mesaje</string>
     <string name="title_drafts_required">Un dosar de ciorne este necesar pentru a trimite mesaje</string>
+    <string name="title_hide_remark">Mesajele se pot ascunde prin amânare</string>
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
@@ -497,6 +504,7 @@
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
+    <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibil pentru ca imaginile și textul închise la culoare ar putea sa nu se vadă</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image_hint">Imaginile recunoscute drept imagini folosite la urmărire nu vor fi afișate</string>
     <string name="title_ask_delete_ref">Stergeți textul mesajului răspuns/redirecționat? Acesta nu se va putea recupera.</string>

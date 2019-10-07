@@ -366,6 +366,7 @@
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_identity_required">Une identité est nécessaire pour envoyer des messages</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
+    <string name="title_hide_remark">Les messages peuvent être cachés en les reportant à plus tard</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_edit_html">Modifier en HTML</string>

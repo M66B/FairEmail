@@ -292,7 +292,7 @@
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
-    <string name="title_advanced_default_snooze">Domyślny czas drzemki</string>
+    <string name="title_advanced_default_snooze">Domyślny czas odłożenia</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
@@ -388,6 +388,7 @@
     <string name="title_no_sync">Błędy synchornizacji od %1$s</string>
     <string name="title_identity_required">Do wysyłania wiadomości wymagana jest tożsamość</string>
     <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
+    <string name="title_hide_remark">Wiadomości można ukryć, odkładając wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
@@ -484,7 +485,7 @@
     <string name="title_move">Przenieś</string>
     <string name="title_move_to_folder">Przenieś do &#8230;</string>
     <string name="title_move_to_account">Przenieś do %1$s &#8230;</string>
-    <string name="title_snooze">Uśpij &#8230;</string>
+    <string name="title_snooze">Odłoż &#8230;</string>
     <string name="title_archive">Archiwum</string>
     <string name="title_reply">Odpowiedz</string>
     <string name="title_reply_to_sender">Nadawca</string>
@@ -621,7 +622,7 @@
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>
     <string name="title_rule_ignore">Pomiń powiadomienie</string>
-    <string name="title_rule_snooze">Drzemka</string>
+    <string name="title_rule_snooze">Odłóż</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
     <string name="title_rule_move">Przenieś</string>
     <string name="title_rule_copy">Kopiuj (etykieta)</string>
@@ -697,7 +698,7 @@
     <string name="title_legend_draft">Posiada szkic</string>
     <string name="title_legend_priority">Posiada wysoki priorytet</string>
     <string name="title_legend_auth">Uwierzytelnianie nie powiodło się</string>
-    <string name="title_legend_snoozed">Jest uśpiony</string>
+    <string name="title_legend_snoozed">Jest odłożona</string>
     <string name="title_legend_browsed">Jest przeglądany lub przeszukiwany</string>
     <string name="title_legend_answered">Udzielono odpowiedzi</string>
     <string name="title_legend_plain_only">Tylko jako zwykły tekst</string>
@@ -789,7 +790,7 @@
     <string name="title_hours">Godzin</string>
     <string name="title_minutes">Minuty</string>
     <string name="title_dismiss">Odrzuć</string>
-    <string name="title_snooze_now">Drzemka</string>
+    <string name="title_snooze_now">Odłóż</string>
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>
