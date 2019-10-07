@@ -657,6 +657,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
 
+            boolean outgoing = false;
+            if (viewType != ViewType.THREAD)
+                if (EntityFolder.isOutgoing(message.folderType))
+                    outgoing = true;
+                else if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
+                        message.identityEmail != null &&
+                        message.from != null && message.from.length == 1 &&
+                        message.identityEmail.equals(((InternetAddress) message.from[0]).getAddress()))
+                    outgoing = true;
+
             // Text size
             if (textSize != 0) {
                 tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * (message.unseen > 0 ? 1.1f : 1f));
@@ -741,15 +751,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibExpander.setVisibility(View.GONE);
 
             // Line 1
-            boolean outgoing = false;
-            if (viewType != ViewType.THREAD)
-                if (EntityFolder.isOutgoing(message.folderType))
-                    outgoing = true;
-                else if (!EntityFolder.ARCHIVE.equals(message.folderType) &&
-                        message.identityEmail != null &&
-                        message.from != null && message.from.length == 1 &&
-                        message.identityEmail.equals(((InternetAddress) message.from[0]).getAddress()))
-                    outgoing = true;
             Address[] addresses = (outgoing ? message.to : message.senders);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
