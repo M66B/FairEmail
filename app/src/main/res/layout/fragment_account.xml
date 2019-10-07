@@ -707,6 +707,17 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/spLeft" />
 
+        <TextView
+            android:id="@+id/tvHideRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_hide_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spRight" />
+
         <!-- save -->
 
         <Button
@@ -717,7 +728,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spRight" />
+            app:layout_constraintTop_toBottomOf="@id/tvHideRemark" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
