@@ -78,7 +78,6 @@
         android:maxLines="1"
         android:text="123 KB"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="?attr/colorUnread"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintEnd_toStartOf="@+id/tvTime"
         app:layout_constraintTop_toBottomOf="@id/paddingTop" />

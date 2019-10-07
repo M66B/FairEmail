@@ -10,6 +10,14 @@
 
     <color name="colorError">#ff0000</color>
 
+    <color name="colorReadLight">#b3000000</color>
+    <color name="colorUnreadLight">#ff000000</color>
+
+    <!-- White 38%  secondary_text_material_dark -->
+    <color name="colorReadDark">#b3ffffff</color>
+    <!-- White 87%  primary_text_default_material_dark -->
+    <color name="colorUnreadDark">#ffffffff</color>
+
     <!-- Light blue 900 -->
     <color name="darkPrimary">#01579b</color>
     <color name="darkPrimaryDark">#002f6c</color>

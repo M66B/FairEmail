@@ -24,6 +24,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -47,6 +48,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -310,7 +312,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
 
-        this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
+        this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);

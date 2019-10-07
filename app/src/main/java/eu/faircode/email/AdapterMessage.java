@@ -182,6 +182,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private int textColorPrimary;
     private int textColorSecondary;
     private int colorUnread;
+    private int colorRead;
     private int colorSeparator;
 
     private boolean hasWebView;
@@ -721,10 +722,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvSubject.setTypeface(typeface);
             tvCount.setTypeface(typeface);
 
-            int colorUnseen = (message.unseen > 0 ? colorUnread : textColorSecondary);
+            int colorUnseen = (message.unseen > 0 ? colorUnread : colorRead);
             tvFrom.setTextColor(colorUnseen);
             tvSize.setTextColor(colorUnseen);
             tvTime.setTextColor(colorUnseen);
+            tvSubject.setTextColor(colorRead);
 
             // Account color
             vwColor.setBackgroundColor(message.accountColor == null || !ActivityBilling.isPro(context)
@@ -1415,7 +1417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
                 tvBody.setMinHeight(height);
 
-                tvBody.setTextColor(contrast ? textColorPrimary : textColorSecondary);
+                tvBody.setTextColor(contrast ? colorUnread : colorRead);
                 tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
                 tvBody.setVisibility(View.VISIBLE);
@@ -3528,10 +3530,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean highlight_unread = prefs.getBoolean("highlight_unread", false);
 
-        if (highlight_unread)
-            this.colorUnread = Helper.resolveColor(context, R.attr.colorUnread);
-        else
-            this.colorUnread = this.textColorPrimary;
+        this.colorUnread = Helper.resolveColor(context, highlight_unread ? R.attr.colorUnreadHighlight : R.attr.colorUnread);
+        this.colorRead = Helper.resolveColor(context, R.attr.colorRead);
 
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
 
@@ -3995,7 +3995,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (filter_duplicates && message != null && message.duplicate) {
             holder.tvFolder.setText(context.getString(R.string.title_duplicate_in, message.getFolderName(context)));
             holder.tvFolder.setTypeface(message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            holder.tvFolder.setTextColor(message.unseen > 0 ? colorUnread : textColorSecondary);
+            holder.tvFolder.setTextColor(message.unseen > 0 ? colorUnread : colorRead);
             holder.tvFolder.setAlpha(Helper.LOW_LIGHT);
             return;
         }

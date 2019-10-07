@@ -1,6 +1,8 @@
 <resources>
     <attr name="themeName" format="string" />
+    <attr name="colorRead" format="reference" />
     <attr name="colorUnread" format="reference" />
+    <attr name="colorUnreadHighlight" format="reference" />
     <attr name="colorSeparator" format="reference" />
     <attr name="colorWarning" format="reference" />
     <attr name="colorDrawerScrim" format="reference" />
@@ -24,7 +26,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="colorUnread">@color/colorAccentDark</item>
+        <item name="colorRead">@color/colorReadLight</item>
+        <item name="colorUnread">@color/colorUnreadLight</item>
+        <item name="colorUnreadHighlight">@color/colorAccentDark</item>
+
         <item name="colorSeparator">@color/lightColorSeparator</item>
         <item name="colorWarning">@color/lightColorWarning</item>
 
@@ -66,7 +71,10 @@
         <item name="colorPrimaryDark">@color/darkPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="colorUnread">@color/colorAccent</item>
+        <item name="colorRead">@color/colorReadDark</item>
+        <item name="colorUnread">@color/colorUnreadDark</item>
+        <item name="colorUnreadHighlight">@color/colorAccent</item>
+
         <item name="colorSeparator">@color/darkColorSeparator</item>
         <item name="colorWarning">@color/darkColorWarning</item>
 
@@ -112,7 +120,7 @@
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
         <item name="colorAccent">@color/greyAccent</item>
 
-        <item name="colorUnread">@color/greyAccentDark</item>
+        <item name="colorUnreadHighlight">@color/greyAccentDark</item>
 
         <item name="colorFabBackground">@color/greyAccent</item>
 
@@ -125,7 +133,7 @@
         <item name="colorPrimaryDark">@color/greyPrimaryDark</item>
         <item name="colorAccent">@color/greyAccent</item>
 
-        <item name="colorUnread">@color/greyAccent</item>
+        <item name="colorUnreadHighlight">@color/greyAccent</item>
         <item name="colorSeparator">@color/greyPrimary</item>
 
         <item name="colorActionBackground">@color/greyPrimary</item>
