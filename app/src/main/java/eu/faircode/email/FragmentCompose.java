@@ -2175,12 +2175,18 @@ public class FragmentCompose extends FragmentBase {
                     // Select identity matching from address
                     Address from = null;
                     EntityIdentity selected = null;
-                    long aid = args.getLong("account", ref == null ? -1 : ref.account);
+                    long aid = args.getLong("account", -1);
                     long iid = args.getLong("identity", -1);
+
+                    if (aid < 0 && ref != null)
+                        aid = ref.account;
+                    if (iid < 0 && ref != null && ref.identity != null)
+                        iid = ref.identity;
 
                     if (iid >= 0)
                         for (EntityIdentity identity : data.identities)
                             if (identity.id.equals(iid)) {
+                                Log.i("Selected requested identity=" + iid);
                                 selected = identity;
                                 break;
                             }
@@ -2193,6 +2199,7 @@ public class FragmentCompose extends FragmentBase {
                                             identity.sameAddress(sender)) {
                                         from = sender;
                                         selected = identity;
+                                        Log.i("Selected same account/identity");
                                         break;
                                     }
 
@@ -2203,6 +2210,7 @@ public class FragmentCompose extends FragmentBase {
                                             identity.similarAddress(sender)) {
                                         from = sender;
                                         selected = identity;
+                                        Log.i("Selected similar account/identity");
                                         break;
                                     }
 
@@ -2212,6 +2220,7 @@ public class FragmentCompose extends FragmentBase {
                                     if (identity.sameAddress(sender)) {
                                         from = sender;
                                         selected = identity;
+                                        Log.i("Selected same */identity");
                                         break;
                                     }
 
@@ -2221,6 +2230,7 @@ public class FragmentCompose extends FragmentBase {
                                     if (identity.similarAddress(sender)) {
                                         from = sender;
                                         selected = identity;
+                                        Log.i("Selected similer */identity");
                                         break;
                                     }
                     }
@@ -2229,6 +2239,7 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityIdentity identity : data.identities)
                             if (identity.account.equals(aid) && identity.primary) {
                                 selected = identity;
+                                Log.i("Selected primary account/identity");
                                 break;
                             }
 
@@ -2236,18 +2247,21 @@ public class FragmentCompose extends FragmentBase {
                         for (EntityIdentity identity : data.identities)
                             if (identity.account.equals(aid)) {
                                 selected = identity;
+                                Log.i("Selected account/identity");
                                 break;
                             }
 
                     if (selected == null)
                         for (EntityIdentity identity : data.identities)
                             if (identity.primary) {
+                                Log.i("Selected primary */identity");
                                 selected = identity;
                                 break;
                             }
 
                     if (selected == null)
                         for (EntityIdentity identity : data.identities) {
+                            Log.i("Selected */identity");
                             selected = identity;
                             break;
                         }
