@@ -1418,7 +1418,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
                 tvBody.setMinHeight(height);
 
-                tvBody.setTextColor(contrast ? colorUnread : colorRead);
+                tvBody.setTextColor(contrast ? textColorPrimary : colorRead);
                 tvBody.setTypeface(monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT);
 
                 tvBody.setVisibility(View.VISIBLE);
