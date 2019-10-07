@@ -2189,7 +2189,7 @@ public class FragmentCompose extends FragmentBase {
                     // Select identity matching from address
                     Address from = null;
                     EntityIdentity selected = null;
-                    long aid = args.getLong("account", -1);
+                    long aid = args.getLong("account", ref == null ? -1 : ref.account);
                     long iid = args.getLong("identity", -1);
 
                     if (iid >= 0)
