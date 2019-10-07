@@ -36,7 +36,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
@@ -73,7 +73,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
@@ -93,7 +93,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
@@ -110,7 +110,7 @@ public interface DaoFolder {
     LiveData<List<TupleFolderEx>> liveUnified(String type);
 
     @Query("SELECT folder.*" +
-            ", account.`order` AS accountOrder, account.name AS accountName, account.color AS accountColor" +
+            ", account.`order` AS accountOrder, account.name AS accountName" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
             ", SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) AS snoozed" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id) AS operations" +
@@ -130,7 +130,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
-            ", account.name AS accountName, account.color AS accountColor, account.state AS accountState" +
+            ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
             ", COUNT(DISTINCT CASE WHEN message.content = 1 AND NOT message.ui_hide THEN message.id ELSE NULL END) AS content" +
@@ -245,6 +245,7 @@ public interface DaoFolder {
     @Query("UPDATE folder" +
             " SET `rename` = :rename" +
             ", display = :display" +
+            ", color = :color" +
             ", unified = :unified" +
             ", navigation = :navigation" +
             ", notify = :notify" +
@@ -258,7 +259,7 @@ public interface DaoFolder {
             " WHERE id = :id")
     int setFolderProperties(
             long id, String rename,
-            String display, boolean unified, boolean navigation, boolean notify, boolean hide,
+            String display, Integer color, boolean unified, boolean navigation, boolean notify, boolean hide,
             boolean synchronize, boolean poll, boolean download,
             int sync_days, int keep_days, boolean auto_delete);
 

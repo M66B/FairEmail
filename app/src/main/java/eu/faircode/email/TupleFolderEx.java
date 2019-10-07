@@ -41,7 +41,6 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     public Boolean accountPop;
     public Integer accountOrder;
     public String accountName;
-    public Integer accountColor;
     public String accountState;
     public int rules;
     public int messages;
@@ -69,7 +68,6 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
                     Objects.equals(this.accountId, other.accountId) &&
                     Objects.equals(this.accountPop, other.accountPop) &&
                     Objects.equals(this.accountName, other.accountName) &&
-                    Objects.equals(this.accountColor, other.accountColor) &&
                     Objects.equals(this.accountState, other.accountState) &&
                     this.rules == other.rules &&
                     this.messages == other.messages &&

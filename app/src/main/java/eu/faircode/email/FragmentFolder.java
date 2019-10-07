@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -55,6 +56,7 @@ public class FragmentFolder extends FragmentBase {
     private TextView tvParent;
     private EditText etName;
     private EditText etDisplay;
+    private ViewButtonColor btnColor;
     private CheckBox cbHide;
     private CheckBox cbUnified;
     private CheckBox cbNavigation;
@@ -78,6 +80,7 @@ public class FragmentFolder extends FragmentBase {
     private boolean saving = false;
     private boolean deletable = false;
 
+    private static final int REQUEST_COLOR = 1;
     private static final int REQUEST_SAVE_CHANGES = 101;
     private static final int REQUEST_DELETE_FOLDER = 102;
 
@@ -105,6 +108,7 @@ public class FragmentFolder extends FragmentBase {
         etName = view.findViewById(R.id.etName);
         tvParent = view.findViewById(R.id.tvParent);
         etDisplay = view.findViewById(R.id.etDisplay);
+        btnColor = view.findViewById(R.id.btnColor);
         cbHide = view.findViewById(R.id.cbHide);
         cbUnified = view.findViewById(R.id.cbUnified);
         cbNavigation = view.findViewById(R.id.cbNavigation);
@@ -121,6 +125,21 @@ public class FragmentFolder extends FragmentBase {
         pbSave = view.findViewById(R.id.pbSave);
         pbWait = view.findViewById(R.id.pbWait);
         grpParent = view.findViewById(R.id.grpParent);
+
+        btnColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putInt("color", btnColor.getColor());
+                args.putString("title", getString(R.string.title_color));
+                args.putBoolean("reset", true);
+
+                FragmentDialogColor fragment = new FragmentDialogColor();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentFolder.this, REQUEST_COLOR);
+                fragment.show(getFragmentManager(), "account:color");
+            }
+        });
 
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -192,6 +211,7 @@ public class FragmentFolder extends FragmentBase {
                     etName.setText(folder == null ? null : folder.name);
                     etDisplay.setText(folder == null ? null : folder.display);
                     etDisplay.setHint(folder == null ? null : Helper.localizeFolderName(getContext(), folder.name));
+                    btnColor.setColor(folder == null ? null : folder.color);
                     cbHide.setChecked(folder == null ? false : folder.hide);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbNavigation.setChecked(folder == null ? false : folder.navigation);
@@ -244,6 +264,15 @@ public class FragmentFolder extends FragmentBase {
 
         try {
             switch (requestCode) {
+                case REQUEST_COLOR:
+                    if (resultCode == RESULT_OK && data != null) {
+                        if (ActivityBilling.isPro(getContext())) {
+                            Bundle args = data.getBundleExtra("args");
+                            btnColor.setColor(args.getInt("color"));
+                        } else
+                            startActivity(new Intent(getContext(), ActivityBilling.class));
+                    }
+                    break;
                 case REQUEST_SAVE_CHANGES:
                     if (resultCode == RESULT_OK) {
                         new Handler().post(new Runnable() {
@@ -307,6 +336,7 @@ public class FragmentFolder extends FragmentBase {
         args.putString("parent", parent);
         args.putString("name", etName.getText().toString());
         args.putString("display", etDisplay.getText().toString());
+        args.putInt("color", btnColor.getColor());
         args.putBoolean("hide", cbHide.isChecked());
         args.putBoolean("unified", cbUnified.isChecked());
         args.putBoolean("navigation", cbNavigation.isChecked());
@@ -346,6 +376,7 @@ public class FragmentFolder extends FragmentBase {
                 String parent = args.getString("parent");
                 String name = args.getString("name");
                 String display = args.getString("display");
+                Integer color = args.getInt("color");
                 boolean hide = args.getBoolean("hide");
                 boolean unified = args.getBoolean("unified");
                 boolean navigation = args.getBoolean("navigation");
@@ -357,8 +388,11 @@ public class FragmentFolder extends FragmentBase {
                 String keep = args.getString("keep");
                 boolean auto_delete = args.getBoolean("auto_delete");
 
+                boolean pro = ActivityBilling.isPro(context);
                 boolean should = args.getBoolean("should");
 
+                if (color == Color.TRANSPARENT || !pro)
+                    color = null;
                 if (TextUtils.isEmpty(display) || display.equals(name))
                     display = null;
 
@@ -428,6 +462,7 @@ public class FragmentFolder extends FragmentBase {
                         create.account = aid;
                         create.name = name;
                         create.display = display;
+                        create.color = color;
                         create.type = EntityFolder.USER;
                         create.unified = unified;
                         create.navigation = navigation;
@@ -454,7 +489,7 @@ public class FragmentFolder extends FragmentBase {
                         Log.i("Updating folder=" + folder.name);
                         db.folder().setFolderProperties(id,
                                 folder.name.equals(name) ? null : name,
-                                display, unified, navigation, notify, hide,
+                                display, color, unified, navigation, notify, hide,
                                 synchronize, poll, download,
                                 sync_days, keep_days, auto_delete);
                         db.folder().setFolderError(id, null);

@@ -87,6 +87,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Boolean auto_delete = false;
     public String display;
+    public Integer color;
     @NonNull
     public Boolean hide = false;
     @NonNull
@@ -339,6 +340,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     this.keep_days.equals(other.keep_days) &&
                     this.auto_delete.equals(other.auto_delete) &&
                     Objects.equals(this.display, other.display) &&
+                    Objects.equals(this.color, other.color) &&
                     Objects.equals(this.order, other.order) &&
                     this.hide == other.hide &&
                     this.collapsed == other.collapsed &&
@@ -349,8 +351,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     Helper.equal(this.keywords, other.keywords) &&
                     this.initialize.equals(other.initialize) &&
                     Objects.equals(this.tbc, other.tbc) &&
-                    Objects.equals(this.rename, other.rename) &&
                     Objects.equals(this.tbd, other.tbd) &&
+                    Objects.equals(this.rename, other.rename) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.sync_state, other.sync_state) &&
                     this.read_only == other.read_only &&
@@ -379,6 +381,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         json.put("keep_days", keep_days);
         json.put("auto_delete", auto_delete);
         json.put("display", display);
+        json.put("color", color);
         json.put("hide", hide);
         json.put("collapsed", collapsed);
         json.put("unified", unified);
@@ -421,6 +424,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         if (json.has("display") && !json.isNull("display"))
             folder.display = json.getString("display");
+
+        if (json.has("color") && !json.isNull("color"))
+            folder.color = json.getInt("color");
 
         if (json.has("hide"))
             folder.hide = json.getBoolean("hide");

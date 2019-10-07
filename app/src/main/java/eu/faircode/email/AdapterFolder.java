@@ -184,8 +184,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvName.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
 
             if (listener == null) {
-                vwColor.setBackgroundColor(folder.accountColor == null ? Color.TRANSPARENT : folder.accountColor);
-                vwColor.setVisibility(account < 0 && ActivityBilling.isPro(context) ? View.VISIBLE : View.GONE);
+                vwColor.setBackgroundColor(folder.color == null ? Color.TRANSPARENT : folder.color);
+                vwColor.setVisibility(ActivityBilling.isPro(context) ? View.VISIBLE : View.GONE);
 
                 if (folder.sync_state == null || "requested".equals(folder.sync_state)) {
                     if (folder.executing > 0)

@@ -106,10 +106,10 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                             ? R.drawable.baseline_folder_24
                             : R.drawable.baseline_folder_open_24);
 
-                if (folder.accountColor == null || !ActivityBilling.isPro(context))
+                if (folder.color == null || !ActivityBilling.isPro(context))
                     ivItem.clearColorFilter();
                 else
-                    ivItem.setColorFilter(folder.accountColor);
+                    ivItem.setColorFilter(folder.color);
             }
 
             int count = (EntityFolder.OUTBOX.equals(folder.type) ? folder.snoozed + folder.operations : folder.unseen);
@@ -232,7 +232,6 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
             return (f1.name.equals(f2.name) &&
                     f1.type.equals(f2.type) &&
                     Objects.equals(f1.display, f2.display) &&
-                    Objects.equals(f1.accountColor, f2.accountColor) &&
                     Objects.equals(f1.state, f2.state) &&
                     Objects.equals(f1.sync_state, f2.sync_state) &&
                     Objects.equals(f1.last_sync, f2.last_sync) &&

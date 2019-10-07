@@ -75,6 +75,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDisplay" />
 
+        <TextView
+            android:id="@+id/tvColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_color"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etDisplay" />
+
+        <eu.faircode.email.ViewButtonColor
+            android:id="@+id/btnColor"
+            style="@style/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:tag="disable"
+            android:text="@string/title_select"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvColor" />
+
         <CheckBox
             android:id="@+id/cbHide"
             android:layout_width="wrap_content"
@@ -82,7 +105,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_hide_folder"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etDisplay" />
+            app:layout_constraintTop_toBottomOf="@id/btnColor" />
 
         <CheckBox
             android:id="@+id/cbUnified"
