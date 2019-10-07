@@ -12,7 +12,6 @@
         android:padding="6dp"
         android:text="Today"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
