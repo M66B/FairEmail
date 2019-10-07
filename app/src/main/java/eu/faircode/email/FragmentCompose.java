@@ -3657,10 +3657,8 @@ public class FragmentCompose extends FragmentBase {
             db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
                 @Override
                 public void onChanged(TupleMessageEx draft) {
-                    if (draft == null) {
-                        dismiss();
+                    if (draft == null)
                         return;
-                    }
 
                     int plus = (draft.cc == null ? 0 : draft.cc.length) +
                             (draft.bcc == null ? 0 : draft.bcc.length);
