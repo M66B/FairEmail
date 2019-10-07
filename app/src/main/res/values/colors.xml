@@ -10,6 +10,12 @@
 
     <color name="colorError">#ff0000</color>
 
+    <color name="colorTextPrimaryLight">#b3000000</color>
+    <color name="colorTextSecondaryLight">#ff000000</color>
+
+    <color name="colorTextPrimaryDark">#b3ffffff</color>
+    <color name="colorTextSecondaryDark">#ffffffff</color>
+
     <!-- Light blue 900 -->
     <color name="darkPrimary">#01579b</color>
     <color name="darkPrimaryDark">#002f6c</color>

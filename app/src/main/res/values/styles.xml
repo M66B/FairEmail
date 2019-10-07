@@ -24,6 +24,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="android:textColorPrimary">@color/colorTextPrimaryLight</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondaryLight</item>
+
         <item name="colorUnread">@color/colorAccentDark</item>
         <item name="colorSeparator">@color/lightColorSeparator</item>
         <item name="colorWarning">@color/lightColorWarning</item>
@@ -65,6 +68,9 @@
         <item name="colorPrimary">@color/darkPrimary</item>
         <item name="colorPrimaryDark">@color/darkPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:textColorPrimary">@color/colorTextPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondaryDark</item>
 
         <item name="colorUnread">@color/colorAccent</item>
         <item name="colorSeparator">@color/darkColorSeparator</item>
