@@ -531,9 +531,11 @@ public class MessageHelper {
             int sp = header.indexOf(" ");
             if (sp >= 0)
                 header = header.substring(0, sp); // "2 (High)"
+            header = header.trim();
         }
 
         if ("high".equalsIgnoreCase(header) ||
+                "highest".equalsIgnoreCase(header) ||
                 "urgent".equalsIgnoreCase(header) ||
                 "critical".equalsIgnoreCase(header) ||
                 "yes".equalsIgnoreCase(header))
@@ -546,7 +548,7 @@ public class MessageHelper {
                 "marketing".equalsIgnoreCase(header) ||
                 "bulk".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
-        else if (header != null)
+        else if (!TextUtils.isEmpty(header))
             try {
                 priority = Integer.parseInt(header);
                 if (priority < 3)
