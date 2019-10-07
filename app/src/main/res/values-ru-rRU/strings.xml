@@ -40,10 +40,10 @@
         <item quantity="other">Синхронизация %1$d учётных записей</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">%1$d операция в ожидании</item>
-        <item quantity="few">%1$d операции в ожидании</item>
-        <item quantity="many">%1$d операций в ожидании</item>
-        <item quantity="other">%1$d операций в ожидании</item>
+        <item quantity="one">%1$d операция в очереди</item>
+        <item quantity="few">%1$d операции в очереди</item>
+        <item quantity="many">%1$d операций в очереди</item>
+        <item quantity="other">%1$d операций в очереди</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d новое сообщение</item>
@@ -99,7 +99,7 @@
     <string name="menu_legend">Легенда</string>
     <string name="menu_test">Тестовая программа</string>
     <string name="menu_faq">Поддержка</string>
-    <string name="menu_issue">Сообщить о проблеме</string>
+    <string name="menu_issue">Отзыв</string>
     <string name="menu_attribution">Благодарности</string>
     <string name="menu_privacy">Конфиденциальность</string>
     <string name="menu_about">О приложении</string>
@@ -292,6 +292,7 @@
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
     <string name="title_advanced_double_back">Двойное \"Назад\" для выхода</string>
+    <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
@@ -417,10 +418,10 @@
     <string name="title_no_operations">Нет операций в очереди</string>
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
-    <string name="title_show_folders">Показать скрытые папки</string>
+    <string name="title_show_folders">Показывать скрытые папки</string>
     <string name="title_hide_folder">Скрыть папку</string>
     <string name="title_unified_folder">Показать в единой папке \"Входящие\"</string>
-    <string name="title_navigation_folder">Показать в меню навигации</string>
+    <string name="title_navigation_folder">Показывать в меню навигации</string>
     <string name="title_synchronize_folder">Синхронизировать (получать сообщения)</string>
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
     <string name="title_download_folder">Автоматически загружать текст сообщений и вложения</string>
@@ -538,7 +539,7 @@
     <string name="title_size">Размер:</string>
     <string name="title_subject">Тема:</string>
     <string name="title_body_hint">Ваше сообщение</string>
-    <string name="title_discard">Отклонить</string>
+    <string name="title_discard">Отменить</string>
     <string name="title_save">Сохранить</string>
     <string name="title_send">Отправить</string>
     <string name="title_send_via">Отправить через</string>
@@ -614,8 +615,8 @@
     <string name="title_answer_name">Название шаблона</string>
     <string name="title_answer_hide">Скрыть из меню</string>
     <string name="title_answer_text">Текст шаблона</string>
-    <string name="title_answer_template_name">$name$ будет заменено на полное имя отправителя</string>
-    <string name="title_answer_template_email">$email$ будет заменено на адрес электронной почты отправителя</string>
+    <string name="title_answer_template_name">Шаблон $name$ будет заменён на полное имя отправителя.</string>
+    <string name="title_answer_template_email">Шаблон $email$ будет заменён на адрес электронной почты отправителя.</string>
     <string name="title_rule_noop">Нет действия</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>
@@ -743,13 +744,13 @@
     <string name="title_legend_delete">Удалить</string>
     <string name="title_legend_count">Количество</string>
     <string name="title_legend_folder_type">Тип папки</string>
-    <string name="title_hint_folder_actions">Длительное нажатие для других параметров</string>
+    <string name="title_hint_folder_actions">Длительное нажатие для других действий</string>
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика не все папки и сообщения синхронизируются по умолчанию</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>
     <string name="title_hint_sync">Загрузка сообщений может занять некоторое время в зависимости от скорости провайдера, интернет-соединения и устройства, а также от количества сообщений. Во время загрузки сообщений приложение может реагировать медленнее.</string>
-    <string name="title_hint_contact_actions">Длительное нажатие для других параметров</string>
+    <string name="title_hint_contact_actions">Длительное нажатие для других действий</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_secure_link">Сделать ссылку безопасной</string>
     <string name="title_link_secured">Ссылка безопасна</string>
@@ -785,8 +786,10 @@
     <string name="title_now">Сейчас</string>
     <string name="title_after">После %1$s</string>
     <string name="title_reset">Сброс</string>
+    <string name="title_hours">Часы</string>
     <string name="title_minutes">мин.</string>
     <string name="title_dismiss">Отклонить</string>
+    <string name="title_snooze_now">Отложить</string>
     <string name="title_icalendar_accept">Принять</string>
     <string name="title_icalendar_decline">Отклонить</string>
     <string name="title_icalendar_maybe">Возможно</string>
@@ -801,7 +804,7 @@
     </string>
     <string name="title_pro_hint">Покупка функций Pro позволит вам использовать все реализованные и будущие Pro-функции.</string>
     <string name="title_pro_price">Ознакомьтесь с <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">​​этим часто задаваемым вопросом</a> о цене функций Pro.</string>
-    <string name="title_pro_pending">Покупка в ожидании</string>
+    <string name="title_pro_pending">Ожидание обработки покупки</string>
     <string name="title_pro_activated">Все функции Pro активированы</string>
     <string name="title_pro_valid">Все функции Pro активированы</string>
     <string name="title_pro_invalid">Неверный ответ</string>
@@ -870,7 +873,7 @@
         <item>Скрытая копия</item>
     </string-array>
     <string-array name="biometricsTimeoutNames">
-        <item>Одна минута</item>
+        <item>1 минута</item>
         <item>2 минуты</item>
         <item>5 минут</item>
         <item>10 минут</item>

@@ -269,6 +269,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine gruppierten Benachrichtigungen</string>
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
     <string name="title_advanced_double_back">Doppelt „Zurück” drücken zum Beenden</string>
+    <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
@@ -762,8 +763,10 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_now">Jetzt</string>
     <string name="title_after">Nach %1$s</string>
     <string name="title_reset">Zurücksetzen</string>
+    <string name="title_hours">Stunden</string>
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Abbrechen</string>
+    <string name="title_snooze_now">Schlummern</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>

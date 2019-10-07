@@ -49,6 +49,10 @@
         <item quantity="one">%1$d ny</item>
         <item quantity="other">%1$d nye</item>
     </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d konversation valgt</item>
+        <item quantity="other">%1$d konversationer valgt</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flyt %1$d besked til %2$s?</item>
         <item quantity="other">Flyt %1$d beskeder til %2$s?</item>
@@ -169,6 +173,7 @@
     <string name="title_advanced_section_display">Vis</string>
     <string name="title_advanced_section_behavior">Adfærd</string>
     <string name="title_advanced_section_notifications">Notifikationer</string>
+    <string name="title_advanced_section_privacy">Fortrolighed</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_enabled">Aktiveret</string>
     <string name="title_advanced_when">Når</string>
@@ -256,6 +261,7 @@
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
+    <string name="title_advanced_recents">Skjul fra skærmen med de seneste apps</string>
     <string name="title_advanced_badge_hint">Kun tilgængelig i understøttede launchers</string>
     <string name="title_advanced_notify_action_hint">Maksimalt tre handlinger vises</string>
     <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
@@ -263,6 +269,7 @@
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
+    <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
@@ -487,6 +494,7 @@
     <string name="title_ask_delete_rule">Slet regel permanent?</string>
     <string name="title_ask_discard">Kassér kladde?</string>
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
+    <string name="title_ask_show_html_remark">Visning af originalbeskeden på en mørk baggrund er ikke mulig, da det kan afstedkomme usynlige mørke tekster og billeder</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
     <string name="title_ask_delete_ref">Slet besvaret/videresendt beskedtekst? Dette kan ikke fortrydes.</string>
@@ -496,6 +504,7 @@
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>
     <string name="title_reporting_why">Rapportering af fejl vil hjælpe med at forbedre FairEmail</string>
+    <string name="title_download_message">Downloader &#8230;</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
@@ -679,6 +688,7 @@
     <string name="title_legend_download">Download indhold</string>
     <string name="title_legend_external_image">Pladsholder til eksternt billede</string>
     <string name="title_legend_embedded_image">Pladsholder til indlejret billede</string>
+    <string name="title_legend_tracking_pixel">Sporingsbillede</string>
     <string name="title_legend_broken_image">Defekt billede</string>
     <string name="title_legend_pick">Vælg kontakt</string>
     <string name="title_legend_cc">Vis Cc/Bcc</string>
@@ -753,8 +763,10 @@
     <string name="title_now">Nu</string>
     <string name="title_after">Efter %1$s</string>
     <string name="title_reset">Nulstil</string>
+    <string name="title_hours">Timer</string>
     <string name="title_minutes">Minutter</string>
     <string name="title_dismiss">Afvis</string>
+    <string name="title_snooze_now">Udsæt</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>

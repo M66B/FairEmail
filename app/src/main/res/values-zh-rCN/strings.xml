@@ -258,6 +258,7 @@
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
     <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
+    <string name="title_advanced_default_snooze">默认贪睡时间</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
@@ -751,8 +752,10 @@
     <string name="title_now">现在</string>
     <string name="title_after">%1$s之后</string>
     <string name="title_reset">重置</string>
+    <string name="title_hours">小时</string>
     <string name="title_minutes">分钟</string>
     <string name="title_dismiss">忽略</string>
+    <string name="title_snooze_now">贪睡</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

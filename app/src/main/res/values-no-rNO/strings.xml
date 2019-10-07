@@ -270,6 +270,7 @@
     <string name="title_advanced_notify_no_grouping">Denne Android versjonen støtter ikke varslingsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android versjonen støtter ikke varslingskanaler</string>
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
+    <string name="title_advanced_default_snooze">Standard slumretid</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
@@ -365,6 +366,7 @@
     <string name="title_no_sync">Synkroniseringsfeil siden %1$s</string>
     <string name="title_identity_required">En identitet er nødvendig for å sende meldinger</string>
     <string name="title_drafts_required">Det kreves en kladd mappe for å kunne sende meldinger</string>
+    <string name="title_hide_remark">Meldinger kan skjules ved utsette meldinger</string>
     <string name="title_account_delete">Slett denne konto en permanent?</string>
     <string name="title_identity_delete">Slett denne identiteten permanent?</string>
     <string name="title_edit_html">Rediger som HTML</string>
@@ -763,8 +765,10 @@
     <string name="title_now">Nå</string>
     <string name="title_after">Etter %1$s</string>
     <string name="title_reset">Tilbakestill</string>
+    <string name="title_hours">Timer</string>
     <string name="title_minutes">Minutter</string>
     <string name="title_dismiss">Avvis</string>
+    <string name="title_snooze_now">Utsett</string>
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>

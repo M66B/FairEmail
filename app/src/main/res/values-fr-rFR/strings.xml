@@ -256,7 +256,7 @@
     <string name="title_advanced_notify_action_reply_direct">Répondre directement</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
-    <string name="title_advanced_notify_action_snooze">Différer</string>
+    <string name="title_advanced_notify_action_snooze">Reporter</string>
     <string name="title_advanced_notify_remove">Supprimer la notification de nouveau message en tapant sur la notification</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
@@ -270,6 +270,7 @@
     <string name="title_advanced_notify_no_grouping">Cette version de Android ne supporte pas le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version de Android ne supporte pas les canaux de notification</string>
     <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
+    <string name="title_advanced_default_snooze">Délai de report par défaut</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
@@ -461,7 +462,7 @@
     <string name="title_move">Déplacer</string>
     <string name="title_move_to_folder">Déplacer vers &#8230;</string>
     <string name="title_move_to_account">Déplacer vers %1$s &#8230;</string>
-    <string name="title_snooze">Différer &#8230;</string>
+    <string name="title_snooze">Reporter &#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
     <string name="title_reply_to_sender">Expéditeur</string>
@@ -574,12 +575,12 @@
     <string name="title_sort_on_sender">Expéditeur</string>
     <string name="title_sort_on_subject">Objet</string>
     <string name="title_sort_on_size">Taille</string>
-    <string name="title_sort_on_snoozed">Différé</string>
+    <string name="title_sort_on_snoozed">Reporté</string>
     <string name="title_sort_ascending">Le plus ancien en premier</string>
     <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lu</string>
     <string name="title_filter_unflagged">Non suivi</string>
-    <string name="title_filter_snoozed">Différé</string>
+    <string name="title_filter_snoozed">Reporté</string>
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
@@ -598,7 +599,7 @@
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>
     <string name="title_rule_ignore">Supprimer les notifications</string>
-    <string name="title_rule_snooze">Différer</string>
+    <string name="title_rule_snooze">Reporter</string>
     <string name="title_rule_flag">Marquer comme suivi</string>
     <string name="title_rule_move">Déplacer</string>
     <string name="title_rule_copy">Copier (étiquette)</string>
@@ -674,7 +675,7 @@
     <string name="title_legend_draft">A un brouillon</string>
     <string name="title_legend_priority">A une priorité élevée</string>
     <string name="title_legend_auth">Échec de l\'authentification</string>
-    <string name="title_legend_snoozed">Est différé</string>
+    <string name="title_legend_snoozed">Est reporté</string>
     <string name="title_legend_browsed">Est parcouru ou recherché</string>
     <string name="title_legend_answered">A reçu une réponse</string>
     <string name="title_legend_plain_only">Texte brut seulement</string>
@@ -763,8 +764,10 @@
     <string name="title_now">Maintenant</string>
     <string name="title_after">Après %1$s</string>
     <string name="title_reset">Réinitialiser</string>
+    <string name="title_hours">Heures</string>
     <string name="title_minutes">Minutes</string>
     <string name="title_dismiss">Rejeter</string>
+    <string name="title_snooze_now">Reporter</string>
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>
@@ -793,7 +796,7 @@
     <string name="title_search_special_prefix">spécial</string>
     <string name="title_search_special_unseen">non_lus</string>
     <string name="title_search_special_flagged">suivis</string>
-    <string name="title_search_special_snoozed">différés</string>
+    <string name="title_search_special_snoozed">reportés</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tous</string>
     <string name="title_widget_unseen">Messages non lus seulement</string>

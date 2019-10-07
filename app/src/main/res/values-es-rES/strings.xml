@@ -49,6 +49,10 @@
         <item quantity="one">%1$d nuevo</item>
         <item quantity="other">%1$d nuevos</item>
     </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">%1$d conversación seleccionada</item>
+        <item quantity="other">%1$d conversaciones seleccionadas</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">¿Mover %1$d mensaje a %2$s?</item>
         <item quantity="other">¿Mover %1$d mensajes a %2$s?</item>
@@ -170,6 +174,7 @@
     <string name="title_advanced_section_display">Mostrar</string>
     <string name="title_advanced_section_behavior">Comportamiento</string>
     <string name="title_advanced_section_notifications">Notificaciones</string>
+    <string name="title_advanced_section_privacy">Privacidad</string>
     <string name="title_advanced_section_misc">Miscelánea</string>
     <string name="title_advanced_enabled">Activado</string>
     <string name="title_advanced_when">Cuando</string>
@@ -257,6 +262,7 @@
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
+    <string name="title_advanced_recents">Ocultar de pantalla con aplicaciones recientes</string>
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
@@ -264,6 +270,7 @@
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
     <string name="title_advanced_notify_no_channels">Esta versión de Android no es compatible con canales de notificación</string>
     <string name="title_advanced_double_back">Doble \'atrás\' para salir</string>
+    <string name="title_advanced_default_snooze">Tiempo de posponer por defecto</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
@@ -488,6 +495,7 @@
     <string name="title_ask_delete_rule">¿Eliminar regla permanentemente?</string>
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
+    <string name="title_ask_show_html_remark">No es posible mostrar el mensaje original con un fondo oscuro porque puede causar que textos e imágenes oscuros sean invisibles</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
     <string name="title_ask_delete_ref">¿Eliminar el texto del mensaje contestado/reenviado? Esto no se puede deshacer.</string>
@@ -497,6 +505,7 @@
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
+    <string name="title_download_message">Descargando &#8230;</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
@@ -680,6 +689,7 @@
     <string name="title_legend_download">Descargar contenido</string>
     <string name="title_legend_external_image">Imagen externa</string>
     <string name="title_legend_embedded_image">Imagen insertada</string>
+    <string name="title_legend_tracking_pixel">Imagen de rastreo</string>
     <string name="title_legend_broken_image">Imagen rota</string>
     <string name="title_legend_pick">Seleccionar contacto</string>
     <string name="title_legend_cc">Mostrar CC/CCO</string>
@@ -754,8 +764,10 @@
     <string name="title_now">Ahora</string>
     <string name="title_after">Después de %1$s</string>
     <string name="title_reset">Restablecer</string>
+    <string name="title_hours">Horas</string>
     <string name="title_minutes">Minutos</string>
     <string name="title_dismiss">Descartar</string>
+    <string name="title_snooze_now">Posponer</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

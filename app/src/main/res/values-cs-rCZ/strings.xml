@@ -63,6 +63,12 @@
         <item quantity="many">%1$d nových</item>
         <item quantity="other">%1$d nových</item>
     </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Vybrána %1$d konverzace</item>
+        <item quantity="few">Vybrány %1$d konverzace</item>
+        <item quantity="many">Vybráno %1$d konverzací</item>
+        <item quantity="other">Vybráno %1$d konverzací</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Přesunout %1$d zprávu do %2$s?</item>
         <item quantity="few">Přesunout %1$d zprávy do %2$s?</item>
@@ -190,6 +196,7 @@
     <string name="title_advanced_section_display">Zobrazení</string>
     <string name="title_advanced_section_behavior">Chování</string>
     <string name="title_advanced_section_notifications">Oznámení</string>
+    <string name="title_advanced_section_privacy">Soukromí</string>
     <string name="title_advanced_section_misc">Ostatní</string>
     <string name="title_advanced_enabled">Zapnuto</string>
     <string name="title_advanced_when">Kdy</string>
@@ -277,6 +284,7 @@
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
+    <string name="title_advanced_recents">Skrýt z obrazovky s posledními aplikacemi</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
@@ -284,6 +292,7 @@
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
+    <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
@@ -379,6 +388,7 @@
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
     <string name="title_identity_required">Identita je nutná pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je nutná pro odesílání zpráv</string>
+    <string name="title_hide_remark">Zprávy lze odložením skrýt</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
@@ -508,6 +518,7 @@
     <string name="title_ask_delete_rule">Trvale odstranit pravidlo?</string>
     <string name="title_ask_discard">Zahodit koncept?</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
+    <string name="title_ask_show_html_remark">Zobrazení původní zprávy s tmavým pozadím není možné, neboť může způsobit zneviditelnění tmavého textu a obrázků</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
     <string name="title_ask_delete_ref">Smazat text odpovídané/přeposílané zprávy? Tuto akci nelze vrátit zpět.</string>
@@ -517,6 +528,7 @@
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
+    <string name="title_download_message">Stahování &#8230;</string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>
@@ -700,6 +712,7 @@
     <string name="title_legend_download">Stáhnout obsah</string>
     <string name="title_legend_external_image">Zástupce externího obrázku</string>
     <string name="title_legend_embedded_image">Zástupce vloženého obrázku</string>
+    <string name="title_legend_tracking_pixel">Sledovací obrázek</string>
     <string name="title_legend_broken_image">Poškozený obrázek</string>
     <string name="title_legend_pick">Vybrat kontakt</string>
     <string name="title_legend_cc">Zobrazit kopii/skrytou kopii</string>
@@ -774,8 +787,10 @@
     <string name="title_now">Nyní</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Obnovit</string>
+    <string name="title_hours">Hodiny</string>
     <string name="title_minutes">Minuty</string>
     <string name="title_dismiss">Zavřít</string>
+    <string name="title_snooze_now">Odložit</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>

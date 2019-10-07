@@ -270,6 +270,7 @@
     <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>
     <string name="title_advanced_notify_no_channels">Deze Android-versie ondersteunt geen meldingskanalen</string>
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
+    <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
@@ -365,6 +366,7 @@
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_identity_required">Een identiteit is vereist om berichten te verzenden</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
+    <string name="title_hide_remark">Berichten kunnen worden verborgen door berichten te sluimeren</string>
     <string name="title_account_delete">Verwijder dit account permanent?</string>
     <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
     <string name="title_edit_html">Bewerk HTML</string>
@@ -763,8 +765,10 @@
     <string name="title_now">Nu</string>
     <string name="title_after">Over %1$s</string>
     <string name="title_reset">Herstellen</string>
+    <string name="title_hours">Uren</string>
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Negeren</string>
+    <string name="title_snooze_now">Sluimeren</string>
     <string name="title_icalendar_accept">Accepteer</string>
     <string name="title_icalendar_decline">Weiger</string>
     <string name="title_icalendar_maybe">Misschien</string>

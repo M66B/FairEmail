@@ -63,6 +63,12 @@
         <item quantity="many">%1$d nowe</item>
         <item quantity="other">%1$d nowe</item>
     </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Wybrano %1$d okno dialogowe</item>
+        <item quantity="few">Wybrano %1$d okna dialogowe</item>
+        <item quantity="many">Wybrano %1$d okna dialogowe</item>
+        <item quantity="other">Wybrano %1$d okna dialogowe</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Przenieść %1$d wiadomość do %2$s?</item>
         <item quantity="few">Przenieść %1$d wiadomości do %2$s?</item>
@@ -190,6 +196,7 @@
     <string name="title_advanced_section_display">Wyświetlanie</string>
     <string name="title_advanced_section_behavior">Zachowanie</string>
     <string name="title_advanced_section_notifications">Powiadomienia</string>
+    <string name="title_advanced_section_privacy">Prywatność</string>
     <string name="title_advanced_section_misc">Różne</string>
     <string name="title_advanced_enabled">Włączone</string>
     <string name="title_advanced_when">Kiedy</string>
@@ -277,6 +284,7 @@
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
     <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
+    <string name="title_advanced_recents">Ukryj na ekranie z ostatnimi aplikacjami</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
@@ -284,6 +292,7 @@
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_double_back">Podwójne \'wstecz\', aby wyjść</string>
+    <string name="title_advanced_default_snooze">Domyślny czas drzemki</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
@@ -508,6 +517,7 @@
     <string name="title_ask_delete_rule">Usunąć regułę bezpowrotnie?</string>
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
+    <string name="title_ask_show_html_remark">Wyświetlanie oryginalnej wiadomości na ciemnym tle nie jest możliwe, ponieważ może to powodować brak widoczności ciemnych tekstów i obrazów</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
     <string name="title_ask_delete_ref">Usunąć tekst odpowiedzi/przesłanej dalej wiadomości? Tego nie da się cofnąć.</string>
@@ -517,6 +527,7 @@
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raport o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże poprawić FairEmail</string>
+    <string name="title_download_message">Pobieranie &#8230;</string>
     <string name="title_compose">Napisz</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
@@ -700,6 +711,7 @@
     <string name="title_legend_download">Pobierz zawartość</string>
     <string name="title_legend_external_image">Symbol zastępczy obrazu zewnętrznego</string>
     <string name="title_legend_embedded_image">Symbol zastępczy obrazu wstawionego</string>
+    <string name="title_legend_tracking_pixel">Obrazek śledzący</string>
     <string name="title_legend_broken_image">Uszkodzony obraz</string>
     <string name="title_legend_pick">Wybierz kontakt</string>
     <string name="title_legend_cc">Pokaż DW/UDW</string>
@@ -774,8 +786,10 @@
     <string name="title_now">Teraz</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Resetuj</string>
+    <string name="title_hours">Godzin</string>
     <string name="title_minutes">Minuty</string>
     <string name="title_dismiss">Odrzuć</string>
+    <string name="title_snooze_now">Drzemka</string>
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>

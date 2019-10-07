@@ -56,6 +56,11 @@
         <item quantity="few">%1$d nove</item>
         <item quantity="other">%1$d novih</item>
     </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">Odabran %1$d razgovor</item>
+        <item quantity="few">Odabrana %1$d razgovora</item>
+        <item quantity="other">Odabrano %1$d razgovora</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Premjesti %1$d poruku u %2$s?</item>
         <item quantity="few">Premjesti %1$d poruke u %2$s?</item>
@@ -179,6 +184,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_section_display">Prikaz</string>
     <string name="title_advanced_section_behavior">Ponašanje</string>
     <string name="title_advanced_section_notifications">Obavijesti</string>
+    <string name="title_advanced_section_privacy">Privatnost</string>
     <string name="title_advanced_section_misc">Razno</string>
     <string name="title_advanced_enabled">Omogućeno</string>
     <string name="title_advanced_when">Kada</string>
@@ -266,6 +272,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
+    <string name="title_advanced_recents">Sakrij sa zaslona s nedavnim aplikacijama</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
     <string name="title_advanced_notify_remove_hint">Obavijesti o novim porukama uvijek će se uklanjati nakon što ih povučete i označite kao pročitane poruke</string>
@@ -497,6 +504,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_ask_delete_rule">Želite li trajno izbrisati pravilo?</string>
     <string name="title_ask_discard">Odbaciti skicu?</string>
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
+    <string name="title_ask_show_html_remark">Prikazivanje izvorne poruke na tamnoj pozadini nije moguće jer može uzrokovati nevidljive tamne tekstove i slike</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
     <string name="title_ask_show_image_hint">Slike prepoznate kao slike za praćenje neće se prikazivati</string>
     <string name="title_ask_delete_ref">Izbrisati tekst odgovora / proslijediti poruku? To se ne može povratiti.</string>
@@ -506,6 +514,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_ask_help">Pomozite poboljšati FairEmail</string>
     <string name="title_ask_reporting">Pošalji izvješća o pogreškama?</string>
     <string name="title_reporting_why">Izvješćivanje o pogreškama pomoći će u poboljšanju FairEmail aplikacije</string>
+    <string name="title_download_message">Preuzima se &#8230;</string>
     <string name="title_compose">Sastavi</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Za:</string>
@@ -689,6 +698,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_legend_download">Preuzmi sadržaj</string>
     <string name="title_legend_external_image">Rezervno mjesto za vanjske slike</string>
     <string name="title_legend_embedded_image">Rezervno mjesto za umetnute slike</string>
+    <string name="title_legend_tracking_pixel">Slika za praćenje</string>
     <string name="title_legend_broken_image">Defektna slika</string>
     <string name="title_legend_pick">Odaberi kontakt</string>
     <string name="title_legend_cc">Prikaži CC / BCC</string>

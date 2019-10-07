@@ -270,6 +270,7 @@
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
+    <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
@@ -763,8 +764,10 @@
     <string name="title_now">Nyt</string>
     <string name="title_after">%1$s päästä</string>
     <string name="title_reset">Palauta oletukset</string>
+    <string name="title_hours">Tuntia</string>
     <string name="title_minutes">Minuuttia</string>
     <string name="title_dismiss">Hylkää</string>
+    <string name="title_snooze_now">Torkuta</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>

@@ -49,6 +49,10 @@
         <item quantity="one">%1$d nou</item>
         <item quantity="other">%1$d noves</item>
     </plurals>
+    <plurals name="title_selected_conversations">
+        <item quantity="one">S\'han seleccionat %1$d conversa</item>
+        <item quantity="other">S\'han seleccionat %1$d converses</item>
+    </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Moure el missatge %1$d a %2$s?</item>
         <item quantity="other">Moure els missatges %1$d a %2$s?</item>
@@ -170,6 +174,7 @@
     <string name="title_advanced_section_display">Visualització</string>
     <string name="title_advanced_section_behavior">Comportament</string>
     <string name="title_advanced_section_notifications">Notificacions</string>
+    <string name="title_advanced_section_privacy">Privacitat</string>
     <string name="title_advanced_section_misc">Miscel·lània</string>
     <string name="title_advanced_enabled">Activat</string>
     <string name="title_advanced_when">Quan</string>
@@ -257,6 +262,7 @@
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
     <string name="title_advanced_sound">Selecciona so de notificació</string>
     <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
+    <string name="title_advanced_recents">Oculta de la pantalla amb aplicacions recents</string>
     <string name="title_advanced_badge_hint">Només disponible en llançadors compatibles</string>
     <string name="title_advanced_notify_action_hint">Com a màxim es mostraran tres accions</string>
     <string name="title_advanced_notify_remove_hint">Les notificacions de nous missatges sempre s\'esborraran quan es llisquin cap als costats o al marcar els missatges com a llegits</string>
@@ -264,6 +270,7 @@
     <string name="title_advanced_notify_no_grouping">Aquesta versió d\'Android no admet l\'agrupació de notificacions</string>
     <string name="title_advanced_notify_no_channels">Aquesta versió d\'Android no admet els canals de notificacions</string>
     <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
+    <string name="title_advanced_default_snooze">Temps de retard de la repetició predefinit</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_english">Forçar idioma anglès</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
@@ -359,6 +366,7 @@
     <string name="title_no_sync">Errors de sincronització des de %1$s</string>
     <string name="title_identity_required">Cal enviar una identitat per enviar missatges</string>
     <string name="title_drafts_required">Cal enviar una carpeta d\'esborranys per enviar missatges</string>
+    <string name="title_hide_remark">Els missatges es poden amagar mitjançant l\'atenuació de missatges</string>
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>
@@ -488,6 +496,7 @@
     <string name="title_ask_delete_rule">Esborrar regla per sempre?</string>
     <string name="title_ask_discard">Voleu rebutjar l\'esborrany?</string>
     <string name="title_ask_show_html">Si es mostra el missatge original es pot filtrar informació sensible a la privadesa</string>
+    <string name="title_ask_show_html_remark">No es pot mostrar el missatge original amb un fons fosc perquè pot provocar imatges i textos foscos invisibles</string>
     <string name="title_ask_show_image">Si es mostra imatges, es pot filtrar informació sensible a la privadesa</string>
     <string name="title_ask_show_image_hint">Les imatges reconegudes com a imatges de seguiment no es mostraran</string>
     <string name="title_ask_delete_ref">Voleu suprimir el text del missatge resposta/reenviat? Això no es pot desfer.</string>
@@ -497,6 +506,7 @@
     <string name="title_ask_help">Ajuda a millorar FairEmail</string>
     <string name="title_ask_reporting">Enviar registre d\'errors?</string>
     <string name="title_reporting_why">La notificació d’errors ajudarà a millorar FairEmail</string>
+    <string name="title_download_message">Descarregant &#8230;</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
     <string name="title_to">Per a:</string>
@@ -680,6 +690,7 @@
     <string name="title_legend_download">Descarrega el contingut</string>
     <string name="title_legend_external_image">Imatge externa variable</string>
     <string name="title_legend_embedded_image">Imatge incrustada variable</string>
+    <string name="title_legend_tracking_pixel">Imatge de seguiment</string>
     <string name="title_legend_broken_image">Imatge trencada</string>
     <string name="title_legend_pick">Tria el contacte</string>
     <string name="title_legend_cc">Mostra CC/CCO</string>
@@ -754,8 +765,10 @@
     <string name="title_now">Ara</string>
     <string name="title_after">Després de %1$s</string>
     <string name="title_reset">Restablir</string>
+    <string name="title_hours">Hores</string>
     <string name="title_minutes">Minuts</string>
     <string name="title_dismiss">Descartar</string>
+    <string name="title_snooze_now">Posposa</string>
     <string name="title_icalendar_accept">Acceptar</string>
     <string name="title_icalendar_decline">Rebutja</string>
     <string name="title_icalendar_maybe">Potser</string>

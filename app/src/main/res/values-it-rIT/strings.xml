@@ -269,6 +269,7 @@
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
+    <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
@@ -762,8 +763,10 @@
     <string name="title_now">Ora</string>
     <string name="title_after">Dopo %1$s</string>
     <string name="title_reset">Reset</string>
+    <string name="title_hours">Ore</string>
     <string name="title_minutes">Minuti</string>
     <string name="title_dismiss">Rimuovi</string>
+    <string name="title_snooze_now">Posticipa</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>
