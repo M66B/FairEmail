@@ -3601,12 +3601,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             mMainThreadExecutor.setAccessible(true);
             mMainThreadExecutor.set(this.differ, new Executor() {
                 @Override
-                public void execute(Runnable command) {
-                    try {
-                        handler.post(command);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
+                public void execute(final Runnable command) {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                command.run();
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+                    });
                 }
             });
         } catch (Throwable ex) {
