@@ -81,6 +81,7 @@ public class FragmentDialogBase extends DialogFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         Log.i("Result class=" + this.getClass().getSimpleName() +
+                " action=" + data.getAction() +
                 " request=" + requestCode + " result=" + resultCode);
         Log.logExtras(data);
         super.onActivityResult(requestCode, resultCode, data);
