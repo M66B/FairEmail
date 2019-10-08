@@ -58,6 +58,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 class ImageHelper {
     private static final float MIN_LUMINANCE = 0.33f;
@@ -369,28 +371,44 @@ class ImageHelper {
         }
     }
 
-    private static void fitDrawable(final Drawable d, AnnotatedSource a, final View view) {
-        Rect bounds = d.getBounds();
-        int w = bounds.width();
-        int h = bounds.height();
+    private static void fitDrawable(final Drawable d, final AnnotatedSource a, final View view) {
+        Semaphore semaphore = new Semaphore(0);
 
-        if (a.width == 0 && a.height != 0)
-            a.width = Math.round(a.height * w / (float) h);
-        if (a.height == 0 && a.width != 0)
-            a.height = Math.round(a.width * h / (float) w);
+        new Handler(view.getContext().getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                Rect bounds = d.getBounds();
+                int w = bounds.width();
+                int h = bounds.height();
 
-        if (a.width != 0 && a.height != 0) {
-            w = Helper.dp2pixels(view.getContext(), a.width);
-            h = Helper.dp2pixels(view.getContext(), a.height);
-            d.setBounds(0, 0, w, h);
-        }
+                if (a.width == 0 && a.height != 0)
+                    a.width = Math.round(a.height * w / (float) h);
+                if (a.height == 0 && a.width != 0)
+                    a.height = Math.round(a.width * h / (float) w);
 
-        float width = view.getWidth();
-        if (w > width) {
-            float scale = width / w;
-            w = Math.round(w * scale);
-            h = Math.round(h * scale);
-            d.setBounds(0, 0, w, h);
+                if (a.width != 0 && a.height != 0) {
+                    w = Helper.dp2pixels(view.getContext(), a.width);
+                    h = Helper.dp2pixels(view.getContext(), a.height);
+                    d.setBounds(0, 0, w, h);
+                }
+
+                float width = view.getWidth();
+                if (w > width) {
+                    float scale = width / w;
+                    w = Math.round(w * scale);
+                    h = Math.round(h * scale);
+                    d.setBounds(0, 0, w, h);
+                }
+
+                semaphore.release();
+            }
+        });
+
+        try {
+            if (!semaphore.tryAcquire(1500, TimeUnit.MILLISECONDS))
+                Log.e("fitDrawable failed");
+        } catch (InterruptedException ex) {
+            Log.w(ex);
         }
     }
 
