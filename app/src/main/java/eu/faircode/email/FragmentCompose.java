@@ -42,9 +42,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LevelListDrawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -54,18 +52,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.LocaleList;
-import android.os.Looper;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.Html;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
-import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -1386,34 +1381,48 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:picked");
     }
 
-    private void onAddAttachment(Uri uri, final boolean image) {
+    private void onAddAttachment(Uri uri, boolean image) {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelable("uri", uri);
+        args.putBoolean("image", image);
+        args.putCharSequence("body", etBody.getText());
+        args.putInt("start", etBody.getSelectionStart());
 
-        new SimpleTask<EntityAttachment>() {
+        new SimpleTask<Spanned>() {
             @Override
-            protected EntityAttachment onExecute(Context context, Bundle args) throws IOException {
-                Long id = args.getLong("id");
+            protected Spanned onExecute(Context context, Bundle args) throws IOException {
+                long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
-                return addAttachment(context, id, uri, image);
+                boolean image = args.getBoolean("image");
+                CharSequence body = args.getCharSequence("body");
+                int start = args.getInt("start");
+
+                EntityAttachment attachment = addAttachment(context, id, uri, image);
+
+                File file = attachment.getFile(context);
+                Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+
+                Uri cid = Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id);
+
+                SpannableStringBuilder s = new SpannableStringBuilder(body);
+                s.insert(start, " ");
+                ImageSpan is = new ImageSpan(context, cid, ImageSpan.ALIGN_BASELINE);
+                s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                return HtmlHelper.fromHtml(HtmlHelper.toHtml(s), new Html.ImageGetter() {
+                    @Override
+                    public Drawable getDrawable(String source) {
+                        return ImageHelper.decodeImage(context, id, source, true, etBody);
+                    }
+                }, null);
             }
 
             @Override
-            protected void onExecuted(Bundle args, final EntityAttachment attachment) {
-                if (image) {
-                    File file = attachment.getFile(getContext());
-                    Drawable d = Drawable.createFromPath(file.getAbsolutePath());
-                    d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-
-                    int start = etBody.getSelectionStart();
-                    etBody.getText().insert(start, " ");
-                    SpannableString s = new SpannableString(etBody.getText());
-                    ImageSpan is = new ImageSpan(getContext(), Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id), ImageSpan.ALIGN_BASELINE);
-                    s.setSpan(is, start, start + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    String html = HtmlHelper.toHtml(s);
-                    etBody.setText(HtmlHelper.fromHtml(html, cidGetter, null));
-                }
+            protected void onExecuted(Bundle args, final Spanned body) {
+                etBody.setText(body);
+                etBody.setSelection(args.getInt("start"));
 
                 // Save text & update remote draft
                 onAction(R.id.action_save);
@@ -3129,7 +3138,12 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_body));
 
                 String body = Helper.readText(draft.getFile(context));
-                Spanned spannedBody = HtmlHelper.fromHtml(body, cidGetter, null);
+                Spanned spannedBody = HtmlHelper.fromHtml(body, new Html.ImageGetter() {
+                    @Override
+                    public Drawable getDrawable(String source) {
+                        return ImageHelper.decodeImage(context, id, source, true, etBody);
+                    }
+                }, null);
 
                 SpannableStringBuilder bodyBuilder = new SpannableStringBuilder(spannedBody);
                 QuoteSpan[] bodySpans = bodyBuilder.getSpans(0, bodyBuilder.length(), QuoteSpan.class);
@@ -3231,95 +3245,6 @@ public class FragmentCompose extends FragmentBase {
             }
         }.execute(this, args, "compose:show");
     }
-
-    private Html.ImageGetter cidGetter = new Html.ImageGetter() {
-        @Override
-        public Drawable getDrawable(final String source) {
-            Log.i("Loading source=" + source);
-            final LevelListDrawable lld = new LevelListDrawable();
-
-            Resources res = getContext().getResources();
-            int px = Helper.dp2pixels(getContext(), 48);
-
-            // Level 0: broken image
-            Drawable broken = res.getDrawable(R.drawable.baseline_broken_image_24, getContext().getTheme());
-            broken.setBounds(0, 0, px, px);
-            lld.addLevel(0, 0, broken);
-
-            // Level 1: place holder
-            Drawable placeholder = res.getDrawable(R.drawable.baseline_image_24, getContext().getTheme());
-            placeholder.setBounds(0, 0, px, px);
-            lld.addLevel(1, 1, placeholder);
-
-            lld.setBounds(0, 0, px, px);
-
-            if (source != null && source.startsWith("cid:")) {
-                lld.setLevel(1); // placeholder
-
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        Bundle args = new Bundle();
-                        args.putLong("id", working);
-                        args.putString("cid", "<" + source.substring(4) + ">");
-                        args.putInt("scaleToPixels", res.getDisplayMetrics().widthPixels);
-
-                        new SimpleTask<Bitmap>() {
-                            @Override
-                            protected Bitmap onExecute(Context context, Bundle args) {
-                                long id = args.getLong("id");
-                                String cid = args.getString("cid");
-                                int scaleToPixels = args.getInt("scaleToPixels");
-
-                                DB db = DB.getInstance(context);
-                                EntityAttachment attachment = db.attachment().getAttachment(id, cid);
-                                if (attachment == null)
-                                    return null;
-
-                                File file = attachment.getFile(context);
-                                return Helper.decodeImage(file, scaleToPixels);
-                            }
-
-                            @Override
-                            protected void onExecuted(Bundle args, Bitmap bm) {
-                                if (bm == null)
-                                    lld.setLevel(0); // broken
-                                else {
-                                    Drawable image = new BitmapDrawable(res, bm);
-
-                                    DisplayMetrics dm = res.getDisplayMetrics();
-                                    image.setBounds(0, 0,
-                                            Math.round(bm.getWidth() * dm.density),
-                                            Math.round(bm.getHeight() * dm.density));
-
-                                    lld.addLevel(2, 2, image);
-                                    lld.setLevel(2); // image
-
-                                    float scale = 1.0f;
-                                    float width = etBody.getWidth();
-                                    if (image.getIntrinsicWidth() > width)
-                                        scale = width / image.getIntrinsicWidth();
-
-                                    lld.setBounds(0, 0,
-                                            Math.round(image.getIntrinsicWidth() * scale),
-                                            Math.round(image.getIntrinsicHeight() * scale));
-                                }
-                                etBody.requestLayout();
-                            }
-
-                            @Override
-                            protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(getFragmentManager(), ex);
-                            }
-                        }.execute(FragmentCompose.this, args, "compose:cid:" + source);
-                    }
-                });
-            } else
-                lld.setLevel(1); // image place holder
-
-            return lld;
-        }
-    };
 
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
         @Override
@@ -3737,7 +3662,7 @@ public class FragmentCompose extends FragmentBase {
                     @Override
                     protected Void onExecute(Context context, Bundle args) {
                         long id = args.getLong("id");
-                        Long wakeup = args.getLong("wakeup");
+                        long wakeup = args.getLong("wakeup");
 
                         DB db = DB.getInstance(context);
                         db.message().setMessageSnoozed(id, wakeup < 0 ? null : wakeup);
