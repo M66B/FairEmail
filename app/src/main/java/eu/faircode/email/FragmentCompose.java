@@ -90,6 +90,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -223,12 +224,11 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_ENCRYPT = 8;
     private static final int REQUEST_COLOR = 9;
     private static final int REQUEST_REF_DELETE = 10;
-    private static final int REQUEST_REF_EDIT = 11;
-    private static final int REQUEST_CONTACT_GROUP = 12;
-    private static final int REQUEST_ANSWER = 13;
-    private static final int REQUEST_LINK = 14;
-    private static final int REQUEST_DISCARD = 15;
-    private static final int REQUEST_SEND = 16;
+    private static final int REQUEST_CONTACT_GROUP = 11;
+    private static final int REQUEST_ANSWER = 12;
+    private static final int REQUEST_LINK = 13;
+    private static final int REQUEST_DISCARD = 14;
+    private static final int REQUEST_SEND = 15;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -680,86 +680,98 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onReferenceEdit() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (prefs.getBoolean("edit_ref_confirmed", false)) {
-            onReferenceEditConfirmed();
-            return;
-        }
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), ibReferenceEdit);
 
-        Bundle args = new Bundle();
-        args.putString("question", getString(R.string.title_ask_edit_ref));
-        args.putString("notagain", "edit_ref_confirmed");
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_plain_text, 1, R.string.title_edit_plain_text);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_formatted_text, 2, R.string.title_edit_formatted_text);
 
-        FragmentDialogAsk fragment = new FragmentDialogAsk();
-        fragment.setArguments(args);
-        fragment.setTargetFragment(this, REQUEST_REF_EDIT);
-        fragment.show(getFragmentManager(), "compose:refedit");
-    }
-
-    private void onReferenceEditConfirmed() {
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-        args.putString("body", HtmlHelper.toHtml(etBody.getText()));
-
-        new SimpleTask<EntityMessage>() {
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
-            protected void onPreExecute(Bundle args) {
-                ibReferenceDelete.setEnabled(false);
-                ibReferenceEdit.setEnabled(false);
-            }
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.string.title_edit_plain_text:
+                        convertRef(true);
+                        return true;
 
-            @Override
-            protected void onPostExecute(Bundle args) {
-                ibReferenceDelete.setEnabled(true);
-                ibReferenceEdit.setEnabled(true);
-            }
+                    case R.string.title_edit_formatted_text:
+                        convertRef(false);
+                        return true;
 
-            @Override
-            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                String body = args.getString("body");
-
-                DB db = DB.getInstance(context);
-                EntityMessage draft = db.message().getMessage(id);
-                if (draft == null || !draft.content)
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_body));
-
-                File file = draft.getFile(context);
-                File refFile = draft.getRefFile(context);
-
-                String ref = Helper.readText(refFile);
-                String plain = HtmlHelper.getText(ref);
-                String html = "<p>" + plain.replaceAll("\\r?\\n", "<br>") + "</p>";
-
-                try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
-                    out.write(body);
-                    out.write(html);
+                    default:
+                        return false;
                 }
-
-                refFile.delete();
-
-                draft.plain_only = true;
-                draft.revision = null;
-                draft.revisions = null;
-
-                db.message().setMessagePlainOnly(draft.id, true);
-                db.message().setMessageRevision(draft.id, null);
-                db.message().setMessageRevisions(draft.id, null);
-
-                return draft;
             }
 
-            @Override
-            protected void onExecuted(Bundle args, EntityMessage draft) {
-                getActivity().invalidateOptionsMenu();
-                showDraft(draft);
-            }
+            private void convertRef(boolean plain) {
+                Bundle args = new Bundle();
+                args.putLong("id", working);
+                args.putString("body", HtmlHelper.toHtml(etBody.getText()));
 
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                new SimpleTask<EntityMessage>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        ibReferenceDelete.setEnabled(false);
+                        ibReferenceEdit.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        ibReferenceDelete.setEnabled(true);
+                        ibReferenceEdit.setEnabled(true);
+                    }
+
+                    @Override
+                    protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+                        String body = args.getString("body");
+
+                        DB db = DB.getInstance(context);
+                        EntityMessage draft = db.message().getMessage(id);
+                        if (draft == null || !draft.content)
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_body));
+
+
+                        File file = draft.getFile(context);
+                        File refFile = draft.getRefFile(context);
+
+                        String html;
+                        String ref = Helper.readText(refFile);
+                        if (plain) {
+                            String plain = HtmlHelper.getText(ref);
+                            html = "<p>" + plain.replaceAll("\\r?\\n", "<br>") + "</p>";
+                        } else
+                            html = HtmlHelper.sanitize(context, ref, true);
+
+                        try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
+                            out.write(body);
+                            out.write(html);
+                        }
+
+                        refFile.delete();
+
+                        draft.revision = null;
+                        draft.revisions = null;
+
+                        db.message().setMessageRevision(draft.id, null);
+                        db.message().setMessageRevisions(draft.id, null);
+
+                        return draft;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, EntityMessage draft) {
+                        showDraft(draft);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getFragmentManager(), ex);
+                    }
+                }.execute(FragmentCompose.this, args, "compose:convert");
             }
-        }.execute(this, args, "compose:refedit");
+        });
+
+        popupMenu.show();
     }
 
     private void onReferenceImages() {
@@ -1254,10 +1266,6 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_REF_DELETE:
                     if (resultCode == RESULT_OK)
                         onReferenceDeleteConfirmed();
-                    break;
-                case REQUEST_REF_EDIT:
-                    if (resultCode == RESULT_OK)
-                        onReferenceEditConfirmed();
                     break;
                 case REQUEST_CONTACT_GROUP:
                     if (resultCode == RESULT_OK && data != null)
