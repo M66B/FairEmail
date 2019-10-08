@@ -504,7 +504,7 @@
     <string name="title_ask_delete_rule">Ștergeți regula definitiv?</string>
     <string name="title_ask_discard">Renunțați la ciornă?</string>
     <string name="title_ask_show_html">Vizualizarea mesajului original poate duce la divulgarea de informații confidențiale</string>
-    <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibil pentru ca imaginile și textul închise la culoare ar putea sa nu se vadă</string>
+    <string name="title_ask_show_html_remark">Afișarea mesajului original pe un fundal închis nu este posibilă pentru că imaginile și textul închise la culoare ar putea sa nu se vadă</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image_hint">Imaginile recunoscute drept imagini folosite la urmărire nu vor fi afișate</string>
     <string name="title_ask_delete_ref">Stergeți textul mesajului răspuns/redirecționat? Acesta nu se va putea recupera.</string>
