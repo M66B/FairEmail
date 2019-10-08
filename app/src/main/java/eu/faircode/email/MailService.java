@@ -367,7 +367,7 @@ public class MailService implements AutoCloseable {
 
     public void close() throws MessagingException {
         try {
-            if (iservice != null)
+            if (iservice != null && iservice.isConnected())
                 iservice.close();
         } finally {
             context = null;
