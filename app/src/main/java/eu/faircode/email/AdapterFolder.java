@@ -250,8 +250,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 if (folder.account == null)
                     sb.append(NF.format(folder.messages));
                 else {
-                    sb.append(NF.format(folder.content));
-                    sb.append('/');
+                    if (!show_compact) {
+                        sb.append(NF.format(folder.content));
+                        sb.append('/');
+                    }
                     sb.append(NF.format(folder.messages));
                 }
                 tvMessages.setText(sb.toString());
