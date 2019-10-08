@@ -4,19 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <View
+        android:id="@+id/vSeparatorTop"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnvActions"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:background="?attr/colorActionBackground"
-        app:itemIconTint="@color/action_foreground"
-        app:itemTextColor="@color/action_foreground"
-        app:labelVisibilityMode="labeled"
+        android:layout_height="36dp"
+        android:background="@android:color/transparent"
+        app:elevation="0dp"
+        app:itemIconTint="?android:attr/textColorSecondary"
+        app:itemTextColor="?android:attr/textColorSecondary"
+        app:labelVisibilityMode="unlabeled"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vSeparatorTop"
         app:menu="@menu/action_message" />
+
+    <View
+        android:id="@+id/vSeparatorBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorSeparator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bnvActions" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbBody"
@@ -40,7 +57,7 @@
         android:tint="@color/action_foreground"
         android:tooltipText="@string/title_decrypt"
         app:layout_constraintEnd_toStartOf="@+id/ibUnsubscribe"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
         app:srcCompat="@drawable/baseline_lock_open_24" />
 
     <ImageButton
@@ -54,7 +71,7 @@
         android:tint="@color/action_foreground"
         android:tooltipText="@string/title_legend_show_unsubscribe"
         app:layout_constraintEnd_toStartOf="@+id/ibImages"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
         app:srcCompat="@drawable/baseline_unsubscribe_24" />
 
     <ImageButton
@@ -68,7 +85,7 @@
         android:tint="@color/action_foreground"
         android:tooltipText="@string/title_legend_show_images"
         app:layout_constraintEnd_toStartOf="@+id/ibFull"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
         app:srcCompat="@drawable/baseline_image_24" />
 
     <ImageButton
@@ -81,6 +98,6 @@
         android:tint="@color/action_foreground"
         android:tooltipText="@string/title_legend_show_full"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bnvActions"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
         app:srcCompat="@drawable/baseline_fullscreen_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
