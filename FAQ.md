@@ -363,11 +363,12 @@ Your username is likely easily guessed, so this is insecure.
 *Plain text connection*
 
 Your username and password and all messages will be sent and received unencrypted, which is **very insecure**
-because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unecrypted connection.
+because a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) is very simple on an unencrypted connection.
 
 If you still want to use an invalid security certificate, an empty password or a plain text connection
 you'll need to enable insecure connections in the account and/or identity settings.
 STARTTLS should be selected for plain text connections.
+If you enable insecure connections, you should connect via private, trusted networks only and never via public networks, like offered in hotels, airports, etc.
 
 <br />
 
