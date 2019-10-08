@@ -1377,7 +1377,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 WebSettings settings = webView.getSettings();
-                settings.setUseWideViewPort(false);
+                settings.setUseWideViewPort(true);
                 settings.setLoadWithOverviewMode(true);
 
                 settings.setBuiltInZoomControls(true);
@@ -1399,8 +1399,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 settings.setBlockNetworkImage(!show_images);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-                if (size != 0)
-                    webView.setInitialScale(Math.round(size * 100));
+                webView.setInitialScale(size == 0 ? 1 : Math.round(size * 100));
                 wvBody.setMinimumHeight(height);
                 if (position != null) {
                     wvBody.setScrollX(position.first);
@@ -1469,7 +1468,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putBoolean("has_images", has_images);
 
                     if (show_full) {
-                        HtmlHelper.removeViewportLimitations(document);
+                        HtmlHelper.setViewport(document);
                         if (inline || show_images)
                             HtmlHelper.embedInlineImages(context, message.id, document);
 

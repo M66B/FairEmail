@@ -565,23 +565,15 @@ public class HtmlHelper {
         }
     }
 
-    static void removeViewportLimitations(Document document) {
-        for (Element meta : document.select("meta").select("[name=viewport]")) {
-            String content = meta.attr("content");
-            String[] params = content.split(";");
-            if (params.length > 0) {
-                List<String> viewport = new ArrayList<>();
-                for (String param : params)
-                    if (!param.toLowerCase(Locale.ROOT).contains("maximum-scale") &&
-                            !param.toLowerCase(Locale.ROOT).contains("user-scalable"))
-                        viewport.add(param.trim());
+    static void setViewport(Document document) {
+        // https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+        document.head().select("meta").select("[name=viewport]").remove();
 
-                if (viewport.size() == 0)
-                    meta.attr("content", "");
-                else
-                    meta.attr("content", TextUtils.join(" ;", viewport) + ";");
-            }
-        }
+        document.head().prependChild(document.createElement("meta")
+                .attr("name", "viewport")
+                .attr("content", "width=device-width, initial-scale=1.0"));
+
+        Log.i(document.head().html());
     }
 
     static String getPreview(String body) {
