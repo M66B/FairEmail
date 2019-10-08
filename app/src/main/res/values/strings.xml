@@ -303,7 +303,7 @@
     <string name="title_advanced_alert_once" translatable="false">MIUI notification sound workaround</string>
 
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
-    <string name="title_advanced_recents">Hide from screen with recent apps</string>
+    <string name="title_advanced_recents">Hide FairEmail from screen with recent apps</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
