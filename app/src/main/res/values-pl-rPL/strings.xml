@@ -336,7 +336,6 @@
     <string name="title_select">Wybierz &#8230;</string>
     <string name="title_identity_name">Twoja nazwa</string>
     <string name="title_identity_email">Twój adres e-mail</string>
-    <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_sender_regex">Wyrażenie regularne pasujące do edytowanych adresów</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>

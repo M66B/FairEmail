@@ -324,7 +324,6 @@
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
-    <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_regex">Regex pentru găsirea adresei editate</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>

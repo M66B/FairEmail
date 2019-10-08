@@ -336,7 +336,6 @@
     <string name="title_select">Vybrat &#8230;</string>
     <string name="title_identity_name">Vaše jméno</string>
     <string name="title_identity_email">Vaše e-mailová adresa</string>
-    <string name="title_identity_color_hint">Barvy identit mají přednost před barvami účtů</string>
     <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
     <string name="title_advanced_sender_regex">Regulární výraz, který bude odpovídat upraveným adresám</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>

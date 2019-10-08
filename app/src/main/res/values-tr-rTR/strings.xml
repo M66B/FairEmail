@@ -314,7 +314,6 @@
     <string name="title_select">Seçin &#8230;</string>
     <string name="title_identity_name">Adınız</string>
     <string name="title_identity_email">E-posta adresiniz</string>
-    <string name="title_identity_color_hint">Kimlik renkleri öncelikle hesap rengini alır</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_sender_regex">Düzenlenen adreslerle eşleşecek düzenli ifade (regex)</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>

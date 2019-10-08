@@ -313,7 +313,6 @@
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
-    <string name="title_identity_color_hint">Identitetsfarver har forrang over kontofarver</string>
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
     <string name="title_advanced_sender_regex">Regex, der matcher redigerede adresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>

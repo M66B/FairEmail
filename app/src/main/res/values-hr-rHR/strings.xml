@@ -324,7 +324,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_select">Odaberi &#8230;</string>
     <string name="title_identity_name">Vaše ime</string>
     <string name="title_identity_email">Vaša adresa e-pošte</string>
-    <string name="title_identity_color_hint">Identity colors take precedence over account colors</string>
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljatelja</string>
     <string name="title_advanced_sender_regex">Regex za svrstavanje uređenih adresa</string>
     <string name="title_identity_reply_to">Odgovor na adresu</string>

@@ -313,7 +313,6 @@
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
-    <string name="title_identity_color_hint">I colori dell\'identità hanno la precedenza sui colori dell\'account</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_sender_regex">Regex per abbinare gli indirizzi modificati</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>

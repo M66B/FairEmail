@@ -290,7 +290,6 @@
     <string name="title_select">Välj &#8230;</string>
     <string name="title_identity_name">Ditt namn</string>
     <string name="title_identity_email">Din e-postadress</string>
-    <string name="title_identity_color_hint">Identitetsfärger har företräde framför kontofärger</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_encrypt">Kryptera som standard</string>

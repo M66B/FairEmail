@@ -262,7 +262,7 @@
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
     <string name="title_advanced_sound">Sélectionner le son pour les notifications</string>
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
-    <string name="title_advanced_recents">Masquer dans l\'affichage des applications récentes</string>
+    <string name="title_advanced_recents">Masquer FairEmail dans l\'affichage des applications récentes</string>
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et lors du marquage des messages comme lus</string>
@@ -314,7 +314,6 @@
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
-    <string name="title_identity_color_hint">Les couleurs d\'identité sont prioritaires par rapport aux couleurs de compte</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_sender_regex">Regex pour correspondre aux adresses modifiées</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
