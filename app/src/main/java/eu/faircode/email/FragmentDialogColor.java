@@ -60,6 +60,7 @@ public class FragmentDialogColor extends FragmentDialogBase {
                 .with(getContext())
                 .setTitle(title)
                 .initialColor(color)
+                .showColorEdit(true)
                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                 .density(6)
                 .lightnessSliderOnly()
