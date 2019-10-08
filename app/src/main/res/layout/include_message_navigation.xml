@@ -100,4 +100,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorBottom"
         app:srcCompat="@drawable/baseline_fullscreen_24" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/grpActions"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="vSeparatorTop,bnvActions,vSeparatorBottom" />
 </androidx.constraintlayout.widget.ConstraintLayout>

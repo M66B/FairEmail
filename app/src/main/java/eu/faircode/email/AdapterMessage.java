@@ -317,6 +317,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetAttachments;
 
         private BottomNavigationView bnvActions;
+        private Group grpActions;
 
         private ImageButton ibFull;
         private ImageButton ibImages;
@@ -475,6 +476,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 lparam.height = dp36;
                 bnvActions.setLayoutParams(lparam);
             }
+            grpActions = vsBody.findViewById(R.id.grpActions);
 
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
@@ -961,6 +963,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetAttachments.setVisibility(View.GONE);
 
             bnvActions.setVisibility(View.GONE);
+            grpActions.setVisibility(View.GONE);
 
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
@@ -1039,7 +1042,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvNoInternetHeaders.setVisibility(View.GONE);
             }
 
-            bnvActions.setVisibility(View.VISIBLE);
+            grpActions.setVisibility(View.VISIBLE);
             for (int i = 0; i < bnvActions.getMenu().size(); i++)
                 bnvActions.getMenu().getItem(i).setVisible(false);
 
