@@ -1928,7 +1928,7 @@ public class FragmentCompose extends FragmentBase {
 
             db.attachment().setDownloaded(attachment.id, size);
 
-            if ("eu.faircode.email".equals(uri.getAuthority())) {
+            if (BuildConfig.APPLICATION_ID.equals(uri.getAuthority())) {
                 // content://eu.faircode.email/photo/nnn.jpg
                 File tmp = new File(context.getCacheDir(), uri.getPath());
                 Log.i("Deleting " + tmp);
