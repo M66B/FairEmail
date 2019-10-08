@@ -314,6 +314,7 @@
     <string name="title_select">Selecciona &#8230;</string>
     <string name="title_identity_name">El teu nom</string>
     <string name="title_identity_email">La teva adreça de correu electrònic</string>
+    <string name="title_identity_color_hint">Els colors d’identitat tenen prioritat sobre els colors de carpeta i compte</string>
     <string name="title_advanced_sender">Permet editar l\'adreça del remitent</string>
     <string name="title_advanced_sender_regex">Expressió regular per trobar adreces editades</string>
     <string name="title_identity_reply_to">Respon a l’adreça</string>

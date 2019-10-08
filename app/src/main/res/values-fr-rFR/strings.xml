@@ -314,6 +314,7 @@
     <string name="title_select">Sélectionner &#8230;</string>
     <string name="title_identity_name">Votre nom</string>
     <string name="title_identity_email">Votre adresse e-mail</string>
+    <string name="title_identity_color_hint">Les couleurs d\'identité sont prioritaires par rapport aux couleurs de dossier et de compte</string>
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_sender_regex">Regex pour correspondre aux adresses modifiées</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>

@@ -313,6 +313,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_select">Auswählen &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
     <string name="title_identity_email">Ihre E-Mail-Adresse</string>
+    <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_regex">Regex um bearbeitete Adressen zu finden</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
