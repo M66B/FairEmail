@@ -976,23 +976,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void bindFlagged(TupleMessageEx message, boolean expanded) {
             boolean pro = ActivityBilling.isPro(context);
-            if (!pro)
-                message.color = null;
-
             int flagged = (message.count - message.unflagged);
+            int color = (message.color == null || !pro ? colorAccent : message.color);
+
             ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
-
-            if (message.color == null || expanded || !flags_background)
-                card.setCardBackgroundColor(Color.TRANSPARENT);
-            else
-                card.setCardBackgroundColor(ColorUtils.setAlphaComponent(message.color, 127));
-
-            if (message.color == null)
-                ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? colorAccent : textColorSecondary));
-            else
-                ibFlagged.setImageTintList(ColorStateList.valueOf(expanded || !flags_background ? message.color : textColorSecondary));
-
+            ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? color : textColorSecondary));
             ibFlagged.setEnabled(message.uid != null || message.accountPop);
+
+            card.setCardBackgroundColor(
+                    flags_background && flagged > 0 && !expanded
+                            ? ColorUtils.setAlphaComponent(color, 127) : Color.TRANSPARENT);
 
             if (flags)
                 ibFlagged.setVisibility(message.folderReadOnly ? View.INVISIBLE : View.VISIBLE);
