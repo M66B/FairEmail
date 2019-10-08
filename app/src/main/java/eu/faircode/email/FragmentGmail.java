@@ -289,10 +289,10 @@ public class FragmentGmail extends FragmentBase {
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
-                String domain = user.split("@")[1];
-                EmailProvider provider = EmailProvider.fromDomain(context, domain, EmailProvider.Discover.ALL);
+                EmailProvider provider = EmailProvider.fromDomain(context, "gmail.com", EmailProvider.Discover.ALL);
 
                 List<EntityFolder> folders;
+                String domain = user.split("@")[1];
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
                 try (MailService iservice = new MailService(context, aprotocol, null, false, true)) {
