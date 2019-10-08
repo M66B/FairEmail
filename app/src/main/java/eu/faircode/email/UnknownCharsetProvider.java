@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.text.TextUtils;
+
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.spi.CharsetProvider;
@@ -39,7 +41,8 @@ public class UnknownCharsetProvider extends CharsetProvider {
         // unknown-8bit
         // X-UNKNOWN
         // https://javaee.github.io/javamail/FAQ#unsupen
-        Log.e("Unknown charset=" + name);
+        if (!TextUtils.isEmpty(name))
+            Log.e("Unknown charset=" + name);
         return StandardCharsets.US_ASCII;
     }
 }
