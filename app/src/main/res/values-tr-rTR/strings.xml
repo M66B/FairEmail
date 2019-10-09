@@ -603,6 +603,7 @@
     <string name="title_rule_ignore">Bildirimi gizle</string>
     <string name="title_rule_snooze">Erteleme</string>
     <string name="title_rule_flag">Yıldız Ekle</string>
+    <string name="title_rule_keyword">Anahtar sözcük ekle</string>
     <string name="title_rule_move">Taşı</string>
     <string name="title_rule_copy">Kopyala (etiket)</string>
     <string name="title_rule_answer">Yanıtla</string>

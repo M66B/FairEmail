@@ -206,6 +206,7 @@
     <string name="title_advanced_cards">Vis kort</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
+    <string name="title_advanced_bubble">Vis samtaler i meldingsstil</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
     <string name="title_advanced_distinguish_contacts">Skille meldinger fra kjente og ukjente kontakter</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
@@ -603,6 +604,7 @@
     <string name="title_rule_ignore">Undertrykke varsling</string>
     <string name="title_rule_snooze">Utsett</string>
     <string name="title_rule_flag">Legg til stjerne</string>
+    <string name="title_rule_keyword">Legg til nøkkelord</string>
     <string name="title_rule_move">Flytt</string>
     <string name="title_rule_copy">Kopier (etikett)</string>
     <string name="title_rule_answer">Svar</string>

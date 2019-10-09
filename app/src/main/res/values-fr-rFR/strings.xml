@@ -499,7 +499,7 @@
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_html_remark">Afficher le message original avec un fond sombre n\'est pas possible car cela peut rendre des textes et des images invisibles</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
-    <string name="title_ask_show_image_hint">Les images reconnues comme des images de suivi ne seront pas affichées</string>
+    <string name="title_ask_show_image_hint">Les images identifiées comme images de suivi ne seront pas affichées</string>
     <string name="title_ask_delete_ref">Supprimer le texte du message répondu/transmis ? Ceci ne peut pas être annulé.</string>
     <string name="title_ask_sync_all">Synchroniser tous les messages dans %1$s ?</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux ? Les messages resteront sur le serveur distant.</string>
