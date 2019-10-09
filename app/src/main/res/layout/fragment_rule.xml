@@ -510,6 +510,26 @@
                     app:layout_constraintTop_toBottomOf="@id/tvColor" />
 
                 <TextView
+                    android:id="@+id/tvKeyword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_keyword"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnColor" />
+
+                <EditText
+                    android:id="@+id/etKeyword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvKeyword" />
+
+                <TextView
                     android:id="@+id/tvMoveTarget"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -517,7 +537,7 @@
                     android:text="@string/title_rule_folder"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnColor" />
+                    app:layout_constraintTop_toBottomOf="@+id/etKeyword" />
 
                 <Spinner
                     android:id="@+id/spTarget"
@@ -525,7 +545,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvMoveTarget" />
+                    app:layout_constraintTop_toBottomOf="@id/etKeyword" />
 
                 <CheckBox
                     android:id="@+id/cbMoveSeen"
@@ -626,6 +646,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="tvColor,btnColor" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpKeyword"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="tvKeyword,etKeyword" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpMove"

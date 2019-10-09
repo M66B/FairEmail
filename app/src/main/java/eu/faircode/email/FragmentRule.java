@@ -112,6 +112,8 @@ public class FragmentRule extends FragmentBase {
 
     private ViewButtonColor btnColor;
 
+    private EditText etKeyword;
+
     private Spinner spTarget;
     private CheckBox cbMoveSeen;
     private CheckBox cbMoveThread;
@@ -129,6 +131,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpReady;
     private Group grpSnooze;
     private Group grpFlag;
+    private Group grpKeyword;
     private Group grpMove;
     private Group grpMoveProp;
     private Group grpAnswer;
@@ -213,6 +216,8 @@ public class FragmentRule extends FragmentBase {
 
         btnColor = view.findViewById(R.id.btnColor);
 
+        etKeyword = view.findViewById(R.id.etKeyword);
+
         spTarget = view.findViewById(R.id.spTarget);
         cbMoveSeen = view.findViewById(R.id.cbMoveSeen);
         cbMoveThread = view.findViewById(R.id.cbMoveThread);
@@ -231,6 +236,7 @@ public class FragmentRule extends FragmentBase {
         grpReady = view.findViewById(R.id.grpReady);
         grpSnooze = view.findViewById(R.id.grpSnooze);
         grpFlag = view.findViewById(R.id.grpFlag);
+        grpKeyword = view.findViewById(R.id.grpKeyword);
         grpMove = view.findViewById(R.id.grpMove);
         grpMoveProp = view.findViewById(R.id.grpMoveProp);
         grpAnswer = view.findViewById(R.id.grpAnswer);
@@ -325,6 +331,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_IGNORE, getString(R.string.title_rule_ignore)));
         actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze)));
         actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag)));
+        actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword)));
         actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
         actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
@@ -411,6 +418,7 @@ public class FragmentRule extends FragmentBase {
         grpReady.setVisibility(View.GONE);
         grpSnooze.setVisibility(View.GONE);
         grpFlag.setVisibility(View.GONE);
+        grpKeyword.setVisibility(View.GONE);
         grpMove.setVisibility(View.GONE);
         grpMoveProp.setVisibility(View.GONE);
         grpAnswer.setVisibility(View.GONE);
@@ -668,6 +676,10 @@ public class FragmentRule extends FragmentBase {
                                                 ? null : jaction.getInt("color"));
                                 break;
 
+                            case EntityRule.TYPE_KEYWORD:
+                                etKeyword.setText(jaction.getString("keyword"));
+                                break;
+
                             case EntityRule.TYPE_MOVE:
                             case EntityRule.TYPE_COPY:
                                 long target = jaction.optLong("target", -1);
@@ -730,6 +742,7 @@ public class FragmentRule extends FragmentBase {
     private void showActionParameters(int type) {
         grpSnooze.setVisibility(type == EntityRule.TYPE_SNOOZE ? View.VISIBLE : View.GONE);
         grpFlag.setVisibility(type == EntityRule.TYPE_FLAG ? View.VISIBLE : View.GONE);
+        grpKeyword.setVisibility(type == EntityRule.TYPE_KEYWORD ? View.VISIBLE : View.GONE);
         grpMove.setVisibility(type == EntityRule.TYPE_MOVE || type == EntityRule.TYPE_COPY ? View.VISIBLE : View.GONE);
         grpMoveProp.setVisibility(type == EntityRule.TYPE_MOVE ? View.VISIBLE : View.GONE);
         grpAnswer.setVisibility(type == EntityRule.TYPE_ANSWER ? View.VISIBLE : View.GONE);
@@ -945,6 +958,10 @@ public class FragmentRule extends FragmentBase {
 
                 case EntityRule.TYPE_FLAG:
                     jaction.put("color", btnColor.getColor());
+                    break;
+
+                case EntityRule.TYPE_KEYWORD:
+                    jaction.put("keyword", etKeyword.getText().toString().trim());
                     break;
 
                 case EntityRule.TYPE_MOVE:

@@ -26,6 +26,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -95,6 +96,7 @@ public class EntityRule {
     static final int TYPE_SNOOZE = 8;
     static final int TYPE_IGNORE = 9;
     static final int TYPE_NOOP = 10;
+    static final int TYPE_KEYWORD = 11;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -278,6 +280,8 @@ public class EntityRule {
                 return onActionSnooze(context, message, jaction);
             case TYPE_FLAG:
                 return onActionFlag(context, message, jaction);
+            case TYPE_KEYWORD:
+                return onActionKeyword(context, message, jaction);
             case TYPE_MOVE:
                 return onActionMove(context, message, jaction);
             case TYPE_COPY:
@@ -447,6 +451,18 @@ public class EntityRule {
 
         message.ui_flagged = true;
         message.color = color;
+
+        return true;
+    }
+
+    private boolean onActionKeyword(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+        String keyword = jargs.getString("keyword");
+        if (TextUtils.isEmpty(keyword)) {
+            Log.w("Keyword empty");
+            return false;
+        }
+
+        EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
 
         return true;
     }
