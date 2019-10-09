@@ -1395,15 +1395,20 @@ public class FragmentCompose extends FragmentBase {
                 long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
                 boolean image = args.getBoolean("image");
-                CharSequence body = args.getCharSequence("body");
-                int start = args.getInt("start");
 
                 EntityAttachment attachment = addAttachment(context, id, uri, image);
+                if (!image)
+                    return null;
 
                 File file = attachment.getFile(context);
+
                 Drawable d = Drawable.createFromPath(file.getAbsolutePath());
+                if (d == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_image));
                 d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
 
+                CharSequence body = args.getCharSequence("body");
+                int start = args.getInt("start");
                 Uri cid = Uri.parse("cid:" + BuildConfig.APPLICATION_ID + "." + attachment.id);
 
                 SpannableStringBuilder s = new SpannableStringBuilder(body);
@@ -1421,6 +1426,9 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, final Spanned body) {
+                if (body == null)
+                    return;
+
                 etBody.setText(body);
                 etBody.setSelection(args.getInt("start"));
 
@@ -1433,6 +1441,8 @@ public class FragmentCompose extends FragmentBase {
                 // External app sending absolute file
                 if (ex instanceof SecurityException)
                     handleFileShare();
+                else if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG).show();
                 else
                     Helper.unexpectedError(getFragmentManager(), ex);
             }

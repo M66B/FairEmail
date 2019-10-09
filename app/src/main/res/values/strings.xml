@@ -558,6 +558,7 @@
     <string name="title_no_connection">Synchronization will be performed on next account connection</string>
     <string name="title_no_folder">Folder does not exist</string>
     <string name="title_no_format">The originally received message will be included</string>
+    <string name="title_no_image">Image could not be decoded</string>
     <string name="title_accross_remark">Messages moved across accounts will be downloaded again resulting in extra data usage</string>
     <string name="title_raw_saved">Raw message saved</string>
     <string name="title_attachment_saved">Attachment saved</string>
