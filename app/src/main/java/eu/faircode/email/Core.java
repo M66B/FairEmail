@@ -774,13 +774,14 @@ class Core {
         // Get source messages
         Map<Message, EntityMessage> map = new HashMap<>();
         for (EntityMessage message : messages)
-            try {
-                Message imessage = ifolder.getMessageByUID(message.uid);
-                if (imessage != null)
-                    map.put(imessage, message);
-            } catch (MessagingException ex) {
-                Log.w(ex);
-            }
+            if (message.uid != null)
+                try {
+                    Message imessage = ifolder.getMessageByUID(message.uid);
+                    if (imessage != null)
+                        map.put(imessage, message);
+                } catch (MessagingException ex) {
+                    Log.w(ex);
+                }
 
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
