@@ -961,7 +961,7 @@ public class FragmentRule extends FragmentBase {
                     break;
 
                 case EntityRule.TYPE_KEYWORD:
-                    jaction.put("keyword", etKeyword.getText().toString().trim());
+                    jaction.put("keyword", MessageHelper.sanitizeKeyword(etKeyword.getText().toString()));
                     break;
 
                 case EntityRule.TYPE_MOVE:
