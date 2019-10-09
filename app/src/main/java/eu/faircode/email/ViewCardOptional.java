@@ -23,7 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,7 +58,7 @@ public class ViewCardOptional extends CardView {
         if (cards) {
             int dp = Helper.dp2pixels(getContext(), compact ? 3 : 6);
 
-            FrameLayout.LayoutParams lparam = (FrameLayout.LayoutParams) getLayoutParams();
+            ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) getLayoutParams();
             lparam.setMargins(dp, dp, dp, dp);
             setLayoutParams(lparam);
 
