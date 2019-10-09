@@ -2188,6 +2188,8 @@ class Core {
                 crumb.put("message", uid + ":" + message.uid);
                 crumb.put("what", ex.getMessage());
                 Log.breadcrumb("insert", crumb);
+
+                return null;
             } finally {
                 db.endTransaction();
             }
