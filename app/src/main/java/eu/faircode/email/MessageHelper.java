@@ -536,6 +536,7 @@ public class MessageHelper {
 
         if ("high".equalsIgnoreCase(header) ||
                 "highest".equalsIgnoreCase(header) ||
+                "u".equalsIgnoreCase(header) || // Urgent?
                 "urgent".equalsIgnoreCase(header) ||
                 "critical".equalsIgnoreCase(header) ||
                 "yes".equalsIgnoreCase(header))
