@@ -3601,8 +3601,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             int count = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean collapse = prefs.getBoolean("collapse", false);
-            if ((count == 1 && collapse) || count > 1) {
+            boolean collapse_single = prefs.getBoolean("collapse_single", false);
+            boolean collapse_multiple = prefs.getBoolean("collapse_multiple", true);
+            if ((collapse_single && count == 1) || (collapse_multiple && count > 1)) {
                 values.get("expanded").clear();
                 updateExpanded();
                 adapter.notifyDataSetChanged();
