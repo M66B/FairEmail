@@ -103,6 +103,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbAutoSeen;
     private EditText etInterval;
     private CheckBox cbPartialFetch;
+    private CheckBox cbIgnoreSize;
 
     private Button btnCheck;
     private ContentLoadingProgressBar pbCheck;
@@ -198,6 +199,7 @@ public class FragmentAccount extends FragmentBase {
         cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
         etInterval = view.findViewById(R.id.etInterval);
         cbPartialFetch = view.findViewById(R.id.cbPartialFetch);
+        cbIgnoreSize = view.findViewById(R.id.cbIgnoreSize);
 
         btnCheck = view.findViewById(R.id.btnCheck);
         pbCheck = view.findViewById(R.id.pbCheck);
@@ -693,6 +695,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("auto_seen", cbAutoSeen.isChecked());
         args.putString("interval", etInterval.getText().toString());
         args.putBoolean("partial_fetch", cbPartialFetch.isChecked());
+        args.putBoolean("ignore_size", cbIgnoreSize.isChecked());
 
         args.putSerializable("drafts", drafts);
         args.putSerializable("sent", sent);
@@ -748,6 +751,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean auto_seen = args.getBoolean("auto_seen");
                 String interval = args.getString("interval");
                 boolean partial_fetch = args.getBoolean("partial_fetch");
+                boolean ignore_size = args.getBoolean("ignore_size");
 
                 EntityFolder drafts = (EntityFolder) args.getSerializable("drafts");
                 EntityFolder sent = (EntityFolder) args.getSerializable("sent");
@@ -828,6 +832,8 @@ public class FragmentAccount extends FragmentBase {
                         return true;
                     if (!Objects.equals(account.partial_fetch, partial_fetch))
                         return true;
+                    if (!Objects.equals(account.ignore_size, ignore_size))
+                        return true;
 
                     EntityFolder edrafts = db.folder().getFolderByType(account.id, EntityFolder.DRAFTS);
                     if (!Objects.equals(edrafts == null ? null : edrafts.id, drafts == null ? null : drafts.id))
@@ -872,7 +878,8 @@ public class FragmentAccount extends FragmentBase {
                         account.synchronize != synchronize ||
                         account.notify != notify ||
                         !account.poll_interval.equals(Integer.parseInt(interval)) ||
-                        account.partial_fetch != partial_fetch);
+                        account.partial_fetch != partial_fetch ||
+                        account.ignore_size != ignore_size);
                 Log.i("Account check=" + check + " reload=" + reload);
 
                 Long last_connected = null;
@@ -946,6 +953,7 @@ public class FragmentAccount extends FragmentBase {
                     account.auto_seen = auto_seen;
                     account.poll_interval = Integer.parseInt(interval);
                     account.partial_fetch = partial_fetch;
+                    account.ignore_size = ignore_size;
 
                     if (!update)
                         account.created = now;
@@ -1193,6 +1201,7 @@ public class FragmentAccount extends FragmentBase {
                     cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
+                    cbIgnoreSize.setChecked(account == null ? true : account.ignore_size);
 
                     auth = (account == null ? MailService.AUTH_TYPE_PASSWORD : account.auth_type);
 

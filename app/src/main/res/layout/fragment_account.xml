@@ -495,6 +495,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPartialFetch" />
 
+        <CheckBox
+            android:id="@+id/cbIgnoreSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_ignore_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPartialFetchRemark" />
+
         <!-- check -->
 
         <Button
@@ -505,7 +514,7 @@
             android:tag="disable"
             android:text="@string/title_check"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPartialFetchRemark" />
+            app:layout_constraintTop_toBottomOf="@id/cbIgnoreSize" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbCheck"
@@ -826,7 +835,7 @@
                 cbBrowse,tvBrowseHint,
                 cbAutoSeen,
                 tvInterval,etInterval,tvIntervalRemark,
-                cbPartialFetch,tvPartialFetchRemark" />
+                cbPartialFetch,tvPartialFetchRemark,cbIgnoreSize" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpFolders"

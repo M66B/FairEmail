@@ -411,6 +411,7 @@
     <string name="title_leave_on_server">Leave messages on server</string>
     <string name="title_keep_alive_interval">Keep-alive/poll interval (minutes)</string>
     <string name="title_partial_fetch" translatable="false">Partial fetch</string>
+    <string name="title_ignore_size" translatable="false">Ignore bodystructure size</string>
     <string name="title_check">Check</string>
     <string name="title_no_name">Name missing</string>
     <string name="title_no_email">Email address missing</string>

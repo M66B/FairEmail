@@ -95,6 +95,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Integer poll_interval = DEFAULT_KEEP_ALIVE_INTERVAL; // keep-alive interval
     @NonNull
     public Boolean partial_fetch = true;
+    @NonNull
+    public Boolean ignore_size = false;
     public String prefix; // namespace, obsolete
 
     public Long created;
@@ -173,6 +175,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
         json.put("poll_interval", poll_interval);
         json.put("partial_fetch", partial_fetch);
+        json.put("ignore_size", ignore_size);
         // not prefix
         // not created
         // not tbd
@@ -225,10 +228,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
         account.poll_interval = json.getInt("poll_interval");
 
-        if (json.has("partial_fetch"))
-            account.partial_fetch = json.getBoolean("partial_fetch");
-        else
-            account.partial_fetch = true;
+        account.partial_fetch = json.optBoolean("partial_fetch", true);
+        account.ignore_size = json.optBoolean("ignore_size", false);
 
         return account;
     }
@@ -258,6 +259,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                     Objects.equals(this.swipe_right, other.swipe_right) &&
                     this.poll_interval.equals(other.poll_interval) &&
                     this.partial_fetch == other.partial_fetch &&
+                    this.ignore_size == other.ignore_size &&
                     Objects.equals(this.created, other.created) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&

@@ -142,8 +142,11 @@ public class MailService implements AutoCloseable {
     }
 
     void setPartialFetch(boolean enabled) {
-        if (!enabled)
-            properties.put("mail." + protocol + ".partialfetch", "false");
+        properties.put("mail." + protocol + ".partialfetch", Boolean.toString(enabled));
+    }
+
+    void setIgnoreBodyStructureSize(boolean enabled) {
+        properties.put("mail." + protocol + ".ignorebodystructuresize", Boolean.toString(enabled));
     }
 
     void setUseIp(boolean enabled) {

@@ -255,6 +255,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 Log.i("Boundary server connecting account=" + account.name);
                 state.iservice = new MailService(context, account.getProtocol(), account.realm, account.insecure, debug);
                 state.iservice.setPartialFetch(account.partial_fetch);
+                state.iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 state.iservice.setSeparateStoreConnection();
                 state.iservice.connect(account);
 

@@ -718,6 +718,7 @@ public class ServiceSynchronize extends ServiceBase {
                 final MailService iservice = new MailService(
                         this, account.getProtocol(), account.realm, account.insecure, debug);
                 iservice.setPartialFetch(account.partial_fetch);
+                iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 if (account.pop)
                     iservice.setLeaveOnServer(account.browse);
 
