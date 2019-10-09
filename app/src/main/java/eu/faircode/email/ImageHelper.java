@@ -70,8 +70,8 @@ class ImageHelper {
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, boolean dark) {
         byte[] hash = getHash(email);
 
-        int color = Color.argb(255, hash[0], hash[1], hash[2]);
-        color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
+        int c = email.hashCode() & 0xffffff | 0xff000000;
+        int color = Helper.adjustLuminance(c, dark, MIN_LUMINANCE);
 
         Paint paint = new Paint();
         paint.setColor(color);
@@ -107,10 +107,8 @@ class ImageHelper {
         if (text == null)
             return null;
 
-        byte[] hash = getHash(email);
-
-        int color = Color.argb(255, hash[0], hash[1], hash[2]);
-        color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
+        int c = email.hashCode() & 0xffffff | 0xff000000;
+        int color = Helper.adjustLuminance(c, dark, MIN_LUMINANCE);
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
