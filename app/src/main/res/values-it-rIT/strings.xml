@@ -205,6 +205,7 @@
     <string name="title_advanced_cards">Mostra carte</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
+    <string name="title_advanced_bubble">Mostra conversazioni in stile messaggistica</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
     <string name="title_advanced_distinguish_contacts">Distingui i messaggi tra contatti noti e sconosciuti</string>
     <string name="title_advanced_avatars">Mostra foto del contatto</string>
@@ -499,7 +500,6 @@
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come immagini di tracciamento non verranno mostrate</string>
     <string name="title_ask_delete_ref">Elimina testo del messaggio risposto/inoltrato? Questo non può essere annullato.</string>
-    <string name="title_ask_edit_ref">Modificare il testo del messaggio inviato/inoltrato riformattato?</string>
     <string name="title_ask_sync_all">Sincronizza tutti i messaggi in %1$s?</string>
     <string name="title_ask_delete_local">Elimina i messaggi locali? I messaggi rimarranno sul server remoto.</string>
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
@@ -603,6 +603,7 @@
     <string name="title_rule_ignore">Sopprimi notifica</string>
     <string name="title_rule_snooze">Posticipa</string>
     <string name="title_rule_flag">Aggiungi ai preferiti</string>
+    <string name="title_rule_keyword">Aggiungi parola chiave</string>
     <string name="title_rule_move">Muovi</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
     <string name="title_rule_answer">Rispondi</string>

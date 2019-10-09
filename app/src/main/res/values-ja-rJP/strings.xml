@@ -34,6 +34,8 @@
     <string name="title_setup">設定</string>
     <string name="title_setup_help">ヘルプ</string>
     <string name="title_setup_quick">クイックセットアップ</string>
+    <string name="title_setup_quick_remark">大多数のプロバイダーでアカウントとIDを素早く設定します</string>
+    <string name="title_setup_wizard">ウィザード</string>
     <string name="title_setup_to_do">To Do</string>
     <string name="title_setup_done">完了</string>
     <string name="title_setup_export">設定をエクスポート</string>

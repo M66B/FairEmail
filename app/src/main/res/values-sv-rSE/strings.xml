@@ -458,7 +458,6 @@
     <string name="title_ask_discard">Släng utkastet?</string>
     <string name="title_ask_show_html">Att visa det ursprungliga meddelandet kan läcka sekretesskänslig information</string>
     <string name="title_ask_show_image">Att visa bilder kan läcka sekretesskänslig information</string>
-    <string name="title_ask_edit_ref">Redigera omformaterad svarad/vidarebefordrad meddelandetext?</string>
     <string name="title_ask_sync_all">Synkronisera alla meddelanden i %1$s?</string>
     <string name="title_ask_delete_local">Ta bort lokala meddelanden? Meddelanden kommer att finnas kvar på fjärrservern.</string>
     <string name="title_ask_help">Hjälp till att förbättra FairEmail</string>

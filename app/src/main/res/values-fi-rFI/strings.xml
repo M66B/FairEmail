@@ -206,6 +206,7 @@
     <string name="title_advanced_cards">Näytä kortit</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
+    <string name="title_advanced_bubble">Näytä keskustelut viestittelytyylisinä</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
     <string name="title_advanced_distinguish_contacts">Erottele tunnettujen ja tuntemattomien kontaktien viestit</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
@@ -500,7 +501,6 @@
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image_hint">Seurantakuviksi tunnistettuja kuvia ei näytetä</string>
     <string name="title_ask_delete_ref">Poista vastattu/edelleenlähetetty viestiteksti? Tätä ei voi perua.</string>
-    <string name="title_ask_edit_ref">Muokkaa uudelleenmuotoiltua vastatun/edelleenlähetetyn viestin tekstiä?</string>
     <string name="title_ask_sync_all">Synkronoi kaikki viestit kansiossa %1$s?</string>
     <string name="title_ask_delete_local">Poistetaanko paikalliset viestit? Viestit säilyvät palvelimella.</string>
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
@@ -604,6 +604,7 @@
     <string name="title_rule_ignore">Vaimenna ilmoitus</string>
     <string name="title_rule_snooze">Torkuta</string>
     <string name="title_rule_flag">Lisää tähti</string>
+    <string name="title_rule_keyword">Lisää avainsana</string>
     <string name="title_rule_move">Siirrä</string>
     <string name="title_rule_copy">Kopioi (lisää tunniste)</string>
     <string name="title_rule_answer">Vastaa</string>

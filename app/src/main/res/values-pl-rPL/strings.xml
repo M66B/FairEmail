@@ -521,7 +521,6 @@
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
     <string name="title_ask_delete_ref">Usunąć tekst odpowiedzi/przesłanej dalej wiadomości? Tego nie da się cofnąć.</string>
-    <string name="title_ask_edit_ref">Edytować ponownie sformatowany tekst odpowiedzi/przekazanej wiadomości?</string>
     <string name="title_ask_sync_all">Synchronizować wszystkie wiadomości w %1$s?</string>
     <string name="title_ask_delete_local">Usunąć wiadomości lokalne? Wiadomości pozostaną na serwerze zdalnym.</string>
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>

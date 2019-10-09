@@ -469,7 +469,6 @@
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como monitoramento de imagens não serão mostradas</string>
     <string name="title_ask_delete_ref">Excluir texto de mensagem respondido/encaminhado? Isso não pode ser desfeito.</string>
-    <string name="title_ask_edit_ref">Editar texto reformatado de mensagem respondida/encaminhada?</string>
     <string name="title_ask_sync_all">Sincronizar todas as mensagens em %1$s?</string>
     <string name="title_ask_delete_local">Excluir mensagens locais? As mensagens permanecerão no servidor remoto.</string>
     <string name="title_ask_help">Ajude a melhorar o FairEmail</string>

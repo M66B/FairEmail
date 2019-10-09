@@ -500,7 +500,6 @@
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
     <string name="title_ask_delete_ref">Yanıtlanan/iletilen ileti metni silinsin mi? Bu geri alınamaz.</string>
-    <string name="title_ask_edit_ref">Yeniden biçimlendirilmiş yanıtlanmış/iletilmiş ileti metni düzenlensin mi?</string>
     <string name="title_ask_sync_all">%1$s\'deki tüm iletiler eşzamanlandı mı?</string>
     <string name="title_ask_delete_local">Yerel iletiler silinsin mi? İletiler uzak sunucuda kalacaktır.</string>
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>

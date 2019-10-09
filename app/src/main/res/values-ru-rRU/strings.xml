@@ -228,6 +228,7 @@
     <string name="title_advanced_cards">\"Карточная\" компоновка</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
+    <string name="title_advanced_bubble">Показывать диалоги в стиле сообщений</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
     <string name="title_advanced_distinguish_contacts">Разделять сообщения от известных и неизвестных контактов</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
@@ -522,7 +523,6 @@
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
     <string name="title_ask_delete_ref">Удалить цитируемый в ответе/пересылаемый текст сообщения? Это действие не может быть отменено.</string>
-    <string name="title_ask_edit_ref">Редактировать текст исходного/пересылаемого сообщения?</string>
     <string name="title_ask_sync_all">Синхронизировать все сообщения в %1$s?</string>
     <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удалённом сервере.</string>
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
@@ -626,6 +626,7 @@
     <string name="title_rule_ignore">Подавить уведомление</string>
     <string name="title_rule_snooze">Отложить</string>
     <string name="title_rule_flag">В избранное</string>
+    <string name="title_rule_keyword">Добавить ключ (слово)</string>
     <string name="title_rule_move">Переместить</string>
     <string name="title_rule_copy">Копировать (пометить)</string>
     <string name="title_rule_answer">Ответить</string>

@@ -205,6 +205,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_cards">Karten anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
+    <string name="title_advanced_bubble">Unterhaltungen im Nachrichtenmodus anzeigen</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten in heller Schrift anzeigen</string>
     <string name="title_advanced_distinguish_contacts">Unterscheide Nachrichten nach bekannten und unbekannten Kontakten</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
@@ -499,7 +500,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image_hint">Bilder, die als Tracking-Bilder erkannt werden, werden nicht angezeigt</string>
     <string name="title_ask_delete_ref">Den Text der beantworteten/weitergeleiteten Nachricht löschen? Dies kann nicht rückgängig gemacht werden.</string>
-    <string name="title_ask_edit_ref">Nachrichtentext der zu beantwortenden/weitergeleitenden Nachricht bearbeiten?</string>
     <string name="title_ask_sync_all">Alle Nachrichten in %1$s synchronisieren?</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
@@ -603,6 +603,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Kennzeichnung hinzufügen</string>
+    <string name="title_rule_keyword">Schlagwort hinzufügen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kategorie kopieren</string>
     <string name="title_rule_answer">Antworten</string>

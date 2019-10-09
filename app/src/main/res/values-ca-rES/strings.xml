@@ -206,6 +206,7 @@
     <string name="title_advanced_cards">Mostra les targetes</string>
     <string name="title_advanced_date_header">Agrupa per data</string>
     <string name="title_advanced_threading">Fil de conversa</string>
+    <string name="title_advanced_bubble">Mostra les converses amb estil de missatgeria</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
     <string name="title_advanced_distinguish_contacts">Diferencia els missatges de contactes coneguts i no coneguts</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
@@ -500,7 +501,6 @@
     <string name="title_ask_show_image">Si es mostra imatges, es pot filtrar informació sensible a la privadesa</string>
     <string name="title_ask_show_image_hint">Les imatges reconegudes com a imatges de seguiment no es mostraran</string>
     <string name="title_ask_delete_ref">Voleu suprimir el text del missatge resposta/reenviat? Això no es pot desfer.</string>
-    <string name="title_ask_edit_ref">Edita el format d\'un text de missatge resposta/reenviat?</string>
     <string name="title_ask_sync_all">Sincronitza tots els missatges a %1$s?</string>
     <string name="title_ask_delete_local">Voleu eliminar els missatges locals? Els missatges continuaran al servidor remot.</string>
     <string name="title_ask_help">Ajuda a millorar FairEmail</string>
@@ -604,6 +604,7 @@
     <string name="title_rule_ignore">Elimina les notificacions</string>
     <string name="title_rule_snooze">Posposa</string>
     <string name="title_rule_flag">Afegeix a destacats</string>
+    <string name="title_rule_keyword">Afegeix paraula clau</string>
     <string name="title_rule_move">Mou</string>
     <string name="title_rule_copy">Copia (etiqueta)</string>
     <string name="title_rule_answer">Respon</string>

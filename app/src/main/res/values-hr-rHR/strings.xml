@@ -509,7 +509,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
     <string name="title_ask_show_image_hint">Slike prepoznate kao slike za praćenje neće se prikazivati</string>
     <string name="title_ask_delete_ref">Izbrisati tekst odgovora / proslijediti poruku? To se ne može povratiti.</string>
-    <string name="title_ask_edit_ref">Uredi preoblikovani odgovor / proslijeđeni tekst poruke?</string>
     <string name="title_ask_sync_all">Sinkroniziranje svih poruka u%1$s?</string>
     <string name="title_ask_delete_local">Izbrisati lokalne poruke? Poruke će ostati na udaljenom serveru.</string>
     <string name="title_ask_help">Pomozite poboljšati FairEmail</string>

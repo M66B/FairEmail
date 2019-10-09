@@ -499,7 +499,6 @@
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
     <string name="title_ask_delete_ref">Slet besvaret/videresendt beskedtekst? Dette kan ikke fortrydes.</string>
-    <string name="title_ask_edit_ref">Redigér omformateret besvaret/videresendt beskedtekst?</string>
     <string name="title_ask_sync_all">Synkronisér alle beskeder i %1$s?</string>
     <string name="title_ask_delete_local">Slet lokale beskeder? Beskeder forbliver på den eksterne server.</string>
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>

@@ -194,6 +194,7 @@
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
+    <string name="title_advanced_bubble">以消息样式中显示对话</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_distinguish_contacts">区分已知和未知的联系人的信息</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
@@ -488,7 +489,6 @@
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
     <string name="title_ask_delete_ref">删除回复/转发的消息文本？此操作无法撤销。</string>
-    <string name="title_ask_edit_ref">编辑格式已更改的回复/转发消息文本？</string>
     <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进FairEmail</string>
@@ -592,6 +592,7 @@
     <string name="title_rule_ignore">禁止通知</string>
     <string name="title_rule_snooze">延后</string>
     <string name="title_rule_flag">添加星标</string>
+    <string name="title_rule_keyword">添加关键字</string>
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>
     <string name="title_rule_answer">回复</string>

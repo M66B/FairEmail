@@ -206,6 +206,7 @@
     <string name="title_advanced_cards">Afficher sous forme de cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
+    <string name="title_advanced_bubble">Afficher les conversations dans un style de messagerie</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
     <string name="title_advanced_distinguish_contacts">Faire la distinction entre les messages des contacts connus et inconnus</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
@@ -500,7 +501,6 @@
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image_hint">Les images reconnues comme des images de suivi ne seront pas affichées</string>
     <string name="title_ask_delete_ref">Supprimer le texte du message répondu/transmis ? Ceci ne peut pas être annulé.</string>
-    <string name="title_ask_edit_ref">Modifier le texte du message reformaté et répondu/transféré ?</string>
     <string name="title_ask_sync_all">Synchroniser tous les messages dans %1$s ?</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux ? Les messages resteront sur le serveur distant.</string>
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
@@ -604,6 +604,7 @@
     <string name="title_rule_ignore">Supprimer les notifications</string>
     <string name="title_rule_snooze">Reporter</string>
     <string name="title_rule_flag">Marquer comme suivi</string>
+    <string name="title_rule_keyword">Ajouter un mot-clé</string>
     <string name="title_rule_move">Déplacer</string>
     <string name="title_rule_copy">Copier (étiquette)</string>
     <string name="title_rule_answer">Répondre</string>
