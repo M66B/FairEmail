@@ -477,12 +477,19 @@ Note that this will result in extra internet traffic.
 <a name="faq8"></a>
 **(8) Can I use a Microsoft Exchange account?**
 
-You can use a Microsoft Exchange account if it is accessible via IMAP.
+You can use a Microsoft Exchange account if it is accessible via IMAP, which is mostly the case.
 See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
 
-Some older Exchange server versions have a bug causing empty message and corrupt attachments. Please see [this FAQ](#user-content-faq110) for a workaround.
+Please see [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040)
+for the Microsoft documentation about configuring an email client.
+There is also a section about common connection errors and solutions.
+
+Some older Exchange server versions have a bug causing empty message and corrupt attachments.
+Please see [this FAQ](#user-content-faq110) for a workaround.
 
 Please see [this FAQ](#user-content-faq133) about ActiveSync support.
+
+Please see [this FAQ](#user-content-faq111) about OAuth support.
 
 <br />
 
@@ -2056,8 +2063,9 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth is supported for Gmail via the quick setup wizard.
 The Android account manager will be used to fetch and refresh OAuth tokens for the selected account.
 
-Outlook and Hotmail do not support OAuth for IMAP/SMTP connections:
-"*[We don't support OAuth for IMAP access to Office 365 and we have no plans to do so as](https://stackoverflow.com/a/29747829/1794097)*"
+Outlook, Live and Hotmail do not support OAuth for IMAP/SMTP connections:
+"*[We don't support OAuth for IMAP access to Office 365 and we have no plans to do so](https://stackoverflow.com/a/29747829/1794097)*".
+So much about open standards ...
 
 <br />
 
