@@ -542,6 +542,8 @@
     <string name="title_media_toolbar">Barre d\'outils média</string>
     <string name="title_insert_contact_group">Insérer un groupe de contacts</string>
     <string name="title_insert_template">Insérer un modèle</string>
+    <string name="title_edit_plain_text">Modifier comme texte brut</string>
+    <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_send_receipt">Demander un accusé de réception/lecture</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>

@@ -302,6 +302,7 @@
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
     <string name="title_identity_email">电子邮件地址</string>
+    <string name="title_identity_color_hint">身份颜色优先于文件夹和帐户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_regex">正则表达式匹配编辑的地址</string>
     <string name="title_identity_reply_to">回复地址</string>
@@ -529,6 +530,8 @@
     <string name="title_media_toolbar">媒体工具栏</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
+    <string name="title_edit_plain_text">以纯文本形式编辑</string>
+    <string name="title_edit_formatted_text">以格式化文本形式编辑</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求送达／已读回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>

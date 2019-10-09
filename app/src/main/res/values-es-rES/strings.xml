@@ -542,6 +542,8 @@
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
+    <string name="title_edit_plain_text">Editar como texto plano</string>
+    <string name="title_edit_formatted_text">Editar como texto con formato</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
     <string name="title_send_receipt">Solicitar recibo de entrega/lectura</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>

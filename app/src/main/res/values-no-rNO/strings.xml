@@ -542,6 +542,8 @@
     <string name="title_media_toolbar">Media verktøylinje</string>
     <string name="title_insert_contact_group">Sett inn kontaktgruppe</string>
     <string name="title_insert_template">Sett inn mal</string>
+    <string name="title_edit_plain_text">Rediger som ren tekst</string>
+    <string name="title_edit_formatted_text">Rediger som omformatert tekst</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
     <string name="title_send_receipt">Be om levert/lest kvittering</string>
     <string name="title_send_receipt_remark">De fleste tilbydere og e-post klienter ignorerer kvitterings forespørsler</string>

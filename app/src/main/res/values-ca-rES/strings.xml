@@ -542,6 +542,8 @@
     <string name="title_media_toolbar">Barra d\'eines multimèdia</string>
     <string name="title_insert_contact_group">Introdueixi la informació de grup</string>
     <string name="title_insert_template">Inserta plantilla</string>
+    <string name="title_edit_plain_text">Editar en text pla</string>
+    <string name="title_edit_formatted_text">Editar com a text amb format</string>
     <string name="title_send_plain_text">Només text pla</string>
     <string name="title_send_receipt">Sol·liciteu el lliurament/llegida del rebut</string>
     <string name="title_send_receipt_remark">La majoria de proveïdors i clients de correu electrònic ignoren les sol·licituds de recepció</string>

@@ -313,6 +313,7 @@
     <string name="title_select">Vælg &#8230;</string>
     <string name="title_identity_name">Dit navn</string>
     <string name="title_identity_email">Din e-mailadresse</string>
+    <string name="title_identity_color_hint">Identitetsfarver har forrang over kontofarver</string>
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
     <string name="title_advanced_sender_regex">Regex, der matcher redigerede adresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
@@ -540,6 +541,8 @@
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
+    <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
+    <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
     <string name="title_send_plain_text">Kun klartekst</string>
     <string name="title_send_receipt">Bed om leverings-/læstkvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>

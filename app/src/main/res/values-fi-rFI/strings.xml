@@ -314,6 +314,7 @@
     <string name="title_select">Valitse &#8230;</string>
     <string name="title_identity_name">Nimesi</string>
     <string name="title_identity_email">Sähköpostiosoitteesi</string>
+    <string name="title_identity_color_hint">Identiteettien värit ovat etusijalla ennen kansioiden ja tilien värejä</string>
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_advanced_sender_regex">Regex muokattavien osoitteiden täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
@@ -541,6 +542,8 @@
     <string name="title_media_toolbar">Mediatyökalupalkki</string>
     <string name="title_insert_contact_group">Lisää yhteystietoryhmä</string>
     <string name="title_insert_template">Lisää viestipohja</string>
+    <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
+    <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_send_receipt">Pyydä toimitus-/lukukuittaus</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>

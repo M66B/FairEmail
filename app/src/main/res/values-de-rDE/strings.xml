@@ -541,6 +541,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_media_toolbar">Mediensymbolleiste</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
+    <string name="title_edit_plain_text">Als Plain Text bearbeiten</string>
+    <string name="title_edit_formatted_text">Als reformierten Text bearbeiten</string>
     <string name="title_send_plain_text">Nur Text</string>
     <string name="title_send_receipt">Lieferung/Lesebestätigung anfordern</string>
     <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Clients ignorieren Quittungsanfragen</string>

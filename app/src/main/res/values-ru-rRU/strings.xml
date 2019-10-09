@@ -250,7 +250,7 @@
     <string name="title_advanced_text_color">Показывать цвета текста</string>
     <string name="title_advanced_collapse_quotes">Свернуть цитируемый текст</string>
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
-    <string name="title_advanced_seekbar">Показывать относительное положение диалога с точкой</string>
+    <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
@@ -336,6 +336,7 @@
     <string name="title_select">Выбор&#8230;</string>
     <string name="title_identity_name">Ваше имя</string>
     <string name="title_identity_email">Ваш адрес электронной почты</string>
+    <string name="title_identity_color_hint">Цвета идентификаторов имеют приоритет над цветами папок учётных записей</string>
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_sender_regex">Регулярное выражение для сопоставления отредактированных адресов</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
@@ -563,6 +564,8 @@
     <string name="title_media_toolbar">Панель медиа</string>
     <string name="title_insert_contact_group">Добавить группу контактов</string>
     <string name="title_insert_template">Вставить шаблон</string>
+    <string name="title_edit_plain_text">Редактировать как простой текст</string>
+    <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
     <string name="title_send_plain_text">Только простой текст</string>
     <string name="title_send_receipt">Запросить уведомление о доставке/прочтении</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
@@ -786,7 +789,7 @@
     <string name="title_now">Сейчас</string>
     <string name="title_after">После %1$s</string>
     <string name="title_reset">Сброс</string>
-    <string name="title_hours">Часы</string>
+    <string name="title_hours">час.</string>
     <string name="title_minutes">мин.</string>
     <string name="title_dismiss">Отклонить</string>
     <string name="title_snooze_now">Отложить</string>

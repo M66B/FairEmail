@@ -542,6 +542,8 @@
     <string name="title_media_toolbar">Medya araç çubuğu</string>
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
     <string name="title_insert_template">Kalıp ekle</string>
+    <string name="title_edit_plain_text">Düz metin olarak düzenle</string>
+    <string name="title_edit_formatted_text">Yeniden biçimlendirilmiş metin olarak düzenle</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
     <string name="title_send_receipt">İletildi/okundu bilgisi iste</string>
     <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>

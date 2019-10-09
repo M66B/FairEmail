@@ -313,6 +313,7 @@
     <string name="title_select">Seleziona &#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
+    <string name="title_identity_color_hint">I colori dell\'identità hanno precedenza sui colori di cartella e account</string>
     <string name="title_advanced_sender">Consenti la modifica dell\'indirizzo mittente</string>
     <string name="title_advanced_sender_regex">Regex per abbinare gli indirizzi modificati</string>
     <string name="title_identity_reply_to">Rispondi all\'indirizzo</string>
@@ -540,6 +541,8 @@
     <string name="title_media_toolbar">Barra strumenti media</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
+    <string name="title_edit_plain_text">Modifica come testo semplice</string>
+    <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_send_receipt">Richiedi ricevuta di consegna/lettura</string>
     <string name="title_send_receipt_remark">La maggior parte dei provider e dei client di posta elettronica ignora le richieste di ricevuta</string>
