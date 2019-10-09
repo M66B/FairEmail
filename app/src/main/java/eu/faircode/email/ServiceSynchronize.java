@@ -102,7 +102,8 @@ public class ServiceSynchronize extends ServiceBase {
     private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
-    private static final long ONESHOT_DURATION = 90 * 1000L; // milliseconds
+    private static final long ONESHOT_DURATION_RUN = 90 * 1000L; // milliseconds
+    private static final long ONESHOT_DURATION_IDLE = 10 * 1000L; // milliseconds
     private static final long STOP_DELAY = 5000L; // milliseconds
     private static final long CHECK_ALIVE_INTERVAL = 19 * 60 * 1000L; // milliseconds
 
@@ -144,8 +145,8 @@ public class ServiceSynchronize extends ServiceBase {
                         Log.e(ex);
                     }
 
-                    if (oneshot && stats.operations > 0)
-                        onOneshot(true);
+                    if (oneshot)
+                        onOneshot(true, stats.operations == 0);
                 }
 
                 lastStats = stats;
@@ -360,11 +361,11 @@ public class ServiceSynchronize extends ServiceBase {
                         break;
 
                     case "oneshot_start":
-                        onOneshot(true);
+                        onOneshot(true, false);
                         break;
 
                     case "oneshot_end":
-                        onOneshot(false);
+                        onOneshot(false, false);
                         break;
 
                     case "watchdog":
@@ -449,8 +450,8 @@ public class ServiceSynchronize extends ServiceBase {
         onReload(true, "reset");
     }
 
-    private void onOneshot(boolean start) {
-        Log.i("Oneshot start=" + start);
+    private void onOneshot(boolean start, boolean idle) {
+        Log.i("Oneshot start=" + start + " idle=" + idle);
 
         Intent alarm = new Intent(this, ServiceSynchronize.class);
         alarm.setAction("oneshot_end");
@@ -468,10 +469,11 @@ public class ServiceSynchronize extends ServiceBase {
 
         if (start) {
             // Network events will manage the service
+            long at = System.currentTimeMillis() + (idle ? ONESHOT_DURATION_IDLE : ONESHOT_DURATION_RUN);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
+                am.set(AlarmManager.RTC_WAKEUP, at, piOneshot);
             else
-                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ONESHOT_DURATION, piOneshot);
+                am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, at, piOneshot);
         } else
             onReload(true, "oneshot end");
     }
