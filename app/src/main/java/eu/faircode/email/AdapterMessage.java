@@ -3610,7 +3610,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (autoscroll && previousList != null)
                     for (int i = 0; i < previousList.size(); i++) {
                         TupleMessageEx message = previousList.get(i);
-                        if (message != null && !message.ui_seen)
+                        if (message != null && !message.ui_seen && !message.ui_ignored)
                             prev++;
                     }
 
@@ -3618,7 +3618,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (autoscroll && currentList != null)
                     for (int i = 0; i < currentList.size(); i++) {
                         TupleMessageEx message = currentList.get(i);
-                        if (message != null && !message.ui_seen)
+                        if (message != null && !message.ui_seen && !message.ui_ignored)
                             cur++;
                     }
 
