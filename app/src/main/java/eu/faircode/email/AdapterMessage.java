@@ -670,8 +670,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
-
             boolean outgoing = isOutgoing(message);
+            Address[] addresses = (outgoing ? message.to : message.senders);
+            boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
+
             if (viewType == ViewType.THREAD) {
                 ivAvatarStart.setVisibility(outgoing && bubble ? View.INVISIBLE : View.GONE);
                 ivAvatarEnd.setVisibility(outgoing || !bubble ? View.GONE : View.INVISIBLE);
@@ -760,7 +762,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ? colorSeparator : message.accountColor);
 
             // Expander
-            boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
             ibExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
             if (viewType == ViewType.THREAD)
                 ibExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
@@ -768,7 +769,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibExpander.setVisibility(View.GONE);
 
             // Line 1
-            Address[] addresses = (outgoing ? message.to : message.senders);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             Long size = ("size".equals(sort) ? message.totalSize : message.size);
