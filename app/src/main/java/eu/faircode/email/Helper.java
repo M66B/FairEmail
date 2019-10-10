@@ -387,12 +387,14 @@ public class Helper {
 
     // Formatting
 
+    private static final DecimalFormat df = new DecimalFormat("@@");
+
     static String humanReadableByteCount(long bytes, boolean si) {
         int unit = si ? 1000 : 1024;
         if (bytes < unit) return bytes + " B";
         int exp = (int) (Math.log(bytes) / Math.log(unit));
         String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
-        return new DecimalFormat("@@").format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
+        return df.format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
     // https://issuetracker.google.com/issues/37054851
