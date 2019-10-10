@@ -24,6 +24,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -957,7 +958,9 @@ public class FragmentRule extends FragmentBase {
                     break;
 
                 case EntityRule.TYPE_FLAG:
-                    jaction.put("color", btnColor.getColor());
+                    int color = btnColor.getColor();
+                    if (color != Color.TRANSPARENT)
+                        jaction.put("color", color);
                     break;
 
                 case EntityRule.TYPE_KEYWORD:
