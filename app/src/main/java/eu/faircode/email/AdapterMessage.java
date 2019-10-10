@@ -145,6 +145,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -223,6 +225,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat TF;
     private DateFormat DTF;
+
+    private static final ExecutorService executor =
+            Executors.newFixedThreadPool(2, Helper.backgroundThreadFactory);
 
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(
@@ -3586,6 +3591,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         debug = prefs.getBoolean("debug", false);
 
         AsyncDifferConfig<TupleMessageEx> config = new AsyncDifferConfig.Builder<>(DIFF_CALLBACK)
+                .setBackgroundThreadExecutor(executor)
                 .build();
         this.differ = new AsyncPagedListDiffer<>(new AdapterListUpdateCallback(this), config);
         this.differ.addPagedListListener(new AsyncPagedListDiffer.PagedListListener<TupleMessageEx>() {
