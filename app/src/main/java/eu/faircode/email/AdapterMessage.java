@@ -751,6 +751,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSubject.setTextColor(colorRead);
 
             // Account color
+            vwColor.setVisibility(View.VISIBLE);
             vwColor.setBackgroundColor(message.accountColor == null || !ActivityBilling.isPro(context)
                     ? colorSeparator : message.accountColor);
 
