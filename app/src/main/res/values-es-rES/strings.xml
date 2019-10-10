@@ -237,6 +237,7 @@
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
     <string name="title_advanced_reversed">Invertir la dirección de navegación</string>
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
+    <string name="title_advanced_expand_all">Expandir automáticamente todos los mensajes leídos</string>
     <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
     <string name="title_advanced_collapse_single">Colapsar un único mensaje en una conversación al ir \'atrás\'</string>
     <string name="title_advanced_collapse_multiple">Colapsar varios mensajes en una conversación al ir \'atrás\'</string>

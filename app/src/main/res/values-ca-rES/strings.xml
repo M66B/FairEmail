@@ -238,6 +238,8 @@
     <string name="title_advanced_reversed">Capgirar el sentit de navegació</string>
     <string name="title_advanced_autoexpand">Ampliar automàticament els missatges</string>
     <string name="title_advanced_expand_one">Expandir només un missatge alhora</string>
+    <string name="title_advanced_collapse_single">Contraure un únic missatge a les conversa a la \"part posterior\"</string>
+    <string name="title_advanced_collapse_multiple">Contraure multiple missatges a les converses a la \"part posterior\"</string>
     <string name="title_advanced_autoclose">Tanca automàticament les converses</string>
     <string name="title_advanced_onclose">En tancar una conversa</string>
     <string name="title_advanced_autoread">Automàticament marca els missatges llegits en missatges moguts</string>
@@ -484,6 +486,7 @@
     <string name="title_no_connection">La sincronització es realitzarà a la connexió del compte següent</string>
     <string name="title_no_folder">La carpeta no existeix</string>
     <string name="title_no_format">S\'inclourà el missatge rebut originalment</string>
+    <string name="title_no_image">La imatge no s\'ha pogut descodificar</string>
     <string name="title_accross_remark">Els missatges transmesos pels comptes es descarregaran de nou i es produirà un ús addicional de dades</string>
     <string name="title_raw_saved">S\'ha desat el missatge sense format</string>
     <string name="title_attachment_saved">Fitxer adjunt desat</string>

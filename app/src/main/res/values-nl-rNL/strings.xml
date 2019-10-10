@@ -237,6 +237,7 @@
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
     <string name="title_advanced_reversed">Keer navigatierichting om</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
+    <string name="title_advanced_expand_all">Gelezen berichten automatisch uitvouwen</string>
     <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
     <string name="title_advanced_collapse_single">Eén bericht in een gesprek bij \'terug\' samenvouwen</string>
     <string name="title_advanced_collapse_multiple">Meerdere berichten in een gesprek bij \'terug\' samenvouwen</string>

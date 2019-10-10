@@ -237,6 +237,7 @@
     <string name="title_advanced_swipenav">Pyyhkäise vasemmalle/oikealle siirtyäksesi seuraavaan/edelliseen keskusteluun</string>
     <string name="title_advanced_reversed">Käänteinen navigointisuunta</string>
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
+    <string name="title_advanced_expand_all">Laajenna kaikki luetut viestit automaattisesti</string>
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
     <string name="title_advanced_collapse_single">Tiivistä yksittäinen viesti keskustelussa menemällä \'takaisin\'</string>
     <string name="title_advanced_collapse_multiple">Tiivistä useampi viesti keskustelussa menemällä \'takaisin\'</string>

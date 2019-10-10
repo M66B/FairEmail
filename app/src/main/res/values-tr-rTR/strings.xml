@@ -237,6 +237,7 @@
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
     <string name="title_advanced_reversed">Gezinti yönünü tersine çevir</string>
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
+    <string name="title_advanced_expand_all">Tüm okunmuş mesajları otomatik olarak aç</string>
     <string name="title_advanced_expand_one">Bir kerede yalnızca bir mesaj genişlet</string>
     <string name="title_advanced_collapse_single">Bir konuşmadaki tek bir mesajı \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_collapse_multiple">Bir konuşmadaki birden fazla mesajı \'geri\' seçeneğinde daralt</string>

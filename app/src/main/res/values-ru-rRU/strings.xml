@@ -259,6 +259,7 @@
     <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>
     <string name="title_advanced_reversed">Обратное направление навигации</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
+    <string name="title_advanced_expand_all">Автоматически разворачивать все прочитанные сообщения</string>
     <string name="title_advanced_expand_one">Разворачивать только одно сообщение за раз</string>
     <string name="title_advanced_collapse_single">Сворачивать одиночное сообщение в диалоге при нажатии кнопки \"Назад\"</string>
     <string name="title_advanced_collapse_multiple">Сворачивать несколько сообщений в диалоге при нажатии кнопки \"Назад\"</string>

@@ -237,6 +237,7 @@
     <string name="title_advanced_swipenav">Sveip til venstre/høyre for å gå til neste/forrige samtale</string>
     <string name="title_advanced_reversed">Omvendt navigasjonsretning</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
+    <string name="title_advanced_expand_all">Utvid alle leste meldinger automatisk</string>
     <string name="title_advanced_expand_one">Utvid bare en melding om gangen</string>
     <string name="title_advanced_collapse_single">Skjul enkeltmelding i en samtale med \'tilbake\'</string>
     <string name="title_advanced_collapse_multiple">Skjul flere meldinger i en samtale med \'tilbake\'</string>
