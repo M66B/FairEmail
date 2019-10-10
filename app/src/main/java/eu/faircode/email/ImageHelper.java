@@ -61,16 +61,13 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 class ImageHelper {
-    private static final float MIN_LUMINANCE = 0.33f;
-
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "image");
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, boolean dark) {
         byte[] hash = getHash(email);
 
-        int c = email.hashCode() & 0xffffff | 0xff000000;
-        int color = Helper.adjustLuminance(c, dark, MIN_LUMINANCE);
+        int color = Color.HSVToColor(new float[]{Math.abs(email.hashCode()) % 360, 0.5f, 1});
 
         Paint paint = new Paint();
         paint.setColor(color);
@@ -106,8 +103,7 @@ class ImageHelper {
         if (text == null)
             return null;
 
-        int c = email.hashCode() & 0xffffff | 0xff000000;
-        int color = Helper.adjustLuminance(c, dark, MIN_LUMINANCE);
+        int color = Color.HSVToColor(new float[]{Math.abs(email.hashCode()) % 360, 0.5f, 1});
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
