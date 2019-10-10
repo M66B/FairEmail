@@ -1592,7 +1592,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
 
                     boolean has_images = args.getBoolean("has_images");
-                    boolean show_images = properties.getValue("images", message.id);
 
                     if (result instanceof Spanned) {
                         tvBody.setText((Spanned) result);
@@ -1601,7 +1600,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         tvBody.setMovementMethod(new TouchHandler(message));
                     } else if (result instanceof String)
                         ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", "UTF-8", null);
-                    else
+                    else if (result == null) {
+                        boolean show_full = args.getBoolean("show_full");
+                        if (show_full)
+                            ((WebView) wvBody).loadDataWithBaseURL(null, "", "text/html", "UTF-8", null);
+                        else
+                            tvBody.setText(null);
+                    } else
                         throw new IllegalStateException("Result=" + result);
 
                     pbBody.setVisibility(View.GONE);
