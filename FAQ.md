@@ -722,6 +722,8 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 The error *... Authentication failed ...* likely means your username or password was incorrect.
 Some providers expect as username just *username* and others your full email address *username@example.com*.
+Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
+for example by allowing to logging from certain networks / IP addresses only.
 
 The errors *... invalid greeting ...*, *... requires valid address ...* and *... Parameter to HELO does not conform to RFC syntax ...*
 can likely be solved by changing the advanced identity setting *Use local IP address instead of host name*.
