@@ -238,7 +238,8 @@
     <string name="title_advanced_reversed">Omvendt navigasjonsretning</string>
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_expand_one">Utvid bare en melding om gangen</string>
-    <string name="title_advanced_collapse">Skjul meldinger i samtaler på \'tilbake\'</string>
+    <string name="title_advanced_collapse_single">Skjul enkeltmelding i en samtale med \'tilbake\'</string>
+    <string name="title_advanced_collapse_multiple">Skjul flere meldinger i en samtale med \'tilbake\'</string>
     <string name="title_advanced_autoclose">Lukk samtaler automatisk</string>
     <string name="title_advanced_onclose">Når du avslutter en samtale</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
@@ -303,7 +304,6 @@
     <string name="title_advanced_preview_hint">Kun tilgjengelig når meldingstekst ble lastet ned</string>
     <string name="title_advanced_inline_hint">Innebygde bilder er bilder som er inkludert i meldingen</string>
     <string name="title_advanced_autoexpand_hint">Åpne automatisk melding når det bare er én melding eller bare en ulest melding i en samtale</string>
-    <string name="title_advanced_autocollapse_hint">Flere utvidede meldinger vil alltid bli lukket ved \'tilbake\'</string>
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
@@ -486,6 +486,7 @@
     <string name="title_no_connection">Synkronisering vil bli utført på neste kontoforbindelse</string>
     <string name="title_no_folder">Mappe eksisterer ikke</string>
     <string name="title_no_format">Den opprinnelig mottatte meldingen vil bli inkludert</string>
+    <string name="title_no_image">Bildet kunne ikke dekodes</string>
     <string name="title_accross_remark">Meldinger som er flyttet over kontoer, lastes ned igjen, noe som resulterer i ekstra databruk</string>
     <string name="title_raw_saved">Rå melding lagret</string>
     <string name="title_attachment_saved">Vedlegg lagret</string>

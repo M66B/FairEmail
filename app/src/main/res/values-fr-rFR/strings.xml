@@ -238,7 +238,8 @@
     <string name="title_advanced_reversed">Inverser les directions de navigation</string>
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_expand_one">Développer un seul message à la fois</string>
-    <string name="title_advanced_collapse">Replier les messages dans les conversations en appuyant sur « Retour »</string>
+    <string name="title_advanced_collapse_single">Réduire un seul message dans une conversation en faisant « Retour »</string>
+    <string name="title_advanced_collapse_multiple">Réduire plusieurs messages dans une conversation en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
@@ -303,7 +304,6 @@
     <string name="title_advanced_preview_hint">Disponible uniquement lorsque le texte du message a été téléchargé</string>
     <string name="title_advanced_inline_hint">Les images en ligne sont des images incluses dans le message</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message lorsqu’il n’y a qu’un seul message ou seulement un message non lu dans une conversation</string>
-    <string name="title_advanced_autocollapse_hint">Les messages multiples étendus seront toujours fermés par « Retour »</string>
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
@@ -486,6 +486,7 @@
     <string name="title_no_connection">La synchronisation sera effectuée à la prochaine connexion du compte</string>
     <string name="title_no_folder">Le dossier n\'existe pas</string>
     <string name="title_no_format">Le message reçu initialement sera inclus</string>
+    <string name="title_no_image">L\'image n\'a pas pu être décodée</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>

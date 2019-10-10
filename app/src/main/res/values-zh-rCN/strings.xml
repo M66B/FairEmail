@@ -226,7 +226,8 @@
     <string name="title_advanced_reversed">翻转导航方向</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
-    <string name="title_advanced_collapse">按返回键折叠对话中的邮件</string>
+    <string name="title_advanced_collapse_single">按返回键折叠对话中的单封邮件</string>
+    <string name="title_advanced_collapse_multiple">按返回键折叠对话中的多封邮件</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
@@ -291,7 +292,6 @@
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
-    <string name="title_advanced_autocollapse_hint">App将在您按下“返回”键时关闭多条展开的消息</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
@@ -474,6 +474,7 @@
     <string name="title_no_connection">将在下次账户连接时进行同步</string>
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_no_format">将包含最初收到的消息</string>
+    <string name="title_no_image">无法解码图像</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
     <string name="title_attachment_saved">附件已保存</string>

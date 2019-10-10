@@ -205,6 +205,7 @@
     <string name="title_advanced_cards">Vis Kort</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
+    <string name="title_advanced_bubble">Vis samtaler i beskedstil</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
     <string name="title_advanced_distinguish_contacts">Skeln mellem beskeder fra kendte og ukendte kontakter</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
@@ -236,7 +237,8 @@
     <string name="title_advanced_reversed">Omvendt navigeringsretning</string>
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
-    <string name="title_advanced_collapse">Sammenfold beskeder i samtaler ved tryk på Tilbage</string>
+    <string name="title_advanced_collapse_single">Sammenfold enkeltbeskeder i samtaler ved tryk på \'Tilbage\'</string>
+    <string name="title_advanced_collapse_multiple">Sammenfold flere beskeder i samtaler ved tryk på \'Tilbage\'</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
@@ -301,7 +303,6 @@
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
-    <string name="title_advanced_autocollapse_hint">Alle udvidede beskeder lukkes altid ved tryk på \"Tilbage\"</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering af dette vil slette alle lokale mapper uden abonnering</string>
@@ -484,6 +485,7 @@
     <string name="title_no_connection">Synkronisering gennemføres ved næste kontotilslutning</string>
     <string name="title_no_folder">Mappe findes ikke</string>
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
+    <string name="title_no_image">Billede kunne ikke afkodes</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>
     <string name="title_attachment_saved">Vedhæftning gemt</string>
@@ -602,6 +604,7 @@
     <string name="title_rule_ignore">Undertryk notifikationer</string>
     <string name="title_rule_snooze">Udsæt</string>
     <string name="title_rule_flag">Tilføj stjerne</string>
+    <string name="title_rule_keyword">Tilføj nøgleord</string>
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>
     <string name="title_rule_answer">Besvar</string>

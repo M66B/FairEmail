@@ -260,7 +260,8 @@
     <string name="title_advanced_reversed">Обратное направление навигации</string>
     <string name="title_advanced_autoexpand">Автоматически разворачивать сообщения</string>
     <string name="title_advanced_expand_one">Разворачивать только одно сообщение за раз</string>
-    <string name="title_advanced_collapse">Сворачивать сообщения в диалоге при нажатии кнопки \"Назад\"</string>
+    <string name="title_advanced_collapse_single">Сворачивать одиночное сообщение в диалоге при нажатии кнопки \"Назад\"</string>
+    <string name="title_advanced_collapse_multiple">Сворачивать несколько сообщений в диалоге при нажатии кнопки \"Назад\"</string>
     <string name="title_advanced_autoclose">Автоматически закрывать диалоги</string>
     <string name="title_advanced_onclose">При закрытии диалога</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
@@ -325,7 +326,6 @@
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, вложенные в сообщение</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
-    <string name="title_advanced_autocollapse_hint">Несколько развёрнутых сообщений всегда будут закрыты кнопкой \"Назад\"</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_subscribed_only_hint">Включение этого режима удалит все локальные папки без подписки</string>
@@ -508,6 +508,7 @@
     <string name="title_no_connection">Будет синхронизировано при следующем подключении к учётной записи</string>
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Оригинальное сообщение будет включено</string>
+    <string name="title_no_image">Изображение не может быть декодировано</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Вложение сохранено</string>
