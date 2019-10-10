@@ -629,7 +629,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
         }
 
-        private void clear() {
+        private void clear(boolean loading) {
             ivAvatarStart.setVisibility(View.GONE);
             ivAvatarEnd.setVisibility(View.GONE);
             vwColor.setVisibility(View.GONE);
@@ -655,7 +655,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvPreview.setVisibility(View.GONE);
             tvError.setVisibility(View.GONE);
             ibHelp.setVisibility(View.GONE);
-            pbLoading.setVisibility(View.VISIBLE);
+            pbLoading.setVisibility(loading ? View.VISIBLE : View.GONE);
 
             clearExpanded(null);
         }
@@ -4029,7 +4029,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         holder.unwire();
 
         if (message == null || context == null)
-            holder.clear();
+            holder.clear(true);
         else {
             holder.bindTo(message);
             holder.wire();
@@ -4042,6 +4042,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ((WebView) holder.wvBody).loadDataWithBaseURL(null, "", "text/html", "UTF-8", null);
         holder.cowner.stop();
         holder.powner.recreate();
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.clear(false);
     }
 
     void setSelectionTracker(SelectionTracker<Long> selectionTracker) {
