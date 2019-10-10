@@ -140,15 +140,18 @@ public class EntityOperation {
             else if (MOVE.equals(name)) {
                 // Parameters:
                 // 0: target folder
-                // 1: mark read (rule)
+                // 1: mark seen
                 // 2: temporary message
+                // 3: remove flag
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean autoread = prefs.getBoolean("autoread", false);
                 boolean autounflag = prefs.getBoolean("autounflag", false);
 
-                if (jargs.optBoolean(1))
+                if (jargs.optBoolean(1)) // rule
                     autoread = true;
+                jargs.put(1, autoread);
+                jargs.put(3, autounflag);
 
                 EntityFolder source = db.folder().getFolder(message.folder);
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
