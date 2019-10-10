@@ -58,7 +58,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
 
 import javax.mail.AuthenticationFailedException;
@@ -91,7 +90,8 @@ public class ServiceSynchronize extends ServiceBase {
     private int queued = 0;
     private long lastLost = 0;
     private TupleAccountStats lastStats = new TupleAccountStats();
-    private ExecutorService queue = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private ExecutorService queue =
+            Helper.getBackgroundExecutor(1, "service");
 
     private static boolean sync = true;
     private static boolean oneshot = false;
@@ -226,7 +226,7 @@ public class ServiceSynchronize extends ServiceBase {
 
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
             private ExecutorService executor =
-                    Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+                    Helper.getBackgroundExecutor(1, "notify");
 
             @Override
             public void onChanged(final List<TupleMessageEx> messages) {
@@ -860,7 +860,8 @@ public class ServiceSynchronize extends ServiceBase {
                         Core.onSynchronizeFolders(this, account, iservice.getStore(), state);
 
                     // Open synchronizing folders
-                    final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+                    final ExecutorService executor =
+                            Helper.getBackgroundExecutor(1, "account_" + account.id);
 
                     List<EntityFolder> folders = db.folder().getFolders(account.id, false, true);
                     Collections.sort(folders, new Comparator<EntityFolder>() {

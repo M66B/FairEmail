@@ -44,13 +44,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class ViewModelMessages extends ViewModel {
     private AdapterMessage.ViewType last = AdapterMessage.ViewType.UNIFIED;
     private Map<AdapterMessage.ViewType, Model> models = new HashMap<>();
 
-    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
+    private ExecutorService executor = Helper.getBackgroundExecutor(2, "model");
 
     private static final int LOCAL_PAGE_SIZE = 100;
     private static final int REMOTE_PAGE_SIZE = 10;

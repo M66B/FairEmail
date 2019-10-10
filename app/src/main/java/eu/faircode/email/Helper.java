@@ -95,9 +95,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.mail.FolderClosedException;
@@ -128,20 +132,45 @@ public class Helper {
     static final String GITHUB_APPS_URI = "https://github.com/M66B?tab=repositories";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
 
-    static ThreadFactory backgroundThreadFactory = new ThreadFactory() {
-        private final AtomicInteger threadId = new AtomicInteger();
+    static ExecutorService getBackgroundExecutor(int threads, String name) {
+        ThreadFactory factory = new ThreadFactory() {
+            private final AtomicInteger threadId = new AtomicInteger();
+
+            @Override
+            public Thread newThread(@NonNull Runnable runnable) {
+                Thread thread = new Thread(runnable);
+                thread.setName("FairEmail_bg_" + name + "_" + threadId.getAndIncrement());
+                thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+                return thread;
+            }
+        };
+
+        if (threads == 0)
+            return new ThreadPoolExecutorEx(
+                    0, Integer.MAX_VALUE,
+                    60L, TimeUnit.SECONDS,
+                    new SynchronousQueue<Runnable>(),
+                    factory);
+        else
+            return new ThreadPoolExecutorEx(
+                    threads, threads,
+                    0L, TimeUnit.MILLISECONDS,
+                    new LinkedBlockingQueue<Runnable>(),
+                    factory);
+    }
+
+    private static class ThreadPoolExecutorEx extends ThreadPoolExecutor {
+        public ThreadPoolExecutorEx(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory) {
+            super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory);
+        }
 
         @Override
-        public Thread newThread(@NonNull Runnable runnable) {
-            Thread thread = new Thread(runnable);
-            thread.setName("FairEmail_bg_" + threadId.getAndIncrement());
-            thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-            return thread;
+        protected void beforeExecute(Thread t, Runnable r) {
+            Log.i("Executing " + t.getName());
         }
-    };
+    }
 
-    private static final ExecutorService executor =
-            Executors.newSingleThreadExecutor(backgroundThreadFactory);
+    private static final ExecutorService executor = getBackgroundExecutor(1, "helper");
 
     // Features
 

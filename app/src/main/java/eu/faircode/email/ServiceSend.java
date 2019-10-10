@@ -48,7 +48,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.AuthenticationFailedException;
@@ -65,7 +64,7 @@ public class ServiceSend extends ServiceBase {
     private boolean lastSuitable = false;
 
     private PowerManager.WakeLock wlOutbox;
-    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private ExecutorService executor = Helper.getBackgroundExecutor(1, "send");
 
     private static final int IDENTITY_ERROR_AFTER = 30; // minutes
 

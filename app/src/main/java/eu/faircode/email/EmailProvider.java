@@ -53,7 +53,6 @@ import java.util.Locale;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class EmailProvider {
@@ -76,7 +75,7 @@ public class EmailProvider {
     private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
 
     private static final ExecutorService executor =
-            Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
+            Helper.getBackgroundExecutor(0, "provider");
 
     private EmailProvider() {
     }

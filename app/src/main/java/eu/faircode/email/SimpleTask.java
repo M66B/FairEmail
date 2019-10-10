@@ -39,7 +39,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes
 // Make sure to not access any member in any outer scope from onExecute
@@ -52,8 +51,8 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
 
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
-    private static final ExecutorService executor = Executors.newFixedThreadPool(
-            Runtime.getRuntime().availableProcessors(), Helper.backgroundThreadFactory);
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(Runtime.getRuntime().availableProcessors(), "task");
 
     static final String ACTION_TASK_COUNT = BuildConfig.APPLICATION_ID + ".ACTION_TASK_COUNT";
 

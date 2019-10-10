@@ -29,7 +29,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -98,7 +97,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoLog log();
 
     private static DB sInstance;
-    private static final ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(1, "query");
 
     private static final String DB_NAME = "fairemail";
     private static final long VACUUM_INTERVAL = 24 * 3600 * 1000L;

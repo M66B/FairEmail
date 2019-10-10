@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -62,9 +61,8 @@ public class ContactInfo {
 
     private static Map<String, Uri> emailLookup = new ConcurrentHashMap<>();
     private static final Map<String, ContactInfo> emailContactInfo = new HashMap<>();
-
     private static final ExecutorService executor =
-            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+            Helper.getBackgroundExecutor(1, "contact");
 
     private static final long CACHE_CONTACT_DURATION = 120 * 1000L;
 

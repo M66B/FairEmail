@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Folder;
@@ -40,7 +39,7 @@ public class MailService implements AutoCloseable {
     private Session isession;
     private Service iservice;
 
-    private ExecutorService executor = Executors.newCachedThreadPool(Helper.backgroundThreadFactory);
+    private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;

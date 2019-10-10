@@ -32,11 +32,10 @@ import androidx.preference.PreferenceManager;
 
 import java.text.NumberFormat;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Widget extends AppWidgetProvider {
     private static final ExecutorService executor =
-            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+            Helper.getBackgroundExecutor(1, "widget");
 
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {

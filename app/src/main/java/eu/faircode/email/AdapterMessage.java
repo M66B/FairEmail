@@ -146,7 +146,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -227,7 +226,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat DTF;
 
     private static final ExecutorService executor =
-            Executors.newFixedThreadPool(2, Helper.backgroundThreadFactory);
+            Helper.getBackgroundExecutor(2, "differ");
 
     // https://github.com/newhouse/url-tracking-stripper
     private static final List<String> PARANOID_QUERY = Collections.unmodifiableList(Arrays.asList(

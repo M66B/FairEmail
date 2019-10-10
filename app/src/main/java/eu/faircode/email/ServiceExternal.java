@@ -30,7 +30,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class ServiceExternal extends Service {
     private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
@@ -41,7 +40,8 @@ public class ServiceExternal extends Service {
     // adb shell am startservice -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am startservice -a eu.faircode.email.DISABLE --es account Gmail
 
-    private static ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(1, "external");
 
 
     @Override

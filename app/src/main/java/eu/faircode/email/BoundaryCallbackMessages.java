@@ -44,7 +44,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
@@ -74,7 +73,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private IBoundaryCallbackMessages intf;
 
     private Handler handler;
-    private ExecutorService executor = Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+    private ExecutorService executor = Helper.getBackgroundExecutor(1, "boundary");
 
     private State state;
 

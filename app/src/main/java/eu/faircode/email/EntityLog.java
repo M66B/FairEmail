@@ -28,7 +28,6 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Entity(
         tableName = EntityLog.TABLE_NAME,
@@ -49,7 +48,7 @@ public class EntityLog {
     public String data;
 
     private static final ExecutorService executor =
-            Executors.newSingleThreadExecutor(Helper.backgroundThreadFactory);
+            Helper.getBackgroundExecutor(1, "log");
 
     static void log(Context context, String data) {
         Log.i(data);
