@@ -53,13 +53,9 @@ public class FragmentDialogColor extends FragmentDialogBase {
         String title = args.getString("title");
         boolean reset = args.getBoolean("reset", false);
 
-        if (color == Color.TRANSPARENT)
-            color = Color.BLUE;
-
         ColorPickerDialogBuilder builder = ColorPickerDialogBuilder
                 .with(getContext())
                 .setTitle(title)
-                .initialColor(color)
                 .showColorEdit(true)
                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                 .density(6)
@@ -77,6 +73,9 @@ public class FragmentDialogColor extends FragmentDialogBase {
                         sendResult(RESULT_OK);
                     }
                 });
+
+        if (color != Color.TRANSPARENT)
+            builder.initialColor(color);
 
         if (reset)
             builder.setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
