@@ -46,37 +46,48 @@ public class ViewCardOptional extends CardView {
         setCardBackgroundColor(Color.TRANSPARENT);
     }
 
+    private boolean initialized = false;
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean cards = prefs.getBoolean("cards", true);
-        boolean compact = prefs.getBoolean("compact", false);
+        if (!initialized) {
+            initialized = true;
 
-        if (cards) {
-            int dp = Helper.dp2pixels(getContext(), compact ? 3 : 6);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean cards = prefs.getBoolean("cards", true);
+            boolean compact = prefs.getBoolean("compact", false);
 
-            ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            lparam.setMargins(dp, dp, dp, dp);
-            setLayoutParams(lparam);
+            if (cards) {
+                int dp = Helper.dp2pixels(getContext(), compact ? 3 : 6);
 
-            setRadius(dp);
-            setContentPadding(dp, dp, dp, dp);
-        } else
-            setRadius(0);
+                ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) getLayoutParams();
+                lparam.setMargins(dp, dp, dp, dp);
+                setLayoutParams(lparam);
 
-        setCardElevation(0);
+                setRadius(dp);
+                setContentPadding(dp, dp, dp, dp);
+            } else
+                setRadius(0);
+
+            setCardElevation(0);
+        }
     }
+
+    private Integer color = null;
 
     @Override
     public void setCardBackgroundColor(int color) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean cards = prefs.getBoolean("cards", true);
-        if (cards && color == Color.TRANSPARENT)
-            color = Helper.resolveColor(getContext(), R.attr.colorCardBackground);
+        if (this.color == null || this.color != color) {
+            this.color = color;
 
-        super.setCardBackgroundColor(color);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean cards = prefs.getBoolean("cards", true);
+            if (cards && color == Color.TRANSPARENT)
+                color = Helper.resolveColor(getContext(), R.attr.colorCardBackground);
+
+            super.setCardBackgroundColor(color);
+        }
     }
 }

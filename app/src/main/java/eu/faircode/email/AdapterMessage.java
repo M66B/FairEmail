@@ -402,13 +402,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibHelp = itemView.findViewById(R.id.ibHelp);
             pbLoading = itemView.findViewById(R.id.pbLoading);
 
-            if (compact && tvSubject != null)
-                if ("start".equals(subject_ellipsize))
-                    tvSubject.setEllipsize(TextUtils.TruncateAt.START);
-                else if ("end".equals(subject_ellipsize))
-                    tvSubject.setEllipsize(TextUtils.TruncateAt.END);
-                else
-                    tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+            if (tvSubject != null) {
+                tvSubject.setTextColor(colorRead);
+
+                if (compact)
+                    if ("start".equals(subject_ellipsize))
+                        tvSubject.setEllipsize(TextUtils.TruncateAt.START);
+                    else if ("end".equals(subject_ellipsize))
+                        tvSubject.setEllipsize(TextUtils.TruncateAt.END);
+                    else
+                        tvSubject.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+            }
         }
 
         private void ensureExpanded() {
@@ -751,18 +755,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCount.setTypeface(typeface);
 
             int colorUnseen = (message.unseen > 0 ? colorUnread : colorRead);
-            tvFrom.setTextColor(colorUnseen);
-            tvSize.setTextColor(colorUnseen);
-            tvTime.setTextColor(colorUnseen);
-            tvSubject.setTextColor(colorRead);
+            if (tvFrom.getTag() == null || (int) tvFrom.getTag() != colorUnseen) {
+                tvFrom.setTag(colorUnseen);
+                tvFrom.setTextColor(colorUnseen);
+                tvSize.setTextColor(colorUnseen);
+                tvTime.setTextColor(colorUnseen);
+            }
 
             // Account color
+            int colorBackground =
+                    (message.accountColor == null || !ActivityBilling.isPro(context)
+                            ? colorSeparator : message.accountColor);
             vwColor.setVisibility(View.VISIBLE);
-            vwColor.setBackgroundColor(message.accountColor == null || !ActivityBilling.isPro(context)
-                    ? colorSeparator : message.accountColor);
+            if (vwColor.getTag() == null || (int) vwColor.getTag() != colorBackground) {
+                vwColor.setTag(colorBackground);
+                vwColor.setBackgroundColor(colorBackground);
+            }
 
             // Expander
-            ibExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
+            if (ibExpander.getTag() == null || (boolean) ibExpander.getTag() != expanded) {
+                ibExpander.setTag(expanded);
+                ibExpander.setImageLevel(expanded ? 0 /* less */ : 1 /* more */);
+            }
             if (viewType == ViewType.THREAD)
                 ibExpander.setVisibility(EntityFolder.DRAFTS.equals(message.folderType) ? View.INVISIBLE : View.VISIBLE);
             else
@@ -788,16 +802,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Boolean.FALSE.equals(message.mx));
 
             // Line 3
+            int icon;
             if (outgoing && !EntityFolder.SENT.equals(message.folderType)) {
-                ivType.setImageResource(EntityFolder.getIcon(EntityFolder.SENT));
+                icon = EntityFolder.getIcon(EntityFolder.SENT);
                 ivType.setVisibility(View.VISIBLE);
             } else {
-                ivType.setImageResource(message.drafts > 0
+                icon = (message.drafts > 0
                         ? R.drawable.baseline_edit_24 : EntityFolder.getIcon(message.folderType));
                 ivType.setVisibility(message.drafts > 0 ||
                         (viewType == ViewType.UNIFIED && type == null && !inbox) ||
                         (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
                         ? View.VISIBLE : View.GONE);
+            }
+            if (ivType.getTag() == null || (int) ivType.getTag() != icon) {
+                ivType.setTag(icon);
+                ivType.setImageResource(icon);
             }
 
             ivPriority.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(message.priority) ? View.VISIBLE : View.GONE);
@@ -832,7 +851,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             bindFlagged(message, expanded);
 
             // Message text preview
-            tvPreview.setTextColor(contrast ? textColorPrimary : textColorSecondary);
+            int textColor = (contrast ? textColorPrimary : textColorSecondary);
+            if (tvPreview.getTag() == null || (int) tvPreview.getTag() != textColor) {
+                tvPreview.setTag(textColor);
+                tvPreview.setTextColor(textColor);
+            }
             tvPreview.setTypeface(
                     monospaced ? Typeface.MONOSPACE : Typeface.DEFAULT,
                     preview_italic ? Typeface.ITALIC : Typeface.NORMAL);
