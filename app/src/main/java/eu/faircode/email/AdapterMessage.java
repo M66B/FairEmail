@@ -801,6 +801,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     : EntityFolder.getIcon(outgoing ? EntityFolder.SENT : message.folderType));
             ivType.setVisibility(message.drafts > 0 ||
                     (viewType == ViewType.UNIFIED && type == null && !inbox) ||
+                    viewType == ViewType.SEARCH ||
                     (viewType == ViewType.THREAD && (outgoing || EntityFolder.SENT.equals(message.folderType)))
                     ? View.VISIBLE : View.GONE);
             if (ivType.getTag() == null || (int) ivType.getTag() != icon) {
