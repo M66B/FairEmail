@@ -773,6 +773,7 @@
     <string name="title_minutes">Minuti</string>
     <string name="title_dismiss">Rimuovi</string>
     <string name="title_snooze_now">Posticipa</string>
+    <string name="title_loading">Caricamento &#8230;</string>
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>

@@ -774,6 +774,7 @@
     <string name="title_minutes">Minuuttia</string>
     <string name="title_dismiss">Hylkää</string>
     <string name="title_snooze_now">Torkuta</string>
+    <string name="title_loading">Ladataan &#8230;</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>

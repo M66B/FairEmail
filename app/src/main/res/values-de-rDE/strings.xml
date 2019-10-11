@@ -773,6 +773,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_minutes">Minuten</string>
     <string name="title_dismiss">Abbrechen</string>
     <string name="title_snooze_now">Schlummern</string>
+    <string name="title_loading">Lade &#8230;</string>
     <string name="title_icalendar_accept">Akzeptieren</string>
     <string name="title_icalendar_decline">Ablehnen</string>
     <string name="title_icalendar_maybe">Vielleicht</string>

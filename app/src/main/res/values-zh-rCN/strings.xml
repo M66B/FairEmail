@@ -225,6 +225,7 @@
     <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
     <string name="title_advanced_reversed">翻转导航方向</string>
     <string name="title_advanced_autoexpand">自动伸展消息</string>
+    <string name="title_advanced_expand_all">自动展开所有已读消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
     <string name="title_advanced_collapse_single">按返回键折叠对话中的单封邮件</string>
     <string name="title_advanced_collapse_multiple">按返回键折叠对话中的多封邮件</string>
@@ -761,6 +762,7 @@
     <string name="title_minutes">分钟</string>
     <string name="title_dismiss">忽略</string>
     <string name="title_snooze_now">贪睡</string>
+    <string name="title_loading">加载中&#8230;</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>

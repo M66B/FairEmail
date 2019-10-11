@@ -796,6 +796,7 @@
     <string name="title_minutes">мин.</string>
     <string name="title_dismiss">Отклонить</string>
     <string name="title_snooze_now">Отложить</string>
+    <string name="title_loading">Загрузка...</string>
     <string name="title_icalendar_accept">Принять</string>
     <string name="title_icalendar_decline">Отклонить</string>
     <string name="title_icalendar_maybe">Возможно</string>
