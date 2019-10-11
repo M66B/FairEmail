@@ -3746,18 +3746,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     @Override
-    public int getItemViewType(int position) {
-        TupleMessageEx message = differ.getItem(position);
-        if (message == null || context == null)
-            return R.layout.item_message_placeholder;
-
-        if (filter_duplicates && message.duplicate)
-            return R.layout.item_message_duplicate;
-
-        return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
-    }
-
-    @Override
     public int getItemCount() {
         return differ.getItemCount();
     }
@@ -4037,6 +4025,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             };
 
     @Override
+    public int getItemViewType(int position) {
+        TupleMessageEx message = differ.getItem(position);
+
+        if (message == null || context == null)
+            return R.layout.item_message_placeholder;
+
+        if (filter_duplicates && message.duplicate)
+            return R.layout.item_message_duplicate;
+
+        return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
+    }
+
+    @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(inflater.inflate(viewType, parent, false));
@@ -4045,6 +4046,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TupleMessageEx message = differ.getItem(position);
+
         if (message == null || context == null)
             return;
 
