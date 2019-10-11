@@ -82,6 +82,12 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET password = :password WHERE id = :id")
     int setIdentityPassword(long id, String password);
 
+    @Query("UPDATE identity SET password = :password" +
+            " WHERE account = :account" +
+            " AND user = :user" +
+            " AND host LIKE :domain")
+    int setIdentityPassword(long account, String user, String password, String domain);
+
     @Query("UPDATE identity SET last_connected = :last_connected WHERE id = :id")
     int setIdentityConnected(long id, long last_connected);
 

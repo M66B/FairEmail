@@ -918,14 +918,11 @@ public class FragmentAccount extends FragmentBase {
                     db.beginTransaction();
 
                     if (account != null && !account.password.equals(password)) {
-                        List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                        for (EntityIdentity identity : identities)
-                            if (identity.password.equals(account.password) &&
-                                    ConnectionHelper.isSameDomain(identity.host, account.host)) {
-                                Log.i("Changing identity password host=" + identity.host);
-                                identity.password = password;
-                                db.identity().updateIdentity(identity);
-                            }
+                        int count = db.identity().setIdentityPassword(
+                                account.id,
+                                account.user, password,
+                                "%." + ConnectionHelper.getDomain(account.host));
+                        Log.i("Updated passwords=" + count);
                     }
 
                     boolean update = (account != null);

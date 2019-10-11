@@ -346,13 +346,7 @@ public class ConnectionHelper {
         return null;
     }
 
-    static boolean isSameDomain(String host1, String host2) {
-        String domain1 = getDomain(host1);
-        String domain2 = getDomain(host2);
-        return Objects.equals(domain1, domain2);
-    }
-
-    private static String getDomain(String host) {
+     static String getDomain(String host) {
         if (host != null) {
             String[] h = host.split("\\.");
             if (h.length >= 2)

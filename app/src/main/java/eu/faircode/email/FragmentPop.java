@@ -49,7 +49,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Date;
-import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
@@ -281,14 +280,11 @@ public class FragmentPop extends FragmentBase {
                     db.beginTransaction();
 
                     if (account != null && !account.password.equals(password)) {
-                        List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                        for (EntityIdentity identity : identities)
-                            if (identity.password.equals(account.password) &&
-                                    ConnectionHelper.isSameDomain(identity.host, account.host)) {
-                                Log.i("Changing identity password host=" + identity.host);
-                                identity.password = password;
-                                db.identity().updateIdentity(identity);
-                            }
+                        int count = db.identity().setIdentityPassword(
+                                account.id,
+                                account.user, password,
+                                "%." + ConnectionHelper.getDomain(account.host));
+                        Log.i("Updated passwords=" + count);
                     }
 
                     boolean update = (account != null);
