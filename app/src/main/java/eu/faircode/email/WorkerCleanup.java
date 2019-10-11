@@ -101,6 +101,10 @@ public class WorkerCleanup extends Worker {
 
                 int headers = db.message().clearMessageHeaders();
                 Log.i("Cleared message headers=" + headers);
+
+                // Clear last search
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                prefs.edit().remove("last_search").apply();
             }
 
             long now = new Date().getTime();
