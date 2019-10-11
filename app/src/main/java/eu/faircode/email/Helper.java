@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -797,9 +798,15 @@ public class Helper {
                              Runnable authenticated, final Runnable cancelled) {
         final Handler handler = new Handler();
 
+
         BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics))
-                .setNegativeButtonText(activity.getString(android.R.string.cancel));
+                .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics));
+
+        KeyguardManager kgm = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && kgm != null && kgm.isDeviceSecure())
+            info.setDeviceCredentialAllowed(true);
+        else
+            info.setNegativeButtonText(activity.getString(android.R.string.cancel));
 
         info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
                 : enabled
