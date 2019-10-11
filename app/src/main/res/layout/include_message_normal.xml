@@ -325,15 +325,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvError" />
-
-    <eu.faircode.email.ContentLoadingProgressBar
-        android:id="@+id/pbLoading"
-        style="@style/Base.Widget.AppCompat.ProgressBar"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:indeterminate="true"
-        app:layout_constraintBottom_toBottomOf="@id/paddingBottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

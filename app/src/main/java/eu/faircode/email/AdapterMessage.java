@@ -282,7 +282,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvPreview;
         private TextView tvError;
         private ImageButton ibHelp;
-        private ContentLoadingProgressBar pbLoading;
 
         private View vsBody;
 
@@ -400,7 +399,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivThread = itemView.findViewById(R.id.ivThread);
             tvError = itemView.findViewById(R.id.tvError);
             ibHelp = itemView.findViewById(R.id.ibHelp);
-            pbLoading = itemView.findViewById(R.id.pbLoading);
 
             if (tvSubject != null) {
                 tvSubject.setTextColor(colorRead);
@@ -663,15 +661,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvPreview.setVisibility(View.GONE);
             tvError.setVisibility(View.GONE);
             ibHelp.setVisibility(View.GONE);
-            pbLoading.setVisibility(View.VISIBLE);
 
             clearExpanded(null);
         }
 
         @SuppressLint("WrongConstant")
         private void bindTo(final TupleMessageEx message) {
-            pbLoading.setVisibility(View.GONE);
-
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
@@ -3758,8 +3753,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public int getItemViewType(int position) {
         TupleMessageEx message = differ.getItem(position);
-        if (filter_duplicates && message != null && message.duplicate)
+        if (message == null || context == null)
+            return R.layout.item_message_placeholder;
+
+        if (filter_duplicates && message.duplicate)
             return R.layout.item_message_duplicate;
+
         return (compact ? R.layout.item_message_compact : R.layout.item_message_normal);
     }
 
@@ -4051,7 +4050,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TupleMessageEx message = differ.getItem(position);
-        if (filter_duplicates && message != null && message.duplicate) {
+        if (message == null || context == null)
+            return;
+
+        if (filter_duplicates && message.duplicate) {
             holder.tvFolder.setText(context.getString(R.string.title_duplicate_in, message.getFolderName(context)));
             holder.tvFolder.setTypeface(message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
             holder.tvFolder.setTextColor(message.unseen > 0 ? colorUnread : colorRead);
@@ -4060,13 +4062,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         holder.unwire();
-
-        if (message == null || context == null)
-            holder.clear();
-        else {
-            holder.bindTo(message);
-            holder.wire();
-        }
+        holder.bindTo(message);
+        holder.wire();
     }
 
     @Override
