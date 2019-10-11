@@ -2201,11 +2201,12 @@ class Core {
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
+                    if (!TextUtils.isEmpty(body))
+                        fixAttachments(context, message.id, body);
+
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
                         reportEmptyMessage(context, account, istore);
-                    else
-                        fixAttachments(context, message.id, body);
                 }
             }
 
@@ -2525,11 +2526,12 @@ class Core {
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
+                    if (!TextUtils.isEmpty(body))
+                        fixAttachments(context, message.id, body);
+
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
                         reportEmptyMessage(context, account, istore);
-                    else
-                        fixAttachments(context, message.id, body);
                 }
             }
 
