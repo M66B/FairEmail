@@ -395,6 +395,7 @@
     <string name="title_imap" translatable="false">IMAP</string>
     <string name="title_pop3" translatable="false">POP3</string>
     <string name="title_smtp" translatable="false">SMTP</string>
+    <string name="title_aliases">Aliases</string>
     <string name="title_provider">Provider</string>
     <string name="title_custom">Custom</string>
     <string name="title_host">Host name</string>
@@ -439,6 +440,7 @@
     <string name="title_activesync_support">ActiveSync is not supported</string>
     <string name="title_oauth_support">OAuth is not supported</string>
     <string name="title_review">Review</string>
+    <string name="title_hint_alias">Long press for options, like copy to create alias identities</string>
 
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>
