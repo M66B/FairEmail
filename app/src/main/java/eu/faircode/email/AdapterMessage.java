@@ -670,14 +670,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            Address[] addresses = (outgoing ? message.to : message.senders);
+            Address[] addresses = (outgoing && viewType != ViewType.THREAD ? message.to : message.senders);
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
 
             if (viewType == ViewType.THREAD) {
                 ivAvatarStart.setVisibility(outgoing && bubble ? View.INVISIBLE : View.GONE);
                 ivAvatarEnd.setVisibility(outgoing || !bubble ? View.GONE : View.INVISIBLE);
                 ivAvatar.setVisibility(bubble || !avatars ? View.GONE : View.INVISIBLE);
-                outgoing = false;
             } else {
                 ivAvatarStart.setVisibility(View.GONE);
                 ivAvatarEnd.setVisibility(View.GONE);
@@ -797,18 +796,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Boolean.FALSE.equals(message.mx));
 
             // Line 3
-            int icon;
-            if (outgoing && !EntityFolder.SENT.equals(message.folderType)) {
-                icon = EntityFolder.getIcon(EntityFolder.SENT);
-                ivType.setVisibility(View.VISIBLE);
-            } else {
-                icon = (message.drafts > 0
-                        ? R.drawable.baseline_edit_24 : EntityFolder.getIcon(message.folderType));
-                ivType.setVisibility(message.drafts > 0 ||
-                        (viewType == ViewType.UNIFIED && type == null && !inbox) ||
-                        (viewType == ViewType.THREAD && EntityFolder.SENT.equals(message.folderType))
-                        ? View.VISIBLE : View.GONE);
-            }
+            int icon = (message.drafts > 0
+                    ? R.drawable.baseline_edit_24
+                    : EntityFolder.getIcon(outgoing ? EntityFolder.SENT : message.folderType));
+            ivType.setVisibility(message.drafts > 0 ||
+                    (viewType == ViewType.UNIFIED && type == null && !inbox) ||
+                    (viewType == ViewType.THREAD && (outgoing || EntityFolder.SENT.equals(message.folderType)))
+                    ? View.VISIBLE : View.GONE);
             if (ivType.getTag() == null || (int) ivType.getTag() != icon) {
                 ivType.setTag(icon);
                 ivType.setImageResource(icon);
