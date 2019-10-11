@@ -113,7 +113,7 @@ public class ContactInfo {
             return new ContactInfo();
         InternetAddress address = (InternetAddress) addresses[0];
 
-        String key = MessageHelper.formatAddresses(new Address[]{address});
+        String key = address.getAddress();
         synchronized (emailContactInfo) {
             ContactInfo info = emailContactInfo.get(key);
             if (info != null && !info.isExpired())
