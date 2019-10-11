@@ -801,8 +801,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     : EntityFolder.getIcon(outgoing ? EntityFolder.SENT : message.folderType));
             ivType.setVisibility(message.drafts > 0 ||
                     (viewType == ViewType.UNIFIED && type == null && !inbox) ||
-                    viewType == ViewType.SEARCH ||
-                    (viewType == ViewType.THREAD && (outgoing || EntityFolder.SENT.equals(message.folderType)))
+                    (viewType == ViewType.FOLDER && outgoing && !EntityFolder.SENT.equals(message.folderType)) ||
+                    (viewType == ViewType.THREAD && (outgoing || EntityFolder.SENT.equals(message.folderType))) ||
+                    viewType == ViewType.SEARCH
                     ? View.VISIBLE : View.GONE);
             if (ivType.getTag() == null || (int) ivType.getTag() != icon) {
                 ivType.setTag(icon);
@@ -1962,12 +1963,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private boolean isOutgoing(TupleMessageEx message) {
             if (EntityFolder.isOutgoing(message.folderType))
                 return true;
-            else if ((viewType == ViewType.THREAD || !EntityFolder.ARCHIVE.equals(message.folderType)) &&
-                    message.identityEmail != null &&
-                    message.from != null && message.from.length == 1 &&
-                    message.identityEmail.equals(((InternetAddress) message.from[0]).getAddress()))
-                return true;
-            return false;
+            else
+                return (message.identityEmail != null &&
+                        message.from != null && message.from.length == 1 &&
+                        message.identityEmail.equals(((InternetAddress) message.from[0]).getAddress()));
         }
 
         private TupleMessageEx getMessage() {
