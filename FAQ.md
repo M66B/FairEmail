@@ -579,6 +579,8 @@ about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-si
 You can start searching for messages on sender, recipient, subject, keyword or message text by using the magnify glass in the action bar of a folder.
 You can also search from any app by select *Search email* in the copy/paste popup menu.
 
+Searching in the unified inbox will search in all folders, searching in a folder will search in that folder only.
+
 Messages will be searched on the device first (all accounts, all folders).
 There will be an action button with a search again icon at the bottom to search on the server.
 When the search was started in a specific folder,
