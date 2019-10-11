@@ -37,7 +37,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @param <T> The type of the live data
  * @hide internal
  */
-@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP_PREFIX)
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public abstract class ComputableLiveData<T> {
     @SuppressWarnings("WeakerAccess") /* synthetic access */
     final Executor mExecutor;
@@ -152,8 +152,7 @@ public abstract class ComputableLiveData<T> {
         ArchTaskExecutor.getInstance().executeOnMainThread(mInvalidationRunnable);
     }
 
-    // TODO https://issuetracker.google.com/issues/112197238
-    @SuppressWarnings({"WeakerAccess", "UnknownNullness"})
+    @SuppressWarnings("WeakerAccess")
     @WorkerThread
     protected abstract T compute();
 }

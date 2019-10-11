@@ -162,15 +162,19 @@ configurations.all {
     exclude group: "androidx.room", module: "room-runtime"
     // Workaround https://issuetracker.google.com/issues/134685570
     exclude group: "androidx.lifecycle", module: "lifecycle-livedata"
+    exclude group: "androidx.lifecycle", module: "lifecycle-livedata-core"
+
+    // lifecycle-livedata: ComputableLiveData, MediatorLiveData, Transformations
+    // lifecycle-livedata-core: LiveData, MutableLiveData, Observer
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def core_version = "1.2.0-alpha04"
+    def core_version = "1.2.0-beta01"
     def appcompat_version = "1.1.0"
-    def fragment_version = "1.1.0"
-    def recyclerview_version = "1.1.0-beta04"
+    def fragment_version = "1.2.0-beta01"
+    def recyclerview_version = "1.1.0-beta05"
     def coordinatorlayout_version = "1.1.0-beta01"
     def constraintlayout_version = "2.0.0-beta2"
     def material_version = "1.1.0-alpha10"
@@ -178,13 +182,13 @@ dependencies {
     def lbm_version = "1.0.0"
     def swiperefresh_version = "1.0.0"
     def documentfile_version = "1.0.1"
-    def lifecycle_version = "2.1.0"
-    def room_version = "2.2.0-rc01"
+    def lifecycle_version = "2.2.0-beta01"
+    def room_version = "2.2.0"
     def paging_version = "2.1.0"
     def preference_version = "1.1.0"
     def work_version = "2.2.0"
-    def exif_version = "1.1.0-beta01"
-    def biometric_version = "1.0.0-beta02"
+    def exif_version = "1.1.0-rc01"
+    def biometric_version = "1.0.0-rc01"
     def billingclient_version = "2.0.3"
     def javamail_version = "1.6.4"
     def jsoup_version = "1.12.1"
