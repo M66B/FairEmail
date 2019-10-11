@@ -359,6 +359,7 @@
     <string name="title_account_right">Смахивание вправо</string>
     <string name="title_domain">Имя домена</string>
     <string name="title_autoconfig">Получить параметры</string>
+    <string name="title_aliases">Псевдонимы</string>
     <string name="title_provider">Провайдер</string>
     <string name="title_custom">Пользовательское</string>
     <string name="title_host">Имя хоста</string>
@@ -399,6 +400,7 @@
     <string name="title_activesync_support">ActiveSync не поддерживается</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
+    <string name="title_hint_alias">Длительное нажатие для других действий, например, копирования для создания псевдонима идентификатора</string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
@@ -737,7 +739,7 @@
     <string name="title_legend_expander">Развернуть</string>
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Показывать цитаты</string>
-    <string name="title_legend_show_unsubscribe">Отписаться от списка</string>
+    <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>
     <string name="title_legend_show_full">На полный экран</string>
     <string name="title_legend_edit">Редактировать</string>

@@ -337,6 +337,7 @@
     <string name="title_account_right">Deslizar hacia la derecha</string>
     <string name="title_domain">Nombre de dominio</string>
     <string name="title_autoconfig">Obtener ajustes</string>
+    <string name="title_aliases">Alias</string>
     <string name="title_provider">Proveedor</string>
     <string name="title_custom">Personalizado</string>
     <string name="title_host">Nombre de host</string>
@@ -377,6 +378,7 @@
     <string name="title_activesync_support">ActiveSync no es compatible</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
     <string name="title_review">Revisar</string>
+    <string name="title_hint_alias">Dejar pulsado para opciones, como copiar para crear identidades de alias</string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>
@@ -774,6 +776,7 @@
     <string name="title_minutes">Minutos</string>
     <string name="title_dismiss">Descartar</string>
     <string name="title_snooze_now">Posponer</string>
+    <string name="title_loading">Cargando &#8230;</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

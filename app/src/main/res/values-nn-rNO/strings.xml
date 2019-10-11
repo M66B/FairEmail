@@ -337,6 +337,7 @@
     <string name="title_account_right">Sveip mot høyre</string>
     <string name="title_domain">Domenenavn</string>
     <string name="title_autoconfig">Hent innstillinger</string>
+    <string name="title_aliases">Aliaser</string>
     <string name="title_provider">Leverandør</string>
     <string name="title_custom">Tilpasset</string>
     <string name="title_host">Vertsnavn</string>
@@ -377,6 +378,7 @@
     <string name="title_activesync_support">ActiveSync støttes ikke</string>
     <string name="title_oauth_support">OAuth støttes ikke</string>
     <string name="title_review">Anmeldelse</string>
+    <string name="title_hint_alias">Trykk lenge for å velge alternativer, for eksempel kopiere for å opprette aliasidentiteter</string>
     <string name="title_advanced_browse">Bla gjennom meldinger på serveren</string>
     <string name="title_advanced_expand_read">Merk meldinger som er lest når de utvides</string>
     <string name="title_synchronize_now">Synkroniser nå</string>

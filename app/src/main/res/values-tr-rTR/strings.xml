@@ -337,6 +337,7 @@
     <string name="title_account_right">Sağ kaydır</string>
     <string name="title_domain">Alan adı</string>
     <string name="title_autoconfig">Ayarları al</string>
+    <string name="title_aliases">Takma adlar</string>
     <string name="title_provider">Sağlayıcı</string>
     <string name="title_custom">Özel</string>
     <string name="title_host">Sunucu adı</string>
@@ -377,6 +378,7 @@
     <string name="title_activesync_support">ActiveSync desteklenmiyor</string>
     <string name="title_oauth_support">OAuth desteklenmemektedir</string>
     <string name="title_review">Gözden geçir</string>
+    <string name="title_hint_alias">Takma ad kimlikleri oluşturmak için kopyalamak gibi seçenekler için uzun basın</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
     <string name="title_synchronize_now">Şimdi eşzamanla</string>
@@ -774,6 +776,7 @@
     <string name="title_minutes">Dakikalar</string>
     <string name="title_dismiss">Reddet</string>
     <string name="title_snooze_now">Ertele</string>
+    <string name="title_loading">Yükleniyor &#8230;</string>
     <string name="title_icalendar_accept">Kabul</string>
     <string name="title_icalendar_decline">Reddet</string>
     <string name="title_icalendar_maybe">Olabilir</string>

@@ -325,6 +325,7 @@
     <string name="title_account_right">向右滑动</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
+    <string name="title_aliases">別名</string>
     <string name="title_provider">服务提供商</string>
     <string name="title_custom">自定义</string>
     <string name="title_host">主机名称</string>
@@ -365,6 +366,7 @@
     <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">查看</string>
+    <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
     <string name="title_synchronize_now">现在同步</string>

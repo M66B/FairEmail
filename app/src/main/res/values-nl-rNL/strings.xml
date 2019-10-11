@@ -237,7 +237,7 @@
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
     <string name="title_advanced_reversed">Keer navigatierichting om</string>
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
-    <string name="title_advanced_expand_all">Gelezen berichten automatisch uitvouwen</string>
+    <string name="title_advanced_expand_all">Automatisch alle gelezen berichten uitvouwen</string>
     <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
     <string name="title_advanced_collapse_single">Eén bericht in een gesprek bij \'terug\' samenvouwen</string>
     <string name="title_advanced_collapse_multiple">Meerdere berichten in een gesprek bij \'terug\' samenvouwen</string>
@@ -337,6 +337,7 @@
     <string name="title_account_right">Veeg rechts</string>
     <string name="title_domain">Domeinnaam</string>
     <string name="title_autoconfig">Instellingen ophalen</string>
+    <string name="title_aliases">Aliassen</string>
     <string name="title_provider">Aanbieder</string>
     <string name="title_custom">Aangepast</string>
     <string name="title_host">Hostnaam</string>
@@ -377,6 +378,7 @@
     <string name="title_activesync_support">ActiveSync wordt niet ondersteund</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_review">Review</string>
+    <string name="title_hint_alias">Druk lang voor opties, zoals kopiëren om alias identiteiten te maken</string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>

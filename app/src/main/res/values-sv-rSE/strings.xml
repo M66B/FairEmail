@@ -167,6 +167,7 @@
     <string name="title_advanced_section_display">Visning</string>
     <string name="title_advanced_section_behavior">Beteende</string>
     <string name="title_advanced_section_notifications">Aviseringar</string>
+    <string name="title_advanced_section_privacy">Sekretess</string>
     <string name="title_advanced_section_misc">Diverse</string>
     <string name="title_advanced_enabled">Aktiverad</string>
     <string name="title_advanced_when">När</string>
@@ -235,6 +236,7 @@
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
+    <string name="title_advanced_notify_action_junk">Skräppost</string>
     <string name="title_advanced_notify_action_archive">Arkiv</string>
     <string name="title_advanced_notify_action_reply">Svara</string>
     <string name="title_advanced_notify_action_reply_direct">Direkt svar</string>
@@ -399,6 +401,7 @@
     <string name="title_flag_color">Färgad stjärna &#8230;</string>
     <string name="title_unflag">Ta bort stjärna</string>
     <string name="title_forward">Vidarebefordra</string>
+    <string name="title_new_message">Nytt meddelande</string>
     <string name="title_editasnew">Redigera som ny</string>
     <string name="title_create_rule">Skapa regel &#8230;</string>
     <string name="title_share">Dela</string>
@@ -461,6 +464,7 @@
     <string name="title_ask_help">Hjälp till att förbättra FairEmail</string>
     <string name="title_ask_reporting">Skicka felrapporter?</string>
     <string name="title_reporting_why">Felrapportering kommer att bidra till att förbättra FairEmail</string>
+    <string name="title_download_message">Hämtar &#8230;</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Från:</string>
     <string name="title_to">Till:</string>
@@ -477,6 +481,7 @@
     <string name="title_send">Skicka</string>
     <string name="title_send_with_options">Skicka &#8230;</string>
     <string name="title_send_at">Skickad &#8230;</string>
+    <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen server hittades vid \"%1$s\"</string>
     <string name="title_style_bold">Fetstil</string>
     <string name="title_style_italic">Kursiv</string>

@@ -359,6 +359,7 @@
     <string name="title_account_right">Tažení doprava</string>
     <string name="title_domain">Název domény</string>
     <string name="title_autoconfig">Získat nastavení</string>
+    <string name="title_aliases">Aliasy</string>
     <string name="title_provider">Poskytovatel</string>
     <string name="title_custom">Vlastní</string>
     <string name="title_host">Název hostitele</string>
@@ -796,6 +797,7 @@
     <string name="title_minutes">Minuty</string>
     <string name="title_dismiss">Zavřít</string>
     <string name="title_snooze_now">Odložit</string>
+    <string name="title_loading">Načítání &#8230;</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
