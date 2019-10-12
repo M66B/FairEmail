@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ivAvatarStart"
-        android:layout_width="48dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_avatar"
-        android:padding="6dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_person_24" />
-
     <eu.faircode.email.ViewCardOptional
         android:id="@+id/card"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintEnd_toStartOf="@+id/ivAvatarEnd"
-        app:layout_constraintStart_toEndOf="@id/ivAvatarStart"
-        app:layout_constraintTop_toTopOf="parent">
+        android:foreground="?android:attr/selectableItemBackground">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clItem"
@@ -53,16 +38,4 @@
                 app:layout_constraintTop_toBottomOf="@id/inHeader" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </eu.faircode.email.ViewCardOptional>
-
-    <ImageView
-        android:id="@+id/ivAvatarEnd"
-        android:layout_width="48dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:contentDescription="@string/title_legend_avatar"
-        android:padding="6dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_person_24" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
