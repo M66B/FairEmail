@@ -2261,7 +2261,7 @@ class Core {
                         " keywords=" + TextUtils.join(" ", keywords));
             }
 
-            if (message.ui_hide &&
+            if (message.ui_hide && message.ui_snoozed == null &&
                     db.operation().getOperationCount(folder.id, message.id) == 0) {
                 update = true;
                 message.ui_hide = false;
