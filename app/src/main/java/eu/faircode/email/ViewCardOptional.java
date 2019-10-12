@@ -34,6 +34,7 @@ public class ViewCardOptional extends CardView {
     private boolean cards;
     private boolean compact;
     private boolean threading;
+    private boolean indentation;
     private int margin;
     private int ident;
     private Integer color = null;
@@ -58,6 +59,7 @@ public class ViewCardOptional extends CardView {
         cards = prefs.getBoolean("cards", true);
         compact = prefs.getBoolean("compact", false);
         threading = prefs.getBoolean("threading", true);
+        indentation = prefs.getBoolean("indentation", true);
 
         margin = Helper.dp2pixels(context, compact ? 3 : 6);
         ident = Helper.dp2pixels(context, 12 + (compact ? 3 : 6));
@@ -94,7 +96,7 @@ public class ViewCardOptional extends CardView {
     }
 
     public void setOutgoing(boolean outgoing) {
-        if (cards && threading) {
+        if (cards && threading && indentation) {
             ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) getLayoutParams();
             lparam.setMarginStart(outgoing ? margin : ident);
             lparam.setMarginEnd(outgoing ? ident : margin);
