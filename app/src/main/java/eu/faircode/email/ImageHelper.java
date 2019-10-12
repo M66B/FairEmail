@@ -67,7 +67,7 @@ class ImageHelper {
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, boolean dark) {
         byte[] hash = getHash(email);
 
-        int color = Color.HSVToColor(new float[]{Math.abs(email.hashCode()) % 360, 0.5f, 1});
+        int color = Color.HSVToColor(127, new float[]{Math.abs(email.hashCode()) % 360, 1, 1});
 
         Paint paint = new Paint();
         paint.setColor(color);
@@ -103,7 +103,7 @@ class ImageHelper {
         if (text == null)
             return null;
 
-        int color = Color.HSVToColor(new float[]{Math.abs(email.hashCode()) % 360, 0.5f, 1});
+        int color = Color.HSVToColor(127, new float[]{Math.abs(email.hashCode()) % 360, 1, 1});
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
