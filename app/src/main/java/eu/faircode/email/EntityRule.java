@@ -97,6 +97,7 @@ public class EntityRule {
     static final int TYPE_IGNORE = 9;
     static final int TYPE_NOOP = 10;
     static final int TYPE_KEYWORD = 11;
+    static final int TYPE_HIDE = 12;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -274,6 +275,8 @@ public class EntityRule {
                 return onActionSeen(context, message, true);
             case TYPE_UNSEEN:
                 return onActionSeen(context, message, false);
+            case TYPE_HIDE:
+                return onActionHide(context, message);
             case TYPE_IGNORE:
                 return onActionIgnore(context, message, jaction);
             case TYPE_SNOOZE:
@@ -301,6 +304,17 @@ public class EntityRule {
         message.ui_seen = seen;
         message.ui_ignored = true;
 
+        return true;
+    }
+
+    private boolean onActionHide(Context context, EntityMessage message) {
+        DB db = DB.getInstance(context);
+        db.message().setMessageSnoozed(message.id, Long.MAX_VALUE);
+        db.message().setMessageUiIgnored(message.id, true);
+        EntityMessage.snooze(context, message.id, Long.MAX_VALUE);
+
+        message.ui_snoozed = Long.MAX_VALUE;
+        message.ui_ignored = true;
         return true;
     }
 

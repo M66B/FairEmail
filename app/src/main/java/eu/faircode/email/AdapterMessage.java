@@ -793,6 +793,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ivType.setImageResource(icon);
             }
 
+            ibSnoozed.setImageResource(
+                    message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
+                            ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_timelapse_24);
+
             ivPriority.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(message.priority) ? View.VISIBLE : View.GONE);
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
             ibSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
@@ -2126,7 +2130,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowSnoozed(TupleMessageEx message) {
-            if (message.ui_snoozed != null) {
+            if (message.ui_snoozed != null && message.ui_snoozed != Long.MAX_VALUE) {
                 DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                 DateFormat D = new SimpleDateFormat("E");
                 ToastEx.makeText(
@@ -2866,6 +2870,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
                     (message.uid != null && !message.folderReadOnly) || message.accountPop);
 
+            popupMenu.getMenu().findItem(R.id.menu_hide).setTitle(message.ui_snoozed == null ? R.string.title_hide : R.string.title_unhide);
+
             popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(
                     (message.uid != null && !message.folderReadOnly) || message.accountPop);
 
@@ -2913,6 +2919,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return true;
                         case R.id.menu_unseen:
                             onMenuUnseen(message);
+                            return true;
+                        case R.id.menu_hide:
+                            onMenuHide(message);
                             return true;
                         case R.id.menu_flag_color:
                             onMenuColoredStar(message);
@@ -3122,6 +3131,43 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:unseen");
+        }
+
+        private void onMenuHide(final TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putBoolean("hide", message.ui_snoozed == null);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+                    boolean hide = args.getBoolean("hide");
+
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            return null;
+
+                        db.message().setMessageSnoozed(message.id, hide ? Long.MAX_VALUE : null);
+                        EntityMessage.snooze(context, message.id, hide ? Long.MAX_VALUE : null);
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:hide");
         }
 
         private void onMenuColoredStar(final TupleMessageEx message) {

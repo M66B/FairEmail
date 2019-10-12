@@ -430,7 +430,6 @@
     <string name="title_no_sync">Synchronization errors since %1$s</string>
     <string name="title_identity_required">An identity is required to send messages</string>
     <string name="title_drafts_required">A drafts folder is required to send messages</string>
-    <string name="title_hide_remark">Messages can be hidden by snoozing messages</string>
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_edit_html">Edit as HTML</string>
@@ -507,6 +506,8 @@
 
     <string name="title_seen">Mark read</string>
     <string name="title_unseen">Mark unread</string>
+    <string name="title_hide">Hide</string>
+    <string name="title_unhide">Show</string>
     <string name="title_flag">Add star</string>
     <string name="title_flag_color">Colored star &#8230;</string>
     <string name="title_unflag">Remove star</string>
@@ -661,13 +662,13 @@
     <string name="title_sort_on_sender">Sender</string>
     <string name="title_sort_on_subject">Subject</string>
     <string name="title_sort_on_size">Size</string>
-    <string name="title_sort_on_snoozed">Snoozed</string>
+    <string name="title_sort_on_hidden">Hidden</string>
     <string name="title_sort_ascending">Oldest first</string>
 
     <string name="title_filter">Filter out</string>
     <string name="title_filter_seen">Read</string>
     <string name="title_filter_unflagged">Unstarred</string>
-    <string name="title_filter_snoozed">Snoozed</string>
+    <string name="title_filter_hidden">Hidden</string>
     <string name="title_filter_duplicates">Duplicates</string>
 
     <string name="title_compact">Compact view</string>
@@ -689,6 +690,7 @@
     <string name="title_rule_noop">No action</string>
     <string name="title_rule_seen">Mark read</string>
     <string name="title_rule_unseen">Mark unread</string>
+    <string name="title_rule_hide">Hide</string>
     <string name="title_rule_ignore">Suppress notification</string>
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Add star</string>

@@ -147,6 +147,7 @@ public class FragmentAccount extends FragmentBase {
     static final Long SWIPE_ACTION_ASK = -1L;
     static final Long SWIPE_ACTION_SEEN = -2L;
     static final Long SWIPE_ACTION_SNOOZE = -3L;
+    static final Long SWIPE_ACTION_HIDE = -4L;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1440,6 +1441,11 @@ public class FragmentAccount extends FragmentBase {
             snooze.id = SWIPE_ACTION_SNOOZE;
             snooze.name = getString(R.string.title_snooze_now);
             folders.add(snooze);
+
+            EntityFolder hide = new EntityFolder();
+            hide.id = SWIPE_ACTION_HIDE;
+            hide.name = getString(R.string.title_hide);
+            folders.add(hide);
 
             folders.addAll(_folders);
 

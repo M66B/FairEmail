@@ -1434,6 +1434,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 icon = (message.ui_seen ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
             else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
+            else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
+                icon = (message.ui_snoozed == null ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
             Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
@@ -1496,6 +1498,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onActionSeenSelection(!message.ui_seen, message.id);
             else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
                 onActionSnooze(message);
+            else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
+                onActionHide(message);
             else
                 swipeFolder(message, action);
         }
@@ -1924,6 +1928,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putLong("duration", 0);
             args.putLong("time", 0);
         }
+
+        onSnooze(args);
+    }
+
+    private void onActionHide(TupleMessageEx message) {
+        Bundle args = new Bundle();
+        args.putLong("account", message.account);
+        args.putString("thread", message.thread);
+        args.putLong("id", message.id);
+        args.putLong("duration", message.ui_snoozed == null ? Long.MAX_VALUE : 0);
+        args.putLong("time", message.ui_snoozed == null ? Long.MAX_VALUE : 0);
 
         onSnooze(args);
     }
@@ -2648,7 +2663,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         ibSeen.setImageResource(filter_seen ? R.drawable.baseline_drafts_24 : R.drawable.baseline_mail_24);
         ibUnflagged.setImageResource(filter_unflagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
-        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
+        ibSnoozed.setImageResource(filter_snoozed ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
 
         ibSeen.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
         ibUnflagged.setVisibility(experiments && folder ? View.VISIBLE : View.GONE);
@@ -4235,8 +4250,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             account, thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
                         db.message().setMessageSnoozed(threaded.id, wakeup);
-                        EntityMessage.snooze(context, threaded.id, wakeup);
                         EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
+                        EntityMessage.snooze(context, threaded.id, wakeup);
                     }
 
                     db.setTransactionSuccessful();
