@@ -31,7 +31,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.DeadSystemException;
+import android.os.DeadObjectException;
 import android.os.Debug;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -420,7 +420,7 @@ public class Log {
             return false;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            if (ex instanceof RuntimeException && ex.getCause() instanceof DeadSystemException)
+            if (ex instanceof RuntimeException && ex.getCause() instanceof DeadObjectException)
                 return false;
 
         if (BuildConfig.BETA_RELEASE)
