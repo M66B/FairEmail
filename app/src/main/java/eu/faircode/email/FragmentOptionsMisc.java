@@ -25,8 +25,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,7 +34,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +48,7 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsMisc extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDoubleBack;
-    private EditText etDefaultSnooze;
+    private NumberPicker npDefaultSnooze;
     private Spinner spBiometricsTimeout;
     private SwitchCompat swEnglish;
     private SwitchCompat swWatchdog;
@@ -90,7 +88,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         // Get controls
 
         swDoubleBack = view.findViewById(R.id.swDoubleBack);
-        etDefaultSnooze = view.findViewById(R.id.etDefaultSnooze);
+        npDefaultSnooze = view.findViewById(R.id.npDefaultSnooze);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         swEnglish = view.findViewById(R.id.swEnglish);
         swWatchdog = view.findViewById(R.id.swWatchdog);
@@ -109,6 +107,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         grpDebug = view.findViewById(R.id.grpDebug);
 
+        npDefaultSnooze.setMinValue(1);
+        npDefaultSnooze.setMaxValue(999);
+
         setOptions();
 
         // Wire controls
@@ -122,22 +123,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        etDefaultSnooze.addTextChangedListener(new TextWatcher() {
+        npDefaultSnooze.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                try {
-                    int hours = Integer.parseInt(editable.toString());
-                    prefs.edit().putInt("default_snooze", hours).apply();
-                } catch (NumberFormatException ignored) {
-                }
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                prefs.edit().putInt("default_snooze", newVal).apply();
             }
         });
 
@@ -326,7 +315,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swDoubleBack.setChecked(prefs.getBoolean("double_back", true));
-        etDefaultSnooze.setText(Integer.toString(prefs.getInt("default_snooze", 1)));
+        npDefaultSnooze.setValue(prefs.getInt("default_snooze", 1));
 
         int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);
         int[] biometricTimeoutValues = getResources().getIntArray(R.array.biometricsTimeoutValues);
