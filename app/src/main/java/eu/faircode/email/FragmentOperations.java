@@ -114,7 +114,7 @@ public class FragmentOperations extends FragmentBase {
                 onMenuHelp();
                 return true;
             case R.id.menu_delete:
-                new DialogDelete().show(getFragmentManager(), "operations:delete");
+                new DialogDelete().show(getParentFragmentManager(), "operations:delete");
                 return true;
 
             default:
@@ -152,7 +152,7 @@ public class FragmentOperations extends FragmentBase {
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getFragmentManager(), ex);
+                                    Helper.unexpectedError(getParentFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getActivity(), new Bundle(), "operations:delete");
                         }

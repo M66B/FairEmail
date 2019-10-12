@@ -139,7 +139,7 @@ public class FragmentPop extends FragmentBase {
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentPop.this, REQUEST_COLOR);
-                fragment.show(getFragmentManager(), "account:color");
+                fragment.show(getParentFragmentManager(), "account:color");
             }
         });
 
@@ -389,7 +389,7 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, Boolean dirty) {
-                getFragmentManager().popBackStack();
+                getParentFragmentManager().popBackStack();
             }
 
             @Override
@@ -467,7 +467,7 @@ public class FragmentPop extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getFragmentManager(), ex);
+                            Helper.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentPop.this, new Bundle(), "account:primary");
                 } else {
@@ -483,7 +483,7 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:get");
     }
@@ -518,7 +518,7 @@ public class FragmentPop extends FragmentBase {
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(aargs);
         fragment.setTargetFragment(FragmentPop.this, REQUEST_DELETE);
-        fragment.show(getFragmentManager(), "account:delete");
+        fragment.show(getParentFragmentManager(), "account:delete");
     }
 
     @Override
@@ -572,12 +572,12 @@ public class FragmentPop extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Void data) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getFragmentManager().popBackStack();
+                    getParentFragmentManager().popBackStack();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:delete");
     }

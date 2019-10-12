@@ -111,7 +111,7 @@ public class FragmentRules extends FragmentBase {
                 FragmentRule fragment = new FragmentRule();
                 fragment.setArguments(args);
 
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
                 fragmentTransaction.commit();
             }

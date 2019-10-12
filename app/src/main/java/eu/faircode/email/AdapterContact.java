@@ -195,7 +195,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "contact:state");
         }
@@ -252,7 +252,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                            Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "contact:favorite");
                 }
@@ -279,7 +279,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                            Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "contact:delete");
                 }

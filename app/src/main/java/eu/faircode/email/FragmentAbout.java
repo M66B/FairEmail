@@ -86,6 +86,6 @@ public class FragmentAbout extends FragmentBase {
         args.putString("name", "ATTRIBUTION.md");
         FragmentDialogMarkdown fragment = new FragmentDialogMarkdown();
         fragment.setArguments(args);
-        fragment.show(getFragmentManager(), "privacy");
+        fragment.show(getParentFragmentManager(), "privacy");
     }
 }

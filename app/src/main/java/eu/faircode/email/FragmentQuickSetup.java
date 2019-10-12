@@ -358,7 +358,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     FragmentReview fragment = new FragmentReview();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentQuickSetup.this, ActivitySetup.REQUEST_DONE);
-                    fragment.show(getFragmentManager(), "quick:review");
+                    fragment.show(getParentFragmentManager(), "quick:review");
                 }
             }
 

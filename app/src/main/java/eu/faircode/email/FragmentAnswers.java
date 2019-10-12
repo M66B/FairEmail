@@ -91,7 +91,7 @@ public class FragmentAnswers extends FragmentBase {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, new FragmentAnswer()).addToBackStack("answer");
                 fragmentTransaction.commit();
             }

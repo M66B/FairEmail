@@ -161,7 +161,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                            Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "rule:enable");
                 }
@@ -212,7 +212,7 @@ public class AdapterAnswer extends RecyclerView.Adapter<AdapterAnswer.ViewHolder
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
             }
         }.execute(context, owner, new Bundle(), "answer:composable");
     }

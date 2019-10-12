@@ -897,7 +897,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                        Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
                 }.setLog(false).execute(context, owner, aargs, "message:avatar");
             } else
@@ -1206,7 +1206,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.setLog(false).execute(context, owner, sargs, "message:actions");
 
@@ -1329,7 +1329,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 FragmentDialogLink fragment = new FragmentDialogLink();
                                 fragment.setArguments(args);
-                                fragment.show(parentFragment.getFragmentManager(), "open:link");
+                                fragment.show(parentFragment.getParentFragmentManager(), "open:link");
 
                                 return true;
                             }
@@ -1526,7 +1526,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:body");
         }
@@ -1706,7 +1706,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.setLog(false).execute(context, owner, args, "message:calendar");
         }
@@ -1849,7 +1849,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:participation");
         }
@@ -2045,7 +2045,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                                Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                             }
                         }.execute(context, owner, args, "message:seen");
                     }
@@ -2198,7 +2198,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:flag");
         }
@@ -2263,7 +2263,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:search");
         }
@@ -2443,7 +2443,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:attachment:download");
         }
@@ -2589,7 +2589,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "show:images");
         }
@@ -2680,7 +2680,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:reply");
         }
@@ -2751,7 +2751,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, new Bundle(), "message:answer");
         }
@@ -2772,7 +2772,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogFolder fragment = new FragmentDialogFolder();
             fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
-            fragment.show(parentFragment.getFragmentManager(), "message:move");
+            fragment.show(parentFragment.getParentFragmentManager(), "message:move");
         }
 
         private void onActionMoveOutbox(TupleMessageEx message) {
@@ -2834,7 +2834,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:move:draft");
         }
@@ -2852,7 +2852,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 FragmentDialogAsk ask = new FragmentDialogAsk();
                 ask.setArguments(aargs);
                 ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
-                ask.show(parentFragment.getFragmentManager(), "message:delete");
+                ask.show(parentFragment.getParentFragmentManager(), "message:delete");
             } else
                 properties.move(message.id, EntityFolder.TRASH);
         }
@@ -3054,7 +3054,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     else
                         ToastEx.makeText(context, R.string.title_pro_invalid, Toast.LENGTH_LONG).show();
                 } catch (NoSuchAlgorithmException ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             } else {
                 if ("cid".equals(uri.getScheme()))
@@ -3066,7 +3066,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 FragmentDialogLink fragment = new FragmentDialogLink();
                 fragment.setArguments(args);
-                fragment.show(parentFragment.getFragmentManager(), "open:link");
+                fragment.show(parentFragment.getParentFragmentManager(), "open:link");
             }
         }
 
@@ -3079,7 +3079,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             FragmentDialogImage fragment = new FragmentDialogImage();
             fragment.setArguments(args);
-            fragment.show(parentFragment.getFragmentManager(), "view:image");
+            fragment.show(parentFragment.getParentFragmentManager(), "view:image");
         }
 
         private void onMenuEditAsNew(final TupleMessageEx message) {
@@ -3128,7 +3128,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:unseen");
         }
@@ -3165,7 +3165,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:hide");
         }
@@ -3179,7 +3179,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogColor fragment = new FragmentDialogColor();
             fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_COLOR);
-            fragment.show(parentFragment.getFragmentManager(), "message:color");
+            fragment.show(parentFragment.getParentFragmentManager(), "message:color");
         }
 
         private void onMenuDelete(final TupleMessageEx message) {
@@ -3190,7 +3190,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(aargs);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_DELETE);
-            ask.show(parentFragment.getFragmentManager(), "message:delete");
+            ask.show(parentFragment.getParentFragmentManager(), "message:delete");
         }
 
         private void onMenuJunk(final TupleMessageEx message) {
@@ -3203,7 +3203,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(aargs);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_JUNK);
-            ask.show(parentFragment.getFragmentManager(), "message:junk");
+            ask.show(parentFragment.getParentFragmentManager(), "message:junk");
         }
 
         private void onMenuResync(TupleMessageEx message) {
@@ -3236,7 +3236,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:share");
         }
@@ -3283,12 +3283,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     FragmentKeywordManage fragment = new FragmentKeywordManage();
                     fragment.setArguments(args);
-                    fragment.show(parentFragment.getFragmentManager(), "keyword:manage");
+                    fragment.show(parentFragment.getParentFragmentManager(), "keyword:manage");
                 }
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:keywords");
         }
@@ -3345,7 +3345,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:share");
         }
@@ -3369,7 +3369,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(aargs);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_PRINT);
-            ask.show(parentFragment.getFragmentManager(), "message:print");
+            ask.show(parentFragment.getParentFragmentManager(), "message:print");
         }
 
         private void onMenuShowHeaders(TupleMessageEx message) {
@@ -3409,7 +3409,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                        Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                     }
                 }.execute(context, owner, args, "message:headers");
             } else
@@ -3446,7 +3446,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:raw");
         }
@@ -4301,7 +4301,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getFragmentManager(), ex);
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, getArguments(), "view:image");
 
@@ -4386,7 +4386,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getFragmentManager(), ex);
+                                    Helper.unexpectedError(getParentFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getActivity(), args, "message:keywords:manage");
                         }
@@ -4399,7 +4399,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             FragmentKeywordAdd fragment = new FragmentKeywordAdd();
                             fragment.setArguments(args);
-                            fragment.show(getFragmentManager(), "keyword:add");
+                            fragment.show(getParentFragmentManager(), "keyword:add");
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
@@ -4450,7 +4450,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
-                                        Helper.unexpectedError(getFragmentManager(), ex);
+                                        Helper.unexpectedError(getParentFragmentManager(), ex);
                                     }
                                 }.execute(getContext(), getActivity(), args, "message:keyword:add");
                             }

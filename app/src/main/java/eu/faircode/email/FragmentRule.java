@@ -308,7 +308,7 @@ public class FragmentRule extends FragmentBase {
                 DialogFragment timePicker = new TimePickerFragment();
                 timePicker.setArguments(args);
                 timePicker.setTargetFragment(FragmentRule.this, REQUEST_SCHEDULE_START);
-                timePicker.show(getFragmentManager(), "timePicker");
+                timePicker.show(getParentFragmentManager(), "timePicker");
             }
         });
 
@@ -321,7 +321,7 @@ public class FragmentRule extends FragmentBase {
                 DialogFragment timePicker = new TimePickerFragment();
                 timePicker.setArguments(args);
                 timePicker.setTargetFragment(FragmentRule.this, REQUEST_SCHEDULE_END);
-                timePicker.show(getFragmentManager(), "timePicker");
+                timePicker.show(getParentFragmentManager(), "timePicker");
             }
         });
 
@@ -384,7 +384,7 @@ public class FragmentRule extends FragmentBase {
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentRule.this, REQUEST_COLOR);
-                fragment.show(getFragmentManager(), "rule:color");
+                fragment.show(getParentFragmentManager(), "rule:color");
             }
         });
 
@@ -484,7 +484,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:accounts");
     }
@@ -547,7 +547,7 @@ public class FragmentRule extends FragmentBase {
                     etRecipient.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
-            Helper.unexpectedError(getFragmentManager(), ex);
+            Helper.unexpectedError(getParentFragmentManager(), ex);
         }
     }
 
@@ -580,7 +580,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:delete");
     }
@@ -736,7 +736,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, rargs, "rule:get");
     }
@@ -758,7 +758,7 @@ public class FragmentRule extends FragmentBase {
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(args);
         fragment.setTargetFragment(FragmentRule.this, REQUEST_DELETE);
-        fragment.show(getFragmentManager(), "answer:delete");
+        fragment.show(getParentFragmentManager(), "answer:delete");
     }
 
     private void onActionCheck() {
@@ -779,7 +779,7 @@ public class FragmentRule extends FragmentBase {
 
             FragmentDialogCheck fragment = new FragmentDialogCheck();
             fragment.setArguments(args);
-            fragment.show(getFragmentManager(), "rule:check");
+            fragment.show(getParentFragmentManager(), "rule:check");
 
         } catch (JSONException ex) {
             Log.e(ex);
@@ -879,7 +879,7 @@ public class FragmentRule extends FragmentBase {
                     if (ex instanceof IllegalArgumentException)
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else
-                        Helper.unexpectedError(getFragmentManager(), ex);
+                        Helper.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, args, "rule:save");
         } catch (JSONException ex) {
@@ -1126,7 +1126,7 @@ public class FragmentRule extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getFragmentManager(), ex);
+                            Helper.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogCheck.this, args, "rule:execute");
                 }
@@ -1172,7 +1172,7 @@ public class FragmentRule extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getFragmentManager(), ex);
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, args, "rule:check");
 

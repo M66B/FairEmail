@@ -95,7 +95,7 @@ public class FragmentIdentities extends FragmentBase {
             public void onClick(View view) {
                 FragmentIdentity fragment = new FragmentIdentity();
                 fragment.setArguments(new Bundle());
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
                 fragmentTransaction.commit();
             }

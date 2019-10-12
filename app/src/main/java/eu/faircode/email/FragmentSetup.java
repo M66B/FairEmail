@@ -218,7 +218,7 @@ public class FragmentSetup extends FragmentBase {
         btnDoze.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FragmentDialogDoze().show(getFragmentManager(), "setup:doze");
+                new FragmentDialogDoze().show(getParentFragmentManager(), "setup:doze");
             }
         });
 
@@ -306,7 +306,7 @@ public class FragmentSetup extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "outbox:create");
 
@@ -355,7 +355,7 @@ public class FragmentSetup extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getFragmentManager(), ex);
+                            Helper.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentSetup.this, new Bundle(), "setup:drafts");
             }

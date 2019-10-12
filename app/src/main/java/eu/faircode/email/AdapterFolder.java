@@ -370,7 +370,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                    Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "folder:collapse");
         }
@@ -535,7 +535,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     FragmentDialogAsk ask = new FragmentDialogAsk();
                     ask.setArguments(aargs);
                     ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_SYNC);
-                    ask.show(parentFragment.getFragmentManager(), "folder:sync");
+                    ask.show(parentFragment.getParentFragmentManager(), "folder:sync");
                 }
 
                 private void onActionProperty(int property, boolean enabled) {
@@ -578,7 +578,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                            Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "folder:enable");
                 }
@@ -601,7 +601,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(parentFragment.getFragmentManager(), ex);
+                            Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "folder:subscribe");
                 }
@@ -615,7 +615,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     FragmentDialogAsk ask = new FragmentDialogAsk();
                     ask.setArguments(aargs);
                     ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_DELETE_LOCAL);
-                    ask.show(parentFragment.getFragmentManager(), "folder:delete_local");
+                    ask.show(parentFragment.getParentFragmentManager(), "folder:delete_local");
                 }
 
                 private void onActionEmpty(String type) {
@@ -632,7 +632,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     FragmentDialogAsk ask = new FragmentDialogAsk();
                     ask.setArguments(aargs);
                     ask.setTargetFragment(parentFragment, FragmentFolders.REQUEST_EMPTY_FOLDER);
-                    ask.show(parentFragment.getFragmentManager(), "folder:empty");
+                    ask.show(parentFragment.getParentFragmentManager(), "folder:empty");
                 }
 
                 private void onActionEditRules() {

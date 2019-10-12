@@ -178,7 +178,7 @@ public class FragmentFolders extends FragmentBase {
                     args.putLong("account", account);
                     FragmentFolder fragment = new FragmentFolder();
                     fragment.setArguments(args);
-                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("folder");
                     fragmentTransaction.commit();
                 }
@@ -216,7 +216,7 @@ public class FragmentFolders extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getFragmentManager(), ex);
+                            Helper.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentFolders.this, new Bundle(), "folders:drafts");
 
@@ -369,7 +369,7 @@ public class FragmentFolders extends FragmentBase {
                 } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getFragmentManager(), ex);
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folders:refresh");
     }
@@ -389,7 +389,7 @@ public class FragmentFolders extends FragmentBase {
             @Override
             public void onSearch(String query) {
                 FragmentMessages.search(
-                        getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                        getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
                         -1, false, query);
             }
         });
@@ -519,7 +519,7 @@ public class FragmentFolders extends FragmentBase {
                 } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getFragmentManager(), ex);
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folder:sync");
     }
@@ -552,7 +552,7 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             public void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folder:delete:local");
     }
@@ -592,7 +592,7 @@ public class FragmentFolders extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folder:delete");
     }

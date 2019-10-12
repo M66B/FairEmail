@@ -40,6 +40,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -109,7 +110,7 @@ public class FragmentBase extends Fragment {
 
     protected void finish() {
         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            getFragmentManager().popBackStack();
+            getParentFragmentManager().popBackStack();
         else
             finish = true;
     }
@@ -170,7 +171,7 @@ public class FragmentBase extends Fragment {
         super.onResume();
         updateSubtitle();
         if (finish) {
-            getFragmentManager().popBackStack();
+            getParentFragmentManager().popBackStack();
             finish = false;
         }
 
@@ -376,7 +377,7 @@ public class FragmentBase extends Fragment {
                 if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
                     ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getFragmentManager(), ex);
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "attachment:save");
     }
@@ -449,7 +450,7 @@ public class FragmentBase extends Fragment {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "attachments:save");
     }

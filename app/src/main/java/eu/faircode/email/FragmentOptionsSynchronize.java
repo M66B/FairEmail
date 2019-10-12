@@ -151,7 +151,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 args.putBoolean("start", true);
                 DialogFragment timePicker = new TimePickerFragment();
                 timePicker.setArguments(args);
-                timePicker.show(getFragmentManager(), "timePicker");
+                timePicker.show(getParentFragmentManager(), "timePicker");
             }
         });
 
@@ -162,7 +162,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 args.putBoolean("start", false);
                 DialogFragment timePicker = new TimePickerFragment();
                 timePicker.setArguments(args);
-                timePicker.show(getFragmentManager(), "timePicker");
+                timePicker.show(getParentFragmentManager(), "timePicker");
             }
         });
 

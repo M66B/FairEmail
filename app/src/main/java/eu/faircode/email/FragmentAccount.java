@@ -315,7 +315,7 @@ public class FragmentAccount extends FragmentBase {
                 FragmentDialogColor fragment = new FragmentDialogColor();
                 fragment.setArguments(args);
                 fragment.setTargetFragment(FragmentAccount.this, REQUEST_COLOR);
-                fragment.show(getFragmentManager(), "account:color");
+                fragment.show(getParentFragmentManager(), "account:color");
             }
         });
 
@@ -474,7 +474,7 @@ public class FragmentAccount extends FragmentBase {
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getFragmentManager(), ex);
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:config");
     }
@@ -1076,9 +1076,9 @@ public class FragmentAccount extends FragmentBase {
                     FragmentDialogAsk fragment = new FragmentDialogAsk();
                     fragment.setArguments(aargs);
                     fragment.setTargetFragment(FragmentAccount.this, REQUEST_SAVE);
-                    fragment.show(getFragmentManager(), "account:save");
+                    fragment.show(getParentFragmentManager(), "account:save");
                 } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getFragmentManager().popBackStack();
+                    getParentFragmentManager().popBackStack();
             }
 
             @Override
@@ -1217,7 +1217,7 @@ public class FragmentAccount extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getFragmentManager(), ex);
+                            Helper.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentAccount.this, new Bundle(), "account:primary");
                 } else {
@@ -1268,7 +1268,7 @@ public class FragmentAccount extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getFragmentManager(), ex);
+                            Helper.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentAccount.this, args, "account:folders");
                 }
@@ -1276,7 +1276,7 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:get");
     }
@@ -1311,7 +1311,7 @@ public class FragmentAccount extends FragmentBase {
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(aargs);
         fragment.setTargetFragment(FragmentAccount.this, REQUEST_DELETE);
-        fragment.show(getFragmentManager(), "account:delete");
+        fragment.show(getParentFragmentManager(), "account:delete");
     }
 
     @Override
@@ -1339,7 +1339,7 @@ public class FragmentAccount extends FragmentBase {
                         });
                         onSave(false);
                     } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        getFragmentManager().popBackStack();
+                        getParentFragmentManager().popBackStack();
                     break;
                 case REQUEST_DELETE:
                     if (resultCode == RESULT_OK)
@@ -1377,12 +1377,12 @@ public class FragmentAccount extends FragmentBase {
             @Override
             protected void onExecuted(Bundle args, Void data) {
                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                    getFragmentManager().popBackStack();
+                    getParentFragmentManager().popBackStack();
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:delete");
     }

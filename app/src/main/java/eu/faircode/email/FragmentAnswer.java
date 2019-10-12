@@ -116,7 +116,7 @@ public class FragmentAnswer extends FragmentBase {
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new FragmentInfo().show(getFragmentManager(), "rule:info");
+                new FragmentInfo().show(getParentFragmentManager(), "rule:info");
             }
         });
 
@@ -178,7 +178,7 @@ public class FragmentAnswer extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "answer:get");
     }
@@ -190,7 +190,7 @@ public class FragmentAnswer extends FragmentBase {
         FragmentDialogAsk fragment = new FragmentDialogAsk();
         fragment.setArguments(args);
         fragment.setTargetFragment(FragmentAnswer.this, REQUEST_DELETE);
-        fragment.show(getFragmentManager(), "answer:delete");
+        fragment.show(getParentFragmentManager(), "answer:delete");
     }
 
     private void onActionSave() {
@@ -245,7 +245,7 @@ public class FragmentAnswer extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "answer:save");
     }
@@ -304,7 +304,7 @@ public class FragmentAnswer extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getFragmentManager(), ex);
+                Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "answer:delete");
     }
@@ -329,7 +329,7 @@ public class FragmentAnswer extends FragmentBase {
             FragmentDialogLink fragment = new FragmentDialogLink();
             fragment.setArguments(args);
             fragment.setTargetFragment(this, REQUEST_LINK);
-            fragment.show(getFragmentManager(), "compose:link");
+            fragment.show(getParentFragmentManager(), "compose:link");
 
             return true;
         } else

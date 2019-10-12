@@ -149,7 +149,7 @@ public class FragmentAccounts extends FragmentBase {
                     private void onCreate(boolean imap) {
                         FragmentBase fragment = imap ? new FragmentAccount() : new FragmentPop();
                         fragment.setArguments(new Bundle());
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
                         fragmentTransaction.commit();
                     }
@@ -192,7 +192,7 @@ public class FragmentAccounts extends FragmentBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getFragmentManager(), ex);
+                        Helper.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentAccounts.this, args, "account:drafts");
 
@@ -281,7 +281,7 @@ public class FragmentAccounts extends FragmentBase {
             @Override
             public void onSearch(String query) {
                 FragmentMessages.search(
-                        getContext(), getViewLifecycleOwner(), getFragmentManager(),
+                        getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
                         -1, false, query);
             }
         });
@@ -355,7 +355,7 @@ public class FragmentAccounts extends FragmentBase {
                 } else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getFragmentManager(), ex);
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folders:refresh");
     }

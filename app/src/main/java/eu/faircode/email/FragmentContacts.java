@@ -153,7 +153,7 @@ public class FragmentContacts extends FragmentBase {
                 onMenuHelp();
                 return true;
             case R.id.menu_delete:
-                new FragmentDelete().show(getFragmentManager(), "contacts:delete");
+                new FragmentDelete().show(getParentFragmentManager(), "contacts:delete");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -191,7 +191,7 @@ public class FragmentContacts extends FragmentBase {
 
                                 @Override
                                 protected void onException(Bundle args, Throwable ex) {
-                                    Helper.unexpectedError(getFragmentManager(), ex);
+                                    Helper.unexpectedError(getParentFragmentManager(), ex);
                                 }
                             }.execute(getContext(), getActivity(), new Bundle(), "contacts:delete");
                         }
