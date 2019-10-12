@@ -108,6 +108,7 @@ public class MailService implements AutoCloseable {
             properties.put("mail." + protocol + ".connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
             properties.put("mail." + protocol + ".finalizecleanclose", "false");
+            properties.put("mail." + protocol + ".closefoldersonstorefailure", "false");
 
             // https://tools.ietf.org/html/rfc4978
             // https://docs.oracle.com/javase/8/docs/api/java/util/zip/Deflater.html
