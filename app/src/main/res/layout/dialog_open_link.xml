@@ -43,6 +43,19 @@
         <requestFocus />
     </EditText>
 
+    <TextView
+        android:id="@+id/tvDifferent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:labelFor="@+id/etLink"
+        android:text="@string/title_different_link"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="?attr/colorWarning"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etLink" />
+
     <CheckBox
         android:id="@+id/cbSecure"
         android:layout_width="wrap_content"
@@ -52,7 +65,7 @@
         android:textColor="?attr/colorWarning"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etLink" />
+        app:layout_constraintTop_toBottomOf="@id/tvDifferent" />
 
     <CheckBox
         android:id="@+id/cbSanitize"

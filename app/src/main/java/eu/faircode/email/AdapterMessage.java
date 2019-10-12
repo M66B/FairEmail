@@ -4118,6 +4118,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
             TextView tvTitle = view.findViewById(R.id.tvTitle);
             final EditText etLink = view.findViewById(R.id.etLink);
+            TextView tvDifferent = view.findViewById(R.id.tvDifferent);
             final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
             CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
             final Button btnOwner = view.findViewById(R.id.btnOwner);
@@ -4243,6 +4244,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTitle.setText(title);
             tvTitle.setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
             etLink.setText(uri.toString());
+
+            Uri uriTitle = Uri.parse(title == null ? "" : title);
+            tvDifferent.setVisibility(uriTitle.getHost() == null || uri.getHost() == null ||
+                    uriTitle.getHost().equalsIgnoreCase(uri.getHost())
+                    ? View.GONE : View.VISIBLE);
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)

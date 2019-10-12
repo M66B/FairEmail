@@ -836,6 +836,7 @@
     <string name="title_hint_contact_actions">Long press for options</string>
 
     <string name="title_open_link">Open link</string>
+    <string name="title_different_link">The title and the link address are different</string>
     <string name="title_secure_link">Make connection secure</string>
     <string name="title_link_secured">Connection is secure</string>
     <string name="title_sanitize_link">Remove tracking parameters</string>
