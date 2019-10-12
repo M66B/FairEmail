@@ -206,7 +206,6 @@
     <string name="title_advanced_cards">Vis kort</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
-    <string name="title_advanced_bubble">Vis samtaler i meldingsstil</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
     <string name="title_advanced_distinguish_contacts">Skille meldinger fra kjente og ukjente kontakter</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
@@ -369,7 +368,6 @@
     <string name="title_no_sync">Synkroniseringsfeil siden %1$s</string>
     <string name="title_identity_required">En identitet er nødvendig for å sende meldinger</string>
     <string name="title_drafts_required">Det kreves en kladd mappe for å kunne sende meldinger</string>
-    <string name="title_hide_remark">Meldinger kan skjules ved utsette meldinger</string>
     <string name="title_account_delete">Slett denne konto en permanent?</string>
     <string name="title_identity_delete">Slett denne identiteten permanent?</string>
     <string name="title_edit_html">Rediger som HTML</string>
@@ -582,12 +580,10 @@
     <string name="title_sort_on_sender">Avsender</string>
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
-    <string name="title_sort_on_snoozed">Utsatt</string>
     <string name="title_sort_ascending">Eldst først</string>
     <string name="title_filter">Filtrere ut</string>
     <string name="title_filter_seen">Les</string>
     <string name="title_filter_unflagged">Ikke med stjerne</string>
-    <string name="title_filter_snoozed">Utsatt</string>
     <string name="title_filter_duplicates">Duplikater</string>
     <string name="title_compact">Kompakt visning</string>
     <string name="title_zoom">Tekststørrelse</string>

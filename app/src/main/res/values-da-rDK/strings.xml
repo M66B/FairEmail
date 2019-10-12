@@ -205,7 +205,6 @@
     <string name="title_advanced_cards">Vis Kort</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
-    <string name="title_advanced_bubble">Vis samtaler i beskedstil</string>
     <string name="title_advanced_highlight_unread">Fremhæv ulæste beskeder</string>
     <string name="title_advanced_distinguish_contacts">Skeln mellem beskeder fra kendte og ukendte kontakter</string>
     <string name="title_advanced_avatars">Vis kontaktfotos</string>
@@ -336,6 +335,7 @@
     <string name="title_account_right">Stryg til højre</string>
     <string name="title_domain">Domænenavn</string>
     <string name="title_autoconfig">Hent indstillinger</string>
+    <string name="title_aliases">Aliaser</string>
     <string name="title_provider">Udbyder</string>
     <string name="title_custom">Tilpasset</string>
     <string name="title_host">Værtsnavn</string>
@@ -367,7 +367,6 @@
     <string name="title_no_sync">Synkroniseringsfejl siden %1$s</string>
     <string name="title_identity_required">En identitet kræves for at kunne sende beskeder</string>
     <string name="title_drafts_required">Kladdemappe kræves for at kunne sende beskeder</string>
-    <string name="title_hide_remark">Beskeder kan skjules ved at udsætte dem</string>
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
@@ -376,6 +375,7 @@
     <string name="title_activesync_support">ActiveSync er uunderstøttet</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
+    <string name="title_hint_alias">Tryk og hold for indstillinger, såsom kopiér for at oprette aliasidentiteter</string>
     <string name="title_advanced_browse">Gennemse beskeder på serveren</string>
     <string name="title_advanced_expand_read">Markér beskeder Læst ved udvidelse</string>
     <string name="title_synchronize_now">Synkronisér nu</string>
@@ -579,12 +579,10 @@
     <string name="title_sort_on_sender">Afsender</string>
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
-    <string name="title_sort_on_snoozed">Udsat</string>
     <string name="title_sort_ascending">Ældste først</string>
     <string name="title_filter">Filtrér fra</string>
     <string name="title_filter_seen">Læst</string>
     <string name="title_filter_unflagged">Fjernet stjernemarkering</string>
-    <string name="title_filter_snoozed">Udsat</string>
     <string name="title_filter_duplicates">Dubletter</string>
     <string name="title_compact">Kompaktvisning</string>
     <string name="title_zoom">Tekststørrelse</string>
@@ -773,6 +771,7 @@
     <string name="title_minutes">Minutter</string>
     <string name="title_dismiss">Afvis</string>
     <string name="title_snooze_now">Udsæt</string>
+    <string name="title_loading">Indlæser &#8230;</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>

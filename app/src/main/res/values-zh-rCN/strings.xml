@@ -194,7 +194,6 @@
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
-    <string name="title_advanced_bubble">以消息样式中显示对话</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_distinguish_contacts">区分已知和未知的联系人的信息</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
@@ -357,7 +356,6 @@
     <string name="title_no_sync">从 %1$s 开始同步错误</string>
     <string name="title_identity_required">需要一个身份来发送消息</string>
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
-    <string name="title_hide_remark">可通过snooze消息来隐藏消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
     <string name="title_edit_html">以 html 格式编辑</string>
@@ -427,6 +425,7 @@
     <string name="title_subject_forward">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
+    <string name="title_hide">隐藏</string>
     <string name="title_flag">加注星标</string>
     <string name="title_flag_color">有色星号 &#8230;</string>
     <string name="title_unflag">移除星标</string>
@@ -570,12 +569,10 @@
     <string name="title_sort_on_sender">发件人</string>
     <string name="title_sort_on_subject">主题</string>
     <string name="title_sort_on_size">大小</string>
-    <string name="title_sort_on_snoozed">已设置待办</string>
     <string name="title_sort_ascending">最旧的在最前</string>
     <string name="title_filter">筛选</string>
     <string name="title_filter_seen">读取</string>
     <string name="title_filter_unflagged">未标星</string>
-    <string name="title_filter_snoozed">已设置待办</string>
     <string name="title_filter_duplicates">重复项</string>
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
@@ -593,6 +590,7 @@
     <string name="title_rule_noop">无操作</string>
     <string name="title_rule_seen">标记为已读</string>
     <string name="title_rule_unseen">标记为未读</string>
+    <string name="title_rule_hide">隐藏</string>
     <string name="title_rule_ignore">禁止通知</string>
     <string name="title_rule_snooze">延后</string>
     <string name="title_rule_flag">添加星标</string>

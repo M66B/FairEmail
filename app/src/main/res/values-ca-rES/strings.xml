@@ -206,7 +206,6 @@
     <string name="title_advanced_cards">Mostra les targetes</string>
     <string name="title_advanced_date_header">Agrupa per data</string>
     <string name="title_advanced_threading">Fil de conversa</string>
-    <string name="title_advanced_bubble">Mostra les converses amb estil de missatgeria</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
     <string name="title_advanced_distinguish_contacts">Diferencia els missatges de contactes coneguts i no coneguts</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
@@ -369,7 +368,6 @@
     <string name="title_no_sync">Errors de sincronització des de %1$s</string>
     <string name="title_identity_required">Cal enviar una identitat per enviar missatges</string>
     <string name="title_drafts_required">Cal enviar una carpeta d\'esborranys per enviar missatges</string>
-    <string name="title_hide_remark">Els missatges es poden amagar mitjançant l\'atenuació de missatges</string>
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>
@@ -582,12 +580,10 @@
     <string name="title_sort_on_sender">Remitent</string>
     <string name="title_sort_on_subject">Assumpte</string>
     <string name="title_sort_on_size">Mida</string>
-    <string name="title_sort_on_snoozed">Posposada</string>
     <string name="title_sort_ascending">El més antic primer</string>
     <string name="title_filter">Filtrar per</string>
     <string name="title_filter_seen">Llegir</string>
     <string name="title_filter_unflagged">Sense destacat</string>
-    <string name="title_filter_snoozed">Posposada</string>
     <string name="title_filter_duplicates">Duplicades</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Mida del text</string>

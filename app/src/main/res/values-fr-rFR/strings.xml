@@ -206,7 +206,6 @@
     <string name="title_advanced_cards">Afficher sous forme de cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
-    <string name="title_advanced_bubble">Afficher les conversations dans un style de messagerie</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
     <string name="title_advanced_distinguish_contacts">Faire la distinction entre les messages des contacts connus et inconnus</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
@@ -369,7 +368,6 @@
     <string name="title_no_sync">Erreurs de synchronisation depuis %1$s</string>
     <string name="title_identity_required">Une identité est nécessaire pour envoyer des messages</string>
     <string name="title_drafts_required">Un dossier brouillon est nécessaire pour envoyer des messages</string>
-    <string name="title_hide_remark">Les messages peuvent être cachés en les reportant à plus tard</string>
     <string name="title_account_delete">Supprimer définitivement ce compte ?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité ?</string>
     <string name="title_edit_html">Modifier en HTML</string>
@@ -439,6 +437,8 @@
     <string name="title_subject_forward">Tr : %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
+    <string name="title_hide">Masquer</string>
+    <string name="title_unhide">Afficher</string>
     <string name="title_flag">Marquer comme suivi</string>
     <string name="title_flag_color">Couleur de suivi&#8230;</string>
     <string name="title_unflag">Marquer comme non suivi</string>
@@ -582,12 +582,12 @@
     <string name="title_sort_on_sender">Expéditeur</string>
     <string name="title_sort_on_subject">Objet</string>
     <string name="title_sort_on_size">Taille</string>
-    <string name="title_sort_on_snoozed">Reporté</string>
+    <string name="title_sort_on_hidden">Masqué</string>
     <string name="title_sort_ascending">Le plus ancien en premier</string>
     <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lu</string>
     <string name="title_filter_unflagged">Non suivi</string>
-    <string name="title_filter_snoozed">Reporté</string>
+    <string name="title_filter_hidden">Masqué</string>
     <string name="title_filter_duplicates">Doublons</string>
     <string name="title_compact">Vue compacte</string>
     <string name="title_zoom">Taille du texte</string>
@@ -605,6 +605,7 @@
     <string name="title_rule_noop">Aucune action</string>
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>
+    <string name="title_rule_hide">Masquer</string>
     <string name="title_rule_ignore">Supprimer les notifications</string>
     <string name="title_rule_snooze">Reporter</string>
     <string name="title_rule_flag">Marquer comme suivi</string>

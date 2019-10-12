@@ -228,7 +228,6 @@
     <string name="title_advanced_cards">\"Карточная\" компоновка</string>
     <string name="title_advanced_date_header">Группировать по дате</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
-    <string name="title_advanced_bubble">Показывать диалоги в стиле сообщений</string>
     <string name="title_advanced_highlight_unread">Выделять непрочитанные сообщения</string>
     <string name="title_advanced_distinguish_contacts">Разделять сообщения от известных и неизвестных контактов</string>
     <string name="title_advanced_avatars">Показывать фотографии контакта</string>
@@ -391,7 +390,6 @@
     <string name="title_no_sync">Ошибки синхронизации после %1$s</string>
     <string name="title_identity_required">Для отправки сообщений требуется идентификатор</string>
     <string name="title_drafts_required">Для отправки сообщений требуется папка черновиков</string>
-    <string name="title_hide_remark">Сообщения могут быть не видны из-за отложенной отправки</string>
     <string name="title_account_delete">Удалить эту учётную запись навсегда?</string>
     <string name="title_identity_delete">Удалить этот идентификатор навсегда?</string>
     <string name="title_edit_html">Редактировать как HTML</string>
@@ -461,6 +459,8 @@
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>
     <string name="title_unseen">Отметить как непрочитанное</string>
+    <string name="title_hide">Скрыть</string>
+    <string name="title_unhide">Показать</string>
     <string name="title_flag">В избранное</string>
     <string name="title_flag_color">Цветная метка&#8230;</string>
     <string name="title_unflag">Удалить из избранного</string>
@@ -604,12 +604,12 @@
     <string name="title_sort_on_sender">Отправитель</string>
     <string name="title_sort_on_subject">Тема</string>
     <string name="title_sort_on_size">Размер</string>
-    <string name="title_sort_on_snoozed">Отложено</string>
+    <string name="title_sort_on_hidden">Скрыто</string>
     <string name="title_sort_ascending">Сначала старые</string>
     <string name="title_filter">Фильтровать</string>
     <string name="title_filter_seen">Прочитанные</string>
     <string name="title_filter_unflagged">Не избранные</string>
-    <string name="title_filter_snoozed">Отложенные</string>
+    <string name="title_filter_hidden">Скрыто</string>
     <string name="title_filter_duplicates">Дубликаты</string>
     <string name="title_compact">Компактный вид</string>
     <string name="title_zoom">Размер текста</string>
@@ -627,6 +627,7 @@
     <string name="title_rule_noop">Нет действия</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>
+    <string name="title_rule_hide">Скрыть</string>
     <string name="title_rule_ignore">Подавить уведомление</string>
     <string name="title_rule_snooze">Отложить</string>
     <string name="title_rule_flag">В избранное</string>

@@ -206,7 +206,6 @@
     <string name="title_advanced_cards">Mostrar tarjetas</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
-    <string name="title_advanced_bubble">Mostrar conversaciones en estilo de mensajería</string>
     <string name="title_advanced_highlight_unread">Resaltar mensajes no leídos</string>
     <string name="title_advanced_distinguish_contacts">Distinguir mensajes de contactos conocidos y desconocidos</string>
     <string name="title_advanced_avatars">Mostrar fotos de contactos</string>
@@ -369,7 +368,6 @@
     <string name="title_no_sync">Errores de sincronización desde %1$s</string>
     <string name="title_identity_required">Se requiere una identidad para enviar mensajes</string>
     <string name="title_drafts_required">Una carpeta de borradores es necesaria para enviar mensajes</string>
-    <string name="title_hide_remark">Los mensajes pueden ser ocultados al posponer mensajes</string>
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
@@ -582,12 +580,10 @@
     <string name="title_sort_on_sender">Remitente</string>
     <string name="title_sort_on_subject">Asunto</string>
     <string name="title_sort_on_size">Tamaño</string>
-    <string name="title_sort_on_snoozed">Pospuesto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
     <string name="title_filter">Filtrar</string>
     <string name="title_filter_seen">Leer</string>
     <string name="title_filter_unflagged">No destacado</string>
-    <string name="title_filter_snoozed">Pospuesto</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>

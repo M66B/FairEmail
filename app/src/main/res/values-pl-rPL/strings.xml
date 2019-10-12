@@ -389,7 +389,6 @@
     <string name="title_no_sync">Błędy synchornizacji od %1$s</string>
     <string name="title_identity_required">Do wysyłania wiadomości wymagana jest tożsamość</string>
     <string name="title_drafts_required">Folder szkiców jest wymagany do wysyłania wiadomości</string>
-    <string name="title_hide_remark">Wiadomości można ukryć, odkładając wiadomości</string>
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
@@ -601,12 +600,10 @@
     <string name="title_sort_on_sender">Nadawca</string>
     <string name="title_sort_on_subject">Temat</string>
     <string name="title_sort_on_size">Rozmiar</string>
-    <string name="title_sort_on_snoozed">Odłożona</string>
     <string name="title_sort_ascending">Od najstarszych</string>
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
     <string name="title_filter_unflagged">Nie oznaczona</string>
-    <string name="title_filter_snoozed">Odłożona</string>
     <string name="title_filter_duplicates">Duplikaty</string>
     <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>

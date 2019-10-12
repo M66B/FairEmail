@@ -228,7 +228,6 @@
     <string name="title_advanced_cards">Zobrazit karty</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
-    <string name="title_advanced_bubble">Zobrazit konverzace stylem rychlých zpráv</string>
     <string name="title_advanced_highlight_unread">Zvýraznit nepřečtené zprávy</string>
     <string name="title_advanced_distinguish_contacts">Odlišit zprávy známých a neznámých kontaktů</string>
     <string name="title_advanced_avatars">Zobrazit fotografie kontaktů</string>
@@ -391,7 +390,6 @@
     <string name="title_no_sync">Chyby synchronizace od %1$s</string>
     <string name="title_identity_required">Identita je nutná pro odesílání zpráv</string>
     <string name="title_drafts_required">Složka konceptů je nutná pro odesílání zpráv</string>
-    <string name="title_hide_remark">Zprávy lze odložením skrýt</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
@@ -603,12 +601,10 @@
     <string name="title_sort_on_sender">Odesílatel</string>
     <string name="title_sort_on_subject">Předmět</string>
     <string name="title_sort_on_size">Velikost</string>
-    <string name="title_sort_on_snoozed">Odloženo</string>
     <string name="title_sort_ascending">Od nejstarších</string>
     <string name="title_filter">Odfiltrovat</string>
     <string name="title_filter_seen">Přečteno</string>
     <string name="title_filter_unflagged">Bez hvězdičky</string>
-    <string name="title_filter_snoozed">Odloženo</string>
     <string name="title_filter_duplicates">Duplikáty</string>
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>

@@ -536,12 +536,10 @@
     <string name="title_sort_on_sender">Remetente</string>
     <string name="title_sort_on_subject">Assunto</string>
     <string name="title_sort_on_size">Tamanho</string>
-    <string name="title_sort_on_snoozed">Adiado</string>
     <string name="title_sort_ascending">Antigos primeiro</string>
     <string name="title_filter">Filtrar</string>
     <string name="title_filter_seen">Lido</string>
     <string name="title_filter_unflagged">Sem Estrela</string>
-    <string name="title_filter_snoozed">Adiado</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Visualização compacta</string>
     <string name="title_zoom">Tamanho do texto</string>
