@@ -484,6 +484,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
                     getActivity().getIntent().putExtra("tab", "display");
 
+                    ContactInfo.clearCache();
+
                     switch (checkedId) {
                         case R.id.rbThemeLight:
                             prefs.edit().putString("theme", "light").apply();
