@@ -1547,8 +1547,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 2, R.string.title_snooze);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 3, R.string.title_flag_color);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 4, R.string.title_move);
+
+            if (message.ui_snoozed == null)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, 3, R.string.title_hide);
+            else if (message.ui_snoozed == Long.MAX_VALUE)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, 3, R.string.title_unhide);
+
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 4, R.string.title_flag_color);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 5, R.string.title_move);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -1562,6 +1568,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return true;
                         case R.string.title_snooze:
                             onMenuSnooze();
+                            return true;
+                        case R.string.title_hide:
+                        case R.string.title_unhide:
+                            onActionHide(message);
                             return true;
                         case R.string.title_flag_color:
                             onMenuColor();
