@@ -1435,7 +1435,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
             else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
-                icon = (message.ui_snoozed == null ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+                icon = (message.ui_snoozed == null ? R.drawable.baseline_visibility_off_24 :
+                        (message.ui_snoozed == Long.MAX_VALUE
+                                ? R.drawable.baseline_visibility_24 : R.drawable.baseline_timer_off_24));
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
             Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
