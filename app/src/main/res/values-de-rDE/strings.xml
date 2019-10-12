@@ -738,6 +738,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
     <string name="title_hint_contact_actions">Gedrückt halten für weitere Optionen</string>
     <string name="title_open_link">Link öffnen</string>
+    <string name="title_different_link">Titel und Link-Ziel sind unterschiedlich</string>
     <string name="title_secure_link">Link sicher gestalten</string>
     <string name="title_link_secured">Dieser Link ist sicher</string>
     <string name="title_sanitize_link">Tracking-Parameter entfernen</string>

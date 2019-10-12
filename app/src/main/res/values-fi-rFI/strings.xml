@@ -437,6 +437,8 @@
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Merkitse luetuksi</string>
     <string name="title_unseen">Merkitse lukemattomaksi</string>
+    <string name="title_hide">Piilota</string>
+    <string name="title_unhide">Näytä</string>
     <string name="title_flag">Lisää tähti</string>
     <string name="title_flag_color">Lisää värillinen tähti &#8230;</string>
     <string name="title_unflag">Poista tähti</string>
@@ -580,10 +582,12 @@
     <string name="title_sort_on_sender">Lähettäjä</string>
     <string name="title_sort_on_subject">Aihe</string>
     <string name="title_sort_on_size">Koko</string>
+    <string name="title_sort_on_hidden">Piilotettu</string>
     <string name="title_sort_ascending">Vanhin ensin</string>
     <string name="title_filter">Suodata pois</string>
     <string name="title_filter_seen">Luettu</string>
     <string name="title_filter_unflagged">Tähdetön</string>
+    <string name="title_filter_hidden">Piilotettu</string>
     <string name="title_filter_duplicates">Kaksoiskappaleet</string>
     <string name="title_compact">Tiivistetty näkymä</string>
     <string name="title_zoom">Tekstin koko</string>
@@ -601,6 +605,7 @@
     <string name="title_rule_noop">Ei toimintoa</string>
     <string name="title_rule_seen">Merkitse luetuksi</string>
     <string name="title_rule_unseen">Merkitse lukemattomaksi</string>
+    <string name="title_rule_hide">Piilota</string>
     <string name="title_rule_ignore">Vaimenna ilmoitus</string>
     <string name="title_rule_snooze">Torkuta</string>
     <string name="title_rule_flag">Lisää tähti</string>
@@ -734,6 +739,7 @@
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_contact_actions">Pitkä painallus avaa asetukset</string>
     <string name="title_open_link">Avaa linkki</string>
+    <string name="title_different_link">Verkko-osoite linkin nimessä ei vastaa linkin kohdeosoitetta</string>
     <string name="title_secure_link">Tee linkistä turvallinen</string>
     <string name="title_link_secured">Linkki on turvallinen</string>
     <string name="title_sanitize_link">Poista seurantaparametrit</string>

@@ -436,6 +436,8 @@
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Segna come letto</string>
     <string name="title_unseen">Segna come non letto</string>
+    <string name="title_hide">Nascondi</string>
+    <string name="title_unhide">Mostra</string>
     <string name="title_flag">Aggiungi stella</string>
     <string name="title_flag_color">Stella colorata &#8230;</string>
     <string name="title_unflag">Rimuovi stella</string>
@@ -579,10 +581,12 @@
     <string name="title_sort_on_sender">Mittente</string>
     <string name="title_sort_on_subject">Soggetto</string>
     <string name="title_sort_on_size">Dimensioni</string>
+    <string name="title_sort_on_hidden">Nascosto</string>
     <string name="title_sort_ascending">Prima i più vecchi</string>
     <string name="title_filter">Filtra</string>
     <string name="title_filter_seen">Leggi</string>
     <string name="title_filter_unflagged">Senza stella</string>
+    <string name="title_filter_hidden">Nascosto</string>
     <string name="title_filter_duplicates">Duplicati</string>
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
@@ -600,6 +604,7 @@
     <string name="title_rule_noop">Nessuna azione</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>
+    <string name="title_rule_hide">Nascondi</string>
     <string name="title_rule_ignore">Sopprimi notifica</string>
     <string name="title_rule_snooze">Posticipa</string>
     <string name="title_rule_flag">Aggiungi ai preferiti</string>
@@ -733,6 +738,7 @@
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
     <string name="title_open_link">Apri collegamento</string>
+    <string name="title_different_link">Il titolo del link e l\'indirizzo sono diversi</string>
     <string name="title_secure_link">Rendi il link sicuro</string>
     <string name="title_link_secured">Il link è sicuro</string>
     <string name="title_sanitize_link">Rimuovi i parametri di tracciamento</string>

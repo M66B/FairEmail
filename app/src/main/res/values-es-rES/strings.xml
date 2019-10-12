@@ -437,6 +437,8 @@
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Marcar como leído</string>
     <string name="title_unseen">Marcar como no leído</string>
+    <string name="title_hide">Ocultar</string>
+    <string name="title_unhide">Mostrar</string>
     <string name="title_flag">Marcar como favorito</string>
     <string name="title_flag_color">Estrella coloreada &#8230;</string>
     <string name="title_unflag">Desmarcar como favorito</string>
@@ -580,10 +582,12 @@
     <string name="title_sort_on_sender">Remitente</string>
     <string name="title_sort_on_subject">Asunto</string>
     <string name="title_sort_on_size">Tamaño</string>
+    <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
     <string name="title_filter">Filtrar</string>
     <string name="title_filter_seen">Leer</string>
     <string name="title_filter_unflagged">No destacado</string>
+    <string name="title_filter_hidden">Oculto</string>
     <string name="title_filter_duplicates">Duplicados</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Tamaño del texto</string>
@@ -601,6 +605,7 @@
     <string name="title_rule_noop">Sin acción</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>
+    <string name="title_rule_hide">Ocultar</string>
     <string name="title_rule_ignore">Suprimir notificación</string>
     <string name="title_rule_snooze">Posponer</string>
     <string name="title_rule_flag">Destacar</string>
@@ -734,6 +739,7 @@
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_contact_actions">Mantenga pulsado para opciones</string>
     <string name="title_open_link">Abrir enlace</string>
+    <string name="title_different_link">El título y la dirección del enlace son diferentes</string>
     <string name="title_secure_link">Hacer enlace seguro</string>
     <string name="title_link_secured">El enlace es seguro</string>
     <string name="title_sanitize_link">Eliminar parámetros de rastreo</string>

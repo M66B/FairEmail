@@ -739,6 +739,7 @@
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_contact_actions">Druk lang voor opties</string>
     <string name="title_open_link">Koppeling openen</string>
+    <string name="title_different_link">De titel en het link-adres zijn verschillend</string>
     <string name="title_secure_link">Maak koppeling veilig</string>
     <string name="title_link_secured">Link is veilig</string>
     <string name="title_sanitize_link">Verwijder tracking parameters</string>

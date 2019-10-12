@@ -437,6 +437,8 @@
     <string name="title_subject_forward">Videresend: %1$s</string>
     <string name="title_seen">Merk som lest</string>
     <string name="title_unseen">Merk som ulest</string>
+    <string name="title_hide">Skjul</string>
+    <string name="title_unhide">Vis</string>
     <string name="title_flag">Legg til stjerne</string>
     <string name="title_flag_color">Farget stjerne &#8230;</string>
     <string name="title_unflag">Fjern stjerne</string>
@@ -580,10 +582,12 @@
     <string name="title_sort_on_sender">Avsender</string>
     <string name="title_sort_on_subject">Emne</string>
     <string name="title_sort_on_size">Størrelse</string>
+    <string name="title_sort_on_hidden">Skjult</string>
     <string name="title_sort_ascending">Eldst først</string>
     <string name="title_filter">Filtrere ut</string>
     <string name="title_filter_seen">Les</string>
     <string name="title_filter_unflagged">Ikke med stjerne</string>
+    <string name="title_filter_hidden">Skjult</string>
     <string name="title_filter_duplicates">Duplikater</string>
     <string name="title_compact">Kompakt visning</string>
     <string name="title_zoom">Tekststørrelse</string>
@@ -601,6 +605,7 @@
     <string name="title_rule_noop">Ingen handling</string>
     <string name="title_rule_seen">Merk som lest</string>
     <string name="title_rule_unseen">Merk som ulest</string>
+    <string name="title_rule_hide">Skjul</string>
     <string name="title_rule_ignore">Undertrykke varsling</string>
     <string name="title_rule_snooze">Utsett</string>
     <string name="title_rule_flag">Legg til stjerne</string>
@@ -734,6 +739,7 @@
     <string name="title_hint_sync">Nedlasting av meldinger kan ta litt tid, avhengig av leverandørens hastighet, internettforbindelse og enhet og antall meldinger. Mens du laster ned meldinger, kan appen reagere langsommere.</string>
     <string name="title_hint_contact_actions">Langt trykk for flere instillinger</string>
     <string name="title_open_link">Åpne link</string>
+    <string name="title_different_link">Tittelen og linkadressen er forskjellige</string>
     <string name="title_secure_link">Gjør koblingen sikker</string>
     <string name="title_link_secured">Koblingen er sikker</string>
     <string name="title_sanitize_link">Fjern sporingsparametere</string>
