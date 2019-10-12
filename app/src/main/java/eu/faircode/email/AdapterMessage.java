@@ -3984,6 +3984,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (message == null || context == null)
             return;
 
+        if (viewType == ViewType.THREAD) {
+            boolean outgoing = holder.isOutgoing(message);
+            holder.card.setOutgoing(outgoing);
+        }
+
         if (filter_duplicates && message.duplicate) {
             holder.tvFolder.setText(context.getString(R.string.title_duplicate_in, message.getFolderName(context)));
             holder.tvFolder.setTypeface(message.unseen > 0 ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
