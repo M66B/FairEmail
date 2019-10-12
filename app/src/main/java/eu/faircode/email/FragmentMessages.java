@@ -89,7 +89,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.paging.PagedList;
 import androidx.preference.PreferenceManager;
@@ -919,7 +919,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabError.hide();
 
         if (viewType == AdapterMessage.ViewType.THREAD) {
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
             model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                 @Override
                 public void onPrevious(boolean exists, Long id) {
@@ -2864,7 +2864,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuSelectAll() {
-        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+        ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
         model.getIds(getContext(), getViewLifecycleOwner(), new Observer<List<Long>>() {
             @Override
             public void onChanged(List<Long> ids) {
@@ -2952,7 +2952,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     private void loadMessages(final boolean top) {
         if (viewType == AdapterMessage.ViewType.THREAD && onclose != null) {
-            ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+            ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
             model.observePrevNext(getViewLifecycleOwner(), id, new ViewModelMessages.IPrevNext() {
                 boolean once = false;
 
@@ -3009,7 +3009,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (top)
             adapter.gotoTop();
 
-        ViewModelMessages model = ViewModelProviders.of(getActivity()).get(ViewModelMessages.class);
+        ViewModelMessages model = new ViewModelProvider(getActivity()).get(ViewModelMessages.class);
 
         ViewModelMessages.Model vmodel = model.getModel(
                 getContext(), getViewLifecycleOwner(),
