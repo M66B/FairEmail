@@ -215,6 +215,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("generated_icons", checked).apply();
                 swIdenticons.setEnabled(checked);
+                sbSaturation.setEnabled(swGeneratedIcons.isChecked());
+                sbBrightness.setEnabled(swGeneratedIcons.isChecked());
                 ContactInfo.clearCache();
             }
         });
@@ -481,7 +483,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());
         swCircular.setChecked(prefs.getBoolean("circular", true));
         sbSaturation.setProgress(prefs.getInt("saturation", 100));
+        sbSaturation.setEnabled(swGeneratedIcons.isChecked());
         sbBrightness.setProgress(prefs.getInt("brightness", 100));
+        sbBrightness.setEnabled(swGeneratedIcons.isChecked());
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
@@ -517,14 +521,24 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private void updateColor() {
         Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean identicons = prefs.getBoolean("identicons", false);
         boolean circular = prefs.getBoolean("circular", true);
 
         int size = Helper.dp2pixels(context, 36);
-        Integer radius = (circular ? null : Helper.dp2pixels(context, 3));
+        byte[] hash = ImageHelper.getHash("test@example.com");
+        Integer radius = (circular && !identicons ? null : Helper.dp2pixels(context, 3));
 
-        Bitmap red = ImageHelper.generateLetterIcon(0f, "A", size, context);
-        Bitmap green = ImageHelper.generateLetterIcon(120f, "B", size, context);
-        Bitmap blue = ImageHelper.generateLetterIcon(240f, "C", size, context);
+        Bitmap red = identicons
+                ? ImageHelper.generateIdenticon(hash, 0f, size, 5, context)
+                : ImageHelper.generateLetterIcon("A", 0f, size, context);
+
+        Bitmap green = identicons
+                ? ImageHelper.generateIdenticon(hash, 120f, size, 5, context)
+                : ImageHelper.generateLetterIcon("B", 120f, size, context);
+
+        Bitmap blue = identicons
+                ? ImageHelper.generateIdenticon(hash, 240f, size, 5, context)
+                : ImageHelper.generateLetterIcon("C", 240f, size, context);
 
         red = ImageHelper.makeCircular(red, radius);
         green = ImageHelper.makeCircular(green, radius);

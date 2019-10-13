@@ -68,18 +68,19 @@ class ImageHelper {
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
         byte[] hash = getHash(email);
+        float h = Math.abs(email.hashCode()) % 360;
+        return generateIdenticon(hash, h, size, pixels, context);
+    }
 
+    static Bitmap generateIdenticon(byte[] hash, float h, int size, int pixels, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int saturation = prefs.getInt("saturation", 100);
-        int brightness = prefs.getInt("brightness", 100);
+        int s = prefs.getInt("saturation", 100);
+        int v = prefs.getInt("brightness", 100);
 
-        int color = Color.HSVToColor(new float[]{
-                Math.abs(email.hashCode()) % 360,
-                saturation / 100f,
-                brightness / 100f});
+        int bg = Color.HSVToColor(new float[]{h, s / 100f, v / 100f});
 
         Paint paint = new Paint();
-        paint.setColor(color);
+        paint.setColor(bg);
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
@@ -100,12 +101,15 @@ class ImageHelper {
         return bitmap;
     }
 
-    static Bitmap generateLetterIcon(@NonNull String email, int size, Context context) {
+    static Bitmap generateLetterIcon(@NonNull String email, String name, int size, Context context) {
+        if (TextUtils.isEmpty(name))
+            name = email;
+
         String letter = null;
-        for (int i = 0; i < email.length(); i++) {
-            char kar = email.charAt(i);
+        for (int i = 0; i < name.length(); i++) {
+            char kar = name.charAt(i);
             if (Character.isAlphabetic(kar)) {
-                letter = email.substring(i, i + 1).toUpperCase();
+                letter = name.substring(i, i + 1).toUpperCase();
                 break;
             }
         }
@@ -113,25 +117,23 @@ class ImageHelper {
             return null;
 
         float h = Math.abs(email.hashCode()) % 360f;
-        return generateLetterIcon(h, letter, size, context);
+        return generateLetterIcon(letter, h, size, context);
     }
 
-    static Bitmap generateLetterIcon(float h, String letter, int size, Context context) {
+    static Bitmap generateLetterIcon(String letter, float h, int size, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         float s = prefs.getInt("saturation", 100) / 100f;
         float v = prefs.getInt("brightness", 100) / 100f;
 
         int bg = Color.HSVToColor(new float[]{h, s, v});
-
         double lum = ColorUtils.calculateLuminance(bg);
-        int fg = Color.HSVToColor(new float[]{0, 0, lum < 0.5 ? v : 0});
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(bg);
 
         Paint paint = new Paint();
-        paint.setColor(fg);
+        paint.setColor(lum < 0.5 ? Color.WHITE : Color.BLACK);
         paint.setTextSize(size / 2f);
         paint.setTypeface(Typeface.DEFAULT_BOLD);
 
@@ -142,7 +144,7 @@ class ImageHelper {
         return bitmap;
     }
 
-    private static byte[] getHash(String email) {
+    static byte[] getHash(String email) {
         try {
             return MessageDigest.getInstance("MD5").digest(email.getBytes());
         } catch (NoSuchAlgorithmException ignored) {

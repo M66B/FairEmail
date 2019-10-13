@@ -166,9 +166,11 @@ public class ContactInfo {
                 boolean identicons = prefs.getBoolean("identicons", false);
                 if (identicons) {
                     identicon = true;
-                    info.bitmap = ImageHelper.generateIdenticon(key, dp, 5, context);
+                    info.bitmap = ImageHelper.generateIdenticon(
+                            address.getAddress(), dp, 5, context);
                 } else
-                    info.bitmap = ImageHelper.generateLetterIcon(key, dp, context);
+                    info.bitmap = ImageHelper.generateLetterIcon(
+                            address.getAddress(), address.getPersonal(), dp, context);
             }
         }
 
@@ -182,7 +184,6 @@ public class ContactInfo {
         if (!info.known) {
             DB db = DB.getInstance(context);
             EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_TO, info.email);
-
             info.known = (contact != null);
         }
 
