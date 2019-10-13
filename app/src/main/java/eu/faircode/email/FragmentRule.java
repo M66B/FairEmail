@@ -97,6 +97,8 @@ public class FragmentRule extends FragmentBase {
     private EditText etSubject;
     private CheckBox cbSubject;
 
+    private CheckBox cbAttachments;
+
     private EditText etHeader;
     private CheckBox cbHeader;
 
@@ -200,6 +202,8 @@ public class FragmentRule extends FragmentBase {
 
         etSubject = view.findViewById(R.id.etSubject);
         cbSubject = view.findViewById(R.id.cbSubject);
+
+        cbAttachments = view.findViewById(R.id.cbAttachments);
 
         etHeader = view.findViewById(R.id.etHeader);
         cbHeader = view.findViewById(R.id.cbHeader);
@@ -643,6 +647,8 @@ public class FragmentRule extends FragmentBase {
                     etSubject.setText(jsubject == null ? args.getString("subject") : jsubject.getString("value"));
                     cbSubject.setChecked(jsubject != null && jsubject.getBoolean("regex"));
 
+                    cbAttachments.setChecked(jcondition.optBoolean("attachments"));
+
                     etHeader.setText(jheader == null ? null : jheader.getString("value"));
                     cbHeader.setChecked(jheader != null && jheader.getBoolean("regex"));
 
@@ -837,7 +843,12 @@ public class FragmentRule extends FragmentBase {
                     JSONObject jheader = jcondition.optJSONObject("header");
                     JSONObject jschedule = jcondition.optJSONObject("schedule");
 
-                    if (jsender == null && jrecipient == null && jsubject == null && jheader == null && jschedule == null)
+                    if (jsender == null &&
+                            jrecipient == null &&
+                            jsubject == null &&
+                            !jcondition.optBoolean("attachments") &&
+                            jheader == null &&
+                            jschedule == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_rule_condition_missing));
 
                     if (TextUtils.isEmpty(order))
@@ -915,6 +926,8 @@ public class FragmentRule extends FragmentBase {
             jsubject.put("regex", cbSubject.isChecked());
             jcondition.put("subject", jsubject);
         }
+
+        jcondition.put("attachments", cbAttachments.isChecked());
 
         String header = etHeader.getText().toString();
         if (!TextUtils.isEmpty(header)) {

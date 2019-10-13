@@ -200,6 +200,13 @@ public class EntityRule {
                     return false;
             }
 
+            // Attachments
+            if (jcondition.optBoolean("attachments")) {
+                DB db = DB.getInstance(context);
+                if (db.attachment().getAttachments(message.id).size() == 0)
+                    return false;
+            }
+
             // Header
             JSONObject jheader = jcondition.optJSONObject("header");
             if (jheader != null && imessage != null) {
@@ -238,7 +245,12 @@ public class EntityRule {
             }
 
             // Safeguard
-            if (jsender == null && jrecipient == null && jsubject == null && jheader == null && jschedule == null)
+            if (jsender == null &&
+                    jrecipient == null &&
+                    jsubject == null &&
+                    !jcondition.optBoolean("attachments") &&
+                    jheader == null &&
+                    jschedule == null)
                 return false;
         } catch (JSONException ex) {
             Log.e(ex);
