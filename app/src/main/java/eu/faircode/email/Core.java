@@ -736,7 +736,7 @@ class Core {
         if (folder.id.equals(message.folder)) {
             // Some providers do not list the new message yet
             Long newuid = findUid(ifolder, message.msgid, true);
-            if (message.uid != null && newuid != null && newuid > message.uid) {
+            if (newuid != null && (message.uid == null || newuid > message.uid)) {
                 message.uid = newuid;
                 Log.i(folder.name + " appended uid=" + message.uid);
                 db.message().setMessageUid(message.id, message.uid);
