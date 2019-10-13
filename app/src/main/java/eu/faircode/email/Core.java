@@ -3053,27 +3053,24 @@ class Core {
 
             if (message.content && notify_preview)
                 try {
-                    String body = Helper.readText(message.getFile(context));
-                    String preview = HtmlHelper.getPreview(body);
-
-                    String summary =
-                            (TextUtils.isEmpty(message.subject) ? "" : message.subject) +
-                                    " - " +
-                                    (TextUtils.isEmpty(preview) ? "" : preview);
-
-                    // Wearable
-                    mbuilder.setContentText(summary);
-
                     StringBuilder sbm = new StringBuilder();
                     if (!TextUtils.isEmpty(message.subject))
                         sbm.append(message.subject).append("<br>");
 
+                    String body = Helper.readText(message.getFile(context));
+                    String preview = HtmlHelper.getPreview(body);
                     if (!TextUtils.isEmpty(preview))
                         sbm.append("<em>").append(preview).append("</em>");
 
-                    mbuilder.setStyle(new NotificationCompat.BigTextStyle()
-                            .bigText(HtmlHelper.fromHtml(sbm.toString()))
-                            .setSummaryText(summary));
+                    NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
+                            .bigText(HtmlHelper.fromHtml(sbm.toString()));
+
+                    if (!TextUtils.isEmpty(message.subject)) {
+                        bigText.setSummaryText(message.subject);
+                        mbuilder.setContentText(message.subject); // Wearable
+                    }
+
+                    mbuilder.setStyle(bigText);
                 } catch (IOException ex) {
                     Log.e(ex);
                     mbuilder.setStyle(new NotificationCompat.BigTextStyle()
