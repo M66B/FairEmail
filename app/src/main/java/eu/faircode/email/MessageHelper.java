@@ -547,7 +547,8 @@ public class MessageHelper {
         else if ("low".equalsIgnoreCase(header) ||
                 "non-urgent".equalsIgnoreCase(header) ||
                 "marketing".equalsIgnoreCase(header) ||
-                "bulk".equalsIgnoreCase(header))
+                "bulk".equalsIgnoreCase(header) ||
+                "b".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
         else if (!TextUtils.isEmpty(header))
             try {
