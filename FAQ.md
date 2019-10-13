@@ -947,7 +947,7 @@ Note that this is independent of receiving messages.
 **(34) How are identities matched?**
 
 Identities are as expected matched by account.
-For incoming folders the *to*, *cc* and *from* addresses will be checked
+For incoming folders the *to*, *cc*, *bcc* and *from* addresses will be checked
 and for outgoing folders (drafts, outbox and sent) the *from* addresses will be checked.
 
 The matched address will be shown as *via* in the addresses section.
