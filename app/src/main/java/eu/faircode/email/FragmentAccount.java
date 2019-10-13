@@ -556,6 +556,7 @@ public class FragmentAccount extends FragmentBase {
                     iservice.connect(host, Integer.parseInt(port), auth, user, password);
 
                     result.idle = iservice.hasCapability("IDLE");
+                    result.empty = iservice.emptyMessages();
 
                     boolean inbox = false;
 
@@ -625,6 +626,8 @@ public class FragmentAccount extends FragmentBase {
             protected void onExecuted(Bundle args, CheckResult result) {
                 tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
                 tvUtf8.setVisibility(result.utf8 == null || result.utf8 ? View.GONE : View.VISIBLE);
+                if (result.empty)
+                    cbPartialFetch.setChecked(false);
 
                 setFolders(result.folders, result.account);
 
@@ -1483,5 +1486,6 @@ public class FragmentAccount extends FragmentBase {
         List<EntityFolder> folders;
         boolean idle;
         Boolean utf8;
+        boolean empty;
     }
 }
