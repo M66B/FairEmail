@@ -168,7 +168,8 @@ public class Helper {
 
         @Override
         protected void beforeExecute(Thread t, Runnable r) {
-            Log.i("Executing " + t.getName());
+            if (BuildConfig.DEBUG)
+                Log.i("Executing " + t.getName());
         }
     }
 
