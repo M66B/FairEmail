@@ -741,6 +741,10 @@ class Core {
                 Log.i(folder.name + " appended uid=" + message.uid);
                 db.message().setMessageUid(message.id, message.uid);
 
+                EntityIdentity identity = matchIdentity(context, folder, message);
+                message.identity = (identity == null ? null : identity.id);
+                db.message().setMessageIdentity(message.id, message.identity);
+
                 List<EntityRule> rules = db.rule().getEnabledRules(folder.id);
                 runRules(context, imessage, message, rules);
                 updateContactInfo(context, folder, message);
