@@ -952,6 +952,8 @@ and for outgoing folders (drafts, outbox and sent) the *from* addresses will be 
 
 The matched address will be shown as *via* in the addresses section.
 
+Note that identities needs to be enabled to be able to be matched.
+
 Matched identities can be used to color code messages.
 The identity color takes precedence over the account color.
 Setting identity colors is a pro feature.
