@@ -13,8 +13,8 @@ android {
         applicationId "eu.faircode.email"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 767
-        versionName "1.767"
+        versionCode 768
+        versionName "1.768"
         archivesBaseName = "FairEmail-v$versionName"
 
         // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
@@ -277,7 +277,7 @@ dependencies {
     implementation "com.sun.mail:android-mail:$javamail_version"
     implementation "com.sun.mail:android-activation:$javamail_version"
 
-    // https://jsoup.org/
+    // https://jsoup.org/news/
     implementation "org.jsoup:jsoup:$jsoup_version"
 
     // http://www.dnsjava.org/
