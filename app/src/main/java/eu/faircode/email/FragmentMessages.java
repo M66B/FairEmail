@@ -3633,11 +3633,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return true;
             }
 
-            int count = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean collapse_single = prefs.getBoolean("collapse_single", false);
             boolean collapse_multiple = prefs.getBoolean("collapse_multiple", true);
-            if ((collapse_single && count == 1) || (collapse_multiple && count > 1)) {
+
+            int count = 0;
+            for (int i = 0; i < adapter.getItemCount(); i++) {
+                TupleMessageEx message = adapter.getItemAtPosition(i);
+                if (message != null && !message.duplicate)
+                    count++;
+            }
+
+            int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
+            if (collapse_multiple && expanded > 0 && count > 1) {
                 values.get("expanded").clear();
                 updateExpanded();
                 adapter.notifyDataSetChanged();
