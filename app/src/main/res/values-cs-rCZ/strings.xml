@@ -260,8 +260,6 @@
     <string name="title_advanced_autoexpand">Automaticky rozbalovat zprávy</string>
     <string name="title_advanced_expand_all">Automaticky rozbalovat všechny přečtené zprávy</string>
     <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>
-    <string name="title_advanced_collapse_single">Sbalit jednu zprávu v konverzaci při navigaci \"zpět\"</string>
-    <string name="title_advanced_collapse_multiple">Sbalit vícero zpráv v konverzaci při navigaci \"zpět\"</string>
     <string name="title_advanced_autoclose">Automaticky zavírat konverzace</string>
     <string name="title_advanced_onclose">Při zavření konverzace</string>
     <string name="title_advanced_autoread">Automaticky označit zprávy jako přečtené při přesunu</string>

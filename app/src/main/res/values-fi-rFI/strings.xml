@@ -206,12 +206,15 @@
     <string name="title_advanced_cards">Näytä kortit</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
     <string name="title_advanced_threading">Keskustelujen ketjuttaminen</string>
+    <string name="title_advanced_indentation">Tasaa vastaanotetut/lähetetyt viestit keskusteluissa vasemmalle/oikealle</string>
     <string name="title_advanced_highlight_unread">Korosta lukemattomat viestit</string>
     <string name="title_advanced_distinguish_contacts">Erottele tunnettujen ja tuntemattomien kontaktien viestit</string>
     <string name="title_advanced_avatars">Näytä yhteystietojen kuvat</string>
     <string name="title_advanced_generated_icons">Näytä luodut kuvakkeet</string>
     <string name="title_advanced_identicons">Näytä identikonit</string>
     <string name="title_advanced_circular">Näytä pyöreät kuvakkeet</string>
+    <string name="title_advanced_color_saturation">Värikylläisyys</string>
+    <string name="title_advanced_color_value">Kirkkaus</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
@@ -238,8 +241,7 @@
     <string name="title_advanced_autoexpand">Laajenna viestit automaattisesti</string>
     <string name="title_advanced_expand_all">Laajenna kaikki luetut viestit automaattisesti</string>
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
-    <string name="title_advanced_collapse_single">Tiivistä yksittäinen viesti keskustelussa menemällä \'takaisin\'</string>
-    <string name="title_advanced_collapse_multiple">Tiivistä useampi viesti keskustelussa menemällä \'takaisin\'</string>
+    <string name="title_advanced_collapse_multiple">Tiivistä useamman viestin keskusteluiden viestit menemällä \'takaisin\'</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
     <string name="title_advanced_autoread">Siirtäessä viestejä merkitse ne luetuiksi</string>

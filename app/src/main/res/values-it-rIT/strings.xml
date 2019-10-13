@@ -205,12 +205,15 @@
     <string name="title_advanced_cards">Mostra carte</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>
     <string name="title_advanced_threading">Thread di conversazione</string>
+    <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
     <string name="title_advanced_distinguish_contacts">Distingui i messaggi tra contatti noti e sconosciuti</string>
     <string name="title_advanced_avatars">Mostra foto dei contatti</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
+    <string name="title_advanced_color_saturation">Saturazione</string>
+    <string name="title_advanced_color_value">Luminosità</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
     <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
@@ -237,8 +240,7 @@
     <string name="title_advanced_autoexpand">Espandi automaticamente i messaggi</string>
     <string name="title_advanced_expand_all">Espandi automaticamente tutti i messaggi letti</string>
     <string name="title_advanced_expand_one">Espandi solo un messaggio alla volta</string>
-    <string name="title_advanced_collapse_single">Comprimi un singolo messaggio in una conversazione premendo \'indietro\'</string>
-    <string name="title_advanced_collapse_multiple">Comprimi più messaggi in una conversazione premendo \'indietro\'</string>
+    <string name="title_advanced_collapse_multiple">Comprimi i messaggi in una conversazione con più messaggi premendo \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>

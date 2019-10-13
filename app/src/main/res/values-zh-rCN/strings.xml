@@ -194,12 +194,15 @@
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
+    <string name="title_advanced_indentation">向左/右缩进已收/已发消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
     <string name="title_advanced_distinguish_contacts">区分已知和未知的联系人的信息</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
+    <string name="title_advanced_color_saturation">饱和度</string>
+    <string name="title_advanced_color_value">亮度</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
@@ -226,8 +229,7 @@
     <string name="title_advanced_autoexpand">自动伸展消息</string>
     <string name="title_advanced_expand_all">自动展开所有已读消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
-    <string name="title_advanced_collapse_single">按返回键折叠对话中的单封邮件</string>
-    <string name="title_advanced_collapse_multiple">按返回键折叠对话中的多封邮件</string>
+    <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
     <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
@@ -426,6 +428,7 @@
     <string name="title_seen">标记为已读</string>
     <string name="title_unseen">标记为未读</string>
     <string name="title_hide">隐藏</string>
+    <string name="title_unhide">显示</string>
     <string name="title_flag">加注星标</string>
     <string name="title_flag_color">有色星号 &#8230;</string>
     <string name="title_unflag">移除星标</string>
@@ -569,10 +572,12 @@
     <string name="title_sort_on_sender">发件人</string>
     <string name="title_sort_on_subject">主题</string>
     <string name="title_sort_on_size">大小</string>
+    <string name="title_sort_on_hidden">隐藏</string>
     <string name="title_sort_ascending">最旧的在最前</string>
     <string name="title_filter">筛选</string>
     <string name="title_filter_seen">读取</string>
     <string name="title_filter_unflagged">未标星</string>
+    <string name="title_filter_hidden">隐藏</string>
     <string name="title_filter_duplicates">重复项</string>
     <string name="title_compact">紧凑视图</string>
     <string name="title_zoom">文本大小</string>
@@ -724,6 +729,7 @@
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
     <string name="title_open_link">打开链接</string>
+    <string name="title_different_link">标题和链接地址不同</string>
     <string name="title_secure_link">确保链接安全</string>
     <string name="title_link_secured">链接安全</string>
     <string name="title_sanitize_link">删除跟踪参数</string>

@@ -238,8 +238,6 @@
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_expand_all">Expandir automaticamente todas as mensagens lidas</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem por vez</string>
-    <string name="title_advanced_collapse_single">Recolher uma mensagem única em uma conversa ao \'voltar\'</string>
-    <string name="title_advanced_collapse_multiple">Recolher múltiplas mensagens em uma conversa ao \'voltar\'</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
     <string name="title_advanced_onclose">Ao fechar uma conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>

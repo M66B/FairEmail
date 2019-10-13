@@ -238,8 +238,6 @@
     <string name="title_advanced_autoexpand">Ampliar automàticament els missatges</string>
     <string name="title_advanced_expand_all">Ampliar automàticament tots els missatges llegits</string>
     <string name="title_advanced_expand_one">Expandir només un missatge alhora</string>
-    <string name="title_advanced_collapse_single">Contraure un únic missatge a les conversa a la \"part posterior\"</string>
-    <string name="title_advanced_collapse_multiple">Contraure multiple missatges a les converses a la \"part posterior\"</string>
     <string name="title_advanced_autoclose">Tanca automàticament les converses</string>
     <string name="title_advanced_onclose">En tancar una conversa</string>
     <string name="title_advanced_autoread">Automàticament marca els missatges llegits en missatges moguts</string>

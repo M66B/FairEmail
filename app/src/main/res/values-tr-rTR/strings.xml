@@ -206,12 +206,15 @@
     <string name="title_advanced_cards">Kartları göster</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
+    <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
     <string name="title_advanced_highlight_unread">Okunmamış iletileri vurgula</string>
     <string name="title_advanced_distinguish_contacts">Bilinen ve bilinmeyen kişilerin mesajlarını ayır</string>
     <string name="title_advanced_avatars">Kişi fotoğraflarını göster</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_circular">Yuvarlak simgeleri göster</string>
+    <string name="title_advanced_color_saturation">Renk doygunluğu</string>
+    <string name="title_advanced_color_value">Parlaklık</string>
     <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
     <string name="title_advanced_subject_top">Gönderenin üzerinde konuyu göster</string>
@@ -238,8 +241,7 @@
     <string name="title_advanced_autoexpand">İletileri otomatik olarak aç </string>
     <string name="title_advanced_expand_all">Tüm okunmuş mesajları otomatik olarak aç</string>
     <string name="title_advanced_expand_one">Bir kerede yalnızca bir mesaj genişlet</string>
-    <string name="title_advanced_collapse_single">Bir konuşmadaki tek bir mesajı \'geri\' seçeneğinde daralt</string>
-    <string name="title_advanced_collapse_multiple">Bir konuşmadaki birden fazla mesajı \'geri\' seçeneğinde daralt</string>
+    <string name="title_advanced_collapse_multiple">Birden fazla mesaj içeren sohbetlerdeki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
     <string name="title_advanced_onclose">Bir konuşmayı kapatırken</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>

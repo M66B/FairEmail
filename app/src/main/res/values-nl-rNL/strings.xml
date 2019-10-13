@@ -206,12 +206,15 @@
     <string name="title_advanced_cards">Toon kaarten</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
+    <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
     <string name="title_advanced_highlight_unread">Ongelezen berichten markeren</string>
     <string name="title_advanced_distinguish_contacts">Onderscheid berichten van bekende en onbekende contacten</string>
     <string name="title_advanced_avatars">Toon foto\'s contacten</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_circular">Toon ronde iconen</string>
+    <string name="title_advanced_color_saturation">Verzadiging</string>
+    <string name="title_advanced_color_value">Helderheid</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
@@ -238,8 +241,7 @@
     <string name="title_advanced_autoexpand">Berichten automatisch uitvouwen</string>
     <string name="title_advanced_expand_all">Automatisch alle gelezen berichten uitvouwen</string>
     <string name="title_advanced_expand_one">Vouw slechts één bericht per keer uit</string>
-    <string name="title_advanced_collapse_single">Eén bericht in een gesprek bij \'terug\' samenvouwen</string>
-    <string name="title_advanced_collapse_multiple">Meerdere berichten in een gesprek bij \'terug\' samenvouwen</string>
+    <string name="title_advanced_collapse_multiple">Vouw berichten in een gesprek met meerdere berichten bij \'terug\' samen</string>
     <string name="title_advanced_autoclose">Gesprekken automatisch sluiten</string>
     <string name="title_advanced_onclose">Bij het sluiten van een gesprek</string>
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>

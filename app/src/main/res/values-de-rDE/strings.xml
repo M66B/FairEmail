@@ -205,12 +205,15 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_cards">Karten anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>
     <string name="title_advanced_threading">Konversationsansicht</string>
+    <string name="title_advanced_indentation">Links/Rechts-Einrückung von empfangenen/gesendeten Nachrichten in Unterhaltungen</string>
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten in heller Schrift anzeigen</string>
     <string name="title_advanced_distinguish_contacts">Unterscheide Nachrichten nach bekannten und unbekannten Kontakten</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
     <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole benutzen</string>
+    <string name="title_advanced_color_saturation">Sättigung</string>
+    <string name="title_advanced_color_value">Helligkeit</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_subject_top">Zeige Betreff oberhalb des Absenders</string>
@@ -237,8 +240,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_one">Nur eine Nachricht zu jeder Zeit erweitern</string>
-    <string name="title_advanced_collapse_single">Einzelne Nachricht in einer Unterhaltung auf \'Zurück\' zusammenklappen</string>
-    <string name="title_advanced_collapse_multiple">Mehrere Nachrichten in einer Unterhaltung auf \'Zurück\' zusammenklappen</string>
+    <string name="title_advanced_collapse_multiple">Nachrichten in einer Unterhaltung mit mehreren Nachrichten auf \'zurück\' zusammenklappen</string>
     <string name="title_advanced_autoclose">Konversationen automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>

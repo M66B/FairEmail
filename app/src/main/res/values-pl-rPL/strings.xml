@@ -260,8 +260,6 @@
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
     <string name="title_advanced_expand_all">Automatycznie rozwiń wszystkie przeczytane wiadomości</string>
     <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>
-    <string name="title_advanced_collapse_single">Zwiń pojedynczą wiadomość w rozmowie przy \'wstecz\'</string>
-    <string name="title_advanced_collapse_multiple">Zwiń wiele wiadomości w rozmowie przy \'wstecz\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
     <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>

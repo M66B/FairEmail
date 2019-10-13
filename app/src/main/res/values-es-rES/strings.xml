@@ -238,8 +238,6 @@
     <string name="title_advanced_autoexpand">Expandir mensajes automáticamente</string>
     <string name="title_advanced_expand_all">Expandir automáticamente todos los mensajes leídos</string>
     <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
-    <string name="title_advanced_collapse_single">Colapsar un único mensaje en una conversación al ir \'atrás\'</string>
-    <string name="title_advanced_collapse_multiple">Colapsar varios mensajes en una conversación al ir \'atrás\'</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>

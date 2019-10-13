@@ -206,12 +206,15 @@
     <string name="title_advanced_cards">Afficher sous forme de cartes</string>
     <string name="title_advanced_date_header">Grouper par date</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
+    <string name="title_advanced_indentation">Décaler les messages reçus/envoyés vers la gauche/droite dans les conversations</string>
     <string name="title_advanced_highlight_unread">Surligner les messages non lus</string>
     <string name="title_advanced_distinguish_contacts">Faire la distinction entre les messages des contacts connus et inconnus</string>
     <string name="title_advanced_avatars">Afficher la photo des contacts</string>
     <string name="title_advanced_generated_icons">Afficher les icônes générées</string>
     <string name="title_advanced_identicons">Afficher les identicônes</string>
     <string name="title_advanced_circular">Afficher des icônes rondes</string>
+    <string name="title_advanced_color_saturation">Saturation</string>
+    <string name="title_advanced_color_value">Luminosité</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
     <string name="title_advanced_subject_top">Afficher l\'objet au dessus de l\'expéditeur</string>
@@ -238,8 +241,7 @@
     <string name="title_advanced_autoexpand">Développer automatiquement les messages</string>
     <string name="title_advanced_expand_all">Développer automatiquement tous les messages lus</string>
     <string name="title_advanced_expand_one">Développer un seul message à la fois</string>
-    <string name="title_advanced_collapse_single">Réduire un seul message dans une conversation en faisant « Retour »</string>
-    <string name="title_advanced_collapse_multiple">Réduire plusieurs messages dans une conversation en faisant « Retour »</string>
+    <string name="title_advanced_collapse_multiple">Réduire les messages dans une conversation avec plusieurs messages en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
     <string name="title_advanced_onclose">Lors de la fermeture d\'une conversation</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>

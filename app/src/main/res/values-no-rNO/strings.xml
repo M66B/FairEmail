@@ -206,6 +206,7 @@
     <string name="title_advanced_cards">Vis kort</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
     <string name="title_advanced_threading">Konversasjonstråder</string>
+    <string name="title_advanced_indentation">Venstre/høyre innrykk mottatt/sendt meldinger i samtaler</string>
     <string name="title_advanced_highlight_unread">Merk uleste meldinger</string>
     <string name="title_advanced_distinguish_contacts">Skille meldinger fra kjente og ukjente kontakter</string>
     <string name="title_advanced_avatars">Vis kontakt bilde</string>
@@ -238,8 +239,6 @@
     <string name="title_advanced_autoexpand">Utvid automatisk meldinger</string>
     <string name="title_advanced_expand_all">Utvid alle leste meldinger automatisk</string>
     <string name="title_advanced_expand_one">Utvid bare en melding om gangen</string>
-    <string name="title_advanced_collapse_single">Skjul enkeltmelding i en samtale med \'tilbake\'</string>
-    <string name="title_advanced_collapse_multiple">Skjul flere meldinger i en samtale med \'tilbake\'</string>
     <string name="title_advanced_autoclose">Lukk samtaler automatisk</string>
     <string name="title_advanced_onclose">Når du avslutter en samtale</string>
     <string name="title_advanced_autoread">Merk automatisk meldinger som leste ved flytting</string>
