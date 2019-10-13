@@ -517,8 +517,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (pos == RecyclerView.NO_POSITION)
                     return null;
 
-                TupleMessageEx prev = (pos > 0 ? adapter.getCurrentList().get(pos - 1) : null);
-                TupleMessageEx message = adapter.getCurrentList().get(pos);
+                TupleMessageEx prev = adapter.getItemAtPosition(pos - 1);
+                TupleMessageEx message = adapter.getItemAtPosition(pos);
                 if (pos > 0 && prev == null)
                     return null;
                 if (message == null)
