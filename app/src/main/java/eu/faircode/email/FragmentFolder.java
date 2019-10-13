@@ -416,6 +416,8 @@ public class FragmentFolder extends FragmentBase {
                             return true;
                         if (!Objects.equals(folder.display, display))
                             return true;
+                        if (!Objects.equals(folder.color, color))
+                            return true;
                         if (!Objects.equals(folder.unified, unified))
                             return true;
                         if (!Objects.equals(folder.navigation, navigation))
@@ -473,6 +475,7 @@ public class FragmentFolder extends FragmentBase {
                         create.download = download;
                         create.sync_days = sync_days;
                         create.keep_days = keep_days;
+                        create.auto_delete = auto_delete;
                         create.tbc = true;
                         db.folder().insertFolder(create);
                     } else {
