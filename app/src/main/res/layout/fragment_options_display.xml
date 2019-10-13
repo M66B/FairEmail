@@ -187,6 +187,81 @@
             app:layout_constraintTop_toBottomOf="@id/swIdenticons"
             app:switchPadding="12dp" />
 
+        <ImageView
+            android:id="@+id/ivRed"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintEnd_toStartOf="@+id/ivGreen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCircular" />
+
+        <ImageView
+            android:id="@+id/ivGreen"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintEnd_toStartOf="@+id/ivBlue"
+            app:layout_constraintStart_toEndOf="@id/ivRed"
+            app:layout_constraintTop_toBottomOf="@id/swCircular" />
+
+        <ImageView
+            android:id="@+id/ivBlue"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/baseline_person_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivGreen"
+            app:layout_constraintTop_toBottomOf="@id/swCircular" />
+
+        <TextView
+            android:id="@+id/tvSaturation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_color_saturation"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivRed" />
+
+        <SeekBar
+            android:id="@+id/sbSaturation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="0"
+            android:progress="50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSaturation" />
+
+        <TextView
+            android:id="@+id/tvBrightness"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_color_value"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sbSaturation" />
+
+        <SeekBar
+            android:id="@+id/sbBrightness"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="0"
+            android:progress="50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBrightness" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swNameEmail"
             android:layout_width="0dp"
@@ -195,7 +270,7 @@
             android:text="@string/title_advanced_name_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swCircular"
+            app:layout_constraintTop_toBottomOf="@id/sbBrightness"
             app:switchPadding="12dp" />
 
         <TextView

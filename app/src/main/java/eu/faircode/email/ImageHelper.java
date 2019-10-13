@@ -28,6 +28,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
@@ -64,10 +66,17 @@ class ImageHelper {
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "image");
 
-    static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, boolean dark) {
+    static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
         byte[] hash = getHash(email);
 
-        int color = Color.HSVToColor(127, new float[]{Math.abs(email.hashCode()) % 360, 1, 1});
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int saturation = prefs.getInt("saturation", 100);
+        int brightness = prefs.getInt("brightness", 100);
+
+        int color = Color.HSVToColor(new float[]{
+                Math.abs(email.hashCode()) % 360,
+                saturation / 100f,
+                brightness / 100f});
 
         Paint paint = new Paint();
         paint.setColor(color);
@@ -91,34 +100,43 @@ class ImageHelper {
         return bitmap;
     }
 
-    static Bitmap generateLetterIcon(@NonNull String email, int size, boolean dark) {
-        String text = null;
+    static Bitmap generateLetterIcon(@NonNull String email, int size, Context context) {
+        String letter = null;
         for (int i = 0; i < email.length(); i++) {
             char kar = email.charAt(i);
             if (Character.isAlphabetic(kar)) {
-                text = email.substring(i, i + 1).toUpperCase();
+                letter = email.substring(i, i + 1).toUpperCase();
                 break;
             }
         }
-        if (text == null)
+        if (letter == null)
             return null;
 
-        int color = Color.HSVToColor(127, new float[]{Math.abs(email.hashCode()) % 360, 1, 1});
+        float h = Math.abs(email.hashCode()) % 360f;
+        return generateLetterIcon(h, letter, size, context);
+    }
+
+    static Bitmap generateLetterIcon(float h, String letter, int size, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        float s = prefs.getInt("saturation", 100) / 100f;
+        float v = prefs.getInt("brightness", 100) / 100f;
+
+        int bg = Color.HSVToColor(new float[]{h, s, v});
+
+        double lum = ColorUtils.calculateLuminance(bg);
+        int fg = Color.HSVToColor(new float[]{0, 0, lum < 0.5 ? v : 0});
 
         Bitmap bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
-        canvas.drawColor(color);
-
-        double lum = ColorUtils.calculateLuminance(color);
+        canvas.drawColor(bg);
 
         Paint paint = new Paint();
-        paint.setColor(lum < 0.5 ? Color.WHITE : Color.BLACK);
+        paint.setColor(fg);
         paint.setTextSize(size / 2f);
         paint.setTypeface(Typeface.DEFAULT_BOLD);
 
-        canvas.drawText(
-                text,
-                size / 2f - paint.measureText(text) / 2,
+        canvas.drawText(letter,
+                size / 2f - paint.measureText(letter) / 2,
                 size / 2f - (paint.descent() + paint.ascent()) / 2, paint);
 
         return bitmap;
@@ -130,6 +148,43 @@ class ImageHelper {
         } catch (NoSuchAlgorithmException ignored) {
             return email.getBytes();
         }
+    }
+
+    static Bitmap makeCircular(Bitmap bitmap, Integer radius) {
+        if (bitmap == null)
+            return null;
+
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
+
+        Rect source;
+        if (w > h) {
+            int off = (w - h) / 2;
+            source = new Rect(off, 0, w - off, h);
+        } else if (w < h) {
+            int off = (h - w) / 2;
+            source = new Rect(0, off, w, h - off);
+        } else
+            source = new Rect(0, 0, w, h);
+
+        Rect dest = new Rect(0, 0, source.width(), source.height());
+
+        Bitmap round = Bitmap.createBitmap(source.width(), source.height(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(round);
+
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(Color.GRAY);
+        if (radius == null)
+            canvas.drawOval(new RectF(dest), paint); // round
+        else
+            canvas.drawRoundRect(new RectF(dest), radius, radius, paint); // rounded
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, source, dest, paint);
+
+        bitmap.recycle();
+        return round;
     }
 
     static Drawable decodeImage(final Context context, final long id, String source, boolean show, final TextView view) {

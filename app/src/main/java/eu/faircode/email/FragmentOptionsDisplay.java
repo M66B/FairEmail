@@ -20,7 +20,9 @@ package eu.faircode.email;
 */
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,7 +33,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -54,6 +58,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
     private SwitchCompat swCircular;
+    private ImageView ivRed;
+    private ImageView ivGreen;
+    private ImageView ivBlue;
+    private SeekBar sbSaturation;
+    private SeekBar sbBrightness;
     private SwitchCompat swNameEmail;
     private SwitchCompat swDistinguishContacts;
     private SwitchCompat swAuthentication;
@@ -77,7 +86,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "threading", "indentation", "highlight_unread",
-            "avatars", "generated_icons", "identicons", "circular", "name_email", "distinguish_contacts", "authentication",
+            "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness",
+            "name_email", "distinguish_contacts", "authentication",
             "subject_top", "subject_italic", "subject_ellipsize",
             "flags", "flags_background", "preview", "preview_italic", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color",
@@ -105,6 +115,11 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
         swCircular = view.findViewById(R.id.swCircular);
+        ivRed = view.findViewById(R.id.ivRed);
+        ivGreen = view.findViewById(R.id.ivGreen);
+        ivBlue = view.findViewById(R.id.ivBlue);
+        sbSaturation = view.findViewById(R.id.sbSaturation);
+        sbBrightness = view.findViewById(R.id.sbBrightness);
         swNameEmail = view.findViewById(R.id.swNameEmail);
         swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
         swAuthentication = view.findViewById(R.id.swAuthentication);
@@ -216,7 +231,46 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("circular", checked).apply();
+                updateColor();
                 ContactInfo.clearCache();
+            }
+        });
+
+        sbSaturation.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("saturation", progress).apply();
+                updateColor();
+                ContactInfo.clearCache();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        sbBrightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("brightness", progress).apply();
+                updateColor();
+                ContactInfo.clearCache();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
             }
         });
 
@@ -426,6 +480,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());
         swCircular.setChecked(prefs.getBoolean("circular", true));
+        sbSaturation.setProgress(prefs.getInt("saturation", 100));
+        sbBrightness.setProgress(prefs.getInt("brightness", 100));
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
@@ -454,6 +510,29 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
         swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
         swActionbar.setChecked(prefs.getBoolean("actionbar", true));
+
+        updateColor();
+    }
+
+    private void updateColor() {
+        Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean circular = prefs.getBoolean("circular", true);
+
+        int size = Helper.dp2pixels(context, 36);
+        Integer radius = (circular ? null : Helper.dp2pixels(context, 3));
+
+        Bitmap red = ImageHelper.generateLetterIcon(0f, "A", size, context);
+        Bitmap green = ImageHelper.generateLetterIcon(120f, "B", size, context);
+        Bitmap blue = ImageHelper.generateLetterIcon(240f, "C", size, context);
+
+        red = ImageHelper.makeCircular(red, radius);
+        green = ImageHelper.makeCircular(green, radius);
+        blue = ImageHelper.makeCircular(blue, radius);
+
+        ivRed.setImageBitmap(red);
+        ivGreen.setImageBitmap(green);
+        ivBlue.setImageBitmap(blue);
     }
 
     public static class FragmentDialogTheme extends FragmentDialogBase {

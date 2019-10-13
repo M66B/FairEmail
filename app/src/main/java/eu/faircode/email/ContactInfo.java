@@ -27,13 +27,6 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
@@ -168,54 +161,20 @@ public class ContactInfo {
         boolean identicon = false;
         if (info.bitmap == null) {
             int dp = Helper.dp2pixels(context, 96);
-            boolean dark = Helper.isDarkTheme(context);
             boolean generated = prefs.getBoolean("generated_icons", true);
             if (generated) {
                 boolean identicons = prefs.getBoolean("identicons", false);
                 if (identicons) {
                     identicon = true;
-                    info.bitmap = ImageHelper.generateIdenticon(key, dp, 5, dark);
+                    info.bitmap = ImageHelper.generateIdenticon(key, dp, 5, context);
                 } else
-                    info.bitmap = ImageHelper.generateLetterIcon(key, dp, dark);
+                    info.bitmap = ImageHelper.generateLetterIcon(key, dp, context);
             }
         }
 
         boolean circular = prefs.getBoolean("circular", true);
-        if (info.bitmap != null) {
-            int w = info.bitmap.getWidth();
-            int h = info.bitmap.getHeight();
-
-            Rect source;
-            if (w > h) {
-                int off = (w - h) / 2;
-                source = new Rect(off, 0, w - off, h);
-            } else if (w < h) {
-                int off = (h - w) / 2;
-                source = new Rect(0, off, w, h - off);
-            } else
-                source = new Rect(0, 0, w, h);
-
-            Rect dest = new Rect(0, 0, source.width(), source.height());
-
-            Bitmap round = Bitmap.createBitmap(source.width(), source.height(), Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(round);
-
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            canvas.drawARGB(0, 0, 0, 0);
-            paint.setColor(Color.GRAY);
-            if (circular && !identicon)
-                canvas.drawOval(new RectF(dest), paint);
-            else {
-                float radius = Helper.dp2pixels(context, 3);
-                canvas.drawRoundRect(new RectF(dest), radius, radius, paint);
-            }
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            canvas.drawBitmap(info.bitmap, source, dest, paint);
-
-            info.bitmap.recycle();
-            info.bitmap = round;
-        }
+        info.bitmap = ImageHelper.makeCircular(info.bitmap,
+                circular && !identicon ? null : Helper.dp2pixels(context, 3));
 
         if (info.displayName == null)
             info.displayName = address.getPersonal();
