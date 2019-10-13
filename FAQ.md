@@ -1490,41 +1490,56 @@ Messages will automatically be marked read on expanding, unless this was disable
 **(71) How do I use filter rules?**
 
 You can edit filter rules by long pressing a folder in the folder list.
-The rules will be applied to new messages received in the folder, not to existing messages.
+
+New rules will be applied to new messages received in the folder, not to existing messages.
+You can check the rule and apply the rule to existing messages or, alternatively, long press the rule in the rule list and select *Execute now*.
 
 You'll need to give a rule a name and you'll need to define the order in which a rule should be executed relative to other rules.
 
 You can disable a rule and you can stop processing other rules after a rule has been executed.
 
-All the conditions of a rule need to be true for a filter rule to be executed.
-Conditions are optional, but there needs to be at least one condition.
+The following rule conditions are available:
+
+* Sender contains
+* Recipient contains
+* Subject contains
+* Has attachments
+* Header contains
+* Time between
+
+All the conditions of a rule need to be true for the rule action to be executed.
+All conditions are optional, but there needs to be at least one condition, to prevent matching all messages.
+Matching all messages is still possible by using a regex for the sender or recipient address, if you really want to.
+
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
-
-In the *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 You can select one of these actions to apply to matching messages:
 
 * No action (useful for *not*)
 * Mark as read
 * Mark as unread
+* Hide
 * Suppress notification
 * Snooze
 * Add star
+* Add keyword
 * Move
 * Copy (Gmail: label)
 * Reply template
 * Automation (Tasker, etc)
 
-Filter rules are applied directly after the message header has been fetched, before the message text has been downloaded,
-so it is not possible to apply filter conditions and actions to the message text.
+Rules are applied directly after the message header has been fetched, but before the message text has been downloaded,
+so it is not possible to apply conditions and actions to the message text.
 Note that large message texts are downloaded on demand on a metered connection to save data.
 
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
-it is not possible to preview which messages would match the rule conditions.
+it is not possible to preview which messages would match the header rule condition.
 
-Using filter rules is a pro feature.
+In the *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
+
+Using rules is a pro feature.
 
 <br />
 
