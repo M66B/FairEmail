@@ -212,6 +212,8 @@
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
+    <string name="title_advanced_color_saturation">Mætning</string>
+    <string name="title_advanced_color_value">Lysstyrke</string>
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
@@ -238,6 +240,7 @@
     <string name="title_advanced_autoexpand">Auto-udvid beskeder</string>
     <string name="title_advanced_expand_all">Auto-udvid alle læste beskeder</string>
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
+    <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
@@ -622,6 +625,7 @@
     <string name="title_rule_sender_known">Afsender er en kontakt</string>
     <string name="title_rule_recipient">Modtager indeholder</string>
     <string name="title_rule_subject">Emne indeholder</string>
+    <string name="title_rule_attachments">Har vedhæftninger</string>
     <string name="title_rule_header">Overskrift indeholder</string>
     <string name="title_rule_time">Tid mellem</string>
     <string name="title_rule_regex">Regex</string>

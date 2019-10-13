@@ -626,6 +626,7 @@
     <string name="title_rule_sender_known">L\'expéditeur est un contact</string>
     <string name="title_rule_recipient">Le destinataire contient</string>
     <string name="title_rule_subject">L’objet contient</string>
+    <string name="title_rule_attachments">A des pièces jointes</string>
     <string name="title_rule_header">L’en-tête contient</string>
     <string name="title_rule_time">Heure comprise entre</string>
     <string name="title_rule_regex">Expression régulière</string>

@@ -625,6 +625,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_rule_sender_known">Mail-Adresse des Absender ist bekannt</string>
     <string name="title_rule_recipient">Empfänger enthält</string>
     <string name="title_rule_subject">Betreff enthält</string>
+    <string name="title_rule_attachments">Anhang vorhanden</string>
     <string name="title_rule_header">Kopfzeile enthält</string>
     <string name="title_rule_time">Zeit zwischen</string>
     <string name="title_rule_regex">Regex</string>

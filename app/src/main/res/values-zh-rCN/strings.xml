@@ -614,6 +614,7 @@
     <string name="title_rule_sender_known">发件人是联系人</string>
     <string name="title_rule_recipient">收件人包含</string>
     <string name="title_rule_subject">主题包含</string>
+    <string name="title_rule_attachments">有附件</string>
     <string name="title_rule_header">邮件头包含</string>
     <string name="title_rule_time">时间间隔</string>
     <string name="title_rule_regex">正则表达式</string>

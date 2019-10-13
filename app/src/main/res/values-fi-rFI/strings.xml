@@ -626,6 +626,7 @@
     <string name="title_rule_sender_known">Lähettäjä on yhteystiedoissa</string>
     <string name="title_rule_recipient">Vastaanottaja sisältää</string>
     <string name="title_rule_subject">Aihe sisältää</string>
+    <string name="title_rule_attachments">Sisältää liitteitä</string>
     <string name="title_rule_header">Tunnistetiedot sisältävät</string>
     <string name="title_rule_time">Aika välillä</string>
     <string name="title_rule_regex">Regex</string>

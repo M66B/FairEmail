@@ -626,6 +626,7 @@
     <string name="title_rule_sender_known">Afzender is een contact</string>
     <string name="title_rule_recipient">Ontvanger bevat</string>
     <string name="title_rule_subject">Onderwerp bevat</string>
+    <string name="title_rule_attachments">Heeft bijlagen</string>
     <string name="title_rule_header">De kop bevat</string>
     <string name="title_rule_time">Tijd tussen</string>
     <string name="title_rule_regex">Regex</string>

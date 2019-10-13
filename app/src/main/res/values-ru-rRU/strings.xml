@@ -648,6 +648,7 @@
     <string name="title_rule_sender_known">Отправитель - это контакт</string>
     <string name="title_rule_recipient">\"Получатель\" содержит</string>
     <string name="title_rule_subject">\"Тема\" содержит</string>
+    <string name="title_rule_attachments">Имеет вложения</string>
     <string name="title_rule_header">Заголовок содержит</string>
     <string name="title_rule_time">Время между</string>
     <string name="title_rule_regex">Регулярное выражение</string>

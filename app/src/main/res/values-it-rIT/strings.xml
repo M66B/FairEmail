@@ -625,6 +625,7 @@
     <string name="title_rule_sender_known">Il mittente è un contatto</string>
     <string name="title_rule_recipient">Il destinatario contiene</string>
     <string name="title_rule_subject">L\'oggetto contiene</string>
+    <string name="title_rule_attachments">Ha allegati</string>
     <string name="title_rule_header">L\'intestazione contiene</string>
     <string name="title_rule_time">Tempo tra</string>
     <string name="title_rule_regex">Regex</string>

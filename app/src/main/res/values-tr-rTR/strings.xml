@@ -626,6 +626,7 @@
     <string name="title_rule_sender_known">Gönderen rehberden birisi</string>
     <string name="title_rule_recipient">Alıcı içeriği</string>
     <string name="title_rule_subject">Konu içeriği</string>
+    <string name="title_rule_attachments">Ekleri var</string>
     <string name="title_rule_header">Başlık içeriği</string>
     <string name="title_rule_time">Aradaki zaman</string>
     <string name="title_rule_regex">Düzenli ifade</string>
