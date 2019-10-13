@@ -44,6 +44,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
+import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.imap.IMAPFolder;
 
 import java.text.DateFormat;
@@ -905,8 +906,12 @@ public class ServiceSynchronize extends ServiceBase {
                                 db.folder().deleteFolder(folder.id);
                                 continue;
                             } catch (MessagingException ex) {
-                                Log.w(folder.name, ex);
+                                Log.e(folder.name, ex);
                                 db.folder().setFolderState(folder.id, null);
+
+                                if (ex.getCause() instanceof BadCommandException)
+                                    throw ex;
+
                                 db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
                                 continue;
                             } catch (Throwable ex) {

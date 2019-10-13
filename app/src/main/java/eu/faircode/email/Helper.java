@@ -75,6 +75,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
@@ -493,6 +494,30 @@ public class Helper {
                     ex.getCause().getMessage() != null &&
                     (ex.getCause().getMessage().contains("Read error") ||
                             ex.getCause().getMessage().contains("Write error")))
+                return null;
+
+            // javax.mail.MessagingException: AU3 BAD User is authenticated but not connected.;
+            //   nested exception is:
+            //  com.sun.mail.iap.BadCommandException: AU3 BAD User is authenticated but not connected.
+            // javax.mail.MessagingException: AU3 BAD User is authenticated but not connected.;
+            //   nested exception is:
+            // 	com.sun.mail.iap.BadCommandException: AU3 BAD User is authenticated but not connected.
+            // 	at com.sun.mail.imap.IMAPFolder.logoutAndThrow(SourceFile:1156)
+            // 	at com.sun.mail.imap.IMAPFolder.open(SourceFile:1063)
+            // 	at com.sun.mail.imap.IMAPFolder.open(SourceFile:977)
+            // 	at eu.faircode.email.ServiceSynchronize.monitorAccount(SourceFile:890)
+            // 	at eu.faircode.email.ServiceSynchronize.access$1500(SourceFile:85)
+            // 	at eu.faircode.email.ServiceSynchronize$7$1.run(SourceFile:627)
+            // 	at java.lang.Thread.run(Thread.java:764)
+            // Caused by: com.sun.mail.iap.BadCommandException: AU3 BAD User is authenticated but not connected.
+            // 	at com.sun.mail.iap.Protocol.handleResult(SourceFile:415)
+            // 	at com.sun.mail.imap.protocol.IMAPProtocol.select(SourceFile:1230)
+            // 	at com.sun.mail.imap.IMAPFolder.open(SourceFile:1034)
+
+            if (ex instanceof MessagingException &&
+                    ex.getCause() instanceof BadCommandException &&
+                    ex.getCause().getMessage() != null &&
+                    ex.getCause().getMessage().contains("User is authenticated but not connected"))
                 return null;
 
             if (ex instanceof IOException &&
