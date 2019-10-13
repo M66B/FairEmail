@@ -2151,7 +2151,8 @@ class Core {
                 Log.i(folder.name + " added id=" + message.id + " uid=" + message.uid);
 
                 int sequence = 1;
-                for (EntityAttachment attachment : parts.getAttachments()) {
+                List<EntityAttachment> attachments = parts.getAttachments();
+                for (EntityAttachment attachment : attachments) {
                     Log.i(folder.name + " attachment seq=" + sequence + " " + attachment);
                     attachment.message = message.id;
                     attachment.sequence = sequence++;
@@ -2353,6 +2354,7 @@ class Core {
     }
 
     private static void runRules(Context context, Message imessage, EntityMessage message, List<EntityRule> rules) {
+
         if (!ActivityBilling.isPro(context))
             return;
 
