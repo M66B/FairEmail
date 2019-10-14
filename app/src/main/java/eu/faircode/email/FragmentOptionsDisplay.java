@@ -551,28 +551,26 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         boolean circular = prefs.getBoolean("circular", true);
 
         int size = Helper.dp2pixels(context, 36);
-        byte[] hash = ImageHelper.getHash("test@example.com");
+        byte[] ahash = ImageHelper.getHash("abc@example.com");
+        byte[] bhash = ImageHelper.getHash("bcd@example.com");
+        byte[] chash = ImageHelper.getHash("cde@example.com");
         Integer radius = (circular && !identicons ? null : Helper.dp2pixels(context, 3));
 
-        Bitmap red = identicons
-                ? ImageHelper.generateIdenticon(hash, 0f, size, 5, context)
-                : ImageHelper.generateLetterIcon("A", 0f, size, context);
+        Bitmap red = (identicons
+                ? ImageHelper.generateIdenticon(ahash, 0f, size, 5, context)
+                : ImageHelper.generateLetterIcon("A", 0f, size, context));
 
-        Bitmap green = identicons
-                ? ImageHelper.generateIdenticon(hash, 120f, size, 5, context)
-                : ImageHelper.generateLetterIcon("B", 120f, size, context);
+        Bitmap green = (identicons
+                ? ImageHelper.generateIdenticon(bhash, 120f, size, 5, context)
+                : ImageHelper.generateLetterIcon("B", 120f, size, context));
 
-        Bitmap blue = identicons
-                ? ImageHelper.generateIdenticon(hash, 240f, size, 5, context)
-                : ImageHelper.generateLetterIcon("C", 240f, size, context);
+        Bitmap blue = (identicons
+                ? ImageHelper.generateIdenticon(chash, 240f, size, 5, context)
+                : ImageHelper.generateLetterIcon("C", 240f, size, context));
 
-        red = ImageHelper.makeCircular(red, radius);
-        green = ImageHelper.makeCircular(green, radius);
-        blue = ImageHelper.makeCircular(blue, radius);
-
-        ivRed.setImageBitmap(red);
-        ivGreen.setImageBitmap(green);
-        ivBlue.setImageBitmap(blue);
+        ivRed.setImageBitmap(ImageHelper.makeCircular(red, radius));
+        ivGreen.setImageBitmap(ImageHelper.makeCircular(green, radius));
+        ivBlue.setImageBitmap(ImageHelper.makeCircular(blue, radius));
     }
 
     public static class FragmentDialogTheme extends FragmentDialogBase {
