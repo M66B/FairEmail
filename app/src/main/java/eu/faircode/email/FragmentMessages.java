@@ -1634,6 +1634,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putLong("id", message.id);
             args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
             args.putLong("target", target);
+            args.putLong("busy", new Date().getTime() + UNDO_TIMEOUT * 2);
 
             new SimpleTask<ArrayList<MessageTarget>>() {
                 @Override
@@ -1641,6 +1642,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     long id = args.getLong("id");
                     boolean thread = args.getBoolean("thread");
                     long tid = args.getLong("target");
+                    long busy = args.getLong("busy");
 
                     ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -1662,6 +1664,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.thread, threading && thread ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
                             result.add(new MessageTarget(threaded, account, target));
+                            db.message().setMessageUiBusy(threaded.id, busy);
                             db.message().setMessageUiHide(threaded.id, true);
                             // Prevent new message notification on undo
                             db.message().setMessageUiIgnored(threaded.id, true);
@@ -3532,6 +3535,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
                             for (MessageTarget target : result) {
                                 Log.i("Move undo id=" + target.id);
+                                db.message().setMessageUiBusy(target.id, null);
                                 db.message().setMessageUiHide(target.id, false);
                             }
 
@@ -3580,6 +3584,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     continue;
 
                                 Log.i("Move id=" + id + " target=" + target.folder.name);
+                                db.message().setMessageUiBusy(target.id, null);
                                 EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
                             }
 
