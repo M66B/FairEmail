@@ -42,27 +42,6 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         setDownloadListener(this);
         setOnLongClickListener(this);
 
-        setWebViewClient(new WebViewClient() {
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                Log.i("Open url=" + url);
-                return intf.onOpenLink(url);
-            }
-
-            @Override
-            public void onScaleChanged(WebView view, float oldScale, float newScale) {
-                Log.i("Changed scale=" + newScale);
-                intf.onScaleChanged(newScale);
-            }
-        });
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            setOnScrollChangeListener(new View.OnScrollChangeListener() {
-                @Override
-                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    intf.onScrollChange(scrollX, scrollY);
-                }
-            });
-
         WebSettings settings = getSettings();
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
@@ -106,6 +85,28 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         settings.setBlockNetworkImage(!show_images);
 
         this.intf = intf;
+
+        setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Log.i("Open url=" + url);
+                return intf.onOpenLink(url);
+            }
+
+            @Override
+            public void onScaleChanged(WebView view, float oldScale, float newScale) {
+                Log.i("Changed scale=" + newScale);
+                intf.onScaleChanged(newScale);
+            }
+        });
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    Log.i("Scroll (x,y)=" + scrollX + "," + scrollY);
+                    intf.onScrollChange(scrollX, scrollY);
+                }
+            });
     }
 
     @Override
