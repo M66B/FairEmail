@@ -222,6 +222,8 @@
     <string name="title_advanced_generated_icons">Arată pictograme cu literă</string>
     <string name="title_advanced_identicons">Arată pictograme generate pe baza identității</string>
     <string name="title_advanced_circular">Arată pictograme rotunde</string>
+    <string name="title_advanced_color_saturation">Saturație</string>
+    <string name="title_advanced_color_value">Luminozitate</string>
     <string name="title_advanced_name_email">Arată nume și adrese de e-mail</string>
     <string name="title_advanced_authentication">Arată o avertizare atunci când serverul destinatar nu a putut autentifica mesajul</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
@@ -246,6 +248,7 @@
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_reversed">Inversează direcția de navigare</string>
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
+    <string name="title_advanced_expand_all">Extinde automat toate mesajele citate</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
     <string name="title_advanced_onclose">La închiderea conversației</string>
@@ -322,6 +325,7 @@
     <string name="title_select">Selectaţi &#8230;</string>
     <string name="title_identity_name">Numele dumneavoastră</string>
     <string name="title_identity_email">Adresa dvs. de e-mail</string>
+    <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor dosarului și ale contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_regex">Regex pentru găsirea adresei editate</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
@@ -342,6 +346,7 @@
     <string name="title_account_right">Glisare spre dreapta</string>
     <string name="title_domain">Nume domeniu</string>
     <string name="title_autoconfig">Obține setări</string>
+    <string name="title_aliases">Aliasuri</string>
     <string name="title_provider">Furnizor</string>
     <string name="title_custom">Personalizat</string>
     <string name="title_host">Nume gazdă</string>
@@ -439,6 +444,8 @@
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
     <string name="title_unseen">Marcare ca necitit</string>
+    <string name="title_hide">Ascunde</string>
+    <string name="title_unhide">Arată</string>
     <string name="title_flag">Adaugă stea</string>
     <string name="title_flag_color">Stea colorată &#8230;</string>
     <string name="title_unflag">Elimină stea</string>
@@ -489,6 +496,7 @@
     <string name="title_no_connection">Sincronizarea se va face la următoarea conexiune a contului</string>
     <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_no_format">Mesajul primit inițial va fi inclus</string>
+    <string name="title_no_image">Imaginea nu a putut fi decodată</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
     <string name="title_attachment_saved">Atașament salvat</string>
@@ -545,6 +553,8 @@
     <string name="title_media_toolbar">Bară atașare</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
+    <string name="title_edit_plain_text">Editați ca text simplu</string>
+    <string name="title_edit_formatted_text">Editați ca text reformatat</string>
     <string name="title_send_plain_text">Doar text simplu</string>
     <string name="title_send_receipt">Solicitare confirmare livrare/citire</string>
     <string name="title_send_receipt_remark">Majoritatea furnizorilor și clienților de email ignoră cererile de confirmare</string>
@@ -579,10 +589,12 @@
     <string name="title_sort_on_sender">Expeditor</string>
     <string name="title_sort_on_subject">Subiect</string>
     <string name="title_sort_on_size">Mărime</string>
+    <string name="title_sort_on_hidden">Ascuns</string>
     <string name="title_sort_ascending">Întâi cele mai vechi</string>
     <string name="title_filter">Exclude</string>
     <string name="title_filter_seen">Citit</string>
     <string name="title_filter_unflagged">Fără stea</string>
+    <string name="title_filter_hidden">Ascuns</string>
     <string name="title_filter_duplicates">Duplicate</string>
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
@@ -600,9 +612,11 @@
     <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>
+    <string name="title_rule_hide">Ascunde</string>
     <string name="title_rule_ignore">Suprimă notificare</string>
     <string name="title_rule_snooze">Amână</string>
     <string name="title_rule_flag">Adaugă stea</string>
+    <string name="title_rule_keyword">Adăugă cuvânt cheie</string>
     <string name="title_rule_move">Mută</string>
     <string name="title_rule_copy">Copiere (etichetă)</string>
     <string name="title_rule_answer">Răspunde</string>
@@ -617,6 +631,7 @@
     <string name="title_rule_sender_known">Expeditorul este un contact</string>
     <string name="title_rule_recipient">Destinatarul conține</string>
     <string name="title_rule_subject">Subiectul conține</string>
+    <string name="title_rule_attachments">Are atașament</string>
     <string name="title_rule_header">Antetul conține</string>
     <string name="title_rule_time">Interval de timp</string>
     <string name="title_rule_regex">Expresie regulată (regex)</string>
@@ -732,6 +747,7 @@
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_contact_actions">Atingeți lung pentru opțiuni</string>
     <string name="title_open_link">Deschide legătura</string>
+    <string name="title_different_link">Titlul legăturii este diferit de adresa legăturii</string>
     <string name="title_secure_link">Securizează adresa</string>
     <string name="title_link_secured">Adresa este sigură</string>
     <string name="title_sanitize_link">Elimină parametrii de urmărire</string>
@@ -770,6 +786,7 @@
     <string name="title_minutes">Minute</string>
     <string name="title_dismiss">Renunță</string>
     <string name="title_snooze_now">Amână</string>
+    <string name="title_loading">Se încarcă &#8230;</string>
     <string name="title_icalendar_accept">Acceptă</string>
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>

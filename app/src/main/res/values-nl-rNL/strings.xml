@@ -215,6 +215,7 @@
     <string name="title_advanced_circular">Toon ronde iconen</string>
     <string name="title_advanced_color_saturation">Verzadiging</string>
     <string name="title_advanced_color_value">Helderheid</string>
+    <string name="title_advanced_color_threshold">Drempel letterkleur</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>

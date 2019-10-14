@@ -214,6 +214,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_circular">Runde Symbole benutzen</string>
     <string name="title_advanced_color_saturation">Sättigung</string>
     <string name="title_advanced_color_value">Helligkeit</string>
+    <string name="title_advanced_color_threshold">Schwellenwert für Buchstabenfarbe</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_subject_top">Zeige Betreff oberhalb des Absenders</string>
