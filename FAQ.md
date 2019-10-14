@@ -73,6 +73,8 @@ Related questions:
 * ~~Remind to attach files~~
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * Search for settings
+* Notification move action
+* Unified starred messages view
 
 Anything on this list is in random order and *might* be added in the near future.
 
