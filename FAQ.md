@@ -499,8 +499,14 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 
 Identities represent email addresses you are sending *from*.
 
-Some providers allow you to have multiple email aliases.
-You can configure these by setting the email address field to the alias address and setting the user name field to your main email address.
+Some providers allow you to have multiple aliases.
+You can configure these by setting the email address field of an additional identity to the alias address
+and setting the user name field to your main email address.
+
+Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message,
+if your provider allows this.
+
+FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
 <br />
 
