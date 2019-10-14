@@ -1849,7 +1849,7 @@ class Core {
                                 istore, ifolder, (MimeMessage) isub[j],
                                 false, download,
                                 rules, state);
-                        ids[from + j] = message.id;
+                        ids[from + j] = (message == null ? null : message.id);
                     } catch (MessageRemovedException ex) {
                         Log.w(folder.name, ex);
                     } catch (FolderClosedException ex) {

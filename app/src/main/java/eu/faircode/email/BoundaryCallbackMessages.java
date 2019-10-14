@@ -457,7 +457,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                     rules, null);
                             found++;
                         }
-                        db.message().setMessageFound(message.account, message.thread);
+                        if (message != null)
+                            db.message().setMessageFound(message.account, message.thread);
                     } catch (MessageRemovedException ex) {
                         Log.w(browsable.name + " boundary server", ex);
                     } catch (FolderClosedException ex) {
