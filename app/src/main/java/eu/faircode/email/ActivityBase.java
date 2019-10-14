@@ -105,6 +105,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
+        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
+            finish();
+            startActivity(
+                    new Intent(this, ActivityMain.class)
+                            .putExtra("intent", intent));
+        }
+
         super.onCreate(savedInstanceState);
     }
 
@@ -134,12 +141,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             Log.i("Contacts permission=" + contacts);
             finish();
             startActivity(getIntent());
-        } else if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
-            Intent intent = getIntent();
-            finish();
-            startActivity(
-                    new Intent(this, ActivityMain.class)
-                            .putExtra("intent", intent));
         }
 
         super.onResume();
