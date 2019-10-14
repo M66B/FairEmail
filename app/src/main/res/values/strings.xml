@@ -252,6 +252,7 @@
     <string name="title_advanced_circular">Show round icons</string>
     <string name="title_advanced_color_saturation">Saturation</string>
     <string name="title_advanced_color_value">Brightness</string>
+    <string name="title_advanced_color_threshold">Threshold letter color</string>
     <string name="title_advanced_name_email">Show names and email addresses</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
     <string name="title_advanced_subject_top">Show subject above sender</string>

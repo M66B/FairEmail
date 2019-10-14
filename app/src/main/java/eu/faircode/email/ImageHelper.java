@@ -124,6 +124,7 @@ class ImageHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         float s = prefs.getInt("saturation", 100) / 100f;
         float v = prefs.getInt("brightness", 100) / 100f;
+        float t = prefs.getInt("threshold", 50) / 100f;
 
         int bg = Color.HSVToColor(new float[]{h, s, v});
         double lum = ColorUtils.calculateLuminance(bg);
@@ -133,7 +134,7 @@ class ImageHelper {
         canvas.drawColor(bg);
 
         Paint paint = new Paint();
-        paint.setColor(lum < 0.5 ? Color.WHITE : Color.BLACK);
+        paint.setColor(lum < t ? Color.WHITE : Color.BLACK);
         paint.setTextSize(size / 2f);
         paint.setTypeface(Typeface.DEFAULT_BOLD);
 

@@ -63,6 +63,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private ImageView ivBlue;
     private SeekBar sbSaturation;
     private SeekBar sbBrightness;
+    private SeekBar sbThreshold;
     private SwitchCompat swNameEmail;
     private SwitchCompat swDistinguishContacts;
     private SwitchCompat swAuthentication;
@@ -86,7 +87,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "theme", "startup", "cards", "date", "threading", "indentation", "highlight_unread",
-            "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness",
+            "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "subject_italic", "subject_ellipsize",
             "flags", "flags_background", "preview", "preview_italic", "addresses", "attachments_alt",
@@ -120,6 +121,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         ivBlue = view.findViewById(R.id.ivBlue);
         sbSaturation = view.findViewById(R.id.sbSaturation);
         sbBrightness = view.findViewById(R.id.sbBrightness);
+        sbThreshold = view.findViewById(R.id.sbThreshold);
         swNameEmail = view.findViewById(R.id.swNameEmail);
         swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
         swAuthentication = view.findViewById(R.id.swAuthentication);
@@ -217,6 +219,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 swIdenticons.setEnabled(checked);
                 sbSaturation.setEnabled(swGeneratedIcons.isChecked());
                 sbBrightness.setEnabled(swGeneratedIcons.isChecked());
+                sbThreshold.setEnabled(swGeneratedIcons.isChecked());
                 ContactInfo.clearCache();
             }
         });
@@ -261,6 +264,25 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 prefs.edit().putInt("brightness", progress).apply();
+                updateColor();
+                ContactInfo.clearCache();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+        });
+
+        sbThreshold.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("threshold", progress).apply();
                 updateColor();
                 ContactInfo.clearCache();
             }
@@ -482,10 +504,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swIdenticons.setChecked(prefs.getBoolean("identicons", false));
         swIdenticons.setEnabled(swGeneratedIcons.isChecked());
         swCircular.setChecked(prefs.getBoolean("circular", true));
+
         sbSaturation.setProgress(prefs.getInt("saturation", 100));
         sbSaturation.setEnabled(swGeneratedIcons.isChecked());
         sbBrightness.setProgress(prefs.getInt("brightness", 100));
         sbBrightness.setEnabled(swGeneratedIcons.isChecked());
+        sbThreshold.setProgress(prefs.getInt("threshold", 50));
+        sbThreshold.setEnabled(swGeneratedIcons.isChecked());
+
         swNameEmail.setChecked(prefs.getBoolean("name_email", false));
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));

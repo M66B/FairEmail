@@ -235,7 +235,7 @@
             android:layout_height="wrap_content"
             android:max="100"
             android:min="0"
-            android:progress="50"
+            android:progress="100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSaturation" />
@@ -258,10 +258,33 @@
             android:layout_height="wrap_content"
             android:max="100"
             android:min="0"
-            android:progress="50"
+            android:progress="100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBrightness" />
+
+        <TextView
+            android:id="@+id/tvThreshold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_color_threshold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sbBrightness" />
+
+        <SeekBar
+            android:id="@+id/sbThreshold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:min="0"
+            android:progress="50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvThreshold" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swNameEmail"
@@ -271,7 +294,7 @@
             android:text="@string/title_advanced_name_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sbBrightness"
+            app:layout_constraintTop_toBottomOf="@id/sbThreshold"
             app:switchPadding="12dp" />
 
         <TextView
