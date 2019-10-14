@@ -342,16 +342,26 @@ public class HtmlHelper {
 
         // Images
         for (Element img : document.select("img")) {
+            String alt = img.attr("alt");
+            String src = img.attr("src");
+            String tracking = img.attr("tracking");
+
             if (!show_images) {
-                String alt = img.attr("alt");
                 if (!TextUtils.isEmpty(alt)) {
                     img.append("&nbsp;");
-                    img.appendText(alt);
+                    if (TextUtils.isEmpty(tracking))
+                        img.appendText(alt);
+                    else {
+                        Element a = document.createElement("a");
+                        a.attr("href", tracking);
+                        a.text(alt);
+                        img.appendChild(a);
+                    }
                 }
             }
 
             // Annotate source with width and height
-            if (img.hasAttr("src")) {
+            if (!TextUtils.isEmpty(src)) {
                 int width = 0;
                 int height = 0;
 
@@ -370,10 +380,8 @@ public class HtmlHelper {
                         break;
 
                 if (width != 0 || height != 0) {
-                    String src = img.attr("src");
-                    String tracking = img.attr("tracking");
                     ImageHelper.AnnotatedSource a = new ImageHelper.AnnotatedSource(
-                            src, width, height, "true".equals(tracking));
+                            src, width, height, !TextUtils.isEmpty(tracking));
                     img.attr("src", a.getAnnotated());
                 }
             }
@@ -510,7 +518,7 @@ public class HtmlHelper {
             img.removeAttr("tracking");
             String src = img.attr("src");
             if (!TextUtils.isEmpty(src) && isTrackingPixel(img)) {
-                Uri uri = Uri.parse(img.attr("src"));
+                Uri uri = Uri.parse(src);
                 String host = uri.getHost();
                 if (host == null || !hosts.contains(host)) {
                     img.attr("src", sb.toString());
@@ -518,7 +526,7 @@ public class HtmlHelper {
                     img.attr("height", "24");
                     img.attr("width", "24");
                     img.attr("style", "display:block !important; width:24px !important; height:24px !important;");
-                    img.attr("tracking", "true");
+                    img.attr("tracking", src);
                 }
             }
         }
