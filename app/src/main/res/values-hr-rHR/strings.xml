@@ -216,12 +216,16 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_cards">Prikaži kartice</string>
     <string name="title_advanced_date_header">Grupiraj po datumu</string>
     <string name="title_advanced_threading">Prikaz razgovora</string>
+    <string name="title_advanced_indentation">Uvlaka primljenih/poslanih poruka u razgovorima prema lijevo/desno</string>
     <string name="title_advanced_highlight_unread">Označiti nepročitane poruke</string>
     <string name="title_advanced_distinguish_contacts">Razlikovati poruke poznatih i nepoznatih kontakata</string>
     <string name="title_advanced_avatars">Prikaži fotografije kontakata</string>
     <string name="title_advanced_generated_icons">Prikaži generirane ikone</string>
     <string name="title_advanced_identicons">Pokaži identitete</string>
     <string name="title_advanced_circular">Pokaži okrugle ikone</string>
+    <string name="title_advanced_color_saturation">Saturacija</string>
+    <string name="title_advanced_color_value">Svjetlost</string>
+    <string name="title_advanced_color_threshold">Prag za boju slova</string>
     <string name="title_advanced_name_email">Prikažite imena i adrese e-pošte</string>
     <string name="title_advanced_authentication">Pokaži upozorenje kada primateljski server nije mogao provjeriti autentičnost poruke</string>
     <string name="title_advanced_subject_top">Pokaži predmet iznad pošiljatelja</string>
@@ -246,7 +250,9 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_swipenav">Prijeđite prstom ulijevo / udesno da biste prešli na sljedeći / prethodni razgovor</string>
     <string name="title_advanced_reversed">Obrnuti smjer navigacije</string>
     <string name="title_advanced_autoexpand">Automatski proširite poruke</string>
+    <string name="title_advanced_expand_all">Automatski proširi sve pročitane poruke</string>
     <string name="title_advanced_expand_one">Proširiti samo jednu poruku istodobno</string>
+    <string name="title_advanced_collapse_multiple">Sažmi poruke u razgovoru s više poruka na \'natrag\'</string>
     <string name="title_advanced_autoclose">Automatski zatvori razgovore</string>
     <string name="title_advanced_onclose">Na zatvaranje konverzacije</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
@@ -322,6 +328,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_select">Odaberi &#8230;</string>
     <string name="title_identity_name">Vaše ime</string>
     <string name="title_identity_email">Vaša adresa e-pošte</string>
+    <string name="title_identity_color_hint">Boje identiteta imaju prednost nad bojama mapa i računa</string>
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljatelja</string>
     <string name="title_advanced_sender_regex">Regex za svrstavanje uređenih adresa</string>
     <string name="title_identity_reply_to">Odgovor na adresu</string>
@@ -342,6 +349,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_account_right">Povuci desno</string>
     <string name="title_domain">Naziv domene</string>
     <string name="title_autoconfig">Otvorite postavke</string>
+    <string name="title_aliases">Aliasi</string>
     <string name="title_provider">Davatelj usluga</string>
     <string name="title_custom">Prilagođeno</string>
     <string name="title_host">Naziv računala</string>
@@ -381,6 +389,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Recenzija</string>
+    <string name="title_hint_alias">Dugo pritisnite za opcije, poput kopiranja za stvaranje identiteta aliasa</string>
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_expand_read">Označi poruke pročitanima pri širenju</string>
     <string name="title_synchronize_now">Sinkroniziraj sada</string>
@@ -441,6 +450,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_subject_forward">Npr: %1$s</string>
     <string name="title_seen">Označi pročitano</string>
     <string name="title_unseen">Označi nepročitano</string>
+    <string name="title_hide">Sakrij</string>
+    <string name="title_unhide">Prikaži</string>
     <string name="title_flag">Dodaj zvjezdicu</string>
     <string name="title_flag_color">Obojena zvijezda &#8230;</string>
     <string name="title_unflag">Ukloni zvjezdicu</string>
@@ -491,6 +502,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_connection">Sinkronizacija će se izvršiti pri sljedećoj vezi računa</string>
     <string name="title_no_folder">Mapa ne postoji</string>
     <string name="title_no_format">Prvobitno primljena poruka bit će uključena</string>
+    <string name="title_no_image">Slika se ne može dekodirati</string>
     <string name="title_accross_remark">Poruke prebačene preko računa ponovno će se preuzeti, što će rezultirati dodatnom upotrebom podataka</string>
     <string name="title_raw_saved">Spremljena je sirova poruka</string>
     <string name="title_attachment_saved">Prilog spremljen</string>
@@ -547,6 +559,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_media_toolbar">Alatna traka medija</string>
     <string name="title_insert_contact_group">Dodaj grupu kontakata</string>
     <string name="title_insert_template">Umetni predložak</string>
+    <string name="title_edit_plain_text">Uredi kao običan tekst</string>
+    <string name="title_edit_formatted_text">Uredi kao preoblikovani tekst</string>
     <string name="title_send_plain_text">Samo običan tekst</string>
     <string name="title_send_receipt">Zatražite potvrdu o isporuci/čitanju</string>
     <string name="title_send_receipt_remark">Većina pružatelja usluga i klijenti e-pošte zanemaruju zahtjeve za primanjem</string>
@@ -581,10 +595,12 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_sort_on_sender">Pošiljatelj</string>
     <string name="title_sort_on_subject">Predmet</string>
     <string name="title_sort_on_size">Veličina</string>
+    <string name="title_sort_on_hidden">Skriveno</string>
     <string name="title_sort_ascending">Prvo najstarije</string>
     <string name="title_filter">Filtrirati</string>
     <string name="title_filter_seen">Pročitaj</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>
+    <string name="title_filter_hidden">Skriveno</string>
     <string name="title_filter_duplicates">Duplikati</string>
     <string name="title_compact">Kompaktni pregled</string>
     <string name="title_zoom">Veličina teksta</string>
@@ -602,9 +618,11 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_rule_noop">Bez akcije</string>
     <string name="title_rule_seen">Označi pročitano</string>
     <string name="title_rule_unseen">Označi nepročitano</string>
+    <string name="title_rule_hide">Sakrij</string>
     <string name="title_rule_ignore">Potisni obavijest</string>
     <string name="title_rule_snooze">Utišaj</string>
     <string name="title_rule_flag">Dodaj zvjezdicu</string>
+    <string name="title_rule_keyword">Dodaj ključnu riječ</string>
     <string name="title_rule_move">Premjesti</string>
     <string name="title_rule_copy">Kopiraj (oznaka)</string>
     <string name="title_rule_answer">Odgovor</string>
@@ -619,6 +637,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_rule_sender_known">Pošiljatelj je kontakt</string>
     <string name="title_rule_recipient">Primatelj sadrži</string>
     <string name="title_rule_subject">Predmet sadrži</string>
+    <string name="title_rule_attachments">Ima priloge</string>
     <string name="title_rule_header">Zaglavlje sadrži</string>
     <string name="title_rule_time">Vrijeme između</string>
     <string name="title_rule_regex">Regularni izraz</string>
@@ -734,6 +753,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
     <string name="title_hint_contact_actions">Dugo pritisni za opcije</string>
     <string name="title_open_link">Otvori link</string>
+    <string name="title_different_link">Naslov i adresa veze su različiti</string>
     <string name="title_secure_link">Osiguraj vezu</string>
     <string name="title_link_secured">Veza je sigurna</string>
     <string name="title_sanitize_link">Ukloni parametre praćenja</string>
@@ -772,6 +792,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_minutes">Minuta</string>
     <string name="title_dismiss">Odbaci</string>
     <string name="title_snooze_now">Odgodi</string>
+    <string name="title_loading">Učitava &#8230;</string>
     <string name="title_icalendar_accept">Prihvati</string>
     <string name="title_icalendar_decline">Odbij</string>
     <string name="title_icalendar_maybe">Možda</string>

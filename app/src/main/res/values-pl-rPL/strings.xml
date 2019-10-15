@@ -228,12 +228,15 @@
     <string name="title_advanced_cards">Pokaż karty</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
+    <string name="title_advanced_indentation">Lewe/prawe wcięcie otrzymane/wysłane wiadomości w rozmowach</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
     <string name="title_advanced_distinguish_contacts">Odróżnij wiadomości od znanych i nieznanych kontaktów</string>
     <string name="title_advanced_avatars">Pokaż zdjęcia kontaktu</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokazuje ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
+    <string name="title_advanced_color_saturation">Nasycenie</string>
+    <string name="title_advanced_color_value">Jasność</string>
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
@@ -356,6 +359,7 @@
     <string name="title_account_right">Przesuń w prawo</string>
     <string name="title_domain">Nazwa domeny</string>
     <string name="title_autoconfig">Pobierz ustawienia</string>
+    <string name="title_aliases">Aliasy</string>
     <string name="title_provider">Dostawca</string>
     <string name="title_custom">Własne</string>
     <string name="title_host">Nazwa hosta</string>
@@ -455,6 +459,8 @@
     <string name="title_subject_forward">Pd: %1$s</string>
     <string name="title_seen">Oznacz jako przeczytane</string>
     <string name="title_unseen">Oznacz jako nieprzeczytane</string>
+    <string name="title_hide">Ukryj</string>
+    <string name="title_unhide">Pokaż</string>
     <string name="title_flag">Dodaj gwiazdkę</string>
     <string name="title_flag_color">Kolorowa gwiazdka &#8230;</string>
     <string name="title_unflag">Usuń gwiazdkę</string>
@@ -598,10 +604,12 @@
     <string name="title_sort_on_sender">Nadawca</string>
     <string name="title_sort_on_subject">Temat</string>
     <string name="title_sort_on_size">Rozmiar</string>
+    <string name="title_sort_on_hidden">Ukryty</string>
     <string name="title_sort_ascending">Od najstarszych</string>
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
     <string name="title_filter_unflagged">Nie oznaczona</string>
+    <string name="title_filter_hidden">Ukryty</string>
     <string name="title_filter_duplicates">Duplikaty</string>
     <string name="title_compact">Widok kompaktowy</string>
     <string name="title_zoom">Rozmiar tekstu</string>
@@ -619,6 +627,7 @@
     <string name="title_rule_noop">Brak akcji</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>
+    <string name="title_rule_hide">Ukryj</string>
     <string name="title_rule_ignore">Pomiń powiadomienie</string>
     <string name="title_rule_snooze">Odłóż</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
@@ -637,6 +646,7 @@
     <string name="title_rule_sender_known">Nadawca jest kontaktem</string>
     <string name="title_rule_recipient">Odbiorca zawiera</string>
     <string name="title_rule_subject">Tytuł zawiera</string>
+    <string name="title_rule_attachments">Zawiera załącznik</string>
     <string name="title_rule_header">Nagłówek zawiera</string>
     <string name="title_rule_time">Czas pomiędzy</string>
     <string name="title_rule_regex">Regex</string>
@@ -752,6 +762,7 @@
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
     <string name="title_hint_contact_actions">Przytrzymaj, aby uzyskać więcej opcji</string>
     <string name="title_open_link">Otwórz link</string>
+    <string name="title_different_link">Tytuł i adres linku są różne</string>
     <string name="title_secure_link">Utwórz bezpieczny link</string>
     <string name="title_link_secured">Link jest bezpieczny</string>
     <string name="title_sanitize_link">Usuń parametry śledzenia</string>

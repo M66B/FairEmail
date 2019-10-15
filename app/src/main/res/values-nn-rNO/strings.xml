@@ -215,6 +215,7 @@
     <string name="title_advanced_circular">Vis runde ikoner</string>
     <string name="title_advanced_color_saturation">Metning</string>
     <string name="title_advanced_color_value">Lysstyrke</string>
+    <string name="title_advanced_color_threshold">Terskelbokstavfarge</string>
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
     <string name="title_advanced_subject_top">Vis emne over avsender</string>

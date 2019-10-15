@@ -206,12 +206,16 @@
     <string name="title_advanced_cards">Mostrar cartões</string>
     <string name="title_advanced_date_header">Agrupar por data</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
+    <string name="title_advanced_indentation">Indentatação esquerda/direita para mensagens recebido/enviado em conversas</string>
     <string name="title_advanced_highlight_unread">Destacar mensagens não lidas</string>
     <string name="title_advanced_distinguish_contacts">Distinguir mensagens de contatos conhecidos e desconhecidos</string>
     <string name="title_advanced_avatars">Mostrar fotos de contatos</string>
     <string name="title_advanced_generated_icons">Mostrar ícones gerados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar ícones redondos</string>
+    <string name="title_advanced_color_saturation">Saturação</string>
+    <string name="title_advanced_color_value">Brilho</string>
+    <string name="title_advanced_color_threshold">Limite da cor da carta</string>
     <string name="title_advanced_name_email">Mostrar os nomes e endereços de e-mail</string>
     <string name="title_advanced_authentication">Mostrar um aviso quando o servidor de recebimento não puder autenticar a mensagem</string>
     <string name="title_advanced_subject_top">Mostrar assunto acima do remetente</string>
@@ -238,6 +242,7 @@
     <string name="title_advanced_autoexpand">Expandir mensagens automaticamente</string>
     <string name="title_advanced_expand_all">Expandir automaticamente todas as mensagens lidas</string>
     <string name="title_advanced_expand_one">Expandir apenas uma mensagem por vez</string>
+    <string name="title_advanced_collapse_multiple">Recolher mensagens em uma conversa com várias mensagens ao \'voltar\'</string>
     <string name="title_advanced_autoclose">Fechar conversas automaticamente</string>
     <string name="title_advanced_onclose">Ao fechar uma conversa</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
@@ -622,6 +627,7 @@
     <string name="title_rule_sender_known">Remetente é um contato</string>
     <string name="title_rule_recipient">Destinatário contém</string>
     <string name="title_rule_subject">Assunto contém</string>
+    <string name="title_rule_attachments">Possui anexos</string>
     <string name="title_rule_header">Cabeçalho contém</string>
     <string name="title_rule_time">Tempo entre</string>
     <string name="title_rule_regex">Regex</string>

@@ -215,6 +215,7 @@
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
     <string name="title_advanced_color_saturation">Saturación</string>
     <string name="title_advanced_color_value">Brillo</string>
+    <string name="title_advanced_color_threshold">Umbral de color de letras</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>

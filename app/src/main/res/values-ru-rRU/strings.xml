@@ -237,6 +237,7 @@
     <string name="title_advanced_circular">Использовать круглые значки</string>
     <string name="title_advanced_color_saturation">Насыщенность</string>
     <string name="title_advanced_color_value">Яркость</string>
+    <string name="title_advanced_color_threshold">Порог яркости отображения букв</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>

@@ -212,6 +212,8 @@
     <string name="title_advanced_generated_icons">Mostra les icones generades</string>
     <string name="title_advanced_identicons">Mostra identicons</string>
     <string name="title_advanced_circular">Mostra icones rodones</string>
+    <string name="title_advanced_color_saturation">Saturació</string>
+    <string name="title_advanced_color_value">Brillantor</string>
     <string name="title_advanced_name_email">Mostra els noms i les adreces de correu</string>
     <string name="title_advanced_authentication">Mostra un avís quan el servidor receptor no ha pogut autenticar el missatge</string>
     <string name="title_advanced_subject_top">Mostra l\'assumpte a sobre del remitent</string>
@@ -238,6 +240,7 @@
     <string name="title_advanced_autoexpand">Ampliar automàticament els missatges</string>
     <string name="title_advanced_expand_all">Ampliar automàticament tots els missatges llegits</string>
     <string name="title_advanced_expand_one">Expandir només un missatge alhora</string>
+    <string name="title_advanced_collapse_multiple">Contraure missatges en una conversa amb diversos missatges a la \"part posterior\"</string>
     <string name="title_advanced_autoclose">Tanca automàticament les converses</string>
     <string name="title_advanced_onclose">En tancar una conversa</string>
     <string name="title_advanced_autoread">Automàticament marca els missatges llegits en missatges moguts</string>
@@ -435,6 +438,8 @@
     <string name="title_subject_forward">Rv: %1$s</string>
     <string name="title_seen">Marca com a llegit</string>
     <string name="title_unseen">Marca com a no llegit</string>
+    <string name="title_hide">Amaga</string>
+    <string name="title_unhide">Mostra</string>
     <string name="title_flag">Afegeix a destacats</string>
     <string name="title_flag_color">Color de l\'estel &#8230;</string>
     <string name="title_unflag">Treure de destacats</string>
@@ -578,10 +583,12 @@
     <string name="title_sort_on_sender">Remitent</string>
     <string name="title_sort_on_subject">Assumpte</string>
     <string name="title_sort_on_size">Mida</string>
+    <string name="title_sort_on_hidden">Ocults</string>
     <string name="title_sort_ascending">El més antic primer</string>
     <string name="title_filter">Filtrar per</string>
     <string name="title_filter_seen">Llegir</string>
     <string name="title_filter_unflagged">Sense destacat</string>
+    <string name="title_filter_hidden">Ocult</string>
     <string name="title_filter_duplicates">Duplicades</string>
     <string name="title_compact">Vista compacta</string>
     <string name="title_zoom">Mida del text</string>
@@ -599,6 +606,7 @@
     <string name="title_rule_noop">Cap acció</string>
     <string name="title_rule_seen">Marca com a llegit</string>
     <string name="title_rule_unseen">Marca com a no llegit</string>
+    <string name="title_rule_hide">Amaga</string>
     <string name="title_rule_ignore">Elimina les notificacions</string>
     <string name="title_rule_snooze">Posposa</string>
     <string name="title_rule_flag">Afegeix a destacats</string>
@@ -617,6 +625,7 @@
     <string name="title_rule_sender_known">El remitent és un contacte</string>
     <string name="title_rule_recipient">El destinatari conté</string>
     <string name="title_rule_subject">L\'assumpte conté</string>
+    <string name="title_rule_attachments">Té adjunts</string>
     <string name="title_rule_header">La capçalera conté</string>
     <string name="title_rule_time">Temps entre</string>
     <string name="title_rule_regex">Expressió regular</string>
@@ -732,6 +741,7 @@
     <string name="title_hint_sync">La descàrrega dels missatges pot trigar un temps, depenent de la velocitat del proveïdor, de la connexió a Internet i del dispositiu i del nombre de missatges. Mentre descarregueu missatges, l\'aplicació pot respondre més lent.</string>
     <string name="title_hint_contact_actions">Pulsació llarga per opcions</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
+    <string name="title_different_link">El títol i la direcció de l\'enllaç són diferents</string>
     <string name="title_secure_link">Assegurar la connexió</string>
     <string name="title_link_secured">La connexió és segura</string>
     <string name="title_sanitize_link">Elimineu els paràmetres de seguiment</string>
