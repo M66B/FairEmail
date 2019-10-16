@@ -175,6 +175,7 @@
     <string name="title_setup_password_invalid">Password invalid</string>
     <string name="title_setup_exported">Settings exported</string>
     <string name="title_setup_imported">Settings imported</string>
+    <string name="title_setup_import_invalid">Invalid settings file</string>
 
     <string name="title_setup_notifications">Manage notifications</string>
     <string name="title_setup_reorder_accounts">Order accounts</string>

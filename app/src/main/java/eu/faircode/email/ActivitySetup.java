@@ -91,6 +91,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
@@ -962,6 +963,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             protected void onException(Bundle args, Throwable ex) {
                 if (ex.getCause() instanceof BadPaddingException)
                     ToastEx.makeText(ActivitySetup.this, R.string.title_setup_password_invalid, Toast.LENGTH_LONG).show();
+                else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException)
+                    ToastEx.makeText(ActivitySetup.this, R.string.title_setup_import_invalid, Toast.LENGTH_LONG).show();
                 else if (ex instanceof IllegalArgumentException)
                     ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
