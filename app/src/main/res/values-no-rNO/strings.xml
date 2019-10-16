@@ -145,6 +145,7 @@
     <string name="title_setup_password_invalid">Ugyldig passord</string>
     <string name="title_setup_exported">Innstillinger eksportert</string>
     <string name="title_setup_imported">Innstillinger importert</string>
+    <string name="title_setup_import_invalid">Ugyldig innstillingsfil</string>
     <string name="title_setup_notifications">Administrer varsler</string>
     <string name="title_setup_reorder_accounts">Sortere kontoer</string>
     <string name="title_setup_reorder_folders">Sortere mapper</string>
@@ -267,6 +268,7 @@
     <string name="title_advanced_light">Bruk meldingslys</string>
     <string name="title_advanced_sound">Velg varslingslyd</string>
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
+    <string name="title_advanced_display_hidden">Vis skjulte meldingstekster</string>
     <string name="title_advanced_recents">Skjul fra skjermen med nylige brukte apper</string>
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
@@ -293,7 +295,7 @@
     <string name="title_advanced_sync_kept_hint">Dette vil overføre ekstra data og bruke ekstra batteristrøm, spesielt hvis det er lagret mange meldinger på enheten</string>
     <string name="title_advanced_sync_folders_hint">Deaktivering av dette vil redusere data og batteribruk noe, men deaktiverer også oppdateringen av listen over mapper</string>
     <string name="title_advanced_sync_delay_hint">Dette vil redusere synkroniseringen av meldinger</string>
-    <string name="title_advanced_suggest_local_hint">I tillegg til kontakter levert av Android</string>
+    <string name="title_advanced_suggest_local_hint">I tillegg til kontakter levert av Android. Vil kontaktdata blir lagret for nylig sendte eller mottatte meldinger når de er aktivert.</string>
     <string name="title_advanced_lookup_mx_hint">Dette vil sjekke om DNS MX-poster eksisterer</string>
     <string name="title_advanced_metered_hint">Målte tilkoblinger er vanligvis mobile tilkoblinger eller betalte Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Deaktivering av dette alternativet deaktiverer mottak og sending av meldinger på mobile internettforbindelser</string>
@@ -309,6 +311,7 @@
     <string name="title_advanced_autoexpand_hint">Åpne automatisk melding når det bare er én melding eller bare en ulest melding i en samtale</string>
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>
+    <string name="title_advanced_display_hidden_hint">Dette kan resultere i merkelige utseende og doble tekster</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funksjoner</string>

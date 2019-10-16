@@ -291,7 +291,6 @@
     <string name="title_advanced_sync_kept_hint">Això transferirà dades addicionals i consumeix energia addicional per a la bateria, especialment si es desen el dispositiu de molts missatges</string>
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
-    <string name="title_advanced_suggest_local_hint">A més dels contactes proporcionats per Android</string>
     <string name="title_advanced_lookup_mx_hint">Això comprovarà si existeixen registres MX al DNS</string>
     <string name="title_advanced_metered_hint">Les connexions comptades generalment són connexions mòbils o punts hotspots Wi-Fi de pagament</string>
     <string name="title_advanced_metered_warning">Si desactiveu aquesta opció, desactivareu la recepció i l\'enviament de missatges a les connexions a Internet mòbils</string>
