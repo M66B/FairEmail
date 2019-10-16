@@ -342,7 +342,7 @@
     <string name="title_advanced_sync_folders_hint">Disabling this will reduce data and battery usage somewhat, but will disable updating the list of folders too</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
 
-    <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android</string>
+    <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
 
     <string name="title_advanced_metered_hint">Metered connections are generally mobile connections or paid Wi-Fi hotspots</string>

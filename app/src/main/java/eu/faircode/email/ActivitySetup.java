@@ -122,6 +122,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final String ACTION_VIEW_IDENTITIES = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_IDENTITIES";
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
+    static final String ACTION_MANAGE_LOCAL_CONTACTS = BuildConfig.APPLICATION_ID + ".LOCAL_CONTACTS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -191,13 +192,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        menus.add(new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_folders, new Runnable() {
+        NavMenuItem order = new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_folders, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuOrder(R.string.title_setup_reorder_folders, TupleFolderSort.class);
             }
-        }));
+        });
+        menus.add(order);
 
         if (Helper.canAuthenticate(this))
             menus.add(new NavMenuItem(R.drawable.baseline_fingerprint_24, R.string.title_setup_authentication, new Runnable() {
@@ -206,15 +208,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     drawerLayout.closeDrawer(drawerContainer);
                     onMenuBiometrics();
                 }
-            }));
-
-        menus.add(new NavMenuItem(R.drawable.baseline_person_24, R.string.menu_contacts, new Runnable() {
-            @Override
-            public void run() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onMenuContacts();
-            }
-        }).setSeparated());
+            }).setSeparated());
+        else
+            order.setSeparated();
 
         menus.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
             @Override
@@ -304,6 +300,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         iff.addAction(ACTION_VIEW_IDENTITIES);
         iff.addAction(ACTION_EDIT_ACCOUNT);
         iff.addAction(ACTION_EDIT_IDENTITY);
+        iff.addAction(ACTION_MANAGE_LOCAL_CONTACTS);
         lbm.registerReceiver(receiver, iff);
     }
 
@@ -438,15 +435,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 // Do nothing
             }
         });
-    }
-
-    private void onMenuContacts() {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            getSupportFragmentManager().popBackStack("contacts", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
-        fragmentTransaction.commit();
     }
 
     private void onMenuLegend() {
@@ -1082,6 +1070,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         fragmentTransaction.commit();
     }
 
+    private void onManageLocalContacts(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentContacts()).addToBackStack("contacts");
+        fragmentTransaction.commit();
+    }
+
     private static Intent getIntentExport() {
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -1171,6 +1165,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     onEditAccount(intent);
                 else if (ACTION_EDIT_IDENTITY.equals(action))
                     onEditIdentity(intent);
+                else if (ACTION_MANAGE_LOCAL_CONTACTS.equals(action))
+                    onManageLocalContacts(intent);
             }
         }
     };

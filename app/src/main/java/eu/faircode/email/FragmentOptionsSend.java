@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -37,12 +39,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.Lifecycle;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsSend extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swKeyboard;
     private SwitchCompat swSuggestSent;
     private SwitchCompat swSuggestReceived;
+    private Button btnLocalContacts;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPlainOnly;
     private SwitchCompat swUsenetSignature;
@@ -72,6 +76,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swKeyboard = view.findViewById(R.id.swKeyboard);
         swSuggestSent = view.findViewById(R.id.swSuggestSent);
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
+        btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
@@ -107,6 +112,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_received", checked).apply();
+            }
+        });
+
+        btnLocalContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS));
             }
         });
 
