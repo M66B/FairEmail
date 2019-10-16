@@ -1096,6 +1096,8 @@ public class FragmentCompose extends FragmentBase {
             Bundle args = new Bundle();
             args.putInt("color", Color.TRANSPARENT);
             args.putString("title", getString(R.string.title_style_color));
+            args.putInt("start", etBody.getSelectionStart());
+            args.putInt("end", etBody.getSelectionEnd());
 
             FragmentDialogColor fragment = new FragmentDialogColor();
             fragment.setArguments(args);
@@ -1775,6 +1777,9 @@ public class FragmentCompose extends FragmentBase {
 
     private void onColorSelected(Bundle args) {
         int color = args.getInt("color");
+        int start = args.getInt("start");
+        int end = args.getInt("end");
+        etBody.setSelection(start, end);
         StyleHelper.apply(R.id.menu_color, etBody, color);
     }
 
