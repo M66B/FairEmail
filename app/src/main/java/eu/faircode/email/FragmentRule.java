@@ -1160,6 +1160,8 @@ public class FragmentRule extends FragmentBase {
                             db.message().getMessageIdsByFolder(rule.folder, null, null, null);
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            continue;
 
                         if (rule.matches(context, message, null))
                             matching.add(message);

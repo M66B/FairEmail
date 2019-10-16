@@ -276,6 +276,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                     db.beginTransaction();
 
                                     EntityMessage message = db.message().getMessage(mid);
+                                    if (message == null)
+                                        continue;
 
                                     if (rule.matches(context, message, null))
                                         if (rule.execute(context, message))
