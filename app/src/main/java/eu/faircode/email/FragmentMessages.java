@@ -3193,13 +3193,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     iProperties.setValue("expanded", expand.id, true);
                 }
-
-                boolean expand_all = prefs.getBoolean("expand_all", false);
-                if (expand_all)
-                    for (TupleMessageEx message : messages)
-                        if (message != null && message.ui_seen)
-                            iProperties.setValue("expanded", message.id, true);
             }
+
+            // Auto expand all seen messages
+            boolean expand_all = prefs.getBoolean("expand_all", false);
+            if (expand_all)
+                for (TupleMessageEx message : messages)
+                    if (message != null && message.ui_seen)
+                        iProperties.setValue("expanded", message.id, true);
         } else {
             if (autoCloseCount > 0 && (autoclose || onclose != null)) {
                 int count = 0;
