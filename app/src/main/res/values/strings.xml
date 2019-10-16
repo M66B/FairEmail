@@ -308,6 +308,7 @@
     <string name="title_advanced_alert_once" translatable="false">MIUI notification sound workaround</string>
 
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
+    <string name="title_advanced_display_hidden">Display hidden message texts</string>
     <string name="title_advanced_recents">Hide FairEmail from screen with recent apps</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
@@ -361,6 +362,8 @@
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
     <string name="title_advanced_autoclose_hint">Automatically close conversations when all messages are archived, sent or trashed</string>
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
+
+    <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
 
     <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_english_hint">This will restart the app</string>

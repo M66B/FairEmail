@@ -24,6 +24,29 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swDisplayHidden"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_display_hidden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDisableTracking"
+            app:switchPadding="12dp" />
+
+        <TextView
+            android:id="@+id/tvDisplayHiddenHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_display_hidden_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swDisplayHidden" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swNoHistory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -31,7 +54,7 @@
             android:text="@string/title_advanced_recents"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swDisableTracking"
+            app:layout_constraintTop_toBottomOf="@id/tvDisplayHiddenHint"
             app:switchPadding="12dp" />
 
         <TextView

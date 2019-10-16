@@ -38,10 +38,11 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDisableTracking;
+    private SwitchCompat swDisplayHidden;
     private SwitchCompat swNoHistory;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "disable_tracking", "no_history"
+            "disable_tracking", "display_hidden", "no_history"
     };
 
     @Override
@@ -55,6 +56,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         // Get controls
 
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
+        swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swNoHistory = view.findViewById(R.id.swNoHistory);
 
         setOptions();
@@ -67,6 +69,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("disable_tracking", checked).apply();
+            }
+        });
+
+        swDisplayHidden.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("display_hidden", checked).apply();
             }
         });
 
@@ -125,6 +134,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
+        swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
         swNoHistory.setChecked(prefs.getBoolean("no_history", false));
     }
 }

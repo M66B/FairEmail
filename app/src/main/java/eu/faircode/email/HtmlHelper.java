@@ -82,6 +82,7 @@ public class HtmlHelper {
     static String sanitize(Context context, String html, boolean show_images) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
+        boolean display_hidden = prefs.getBoolean("display_hidden", false);
         boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
         Document parsed = JsoupEx.parse(html);
@@ -148,21 +149,22 @@ public class HtmlHelper {
             font.tagName("span");
         }
 
-        // Sanitize span styles
-        for (Element span : document.select("*")) {
-            String style = span.attr("style");
+        // Sanitize styles
+        for (Element element : document.select("*")) {
+            String style = element.attr("style");
             if (!TextUtils.isEmpty(style)) {
                 StringBuilder sb = new StringBuilder();
 
                 String[] params = style.split(";");
                 for (String param : params) {
                     String[] kv = param.split(":");
-                    if (kv.length == 2)
-                        switch (kv[0].trim().toLowerCase(Locale.ROOT)) {
+                    if (kv.length == 2) {
+                        String key = kv[0].trim().toLowerCase(Locale.ROOT);
+                        String value = kv[1].toLowerCase(Locale.ROOT)
+                                .replace(" ", "");
+                        switch (key) {
                             case "color":
-                                String c = kv[1]
-                                        .toLowerCase(Locale.ROOT)
-                                        .replace(" ", "")
+                                String c = value
                                         .replace("inherit", "")
                                         .replace("initial", "")
                                         .replace("windowtext", "")
@@ -201,7 +203,7 @@ public class HtmlHelper {
                                     sb.append("color:").append(c).append(";");
 
                                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
-                                        span.attr("color", c);
+                                        element.attr("color", c);
                                 }
                                 break;
 
@@ -212,13 +214,21 @@ public class HtmlHelper {
                             case "line-through":
                                 sb.append(param).append(";");
                                 break;
+
+                            case "display":
+                                if ("none".equals(value) && !display_hidden) {
+                                    Log.i("Removing element " + element.tagName());
+                                    element.remove();
+                                }
+                                break;
                         }
+                    }
                 }
 
                 if (sb.length() == 0)
-                    span.removeAttr("style");
+                    element.removeAttr("style");
                 else
-                    span.attr("style", sb.toString());
+                    element.attr("style", sb.toString());
             }
         }
 
