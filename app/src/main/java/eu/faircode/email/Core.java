@@ -3084,7 +3084,6 @@ class Core {
                             .setSummaryText(Helper.formatThrowable(ex)));
                 }
             else {
-                //mbuilder.setLocalOnly(true);
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
             }

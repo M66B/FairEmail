@@ -403,7 +403,8 @@ public class ServiceSynchronize extends ServiceBase {
                         .setShowWhen(false)
                         .setPriority(NotificationCompat.PRIORITY_MIN)
                         .setCategory(NotificationCompat.CATEGORY_SERVICE)
-                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                        .setLocalOnly(true);
 
         if (lastStats.operations > 0)
             builder.setContentText(getResources().getQuantityString(
