@@ -78,6 +78,7 @@ public class FragmentSetup extends FragmentBase {
     private TextView tvDozeDone;
     private Button btnDoze;
     private Button btnBattery;
+    private Button btnStopped;
 
     private Button btnDataSaver;
 
@@ -123,6 +124,7 @@ public class FragmentSetup extends FragmentBase {
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
         btnBattery = view.findViewById(R.id.btnBattery);
+        btnStopped = view.findViewById(R.id.btnStopped);
 
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
 
@@ -226,6 +228,13 @@ public class FragmentSetup extends FragmentBase {
             @Override
             public void onClick(View view) {
                 Helper.viewFAQ(getContext(), 39);
+            }
+        });
+
+        btnStopped.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Helper.viewFAQ(getContext(), 16);
             }
         });
 
