@@ -241,6 +241,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
 * [(138) Can you add calendar / contact management?](#user-content-faq138)
 * [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
+* [(140) Can message previews be sent to my wearable?](#user-content-faq140)
 
 [I have another question.](#user-content-support)
 
@@ -2433,6 +2434,21 @@ The error *User is authenticated but not connected* might occur if:
 
 <br />
 
+<a name="faq1140"></a>
+**(140) Can message previews be sent to my wearable?**
+
+FairEmail fetches a message in two steps:
+
+1. Fetch message headers
+1. Fetch message text and attachments
+
+Directly after the first step new messages will be notified.
+However, only until after the second step the message text will be available.
+FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+Since there is no guarantee that the message text will be fetched directly after the message header, it is not possible to send message previews to a wearable.
+
+
+<br />
 
 ## Support
 
