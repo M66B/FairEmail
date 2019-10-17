@@ -626,6 +626,8 @@ public class FragmentAccount extends FragmentBase {
             protected void onExecuted(Bundle args, CheckResult result) {
                 tvIdle.setVisibility(result.idle ? View.GONE : View.VISIBLE);
                 tvUtf8.setVisibility(result.utf8 == null || result.utf8 ? View.GONE : View.VISIBLE);
+                if (!result.idle)
+                    etInterval.setText(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
                 if (result.empty)
                     cbPartialFetch.setChecked(false);
 

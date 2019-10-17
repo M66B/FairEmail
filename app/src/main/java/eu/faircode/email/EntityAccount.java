@@ -50,6 +50,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
 
     // https://tools.ietf.org/html/rfc2177
     static final int DEFAULT_KEEP_ALIVE_INTERVAL = 24; // minutes
+    static final int DEFAULT_POLL_INTERVAL = 12; // minutes
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
