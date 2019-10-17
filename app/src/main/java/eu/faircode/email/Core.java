@@ -2653,8 +2653,8 @@ class Core {
 
         // Difference
         for (long group : groupMessages.keySet()) {
-            int new_messages = 0;
             List<Long> add = new ArrayList<>();
+            List<Long> update = new ArrayList<>();
             List<Long> remove = new ArrayList<>(groupNotifying.get(group));
             for (TupleMessageEx message : groupMessages.get(group)) {
                 long id = (message.content ? message.id : -message.id);
@@ -2664,13 +2664,15 @@ class Core {
                 } else {
                     add.add(id);
                     boolean existing = remove.contains(-id);
-                    if (existing)
+                    if (existing) {
+                        update.add(id);
                         remove.remove(-id);
-                    else
-                        new_messages++;
+                    }
                     Log.i("Notify adding=" + id + " existing=" + existing);
                 }
             }
+
+            int new_messages = add.size() - update.size();
 
             if (notify_summary
                     ? remove.size() + new_messages == 0
@@ -2680,7 +2682,7 @@ class Core {
             }
 
             // Build notifications
-            List<Notification> notifications = getNotificationUnseen(context,
+            List<NotificationCompat.Builder> notifications = getNotificationUnseen(context,
                     group, groupMessages.get(group),
                     notify_summary, new_messages,
                     biometrics && !biometric_notify);
@@ -2711,10 +2713,13 @@ class Core {
                 db.message().setMessageNotifying(Math.abs(id), (int) Math.signum(id));
             }
 
-            for (Notification notification : notifications) {
-                long id = notification.extras.getLong("id", 0);
+            for (NotificationCompat.Builder builder : notifications) {
+                long id = builder.getExtras().getLong("id", 0);
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
+                    if (update.contains(id))
+                        builder.setLocalOnly(true);
                     String tag = "unseen." + group + "." + Math.abs(id);
+                    Notification notification = builder.build();
                     Log.i("Notifying tag=" + tag + " id=" + id +
                             (Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? "" : " channel=" + notification.getChannelId()));
                     nm.notify(tag, 1, notification);
@@ -2723,11 +2728,11 @@ class Core {
         }
     }
 
-    private static List<Notification> getNotificationUnseen(
+    private static List<NotificationCompat.Builder> getNotificationUnseen(
             Context context,
             long group, List<TupleMessageEx> messages,
             boolean notify_summary, int new_messages, boolean redacted) {
-        List<Notification> notifications = new ArrayList<>();
+        List<NotificationCompat.Builder> notifications = new ArrayList<>();
 
         // Android 7+ N https://developer.android.com/training/notify-user/group
         // Android 8+ O https://developer.android.com/training/notify-user/channels
@@ -2842,7 +2847,7 @@ class Core {
                             .setSummaryText(title));
                 }
 
-            notifications.add(builder.build());
+            notifications.add(builder);
         }
 
         if (notify_summary)
@@ -3099,7 +3104,7 @@ class Core {
                 mbuilder.setColorized(true);
             }
 
-            notifications.add(mbuilder.build());
+            notifications.add(mbuilder);
         }
 
         return notifications;
