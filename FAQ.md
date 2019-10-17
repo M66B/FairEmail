@@ -639,7 +639,7 @@ Mobile connections are almost always metered and some (paid) Wi-Fi hotspots are 
 Possible causes of messages not being synchronized (sent or received) are:
 
 * The account or folder(s) are not set to synchronize
-* The number of days to synchronize is set to low
+* The number of days to synchronize is set too low
 * There is no usable internet connection
 * The email server is temporarily not available
 * Android stopped the synchronization service
