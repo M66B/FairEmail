@@ -497,7 +497,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swCards.setChecked(prefs.getBoolean("cards", true));
         swDate.setChecked(prefs.getBoolean("date", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
-        swIndentation.setChecked(prefs.getBoolean("indentation", true));
+        swIndentation.setChecked(prefs.getBoolean("indentation", false));
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", false));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));

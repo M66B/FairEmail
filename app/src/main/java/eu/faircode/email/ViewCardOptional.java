@@ -59,7 +59,7 @@ public class ViewCardOptional extends CardView {
         cards = prefs.getBoolean("cards", true);
         compact = prefs.getBoolean("compact", false);
         threading = prefs.getBoolean("threading", true);
-        indentation = prefs.getBoolean("indentation", true);
+        indentation = prefs.getBoolean("indentation", false);
 
         margin = Helper.dp2pixels(context, compact ? 3 : 6);
         ident = Helper.dp2pixels(context, 12 + (compact ? 3 : 6));
