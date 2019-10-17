@@ -154,6 +154,7 @@ repositories {
     jcenter()
     maven { url "https://repo1.maven.org/maven2/" }
     maven { url "https://jitpack.io" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots"}
 }
 
 configurations.all {
@@ -190,7 +191,7 @@ dependencies {
     def exif_version = "1.1.0-rc01"
     def biometric_version = "1.0.0-rc01"
     def billingclient_version = "2.0.3"
-    def javamail_version = "1.6.4"
+    def javamail_version = "1.6.5-SNAPSHOT"
     def jsoup_version = "1.12.1"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
