@@ -3307,7 +3307,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id);
                         }
 
-                        if (account.auto_seen && !message.ui_seen && !folder.read_only)
+                        if (account.auto_seen && !folder.read_only)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     }
 
