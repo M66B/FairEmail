@@ -20,6 +20,7 @@
         android:layout_marginStart="6dp"
         android:text="log"
         android:textAppearance="@android:style/TextAppearance.Small"
+        android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvTime"
         app:layout_constraintTop_toTopOf="parent" />
