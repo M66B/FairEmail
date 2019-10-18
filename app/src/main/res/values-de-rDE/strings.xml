@@ -130,6 +130,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_doze_remark">Um kontinuierlich E-Mails zu empfangen (optional)</string>
     <string name="title_setup_doze_instructions">Rufen Sie im folgendem Auswahldialog (oben) \"Alle Apps\" auf; wählen Sie anschließend FairEmail aus und bestätigen Sie die Option \"Nicht optimieren\" mit Fertig.</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
+    <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
     <string name="title_setup_inbox">Zu Nachrichten wechseln</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
@@ -515,6 +516,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
     <string name="title_reporting_why">Fehlerberichte helfen uns, FairEmail zu verbessern</string>
+    <string name="title_expand_warning">Das Öffnen dieser Nachricht wird herunterladen %1$s</string>
     <string name="title_download_message">Lädt herunter &#8230;</string>
     <string name="title_compose">Verfassen</string>
     <string name="title_from">Von:</string>
@@ -525,6 +527,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_via_identity">Über:</string>
     <string name="title_received">Empfangen:</string>
     <string name="title_size">Größe:</string>
+    <string name="title_folder">Ordner:</string>
     <string name="title_subject">Betreff:</string>
     <string name="title_body_hint">Ihre Nachricht</string>
     <string name="title_discard">Verwerfen</string>

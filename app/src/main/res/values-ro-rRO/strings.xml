@@ -141,6 +141,7 @@
     <string name="title_setup_doze_remark">Pentru a primi în mod continuu e-mail (opțional)</string>
     <string name="title_setup_doze_instructions">În fereastra următoare, selectați \"Toate aplicațiile\" din partea de sus, selectați acestă aplicație și selectați și confirmați \"Nu optimiza\"</string>
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
+    <string name="title_setup_doze_stopped">Sincronizarea e oprită?</string>
     <string name="title_setup_data">Economizorul de date este activat</string>
     <string name="title_setup_inbox">Mergi la mesaje</string>
     <string name="title_setup_to_do">De făcut</string>
@@ -155,6 +156,7 @@
     <string name="title_setup_password_invalid">Parolă incorectă</string>
     <string name="title_setup_exported">Setări exportate</string>
     <string name="title_setup_imported">Setări importate</string>
+    <string name="title_setup_import_invalid">Fișier de setări invalid</string>
     <string name="title_setup_notifications">Gestionarea notificărilor</string>
     <string name="title_setup_reorder_accounts">Ordine conturi</string>
     <string name="title_setup_reorder_folders">Ordine dosare</string>
@@ -216,6 +218,7 @@
     <string name="title_advanced_cards">Arată carduri</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
+    <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
     <string name="title_advanced_highlight_unread">Evidențiază mesajele necitite</string>
     <string name="title_advanced_distinguish_contacts">Distinge mesajele de la contactele cunoscute și necunoscute</string>
     <string name="title_advanced_avatars">Arată pozele contactelor</string>
@@ -251,6 +254,7 @@
     <string name="title_advanced_autoexpand">Extinde mesajele automat</string>
     <string name="title_advanced_expand_all">Extinde automat toate mesajele citate</string>
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
+    <string name="title_advanced_collapse_multiple">La apăsarea \'înapoi\' restrânge mesajele dintr-o conversație cu mai multe mesaje</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
     <string name="title_advanced_onclose">La închiderea conversației</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
@@ -302,6 +306,7 @@
     <string name="title_advanced_sync_kept_hint">Această opțiune va consuma date și baterie în plus, mai ales dacă sunt multe mesaje păstrate pe dispozitiv</string>
     <string name="title_advanced_sync_folders_hint">Dezactivând aceasta se va reduce utilizarea datelor și a bateriei, dar se va dezactiva și actualizarea listei de dosare</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
+    <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
@@ -353,6 +358,7 @@
     <string name="title_custom">Personalizat</string>
     <string name="title_host">Nume gazdă</string>
     <string name="title_allow_insecure">Permite conexiunea nesecurizate</string>
+    <string name="title_insecure_remark">Conexiunile nesigure trebuie permise numai pe rețele de încredere și niciodată pe cele publice</string>
     <string name="title_port">Număr port</string>
     <string name="title_user">Nume utilizator</string>
     <string name="title_password">Parolă</string>
@@ -387,6 +393,7 @@
     <string name="title_activesync_support">ActiveSync nu este suportat</string>
     <string name="title_oauth_support">OAuth nu este suportat</string>
     <string name="title_review">Revizuire</string>
+    <string name="title_hint_alias">Apăsare lunga pentru opțiuni, precum copiere pentru crearea de identități alias</string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>
@@ -420,6 +427,7 @@
     <string name="title_sync_days">Sincronizarea mesajelor (zile)</string>
     <string name="title_sync_days_remark">Mărind această valoare va duce la o creștere a consumului bateriei și a datelor</string>
     <string name="title_keep_days">Păstrarea mesajelor (zile)</string>
+    <string name="title_keep_days_remark">Mesajele vechi vor fi eliminate de pe dispozitiv, dar vor rămâne pe server</string>
     <string name="title_keep_all">Păstrează toate mesajele</string>
     <string name="title_auto_trash">Mută automat mesajele vechi la gunoi</string>
     <string name="title_auto_delete">Ștergerea permanentă automată a mesajelor vechi</string>

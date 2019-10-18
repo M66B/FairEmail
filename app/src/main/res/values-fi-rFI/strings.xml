@@ -131,6 +131,7 @@
     <string name="title_setup_doze_remark">Sähköpostien vastaanottamiseen ilman keskeytyksiä (valinnainen)</string>
     <string name="title_setup_doze_instructions">Seuraavassa valintaikkunassa valitse ylhäältä ”Kaikki sovellukset”, valitse tämä sovellus ja valitse sekä vahvista ”Älä optimoi”</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
+    <string name="title_setup_doze_stopped">Keskeytyikö synkronointi?</string>
     <string name="title_setup_data">Datan säästäjä on käytössä</string>
     <string name="title_setup_inbox">Siirry viesteihin</string>
     <string name="title_setup_to_do">Tekemättä</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_password_invalid">Salasana on virheellinen</string>
     <string name="title_setup_exported">Asetukset viety</string>
     <string name="title_setup_imported">Asetukset tuotu</string>
+    <string name="title_setup_import_invalid">Virheellinen asetustiedosto</string>
     <string name="title_setup_notifications">Ilmoitusten hallinta</string>
     <string name="title_setup_reorder_accounts">Tilien järjestäminen</string>
     <string name="title_setup_reorder_folders">Kansioiden järjestäminen</string>
@@ -294,6 +296,7 @@
     <string name="title_advanced_sync_kept_hint">Tämä lisää datan ja akun käyttöä varsinkin, jos paikallisia viestejä on paljon</string>
     <string name="title_advanced_sync_folders_hint">Tämän kytkeminen pois vähentää datan ja akun käyttöä, mutta kytkee pois myös kansiolistan päivittymisen</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
+    <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
     <string name="title_advanced_metered_warning">Tämän kytkeminen pois estää viestien vastaanoton ja lähetyksen mobiiliyhteyttä käytettessä</string>
