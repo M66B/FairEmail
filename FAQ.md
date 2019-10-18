@@ -43,6 +43,7 @@ Related questions:
 * The folder selector sometimes shows no folders for yet unknown reasons.
 * A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller.
 * Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug.
+* Scrolling to an internal linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 
 ## Planned features
 
