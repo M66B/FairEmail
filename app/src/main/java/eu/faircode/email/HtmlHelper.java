@@ -218,7 +218,7 @@ public class HtmlHelper {
                             case "display":
                                 if ("none".equals(value) && !display_hidden) {
                                     Log.i("Removing element " + element.tagName());
-                                    element.remove();
+                                    element.empty();
                                 }
                                 break;
                         }
