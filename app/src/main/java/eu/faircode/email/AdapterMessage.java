@@ -257,22 +257,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibExpander;
         private ImageView ibFlagged;
         private ImageView ivAvatar;
+        private ImageView ivPriority;
+        private ImageView ibAuth;
         private TextView tvFrom;
         private TextView tvSize;
         private TextView tvTime;
         private ImageView ivType;
-        private ImageView ivPriority;
-        private ImageView ibAuth;
         private ImageView ibSnoozed;
-        private ImageView ivBrowsed;
         private ImageView ivAnswered;
-        private ImageView ivPlain;
-        private ImageView ivReceipt;
         private ImageView ivAttachments;
         private TextView tvSubject;
         private TextView tvFolder;
         private TextView tvCount;
         private ImageView ivThread;
+        private TextView tvExpand;
         private TextView tvPreview;
         private TextView tvError;
         private ImageButton ibHelp;
@@ -280,6 +278,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private View vsBody;
 
         private ImageButton ibExpanderAddress;
+
+        private ImageView ivPlain;
+        private ImageView ivReceipt;
+        private ImageView ivBrowsed;
 
         private ImageButton ibSearchContact;
         private ImageButton ibNotifyContact;
@@ -293,6 +295,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvIdentityTitle;
         private TextView tvTimeExTitle;
         private TextView tvSizeExTitle;
+        private TextView tvFolderExTitle;
 
         private TextView tvFromEx;
         private TextView tvTo;
@@ -302,6 +305,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvIdentity;
         private TextView tvTimeEx;
         private TextView tvSizeEx;
+        private TextView tvFolderEx;
 
         private TextView tvSubjectEx;
         private TextView tvFlags;
@@ -372,19 +376,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpander = itemView.findViewById(R.id.ibExpander);
             ibFlagged = itemView.findViewById(R.id.ibFlagged);
             ivAvatar = itemView.findViewById(R.id.ivAvatar);
+            ivPriority = itemView.findViewById(R.id.ivPriority);
+            ibAuth = itemView.findViewById(R.id.ibAuth);
             tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
             tvSize = itemView.findViewById(R.id.tvSize);
             tvTime = itemView.findViewById(R.id.tvTime);
             ivType = itemView.findViewById(R.id.ivType);
-            ivPriority = itemView.findViewById(R.id.ivPriority);
-            ibAuth = itemView.findViewById(R.id.ibAuth);
             ibSnoozed = itemView.findViewById(R.id.ibSnoozed);
-            ivBrowsed = itemView.findViewById(R.id.ivBrowsed);
             ivAnswered = itemView.findViewById(R.id.ivAnswered);
-            ivPlain = itemView.findViewById(R.id.ivPlain);
-            ivReceipt = itemView.findViewById(R.id.ivReceipt);
             ivAttachments = itemView.findViewById(R.id.ivAttachments);
             tvSubject = itemView.findViewById(subject_top ? R.id.tvFrom : R.id.tvSubject);
+            tvExpand = itemView.findViewById(R.id.tvExpand);
             tvPreview = itemView.findViewById(R.id.tvPreview);
             tvFolder = itemView.findViewById(R.id.tvFolder);
             tvCount = itemView.findViewById(R.id.tvCount);
@@ -419,6 +421,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibExpanderAddress = vsBody.findViewById(R.id.ibExpanderAddress);
 
+            ivPlain = vsBody.findViewById(R.id.ivPlain);
+            ivReceipt = vsBody.findViewById(R.id.ivReceipt);
+            ivBrowsed = vsBody.findViewById(R.id.ivBrowsed);
+
             ibSearchContact = vsBody.findViewById(R.id.ibSearchContact);
             ibNotifyContact = vsBody.findViewById(R.id.ibNotifyContact);
             ibAddContact = vsBody.findViewById(R.id.ibAddContact);
@@ -431,6 +437,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentityTitle = vsBody.findViewById(R.id.tvIdentityTitle);
             tvTimeExTitle = vsBody.findViewById(R.id.tvTimeExTitle);
             tvSizeExTitle = vsBody.findViewById(R.id.tvSizeExTitle);
+            tvFolderExTitle = vsBody.findViewById(R.id.tvFolderExTitle);
 
             tvFromEx = vsBody.findViewById(R.id.tvFromEx);
             tvTo = vsBody.findViewById(R.id.tvTo);
@@ -441,6 +448,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTimeEx = vsBody.findViewById(R.id.tvTimeEx);
             tvSizeEx = vsBody.findViewById(R.id.tvSizeEx);
 
+            tvFolderEx = vsBody.findViewById(R.id.tvFolderEx);
             tvSubjectEx = vsBody.findViewById(R.id.tvSubjectEx);
             tvFlags = vsBody.findViewById(R.id.tvFlags);
             tvKeywords = vsBody.findViewById(R.id.tvKeywords);
@@ -632,22 +640,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibExpander.setVisibility(View.GONE);
             ibFlagged.setVisibility(View.GONE);
             ivAvatar.setVisibility(View.GONE);
+            ivPriority.setVisibility(View.GONE);
+            ibAuth.setVisibility(View.GONE);
             tvFrom.setText(null);
             tvSize.setText(null);
             tvTime.setText(null);
             ivType.setVisibility(View.GONE);
-            ivPriority.setVisibility(View.GONE);
-            ibAuth.setVisibility(View.GONE);
             ibSnoozed.setVisibility(View.GONE);
-            ivBrowsed.setVisibility(View.GONE);
             ivAnswered.setVisibility(View.GONE);
-            ivPlain.setVisibility(View.GONE);
-            ivReceipt.setVisibility(View.GONE);
             ivAttachments.setVisibility(View.GONE);
             tvSubject.setText(null);
             tvFolder.setText(null);
             tvCount.setText(null);
             ivThread.setVisibility(View.GONE);
+            tvExpand.setVisibility(View.GONE);
             tvPreview.setVisibility(View.GONE);
             tvError.setVisibility(View.GONE);
             ibHelp.setVisibility(View.GONE);
@@ -661,6 +667,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
             Address[] addresses = (outgoing && viewType != ViewType.THREAD ? message.to : message.senders);
+            boolean authenticated =
+                    !(Boolean.FALSE.equals(message.dkim) ||
+                            Boolean.FALSE.equals(message.spf) ||
+                            Boolean.FALSE.equals(message.dmarc) ||
+                            Boolean.FALSE.equals(message.mx));
             boolean expanded = (viewType == ViewType.THREAD && properties.getValue("expanded", message.id));
 
             // Text size
@@ -694,17 +705,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean dim = (message.duplicate || EntityFolder.TRASH.equals(message.folderType));
                 ibFlagged.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAvatar.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivPriority.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvFrom.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvTime.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivType.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivPriority.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ibSnoozed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivBrowsed.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAnswered.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivPlain.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
-                ivReceipt.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivAttachments.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSubject.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvFolder.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -760,23 +768,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ivAvatar.setVisibility(avatars ? View.INVISIBLE : View.GONE);
 
             // Line 1
+            ivPriority.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(message.priority) ? View.VISIBLE : View.GONE);
+            ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
-            Long size = ("size".equals(sort) ? message.totalSize : message.size);
-            tvSize.setText(size == null ? null : Helper.humanReadableByteCount(size, true));
-            tvSize.setVisibility(size == null || (message.content && !"size".equals(sort)) ? View.GONE : View.VISIBLE);
+            tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize, true));
+            tvSize.setVisibility(message.totalSize != null && "size".equals(sort) ? View.VISIBLE : View.GONE);
             tvTime.setText(date && "time".equals(sort)
                     ? TF.format(message.received)
                     : Helper.getRelativeTimeSpanString(context, message.received));
 
             // Line 2
             tvSubject.setText(message.subject);
-
-            boolean authenticated =
-                    !(Boolean.FALSE.equals(message.dkim) ||
-                            Boolean.FALSE.equals(message.spf) ||
-                            Boolean.FALSE.equals(message.dmarc) ||
-                            Boolean.FALSE.equals(message.mx));
 
             // Line 3
             int icon = (message.drafts > 0
@@ -797,13 +800,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
                             ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_timelapse_24);
 
-            ivPriority.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(message.priority) ? View.VISIBLE : View.GONE);
-            ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
             ibSnoozed.setVisibility(message.ui_snoozed == null ? View.GONE : View.VISIBLE);
-            ivBrowsed.setVisibility(message.ui_browsed ? View.VISIBLE : View.GONE);
             ivAnswered.setVisibility(message.ui_answered ? View.VISIBLE : View.GONE);
-            ivPlain.setVisibility(message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
-            ivReceipt.setVisibility(message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
             ivAttachments.setVisibility(message.attachments > 0 ? View.VISIBLE : View.GONE);
 
             if (viewType == ViewType.FOLDER)
@@ -813,9 +811,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 tvFolder.setText(message.accountName + "/" + message.getFolderName(context));
 
-            tvFolder.setVisibility(compact &&
-                    ((viewType == ViewType.FOLDER && !outbox) || (viewType == ViewType.UNIFIED && type == null && inbox))
-                    ? View.GONE : View.VISIBLE);
+            tvFolder.setVisibility(compact ? View.GONE : View.VISIBLE);
 
             if (viewType == ViewType.THREAD || !threading) {
                 tvCount.setVisibility(View.GONE);
@@ -827,6 +823,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Starred
             bindFlagged(message, expanded);
+
+            // Expand warning
+            bindExpandWarning(message, expanded);
 
             // Message text preview
             int textColor = (contrast ? textColorPrimary : textColorSecondary);
@@ -932,6 +931,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAttachments.setVisibility(View.GONE);
             grpImages.setVisibility(View.GONE);
 
+            ivPlain.setVisibility(View.GONE);
+            ivReceipt.setVisibility(View.GONE);
+            ivBrowsed.setVisibility(View.GONE);
+
             ibSearchContact.setVisibility(View.GONE);
             ibNotifyContact.setVisibility(View.GONE);
             ibAddContact.setVisibility(View.GONE);
@@ -944,6 +947,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentityTitle.setVisibility(View.GONE);
             tvTimeExTitle.setVisibility(View.GONE);
             tvSizeExTitle.setVisibility(View.GONE);
+            tvFolderExTitle.setVisibility(View.GONE);
 
             tvFromEx.setVisibility(View.GONE);
             tvTo.setVisibility(View.GONE);
@@ -953,6 +957,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentity.setVisibility(View.GONE);
             tvTimeEx.setVisibility(View.GONE);
             tvSizeEx.setVisibility(View.GONE);
+            tvFolderEx.setVisibility(View.GONE);
             tvSubjectEx.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
             tvKeywords.setVisibility(View.GONE);
@@ -1016,6 +1021,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFrom.setPaintFlags(tvFrom.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         }
 
+        private void bindExpandWarning(TupleMessageEx message, boolean expanded) {
+            tvExpand.setText(
+                    message.size == null ? null : context.getString(R.string.title_expand_warning,
+                            Helper.humanReadableByteCount(message.size, true)));
+            tvExpand.setVisibility(
+                    viewType == ViewType.THREAD && !expanded &&
+                            message.size != null && !message.content && message.uid != null
+                            ? View.VISIBLE : View.GONE);
+        }
+
         private void bindExpanded(final TupleMessageEx message, final boolean scroll) {
             DB db = DB.getInstance(context);
 
@@ -1036,6 +1051,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean hasFrom = (message.from != null && message.from.length > 0);
             boolean hasTo = (message.to != null && message.to.length > 0);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+
+            ivPlain.setVisibility(show_addresses && message.plain_only != null && message.plain_only ? View.VISIBLE : View.GONE);
+            ivReceipt.setVisibility(show_addresses && message.receipt_request != null && message.receipt_request ? View.VISIBLE : View.GONE);
+            ivBrowsed.setVisibility(show_addresses && message.ui_browsed ? View.VISIBLE : View.GONE);
 
             ibSearchContact.setVisibility(show_addresses && (hasFrom || hasTo) ? View.VISIBLE : View.GONE);
             ibNotifyContact.setVisibility(show_addresses && hasChannel && hasFrom ? View.VISIBLE : View.GONE);
@@ -1113,6 +1132,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .append("/")
                     .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total, true));
             tvSizeEx.setText(size.toString());
+
+            tvFolderExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvFolderEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvFolderEx.setText(tvFolder.getText());
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);
@@ -2403,6 +2426,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     clearExpanded(message);
 
                 bindFlagged(message, expanded);
+                bindExpandWarning(message, expanded);
             }
         }
 

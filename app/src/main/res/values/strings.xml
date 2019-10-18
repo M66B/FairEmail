@@ -590,6 +590,7 @@
     <string name="title_ask_help">Help improve FairEmail</string>
     <string name="title_ask_reporting">Send error reports?</string>
     <string name="title_reporting_why">Error reporting will help improve FairEmail</string>
+    <string name="title_expand_warning">Expanding this message will download %1$s</string>
     <string name="title_download_message">Downloading &#8230;</string>
 
     <string name="title_compose">Compose</string>
@@ -601,6 +602,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_received">Received:</string>
     <string name="title_size">Size:</string>
+    <string name="title_folder">Folder:</string>
     <string name="title_subject">Subject:</string>
     <string name="title_body_hint">Your message</string>
     <string name="title_discard">Discard</string>

@@ -55,6 +55,31 @@
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
         app:srcCompat="@drawable/baseline_person_24" />
 
+    <ImageView
+        android:id="@+id/ivPriority"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_send_priority"
+        android:tint="@color/colorError"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ivAvatar"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/baseline_priority_high_24" />
+
+    <ImageButton
+        android:id="@+id/ibAuth"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_legend_auth"
+        android:tint="@color/colorError"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ivPriority"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/baseline_flag_24" />
+
     <TextView
         android:id="@+id/tvFrom"
         android:layout_width="0dp"
@@ -66,7 +91,7 @@
         android:text="From"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toStartOf="@+id/tvSize"
-        app:layout_constraintStart_toEndOf="@id/ivAvatar"
+        app:layout_constraintStart_toEndOf="@id/ibAuth"
         app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
     <TextView
@@ -134,31 +159,6 @@
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
         app:srcCompat="@drawable/baseline_edit_24" />
 
-    <ImageView
-        android:id="@+id/ivPriority"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_send_priority"
-        android:tint="@color/colorError"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivType"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder"
-        app:srcCompat="@drawable/baseline_priority_high_24" />
-
-    <ImageButton
-        android:id="@+id/ibAuth"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/title_legend_auth"
-        android:tint="@color/colorError"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivPriority"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder"
-        app:srcCompat="@drawable/baseline_flag_24" />
-
     <ImageButton
         android:id="@+id/ibSnoozed"
         android:layout_width="21dp"
@@ -167,20 +167,9 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_legend_snoozed"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ibAuth"
+        app:layout_constraintStart_toEndOf="@id/ivType"
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
         app:srcCompat="@drawable/baseline_timelapse_24" />
-
-    <ImageView
-        android:id="@+id/ivBrowsed"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_browsed"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ibSnoozed"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder"
-        app:srcCompat="@drawable/baseline_playlist_add_24" />
 
     <ImageView
         android:id="@+id/ivAnswered"
@@ -189,31 +178,9 @@
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_answered"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivBrowsed"
+        app:layout_constraintStart_toEndOf="@id/ibSnoozed"
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
         app:srcCompat="@drawable/baseline_reply_24" />
-
-    <ImageView
-        android:id="@+id/ivPlain"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_plain_only"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivAnswered"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder"
-        app:srcCompat="@drawable/baseline_notes_24" />
-
-    <ImageView
-        android:id="@+id/ivReceipt"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_legend_receipt"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivPlain"
-        app:layout_constraintTop_toTopOf="@+id/tvFolder"
-        app:srcCompat="@drawable/baseline_playlist_add_check_24" />
 
     <ImageView
         android:id="@+id/ivAttachments"
@@ -222,7 +189,7 @@
         android:layout_marginStart="6dp"
         android:contentDescription="@string/title_legend_attachment"
         app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
-        app:layout_constraintStart_toEndOf="@id/ivReceipt"
+        app:layout_constraintStart_toEndOf="@id/ivAnswered"
         app:layout_constraintTop_toTopOf="@+id/tvFolder"
         app:srcCompat="@drawable/baseline_attachment_24" />
 
@@ -266,6 +233,21 @@
         app:srcCompat="@drawable/baseline_message_24" />
 
     <TextView
+        android:id="@+id/tvExpand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="center_horizontal"
+        android:text="@string/title_expand_warning"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
+        app:layout_constraintStart_toEndOf="@id/paddingStart"
+        app:layout_constraintTop_toBottomOf="@id/tvFolder" />
+
+    <TextView
         android:id="@+id/tvPreview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -280,7 +262,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
-        app:layout_constraintTop_toBottomOf="@id/tvFolder" />
+        app:layout_constraintTop_toBottomOf="@id/tvExpand" />
 
     <TextView
         android:id="@+id/tvError"
