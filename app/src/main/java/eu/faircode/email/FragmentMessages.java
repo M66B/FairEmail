@@ -2225,37 +2225,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         for (String name : values.keySet())
             outState.putLongArray("fair:name:" + name, Helper.toLongArray(values.get(name)));
 
-        long[] skeys = new long[sizes.size()];
-        float[] svalues = new float[sizes.size()];
-        for (int i = 0; i < sizes.size(); i++) {
-            skeys[i] = sizes.keyAt(i);
-            svalues[i] = sizes.valueAt(i);
-        }
-        outState.putLongArray("fair:sizes:keys", skeys);
-        outState.putFloatArray("fair:sizes:values", svalues);
-
-        long[] hkeys = new long[heights.size()];
-        int[] hvalues = new int[heights.size()];
-        for (int i = 0; i < heights.size(); i++) {
-            hkeys[i] = heights.keyAt(i);
-            hvalues[i] = heights.valueAt(i);
-        }
-        outState.putLongArray("fair:heights:keys", hkeys);
-        outState.putIntArray("fair:heights:values", hvalues);
-
-        long[] pkeys = new long[positions.size()];
-        int[] xvalues = new int[positions.size()];
-        int[] yvalues = new int[positions.size()];
-        for (int i = 0; i < positions.size(); i++) {
-            pkeys[i] = positions.keyAt(i);
-            Pair<Integer, Integer> position = positions.valueAt(i);
-            xvalues[i] = position.first;
-            yvalues[i] = position.second;
-        }
-        outState.putLongArray("fair:pos:keys", pkeys);
-        outState.putIntArray("fair:posx:values", xvalues);
-        outState.putIntArray("fair:posy:values", yvalues);
-
         if (rvMessage != null) {
             Parcelable rv = rvMessage.getLayoutManager().onSaveInstanceState();
             outState.putParcelable("fair:rv", rv);
@@ -2283,25 +2252,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 for (Long value : savedInstanceState.getLongArray("fair:name:" + name))
                     values.get(name).add(value);
             }
-
-            long[] skeys = savedInstanceState.getLongArray("fair:sizes:keys");
-            float[] svalues = savedInstanceState.getFloatArray("fair:sizes:values");
-
-            for (int i = 0; i < skeys.length; i++)
-                sizes.put(skeys[i], svalues[i]);
-
-            long[] hkeys = savedInstanceState.getLongArray("fair:heights:keys");
-            int[] hvalues = savedInstanceState.getIntArray("fair:heights:values");
-
-            for (int i = 0; i < hkeys.length; i++)
-                heights.put(hkeys[i], hvalues[i]);
-
-            long[] pkeys = savedInstanceState.getLongArray("fair:pos:keys");
-            int[] xvalues = savedInstanceState.getIntArray("fair:posx:values");
-            int[] yvalues = savedInstanceState.getIntArray("fair:posy:values");
-
-            for (int i = 0; i < pkeys.length; i++)
-                positions.put(pkeys[i], new Pair<Integer, Integer>(xvalues[i], yvalues[i]));
 
             if (rvMessage != null) {
                 Parcelable rv = savedInstanceState.getBundle("fair:rv");
