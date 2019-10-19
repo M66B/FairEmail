@@ -228,7 +228,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(123) What does 'force sync'?](#user-content-faq123)
 * [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
 * [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) What does 'User is authenticated but not connected' mean?](#user-content-faq126)
+* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
 * [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
 * [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
 * [(129) Are ProtonMail, Tutanota supported?](#user-content-faq129)
@@ -242,7 +242,6 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
 * [(138) Can you add calendar / contact management?](#user-content-faq138)
 * [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Can message previews be sent to my wearable?](#user-content-faq140)
 
 [I have another question.](#user-content-support)
 
@@ -733,7 +732,7 @@ There are general errors and errors specific to Gmail accounts (see below).
 
 **General errors**
 
-The error *... Authentication failed ...* likely means your username or password was incorrect.
+The error *... Authentication failed ...* or *... AUTHENTICATE failed ...* likely means your username or password was incorrect.
 Some providers expect as username just *username* and others your full email address *username@example.com*.
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to logging from certain networks / IP addresses only.
@@ -2282,10 +2281,17 @@ The current experimental features are:
 <br />
 
 <a name="faq126"></a>
-**(126) What does 'User is authenticated but not connected' mean?**
+**(126) Can message previews be sent to my wearable?**
 
-The message *User is authenticated but not connected* is caused by a bug in older versions of Microsoft's Exchange server.
-This message in fact means that the password was invalid, likely because it was changed.
+FairEmail fetches a message in two steps:
+
+1. Fetch message headers
+1. Fetch message text and attachments
+
+Directly after the first step new messages will be notified.
+However, only until after the second step the message text will be available.
+FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+Since there is no guarantee that the message text will be fetched directly after the message header, it is not possible to send message previews to a wearable.
 
 <br />
 
@@ -2441,22 +2447,6 @@ The error *User is authenticated but not connected* might occur if:
 
 * The account password was changed: changing it in FairEmail too should fix the problem
 * There are too many simultaneous connections: see [this FAQ](#user-content-faq23) for more information and a workaround
-
-<br />
-
-<a name="faq140"></a>
-**(140) Can message previews be sent to my wearable?**
-
-FairEmail fetches a message in two steps:
-
-1. Fetch message headers
-1. Fetch message text and attachments
-
-Directly after the first step new messages will be notified.
-However, only until after the second step the message text will be available.
-FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
-Since there is no guarantee that the message text will be fetched directly after the message header, it is not possible to send message previews to a wearable.
-
 
 <br />
 
