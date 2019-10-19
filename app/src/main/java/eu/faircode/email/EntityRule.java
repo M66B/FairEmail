@@ -85,6 +85,8 @@ public class EntityRule {
     public String condition;
     @NonNull
     public String action;
+    @NonNull
+    public Integer applied = 0;
 
     static final int TYPE_SEEN = 1;
     static final int TYPE_UNSEEN = 2;
@@ -276,6 +278,15 @@ public class EntityRule {
     }
 
     boolean execute(Context context, EntityMessage message) throws JSONException, IOException {
+        boolean executed = _execute(context, message);
+        if (executed) {
+            DB db = DB.getInstance(context);
+            db.rule().applyRule(id);
+        }
+        return executed;
+    }
+
+    private boolean _execute(Context context, EntityMessage message) throws JSONException, IOException {
         JSONObject jaction = new JSONObject(action);
         int type = jaction.getInt("type");
         Log.i("Executing rule=" + type + ":" + name + " message=" + message.id);
@@ -524,7 +535,8 @@ public class EntityRule {
                     this.enabled == other.enabled &&
                     this.stop == other.stop &&
                     this.condition.equals(other.condition) &&
-                    this.action.equals(other.action);
+                    this.action.equals(other.action) &&
+                    this.applied.equals(other.applied);
         } else
             return false;
     }

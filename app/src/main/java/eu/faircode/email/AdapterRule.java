@@ -49,6 +49,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +70,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         private ImageView ivStop;
         private TextView tvCondition;
         private TextView tvAction;
+        private TextView tvApplied;
 
+        private NumberFormat NF = NumberFormat.getNumberInstance();
         private TwoStateOwner powner = new TwoStateOwner(owner, "RulePopup");
 
         ViewHolder(View itemView) {
@@ -81,6 +84,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             ivStop = itemView.findViewById(R.id.ivStop);
             tvCondition = itemView.findViewById(R.id.tvCondition);
             tvAction = itemView.findViewById(R.id.tvAction);
+            tvApplied = itemView.findViewById(R.id.tvApplied);
         }
 
         private void wire() {
@@ -163,6 +167,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             } catch (Throwable ex) {
                 tvAction.setText(ex.getMessage());
             }
+
+            tvApplied.setText(NF.format(rule.applied));
         }
 
         @Override
@@ -197,8 +203,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     .setCheckable(true).setChecked(rule.enabled);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
                     .setEnabled(ActivityBilling.isPro(context));
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 3, R.string.title_move_to_folder);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 4, R.string.title_copy);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 3, R.string.title_reset);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 4, R.string.title_move_to_folder);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 5, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -210,6 +217,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                         case R.string.title_rule_execute:
                             onActionExecute();
+                            return true;
+
+                        case R.string.title_reset:
+                            onActionReset();
                             return true;
 
                         case R.string.title_move_to_folder:
@@ -297,6 +308,28 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                     parentFragment.getView(),
                                     context.getString(R.string.title_rule_applied, applied),
                                     Snackbar.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "rule:execute");
+                }
+
+                private void onActionReset() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", rule.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.rule().resetRule(id);
+
+                            return null;
                         }
 
                         @Override

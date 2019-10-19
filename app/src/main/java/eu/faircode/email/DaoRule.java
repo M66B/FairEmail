@@ -65,6 +65,12 @@ public interface DaoRule {
     @Query("UPDATE rule SET enabled = :enabled WHERE id = :id")
     int setRuleEnabled(long id, boolean enabled);
 
+    @Query("UPDATE rule SET applied = applied + 1 WHERE id = :id")
+    int applyRule(long id);
+
+    @Query("UPDATE rule SET applied = 0 WHERE id = :id")
+    int resetRule(long id);
+
     @Query("DELETE FROM rule WHERE id = :id")
     void deleteRule(long id);
 }
