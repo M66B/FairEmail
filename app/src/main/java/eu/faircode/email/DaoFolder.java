@@ -263,6 +263,13 @@ public interface DaoFolder {
             boolean synchronize, boolean poll, boolean download,
             int sync_days, int keep_days, boolean auto_delete);
 
+    @Query("UPDATE folder" +
+            " SET `sync_days` = :sync_days" +
+            ", `keep_days` = :keep_days" +
+            " WHERE account = :account" +
+            " AND type = '" + EntityFolder.USER + "'")
+    int setFolderProperties(long account, int sync_days, int keep_days);
+
     @Query("UPDATE folder SET keywords = :keywords WHERE id = :id")
     int setFolderKeywords(long id, String keywords);
 

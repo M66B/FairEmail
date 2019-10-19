@@ -19,7 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -32,11 +34,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentTransaction;
@@ -401,6 +407,8 @@ public class FragmentFolders extends FragmentBase {
     public void onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_compact).setChecked(compact);
         menu.findItem(R.id.menu_show_hidden).setChecked(show_hidden);
+        menu.findItem(R.id.menu_apply_all).setVisible(account >= 0);
+
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -412,6 +420,9 @@ public class FragmentFolders extends FragmentBase {
                 return true;
             case R.id.menu_show_hidden:
                 onMenuShowHidden();
+                return true;
+            case R.id.menu_apply_all:
+                onMenuApplyToAll();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -432,6 +443,15 @@ public class FragmentFolders extends FragmentBase {
         show_hidden = !show_hidden;
         getActivity().invalidateOptionsMenu();
         adapter.setShowHidden(show_hidden);
+    }
+
+    private void onMenuApplyToAll() {
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+
+        FragmentDialogApply fragment = new FragmentDialogApply();
+        fragment.setArguments(args);
+        fragment.show(getParentFragmentManager(), "folders:apply");
     }
 
     @Override
@@ -595,5 +615,63 @@ public class FragmentFolders extends FragmentBase {
                 Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "folder:delete");
+    }
+
+    public static class FragmentDialogApply extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_all, null);
+            final EditText etSyncDays = view.findViewById(R.id.etSyncDays);
+            final EditText etKeepDays = view.findViewById(R.id.etKeepDays);
+            final CheckBox cbKeepAll = view.findViewById(R.id.cbKeepAll);
+
+            cbKeepAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    etKeepDays.setEnabled(!isChecked);
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(view)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Bundle args = getArguments();
+                            args.putString("sync", etSyncDays.getText().toString());
+                            args.putString("keep", cbKeepAll.isChecked()
+                                    ? Integer.toString(Integer.MAX_VALUE)
+                                    : etKeepDays.getText().toString());
+
+                            new SimpleTask<Void>() {
+                                @Override
+                                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                    long account = args.getLong("account");
+                                    String sync = args.getString("sync");
+                                    String keep = args.getString("keep");
+
+                                    if (TextUtils.isEmpty(sync))
+                                        sync = "7";
+                                    if (TextUtils.isEmpty(keep))
+                                        keep = "30";
+
+                                    DB db = DB.getInstance(context);
+                                    db.folder().setFolderProperties(
+                                            account, Integer.parseInt(sync), Integer.parseInt(keep));
+
+                                    return null;
+                                }
+
+                                @Override
+                                protected void onException(Bundle args, Throwable ex) {
+                                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                                }
+                            }.execute(FragmentDialogApply.this, args, "folders:all");
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
     }
 }

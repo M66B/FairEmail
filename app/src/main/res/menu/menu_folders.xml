@@ -20,4 +20,9 @@
         android:checkable="true"
         android:title="@string/title_show_folders"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_apply_all"
+        android:title="@string/title_apply_to_all"
+        app:showAsAction="never" />
 </menu>
