@@ -101,7 +101,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             view.setActivated(!rule.enabled);
             tvName.setText(rule.name);
             tvOrder.setText(Integer.toString(rule.order));
-            ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
+            ivStop.setAlpha(rule.stop ? 1.0f : Helper.LOW_LIGHT);
 
             try {
                 List<String> condition = new ArrayList<>();
