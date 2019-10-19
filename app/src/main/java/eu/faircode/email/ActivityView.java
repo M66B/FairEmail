@@ -78,6 +78,8 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
+
 public class ActivityView extends ActivityBilling implements FragmentManager.OnBackStackChangedListener {
     private String startup;
 
@@ -133,7 +135,15 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         startup = prefs.getString("startup", "unified");
 
-        view = LayoutInflater.from(this).inflate(R.layout.activity_view, null);
+        Configuration config = getResources().getConfiguration();
+        boolean normal = config.isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
+        boolean landscape = prefs.getBoolean("landscape", true);
+        Log.i("Orientation=" + config.orientation + " normal=" + normal + " landscape=" + landscape);
+
+        view = LayoutInflater.from(this).inflate(
+                config.orientation == ORIENTATION_PORTRAIT || !normal || !landscape
+                        ? R.layout.activity_view_portrait
+                        : R.layout.activity_view_landscape, null);
         setContentView(view);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

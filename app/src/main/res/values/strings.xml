@@ -241,6 +241,7 @@
     <string name="title_advanced_rlah">Roam like at home</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
+    <string name="title_advanced_landscape">Use two columns in landscape mode</string>
     <string name="title_advanced_startup">Show on start screen</string>
     <string name="title_advanced_cards">Show cards</string>
     <string name="title_advanced_date_header">Group by date</string>

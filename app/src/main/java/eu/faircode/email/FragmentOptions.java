@@ -39,7 +39,7 @@ public class FragmentOptions extends FragmentBase {
 
     static String[] OPTIONS_RESTART = new String[]{
             "subscriptions",
-            "startup", "cards", "date", "threading", "indentation", "highlight_unread",
+            "landscape", "startup", "cards", "date", "threading", "indentation", "highlight_unread",
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "subject_italic", "subject_ellipsize",

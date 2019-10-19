@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,6 +49,7 @@ import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsDisplay extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Button btnTheme;
+    private SwitchCompat swLandscape;
     private Spinner spStartup;
     private SwitchCompat swCards;
     private SwitchCompat swDate;
@@ -86,7 +88,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "startup", "cards", "date", "threading", "indentation", "highlight_unread",
+            "theme", "landscape", "startup", "cards", "date", "threading", "indentation", "highlight_unread",
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "subject_italic", "subject_ellipsize",
@@ -106,6 +108,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         // Get controls
 
         btnTheme = view.findViewById(R.id.btnTheme);
+        swLandscape = view.findViewById(R.id.swLandscape);
         spStartup = view.findViewById(R.id.spStartup);
         swCards = view.findViewById(R.id.swCards);
         swDate = view.findViewById(R.id.swDate);
@@ -152,6 +155,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onClick(View view) {
                 new FragmentDialogTheme().show(getParentFragmentManager(), "setup:theme");
+            }
+        });
+
+        swLandscape.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("landscape", checked).apply();
             }
         });
 
@@ -485,6 +495,12 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        boolean normal = getResources().getConfiguration()
+                .isLayoutSizeAtLeast(Configuration.SCREENLAYOUT_SIZE_NORMAL);
+
+        swLandscape.setChecked(prefs.getBoolean("landscape", true));
+        swLandscape.setEnabled(normal);
 
         String startup = prefs.getString("startup", "unified");
         String[] startupValues = getResources().getStringArray(R.array.startupValues);
