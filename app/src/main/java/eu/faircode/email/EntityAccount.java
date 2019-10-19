@@ -147,6 +147,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return new String[]{name, null};
     }
 
+    boolean shouldPoll() {
+        return ("imap.gmail.com".equals(host) ||
+                "outlook.office365.com".equals(host));
+    }
+
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
         json.put("id", id);
