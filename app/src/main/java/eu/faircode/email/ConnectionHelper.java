@@ -24,7 +24,6 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -299,9 +298,14 @@ public class ConnectionHelper {
             for (Address address : addresses)
                 try {
                     String email = ((InternetAddress) address).getAddress();
-                    if (email == null || !email.contains("@"))
+                    if (email == null)
                         continue;
-                    String domain = email.split("@")[1];
+
+                    int d = email.lastIndexOf("@");
+                    if (d < 0)
+                        continue;
+
+                    String domain = email.substring(d + 1);
                     Lookup lookup = new Lookup(domain, Type.MX);
                     SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
                     lookup.setResolver(resolver);
@@ -346,7 +350,7 @@ public class ConnectionHelper {
         return null;
     }
 
-     static String getDomain(String host) {
+    static String getDomain(String host) {
         if (host != null) {
             String[] h = host.split("\\.");
             if (h.length >= 2)
