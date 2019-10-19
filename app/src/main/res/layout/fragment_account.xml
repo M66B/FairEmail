@@ -739,6 +739,15 @@
             app:layout_constraintStart_toEndOf="@id/btnSave"
             app:layout_constraintTop_toTopOf="@id/btnSave" />
 
+        <CheckBox
+            android:id="@+id/cbIdentity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_related_identity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSave" />
+
         <TextView
             android:id="@+id/tvError"
             android:layout_width="wrap_content"
@@ -750,7 +759,7 @@
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSave" />
+            app:layout_constraintTop_toBottomOf="@id/cbIdentity" />
 
         <Button
             android:id="@+id/btnHelp"

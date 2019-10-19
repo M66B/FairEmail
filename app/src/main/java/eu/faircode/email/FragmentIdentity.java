@@ -123,6 +123,7 @@ public class FragmentIdentity extends FragmentBase {
 
     private long id = -1;
     private long copy = -1;
+    private long account = -1;
     private int auth = MailService.AUTH_TYPE_PASSWORD;
     private boolean saving = false;
 
@@ -141,6 +142,8 @@ public class FragmentIdentity extends FragmentBase {
             copy = args.getLong("id", -1);
         else
             id = args.getLong("id", -1);
+
+        account = args.getLong("account", -1);
     }
 
     @Override
@@ -965,8 +968,9 @@ public class FragmentIdentity extends FragmentBase {
                             spAccount.setSelection(0);
                             for (int pos = 0; pos < accounts.size(); pos++) {
                                 EntityAccount account = accounts.get(pos);
-                                if (account.id.equals((identity == null ? -1 : identity.account))) {
-                                    spAccount.setTag(pos);
+                                if (account.id.equals(identity == null ? FragmentIdentity.this.account : identity.account)) {
+                                    if (identity != null)
+                                        spAccount.setTag(pos);
                                     spAccount.setSelection(pos);
                                     break;
                                 }

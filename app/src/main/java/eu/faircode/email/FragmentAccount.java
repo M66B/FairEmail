@@ -50,6 +50,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -123,6 +124,7 @@ public class FragmentAccount extends FragmentBase {
 
     private Button btnSave;
     private ContentLoadingProgressBar pbSave;
+    private CheckBox cbIdentity;
     private TextView tvError;
     private Button btnHelp;
     private Button btnSupport;
@@ -218,6 +220,7 @@ public class FragmentAccount extends FragmentBase {
 
         btnSave = view.findViewById(R.id.btnSave);
         pbSave = view.findViewById(R.id.pbSave);
+        cbIdentity = view.findViewById(R.id.cbIdentity);
 
         tvError = view.findViewById(R.id.tvError);
         btnHelp = view.findViewById(R.id.btnHelp);
@@ -267,6 +270,7 @@ public class FragmentAccount extends FragmentBase {
 
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
+                cbIdentity.setVisibility(View.GONE);
             }
 
             @Override
@@ -422,6 +426,7 @@ public class FragmentAccount extends FragmentBase {
 
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+        cbIdentity.setVisibility(View.GONE);
 
         tvError.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
@@ -636,7 +641,7 @@ public class FragmentAccount extends FragmentBase {
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        scroll.smoothScrollTo(0, btnSave.getBottom());
+                        scroll.smoothScrollTo(0, cbIdentity.getBottom());
                     }
                 });
             }
@@ -645,6 +650,7 @@ public class FragmentAccount extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
+                cbIdentity.setVisibility(View.GONE);
 
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
@@ -972,6 +978,8 @@ public class FragmentAccount extends FragmentBase {
                         db.account().updateAccount(account);
                     else
                         account.id = db.account().insertAccount(account);
+
+                    args.putLong("account", account.id);
                     EntityLog.log(context, (update ? "Updated" : "Added") + " account=" + account.name);
 
                     // Make sure the channel exists on commit
@@ -1082,8 +1090,20 @@ public class FragmentAccount extends FragmentBase {
                     fragment.setArguments(aargs);
                     fragment.setTargetFragment(FragmentAccount.this, REQUEST_SAVE);
                     fragment.show(getParentFragmentManager(), "account:save");
-                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                } else if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                     getParentFragmentManager().popBackStack();
+
+                    if (cbIdentity.isChecked()) {
+                        Bundle aargs = new Bundle();
+                        aargs.putLong("account", args.getLong("account"));
+
+                        FragmentIdentity fragment = new FragmentIdentity();
+                        fragment.setArguments(aargs);
+                        FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("identity");
+                        fragmentTransaction.commit();
+                    }
+                }
             }
 
             @Override
@@ -1247,8 +1267,8 @@ public class FragmentAccount extends FragmentBase {
                 // Consider previous check/save/delete as cancelled
                 pbWait.setVisibility(View.GONE);
 
-                if (copy < 0) {
-                    args.putLong("account", account == null ? -1 : account.id);
+                if (copy < 0 && account != null) {
+                    args.putLong("account", account.id);
 
                     new SimpleTask<List<EntityFolder>>() {
                         @Override
@@ -1481,6 +1501,8 @@ public class FragmentAccount extends FragmentBase {
 
         grpFolders.setVisibility(View.VISIBLE);
         btnSave.setVisibility(View.VISIBLE);
+        cbIdentity.setVisibility(View.VISIBLE);
+        cbIdentity.setChecked(account == null);
     }
 
     private class CheckResult {
