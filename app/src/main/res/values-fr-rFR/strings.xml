@@ -517,6 +517,7 @@
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
     <string name="title_ask_reporting">Envoyer des rapports d\'erreur ?</string>
     <string name="title_reporting_why">Un rapport d\'erreur aidera à améliorer FairEmail</string>
+    <string name="title_expand_warning">Développer ce message téléchargera %1$s</string>
     <string name="title_download_message">Téléchargement&#8230;</string>
     <string name="title_compose">Rédiger</string>
     <string name="title_from">De :</string>
@@ -527,6 +528,7 @@
     <string name="title_via_identity">Via :</string>
     <string name="title_received">Reçu :</string>
     <string name="title_size">Taille :</string>
+    <string name="title_folder">Dossier :</string>
     <string name="title_subject">Objet :</string>
     <string name="title_body_hint">Votre message</string>
     <string name="title_discard">Supprimer</string>

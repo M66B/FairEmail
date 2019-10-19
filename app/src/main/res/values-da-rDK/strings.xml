@@ -516,6 +516,7 @@
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>
     <string name="title_reporting_why">Rapportering af fejl vil hjælpe med at forbedre FairEmail</string>
+    <string name="title_expand_warning">Udvides denne besked, downloades %1$s</string>
     <string name="title_download_message">Downloader &#8230;</string>
     <string name="title_compose">Skriv</string>
     <string name="title_from">Fra:</string>
@@ -526,6 +527,7 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_received">Modtaget:</string>
     <string name="title_size">Størrelse:</string>
+    <string name="title_folder">Mappe:</string>
     <string name="title_subject">Emne:</string>
     <string name="title_body_hint">Din besked</string>
     <string name="title_discard">Kassér</string>

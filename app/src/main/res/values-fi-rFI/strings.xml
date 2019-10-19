@@ -517,6 +517,7 @@
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
     <string name="title_ask_reporting">Lähetetäänkö virheraportteja?</string>
     <string name="title_reporting_why">Virheraportointi auttaa FairEmailin kehittämisessä</string>
+    <string name="title_expand_warning">Tämän viestin laajentaminen lataa kohteen %1$s</string>
     <string name="title_download_message">Ladataan &#8230;</string>
     <string name="title_compose">Kirjoita viesti</string>
     <string name="title_from">Lähettäjä:</string>
@@ -527,6 +528,7 @@
     <string name="title_via_identity">Kautta:</string>
     <string name="title_received">Vastaanotettu:</string>
     <string name="title_size">Koko:</string>
+    <string name="title_folder">Kansio:</string>
     <string name="title_subject">Aihe:</string>
     <string name="title_body_hint">Viestisi</string>
     <string name="title_discard">Hylkää</string>

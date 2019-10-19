@@ -131,6 +131,7 @@
     <string name="title_setup_doze_remark">Para recibir correo electrónico continuamente (opcional)</string>
     <string name="title_setup_doze_instructions">En el siguiente diálogo, seleccione \"Todas las apps\" en el menú superior, seleccione esta app y finalmente seleccione y confirme la opción \"No optimizar\"</string>
     <string name="title_setup_doze_battery">¿Consumo de batería elevado?</string>
+    <string name="title_setup_doze_stopped">¿Sincronización detenida?</string>
     <string name="title_setup_data">El ahorro de datos está activado</string>
     <string name="title_setup_inbox">Ir a mensajes</string>
     <string name="title_setup_to_do">Pendiente</string>
@@ -516,6 +517,7 @@
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
     <string name="title_ask_reporting">¿Enviar informes de error?</string>
     <string name="title_reporting_why">Informar de errores ayudará a mejorar FairEmail</string>
+    <string name="title_expand_warning">Expandir este mensaje descargará %1$s</string>
     <string name="title_download_message">Descargando &#8230;</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
@@ -526,6 +528,7 @@
     <string name="title_via_identity">Vía:</string>
     <string name="title_received">Recibido:</string>
     <string name="title_size">Tamaño:</string>
+    <string name="title_folder">Carpeta:</string>
     <string name="title_subject">Asunto:</string>
     <string name="title_body_hint">Su mensaje</string>
     <string name="title_discard">Descartar</string>

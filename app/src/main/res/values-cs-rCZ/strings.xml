@@ -539,6 +539,7 @@
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>
     <string name="title_reporting_why">Zprávami o chybách pomůžete zlepšit FairEmail</string>
+    <string name="title_expand_warning">Rozbalení této zprávy stáhne %1$s</string>
     <string name="title_download_message">Stahování &#8230;</string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_from">Od:</string>
@@ -549,6 +550,7 @@
     <string name="title_via_identity">Přes:</string>
     <string name="title_received">Přijato:</string>
     <string name="title_size">Velikost:</string>
+    <string name="title_folder">Složka:</string>
     <string name="title_subject">Předmět:</string>
     <string name="title_body_hint">Vaše zpráva</string>
     <string name="title_discard">Zahodit</string>
