@@ -806,8 +806,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (viewType == ViewType.FOLDER)
                 tvFolder.setText(outbox ? message.identityEmail : message.accountName);
-            else if (type == null)
-                tvFolder.setText((compact ? "" : message.accountName + "/") + message.getFolderName(context));
+            else if (viewType == ViewType.THREAD || viewType == ViewType.SEARCH)
+                tvFolder.setText(message.getFolderName(context));
             else
                 tvFolder.setText(message.accountName + "/" + message.getFolderName(context));
 
