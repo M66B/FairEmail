@@ -622,6 +622,7 @@ public class FragmentFolders extends FragmentBase {
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_all, null);
+            final CheckBox cbPoll = view.findViewById(R.id.cbPoll);
             final EditText etSyncDays = view.findViewById(R.id.etSyncDays);
             final EditText etKeepDays = view.findViewById(R.id.etKeepDays);
             final CheckBox cbKeepAll = view.findViewById(R.id.cbKeepAll);
@@ -639,6 +640,7 @@ public class FragmentFolders extends FragmentBase {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Bundle args = getArguments();
+                            args.putBoolean("poll", cbPoll.isChecked());
                             args.putString("sync", etSyncDays.getText().toString());
                             args.putString("keep", cbKeepAll.isChecked()
                                     ? Integer.toString(Integer.MAX_VALUE)
@@ -648,6 +650,7 @@ public class FragmentFolders extends FragmentBase {
                                 @Override
                                 protected Void onExecute(Context context, Bundle args) throws Throwable {
                                     long account = args.getLong("account");
+                                    boolean poll = args.getBoolean("poll");
                                     String sync = args.getString("sync");
                                     String keep = args.getString("keep");
 
@@ -658,7 +661,10 @@ public class FragmentFolders extends FragmentBase {
 
                                     DB db = DB.getInstance(context);
                                     db.folder().setFolderProperties(
-                                            account, Integer.parseInt(sync), Integer.parseInt(keep));
+                                            account,
+                                            poll,
+                                            Integer.parseInt(sync),
+                                            Integer.parseInt(keep));
 
                                     return null;
                                 }
