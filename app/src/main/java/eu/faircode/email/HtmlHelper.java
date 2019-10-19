@@ -197,7 +197,7 @@ public class HtmlHelper {
                                     Log.e("Color=" + c);
                                 }
 
-                                if (color != null) {
+                                if (color != null && !(dark && color == Color.BLACK)) {
                                     color = Helper.adjustLuminance(color, dark, MIN_LUMINANCE);
                                     c = String.format("#%06x", color & 0xFFFFFF);
                                     sb.append("color:").append(c).append(";");
