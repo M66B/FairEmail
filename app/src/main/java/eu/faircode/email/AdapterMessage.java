@@ -811,7 +811,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             else
                 tvFolder.setText(message.accountName + "/" + message.getFolderName(context));
 
-            tvFolder.setVisibility(compact ? View.GONE : View.VISIBLE);
+            tvFolder.setVisibility(compact && viewType != ViewType.THREAD ? View.GONE : View.VISIBLE);
 
             if (viewType == ViewType.THREAD || !threading) {
                 tvCount.setVisibility(View.GONE);
