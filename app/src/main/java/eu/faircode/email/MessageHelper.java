@@ -179,10 +179,25 @@ public class MessageHelper {
             // Add extra bcc
             if (identity.bcc != null) {
                 List<Address> bcc = new ArrayList<>();
+
                 Address[] existing = imessage.getRecipients(Message.RecipientType.BCC);
                 if (existing != null)
                     bcc.addAll(Arrays.asList(existing));
-                bcc.addAll(Arrays.asList(InternetAddress.parse(identity.bcc)));
+
+                Address[] all = imessage.getAllRecipients();
+                Address[] abccs = InternetAddress.parse(identity.bcc);
+                for (Address abcc : abccs) {
+                    boolean found = false;
+                    if (all != null)
+                        for (Address a : all)
+                            if (equalEmail(a, abcc)) {
+                                found = true;
+                                break;
+                            }
+                    if (!found)
+                        bcc.add(abcc);
+                }
+
                 imessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new Address[0]));
             }
 
@@ -1424,6 +1439,16 @@ public class MessageHelper {
             sb.append(kar);
         }
         return sb.toString();
+    }
+
+    static boolean equalEmail(Address a1, Address a2) {
+        String email1 = ((InternetAddress) a1).getAddress();
+        String email2 = ((InternetAddress) a2).getAddress();
+        if (email1 != null)
+            email1 = email1.toLowerCase();
+        if (email2 != null)
+            email2 = email2.toLowerCase();
+        return Objects.equals(email1, email2);
     }
 
     static boolean equal(Address[] a1, Address[] a2) {
