@@ -57,27 +57,25 @@
         android:title="@string/title_filter"
         app:showAsAction="ifRoom">
         <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/menu_filter_seen"
-                    android:checkable="true"
-                    android:title="@string/title_filter_seen" />
+            <item
+                android:id="@+id/menu_filter_seen"
+                android:checkable="true"
+                android:title="@string/title_filter_seen" />
 
-                <item
-                    android:id="@+id/menu_filter_unflagged"
-                    android:checkable="true"
-                    android:title="@string/title_filter_unflagged" />
+            <item
+                android:id="@+id/menu_filter_unflagged"
+                android:checkable="true"
+                android:title="@string/title_filter_unflagged" />
 
-                <item
-                    android:id="@+id/menu_filter_snoozed"
-                    android:checkable="true"
-                    android:title="@string/title_filter_hidden" />
+            <item
+                android:id="@+id/menu_filter_snoozed"
+                android:checkable="true"
+                android:title="@string/title_filter_hidden" />
 
-                <item
-                    android:id="@+id/menu_filter_duplicates"
-                    android:checkable="true"
-                    android:title="@string/title_filter_duplicates" />
-            </group>
+            <item
+                android:id="@+id/menu_filter_duplicates"
+                android:checkable="true"
+                android:title="@string/title_filter_duplicates" />
         </menu>
     </item>
 

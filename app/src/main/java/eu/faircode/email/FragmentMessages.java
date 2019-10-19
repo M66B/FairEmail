@@ -611,7 +611,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View view) {
                 boolean filter = prefs.getBoolean("filter_seen", true);
-                onMenuFilterSeen(!filter);
+                onMenuFilter("filter_seen", !filter);
             }
         });
 
@@ -619,7 +619,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View view) {
                 boolean filter = prefs.getBoolean("filter_unflagged", true);
-                onMenuFilterUnflagged(!filter);
+                onMenuFilter("filter_unflagged", !filter);
             }
         });
 
@@ -627,7 +627,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             public void onClick(View view) {
                 boolean filter = prefs.getBoolean("filter_snoozed", true);
-                onMenuFilterSnoozed(!filter);
+                onMenuFilter("filter_snoozed", !filter);
             }
         });
 
@@ -2685,15 +2685,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return true;
 
             case R.id.menu_filter_seen:
-                onMenuFilterSeen(!item.isChecked());
+                onMenuFilter("filter_seen", !item.isChecked());
                 return true;
 
             case R.id.menu_filter_unflagged:
-                onMenuFilterUnflagged(!item.isChecked());
+                onMenuFilter("filter_unflagged", !item.isChecked());
                 return true;
 
             case R.id.menu_filter_snoozed:
-                onMenuFilterSnoozed(!item.isChecked());
+                onMenuFilter("filter_snoozed", !item.isChecked());
                 return true;
 
             case R.id.menu_filter_duplicates:
@@ -2760,27 +2760,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         loadMessages(true);
     }
 
-    private void onMenuFilterSeen(boolean filter) {
+    private void onMenuFilter(String name, boolean filter) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("filter_seen", filter).apply();
-        getActivity().invalidateOptionsMenu();
-        if (selectionTracker != null)
-            selectionTracker.clearSelection();
-        loadMessages(true);
-    }
-
-    private void onMenuFilterUnflagged(boolean filter) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("filter_unflagged", filter).apply();
-        getActivity().invalidateOptionsMenu();
-        if (selectionTracker != null)
-            selectionTracker.clearSelection();
-        loadMessages(true);
-    }
-
-    private void onMenuFilterSnoozed(boolean filter) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        prefs.edit().putBoolean("filter_snoozed", filter).apply();
+        prefs.edit().putBoolean(name, filter).apply();
         getActivity().invalidateOptionsMenu();
         if (selectionTracker != null)
             selectionTracker.clearSelection();
