@@ -21,6 +21,7 @@
     <!-- Grey 800 -->
     <color name="darkPrimary">#424242</color>
     <color name="darkPrimaryDark">#1b1b1b</color>
+    <color name="darkPrimaryLight">#6d6d6d</color>
 
     <!-- Grey 800 / Blue grey 300 -->
     <color name="greyPrimary">#424242</color>

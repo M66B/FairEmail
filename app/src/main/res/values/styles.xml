@@ -92,7 +92,7 @@
         <item name="colorFabBackground">@color/colorAccent</item>
 
         <item name="colorToastForeground">@color/white</item>
-        <item name="colorToastBackground">@color/colorPrimaryDark</item>
+        <item name="colorToastBackground">@color/darkPrimaryLight</item>
 
         <item name="activatableItemBackground">@drawable/activatable_item_background_dark</item>
 
