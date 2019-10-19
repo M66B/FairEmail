@@ -62,6 +62,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private TextView tvProcessors;
     private TextView tvMemoryClass;
+    private TextView tvStorageSpace;
     private TextView tvLastCleanup;
     private TextView tvUuid;
 
@@ -102,6 +103,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvProcessors = view.findViewById(R.id.tvProcessors);
         tvMemoryClass = view.findViewById(R.id.tvMemoryClass);
+        tvStorageSpace = view.findViewById(R.id.tvStorageSpace);
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
         tvUuid = view.findViewById(R.id.tvUuid);
 
@@ -340,6 +342,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
         int class_mb = am.getMemoryClass();
         tvMemoryClass.setText(getString(R.string.title_advanced_memory_class, class_mb + " MB"));
+
+        tvStorageSpace.setText(getString(R.string.title_advanced_storage_space,
+                Helper.humanReadableByteCount(Helper.getStorageSpace(), true)));
+
         tvUuid.setText(prefs.getString("uuid", null));
 
         grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);

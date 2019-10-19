@@ -40,9 +40,11 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Parcel;
 import android.os.PowerManager;
+import android.os.StatFs;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.format.DateUtils;
@@ -674,6 +676,11 @@ public class Helper {
                     out.write(buf, 0, len);
             }
         }
+    }
+
+    static long getStorageSpace() {
+        StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
+        return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();
     }
 
     static Bitmap decodeImage(File file, int scaleToPixels) {

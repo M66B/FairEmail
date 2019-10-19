@@ -240,6 +240,16 @@
             app:layout_constraintTop_toBottomOf="@id/tvProcessors" />
 
         <TextView
+            android:id="@+id/tvStorageSpace"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_advanced_storage_space"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
+
+        <TextView
             android:id="@+id/tvLastCleanup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -247,7 +257,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMemoryClass" />
+            app:layout_constraintTop_toBottomOf="@id/tvStorageSpace" />
 
         <TextView
             android:id="@+id/tvUuid"
@@ -265,6 +275,6 @@
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvLastCleanup,tvUuid" />
+            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvStorageSpace,tvLastCleanup,tvUuid" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
