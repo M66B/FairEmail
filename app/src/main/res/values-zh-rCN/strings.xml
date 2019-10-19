@@ -192,6 +192,7 @@
     <string name="title_advanced_roaming">漫游时下载消息和附件</string>
     <string name="title_advanced_rlah">像在国内那样漫游</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
+    <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
@@ -505,6 +506,7 @@
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
+    <string name="title_expand_warning">扩展此消息下载 %1$s</string>
     <string name="title_download_message">下载中&#8230;</string>
     <string name="title_compose">撰写</string>
     <string name="title_from">发件人：</string>
@@ -515,6 +517,7 @@
     <string name="title_via_identity">自：</string>
     <string name="title_received">已接收：</string>
     <string name="title_size">大小：</string>
+    <string name="title_folder">文件夹:</string>
     <string name="title_subject">主题：</string>
     <string name="title_body_hint">您的邮件内容……</string>
     <string name="title_discard">舍弃</string>

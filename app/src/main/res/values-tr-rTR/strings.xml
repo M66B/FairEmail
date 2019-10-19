@@ -204,6 +204,7 @@
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
     <string name="title_advanced_rlah">Evde gibi dolaşmak</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
+    <string name="title_advanced_landscape">Yatay modda iki sütun kullanın</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Kartları göster</string>
     <string name="title_advanced_date_header">Tarihe göre grup</string>

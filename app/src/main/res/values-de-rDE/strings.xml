@@ -203,6 +203,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_roaming">Nachrichten und Anhänge bei Roaming herunterladen</string>
     <string name="title_advanced_rlah">Roaming wie zu Hause</string>
     <string name="title_advanced_manage_connectivity">Verbindungsfähigkeiten verwalten</string>
+    <string name="title_advanced_landscape">Zwei Spalten im Querformat verwenden</string>
     <string name="title_advanced_startup">Zum Start anzeigen</string>
     <string name="title_advanced_cards">Karten anzeigen</string>
     <string name="title_advanced_date_header">Nach Datum gruppieren</string>

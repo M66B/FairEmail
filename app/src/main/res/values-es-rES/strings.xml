@@ -204,6 +204,7 @@
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en itinerancia</string>
     <string name="title_advanced_rlah">Itinerancia como en casa</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
+    <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
     <string name="title_advanced_cards">Mostrar tarjetas</string>
     <string name="title_advanced_date_header">Agrupar por fecha</string>

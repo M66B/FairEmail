@@ -204,6 +204,7 @@
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
     <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_manage_connectivity">Beheer connectiviteit</string>
+    <string name="title_advanced_landscape">Gebruik twee kolommen in landschapsmodus</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Toon kaarten</string>
     <string name="title_advanced_date_header">Op datum groeperen</string>

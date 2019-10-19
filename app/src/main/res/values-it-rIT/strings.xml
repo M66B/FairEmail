@@ -203,6 +203,7 @@
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_manage_connectivity">Gestisci connettività</string>
+    <string name="title_advanced_landscape">Usa due colonne in modalità orizzontale</string>
     <string name="title_advanced_startup">Mostra nella schermata iniziale</string>
     <string name="title_advanced_cards">Mostra carte</string>
     <string name="title_advanced_date_header">Raggruppa per data</string>

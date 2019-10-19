@@ -204,6 +204,7 @@
     <string name="title_advanced_roaming">Laste ned meldinger og vedlegg under roaming</string>
     <string name="title_advanced_rlah">Roam som hjemme</string>
     <string name="title_advanced_manage_connectivity">Administrer tilkobling</string>
+    <string name="title_advanced_landscape">Bruk to kolonner i liggende modus</string>
     <string name="title_advanced_startup">Vis på startskjermen</string>
     <string name="title_advanced_cards">Vis kort</string>
     <string name="title_advanced_date_header">Gruppere etter dato</string>
