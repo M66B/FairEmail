@@ -1902,6 +1902,7 @@ class Core {
                     crumb.put("start", Integer.toString(from));
                     crumb.put("end", Integer.toString(i));
                     crumb.put("free", Integer.toString(free));
+                    crumb.put("partial", Boolean.toString(account.partial_fetch));
                     Log.breadcrumb("download", crumb);
                     Log.i("Download " + from + ".." + i + " free=" + free);
 
