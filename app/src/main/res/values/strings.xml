@@ -324,6 +324,7 @@
     <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_default_snooze">Default snooze time</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
