@@ -2462,6 +2462,14 @@ Since there is no guarantee that the message text will be fetched directly after
 
 ## Support
 
+Requested features should:
+
+* be useful to most people
+* not complicate the usage of FairEmail
+* fit within the philosophy of FairEmail (privacy friendly, security minded)
+
+Features not fulfilling these requirements will likely be rejected.
+
 If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
 Registration is free.
 
