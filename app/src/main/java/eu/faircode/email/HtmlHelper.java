@@ -356,19 +356,17 @@ public class HtmlHelper {
             String src = img.attr("src");
             String tracking = img.attr("tracking");
 
-            if (!show_images) {
-                if (!TextUtils.isEmpty(alt)) {
+            if (!show_images && !TextUtils.isEmpty(alt))
+                if (TextUtils.isEmpty(tracking))
+                    img.appendText(" " + alt + " ");
+                else {
                     img.append("&nbsp;");
-                    if (TextUtils.isEmpty(tracking))
-                        img.appendText(alt);
-                    else {
-                        Element a = document.createElement("a");
-                        a.attr("href", tracking);
-                        a.text(alt);
-                        img.appendChild(a);
-                    }
+                    Element a = document.createElement("a");
+                    a.attr("href", tracking);
+                    a.text(alt);
+                    img.appendChild(a);
+                    img.appendText(" ");
                 }
-            }
 
             // Annotate source with width and height
             if (!TextUtils.isEmpty(src)) {
