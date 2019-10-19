@@ -720,7 +720,7 @@ public class ServiceSynchronize extends ServiceBase {
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
                 final MailService iservice = new MailService(
-                        this, account.getProtocol(), account.realm, account.insecure, debug);
+                        this, account.getProtocol(), account.realm, account.insecure, false, debug);
                 iservice.setPartialFetch(account.partial_fetch);
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 if (account.pop)

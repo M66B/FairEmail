@@ -245,7 +245,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 List<EntityFolder> folders;
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
-                try (MailService iservice = new MailService(context, aprotocol, null, false, true)) {
+                try (MailService iservice = new MailService(context, aprotocol, null, false, true, true)) {
                     try {
                         iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, user, password);
                     } catch (AuthenticationFailedException ex) {
@@ -267,7 +267,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 }
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
-                try (MailService iservice = new MailService(context, iprotocol, null, false, true)) {
+                try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
                     iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_PASSWORD, user, password);
                 }
 

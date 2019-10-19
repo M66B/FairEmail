@@ -552,7 +552,7 @@ public class FragmentAccount extends FragmentBase {
 
                 // Check IMAP server / get folders
                 String protocol = "imap" + (starttls ? "" : "s");
-                try (MailService iservice = new MailService(context, protocol, realm, insecure, true)) {
+                try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
                     iservice.connect(host, Integer.parseInt(port), auth, user, password);
 
                     result.idle = iservice.hasCapability("IDLE");
@@ -896,7 +896,7 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder inbox = null;
                 if (check) {
                     String protocol = "imap" + (starttls ? "" : "s");
-                    try (MailService iservice = new MailService(context, protocol, realm, insecure, true)) {
+                    try (MailService iservice = new MailService(context, protocol, realm, insecure, true, true)) {
                         iservice.connect(host, Integer.parseInt(port), auth, user, password);
 
                         for (Folder ifolder : iservice.getStore().getDefaultFolder().list("*")) {
