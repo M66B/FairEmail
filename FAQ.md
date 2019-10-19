@@ -2444,7 +2444,7 @@ The error *User is authenticated but not connected* might occur if:
 
 <br />
 
-<a name="faq1140"></a>
+<a name="faq140"></a>
 **(140) Can message previews be sent to my wearable?**
 
 FairEmail fetches a message in two steps:
