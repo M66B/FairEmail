@@ -25,7 +25,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
@@ -101,7 +100,6 @@ public abstract class DB extends RoomDatabase {
             Helper.getBackgroundExecutor(1, "query");
 
     private static final String DB_NAME = "fairemail";
-    private static final long VACUUM_INTERVAL = 24 * 3600 * 1000L;
 
     public static synchronized DB getInstance(Context context) {
         if (sInstance == null) {
@@ -111,15 +109,12 @@ public abstract class DB extends RoomDatabase {
 
             // https://www.sqlite.org/lang_vacuum.html
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            long last_vacuum = prefs.getLong("last_vacuum", 0);
-            Log.i("Last VACUUM at " + new Date(last_vacuum));
-
-            long now = new Date().getTime();
-            if (last_vacuum + VACUUM_INTERVAL < now)
+            boolean vacuum = prefs.getBoolean("vacuum", false);
+            if (vacuum)
                 try {
                     Log.i("Running VACUUM");
                     sInstance.getOpenHelper().getWritableDatabase().execSQL("VACUUM;");
-                    prefs.edit().putLong("last_vacuum", now).apply();
+                    prefs.edit().remove("vacuum").apply();
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }

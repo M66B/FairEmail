@@ -175,6 +175,9 @@ public class ApplicationEx extends Application {
             }
         }
 
+        if (version < BuildConfig.VERSION_CODE)
+            editor.putBoolean("vacuum", true);
+
         if (BuildConfig.DEBUG && false) {
             editor.remove("app_support");
             editor.remove("notify_archive");
