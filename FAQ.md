@@ -2470,7 +2470,4 @@ Requested features should:
 
 Features not fulfilling these requirements will likely be rejected.
 
-If you have another question, want to request a feature or report a bug, you can use [this forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168).
-Registration is free.
-
-If you are a supporter of the project, you can get limited personal support by using [this form](https://contact.faircode.eu/?product=fairemailsupport).
+If you have another question, want to request a feature or report a bug, please use *Report issue* in the main navigation/hamburger menu of the app.
