@@ -17,7 +17,7 @@
     </provider>
     <provider
         name="Outlook/Office365"
-        domain="outlook.*"
+        domain="outlook\\..*,live\\..*,hotmail\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         order="2">
         <imap
