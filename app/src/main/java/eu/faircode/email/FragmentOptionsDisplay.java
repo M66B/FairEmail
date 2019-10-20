@@ -88,7 +88,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swActionbar;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "theme", "landscape", "startup", "cards", "date", "threading", "indentation", "highlight_unread",
+            "theme", "landscape", "startup", "cards", "indentation", "date", "threading", "highlight_unread",
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "subject_italic", "subject_ellipsize",
@@ -111,9 +111,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swLandscape = view.findViewById(R.id.swLandscape);
         spStartup = view.findViewById(R.id.spStartup);
         swCards = view.findViewById(R.id.swCards);
+        swIndentation = view.findViewById(R.id.swIndentation);
         swDate = view.findViewById(R.id.swDate);
         swThreading = view.findViewById(R.id.swThreading);
-        swIndentation = view.findViewById(R.id.swIndentation);
         swHighlightUnread = view.findViewById(R.id.swHighlightUnread);
         swAvatars = view.findViewById(R.id.swAvatars);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
@@ -182,6 +182,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("cards", checked).apply();
+                swIndentation.setEnabled(checked);
+            }
+        });
+
+        swIndentation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("indentation", checked).apply();
             }
         });
 
@@ -197,13 +205,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("threading", checked).apply();
                 WidgetUnified.update(getContext());
-            }
-        });
-
-        swIndentation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("indentation", checked).apply();
             }
         });
 
@@ -511,9 +512,10 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
 
         swCards.setChecked(prefs.getBoolean("cards", true));
+        swIndentation.setChecked(prefs.getBoolean("indentation", false));
+        swIndentation.setEnabled(swCards.isChecked());
         swDate.setChecked(prefs.getBoolean("date", true));
         swThreading.setChecked(prefs.getBoolean("threading", true));
-        swIndentation.setChecked(prefs.getBoolean("indentation", false));
         swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", false));
         swAvatars.setChecked(prefs.getBoolean("avatars", true));
         swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));

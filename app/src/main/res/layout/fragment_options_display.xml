@@ -81,6 +81,18 @@
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swIndentation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_indentation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCards"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -89,7 +101,7 @@
             android:text="@string/title_advanced_date_header"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swCards"
+            app:layout_constraintTop_toBottomOf="@id/swIndentation"
             app:switchPadding="12dp" />
 
         <TextView
@@ -129,18 +141,6 @@
             app:layout_constraintTop_toBottomOf="@id/swThreading" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swIndentation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:checked="true"
-            android:text="@string/title_advanced_indentation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvThreadingHint"
-            app:switchPadding="12dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swHighlightUnread"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
             android:text="@string/title_advanced_highlight_unread"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swIndentation"
+            app:layout_constraintTop_toBottomOf="@id/tvThreadingHint"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat
