@@ -913,12 +913,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 Log.w("Inferring type of value=" + value);
                                 if (value instanceof Boolean)
                                     editor.putBoolean(key, (Boolean) value);
-                                else if (value instanceof Integer)
+                                else if (value instanceof Integer) {
+                                    Integer i = (Integer) value;
                                     if (key.endsWith(".account"))
-                                        editor.putLong(key, (Long) value);
+                                        editor.putLong(key, Long.valueOf(i));
                                     else
-                                        editor.putInt(key, (Integer) value);
-                                else if (value instanceof Long)
+                                        editor.putInt(key, i);
+                                } else if (value instanceof Long)
                                     editor.putLong(key, (Long) value);
                                 else if (value instanceof String)
                                     editor.putString(key, (String) value);
