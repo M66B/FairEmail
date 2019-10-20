@@ -45,6 +45,7 @@ public class MailService implements AutoCloseable {
 
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
+    static final int AUTH_TYPE_OUTLOOK = 3;
 
     private final static int CHECK_TIMEOUT = 15 * 1000; // milliseconds
     private final static int CONNECT_TIMEOUT = 20 * 1000; // milliseconds
@@ -175,7 +176,7 @@ public class MailService implements AutoCloseable {
 
     public String connect(String host, int port, int auth, String user, String password) throws MessagingException {
         try {
-            if (auth == AUTH_TYPE_GMAIL)
+            if (auth == AUTH_TYPE_GMAIL || auth == AUTH_TYPE_OUTLOOK)
                 properties.put("mail." + protocol + ".auth.mechanisms", "XOAUTH2");
 
             //if (BuildConfig.DEBUG)

@@ -73,6 +73,12 @@
 -keepnames class biweekly.** {*;}
 -dontwarn biweekly.io.json.**
 
+#MSAL
+-keep class com.microsoft.aad.adal.** {*;}
+-keep class com.microsoft.identity.common.** {*;}
+-dontwarn com.nimbusds.jose.**
+-keepclassmembers enum * {*;} #GSON
+
 #Notes
 -dontnote com.google.android.material.**
 -dontnote com.sun.mail.**

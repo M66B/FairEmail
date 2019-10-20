@@ -49,6 +49,7 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/README.md'
         exclude 'META-INF/CHANGES'
+        exclude 'META-INF/jersey-module-version'
     }
 
     signingConfigs {
@@ -202,6 +203,7 @@ dependencies {
     def photoview_version = "2.3.0"
     def relinker_version = "1.3.1"
     def markwon_version = "4.1.1"
+    def msal_version = "1.0.0"
 
     // https://developer.android.com/jetpack/androidx/releases/
 
@@ -319,4 +321,7 @@ dependencies {
 
     // // https://github.com/QuadFlask/colorpicker
     implementation project(':qcolorpicker')
+
+    // https://github.com/AzureAD/microsoft-authentication-library-for-android
+    implementation "com.microsoft.identity.client:msal:$msal_version"
 }
