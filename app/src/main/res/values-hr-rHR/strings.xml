@@ -245,6 +245,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_images_inline">Automatski prikaz uključenih slika</string>
     <string name="title_advanced_seekbar">Prikaži relativni položaj razgovora s točkom</string>
     <string name="title_advanced_actionbar">Prikaži traku s akcijama razgovora</string>
+    <string name="title_advanced_double_back">Dvaput \'natrag\' za izlaz</string>
     <string name="title_advanced_pull_refresh">Povucite prema dolje za osvježavanje</string>
     <string name="title_advanced_autoscroll">Pomakniti se na vrh po prijemu novih poruka</string>
     <string name="title_advanced_double_tap">Dvaput dodirnite da biste označili poruku pročitanu / nepročitanu</string>
@@ -260,6 +261,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_autounstar">Automatsko uklanjanje zvijezda iz poruka prema pokretu</string>
     <string name="title_advanced_automove">Potvrditi pokret poruke</string>
     <string name="title_advanced_discard_delete">Pri odbacivanju skice trajno izbrisati skicu</string>
+    <string name="title_advanced_default_snooze">Zadano vrijeme odgode</string>
     <string name="title_advanced_badge">Pokaži ikonu pokretača s brojem novih poruka</string>
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara sa brojem obavijesti</string>
     <string name="title_advanced_notify_summary">Prikaži samo sažetku obavijesti</string>
@@ -280,15 +282,13 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_display_hidden">Prikaži skrivene tekstove poruka</string>
     <string name="title_advanced_recents">Sakrij sa zaslona s nedavnim aplikacijama</string>
+    <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
     <string name="title_advanced_badge_hint">Dostupno samo na podržanim lanserima</string>
     <string name="title_advanced_notify_action_hint">Prikazat će se najviše tri akcije</string>
     <string name="title_advanced_notify_remove_hint">Obavijesti o novim porukama uvijek će se uklanjati nakon što ih povučete i označite kao pročitane poruke</string>
     <string name="title_advanced_notify_manage_hint">Dodirnite kanal s nazivom \"Obavijesti\" da biste postavili zadani zvuk obavijesti, itd</string>
     <string name="title_advanced_notify_no_grouping">Ova verzija Androida ne podržava grupiranje obavijesti</string>
     <string name="title_advanced_notify_no_channels">Ova verzija Androida ne podržava kanale za obavijesti</string>
-    <string name="title_advanced_double_back">Dvaput \'natrag\' za izlaz</string>
-    <string name="title_advanced_default_snooze">Zadano vrijeme odgode</string>
-    <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>
     <string name="title_advanced_watchdog">Povremeno provjeriti je li je FairEmail još uvijek aktivan</string>
     <string name="title_advanced_updates">Provjeri ažuriranja</string>

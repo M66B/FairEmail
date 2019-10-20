@@ -227,6 +227,7 @@
     <string name="title_advanced_flags_background">Mostra lo sfondo colorato invece delle stelle colorate</string>
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_preview_italic">Mostra anteprima messaggio in corsivo</string>
+    <string name="title_advanced_preview_lines">Numero di linee di anteprima</string>
     <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo come impostazione predefinita</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
@@ -236,6 +237,7 @@
     <string name="title_advanced_images_inline">Mostra automaticamente le immagini in linea</string>
     <string name="title_advanced_seekbar">Mostra la posizione relativa della conversazione con un punto</string>
     <string name="title_advanced_actionbar">Mostra barra azione conversazione</string>
+    <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_pull_refresh">Trascina in basso per aggiornare</string>
     <string name="title_advanced_autoscroll">Scorri verso l\'alto quando ricevi nuovi messaggi</string>
     <string name="title_advanced_double_tap">Doppio tocco per segnare il messaggio letto/non letto</string>
@@ -251,6 +253,7 @@
     <string name="title_advanced_autounstar">Rimuovi automaticamente la stella dai messaggi sullo spostamento dei messaggi</string>
     <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
     <string name="title_advanced_discard_delete">In caso la bozza venga scartata, eliminala definitivamente</string>
+    <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
     <string name="title_advanced_badge">Mostra icona launcher con numero di nuovi messaggi</string>
     <string name="title_advanced_unseen_ignored">Lascia che il numero di nuovi messaggi corrisponda al numero di notifiche</string>
     <string name="title_advanced_notify_summary">Mostra solo le notifiche di riepilogo</string>
@@ -271,16 +274,14 @@
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
     <string name="title_advanced_recents">Nascondi dallo schermata con app recenti</string>
+    <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_badge_hint">Disponibile solo sui launcher supportati</string>
     <string name="title_advanced_notify_action_hint">Verranno mostrate al massimo tre azioni</string>
     <string name="title_advanced_notify_remove_hint">Le notifiche di nuovo messaggio verranno sempre rimosse quando vengono eliminate via scorrimento e quando i messaggi vengono contrassegnati come letti</string>
     <string name="title_advanced_notify_manage_hint">Tocca il nome del canale \'Notifiche\' per impostare il suono di notifica predefinito, ecc</string>
     <string name="title_advanced_notify_no_grouping">Questa versione Android non supporta il raggruppamento di notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione Android non supporta i canali di notifica</string>
-    <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
-    <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
-    <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
-    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -314,6 +315,7 @@
     <string name="title_advanced_autoclose_hint">Chiudi automaticamente le conversazioni raggruppate quando tutti i messaggi sono archiviati, inviati o cestinati</string>
     <string name="title_advanced_sender_hint">La maggior parte dei fornitori non consente indirizzi mittente modificati</string>
     <string name="title_advanced_display_hidden_hint">Ciò può comportare un aspetto strano e doppi testi</string>
+    <string name="title_advanced_display_pin_hint">Un PIN ha la precedenza sull\'autenticazione biometrica</string>
     <string name="title_advanced_subscribed_only_hint">Abilitando questa opzione verranno eliminate tutte le cartelle locali senza abbonamento</string>
     <string name="title_advanced_english_hint">Questo riavvierà l\'app</string>
     <string name="title_advanced_experiments_hint">Elenco delle attuali funzionalità sperimentali</string>
@@ -437,6 +439,7 @@
     <string name="title_folder_sent">Inviato</string>
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Utente</string>
+    <string name="title_folder_user_only">Solo cartelle utente</string>
     <string name="title_folder_primary">Cartelle account principale</string>
     <string name="title_folders_unified">Cartella posta in arrivo unificata</string>
     <string name="title_no_folders">Nessuna cartella</string>
@@ -889,5 +892,11 @@
         <item>Basso</item>
         <item>Normale</item>
         <item>Alto</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

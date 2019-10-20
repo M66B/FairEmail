@@ -228,6 +228,7 @@
     <string name="title_advanced_flags_background">Renkli yıldızlar yerine renkli arka plan göster</string>
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_preview_italic">İleti önizlemesini italik olarak göster</string>
+    <string name="title_advanced_preview_lines">Önizleme satırı sayısı</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
@@ -237,6 +238,7 @@
     <string name="title_advanced_images_inline">İletideki görselleri otomatik olarak göster</string>
     <string name="title_advanced_seekbar">Göreli konuşma konumunu nokta ile göster</string>
     <string name="title_advanced_actionbar">Sohbet eylem çubuğunu göster</string>
+    <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
@@ -252,6 +254,7 @@
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
+    <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
@@ -272,16 +275,14 @@
     <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_display_hidden">Gizli mesaj metinlerini göster</string>
     <string name="title_advanced_recents">Son uygulamalar ekranından gizle</string>
+    <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
     <string name="title_advanced_notify_manage_hint">Öntanımlı bildirim sesi vs. ayarlamak için \'Bildirimler\' yazan yere dokunun</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>
     <string name="title_advanced_notify_no_channels">Bu Android versiyonu bildirim kanallarını desteklememektedir</string>
-    <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
-    <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
-    <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
-    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -315,6 +316,7 @@
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
+    <string name="title_advanced_display_pin_hint">PIN, biyometrik kimlik doğrulamasından önceliklidir</string>
     <string name="title_advanced_subscribed_only_hint">Bunu etkinleştirmek aboneliği olmayan tüm yerel klasörleri siler</string>
     <string name="title_advanced_english_hint">Bu app yeniden başlatılır</string>
     <string name="title_advanced_experiments_hint">Güncel deneysel özelliklerin listesi</string>
@@ -438,6 +440,7 @@
     <string name="title_folder_sent">Gönderilen</string>
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">Kullanıcı</string>
+    <string name="title_folder_user_only">Sadece kullanıcı klasörleri</string>
     <string name="title_folder_primary">Klasörler birincil hesap</string>
     <string name="title_folders_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_no_folders">Klasör yok</string>
@@ -890,5 +893,11 @@
         <item>Düşük</item>
         <item>Normal</item>
         <item>Yüksek</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

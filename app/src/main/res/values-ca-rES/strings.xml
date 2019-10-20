@@ -232,6 +232,7 @@
     <string name="title_advanced_images_inline">Mostra automàticament imatges en línia</string>
     <string name="title_advanced_seekbar">Mostra la posició de conversa relativa amb un punt</string>
     <string name="title_advanced_actionbar">Mostra la barra d’acció de conversa</string>
+    <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
     <string name="title_advanced_pull_refresh">Arrossegueu avall per actualitzar</string>
     <string name="title_advanced_autoscroll">Desplaceu-vos cap amunt per rebre nous missatges</string>
     <string name="title_advanced_double_tap">Toca dues vegades per marcar el missatge llegit/sense llegir</string>
@@ -247,6 +248,7 @@
     <string name="title_advanced_autounstar">Elimina automàticament les estrelles dels missatges quan es moguin els missatges</string>
     <string name="title_advanced_automove">Confirma moure missatges</string>
     <string name="title_advanced_discard_delete">En descartar l\'esborrany, suprimeix el projecte permanent</string>
+    <string name="title_advanced_default_snooze">Temps de retard de la repetició predefinit</string>
     <string name="title_advanced_badge">Mostra la icona del llançador amb nombre de missatges nous</string>
     <string name="title_advanced_unseen_ignored">Permet que el nombre de missatges nous coincideixi amb el nombre de notificacions</string>
     <string name="title_advanced_notify_summary">Mostrar només notificació de resum</string>
@@ -266,15 +268,13 @@
     <string name="title_advanced_sound">Selecciona so de notificació</string>
     <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_recents">Oculta de la pantalla amb aplicacions recents</string>
+    <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_badge_hint">Només disponible en llançadors compatibles</string>
     <string name="title_advanced_notify_action_hint">Com a màxim es mostraran tres accions</string>
     <string name="title_advanced_notify_remove_hint">Les notificacions de nous missatges sempre s\'esborraran quan es llisquin cap als costats o al marcar els missatges com a llegits</string>
     <string name="title_advanced_notify_manage_hint">Toqueu el nom del canal \"Notificacions\" per definir el so de notificació per defecte, etc</string>
     <string name="title_advanced_notify_no_grouping">Aquesta versió d\'Android no admet l\'agrupació de notificacions</string>
     <string name="title_advanced_notify_no_channels">Aquesta versió d\'Android no admet els canals de notificacions</string>
-    <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
-    <string name="title_advanced_default_snooze">Temps de retard de la repetició predefinit</string>
-    <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_english">Forçar idioma anglès</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
     <string name="title_advanced_updates">Comprova si hi ha actualitzacions</string>

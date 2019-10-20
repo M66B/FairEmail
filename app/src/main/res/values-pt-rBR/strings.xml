@@ -234,6 +234,7 @@
     <string name="title_advanced_images_inline">Mostrar imagens em linha automaticamente</string>
     <string name="title_advanced_seekbar">Mostrar posição relativa da conversa com um ponto</string>
     <string name="title_advanced_actionbar">Mostrar barra de ação de conversa</string>
+    <string name="title_advanced_double_back">Pressione duas vezes \"Voltar\" para sair</string>
     <string name="title_advanced_pull_refresh">Puxe para baixo para atualizar</string>
     <string name="title_advanced_autoscroll">Role para cima ao receber novas mensagens</string>
     <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
@@ -249,6 +250,7 @@
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao movê-las</string>
     <string name="title_advanced_automove">Confirmar ao mover mensagens</string>
     <string name="title_advanced_discard_delete">No rascunho de descarte, excluir permanentemente o rascunho</string>
+    <string name="title_advanced_default_snooze">Tempo padrão de soneca</string>
     <string name="title_advanced_badge">Mostrar ícone no launcher com número de novas mensagens</string>
     <string name="title_advanced_unseen_ignored">Permitir que o número de novas mensagens corresponda ao número de notificações</string>
     <string name="title_advanced_notify_summary">Mostrar apenas notificação de resumo</string>
@@ -268,15 +270,13 @@
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_tracking">Reconhecer e desativar automaticamente as imagens de rastreamento</string>
     <string name="title_advanced_recents">Ocultar FairEmail da tela apps recentes</string>
+    <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
     <string name="title_advanced_badge_hint">Disponível somente em lançadores suportados</string>
     <string name="title_advanced_notify_action_hint">No máximo três ações serão mostradas</string>
     <string name="title_advanced_notify_remove_hint">Novas notificações de mensagem serão sempre removidas ao serem arrastadas e ao marcar mensagens lidas</string>
     <string name="title_advanced_notify_manage_hint">Toque no nome do canal \'Notificações\' para definir o som de notificação padrão, etc</string>
     <string name="title_advanced_notify_no_grouping">Esta versão do Android não suporta agrupamento de notificações</string>
     <string name="title_advanced_notify_no_channels">Esta versão Android não suporta canais de notificação</string>
-    <string name="title_advanced_double_back">Pressione duas vezes \"Voltar\" para sair</string>
-    <string name="title_advanced_default_snooze">Tempo padrão de soneca</string>
-    <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>

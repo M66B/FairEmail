@@ -228,6 +228,7 @@
     <string name="title_advanced_flags_background">Afficher un arrière-plan coloré au lieu des étoiles</string>
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italiques</string>
+    <string name="title_advanced_preview_lines">Nombre de lignes d\'aperçu</string>
     <string name="title_advanced_addresses">Afficher les détails de l\'adresse par défaut</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_contrast">Utiliser un contraste élevé pour le texte du message</string>
@@ -237,6 +238,7 @@
     <string name="title_advanced_images_inline">Afficher automatiquement les images incluses</string>
     <string name="title_advanced_seekbar">Afficher la position relative dans la conversation avec un point</string>
     <string name="title_advanced_actionbar">Afficher la barre d\'action de conversation</string>
+    <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
     <string name="title_advanced_autoscroll">Faire défiler vers le haut lors de la réception de nouveaux messages</string>
     <string name="title_advanced_double_tap">Appuyer deux fois pour marquer le message lu/non lu</string>
@@ -252,6 +254,7 @@
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile des messages lors de leur déplacement</string>
     <string name="title_advanced_automove">Confirmer le déplacement des messages</string>
     <string name="title_advanced_discard_delete">Lors de la suppression d\'un brouillon, le supprimer définitivement</string>
+    <string name="title_advanced_default_snooze">Délai de report par défaut</string>
     <string name="title_advanced_badge">Afficher l\'icône de lancement avec le nombre de nouveaux messages</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
     <string name="title_advanced_notify_summary">Afficher uniquement une notification résumée</string>
@@ -272,16 +275,14 @@
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
     <string name="title_advanced_display_hidden">Afficher les textes de message cachés</string>
     <string name="title_advanced_recents">Masquer FairEmail dans l\'affichage des applications récentes</string>
+    <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
+    <string name="title_advanced_pin">Code PIN</string>
     <string name="title_advanced_badge_hint">Uniquement disponible sur les lanceurs pris en charge</string>
     <string name="title_advanced_notify_action_hint">Trois actions au plus seront affichées</string>
     <string name="title_advanced_notify_remove_hint">Les notifications de nouveau message seront toujours supprimées lors de leur balayage et lors du marquage des messages comme lus</string>
     <string name="title_advanced_notify_manage_hint">Appuyer sur le nom du canal \'Notifications\' pour définir le son de notification par défaut, etc</string>
     <string name="title_advanced_notify_no_grouping">Cette version de Android ne supporte pas le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version de Android ne supporte pas les canaux de notification</string>
-    <string name="title_advanced_double_back">Faire « Retour » deux fois pour quitter</string>
-    <string name="title_advanced_default_snooze">Délai de report par défaut</string>
-    <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
-    <string name="title_advanced_pin">Code PIN</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
     <string name="title_advanced_watchdog">Vérifier périodiquement si FairEmail est toujours actif</string>
     <string name="title_advanced_updates">Vérifier les mises à jour</string>
@@ -315,6 +316,7 @@
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut entraîner un affichage étrange et des textes en double</string>
+    <string name="title_advanced_display_pin_hint">Un code PIN a priorité sur l\'authentification biométrique</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
@@ -438,6 +440,7 @@
     <string name="title_folder_sent">Envoyés</string>
     <string name="title_folder_system">Système</string>
     <string name="title_folder_user">Utilisateur</string>
+    <string name="title_folder_user_only">Dossiers utilisateur seulement</string>
     <string name="title_folder_primary">Dossiers du compte principal</string>
     <string name="title_folders_unified">Dossiers de la boîte de réception unifiée</string>
     <string name="title_no_folders">Aucun dossier</string>
@@ -890,5 +893,11 @@
         <item>Basse</item>
         <item>Normale</item>
         <item>Haute</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

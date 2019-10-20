@@ -228,6 +228,7 @@
     <string name="title_advanced_flags_background">Vis farget bakgrunn i stedet for fargede stjerner</string>
     <string name="title_advanced_preview">Vis forhåndsvisning av melding</string>
     <string name="title_advanced_preview_italic">Vis forhåndsvisning av melding i kursiv</string>
+    <string name="title_advanced_preview_lines">Antall forhåndsvisningslinjer</string>
     <string name="title_advanced_addresses">Vis adresseinformasjon som standard</string>
     <string name="title_advanced_attachments_alt">Vis vedlegg etter meldingsteksten</string>
     <string name="title_advanced_contrast">Bruk høy kontrast for meldingstekst</string>
@@ -237,6 +238,7 @@
     <string name="title_advanced_images_inline">Vis automatisk innebygde bilder</string>
     <string name="title_advanced_seekbar">Vis relativ samtaleposisjon med en prikk</string>
     <string name="title_advanced_actionbar">Vis samtale handlingslinje</string>
+    <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_pull_refresh">Dra ned for å oppdatere</string>
     <string name="title_advanced_autoscroll">Rull til toppen når du mottar nye meldinger</string>
     <string name="title_advanced_double_tap">Dobbeltklikk for å markere meldingen lest/ulest</string>
@@ -252,6 +254,7 @@
     <string name="title_advanced_autounstar">Fjern stjernen automatisk fra meldinger som blir flyttet</string>
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
     <string name="title_advanced_discard_delete">Ved å kaste utkast permanent slett utkast</string>
+    <string name="title_advanced_default_snooze">Standard slumretid</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_summary">Vis bare sammendragsvarsel</string>
@@ -272,16 +275,14 @@
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_display_hidden">Vis skjulte meldingstekster</string>
     <string name="title_advanced_recents">Skjul fra skjermen med nylige brukte apper</string>
+    <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_notify_remove_hint">Varsler om nye meldinger vil alltid bli fjernet når de blir sveipet og når merking av meldinger er lest</string>
     <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet \'Varsler\' for å angi standard varslings lyd, osv</string>
     <string name="title_advanced_notify_no_grouping">Denne Android versjonen støtter ikke varslingsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android versjonen støtter ikke varslingskanaler</string>
-    <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
-    <string name="title_advanced_default_snooze">Standard slumretid</string>
-    <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
-    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
@@ -315,6 +316,7 @@
     <string name="title_advanced_autoclose_hint">Lukk samtaler automatisk når alle meldinger arkiveres, sendes eller kastet</string>
     <string name="title_advanced_sender_hint">De fleste leverandører tillater ikke endret avsender adresser</string>
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i merkelige utseende og doble tekster</string>
+    <string name="title_advanced_display_pin_hint">En PIN-kode har forrang fremfor biometrisk autentisering</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering av dette vil slette alle lokale mapper uten abonnement</string>
     <string name="title_advanced_english_hint">Dette vil starte appen på nytt</string>
     <string name="title_advanced_experiments_hint">Liste over aktuelle eksperimentelle funksjoner</string>
@@ -438,6 +440,7 @@
     <string name="title_folder_sent">Sendt</string>
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Bruker</string>
+    <string name="title_folder_user_only">Bare bruker mapper</string>
     <string name="title_folder_primary">Mapper primærkonto</string>
     <string name="title_folders_unified">Enhetlig Innboks mapper</string>
     <string name="title_no_folders">Ingen mapper</string>
@@ -890,5 +893,11 @@
         <item>Lav</item>
         <item>Normal</item>
         <item>Høy</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

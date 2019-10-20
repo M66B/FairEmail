@@ -250,6 +250,7 @@
     <string name="title_advanced_flags_background">Zobrazit obarvené pozadí namísto obarvených hvězdiček</string>
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
+    <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
     <string name="title_advanced_addresses">Ve výchozím nastavení zobrazit detaily adresy</string>
     <string name="title_advanced_attachments_alt">Přemístit zobrazení příloh pod text zprávy</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
@@ -259,6 +260,7 @@
     <string name="title_advanced_images_inline">Automaticky zobrazit vložené obrázky</string>
     <string name="title_advanced_seekbar">Zobrazit relativní pozici v konverzaci puntíkem</string>
     <string name="title_advanced_actionbar">Zobrazit panel akcí konverzací</string>
+    <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
@@ -274,6 +276,7 @@
     <string name="title_advanced_autounstar">Automaticky odebrat zprávám hvězdičku při přesunu</string>
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
+    <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
     <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv souhlasí s počtem oznámení</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
@@ -294,16 +297,14 @@
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
     <string name="title_advanced_recents">Skrýt z obrazovky s posledními aplikacemi</string>
+    <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
     <string name="title_advanced_notify_manage_hint">Stiskněte název kanálu \"Oznámení\" pro nastavení výchozího zvuku oznámení, atd</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
-    <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
-    <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
-    <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
-    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
@@ -337,6 +338,7 @@
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
+    <string name="title_advanced_display_pin_hint">PIN má přednost před biometrickým ověřením</string>
     <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny místní složky bez přihlášeného odběru</string>
     <string name="title_advanced_english_hint">Restartuje aplikaci</string>
     <string name="title_advanced_experiments_hint">Seznam aktuálních experimentálních funkcí</string>
@@ -460,6 +462,7 @@
     <string name="title_folder_sent">Odeslané</string>
     <string name="title_folder_system">Systém</string>
     <string name="title_folder_user">Uživatel</string>
+    <string name="title_folder_user_only">Pouze uživatelské složky</string>
     <string name="title_folder_primary">Hlavní účet složky</string>
     <string name="title_folders_unified">Složky sjednocené doručené pošty</string>
     <string name="title_no_folders">Žádné složky</string>
@@ -911,5 +914,11 @@
         <item>Nízká</item>
         <item>Normální</item>
         <item>Vysoká</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

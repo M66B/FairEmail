@@ -228,6 +228,7 @@
     <string name="title_advanced_flags_background">Toon gekleurde achtergrond in plaats van gekleurde sterren</string>
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_preview_italic">Toon berichtvoorbeeld cursief</string>
+    <string name="title_advanced_preview_lines">Aantal lijnen voorbeeld</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
@@ -237,6 +238,7 @@
     <string name="title_advanced_images_inline">Automatisch inline afbeeldingen weergeven</string>
     <string name="title_advanced_seekbar">Toon relatieve gesprekspositie met een punt</string>
     <string name="title_advanced_actionbar">Toon actiebalk gesprek</string>
+    <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
@@ -252,6 +254,7 @@
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept permanent verwijderen</string>
+    <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
@@ -272,16 +275,14 @@
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
     <string name="title_advanced_recents">Verbergen op het scherm met recente apps</string>
+    <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
+    <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
     <string name="title_advanced_notify_manage_hint">Tik op de naam van het kanaal \'Meldingen\' om het standaard meldingsgeluid in te stellen, etc</string>
     <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>
     <string name="title_advanced_notify_no_channels">Deze Android-versie ondersteunt geen meldingskanalen</string>
-    <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
-    <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
-    <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
-    <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
@@ -315,6 +316,7 @@
     <string name="title_advanced_autoclose_hint">Gesprekken automatisch sluiten wanneer alle berichten zijn gearchiveerd, verzonden of weggegooid</string>
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_display_hidden_hint">Dit kan leiden tot vreemd uitziende en dubbele teksten</string>
+    <string name="title_advanced_display_pin_hint">Een PIN code gaat voor biometrische authenticatie</string>
     <string name="title_advanced_subscribed_only_hint">Dit inschakelen zal alle lokale mappen zonder abonnement verwijderen</string>
     <string name="title_advanced_english_hint">Dit zal de app herstarten</string>
     <string name="title_advanced_experiments_hint">Lijst van huidige experimentele functies</string>
@@ -438,6 +440,7 @@
     <string name="title_folder_sent">Verzonden</string>
     <string name="title_folder_system">Systeem</string>
     <string name="title_folder_user">Gebruiker</string>
+    <string name="title_folder_user_only">Alleen gebruikersmappen</string>
     <string name="title_folder_primary">Mappen primaire account</string>
     <string name="title_folders_unified">Gecombineerde postvak in mappen</string>
     <string name="title_no_folders">Geen mappen</string>
@@ -887,5 +890,11 @@
         <item>Laag</item>
         <item>Normaal</item>
         <item>Hoog</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

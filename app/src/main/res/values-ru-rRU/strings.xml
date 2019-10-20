@@ -250,6 +250,7 @@
     <string name="title_advanced_flags_background">Цветной фон вместо цветных меток избранного</string>
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
+    <string name="title_advanced_preview_lines">Количество строк предварительного просмотра</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
@@ -259,6 +260,7 @@
     <string name="title_advanced_images_inline">Автоматически показывать встроенные изображения</string>
     <string name="title_advanced_seekbar">Показывать относительное положение диалога точкой</string>
     <string name="title_advanced_actionbar">Показывать панель управления диалогами</string>
+    <string name="title_advanced_double_back">Двойное \"Назад\" для выхода</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
     <string name="title_advanced_autoscroll">Прокрутить к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
@@ -274,6 +276,7 @@
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
+    <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
@@ -294,16 +297,14 @@
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_recents">Не показывать в недавних приложениях</string>
+    <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
+    <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
     <string name="title_advanced_notify_manage_hint">Нажмите на название канала \"Уведомления\" для установки звука уведомлений по умолчанию и т.д.</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
-    <string name="title_advanced_double_back">Двойное \"Назад\" для выхода</string>
-    <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
-    <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
-    <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_updates">Проверять наличие обновлений</string>
@@ -337,6 +338,7 @@
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_display_hidden_hint">Это может вызвать странное отображение и дублирование текста</string>
+    <string name="title_advanced_display_pin_hint">PIN-код имеет приоритет над биометрической аутентификацией</string>
     <string name="title_advanced_subscribed_only_hint">Включение этого режима удалит все локальные папки без подписки</string>
     <string name="title_advanced_english_hint">Произойдёт перезапуск приложения</string>
     <string name="title_advanced_experiments_hint">Список текущих экспериментальных функций</string>
@@ -460,6 +462,7 @@
     <string name="title_folder_sent">Отправленные</string>
     <string name="title_folder_system">Система</string>
     <string name="title_folder_user">Пользователь</string>
+    <string name="title_folder_user_only">Только папки пользователя</string>
     <string name="title_folder_primary">Папки основной учётной записи</string>
     <string name="title_folders_unified">Папки единого почтового ящика</string>
     <string name="title_no_folders">Нет папок</string>
@@ -912,5 +915,11 @@
         <item>Низкий</item>
         <item>Обычный</item>
         <item>Высокий</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

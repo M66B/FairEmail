@@ -72,7 +72,7 @@
     <string name="menu_about">关于</string>
     <string name="menu_pro">专业版功能</string>
     <string name="menu_invite">邀请好友</string>
-    <string name="menu_rate">给这个应用打分</string>
+    <string name="menu_rate">给此应用评分</string>
     <string name="menu_other">其他应用</string>
     <string name="title_welcome">欢迎</string>
     <string name="title_eula">最终用户许可协议</string>
@@ -225,6 +225,7 @@
     <string name="title_advanced_images_inline">自动显示内联图像</string>
     <string name="title_advanced_seekbar">用一个点显示相对会话位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
+    <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
@@ -240,6 +241,7 @@
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
+    <string name="title_advanced_default_snooze">默认打盹时间</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
@@ -260,16 +262,14 @@
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_recents">在最近应用隐藏FairEmail</string>
+    <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
+    <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>
     <string name="title_advanced_notify_manage_hint">点击左侧按钮设置默认通知声音等</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
     <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
-    <string name="title_advanced_double_back">双击返回键退出</string>
-    <string name="title_advanced_default_snooze">默认打盹时间</string>
-    <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
-    <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
