@@ -80,6 +80,16 @@ public class HtmlHelper {
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
 
     static String sanitize(Context context, String html, boolean show_images) {
+        try {
+            return _sanitize(context, html, show_images);
+        } catch (Throwable ex) {
+            // OutOfMemoryError
+            Log.e(ex);
+            return Helper.formatThrowable(ex);
+        }
+    }
+
+    private static String _sanitize(Context context, String html, boolean show_images) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
