@@ -42,7 +42,7 @@ Related questions:
 * A bug in Nova Launcher on Android 5.x lets FairEmail crash with a *java.lang.StackOverflowError* when Nova Launcher has access to the accessibility service.
 * The folder selector sometimes shows no folders for yet unknown reasons.
 * A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller.
-* Encryption with [YubiKey](https://www.yubico.com/) results into an infinite loop. FairEmail follows the latest version of the [OpenKeychain API](https://github.com/open-keychain/openpgp-api), so this is likely being caused by an external bug.
+* Encryption with YubiKey results into an infinite loop. Since looking into several log files didn't reveal the problem: sponsor me a [Yubikey 5 NFC](https://www.yubico.com/product/yubikey-5-nfc) so I can reproduce the problem.
 * Scrolling to an internal linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
 
 ## Planned features
