@@ -265,11 +265,12 @@ public interface DaoFolder {
 
     @Query("UPDATE folder" +
             " SET poll = :poll" +
+            ", download = :download" +
             ", sync_days = :sync_days" +
             ", keep_days = :keep_days" +
             " WHERE account = :account" +
             " AND type = '" + EntityFolder.USER + "'")
-    int setFolderProperties(long account, boolean poll, int sync_days, int keep_days);
+    int setFolderProperties(long account, boolean poll, boolean download, int sync_days, int keep_days);
 
     @Query("UPDATE folder SET keywords = :keywords WHERE id = :id")
     int setFolderKeywords(long id, String keywords);
