@@ -2417,6 +2417,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 bindFlagged(message, expanded);
                 bindExpandWarning(message, expanded);
+
+                // Needed for expand one
+                properties.scrollTo(getAdapterPosition());
             }
         }
 
