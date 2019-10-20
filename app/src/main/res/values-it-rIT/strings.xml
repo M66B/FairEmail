@@ -531,7 +531,6 @@
     <string name="title_via_identity">Tramite:</string>
     <string name="title_received">Ricevuto:</string>
     <string name="title_size">Dimensioni:</string>
-    <string name="title_folder">Cartella:</string>
     <string name="title_subject">Oggetto:</string>
     <string name="title_body_hint">Il tuo messaggio</string>
     <string name="title_discard">Elimina</string>

@@ -532,7 +532,6 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_received">Mottatt:</string>
     <string name="title_size">Størrelse:</string>
-    <string name="title_folder">Mappe:</string>
     <string name="title_subject">Emne:</string>
     <string name="title_body_hint">Din melding</string>
     <string name="title_discard">Forkast</string>

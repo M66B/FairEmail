@@ -531,7 +531,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_via_identity">Über:</string>
     <string name="title_received">Empfangen:</string>
     <string name="title_size">Größe:</string>
-    <string name="title_folder">Ordner:</string>
     <string name="title_subject">Betreff:</string>
     <string name="title_body_hint">Ihre Nachricht</string>
     <string name="title_discard">Verwerfen</string>

@@ -532,7 +532,6 @@
     <string name="title_via_identity">Via :</string>
     <string name="title_received">Reçu :</string>
     <string name="title_size">Taille :</string>
-    <string name="title_folder">Dossier :</string>
     <string name="title_subject">Objet :</string>
     <string name="title_body_hint">Votre message</string>
     <string name="title_discard">Supprimer</string>

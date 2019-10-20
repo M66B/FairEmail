@@ -520,7 +520,6 @@
     <string name="title_via_identity">自：</string>
     <string name="title_received">已接收：</string>
     <string name="title_size">大小：</string>
-    <string name="title_folder">文件夹:</string>
     <string name="title_subject">主题：</string>
     <string name="title_body_hint">您的邮件内容……</string>
     <string name="title_discard">舍弃</string>
