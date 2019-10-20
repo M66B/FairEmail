@@ -217,7 +217,7 @@ FairEmail follows all the best practices for an email client as decribed in [thi
 * [(112) Which email provider do you recommend?](#user-content-faq112)
 * [(113) How does biometric authentication work?](#user-content-faq113)
 * [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [(115) Can you add email address chips?](#user-content-faq114)
+* [(115) Can you add email address chips?](#user-content-faq115)
 * [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
 * [(117) Can you help me restore my purchase?](#user-content-faq117)
 * [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
