@@ -292,6 +292,7 @@
                     android:id="@+id/cbSignature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
                     app:layout_constraintBottom_toBottomOf="@+id/tvSignature"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvSignature" />
@@ -333,30 +334,39 @@
 
                 <ImageButton
                     android:id="@+id/ibReferenceDelete"
-                    android:layout_width="wrap_content"
+                    android:layout_width="36dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
+                    android:background="@null"
                     android:contentDescription="@string/title_legend_edit"
+                    android:padding="3dp"
                     app:layout_constraintEnd_toStartOf="@+id/ibReferenceEdit"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
                     app:srcCompat="@drawable/baseline_delete_24" />
 
                 <ImageButton
                     android:id="@+id/ibReferenceEdit"
-                    android:layout_width="wrap_content"
+                    android:layout_width="36dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
+                    android:background="@null"
                     android:contentDescription="@string/title_legend_edit"
+                    android:padding="3dp"
                     app:layout_constraintEnd_toStartOf="@+id/ibReferenceImages"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
                     app:srcCompat="@drawable/baseline_edit_24" />
 
                 <ImageButton
                     android:id="@+id/ibReferenceImages"
-                    android:layout_width="wrap_content"
+                    android:layout_width="36dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
+                    android:background="@null"
                     android:contentDescription="@string/title_legend_show_images"
+                    android:padding="3dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/vSeparatorSignature"
                     app:srcCompat="@drawable/baseline_image_24" />
