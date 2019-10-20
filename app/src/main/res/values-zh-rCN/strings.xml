@@ -3,9 +3,9 @@
 <resources>
     <string name="app_search">FairEmail 搜索</string>
     <string name="app_changelog">更新日志</string>
-    <string name="app_welcome">FairEmail是一个专注于隐私与安全的开源电子邮件软件。基于此某些功能的工作方式可能与您习惯的功能不同。</string>
+    <string name="app_welcome">FairEmail是一个专注于隐私与安全的开源电子邮件app。正因如此某些功能的工作方式可能与您习惯的不同。</string>
     <string name="app_limitations">例如，为了去除不安全元素并提高阅读性，邮件将总被重建格式；出于安全考虑，打开邮件内链接需经用户确认</string>
-    <string name="app_crash">此设备不支持 FairEmail, 因为 android 中的错误会导致崩溃</string>
+    <string name="app_crash">FairEmail不支持该设备，因为 android 中的bug会导致崩溃</string>
     <string name="app_exit">再按一次返回键退出</string>
     <string name="channel_service">服务</string>
     <string name="channel_send">发送</string>
@@ -31,44 +31,44 @@
         <item quantity="other">正在同步%1$d个账户</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="other">有%1$d个操作待执行</item>
+        <item quantity="other">%1$d个待执行操作</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="other">%1$d条新消息</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="other">%1$d 消息要发送</item>
+        <item quantity="other">%1$d条待发送消息</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="other">%1$d则新邮件</item>
     </plurals>
     <plurals name="title_selected_conversations">
-        <item quantity="other">选定了 %1$d 个对话</item>
+        <item quantity="other">选定了 %1$d 个会话</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="other">移动 %1$d 邮件到  %2$s 吗？</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="other">永久删除 %1$d 邮件？</item>
+        <item quantity="other">永久删除这%1$d则邮件？</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="other">把 %1$d 作为垃圾邮件处理？</item>
+        <item quantity="other">将这%1$d则邮件标为垃圾邮件？</item>
     </plurals>
-    <string name="title_ask_spam_who">从 %1$s 中的消息作为垃圾邮件处理？</string>
-    <string name="title_notification_waiting">等待合适连接</string>
-    <string name="title_notification_sending">正发送消息</string>
-    <string name="title_notification_failed">“%1$s”失败</string>
+    <string name="title_ask_spam_who">将来自%1$s的消息标为垃圾邮件？</string>
+    <string name="title_notification_waiting">等待网络连接</string>
+    <string name="title_notification_sending">正在发送消息</string>
+    <string name="title_notification_failed">\'%1$s\' 失败</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
     <string name="menu_contacts">本地联系人</string>
     <string name="menu_setup">设置</string>
     <string name="menu_legend">图例</string>
-    <string name="menu_test">测试程序</string>
+    <string name="menu_test">下载测试版本</string>
     <string name="menu_faq">支持</string>
     <string name="menu_issue">报告问题</string>
-    <string name="menu_attribution">归属</string>
-    <string name="menu_privacy">隐私</string>
+    <string name="menu_attribution">归因</string>
+    <string name="menu_privacy">隐私政策</string>
     <string name="menu_about">关于</string>
     <string name="menu_pro">专业版功能</string>
     <string name="menu_invite">邀请好友</string>
@@ -77,7 +77,7 @@
     <string name="title_welcome">欢迎</string>
     <string name="title_eula">最终用户许可协议</string>
     <string name="title_agree">我同意</string>
-    <string name="title_disagree">我不同意</string>
+    <string name="title_disagree">拒绝</string>
     <string name="title_version">版本 %1$s</string>
     <string name="title_list_accounts">账户</string>
     <string name="title_list_identities">身份</string>
@@ -86,44 +86,44 @@
     <string name="title_edit_folder">编辑文件夹</string>
     <string name="title_setup">设置</string>
     <string name="title_setup_help">帮助</string>
-    <string name="title_setup_welcome">和任何其他电邮App一样，接受和发送消息需要设置一个账户和身份。
-快速设置将通过只询问您的姓名、电邮地址和密码来创建一个账户和身份。
-如有需要，您也可以手动设置账户和身份 (别名）。    </string>
+    <string name="title_setup_welcome">跟其他电子邮件App一样，接受和发送消息需要先设置一个账户和身份。
+快速设置只需您的姓名、邮箱地址和密码来创建一个账户和身份。
+如有需要，您也可以手动设置账户和身份 (别名)。    </string>
     <string name="title_setup_quick">快速设置</string>
     <string name="title_setup_quick_remark">为大多数邮件服务提供商快速设置账户和身份</string>
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
-    <string name="title_setup_quick_imap">接收消息的IMAP 服务器</string>
-    <string name="title_setup_quick_smtp">发送消息的SMTP服务器</string>
-    <string name="title_setup_go">转到</string>
+    <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
+    <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
+    <string name="title_setup_go">前往</string>
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_remark">按返回键前往收件箱</string>
-    <string name="title_setup_other">其他邮件服务提供商</string>
+    <string name="title_setup_other">其他提供商</string>
     <string name="title_setup_gmail_support">授权谷歌帐户只能用于官方版本，因为Android检查应用签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
-    <string name="title_setup_no_settings">找不到 \"%1$s\" 的设置</string>
+    <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
     <string name="title_setup_manage">管理</string>
-    <string name="title_setup_grant">同意</string>
+    <string name="title_setup_grant">授予</string>
     <string name="title_setup_account">设置账户</string>
     <string name="title_setup_account_remark">用于接收电子邮件</string>
     <string name="title_setup_account_hint">左/右滑动目标文件夹来更改颜色</string>
     <string name="title_setup_identity">设置身份</string>
     <string name="title_setup_identity_remark">用于发送电子邮件</string>
-    <string name="title_setup_identity_hint">更改名称、颜色、签名等</string>
+    <string name="title_setup_identity_hint">更改姓名、颜色、签名等</string>
     <string name="title_setup_permissions">授予权限</string>
     <string name="title_setup_permissions_remark">获取联系人信息(可选)</string>
-    <string name="title_setup_doze">设置电池优化选项</string>
+    <string name="title_setup_doze">设置电池优化</string>
     <string name="title_setup_doze_remark">持续接受邮件(可选)</string>
-    <string name="title_setup_doze_instructions">在下个界面，选择最上面的\"所有应用\"，选择这个app如何选择并确定\"不优化\"</string>
+    <string name="title_setup_doze_instructions">在下以个界面，选择最上面的\"所有应用\"，找到此应用并选择\"不优化\"</string>
     <string name="title_setup_doze_battery">高耗电?</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_data">已启用数据节省</string>
-    <string name="title_setup_inbox">转到信息</string>
-    <string name="title_setup_to_do">未设置</string>
-    <string name="title_setup_done">完成</string>
+    <string name="title_setup_inbox">前往邮件</string>
+    <string name="title_setup_to_do">待办事项</string>
+    <string name="title_setup_done">已完成</string>
     <string name="title_setup_export">导出设置</string>
     <string name="title_setup_import">导入设置</string>
     <string name="title_setup_import_do">导入的账户不会覆盖任何现有的帐户</string>
@@ -139,7 +139,7 @@
     <string name="title_setup_reorder_accounts">账户顺序</string>
     <string name="title_setup_reorder_folders">文件夹顺序</string>
     <string name="title_reset_order">重置顺序</string>
-    <string name="title_setup_authentication">认证</string>
+    <string name="title_setup_authentication">身份验证</string>
     <string name="title_setup_biometrics">生物认证</string>
     <string name="title_setup_biometrics_enable">启用</string>
     <string name="title_setup_biometrics_disable">禁用</string>
@@ -148,16 +148,16 @@
     <string name="title_setup_light_theme">亮色主题</string>
     <string name="title_setup_dark_theme">暗色主题</string>
     <string name="title_setup_black_theme">黑色主题</string>
-    <string name="title_setup_grey_light_theme">浅灰色主题</string>
-    <string name="title_setup_grey_dark_theme">深灰色主题</string>
+    <string name="title_setup_grey_light_theme">灰亮主题</string>
+    <string name="title_setup_grey_dark_theme">灰暗主题</string>
     <string name="title_setup_system_theme">系统主题</string>
-    <string name="title_setup_grey_system_theme">让系统主题变灰</string>
+    <string name="title_setup_grey_system_theme">灰色系统主题</string>
     <string name="title_setup_system_theme_hint">如果Android支持，系统主题将在白天/夜间自动切换亮色/暗色主题</string>
     <string name="title_setup_advanced">高级选项</string>
     <string name="title_setup_options">选项</string>
     <string name="title_setup_defaults">恢复默认设置</string>
     <string name="title_setup_reset_questions">重置问题</string>
-    <string name="title_advanced_section_main">主要的</string>
+    <string name="title_advanced_section_main">主要</string>
     <string name="title_advanced_section_synchronize">接收</string>
     <string name="title_advanced_section_send">发送</string>
     <string name="title_advanced_section_connection">连接</string>
@@ -166,40 +166,40 @@
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_privacy">隐私</string>
     <string name="title_advanced_section_misc">杂项</string>
-    <string name="title_advanced_enabled">开启</string>
+    <string name="title_advanced_enabled">已启用</string>
     <string name="title_advanced_when">何时</string>
     <string name="title_advanced_schedule">任务计划</string>
     <string name="title_advanced_unseen">所有未读消息</string>
     <string name="title_advanced_flagged">所有已标星消息</string>
     <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
-    <string name="title_advanced_kept_removed">检查旧消息是否从服务器上被移除</string>
+    <string name="title_advanced_kept_removed">检查旧消息是否已从服务器移除</string>
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_sync_subscribed">只同步订阅的文件夹</string>
     <string name="title_advanced_keyboard">默认显示键盘</string>
-    <string name="title_advanced_suggest_local">提示本地存储的联系人</string>
-    <string name="title_advanced_suggest_sent">提示在已发送消息中找到的地址</string>
-    <string name="title_advanced_suggest_received">提示在已收到消息中找到的地址</string>
+    <string name="title_advanced_suggest_local">建议本地存储的联系人</string>
+    <string name="title_advanced_suggest_sent">建议在已发送消息中找到的地址</string>
+    <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_plain_only">默认仅发送纯文本</string>
     <string name="title_advanced_usenet_signature">Usenet签名公约（RFC3676）</string>
-    <string name="title_advanced_autoresize">自动调整附加和嵌入图像大小</string>
-    <string name="title_advanced_resize_pixels">&lt; %1$d 像素</string>
+    <string name="title_advanced_autoresize">自动调整附加和嵌入图片的大小</string>
+    <string name="title_advanced_resize_pixels">&lt; %1$d像素</string>
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
-    <string name="title_advanced_send_delayed">延迟发送消息</string>
+    <string name="title_advanced_send_delayed">推迟发送消息</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量的连接下自动下载邮件和附件, 最高可达</string>
-    <string name="title_advanced_roaming">漫游时下载消息和附件</string>
-    <string name="title_advanced_rlah">像在国内那样漫游</string>
+    <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
+    <string name="title_advanced_rlah">国内漫游</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_landscape">在横屏模式下使用两列</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">展示卡片</string>
     <string name="title_advanced_date_header">按日期分组</string>
     <string name="title_advanced_threading">会话线程</string>
-    <string name="title_advanced_indentation">向左/右缩进已收/已发消息</string>
+    <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
     <string name="title_advanced_highlight_unread">高亮未读消息</string>
-    <string name="title_advanced_distinguish_contacts">区分已知和未知的联系人的信息</string>
+    <string name="title_advanced_distinguish_contacts">区分已知和未知联系人的信息</string>
     <string name="title_advanced_avatars">显示联系人头像</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
@@ -213,36 +213,36 @@
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
     <string name="title_advanced_flags">显示星标</string>
-    <string name="title_advanced_flags_background">显示有色背景而非有色星星</string>
+    <string name="title_advanced_flags_background">显示有色背景而非有色星标</string>
     <string name="title_advanced_preview">显示邮件预览</string>
-    <string name="title_advanced_preview_italic">斜体字显示消息预览</string>
+    <string name="title_advanced_preview_italic">斜体字显示邮件预览</string>
     <string name="title_advanced_addresses">默认显示地址详情</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>
-    <string name="title_advanced_monospaced">对邮件文本使用单间距字体</string>
+    <string name="title_advanced_monospaced">对邮件文本使用等宽字体</string>
     <string name="title_advanced_text_color">显示文本颜色</string>
-    <string name="title_advanced_collapse_quotes">折叠引用的文本</string>
+    <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
-    <string name="title_advanced_seekbar">用一个点显示相对对话位置</string>
+    <string name="title_advanced_seekbar">用一个点显示相对会话位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
-    <string name="title_advanced_swipenav">向左/右滑动来前往下一个/上一个邮件会话</string>
-    <string name="title_advanced_reversed">翻转导航方向</string>
-    <string name="title_advanced_autoexpand">自动伸展消息</string>
+    <string name="title_advanced_swipenav">左右滑动切换邮件</string>
+    <string name="title_advanced_reversed">反转导航方向</string>
+    <string name="title_advanced_autoexpand">自动展开消息</string>
     <string name="title_advanced_expand_all">自动展开所有已读消息</string>
     <string name="title_advanced_expand_one">每次仅展开一个消息</string>
     <string name="title_advanced_collapse_multiple">按返回时折叠会话中的多条消息</string>
     <string name="title_advanced_autoclose">自动关闭对话</string>
     <string name="title_advanced_onclose">关闭对话时</string>
-    <string name="title_advanced_autoread">将移动的邮件自动标记为已读</string>
-    <string name="title_advanced_autounstar">移动消息时自动从消息中去除消息星号</string>
+    <string name="title_advanced_autoread">移动消息时自动标记为已读</string>
+    <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_automove">确认移动邮件</string>
-    <string name="title_advanced_discard_delete">丢弃草稿时永久删除草稿</string>
+    <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
-    <string name="title_advanced_notify_summary">仅显示通知摘要</string>
+    <string name="title_advanced_notify_summary">仅显示摘要通知</string>
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
@@ -252,23 +252,24 @@
     <string name="title_advanced_notify_action_reply_direct">直接回复</string>
     <string name="title_advanced_notify_action_flag">标星</string>
     <string name="title_advanced_notify_action_seen">已读</string>
-    <string name="title_advanced_notify_action_snooze">延后</string>
+    <string name="title_advanced_notify_action_snooze">打盹</string>
     <string name="title_advanced_notify_remove">点击通知时移除新的消息通知</string>
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
-    <string name="title_advanced_recents">不显示在最近使用过的应用之列</string>
+    <string name="title_advanced_recents">在最近应用隐藏FairEmail</string>
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
-    <string name="title_advanced_notify_remove_hint">滑动走并标记消息已读时将总是移除新消息通知</string>
-    <string name="title_advanced_notify_manage_hint">点击频道名称“通知”设置默认通知声音等</string>
+    <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>
+    <string name="title_advanced_notify_manage_hint">点击左侧按钮设置默认通知声音等</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
     <string name="title_advanced_notify_no_channels">此Android版本不支持通知通道</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
-    <string name="title_advanced_default_snooze">默认贪睡时间</string>
-    <string name="title_advanced_biometrics_timeout">生物认证超时</string>
+    <string name="title_advanced_default_snooze">默认打盹时间</string>
+    <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
+    <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -276,14 +277,14 @@
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_cleanup">清理</string>
-    <string name="title_advanced_enabled_hint">全球禁用或启用接收消息</string>
-    <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在一定时间内同步消息和执行操作。</string>
-    <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是一个昂贵的操作，可能导致额外的电池使用，特别是在有很多消息要同步的时候。始终同步将通过持续比较变化以避免发生上述情形。</string>
+    <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
+    <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在限定的时间内同步消息和执行操作。</string>
+    <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
-    <string name="title_advanced_unseen_hint">一些邮件服务提供商未恰当地支持该功能，这可能导致同步所有消息或一条消息也不同步</string>
-    <string name="title_advanced_sync_kept_hint">这将传输额外数据，消耗额外的电池电量，特别是如果有许多消息存储在设备上</string>
-    <string name="title_advanced_sync_folders_hint">禁用此功能会降低数据和电池使用量，但也会禁用更新文件夹列表</string>
+    <string name="title_advanced_unseen_hint">一些邮件服务提供商对该功能支持不佳，这可能导致同步所有消息或一条消息也不同步</string>
+    <string name="title_advanced_sync_kept_hint">这将更耗数据与电量，特别是如果有大量消息存储在设备上</string>
+    <string name="title_advanced_sync_folders_hint">禁用此功能某种程度上会减少数据和电量使用，但也会禁用更新文件夹列表</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
     <string name="title_advanced_suggest_local_hint">除了Android提供的联系人，只有在设置中允许，应用才会储存新接收或发送消息的联系人数据。</string>
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
@@ -294,7 +295,7 @@
     <string name="title_advanced_browse_hint">向下滚动时拉取更多邮件</string>
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
-    <string name="title_advanced_threading_hint">对相互关联的邮件进行分组</string>
+    <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
     <string name="title_advanced_name_email_hint">禁用该选项，将仅显示名称（如果可用）</string>
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
@@ -304,17 +305,17 @@
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
     <string name="title_advanced_subscribed_only_hint">启用此功能将删除所有未订阅的本地文件夹</string>
     <string name="title_advanced_english_hint">这将重新启动应用程序</string>
-    <string name="title_advanced_experiments_hint">当前实验功能列表</string>
+    <string name="title_advanced_experiments_hint">当前实验性功能列表</string>
     <string name="title_advanced_debug_hint">启用额外日志并在不同地方显示调试信息</string>
     <string name="title_advanced_cleanup_hint">这将会删除所有的临时文件</string>
     <string name="title_advanced_never_favorite">永不收藏</string>
     <string name="title_select">选择 &#8230;</string>
     <string name="title_identity_name">姓名</string>
-    <string name="title_identity_email">电子邮件地址</string>
+    <string name="title_identity_email">邮箱地址</string>
     <string name="title_identity_color_hint">身份颜色优先于文件夹和帐户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
-    <string name="title_advanced_sender_regex">正则表达式匹配编辑的地址</string>
-    <string name="title_identity_reply_to">回复地址</string>
+    <string name="title_advanced_sender_regex">正则匹配编辑的地址</string>
+    <string name="title_identity_reply_to">回复给该地址</string>
     <string name="title_identity_encrypt">默认加密</string>
     <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
@@ -328,25 +329,26 @@
     <string name="title_account_signature">签名文本</string>
     <string name="title_color">颜色</string>
     <string name="title_account_notify">单独的通知</string>
-    <string name="title_account_left">向左滑动</string>
-    <string name="title_account_right">向右滑动</string>
+    <string name="title_account_left">左滑</string>
+    <string name="title_account_right">右滑</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
     <string name="title_aliases">別名</string>
     <string name="title_provider">服务提供商</string>
     <string name="title_custom">自定义</string>
-    <string name="title_host">主机名称</string>
+    <string name="title_host">主机名</string>
     <string name="title_allow_insecure">允许不安全的连接</string>
-    <string name="title_insecure_remark">只应在受信任网络中允许不安全连接，在公共网络中请绝不要这么做</string>
-    <string name="title_port">端口</string>
+    <string name="title_insecure_remark">只应在受信任网络中允许不安全连接，请勿允许公共网络</string>
+    <string name="title_port">端口号</string>
     <string name="title_user">用户名</string>
     <string name="title_password">密码</string>
-    <string name="title_realm">访问空间</string>
+    <string name="title_realm">移动数据库</string>
     <string name="title_use_ip">使用本地IP地址而非主机名</string>
-    <string name="title_primary_account">默认账户</string>
-    <string name="title_primary_identity">默认身份</string>
+    <string name="title_primary_account">主账户 (默认帐户)</string>
+    <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
+    <string name="title_related_identity">添加相关身份</string>
     <string name="title_check">检查</string>
     <string name="title_no_name">缺少名称</string>
     <string name="title_no_email">缺少邮箱地址</string>
@@ -366,12 +368,12 @@
     <string name="title_drafts_required">需要一个草稿文件夹来发送消息</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
-    <string name="title_edit_html">以 html 格式编辑</string>
+    <string name="title_edit_html">以HTML格式编辑</string>
     <string name="title_last_connected">上次连接%1$s前</string>
-    <string name="title_pop_support">POP3协议支持仅从收件箱下载并删除消息。POP3无法标记消息已读、移动消息等。相比IMAP协议，POP3消耗的电量和数流量都更多。因此，尽可能考虑使用 IMAP 协议。</string>
+    <string name="title_pop_support">POP3协议仅支持从收件箱下载并删除消息。POP3无法标记消息为已读、移动消息等。相比IMAP协议，POP3消耗的电量和数流量都更多。因此，尽可能考虑使用 IMAP 协议。</string>
     <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
-    <string name="title_review">查看</string>
+    <string name="title_review">评论</string>
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
     <string name="title_advanced_browse">浏览服务器上的消息</string>
     <string name="title_advanced_expand_read">将展开的消息标记为已读</string>
@@ -380,7 +382,7 @@
     <string name="title_synchronize_enabled">同步</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
-    <string name="title_empty_trash">清空垃圾箱</string>
+    <string name="title_empty_trash">清空回收站</string>
     <string name="title_empty_spam">清空垃圾邮件</string>
     <string name="title_edit_properties">编辑属性</string>
     <string name="title_edit_rules">编辑规则</string>
@@ -396,10 +398,11 @@
     <string name="title_folder_name">文件夹名</string>
     <string name="title_display_name">显示昵称</string>
     <string name="title_show_folders">显示隐藏文件夹</string>
+    <string name="title_apply_to_all">应用到所有文件夹 &#8230;</string>
     <string name="title_hide_folder">隐藏文件夹</string>
-    <string name="title_unified_folder">在统一的收件箱中显示</string>
-    <string name="title_navigation_folder">在导航菜单中显示。</string>
-    <string name="title_synchronize_folder">同步文件夹（接收）</string>
+    <string name="title_unified_folder">在聚合收件箱中显示</string>
+    <string name="title_navigation_folder">在导航菜单中显示</string>
+    <string name="title_synchronize_folder">同步(接收邮件)</string>
     <string name="title_poll_folder">定期检查而非持续同步</string>
     <string name="title_download_folder">自动下载邮件文本和附件</string>
     <string name="title_notify_folder">通知新邮件</string>
@@ -436,7 +439,7 @@
     <string name="title_hide">隐藏</string>
     <string name="title_unhide">显示</string>
     <string name="title_flag">加注星标</string>
-    <string name="title_flag_color">有色星号 &#8230;</string>
+    <string name="title_flag_color">多彩星标 &#8230;</string>
     <string name="title_unflag">移除星标</string>
     <string name="title_forward">转发</string>
     <string name="title_new_message">新消息</string>
@@ -451,8 +454,8 @@
     <string name="title_manage_keywords">关键字管理</string>
     <string name="title_add_keyword">添加关键字</string>
     <string name="title_show_inline">显示内嵌附件</string>
-    <string name="title_download_all">下载全部</string>
-    <string name="title_save_all">保存全部</string>
+    <string name="title_download_all">全部下载</string>
+    <string name="title_save_all">全部保存</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_copy_to">复制到 &#8230;</string>
@@ -474,14 +477,14 @@
     <string name="title_moving">移动到%1$s</string>
     <string name="title_open_with">打开方式</string>
     <string name="title_authentication_failed">%1$s 验证失败</string>
-    <string name="title_receipt_subject">读取回执: %1$s</string>
-    <string name="title_receipt_text">此读取回执仅确认已显示该邮件。不能保证收件人已阅读邮件内容。</string>
+    <string name="title_receipt_subject">已读回执: %1$s</string>
+    <string name="title_receipt_text">此已读回执仅确认已显示该邮件。不能保证收件人已阅读邮件内容。</string>
     <string name="title_no_answers">未定义回复模板</string>
     <string name="title_no_viewer">未找到能打开%1$s的应用程序</string>
     <string name="title_no_saf">存储访问框架不可用</string>
     <string name="title_no_stream">过时的应用发送的是文件路径, 而不是文件流</string>
     <string name="title_no_contacts">联系选择器不可用</string>
-    <string name="title_no_internet">没有或没有合适的互联网连接</string>
+    <string name="title_no_internet">没有或没有合适的网络连接</string>
     <string name="title_no_connection">将在下次账户连接时进行同步</string>
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_no_format">将包含最初收到的消息</string>
@@ -497,17 +500,17 @@
     <string name="title_ask_delete_rule">是否永久删除规则？</string>
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
-    <string name="title_ask_show_html_remark">无法显示暗色背景的原始消息，因为它可以导致看不见的黑色文本和图像</string>
+    <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
-    <string name="title_ask_delete_ref">删除回复/转发的消息文本？此操作无法撤销。</string>
+    <string name="title_ask_delete_ref">删除回复/转发的消息文本？此操作无法撤销</string>
     <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
     <string name="title_reporting_why">错误报告将有助于改进FairEmail</string>
-    <string name="title_expand_warning">扩展此消息下载 %1$s</string>
-    <string name="title_download_message">下载中&#8230;</string>
+    <string name="title_expand_warning">展开此消息将下载 %1$s</string>
+    <string name="title_download_message">&#8230; 下载中</string>
     <string name="title_compose">撰写</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
@@ -605,7 +608,7 @@
     <string name="title_rule_unseen">标记为未读</string>
     <string name="title_rule_hide">隐藏</string>
     <string name="title_rule_ignore">禁止通知</string>
-    <string name="title_rule_snooze">延后</string>
+    <string name="title_rule_snooze">打盹</string>
     <string name="title_rule_flag">添加星标</string>
     <string name="title_rule_keyword">添加关键字</string>
     <string name="title_rule_move">移动</string>
@@ -632,7 +635,7 @@
     <string name="title_rule_hours">小时</string>
     <string name="title_rule_schedule_end">从时间条件结束开始</string>
     <string name="title_rule_folder">文件夹</string>
-    <string name="title_rule_thread">在同一对话和文件夹中的所有消息</string>
+    <string name="title_rule_thread">在同一会话和文件夹中的所有消息</string>
     <string name="title_rule_identity">身份</string>
     <string name="title_rule_template">回复模板</string>
     <string name="title_rule_cc">回信给邮件抄送地址</string>
@@ -643,7 +646,7 @@
     <string name="title_rule_applied">受影响的消息: %1$d</string>
     <string name="title_rule_check">检查</string>
     <string name="title_rule_no_headers">无法检查 邮件标头状况</string>
-    <string name="title_rule_matched">正匹配消息</string>
+    <string name="title_rule_matched">匹配的消息</string>
     <string name="title_rule_no_matches">没有匹配项目</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
@@ -663,15 +666,15 @@
     <string name="title_legend_downloading">下载中</string>
     <string name="title_legend_closing">正在结束</string>
     <string name="title_legend_waiting">等待下次同步</string>
-    <string name="title_legend_unified">统一收件箱/主账户</string>
+    <string name="title_legend_unified">聚合收件箱/主账户</string>
     <string name="title_legend_inbox">收件箱</string>
     <string name="title_legend_drafts">草稿</string>
     <string name="title_legend_sent">已发送</string>
     <string name="title_legend_archive">存档</string>
-    <string name="title_legend_trash">垃圾箱</string>
+    <string name="title_legend_trash">回收站</string>
     <string name="title_legend_junk">垃圾邮件</string>
-    <string name="title_legend_primary">首选</string>
-    <string name="title_legend_subscribed">订阅</string>
+    <string name="title_legend_primary">主邮件</string>
+    <string name="title_legend_subscribed">订阅到</string>
     <string name="title_legend_rule">有规则</string>
     <string name="title_legend_similar">搜索类似消息</string>
     <string name="title_legend_notify">通知新邮件</string>
@@ -683,11 +686,11 @@
     <string name="title_legend_draft">有草稿</string>
     <string name="title_legend_priority">具备高优先级</string>
     <string name="title_legend_auth">认证失败</string>
-    <string name="title_legend_snoozed">已暂停</string>
+    <string name="title_legend_snoozed">已打盹</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
     <string name="title_legend_answered">已回复</string>
     <string name="title_legend_plain_only">仅纯文本</string>
-    <string name="title_legend_receipt">请求收据</string>
+    <string name="title_legend_receipt">请求接收</string>
     <string name="title_legend_attachment">有附件</string>
     <string name="title_legend_flagged">收藏</string>
     <string name="title_legend_contacts">管理联系人</string>
@@ -717,7 +720,7 @@
     <string name="title_legend_expander">已展开</string>
     <string name="title_legend_avatar">头像</string>
     <string name="title_legend_show_quotes">显示引用内容</string>
-    <string name="title_legend_show_unsubscribe">取消订阅</string>
+    <string name="title_legend_show_unsubscribe">从列表取消订阅</string>
     <string name="title_legend_show_images">显示图片</string>
     <string name="title_legend_show_full">全屏显示</string>
     <string name="title_legend_edit">编辑</string>
@@ -740,11 +743,11 @@
     <string name="title_open_link">打开链接</string>
     <string name="title_different_link">标题和链接地址不同</string>
     <string name="title_secure_link">确保链接安全</string>
-    <string name="title_link_secured">链接安全</string>
+    <string name="title_link_secured">连接安全</string>
     <string name="title_sanitize_link">删除跟踪参数</string>
     <string name="title_insecure_link">此链接不安全</string>
     <string name="title_check_owner">检查所有者</string>
-    <string name="title_remark_owner">将从 <a href="https://ipinfo.io/">ipinfo.io</a> 检索信息</string>
+    <string name="title_remark_owner">将从 <a href="https://ipinfo.io/">ipinfo.io</a> 获取信息</string>
     <string name="title_ip_owner">所有者 IP 地址</string>
     <string name="title_select_app">选择应用</string>
     <string name="title_updated">有新的版本%1$s可用</string>
@@ -776,8 +779,8 @@
     <string name="title_hours">小时</string>
     <string name="title_minutes">分钟</string>
     <string name="title_dismiss">忽略</string>
-    <string name="title_snooze_now">贪睡</string>
-    <string name="title_loading">加载中&#8230;</string>
+    <string name="title_snooze_now">打盹</string>
+    <string name="title_loading">&#8230;加载中</string>
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>
@@ -787,13 +790,13 @@
     <string name="title_pro_purchase">购买</string>
     <string name="title_pro_once">仅一次</string>
     <string name="title_pro_info">毫不夸张地说，我在开发FairEmail上花费了数千小时，尽管如此，多数功能依旧可免费使用。
-为了让FairEmail开发持续下去，免费版无法使用一些便利和高级的功能。
+为了让FairEmail开发维持下去，免费版无法使用一些便利和高级的功能。
 FairEmail会显示一条消息来提醒您这一点，这条消息在您购买专业版后将被移除。</string>
     <string name="title_pro_hint">购买专业版将获得现在以及未来更新中全部专业版功能，并将支持开发者维护这个应用</string>
     <string name="title_pro_price">请参见<a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">常见问题</a>关于专业版的价格</string>
     <string name="title_pro_pending">购买待处理</string>
-    <string name="title_pro_activated">专业版功能已激活</string>
-    <string name="title_pro_valid">专业版功能已激活</string>
+    <string name="title_pro_activated">全部专业版功能已激活</string>
+    <string name="title_pro_valid">全部专业版功能已激活</string>
     <string name="title_pro_invalid">无效的响应</string>
     <string name="title_pro_support">FairEmail需要您的帮助，点击购买专业版以保持项目的进展</string>
     <string name="title_unexpected_error">未知错误</string>
@@ -805,7 +808,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_search_special_prefix">特殊</string>
     <string name="title_search_special_unseen">未读</string>
     <string name="title_search_special_flagged">星标</string>
-    <string name="title_search_special_snoozed">延后</string>
+    <string name="title_search_special_snoozed">打盹</string>
     <string name="title_widget_account">账户</string>
     <string name="title_widget_account_all">全部</string>
     <string name="title_widget_unseen">仅未读信息</string>
@@ -846,8 +849,8 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     </string-array>
     <string-array name="onCloseNames">
         <item>不进行任何操作</item>
-        <item>转到上一个对话</item>
-        <item>转到下一个对话</item>
+        <item>转到上一个会话</item>
+        <item>转到下一个会话</item>
     </string-array>
     <string-array name="resizeNames">
         <item>小</item>
@@ -867,7 +870,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>20分钟</item>
     </string-array>
     <string-array name="ellipsizeNames">
-        <item>从开头起</item>
+        <item>主题开头</item>
         <item>主题中部</item>
         <item>主题末尾</item>
     </string-array>

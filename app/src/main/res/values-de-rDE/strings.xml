@@ -130,7 +130,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_doze_remark">Um kontinuierlich E-Mails zu empfangen (optional)</string>
     <string name="title_setup_doze_instructions">Rufen Sie im folgendem Auswahldialog (oben) \"Alle Apps\" auf; wählen Sie anschließend FairEmail aus und bestätigen Sie die Option \"Nicht optimieren\" mit Fertig.</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
-    <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
+    <string name="title_setup_doze_stopped">Sync angehalten?</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
     <string name="title_setup_inbox">Zu Nachrichten wechseln</string>
     <string name="title_setup_to_do">Nicht erledigt</string>
@@ -189,8 +189,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sync_subscribed">Nur abonnierte Ordner synchronisieren</string>
     <string name="title_advanced_keyboard">Tastatur immer anzeigen</string>
     <string name="title_advanced_suggest_local">Lokal gespeicherte Kontakte vorschlagen</string>
-    <string name="title_advanced_suggest_sent">Adressen in gesendeten Nachrichten vorschlagen</string>
-    <string name="title_advanced_suggest_received">Adressen in empfangenen Nachrichten vorschlagen</string>
+    <string name="title_advanced_suggest_sent">Adressen aus gesendeten Nachrichten vorschlagen</string>
+    <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_prefix_once">Betreff nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_plain_only">Immer als Reintext senden</string>
     <string name="title_advanced_usenet_signature">Usenet Signatur-Konvention</string>
@@ -280,6 +280,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_double_back">Doppelt „Zurück” drücken zum Beenden</string>
     <string name="title_advanced_default_snooze">Standard-Schlummer-Zeit</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -358,6 +359,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_primary_identity">Primäre Identität</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
     <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
+    <string name="title_related_identity">Ähnliche Identität hinzufügen</string>
     <string name="title_check">Prüfen</string>
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
@@ -407,6 +409,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_folder_name">Ordnername</string>
     <string name="title_display_name">Anzeigename</string>
     <string name="title_show_folders">Ausgeblendete Ordner anzeigen</string>
+    <string name="title_apply_to_all">Auf alle &#8230; anwenden</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>

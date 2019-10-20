@@ -115,7 +115,7 @@
     <string name="title_list_accounts">Учётные записи</string>
     <string name="title_list_identities">Идентификаторы</string>
     <string name="title_edit_account">Изменить учётную запись</string>
-    <string name="title_edit_identity">Изменить идентификацию</string>
+    <string name="title_edit_identity">Изменить идентификатор</string>
     <string name="title_edit_folder">Редактировать папку</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Справка</string>
@@ -303,6 +303,7 @@
     <string name="title_advanced_double_back">Двойное \"Назад\" для выхода</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
+    <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
     <string name="title_advanced_watchdog">Регулярно проверять, активен ли FairEmail</string>
     <string name="title_advanced_updates">Проверять наличие обновлений</string>
@@ -381,6 +382,7 @@
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_leave_on_server">Оставлять сообщения на сервере</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности/опроса (минуты)</string>
+    <string name="title_related_identity">Добавить связанную идентификацию</string>
     <string name="title_check">Проверить</string>
     <string name="title_no_name">Отсутствует имя</string>
     <string name="title_no_email">Отсутствует адрес электронной почты</string>
@@ -430,6 +432,7 @@
     <string name="title_folder_name">Название папки</string>
     <string name="title_display_name">Отображаемое имя</string>
     <string name="title_show_folders">Показывать скрытые папки</string>
+    <string name="title_apply_to_all">Применить ко всем&#8230;</string>
     <string name="title_hide_folder">Скрыть папку</string>
     <string name="title_unified_folder">Показать в единой папке \"Входящие\"</string>
     <string name="title_navigation_folder">Показывать в меню навигации</string>
@@ -462,7 +465,7 @@
     <string name="title_no_folders">Нет папок</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_filters_active">Один или несколько фильтров активны</string>
-    <string name="title_duplicate_in">Дублировать в папку \"%1$s\"</string>
+    <string name="title_duplicate_in">Дубликат в папке %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>

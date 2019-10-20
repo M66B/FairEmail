@@ -281,6 +281,7 @@
     <string name="title_advanced_double_back">Çıkmak için geri tuşuna 2 defa basın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -359,6 +360,7 @@
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
     <string name="title_leave_on_server">Mesajları sunucuda bırak</string>
     <string name="title_keep_alive_interval">Canlı tutma/yoklama aralığı (dakika)</string>
+    <string name="title_related_identity">İlgili kimliği ekle</string>
     <string name="title_check">Kontrol et</string>
     <string name="title_no_name">İsim eksik</string>
     <string name="title_no_email">E-posta adresi eksik</string>
@@ -408,6 +410,7 @@
     <string name="title_folder_name">Klasör adı</string>
     <string name="title_display_name">Görünen ad</string>
     <string name="title_show_folders">Gizli klasörleri göster</string>
+    <string name="title_apply_to_all">Tümüne uygula &#8230;</string>
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>

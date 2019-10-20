@@ -281,6 +281,7 @@
     <string name="title_advanced_double_back">Dubbel \'terug\' om te sluiten</string>
     <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
+    <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
@@ -359,6 +360,7 @@
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
     <string name="title_leave_on_server">Berichten op server laten</string>
     <string name="title_keep_alive_interval">Keep-alive/periodieke controle interval (minuten)</string>
+    <string name="title_related_identity">Voeg gerelateerde identiteit toe</string>
     <string name="title_check">Controleer</string>
     <string name="title_no_name">Naam ontbreekt</string>
     <string name="title_no_email">Email adres ontbreekt</string>
@@ -408,6 +410,7 @@
     <string name="title_folder_name">Mapnaam</string>
     <string name="title_display_name">Weergavenaam</string>
     <string name="title_show_folders">Toon verborgen mappen</string>
+    <string name="title_apply_to_all">Toepassen op alle &#8230;</string>
     <string name="title_hide_folder">Verberg map</string>
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_navigation_folder">Toon in navigatiemenu</string>

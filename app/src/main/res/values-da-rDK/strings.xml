@@ -203,6 +203,7 @@
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
+    <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
     <string name="title_advanced_cards">Vis Kort</string>
     <string name="title_advanced_date_header">Gruppér efter dato</string>
@@ -279,6 +280,7 @@
     <string name="title_advanced_double_back">Dobbelttryk \"Tilbage\"/stryg for at lukke</string>
     <string name="title_advanced_default_snooze">Standard udsættelsestid</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
+    <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
@@ -357,6 +359,7 @@
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Lad beskeder forblive på server</string>
     <string name="title_keep_alive_interval">Hold i live/hentningsinterval (minutter)</string>
+    <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-mailadresse mangler</string>
@@ -406,6 +409,7 @@
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>
+    <string name="title_apply_to_all">Anvend for alle &#8230;</string>
     <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_unified_folder">Vis i samlet indbakke</string>
     <string name="title_navigation_folder">Vis i navigationsmenu</string>

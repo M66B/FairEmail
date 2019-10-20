@@ -226,6 +226,7 @@
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
+    <string name="title_advanced_landscape">Použít dva sloupce v režimu na šířku</string>
     <string name="title_advanced_startup">Zobrazit na úvodní obrazovce</string>
     <string name="title_advanced_cards">Zobrazit karty</string>
     <string name="title_advanced_date_header">Seskupit podle data</string>
@@ -302,6 +303,7 @@
     <string name="title_advanced_double_back">Dvakrát \"zpět\" pro ukončení</string>
     <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
@@ -380,6 +382,7 @@
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
+    <string name="title_related_identity">Přidat související identitu</string>
     <string name="title_check">Ověřit</string>
     <string name="title_no_name">Chybí jméno</string>
     <string name="title_no_email">Chybí e-mailová adresa</string>
@@ -429,6 +432,7 @@
     <string name="title_folder_name">Název složky</string>
     <string name="title_display_name">Zobrazované jméno</string>
     <string name="title_show_folders">Zobrazit skryté složky</string>
+    <string name="title_apply_to_all">Použít na všechny &#8230;</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>

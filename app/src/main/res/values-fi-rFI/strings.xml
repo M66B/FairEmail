@@ -204,6 +204,7 @@
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
+    <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Näytä kortit</string>
     <string name="title_advanced_date_header">Ryhmittely päivämäärän mukaan</string>
@@ -280,6 +281,7 @@
     <string name="title_advanced_double_back">\'Takaisin\' kaksi kertaa sulkee sovelluksen</string>
     <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
+    <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -358,6 +360,7 @@
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
     <string name="title_leave_on_server">Jätä viestit palvelimelle</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
+    <string name="title_related_identity">Lisää liittyvä identiteetti</string>
     <string name="title_check">Tarkista</string>
     <string name="title_no_name">Nimi puuttuu</string>
     <string name="title_no_email">Sähköpostiosoite puuttuu</string>
@@ -407,6 +410,7 @@
     <string name="title_folder_name">Kansion nimi</string>
     <string name="title_display_name">Näyttönimi</string>
     <string name="title_show_folders">Näytä piilotetut kansiot</string>
+    <string name="title_apply_to_all">Käytä kaikille &#8230;</string>
     <string name="title_hide_folder">Piilota kansio</string>
     <string name="title_unified_folder">Näytä yhdistetyssä saapuneet-kansiossa</string>
     <string name="title_navigation_folder">Näytä navigointivalikossa</string>

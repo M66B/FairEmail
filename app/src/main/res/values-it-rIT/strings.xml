@@ -280,6 +280,7 @@
     <string name="title_advanced_double_back">Doppio \'indietro\' per uscire</string>
     <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -358,6 +359,7 @@
     <string name="title_primary_identity">Principale (identità predefinita)</string>
     <string name="title_leave_on_server">Lascia i messaggi sul server</string>
     <string name="title_keep_alive_interval">Intervallo resta-attivo/sondaggio (minuti)</string>
+    <string name="title_related_identity">Aggiungi identità correlata</string>
     <string name="title_check">Controlla</string>
     <string name="title_no_name">Nome mancante</string>
     <string name="title_no_email">Indirizzo email mancante</string>
@@ -407,6 +409,7 @@
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>
+    <string name="title_apply_to_all">Applica a tutti &#8230;</string>
     <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_unified_folder">Mostra in posta in arrivo unificata</string>
     <string name="title_navigation_folder">Mostra nel menu di navigazione</string>

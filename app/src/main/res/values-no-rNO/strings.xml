@@ -281,6 +281,7 @@
     <string name="title_advanced_double_back">Dobbel \'tilbake\' for å avslutte</string>
     <string name="title_advanced_default_snooze">Standard slumretid</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
@@ -359,6 +360,7 @@
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Legg igjen meldingene på serveren</string>
     <string name="title_keep_alive_interval">Holde i live/avstemming intervall (minutter)</string>
+    <string name="title_related_identity">Legg til relatert identitet</string>
     <string name="title_check">Sjekk</string>
     <string name="title_no_name">Navn mangler</string>
     <string name="title_no_email">E-post adressen mangler</string>
@@ -408,6 +410,7 @@
     <string name="title_folder_name">Mappenavn</string>
     <string name="title_display_name">Visningsnavn</string>
     <string name="title_show_folders">Vis skjulte mapper</string>
+    <string name="title_apply_to_all">Gjelder for alle &#8230;</string>
     <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_unified_folder">Vis i enhetlig konto</string>
     <string name="title_navigation_folder">Vis i navigasjonsmenyen</string>
