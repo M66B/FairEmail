@@ -557,7 +557,8 @@ public class MessageHelper {
                 "yes".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_HIGH;
         else if ("normal".equalsIgnoreCase(header) ||
-                "medium".equalsIgnoreCase(header))
+                "medium".equalsIgnoreCase(header) ||
+                "med".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_NORMAL;
         else if ("low".equalsIgnoreCase(header) ||
                 "non-urgent".equalsIgnoreCase(header) ||
