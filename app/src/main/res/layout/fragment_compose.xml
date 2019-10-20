@@ -92,9 +92,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
                     android:contentDescription="@string/title_cc"
-                    app:layout_constraintBottom_toBottomOf="@id/etBcc"
+                    app:layout_constraintBottom_toBottomOf="@+id/etCc"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/etTo"
+                    app:layout_constraintTop_toTopOf="@+id/etCc"
                     app:srcCompat="@drawable/baseline_people_24" />
 
                 <MultiAutoCompleteTextView
