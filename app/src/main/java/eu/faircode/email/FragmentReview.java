@@ -23,7 +23,7 @@ public class FragmentReview extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review, null);
+        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review_account, null);
         TextView tvLeft = dview.findViewById(R.id.tvLeft);
         TextView tvRight = dview.findViewById(R.id.tvRight);
         Button btnAccount = dview.findViewById(R.id.btnAccount);
