@@ -285,14 +285,39 @@ public class FragmentCompose extends FragmentBase {
         // Wire controls
         spIdentity.setOnItemSelectedListener(identitySelected);
 
+        View.OnLongClickListener longClickListener = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                EditText et = (EditText) v;
+                int sstart = et.getSelectionStart();
+                int send = et.getSelectionEnd();
+                String text = et.getText().toString();
+
+                if (send < 0 || send > sstart)
+                    return false;
+
+                int ecomma = text.indexOf(',', sstart);
+                if (ecomma < 0)
+                    return false;
+
+                int scomma = text.substring(0, ecomma).lastIndexOf(',');
+                scomma = (scomma < 0 ? 0 : scomma + 1);
+                et.setSelection(scomma, ecomma + 1);
+                return false;
+            }
+        };
+
         etTo.setMaxLines(Integer.MAX_VALUE);
         etTo.setHorizontallyScrolling(false);
+        etTo.setOnLongClickListener(longClickListener);
 
         etCc.setMaxLines(Integer.MAX_VALUE);
         etCc.setHorizontallyScrolling(false);
+        etCc.setOnLongClickListener(longClickListener);
 
         etBcc.setMaxLines(Integer.MAX_VALUE);
         etBcc.setHorizontallyScrolling(false);
+        etBcc.setOnLongClickListener(longClickListener);
 
         etSubject.setMaxLines(Integer.MAX_VALUE);
         etSubject.setHorizontallyScrolling(false);
