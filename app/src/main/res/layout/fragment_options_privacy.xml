@@ -102,5 +102,17 @@
             android:text="@string/title_advanced_pin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout" />
+
+        <TextView
+            android:id="@+id/tvPinHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_display_pin_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnPin" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

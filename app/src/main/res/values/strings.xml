@@ -276,6 +276,7 @@
     <string name="title_advanced_seekbar">Show relative conversation position with a dot</string>
     <string name="title_advanced_actionbar">Show conversation action bar</string>
 
+    <string name="title_advanced_double_back">Double \'back\' to exit</string>
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
     <string name="title_advanced_autoscroll">Scroll to top on receiving new messages</string>
     <string name="title_advanced_double_tap">Double tap to mark message read/unread</string>
@@ -291,6 +292,7 @@
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
     <string name="title_advanced_automove">Confirm moving messages</string>
     <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
+    <string name="title_advanced_default_snooze">Default snooze time</string>
 
     <string name="title_advanced_badge">Show launcher icon with number of new messages</string>
     <string name="title_advanced_unseen_ignored">Let the number of new messages match the number of notifications</string>
@@ -314,6 +316,8 @@
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
     <string name="title_advanced_recents">Hide FairEmail from screen with recent apps</string>
+    <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
+    <string name="title_advanced_pin">PIN</string>
 
     <string name="title_advanced_badge_hint">Only available on supported launchers</string>
     <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
@@ -322,10 +326,6 @@
     <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
     <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
 
-    <string name="title_advanced_double_back">Double \'back\' to exit</string>
-    <string name="title_advanced_default_snooze">Default snooze time</string>
-    <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
-    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
@@ -370,6 +370,7 @@
     <string name="title_advanced_sender_hint">Most providers do not allow modified sender addresses</string>
 
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
+    <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
 
     <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
