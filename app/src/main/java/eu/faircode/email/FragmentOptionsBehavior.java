@@ -30,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
 public class FragmentOptionsBehavior extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private SwitchCompat swDoubleBack;
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
     private SwitchCompat swDoubleTap;
@@ -55,11 +57,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swAutoMove;
     private SwitchCompat swDiscardDelete;
+    private NumberPicker npDefaultSnooze;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "pull", "autoscroll", "doubletap", "swipenav", "reversed",
+            "double_back", "pull", "autoscroll", "doubletap", "swipenav", "reversed",
             "autoexpand", "expand_all", "expand_one", "collapse_multiple",
-            "autoclose", "onclose", "autoread", "autounflag", "automove", "discard_delete"
+            "autoclose", "onclose", "autoread", "autounflag", "automove", "discard_delete",
+            "default_snooze"
     };
 
     @Override
@@ -72,6 +76,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
 
         // Get controls
 
+        swDoubleBack = view.findViewById(R.id.swDoubleBack);
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swDoubleTap = view.findViewById(R.id.swDoubleTap);
@@ -87,12 +92,23 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swAutoMove = view.findViewById(R.id.swAutoMove);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
+        npDefaultSnooze = view.findViewById(R.id.npDefaultSnooze);
+
+        npDefaultSnooze.setMinValue(1);
+        npDefaultSnooze.setMaxValue(999);
 
         setOptions();
 
         // Wire controls
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        swDoubleBack.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("double_back", checked).apply();
+            }
+        });
 
         swPull.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -213,6 +229,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        npDefaultSnooze.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                prefs.edit().putInt("default_snooze", newVal).apply();
+            }
+        });
+
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
         return view;
@@ -259,6 +282,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private void setOptions() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
+        swDoubleBack.setChecked(prefs.getBoolean("double_back", true));
         swPull.setChecked(prefs.getBoolean("pull", true));
         swAutoScroll.setChecked(prefs.getBoolean("autoscroll", true));
         swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
@@ -288,5 +312,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swAutoMove.setChecked(!prefs.getBoolean("automove", false));
         swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", false));
+
+        npDefaultSnooze.setValue(prefs.getInt("default_snooze", 1));
     }
 }

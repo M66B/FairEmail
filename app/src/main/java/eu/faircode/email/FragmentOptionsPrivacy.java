@@ -27,7 +27,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,9 +42,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisableTracking;
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swNoHistory;
+    private Spinner spBiometricsTimeout;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "disable_tracking", "display_hidden", "no_history"
+            "disable_tracking", "display_hidden", "no_history", "biometrics_timeout"
     };
 
     @Override
@@ -58,6 +61,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swNoHistory = view.findViewById(R.id.swNoHistory);
+        spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
 
         setOptions();
 
@@ -84,6 +88,19 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("no_history", checked).commit(); // apply won't work here
                 restart();
+            }
+        });
+
+        spBiometricsTimeout.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                int[] values = getResources().getIntArray(R.array.biometricsTimeoutValues);
+                prefs.edit().putInt("biometrics_timeout", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("biometrics_timeout").apply();
             }
         });
 
@@ -136,5 +153,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
         swNoHistory.setChecked(prefs.getBoolean("no_history", false));
+
+        int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);
+        int[] biometricTimeoutValues = getResources().getIntArray(R.array.biometricsTimeoutValues);
+        for (int pos = 0; pos < biometricTimeoutValues.length; pos++)
+            if (biometricTimeoutValues[pos] == biometrics_timeout) {
+                spBiometricsTimeout.setSelection(pos);
+                break;
+            }
     }
 }
