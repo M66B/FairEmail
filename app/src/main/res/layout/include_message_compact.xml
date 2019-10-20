@@ -218,7 +218,7 @@
         android:paddingTop="6dp"
         android:paddingBottom="6dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@id/tvSubject"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintEnd_toStartOf="@id/paddingEnd"
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
         app:srcCompat="@drawable/baseline_star_24" />
