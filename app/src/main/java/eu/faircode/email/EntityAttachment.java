@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -34,6 +35,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 import javax.mail.Part;
@@ -144,6 +146,30 @@ public class EntityAttachment {
                 }
             }
         }
+    }
+
+    String getMimeType() {
+        // Try to guess a better content type
+        // For example, sometimes PDF files are sent as application/octet-stream
+        if (encryption != null)
+            return type;
+
+        String extension = Helper.getExtension(name);
+        if (extension == null)
+            return type;
+
+        if ("application/zip".equals(type) ||
+                "application/octet-stream".equals(type)) {
+            String gtype = MimeTypeMap.getSingleton()
+                    .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
+            if (gtype == null || gtype.equals(type))
+                return type;
+
+            Log.w("Guessing file=" + name + " type=" + gtype);
+            return gtype;
+        }
+
+        return type;
     }
 
     @Override

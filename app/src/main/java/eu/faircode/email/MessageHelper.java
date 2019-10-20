@@ -25,7 +25,6 @@ import android.net.MailTo;
 import android.net.Uri;
 import android.text.Html;
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
 
 import androidx.preference.PreferenceManager;
 
@@ -1367,26 +1366,9 @@ public class MessageHelper {
                     apart.attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
                     apart.attachment.encryption = (apart.pgp ? EntityAttachment.PGP_MESSAGE : null);
 
-                    if ("text/calendar".equalsIgnoreCase(apart.attachment.type) && TextUtils.isEmpty(apart.attachment.name))
+                    if ("text/calendar".equalsIgnoreCase(apart.attachment.type) &&
+                            TextUtils.isEmpty(apart.attachment.name))
                         apart.attachment.name = "invite.ics";
-
-                    // Try to guess a better content type
-                    // For example, sometimes PDF files are sent as application/octet-stream
-                    if (!apart.pgp) {
-                        String extension = Helper.getExtension(apart.attachment.name);
-                        if (extension != null) {
-                            if ("application/zip".equals(apart.attachment.type) ||
-                                    "application/octet-stream".equals(apart.attachment.type)) {
-                                String type = MimeTypeMap.getSingleton()
-                                        .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
-                                if (type != null) {
-                                    if (!type.equals(apart.attachment.type))
-                                        Log.w("Guessing file=" + apart.attachment.name + " type=" + type);
-                                    apart.attachment.type = type;
-                                }
-                            }
-                        }
-                    }
 
                     if (apart.attachment.size <= 0)
                         apart.attachment.size = null;

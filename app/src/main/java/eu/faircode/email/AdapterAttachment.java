@@ -212,7 +212,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                     new Intent(FragmentMessages.ACTION_STORE_ATTACHMENT)
                             .putExtra("id", attachment.id)
                             .putExtra("name", Helper.sanitizeFilename(attachment.name))
-                            .putExtra("type", attachment.type));
+                            .putExtra("type", attachment.getMimeType()));
         }
 
         private void onShare(EntityAttachment attachment) {
@@ -221,13 +221,15 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
             Log.i("uri=" + uri);
 
+            String type = attachment.getMimeType();
+
             // Build intent
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri, attachment.type);
+            intent.setDataAndType(uri, type);
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             if (!TextUtils.isEmpty(attachment.name))
                 intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(attachment.name));
-            Log.i("Intent=" + intent + " type=" + attachment.type);
+            Log.i("Intent=" + intent + " type=" + type);
 
             // Get targets
             PackageManager pm = context.getPackageManager();
@@ -241,7 +243,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (ris.size() == 0)
                 Snackbar.make(
                         (View) itemView.getParent(),
-                        context.getString(R.string.title_no_viewer, attachment.type),
+                        context.getString(R.string.title_no_viewer, type),
                         Snackbar.LENGTH_LONG).show();
             else
                 context.startActivity(intent);
