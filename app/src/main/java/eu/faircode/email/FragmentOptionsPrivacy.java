@@ -19,8 +19,12 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,12 +32,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
@@ -43,6 +50,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swNoHistory;
     private Spinner spBiometricsTimeout;
+    private Button btnPin;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "disable_tracking", "display_hidden", "no_history", "biometrics_timeout"
@@ -62,6 +70,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swNoHistory = view.findViewById(R.id.swNoHistory);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
+        btnPin = view.findViewById(R.id.btnPin);
 
         setOptions();
 
@@ -101,6 +110,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("biometrics_timeout").apply();
+            }
+        });
+
+        btnPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentDialogPin fragment = new FragmentDialogPin();
+                fragment.show(getParentFragmentManager(), "pin");
             }
         });
 
@@ -161,5 +178,37 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 spBiometricsTimeout.setSelection(pos);
                 break;
             }
+    }
+
+    public static class FragmentDialogPin extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_pin_set, null);
+            final EditText etPin = dview.findViewById(R.id.etPin);
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etPin.requestFocus();
+                }
+            });
+
+            return new AlertDialog.Builder(getContext())
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String pin = etPin.getText().toString();
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            if (TextUtils.isEmpty(pin))
+                                prefs.edit().remove("pin").apply();
+                            else
+                                prefs.edit().putString("pin", pin).apply();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
+        }
     }
 }

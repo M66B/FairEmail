@@ -90,5 +90,17 @@
             android:entries="@array/biometricsTimeoutNames"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBiometricsTimeout" />
+
+        <Button
+            android:id="@+id/btnPin"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_pin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

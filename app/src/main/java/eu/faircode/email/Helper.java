@@ -47,12 +47,16 @@ import android.os.PowerManager;
 import android.os.StatFs;
 import android.text.Spannable;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.util.TypedValue;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -793,6 +797,11 @@ public class Helper {
     }
 
     static boolean canAuthenticate(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String pin = prefs.getString("pin", null);
+        if (!TextUtils.isEmpty(pin))
+            return true;
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             return false;
         else if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) {
@@ -810,8 +819,9 @@ public class Helper {
     static boolean shouldAuthenticate(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean biometrics = prefs.getBoolean("biometrics", false);
+        String pin = prefs.getString("pin", null);
 
-        if (biometrics) {
+        if (biometrics || !TextUtils.isEmpty(pin)) {
             long now = new Date().getTime();
             long last_authentication = prefs.getLong("last_authentication", 0);
             long biometrics_timeout = prefs.getInt("biometrics_timeout", 2) * 60 * 1000L;
@@ -831,74 +841,119 @@ public class Helper {
                              Runnable authenticated, final Runnable cancelled) {
         final Handler handler = new Handler();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        String pin = prefs.getString("pin", null);
 
-        BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
-                .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics));
+        if (enabled != null || TextUtils.isEmpty(pin)) {
+            BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
+                    .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics));
 
-        KeyguardManager kgm = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && kgm != null && kgm.isDeviceSecure())
-            info.setDeviceCredentialAllowed(true);
-        else
-            info.setNegativeButtonText(activity.getString(android.R.string.cancel));
+            KeyguardManager kgm = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && kgm != null && kgm.isDeviceSecure())
+                info.setDeviceCredentialAllowed(true);
+            else
+                info.setNegativeButtonText(activity.getString(android.R.string.cancel));
 
-        info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
-                : enabled
-                ? R.string.title_setup_biometrics_disable
-                : R.string.title_setup_biometrics_enable));
+            info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
+                    : enabled
+                    ? R.string.title_setup_biometrics_disable
+                    : R.string.title_setup_biometrics_enable));
 
-        BiometricPrompt prompt = new BiometricPrompt(activity, executor,
-                new BiometricPrompt.AuthenticationCallback() {
-                    @Override
-                    public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
-                        Log.w("Biometric error " + errorCode + ": " + errString);
+            BiometricPrompt prompt = new BiometricPrompt(activity, executor,
+                    new BiometricPrompt.AuthenticationCallback() {
+                        @Override
+                        public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
+                            Log.w("Biometric error " + errorCode + ": " + errString);
 
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
-                                        errorCode == BiometricPrompt.ERROR_CANCELED ||
-                                        errorCode == BiometricPrompt.ERROR_USER_CANCELED)
-                                    cancelled.run();
-                                else
-                                    ToastEx.makeText(activity,
-                                            errString + " (" + errorCode + ")",
-                                            Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                        Log.i("Biometric succeeded");
-
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
-                        prefs.edit().putLong("last_authentication", new Date().getTime()).apply();
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                authenticated.run();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onAuthenticationFailed() {
-                        Log.w("Biometric failed");
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
+                            if (errorCode != BiometricPrompt.ERROR_NEGATIVE_BUTTON &&
+                                    errorCode != BiometricPrompt.ERROR_CANCELED &&
+                                    errorCode != BiometricPrompt.ERROR_USER_CANCELED)
                                 ToastEx.makeText(activity,
-                                        R.string.title_unexpected_error,
+                                        errString + " (" + errorCode + ")",
                                         Toast.LENGTH_LONG).show();
-                                cancelled.run();
-                            }
-                        });
-                    }
-                });
 
-        prompt.authenticate(info.build());
+                            handler.post(cancelled);
+                        }
+
+                        @Override
+                        public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                            Log.i("Biometric succeeded");
+
+                            setAuthenticated(activity);
+                            handler.post(authenticated);
+                        }
+
+                        @Override
+                        public void onAuthenticationFailed() {
+                            Log.w("Biometric failed");
+
+                            ToastEx.makeText(activity,
+                                    R.string.title_unexpected_error,
+                                    Toast.LENGTH_LONG).show();
+                            handler.post(cancelled);
+                        }
+                    });
+
+            prompt.authenticate(info.build());
+        } else {
+            final View dview = LayoutInflater.from(activity).inflate(R.layout.dialog_pin_ask, null);
+            final EditText etPin = dview.findViewById(R.id.etPin);
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etPin.requestFocus();
+                }
+            });
+
+            AlertDialog dialog = new AlertDialog.Builder(activity)
+                    .setView(dview)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+                            String pin = prefs.getString("pin", "");
+                            String entered = etPin.getText().toString();
+
+                            if (pin.equals(entered)) {
+                                setAuthenticated(activity);
+                                handler.post(authenticated);
+                            } else
+                                handler.post(cancelled);
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            handler.post(cancelled);
+                        }
+                    })
+                    .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            handler.post(cancelled);
+                        }
+                    })
+                    .create();
+
+            etPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        dialog.getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+
+            dialog.show();
+        }
+    }
+
+    private static void setAuthenticated(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putLong("last_authentication", new Date().getTime()).apply();
     }
 
     static void clearAuthentication(Context context) {
