@@ -266,6 +266,7 @@
     <string name="title_advanced_flags_background">Show colored background instead of colored stars</string>
     <string name="title_advanced_preview">Show message preview</string>
     <string name="title_advanced_preview_italic">Show message preview in italics</string>
+    <string name="title_advanced_preview_lines">Number of preview lines</string>
     <string name="title_advanced_addresses">Show address details by default</string>
     <string name="title_advanced_attachments_alt">Show attachments after the message text</string>
     <string name="title_advanced_contrast">Use high contrast for message text</string>
@@ -1074,6 +1075,13 @@
         <item>Low</item>
         <item>Normal</item>
         <item>High</item>
+    </string-array>
+
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

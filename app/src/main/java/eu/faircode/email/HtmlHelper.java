@@ -68,7 +68,7 @@ import static androidx.core.text.HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_LIST_
 import static androidx.core.text.HtmlCompat.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 
 public class HtmlHelper {
-    private static final int PREVIEW_SIZE = 250; // characters
+    private static final int PREVIEW_SIZE = 500; // characters
 
     private static final float MIN_LUMINANCE = 0.5f;
     private static final int MAX_AUTO_LINK = 250;

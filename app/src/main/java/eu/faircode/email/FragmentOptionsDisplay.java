@@ -76,6 +76,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swFlagsBackground;
     private SwitchCompat swPreview;
     private SwitchCompat swPreviewItalic;
+    private Spinner spPreviewLines;
     private SwitchCompat swAddresses;
     private SwitchCompat swAttachmentsAlt;
 
@@ -92,7 +93,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "subject_italic", "subject_ellipsize",
-            "flags", "flags_background", "preview", "preview_italic", "addresses", "attachments_alt",
+            "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color",
             "inline_images", "collapse_quotes", "seekbar", "actionbar",
     };
@@ -135,6 +136,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swFlagsBackground = view.findViewById(R.id.swFlagsBackground);
         swPreview = view.findViewById(R.id.swPreview);
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
+        spPreviewLines = view.findViewById(R.id.spPreviewLines);
         swAddresses = view.findViewById(R.id.swAddresses);
         swAttachmentsAlt = view.findViewById(R.id.swAttachmentsAlt);
         swContrast = view.findViewById(R.id.swContrast);
@@ -378,6 +380,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("preview", checked).apply();
                 swPreviewItalic.setEnabled(checked);
+                spPreviewLines.setEnabled(checked);
             }
         });
 
@@ -385,6 +388,18 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("preview_italic", checked).apply();
+            }
+        });
+
+        spPreviewLines.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                prefs.edit().putInt("preview_lines", position + 1).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("preview_lines").apply();
             }
         });
 
@@ -549,6 +564,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreview.setChecked(prefs.getBoolean("preview", false));
         swPreviewItalic.setChecked(prefs.getBoolean("preview_italic", true));
         swPreviewItalic.setEnabled(swPreview.isChecked());
+        spPreviewLines.setSelection(prefs.getInt("preview_lines", 2) - 1);
+        spPreviewLines.setEnabled(swPreview.isChecked());
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
         swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
         swContrast.setChecked(prefs.getBoolean("contrast", false));
