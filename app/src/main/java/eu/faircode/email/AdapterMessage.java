@@ -295,7 +295,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvIdentityTitle;
         private TextView tvTimeExTitle;
         private TextView tvSizeExTitle;
-        private TextView tvFolderExTitle;
 
         private TextView tvFromEx;
         private TextView tvTo;
@@ -305,7 +304,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvIdentity;
         private TextView tvTimeEx;
         private TextView tvSizeEx;
-        private TextView tvFolderEx;
 
         private TextView tvSubjectEx;
         private TextView tvFlags;
@@ -437,7 +435,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentityTitle = vsBody.findViewById(R.id.tvIdentityTitle);
             tvTimeExTitle = vsBody.findViewById(R.id.tvTimeExTitle);
             tvSizeExTitle = vsBody.findViewById(R.id.tvSizeExTitle);
-            tvFolderExTitle = vsBody.findViewById(R.id.tvFolderExTitle);
 
             tvFromEx = vsBody.findViewById(R.id.tvFromEx);
             tvTo = vsBody.findViewById(R.id.tvTo);
@@ -448,7 +445,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvTimeEx = vsBody.findViewById(R.id.tvTimeEx);
             tvSizeEx = vsBody.findViewById(R.id.tvSizeEx);
 
-            tvFolderEx = vsBody.findViewById(R.id.tvFolderEx);
             tvSubjectEx = vsBody.findViewById(R.id.tvSubjectEx);
             tvFlags = vsBody.findViewById(R.id.tvFlags);
             tvKeywords = vsBody.findViewById(R.id.tvKeywords);
@@ -947,7 +943,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentityTitle.setVisibility(View.GONE);
             tvTimeExTitle.setVisibility(View.GONE);
             tvSizeExTitle.setVisibility(View.GONE);
-            tvFolderExTitle.setVisibility(View.GONE);
 
             tvFromEx.setVisibility(View.GONE);
             tvTo.setVisibility(View.GONE);
@@ -957,7 +952,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentity.setVisibility(View.GONE);
             tvTimeEx.setVisibility(View.GONE);
             tvSizeEx.setVisibility(View.GONE);
-            tvFolderEx.setVisibility(View.GONE);
             tvSubjectEx.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
             tvKeywords.setVisibility(View.GONE);
@@ -1132,10 +1126,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .append("/")
                     .append(message.total == null ? "-" : Helper.humanReadableByteCount(message.total, true));
             tvSizeEx.setText(size.toString());
-
-            tvFolderExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvFolderEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvFolderEx.setText(tvFolder.getText());
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);

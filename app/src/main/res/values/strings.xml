@@ -607,7 +607,6 @@
     <string name="title_via_identity">Via:</string>
     <string name="title_received">Received:</string>
     <string name="title_size">Size:</string>
-    <string name="title_folder">Folder:</string>
     <string name="title_subject">Subject:</string>
     <string name="title_body_hint">Your message</string>
     <string name="title_discard">Discard</string>
