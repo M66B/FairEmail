@@ -213,7 +213,9 @@
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
+    <string name="title_advanced_socks">Utilizați proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
+    <string name="title_advanced_landscape">Folosește două coloane în modul portret</string>
     <string name="title_advanced_startup">Arată pe ecranul de start</string>
     <string name="title_advanced_cards">Arată carduri</string>
     <string name="title_advanced_date_header">Grupare după dată</string>
@@ -237,6 +239,7 @@
     <string name="title_advanced_flags_background">Arată fundalul colorat în loc de stea colorată</string>
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_preview_italic">Arată previzualizare mesaj cu aldin</string>
+    <string name="title_advanced_preview_lines">Numărul de linii de previzualizat</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
@@ -277,6 +280,7 @@
     <string name="title_advanced_notify_action_seen">Citit</string>
     <string name="title_advanced_notify_action_snooze">Amână</string>
     <string name="title_advanced_notify_remove">Elimina notificarea de mesaj nou dacă se atinge</string>
+    <string name="title_advanced_wearable_preview">Trimite la portabile doar notificările cu previzualizare mesaj</string>
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
@@ -284,6 +288,7 @@
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_recents">Ascunde din ecranul cu aplicații recente</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_badge_hint">Disponibil doar pe lansatoarele suportate</string>
     <string name="title_advanced_notify_action_hint">Maxim trei acțiuni vor fi afișate</string>
     <string name="title_advanced_notify_remove_hint">Notificările de mesaj nou vor fi mereu eliminate dacă sunt glisate la o parte sau când mesajele sunt marcate drept citite</string>
@@ -318,11 +323,13 @@
     <string name="title_advanced_threading_hint">Grupează mesajele asociate</string>
     <string name="title_advanced_name_email_hint">Dacă este dezactivată, doar numele va fi afișat atunci când este disponibil</string>
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
+    <string name="title_advanced_wearable_hint">Notificările sunt trimise la un dispozitiv portabil doar după ce textul mesajului a fost descărcat</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
+    <string name="title_advanced_display_pin_hint">PIN-ul are prioritate față de autentificarea biometrică</string>
     <string name="title_advanced_subscribed_only_hint">La activare se vor șterge toate dosarele locale fără abonament</string>
     <string name="title_advanced_english_hint">Aplicația se va restarta</string>
     <string name="title_advanced_experiments_hint">Lista de funcții experimentale curente</string>
@@ -368,6 +375,7 @@
     <string name="title_primary_identity">Primară (identitatea implicită)</string>
     <string name="title_leave_on_server">Păstrează mesajele pe server</string>
     <string name="title_keep_alive_interval">Interval menținere conexiune/verificare periodică (minute)</string>
+    <string name="title_related_identity">Adaugă identitate conexă</string>
     <string name="title_check">Verificare</string>
     <string name="title_no_name">Lipsește numele</string>
     <string name="title_no_email">Lipsește adresa de e-mail</string>
@@ -417,6 +425,7 @@
     <string name="title_folder_name">Nume dosar</string>
     <string name="title_display_name">Nume afișat</string>
     <string name="title_show_folders">Arată dosarele ascunse</string>
+    <string name="title_apply_to_all">Aplicare la toate &#8230;</string>
     <string name="title_hide_folder">Ascunde dosar</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>
@@ -444,6 +453,7 @@
     <string name="title_folder_sent">Trimise</string>
     <string name="title_folder_system">Sistem</string>
     <string name="title_folder_user">Utilizator</string>
+    <string name="title_folder_user_only">Folosește doar dosare</string>
     <string name="title_folder_primary">Dosare cont primar</string>
     <string name="title_folders_unified">Director unificat de mesaje primite</string>
     <string name="title_no_folders">Nici un dosar</string>
@@ -527,6 +537,7 @@
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>
     <string name="title_reporting_why">Raportarea erorilor va ajuta la îmbunătățirea FairEmail</string>
+    <string name="title_expand_warning">Extinderea acestui mesaj va descărca %1$s</string>
     <string name="title_download_message">Se descarcă &#8230;</string>
     <string name="title_compose">Compune</string>
     <string name="title_from">De la:</string>
@@ -701,6 +712,7 @@
     <string name="title_legend_zoom">Modificare dimensiune text</string>
     <string name="title_legend_draft">Are ciornă</string>
     <string name="title_legend_priority">Prioritate ridicată</string>
+    <string name="title_legend_priority_low">Are prioritate redusă</string>
     <string name="title_legend_auth">Autentificare eșuată</string>
     <string name="title_legend_snoozed">Este amânat</string>
     <string name="title_legend_browsed">Este răsfoit sau căutat</string>
@@ -797,6 +809,7 @@
     <string name="title_dismiss">Renunță</string>
     <string name="title_snooze_now">Amână</string>
     <string name="title_loading">Se încarcă &#8230;</string>
+    <string name="title_set">Setează</string>
     <string name="title_icalendar_accept">Acceptă</string>
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>
@@ -895,5 +908,11 @@
         <item>Redusă</item>
         <item>Normală</item>
         <item>Ridicată</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>
