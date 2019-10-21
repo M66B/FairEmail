@@ -172,7 +172,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
+
     private boolean suitable;
+    private boolean unmetered;
 
     private int dp36;
     private int colorPrimary;
@@ -1018,13 +1020,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindExpandWarning(TupleMessageEx message, boolean expanded) {
-            tvExpand.setText(
-                    message.size == null ? null : context.getString(R.string.title_expand_warning,
-                            Helper.humanReadableByteCount(message.size, true)));
-            tvExpand.setVisibility(
-                    viewType == ViewType.THREAD && !expanded &&
-                            message.size != null && !message.content && message.uid != null
-                            ? View.VISIBLE : View.GONE);
+            if (viewType != ViewType.THREAD || expanded || message.content || message.uid == null || unmetered)
+                tvExpand.setVisibility(View.GONE);
+            else {
+                tvExpand.setText(context.getString(R.string.title_expand_warning,
+                        message.size == null ? "?" : Helper.humanReadableByteCount(message.size, true)));
+                tvExpand.setVisibility(View.VISIBLE);
+            }
         }
 
         private void bindExpanded(final TupleMessageEx message, final boolean scroll) {
@@ -3513,10 +3515,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
-        this.suitable = ConnectionHelper.getNetworkState(context).isSuitable();
         this.inflater = LayoutInflater.from(context);
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
         this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+
+        ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
+        this.suitable = state.isSuitable();
+        this.unmetered = state.isUnmetered();
 
         this.dp36 = Helper.dp2pixels(context, 36);
         this.colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
@@ -3688,9 +3693,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     }
 
     void checkInternet() {
-        boolean suitable = ConnectionHelper.getNetworkState(context).isSuitable();
-        if (this.suitable != suitable) {
-            this.suitable = suitable;
+        ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
+        if (this.suitable != state.isSuitable() || this.unmetered != state.isUnmetered()) {
+            this.suitable = state.isSuitable();
+            this.unmetered = state.isUnmetered();
             notifyDataSetChanged();
         }
     }
