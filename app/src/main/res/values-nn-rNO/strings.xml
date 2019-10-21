@@ -269,6 +269,7 @@
     <string name="title_advanced_notify_action_seen">Les</string>
     <string name="title_advanced_notify_action_snooze">Utsett</string>
     <string name="title_advanced_notify_remove">Fjern varsel om ny melding når du trykker på varslingen</string>
+    <string name="title_advanced_wearable_preview">Send bare varsler med forhåndsvisning av meldingen til bærbare enheter</string>
     <string name="title_advanced_biometrics_notify">Vis varselinnhold når du bruker biometrisk godkjenning</string>
     <string name="title_advanced_light">Bruk meldingslys</string>
     <string name="title_advanced_sound">Velg varslingslyd</string>
