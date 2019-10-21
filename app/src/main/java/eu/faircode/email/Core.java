@@ -2876,8 +2876,9 @@ class Core {
             ContactInfo info = messageContact.get(message);
 
             // Build arguments
+            long id = (message.content ? message.id : -message.id);
             Bundle args = new Bundle();
-            args.putLong("id", message.content ? message.id : -message.id);
+            args.putLong("id", id);
 
             // Build pending intents
             Intent thread = new Intent(context, ActivityView.class);
@@ -3076,10 +3077,6 @@ class Core {
                 wactions.add(actionSnooze.build());
             }
 
-            if (wactions.size() > 0)
-                mbuilder.extend(new NotificationCompat.WearableExtender()
-                        .addActions(wactions));
-
             if (message.content && notify_preview) {
                 // Wearables
                 StringBuilder sb = new StringBuilder();
@@ -3123,6 +3120,12 @@ class Core {
                 mbuilder.setColor(message.accountColor);
                 mbuilder.setColorized(true);
             }
+
+            // https://developer.android.com/training/wearables/notifications
+            // https://developer.android.com/reference/android/app/Notification.WearableExtender
+            mbuilder.extend(new NotificationCompat.WearableExtender()
+                    .addActions(wactions)
+                    .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id));
 
             notifications.add(mbuilder);
         }
