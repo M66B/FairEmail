@@ -353,7 +353,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
         swNotifySummary.setChecked(prefs.getBoolean("notify_summary", false));
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
-        swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
+        swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", true));
         swWearablePreview.setEnabled(swNotifyPreview.isChecked());
 
         cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);
