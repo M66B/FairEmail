@@ -1004,7 +1004,7 @@ public class ServiceSynchronize extends ServiceBase {
                                 public void run() {
                                     try {
                                         Log.i(folder.name + " start idle");
-                                        while (state.isRunning() && state.isRecoverable()) {
+                                        while (ifolder.isOpen() && state.isRunning() && state.isRecoverable()) {
                                             Log.i(folder.name + " do idle");
                                             ifolder.idle(false);
                                         }
