@@ -3125,7 +3125,8 @@ class Core {
             // https://developer.android.com/reference/android/app/Notification.WearableExtender
             mbuilder.extend(new NotificationCompat.WearableExtender()
                     .addActions(wactions)
-                    .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id));
+                    .setDismissalId(BuildConfig.APPLICATION_ID + ":" + id)
+                    .setBridgeTag(id < 0 ? "header" : "body"));
 
             notifications.add(mbuilder);
         }
