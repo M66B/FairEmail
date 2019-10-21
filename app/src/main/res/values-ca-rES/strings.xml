@@ -131,6 +131,7 @@
     <string name="title_setup_doze_remark">Per rebre correu electrònic contínuament (opcional)</string>
     <string name="title_setup_doze_instructions">En el següent diàleg, selecciona \"totes les apps\" a dalt, selecciona aquesta aplicació i polsa i confirma «no optimitzis la bateria»</string>
     <string name="title_setup_doze_battery">Ús de bateria elevat?</string>
+    <string name="title_setup_doze_stopped">S\'ha aturat la sincronització?</string>
     <string name="title_setup_data">L\'estalvi de dades està activat</string>
     <string name="title_setup_inbox">Anar als missatges</string>
     <string name="title_setup_to_do">Per fer</string>
@@ -145,6 +146,7 @@
     <string name="title_setup_password_invalid">Contrasenya invàlida</string>
     <string name="title_setup_exported">Configuració exportada</string>
     <string name="title_setup_imported">Configuració importada</string>
+    <string name="title_setup_import_invalid">El fitxer de configuració no és vàlid</string>
     <string name="title_setup_notifications">Gestiona les notificacions</string>
     <string name="title_setup_reorder_accounts">Ordre dels comptes</string>
     <string name="title_setup_reorder_folders">Ordre de les carpetes</string>
@@ -202,10 +204,12 @@
     <string name="title_advanced_roaming">Baixeu missatges i fitxers adjunts en itinerància</string>
     <string name="title_advanced_rlah">Itinerant com a casa</string>
     <string name="title_advanced_manage_connectivity">Gestiona la connectivitat</string>
+    <string name="title_advanced_landscape">Utilitzeu dues columnes en mode horitzontal</string>
     <string name="title_advanced_startup">Mostra a la pantalla d\'inici</string>
     <string name="title_advanced_cards">Mostra les targetes</string>
     <string name="title_advanced_date_header">Agrupa per data</string>
     <string name="title_advanced_threading">Fil de conversa</string>
+    <string name="title_advanced_indentation">Sagnat dret/esquerra als missatges enviats/rebuts en les converses</string>
     <string name="title_advanced_highlight_unread">Ressalteu els missatges sense llegir</string>
     <string name="title_advanced_distinguish_contacts">Diferencia els missatges de contactes coneguts i no coneguts</string>
     <string name="title_advanced_avatars">Mostra les fotos dels contactes</string>
@@ -214,6 +218,7 @@
     <string name="title_advanced_circular">Mostra icones rodones</string>
     <string name="title_advanced_color_saturation">Saturació</string>
     <string name="title_advanced_color_value">Brillantor</string>
+    <string name="title_advanced_color_threshold">Color de lletra del llindar</string>
     <string name="title_advanced_name_email">Mostra els noms i les adreces de correu</string>
     <string name="title_advanced_authentication">Mostra un avís quan el servidor receptor no ha pogut autenticar el missatge</string>
     <string name="title_advanced_subject_top">Mostra l\'assumpte a sobre del remitent</string>
@@ -223,6 +228,7 @@
     <string name="title_advanced_flags_background">Mostra fons de colors en comptes d\'estrelles de colors</string>
     <string name="title_advanced_preview">Mostra la vista prèvia del missatge</string>
     <string name="title_advanced_preview_italic">Mostra la vista prèvia del missatge en cursiva</string>
+    <string name="title_advanced_preview_lines">Nombre de línies de previsualització</string>
     <string name="title_advanced_addresses">Mostra els detalls de les adreces per defecte</string>
     <string name="title_advanced_attachments_alt">Mostra fitxers adjunts després del text del missatge</string>
     <string name="title_advanced_contrast">Utilitzeu un alt contrast per al text del missatge</string>
@@ -263,12 +269,15 @@
     <string name="title_advanced_notify_action_seen">Llegir</string>
     <string name="title_advanced_notify_action_snooze">Posposa</string>
     <string name="title_advanced_notify_remove">Esborra notificacions de nous missatges en tocar les notificacions</string>
+    <string name="title_advanced_wearable_preview">Envia només notificacions amb una vista prèvia del missatge a portables</string>
     <string name="title_advanced_biometrics_notify">Mostra el contingut de notificacions quan utilitzeu l\'autenticació biomètrica</string>
     <string name="title_advanced_light">Utilitza el led de notificacions</string>
     <string name="title_advanced_sound">Selecciona so de notificació</string>
     <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
+    <string name="title_advanced_display_hidden">Mostra textos de missatges ocults</string>
     <string name="title_advanced_recents">Oculta de la pantalla amb aplicacions recents</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_badge_hint">Només disponible en llançadors compatibles</string>
     <string name="title_advanced_notify_action_hint">Com a màxim es mostraran tres accions</string>
     <string name="title_advanced_notify_remove_hint">Les notificacions de nous missatges sempre s\'esborraran quan es llisquin cap als costats o al marcar els missatges com a llegits</string>
@@ -291,6 +300,7 @@
     <string name="title_advanced_sync_kept_hint">Això transferirà dades addicionals i consumeix energia addicional per a la bateria, especialment si es desen el dispositiu de molts missatges</string>
     <string name="title_advanced_sync_folders_hint">Si el desactiveu, reduireu una mica l’ús de les dades i la bateria, però també desactivareu l’actualització de la llista de carpetes</string>
     <string name="title_advanced_sync_delay_hint">Això alentirà la sincronització de missatges</string>
+    <string name="title_advanced_suggest_local_hint">A més dels contactes proporcionats per Android. Les dades de contacte s’emmagatzemaran per als missatges recentment enviats o rebuts només quan estiguin habilitats.</string>
     <string name="title_advanced_lookup_mx_hint">Això comprovarà si existeixen registres MX al DNS</string>
     <string name="title_advanced_metered_hint">Les connexions comptades generalment són connexions mòbils o punts hotspots Wi-Fi de pagament</string>
     <string name="title_advanced_metered_warning">Si desactiveu aquesta opció, desactivareu la recepció i l\'enviament de missatges a les connexions a Internet mòbils</string>
@@ -302,10 +312,13 @@
     <string name="title_advanced_threading_hint">Agrupa missatges relacionats entre ells</string>
     <string name="title_advanced_name_email_hint">Quan estigui desactivat només es mostraran noms quan estiguin disponibles</string>
     <string name="title_advanced_preview_hint">Només disponible quan s\'ha descarregat el text del missatge</string>
+    <string name="title_advanced_wearable_hint">Les notificacions només s’envien a un portable després de descarregar el text del missatge</string>
     <string name="title_advanced_inline_hint">Les imatges en línia són imatges incloses al missatge</string>
     <string name="title_advanced_autoexpand_hint">Obre automàticament un missatge quan només hi ha un missatge o només un missatge sense llegir en una conversa</string>
     <string name="title_advanced_autoclose_hint">Tanqueu automàticament les converses quan tots els missatges s’arxiven, s’envien o s’esborren</string>
     <string name="title_advanced_sender_hint">La majoria de proveïdors no permeten adreces d\'emissor modificades</string>
+    <string name="title_advanced_display_hidden_hint">Això pot donar lloc a textos estranys i dobles</string>
+    <string name="title_advanced_display_pin_hint">Un PIN té prioritat sobre l\'autenticació de biomètrics</string>
     <string name="title_advanced_subscribed_only_hint">Si ho activeu, suprimireu totes les carpetes locals sense subscripció</string>
     <string name="title_advanced_english_hint">Això reiniciarà l\'aplicació</string>
     <string name="title_advanced_experiments_hint">Llista de funcions experimentals actuals</string>
@@ -351,6 +364,7 @@
     <string name="title_primary_identity">Primària (identitat per defecte)</string>
     <string name="title_leave_on_server">Deixa els missatges al servidor</string>
     <string name="title_keep_alive_interval">Interval d\'activitat (minuts)</string>
+    <string name="title_related_identity">Afegiu identitat relacionada</string>
     <string name="title_check">Comprovar</string>
     <string name="title_no_name">Falta nom</string>
     <string name="title_no_email">Falta l\'adreça de correu electrònic</string>
@@ -400,6 +414,7 @@
     <string name="title_folder_name">Nom de carpeta</string>
     <string name="title_display_name">Mostrar el nom</string>
     <string name="title_show_folders">Mostra les carpetes ocultes</string>
+    <string name="title_apply_to_all">Aplicar a tots &#8230;</string>
     <string name="title_hide_folder">Amagar carpeta</string>
     <string name="title_unified_folder">Mostra en la safata d\'entrada unificada</string>
     <string name="title_navigation_folder">Mostra en el menú de navegació</string>
@@ -427,6 +442,7 @@
     <string name="title_folder_sent">Enviat</string>
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Usuari</string>
+    <string name="title_folder_user_only">Només carpetes d\'usuari</string>
     <string name="title_folder_primary">Carpetes del compte primari</string>
     <string name="title_folders_unified">Carpetes unificades de la safata d\'entrada</string>
     <string name="title_no_folders">No carpetes</string>
@@ -510,6 +526,7 @@
     <string name="title_ask_help">Ajuda a millorar FairEmail</string>
     <string name="title_ask_reporting">Enviar registre d\'errors?</string>
     <string name="title_reporting_why">La notificació d’errors ajudarà a millorar FairEmail</string>
+    <string name="title_expand_warning">En expandir aquest missatge es descarregarà %1$s</string>
     <string name="title_download_message">Descarregant &#8230;</string>
     <string name="title_compose">Redactar</string>
     <string name="title_from">De:</string>
@@ -684,6 +701,7 @@
     <string name="title_legend_zoom">Canvia la mida del text</string>
     <string name="title_legend_draft">Té un esborrany</string>
     <string name="title_legend_priority">Té prioritat alta</string>
+    <string name="title_legend_priority_low">Té prioritat baixa</string>
     <string name="title_legend_auth">Autenticació ha fallat</string>
     <string name="title_legend_snoozed">Està posposada</string>
     <string name="title_legend_browsed">És vist o cercat</string>
@@ -878,5 +896,11 @@
         <item>Baixa</item>
         <item>Normal</item>
         <item>Alta</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>
