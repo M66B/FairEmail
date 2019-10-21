@@ -563,6 +563,7 @@ public class MessageHelper {
                 "non-urgent".equalsIgnoreCase(header) ||
                 "marketing".equalsIgnoreCase(header) ||
                 "bulk".equalsIgnoreCase(header) ||
+                "batch".equalsIgnoreCase(header) ||
                 "b".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
         else if (!TextUtils.isEmpty(header))
