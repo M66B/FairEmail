@@ -2611,6 +2611,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_summary = prefs.getBoolean("notify_summary", false);
+        boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         boolean biometric_notify = prefs.getBoolean("biometrics_notify", false);
         boolean pro = ActivityBilling.isPro(context);
@@ -2725,8 +2726,9 @@ class Core {
             for (NotificationCompat.Builder builder : notifications) {
                 long id = builder.getExtras().getLong("id", 0);
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
-                    if (update.contains(id))
+                    if (wearable_preview ? id < 0 : update.contains(id))
                         builder.setLocalOnly(true);
+
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Notification notification = builder.build();
                     Log.i("Notifying tag=" + tag + " id=" + id +
@@ -3071,33 +3073,27 @@ class Core {
                 mbuilder.extend(new NotificationCompat.WearableExtender()
                         .addActions(wactions));
 
-            if (message.content && notify_preview)
-                try {
-                    StringBuilder sbm = new StringBuilder();
-                    if (!TextUtils.isEmpty(message.subject))
-                        sbm.append(message.subject).append("<br>");
+            if (message.content && notify_preview) {
+                // Wearables
+                mbuilder.setContentText(
+                        (message.subject == null ? "" : message.subject) + " - " +
+                                (message.preview == null ? "" : message.preview));
 
-                    String body = Helper.readText(message.getFile(context));
-                    String preview = HtmlHelper.getPreview(body);
-                    if (!TextUtils.isEmpty(preview))
-                        sbm.append("<em>").append(preview).append("</em>");
+                // Device
+                StringBuilder sbm = new StringBuilder();
+                if (!TextUtils.isEmpty(message.subject))
+                    sbm.append(message.subject).append("<br>");
 
-                    NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
-                            .bigText(HtmlHelper.fromHtml(sbm.toString()));
+                if (!TextUtils.isEmpty(message.preview))
+                    sbm.append("<em>").append(message.preview).append("</em>");
 
-                    if (!TextUtils.isEmpty(message.subject)) {
-                        bigText.setSummaryText(message.subject);
-                        mbuilder.setContentText(message.subject); // Wearable
-                    }
+                NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
+                        .bigText(HtmlHelper.fromHtml(sbm.toString()));
+                if (!TextUtils.isEmpty(message.subject))
+                    bigText.setSummaryText(message.subject);
 
-                    mbuilder.setStyle(bigText);
-                } catch (IOException ex) {
-                    Log.e(ex);
-                    mbuilder.setStyle(new NotificationCompat.BigTextStyle()
-                            .bigText(ex.toString())
-                            .setSummaryText(Helper.formatThrowable(ex)));
-                }
-            else {
+                mbuilder.setStyle(bigText);
+            } else {
                 if (!TextUtils.isEmpty(message.subject))
                     mbuilder.setContentText(message.subject);
             }

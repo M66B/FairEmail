@@ -309,6 +309,7 @@
     <string name="title_advanced_notify_action_seen">Read</string>
     <string name="title_advanced_notify_action_snooze">Snooze</string>
     <string name="title_advanced_notify_remove">Remove new message notification on tapping on notification</string>
+    <string name="title_advanced_wearable_preview">Only send notifications with a message preview to wearables</string>
     <string name="title_advanced_biometrics_notify">Show notification content when using biometric authentication</string>
     <string name="title_advanced_light">Use notification light</string>
     <string name="title_advanced_sound">Select notification sound</string>
@@ -364,6 +365,7 @@
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
+    <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
