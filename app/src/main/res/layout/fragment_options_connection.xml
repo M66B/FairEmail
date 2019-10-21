@@ -119,6 +119,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swRlah" />
 
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSocks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_advanced_socks"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRlahHint"
+            app:switchPadding="12dp" />
+
+        <EditText
+            android:id="@+id/etSocks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="localhost:9050"
+            app:layout_constraintEnd_toStartOf="@+id/btnSocks"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swSocks" />
+
+        <Button
+            android:id="@+id/btnSocks"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_set"
+            app:layout_constraintBottom_toBottomOf="@id/etSocks"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <Button
             android:id="@+id/btnManage"
             style="?android:attr/buttonStyleSmall"
@@ -129,7 +162,7 @@
             android:minHeight="0dp"
             android:text="@string/title_advanced_manage_connectivity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRlahHint" />
+            app:layout_constraintTop_toBottomOf="@id/etSocks" />
 
         <TextView
             android:id="@+id/tvConnectionType"

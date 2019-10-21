@@ -3,7 +3,10 @@ package eu.faircode.email;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+
+import androidx.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPStore;
@@ -65,6 +68,24 @@ public class MailService implements AutoCloseable {
         this.debug = debug;
 
         properties = MessageHelper.getSessionProperties();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean socks_enabled = prefs.getBoolean("socks_enabled", false);
+        String socks_proxy = prefs.getString("socks_proxy", "localhost:9050");
+
+        // SOCKS proxy
+        if (socks_enabled) {
+            String[] address = socks_proxy.split(":");
+            String host = (address.length > 0 ? address[0] : null);
+            String port = (address.length > 1 ? address[1] : null);
+            if (TextUtils.isEmpty(host))
+                host = "localhost";
+            if (TextUtils.isEmpty(port))
+                port = "9050";
+            properties.put("mail." + protocol + ".socks.host", host);
+            properties.put("mail." + protocol + ".socks.port", port);
+            Log.i("Using SOCKS proxy=" + host + ":" + port);
+        }
 
         properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);

@@ -240,6 +240,7 @@
     <string name="title_advanced_download">Automatically download messages and attachments on a metered connection up to</string>
     <string name="title_advanced_roaming">Download messages and attachments while roaming</string>
     <string name="title_advanced_rlah">Roam like at home</string>
+    <string name="title_advanced_socks">Use SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
     <string name="title_advanced_landscape">Use two columns in landscape mode</string>
@@ -898,6 +899,7 @@
     <string name="title_dismiss">Dismiss</string>
     <string name="title_snooze_now">Snooze</string>
     <string name="title_loading">Loading &#8230;</string>
+    <string name="title_set">Set</string>
 
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>

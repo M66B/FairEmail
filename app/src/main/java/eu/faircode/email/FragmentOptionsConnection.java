@@ -29,6 +29,7 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,6 +39,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,12 +56,15 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Spinner spDownload;
     private SwitchCompat swRoaming;
     private SwitchCompat swRlah;
+    private SwitchCompat swSocks;
+    private EditText etSocks;
+    private Button btnSocks;
     private Button btnManage;
     private TextView tvConnectionType;
     private TextView tvConnectionRoaming;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah"
+            "metered", "download", "roaming", "rlah", "socks_enabled", "socks_proxy"
     };
 
     @Override
@@ -76,6 +81,9 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         spDownload = view.findViewById(R.id.spDownload);
         swRoaming = view.findViewById(R.id.swRoaming);
         swRlah = view.findViewById(R.id.swRlah);
+        swSocks = view.findViewById(R.id.swSocks);
+        etSocks = view.findViewById(R.id.etSocks);
+        btnSocks = view.findViewById(R.id.btnSocks);
         btnManage = view.findViewById(R.id.btnManage);
 
         tvConnectionType = view.findViewById(R.id.tvConnectionType);
@@ -121,6 +129,28 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("rlah", checked).apply();
                 ServiceSynchronize.reload(getContext(), "rlah=" + checked);
+            }
+        });
+
+        swSocks.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("socks_enabled", checked).apply();
+                etSocks.setEnabled(checked);
+                btnSocks.setEnabled(checked);
+                ServiceSynchronize.reload(getContext(), "socks=" + checked);
+            }
+        });
+
+        btnSocks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String proxy = etSocks.getText().toString();
+                if (TextUtils.isEmpty(proxy))
+                    prefs.edit().remove("socks_proxy").apply();
+                else
+                    prefs.edit().putString("socks_proxy", proxy).apply();
+                ServiceSynchronize.reload(getContext(), "socks=" + proxy);
             }
         });
 
@@ -221,6 +251,10 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         swRoaming.setChecked(prefs.getBoolean("roaming", true));
         swRlah.setChecked(prefs.getBoolean("rlah", true));
+        swSocks.setChecked(prefs.getBoolean("socks_enabled", false));
+        etSocks.setText(prefs.getString("socks_proxy", null));
+        etSocks.setEnabled(swSocks.isChecked());
+        btnSocks.setEnabled(swSocks.isChecked());
     }
 
     private static Intent getIntentConnectivity() {
