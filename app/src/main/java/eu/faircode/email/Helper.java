@@ -868,9 +868,14 @@ public class Helper {
                             if (errorCode != BiometricPrompt.ERROR_NEGATIVE_BUTTON &&
                                     errorCode != BiometricPrompt.ERROR_CANCELED &&
                                     errorCode != BiometricPrompt.ERROR_USER_CANCELED)
-                                ToastEx.makeText(activity,
-                                        errString + " (" + errorCode + ")",
-                                        Toast.LENGTH_LONG).show();
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        ToastEx.makeText(activity,
+                                                "Error " + errorCode + ": " + errString,
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                });
 
                             handler.post(cancelled);
                         }
@@ -878,7 +883,6 @@ public class Helper {
                         @Override
                         public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                             Log.i("Biometric succeeded");
-
                             setAuthenticated(activity);
                             handler.post(authenticated);
                         }
@@ -886,10 +890,6 @@ public class Helper {
                         @Override
                         public void onAuthenticationFailed() {
                             Log.w("Biometric failed");
-
-                            ToastEx.makeText(activity,
-                                    R.string.title_unexpected_error,
-                                    Toast.LENGTH_LONG).show();
                             handler.post(cancelled);
                         }
                     });
