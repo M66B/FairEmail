@@ -42,6 +42,7 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.CommandFailedException;
 import com.sun.mail.iap.ConnectionException;
+import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.iap.Response;
 import com.sun.mail.imap.IMAPFolder;
 import com.sun.mail.imap.IMAPMessage;
@@ -1711,9 +1712,16 @@ class Core {
                 // This is done outside of JavaMail to prevent changed notifications
                 if (!ifolder.isOpen())
                     throw new FolderClosedException(ifolder, "UID FETCH");
+
                 MessagingException ex = (MessagingException) ifolder.doCommand(new IMAPFolder.ProtocolCommand() {
                     @Override
                     public Object doCommand(IMAPProtocol protocol) {
+                        try {
+                            protocol.select(folder.name);
+                        } catch (ProtocolException ex) {
+                            return new MessagingException("UID FETCH", ex);
+                        }
+
                         // Build ranges
                         List<Pair<Long, Long>> ranges = new ArrayList<>();
                         long first = -1;
