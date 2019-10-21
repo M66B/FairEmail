@@ -796,6 +796,7 @@
     <string name="title_legend_zoom">Change text size</string>
     <string name="title_legend_draft">Has draft</string>
     <string name="title_legend_priority">Has high priority</string>
+    <string name="title_legend_priority_low">Has low priority</string>
     <string name="title_legend_auth">Authentication failed</string>
     <string name="title_legend_snoozed">Is snoozed</string>
     <string name="title_legend_browsed">Is browsed or searched</string>

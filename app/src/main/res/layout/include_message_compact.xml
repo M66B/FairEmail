@@ -56,18 +56,6 @@
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
         app:srcCompat="@drawable/baseline_person_24" />
 
-    <ImageView
-        android:id="@+id/ivPriority"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="6dp"
-        android:contentDescription="@string/title_send_priority"
-        android:tint="@color/colorError"
-        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ivAvatar"
-        app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/baseline_priority_high_24" />
-
     <ImageButton
         android:id="@+id/ibAuth"
         android:layout_width="21dp"
@@ -77,9 +65,32 @@
         android:contentDescription="@string/title_legend_auth"
         android:tint="@color/colorError"
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
-        app:layout_constraintStart_toEndOf="@id/ivPriority"
+        app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
         app:srcCompat="@drawable/baseline_flag_24" />
+
+    <ImageView
+        android:id="@+id/ivPriorityHigh"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_priority"
+        android:tint="@color/colorError"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ibAuth"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/baseline_priority_high_24" />
+
+    <ImageView
+        android:id="@+id/ivPriorityLow"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_priority_low"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ivPriorityHigh"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/baseline_low_priority_24" />
 
     <TextView
         android:id="@+id/tvFrom"
@@ -94,7 +105,7 @@
         android:text="From"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/tvSize"
-        app:layout_constraintStart_toEndOf="@id/ibAuth"
+        app:layout_constraintStart_toEndOf="@id/ivPriorityLow"
         app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
     <TextView

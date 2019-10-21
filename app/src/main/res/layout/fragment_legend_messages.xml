@@ -79,29 +79,6 @@
             app:layout_constraintTop_toTopOf="@id/ivDraft" />
 
         <ImageView
-            android:id="@+id/ivPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_priority"
-            android:padding="12dp"
-            android:tint="@color/colorError"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivDraft"
-            app:srcCompat="@drawable/baseline_priority_high_24" />
-
-        <TextView
-            android:id="@+id/tvPriority"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center_vertical"
-            android:text="@string/title_legend_priority"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toBottomOf="@id/ivPriority"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivPriority"
-            app:layout_constraintTop_toTopOf="@id/ivPriority" />
-
-        <ImageView
             android:id="@+id/ivAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,7 +86,7 @@
             android:padding="12dp"
             android:tint="@color/colorError"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivPriority"
+            app:layout_constraintTop_toBottomOf="@id/ivDraft"
             app:srcCompat="@drawable/baseline_flag_24" />
 
         <TextView
@@ -124,6 +101,52 @@
             app:layout_constraintStart_toEndOf="@id/ivAuth"
             app:layout_constraintTop_toTopOf="@id/ivAuth" />
 
+
+        <ImageView
+            android:id="@+id/ivHighPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_priority"
+            android:padding="12dp"
+            android:tint="@color/colorError"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAuth"
+            app:srcCompat="@drawable/baseline_priority_high_24" />
+
+        <TextView
+            android:id="@+id/tvHighPriority"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_priority"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivHighPriority"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivHighPriority"
+            app:layout_constraintTop_toTopOf="@id/ivHighPriority" />
+
+        <ImageView
+            android:id="@+id/ivLowPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_priority"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivHighPriority"
+            app:srcCompat="@drawable/baseline_low_priority_24" />
+
+        <TextView
+            android:id="@+id/tvLowPriority"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_priority_low"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivLowPriority"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivLowPriority"
+            app:layout_constraintTop_toTopOf="@id/ivLowPriority" />
+
         <ImageView
             android:id="@+id/ivSnoozed"
             android:layout_width="wrap_content"
@@ -131,7 +154,7 @@
             android:contentDescription="@string/title_legend_snoozed"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivAuth"
+            app:layout_constraintTop_toBottomOf="@id/ivLowPriority"
             app:srcCompat="@drawable/baseline_timelapse_24" />
 
         <TextView
