@@ -2759,6 +2759,7 @@ class Core {
         boolean name_email = prefs.getBoolean("name_email", false);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
+        boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
         boolean notify_junk = (prefs.getBoolean("notify_junk", false) && pro);
         boolean notify_archive = (prefs.getBoolean("notify_archive", true) || !pro);
@@ -3075,9 +3076,17 @@ class Core {
 
             if (message.content && notify_preview) {
                 // Wearables
-                mbuilder.setContentText(
-                        (message.subject == null ? "" : message.subject) + " - " +
-                                (message.preview == null ? "" : message.preview));
+                StringBuilder sb = new StringBuilder();
+                if (!TextUtils.isEmpty(message.subject))
+                    sb.append(message.subject);
+                if (wearable_preview) {
+                    if (sb.length() != 0)
+                        sb.append(" - ");
+                    if (!TextUtils.isEmpty(message.preview))
+                        sb.append(message.preview);
+                }
+                if (sb.length() > 0)
+                    mbuilder.setContentText(sb.toString());
 
                 // Device
                 StringBuilder sbm = new StringBuilder();
