@@ -279,7 +279,7 @@ public class EntityRule {
 
     boolean execute(Context context, EntityMessage message) throws JSONException, IOException {
         boolean executed = _execute(context, message);
-        if (executed) {
+        if (id != null && executed) {
             DB db = DB.getInstance(context);
             db.rule().applyRule(id);
         }
