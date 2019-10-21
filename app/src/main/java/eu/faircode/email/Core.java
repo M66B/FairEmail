@@ -2726,8 +2726,13 @@ class Core {
             for (NotificationCompat.Builder builder : notifications) {
                 long id = builder.getExtras().getLong("id", 0);
                 if ((id == 0 && add.size() + remove.size() > 0) || add.contains(id)) {
-                    if (wearable_preview ? id < 0 : update.contains(id))
-                        builder.setLocalOnly(true);
+                    if (id == 0) {
+                        if (!notify_summary)
+                            builder.setLocalOnly(true);
+                    } else {
+                        if (wearable_preview ? id < 0 : update.contains(id))
+                            builder.setLocalOnly(true);
+                    }
 
                     String tag = "unseen." + group + "." + Math.abs(id);
                     Notification notification = builder.build();
@@ -2851,9 +2856,10 @@ class Core {
                         sb.append("<br>");
                     }
 
-                    // Wearable should ignore summary notification
+                    // Wearables
                     builder.setContentText(title);
 
+                    // Device
                     builder.setStyle(new NotificationCompat.BigTextStyle()
                             .bigText(HtmlHelper.fromHtml(sb.toString()))
                             .setSummaryText(title));
