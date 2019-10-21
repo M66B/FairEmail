@@ -2292,6 +2292,8 @@ Directly after the first step new messages will be notified.
 However, only until after the second step the message text will be available.
 FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
 Since there is no guarantee that the message text will be fetched directly after the message header, it is not possible to send message previews to a wearable.
+If you think this is good enough, you can enable the notification option *Only send notifications with a message preview to wearables*.
+It is a good idea to review the connection setting *Automatically download messages and attachments on a metered connection up to ...* as well.
 
 <br />
 
