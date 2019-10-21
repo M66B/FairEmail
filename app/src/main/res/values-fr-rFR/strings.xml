@@ -316,7 +316,7 @@
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut entraîner un affichage étrange et des textes en double</string>
-    <string name="title_advanced_display_pin_hint">Un code PIN a priorité sur l\'authentification biométrique</string>
+    <string name="title_advanced_display_pin_hint">Le code PIN a priorité sur l\'authentification biométrique</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
@@ -412,7 +412,7 @@
     <string name="title_folder_name">Nom du dossier</string>
     <string name="title_display_name">Nom</string>
     <string name="title_show_folders">Afficher les dossiers cachés</string>
-    <string name="title_apply_to_all">Appliquer à tous les &#8230;</string>
+    <string name="title_apply_to_all">Appliquer à tous les&#8230;</string>
     <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
