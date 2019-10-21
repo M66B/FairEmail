@@ -474,7 +474,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
                 @Override
                 public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                    if (view.findViewById(R.id.clItem).getVisibility() == View.GONE)
+                    View clItem = view.findViewById(R.id.clItem);
+                    if (clItem == null || clItem.getVisibility() == View.GONE)
                         outRect.setEmpty();
                     else
                         super.getItemOffsets(outRect, view, parent, state);
