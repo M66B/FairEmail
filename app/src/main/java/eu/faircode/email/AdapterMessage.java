@@ -1585,7 +1585,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     save = false;
                 if (attachment.progress != null)
                     downloading = true;
-                if (show_inline || !inline)
+
+                if (show_inline || !inline || !attachment.available)
                     a.add(attachment);
 
                 if (attachment.available && "text/calendar".equals(attachment.type)) {
