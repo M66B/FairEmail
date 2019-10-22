@@ -91,17 +91,18 @@ Fonts, sizes, colors, etc should be material design whenever possible.
 Since FairEmail is meant to be privacy friendly, the following will not be added:
 
 * Opening links without confirmation
-* Showing original messages without confirmation, see also [this FAQ](#user-content-faq35)
+* Showing images and original messages without confirmation, see also [this FAQ](#user-content-faq35)
 * Direct file/folder access: for security/privacy reasons (other) apps should use the [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider), see also [this FAQ](#user-content-faq49)
 
 Confirmation is just one tap, which is just a small price for better privacy.
+You can show images and original messages by default for trusted senders on a case-by-case basis by checking *Do not ask this again for ...*.
 Note that your contacts could unknowingly send malicious messages if they got infected with malware.
 
 Stripped and reformatted messages are often better readable than original messages because the margins are removed, and font colors and sizes are standardized.
 
 FairEmail does not allow other apps access to your messages and attachments without your approval.
 
-FairEmail follows all the best practices for an email client as decribed in [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
+FairEmail follows all the best practices for an email client as described in [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
 
 ## Frequently Asked Questions
 
