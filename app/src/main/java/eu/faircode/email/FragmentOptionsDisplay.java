@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,9 +36,11 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -614,6 +617,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_theme, null);
             final RadioGroup rgTheme = dview.findViewById(R.id.rgTheme);
+            final RadioButton rbThemeSystem = dview.findViewById(R.id.rbThemeSystem);
+            final RadioButton rbThemeGreySystem = dview.findViewById(R.id.rbThemeGreySystem);
+            final TextView tvSystem = dview.findViewById(R.id.tvSystem);
+
+            rbThemeSystem.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ? View.GONE : View.VISIBLE);
+            rbThemeGreySystem.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ? View.GONE : View.VISIBLE);
+            tvSystem.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.Q ? View.GONE : View.VISIBLE);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String theme = prefs.getString("theme", "light");
