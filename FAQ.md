@@ -44,7 +44,7 @@ Related questions:
 * A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller.
 * Encryption with YubiKey results into an infinite loop. Since looking into several log files didn't reveal the problem: sponsor me a [Yubikey 5 NFC](https://www.yubico.com/product/yubikey-5-nfc) so I can reproduce the problem.
 * Scrolling to an internal linked location in original messages does not work. This can't be fixed because the original message view is contained in a scrolling view.
-* A preview of the message text doesn't (always) appear on a Pebble, a Samsung watch and possibly other wearables because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. However, message preview texts do appear on a Mi band 3 used with [GadgetBridge](https://gadgetbridge.org/).
+* A preview of the message text doesn't (always) appear on a Pebble, a Samsung watch and possibly other wearables because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. However, message preview texts do appear on a Mi band 3 used with [GadgetBridge](https://gadgetbridge.org/). See also [this FAQ](#user-content-faq126).
 
 ## Planned features
 
