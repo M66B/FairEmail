@@ -29,6 +29,7 @@ import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.DeadObjectException;
@@ -681,6 +682,10 @@ public class Log {
         File file = attachment.getFile(context);
         try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
             ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            NetworkInfo ani = cm.getActiveNetworkInfo();
+            if (ani != null)
+                size += write(os, ani.toString() + " metered=" + cm.isActiveNetworkMetered() + "\r\n\r\n");
 
             Network active = null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
