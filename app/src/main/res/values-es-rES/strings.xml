@@ -203,6 +203,7 @@
     <string name="title_advanced_download">Descargar automáticamente mensajes y adjuntos usando conexión de datos hasta</string>
     <string name="title_advanced_roaming">Descargar mensajes y adjuntos en itinerancia</string>
     <string name="title_advanced_rlah">Itinerancia como en casa</string>
+    <string name="title_advanced_socks">Usar proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_landscape">Usar dos columnas en modo horizontal</string>
     <string name="title_advanced_startup">Mostrar en pantalla de inicio</string>
@@ -798,6 +799,7 @@
     <string name="title_dismiss">Descartar</string>
     <string name="title_snooze_now">Posponer</string>
     <string name="title_loading">Cargando &#8230;</string>
+    <string name="title_set">Aplicar</string>
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>

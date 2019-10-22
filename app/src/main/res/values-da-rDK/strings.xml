@@ -202,6 +202,7 @@
     <string name="title_advanced_download">Download automatisk beskeder og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
     <string name="title_advanced_rlah">Roam, som var du hjemme</string>
+    <string name="title_advanced_socks">Benyt SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_landscape">Benyt to kolonner i liggende tilstand</string>
     <string name="title_advanced_startup">Vis på startskærmen</string>
@@ -267,6 +268,7 @@
     <string name="title_advanced_notify_action_seen">Læs</string>
     <string name="title_advanced_notify_action_snooze">Udsæt</string>
     <string name="title_advanced_notify_remove">Fjern nye beskednotifikationer ved tryk på notifikationen</string>
+    <string name="title_advanced_wearable_preview">Send kun notifikationer med en beskedforhåndsvisning til wearables</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
@@ -309,6 +311,7 @@
     <string name="title_advanced_threading_hint">Gruppér beskeder relateret til hinanden</string>
     <string name="title_advanced_name_email_hint">Når deaktiveret, vises kun navne, når de er tilgængelige</string>
     <string name="title_advanced_preview_hint">Kun tilgængelig, når beskedtekst er downloadet</string>
+    <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_autoclose_hint">Luk automatisk samtaler, når alle beskeder arkiveres, sendes eller kasseres</string>
@@ -791,6 +794,7 @@
     <string name="title_dismiss">Afvis</string>
     <string name="title_snooze_now">Udsæt</string>
     <string name="title_loading">Indlæser &#8230;</string>
+    <string name="title_set">Indstil</string>
     <string name="title_icalendar_accept">Acceptér</string>
     <string name="title_icalendar_decline">Afvis</string>
     <string name="title_icalendar_maybe">Måske</string>

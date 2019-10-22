@@ -203,6 +203,7 @@
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
     <string name="title_advanced_rlah">Evde gibi dolaşmak</string>
+    <string name="title_advanced_socks">SOCKS proxy kullan</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_landscape">Yatay modda iki sütun kullanın</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
@@ -798,6 +799,7 @@
     <string name="title_dismiss">Reddet</string>
     <string name="title_snooze_now">Ertele</string>
     <string name="title_loading">Yükleniyor &#8230;</string>
+    <string name="title_set">Ayarla</string>
     <string name="title_icalendar_accept">Kabul</string>
     <string name="title_icalendar_decline">Reddet</string>
     <string name="title_icalendar_maybe">Olabilir</string>

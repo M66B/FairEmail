@@ -591,7 +591,7 @@
     <string name="title_sort_on_hidden">隐藏</string>
     <string name="title_sort_ascending">最旧的在最前</string>
     <string name="title_filter">筛选</string>
-    <string name="title_filter_seen">读取</string>
+    <string name="title_filter_seen">已读</string>
     <string name="title_filter_unflagged">未标星</string>
     <string name="title_filter_hidden">隐藏</string>
     <string name="title_filter_duplicates">重复项</string>

@@ -225,6 +225,7 @@
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
+    <string name="title_advanced_socks">Použít SOCKS proxy</string>
     <string name="title_advanced_manage_connectivity">Spravovat připojení</string>
     <string name="title_advanced_landscape">Použít dva sloupce v režimu na šířku</string>
     <string name="title_advanced_startup">Zobrazit na úvodní obrazovce</string>
@@ -291,6 +292,7 @@
     <string name="title_advanced_notify_action_seen">Přečteno</string>
     <string name="title_advanced_notify_action_snooze">Odložit</string>
     <string name="title_advanced_notify_remove">Odebrat oznámení nové zprávy při stisku oznámení</string>
+    <string name="title_advanced_wearable_preview">Do nositelného zařízení posílat pouze oznámení s náhledem zprávy</string>
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při používání biometrického ověření</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
@@ -333,6 +335,7 @@
     <string name="title_advanced_threading_hint">Seskupit související zprávy</string>
     <string name="title_advanced_name_email_hint">Při vypnutí se zobrazí pouze jména, pokud budou k dispozici</string>
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
+    <string name="title_advanced_wearable_hint">Oznámení jsou do nositelného zařízení odeslány teprve po stažení textu zprávy</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky, které jsou součástí zprávy</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, pokud je v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
@@ -721,6 +724,7 @@
     <string name="title_legend_zoom">Změnit velikost textu</string>
     <string name="title_legend_draft">Má koncept</string>
     <string name="title_legend_priority">Má vysokou prioritu</string>
+    <string name="title_legend_priority_low">Má nízkou prioritu</string>
     <string name="title_legend_auth">Ověřování selhalo</string>
     <string name="title_legend_snoozed">Je odloženo</string>
     <string name="title_legend_browsed">Je prohlédnuto/vyhledáno</string>
@@ -817,6 +821,7 @@
     <string name="title_dismiss">Zavřít</string>
     <string name="title_snooze_now">Odložit</string>
     <string name="title_loading">Načítání &#8230;</string>
+    <string name="title_set">Nastavit</string>
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
