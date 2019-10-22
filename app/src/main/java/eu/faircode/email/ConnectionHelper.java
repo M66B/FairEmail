@@ -197,9 +197,10 @@ public class ConnectionHelper {
         }
 
         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
-            boolean unmetered = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
-            Log.i("isMetered: active not VPN unmetered=" + unmetered);
-            return !unmetered;
+            // NET_CAPABILITY_NOT_METERED is unreliable on older Android versions
+            boolean metered = cm.isActiveNetworkMetered();
+            Log.i("isMetered: active not VPN metered=" + metered);
+            return metered;
         }
 
         // VPN: evaluate underlying networks
