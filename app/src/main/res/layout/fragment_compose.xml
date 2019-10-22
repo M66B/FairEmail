@@ -224,6 +224,17 @@
                     app:layout_constraintStart_toStartOf="@id/rvAttachment"
                     app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
 
+                <TextView
+                    android:id="@+id/tvUnusedInlineImages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_unused_inline"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="@id/rvAttachment"
+                    app:layout_constraintStart_toStartOf="@id/rvAttachment"
+                    app:layout_constraintTop_toBottomOf="@id/tvNoInternetAttachments" />
+
                 <View
                     android:id="@+id/vSeparator"
                     android:layout_width="0dp"
@@ -232,7 +243,7 @@
                     android:background="?attr/colorSeparator"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNoInternetAttachments" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvUnusedInlineImages" />
 
                 <eu.faircode.email.EditTextCompose
                     android:id="@+id/etBody"

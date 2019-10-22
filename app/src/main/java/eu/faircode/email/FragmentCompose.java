@@ -163,6 +163,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibCcBcc;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
+    private TextView tvUnusedInlineImages;
     private EditTextCompose etBody;
     private TextView tvNoInternet;
     private TextView tvSignature;
@@ -259,6 +260,7 @@ public class FragmentCompose extends FragmentBase {
         ibCcBcc = view.findViewById(R.id.ivCcBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
+        tvUnusedInlineImages = view.findViewById(R.id.tvUnusedInlineImages);
         etBody = view.findViewById(R.id.etBody);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
@@ -649,6 +651,7 @@ public class FragmentCompose extends FragmentBase {
         rvAttachment.setAdapter(adapter);
 
         tvNoInternetAttachments.setVisibility(View.GONE);
+        tvUnusedInlineImages.setVisibility(View.GONE);
 
         pgpService = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
         pgpService.bindToService();
@@ -2568,11 +2571,14 @@ public class FragmentCompose extends FragmentBase {
 
                             int available = 0;
                             boolean downloading = false;
+                            boolean inline_images = false;
                             for (EntityAttachment attachment : attachments) {
                                 if (attachment.available)
                                     available++;
                                 if (attachment.progress != null)
                                     downloading = true;
+                                if (attachment.isInline() && attachment.isImage())
+                                    inline_images = true;
                             }
 
                             Log.i("Attachments=" + attachments.size() +
@@ -2586,6 +2592,8 @@ public class FragmentCompose extends FragmentBase {
 
                             rvAttachment.setTag(downloading);
                             checkInternet();
+
+                            tvUnusedInlineImages.setVisibility(inline_images ? View.VISIBLE : View.GONE);
                         }
                     });
 
