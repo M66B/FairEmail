@@ -2808,7 +2808,8 @@ class Core {
                             .setDeleteIntent(piClear)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_STATUS)
-                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                            .setAllowSystemGeneratedContextualActions(false);
 
             if (notify_summary) {
                 builder.setOnlyAlertOnce(new_messages == 0);
