@@ -176,46 +176,44 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
         }
 
-        if (state.messages == null) {
-            state.messages = db.message().getMessageIdsByFolder(folder, seen, flagged, snoozed);
+        if (state.matches == null) {
+            state.matches = db.message().matchMessages(folder, find, seen, flagged, snoozed);
             Log.i("Boundary device folder=" + folder +
                     " query=" + query +
                     " seen=" + seen +
                     " flagged=" + flagged +
                     " snoozed=" + snoozed +
-                    " messages=" + state.messages.size());
+                    " matches=" + state.matches.size());
         }
 
         int found = 0;
         try {
             db.beginTransaction();
 
-            for (int i = state.index; i < state.messages.size() && found < pageSize && !state.destroyed; i++) {
+            for (int i = state.index; i < state.matches.size() && found < pageSize && !state.destroyed; i++) {
                 state.index = i + 1;
 
-                long id = state.messages.get(i);
-                EntityMessage message;
+                TupleMatch match = state.matches.get(i);
 
                 if (find == null || seen != null || flagged != null || snoozed != null)
-                    message = db.message().getMessage(id);
+                    match.matched = true;
                 else {
-                    message = db.message().match(id, "%" + find + "%");
-                    if (message == null)
+                    if (match.matched == null || !match.matched)
                         try {
-                            File file = EntityMessage.getFile(context, id);
+                            File file = EntityMessage.getFile(context, match.id);
                             if (file.exists()) {
                                 String body = Helper.readText(file);
                                 if (body.toLowerCase(Locale.ROOT).contains(find))
-                                    message = db.message().getMessage(id);
+                                    match.matched = true;
                             }
                         } catch (IOException ex) {
                             Log.e(ex);
                         }
                 }
 
-                if (message != null) {
+                if (match.matched != null && match.matched) {
                     found++;
-                    db.message().setMessageFound(message.account, message.thread);
+                    db.message().setMessageFound(match.account, match.thread);
                 }
             }
 
@@ -515,7 +513,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean destroyed = false;
         boolean error = false;
         int index = 0;
-        List<Long> messages = null;
+        List<TupleMatch> matches = null;
 
         MailService iservice = null;
         IMAPFolder ifolder = null;
