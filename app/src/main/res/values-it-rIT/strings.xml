@@ -506,6 +506,7 @@
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_no_format">Verrà incluso Il messaggio originale ricevuto</string>
     <string name="title_no_image">L\'immagine potrebbe non essere decodificata</string>
+    <string name="title_unused_inline">Le immagini in linea non utilizzate verranno rimosse al salvataggio/invio</string>
     <string name="title_accross_remark">I messaggi spostati tra gli account verranno scaricati di nuovo causando un ulteriore utilizzo dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>

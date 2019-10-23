@@ -225,7 +225,9 @@
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
     <string name="title_advanced_roaming">Pobieraj wiadomości i załączniki podczas roamingu</string>
     <string name="title_advanced_rlah">Roaming jak w domu</string>
+    <string name="title_advanced_socks">Użyj serwera proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
+    <string name="title_advanced_landscape">Użyj dwóch kolumn w trybie poziomym</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Pokaż karty</string>
     <string name="title_advanced_date_header">Grupuj według dat</string>
@@ -248,6 +250,7 @@
     <string name="title_advanced_flags_background">Pokazuj kolorowe tło zamiast kolorowych gwiazdek</string>
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_preview_italic">Pokaż podgląd wiadomości kursywą</string>
+    <string name="title_advanced_preview_lines">Liczba linii podglądu</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
@@ -288,6 +291,7 @@
     <string name="title_advanced_notify_action_seen">Odczytana</string>
     <string name="title_advanced_notify_action_snooze">Odłóż</string>
     <string name="title_advanced_notify_remove">Usuń powiadomienie o nowej wiadomości po dotknięciu powiadomienia</string>
+    <string name="title_advanced_wearable_preview">Powiadomienia z podglądem wiadomości wysyłaj tylko do urządzeń do noszenia</string>
     <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
@@ -295,6 +299,7 @@
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
     <string name="title_advanced_recents">Ukryj na ekranie z ostatnimi aplikacjami</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_badge_hint">Dostępne tylko na wspieranych launcherach</string>
     <string name="title_advanced_notify_action_hint">Wyświetlone zostaną co najwyżej trzy akcje</string>
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
@@ -317,6 +322,7 @@
     <string name="title_advanced_sync_kept_hint">Spowoduje to użycie dodatkowych danych i zużycie dodatkowej energii baterii, zwłaszcza jeśli w urządzeniu przechowywanych jest wiele wiadomości</string>
     <string name="title_advanced_sync_folders_hint">Wyłączenie tej opcji nieco zmniejszy zużycie danych i baterii, ale wyłączy także aktualizację listy folderów</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
+    <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_metered_hint">Połączeniu taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
     <string name="title_advanced_metered_warning">Wyłączenie tej opcji uniemożliwi odbieranie i wysyłanie wiadomości przy użyciu komórkowego połączenia internetowego</string>
@@ -328,11 +334,13 @@
     <string name="title_advanced_threading_hint">Grupuj wiadomości powiązane ze sobą</string>
     <string name="title_advanced_name_email_hint">Gdy wyłączone, tylko nazwy będą pokazywane, gdy dostępne</string>
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
+    <string name="title_advanced_wearable_hint">Powiadomienia są wysyłane na urządzenie do noszenia tylko po pobraniu treści wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_advanced_display_hidden_hint">Może to powodować dziwne i podwójne teksty</string>
+    <string name="title_advanced_display_pin_hint">PIN ma pierwszeństwo przed uwierzytelnianiem biometrycznym</string>
     <string name="title_advanced_subscribed_only_hint">Włączenie tej opcji usunie wszystkie lokalne foldery bez subskrypcji</string>
     <string name="title_advanced_english_hint">To zrestartuje aplikację</string>
     <string name="title_advanced_experiments_hint">Lista aktualnych funkcji eksperymentalnych</string>
@@ -378,6 +386,7 @@
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
     <string name="title_keep_alive_interval">Interwał utrzymywania aktywności/odpytywania (minuty)</string>
+    <string name="title_related_identity">Dodaj powiązaną tożsamość</string>
     <string name="title_check">Sprawdź</string>
     <string name="title_no_name">Brak nazwy</string>
     <string name="title_no_email">Brak adresu e-mail</string>
@@ -403,6 +412,7 @@
     <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
+    <string name="title_hint_alias">Naciśnij długo, aby wyświetlić opcje, takie jak kopiuj, aby utworzyć alias tożsamości</string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
@@ -426,6 +436,7 @@
     <string name="title_folder_name">Nazwa folderu</string>
     <string name="title_display_name">Nazwa wyświetlana</string>
     <string name="title_show_folders">Pokaż ukryte foldery</string>
+    <string name="title_apply_to_all">Zastosuj dla wszystkich &#8230;</string>
     <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
@@ -453,6 +464,7 @@
     <string name="title_folder_sent">Wysłane</string>
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Użytkownik</string>
+    <string name="title_folder_user_only">Tylko foldery użytkownika</string>
     <string name="title_folder_primary">Podstawowe konto folderów</string>
     <string name="title_folders_unified">Wspólne foldery</string>
     <string name="title_no_folders">Brak folderów</string>
@@ -516,6 +528,7 @@
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>
+    <string name="title_unused_inline">Niewykorzystane obrazy wbudowane zostaną usunięte podczas zapisywania/wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Wiadomość źródłowa zapisana</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
@@ -536,6 +549,7 @@
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raport o błędach?</string>
     <string name="title_reporting_why">Raportowanie błędów pomoże poprawić FairEmail</string>
+    <string name="title_expand_warning">Rozwinięcie tej wiadomości spowoduje pobranie %1$s</string>
     <string name="title_download_message">Pobieranie &#8230;</string>
     <string name="title_compose">Napisz</string>
     <string name="title_from">Od:</string>
@@ -710,6 +724,7 @@
     <string name="title_legend_zoom">Zmień rozmiaru tekstu</string>
     <string name="title_legend_draft">Posiada szkic</string>
     <string name="title_legend_priority">Posiada wysoki priorytet</string>
+    <string name="title_legend_priority_low">Ma niski priorytet</string>
     <string name="title_legend_auth">Uwierzytelnianie nie powiodło się</string>
     <string name="title_legend_snoozed">Jest odłożona</string>
     <string name="title_legend_browsed">Jest przeglądany lub przeszukiwany</string>
@@ -806,6 +821,7 @@
     <string name="title_dismiss">Odrzuć</string>
     <string name="title_snooze_now">Odłóż</string>
     <string name="title_loading">Ładowanie &#8230;</string>
+    <string name="title_set">Ustaw</string>
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>
@@ -903,5 +919,11 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Niski</item>
         <item>Normalny</item>
         <item>Wysoki</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

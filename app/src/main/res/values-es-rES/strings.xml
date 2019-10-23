@@ -507,6 +507,7 @@
     <string name="title_no_folder">La carpeta no existe</string>
     <string name="title_no_format">El mensaje recibido originalmente será incluido</string>
     <string name="title_no_image">La imagen no se pudo decodificar</string>
+    <string name="title_unused_inline">Las imágenes embebidas serán eliminadas al guardar/enviar</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>
     <string name="title_attachment_saved">Adjunto guardado</string>

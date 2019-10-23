@@ -203,6 +203,7 @@
     <string name="title_advanced_download">Ladattavien viestien ja liitteiden maksimikoko käytön mukaan laskutettavaa yhteyttä käytettäessä</string>
     <string name="title_advanced_roaming">Lataa viestit ja liitteet verkkovierailun aikana</string>
     <string name="title_advanced_rlah">Kotimaanhintaiset verkkovierailut</string>
+    <string name="title_advanced_socks">Käytä SOCKS-proxypalvelinta</string>
     <string name="title_advanced_manage_connectivity">Hallitse verkkoyhteyksiä</string>
     <string name="title_advanced_landscape">Käytä kahta saraketta vaakatilassa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
@@ -506,6 +507,7 @@
     <string name="title_no_folder">Kansiota ei ole</string>
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
     <string name="title_no_image">Kuvan koodauksen purku epäonnistui</string>
+    <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan tallennettaessa/lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
     <string name="title_raw_saved">Raakaviesti tallennettu</string>
     <string name="title_attachment_saved">Liite tallennettu</string>
@@ -701,6 +703,7 @@
     <string name="title_legend_zoom">Muuta tekstin kokoa</string>
     <string name="title_legend_draft">Sisältää luonnoksen</string>
     <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>
+    <string name="title_legend_priority_low">Alhainen prioriteetti</string>
     <string name="title_legend_auth">Tunnistautuminen epäonnistui</string>
     <string name="title_legend_snoozed">Torkutettu</string>
     <string name="title_legend_browsed">Selattu tai haettu</string>
@@ -797,6 +800,7 @@
     <string name="title_dismiss">Hylkää</string>
     <string name="title_snooze_now">Torkuta</string>
     <string name="title_loading">Ladataan &#8230;</string>
+    <string name="title_set">Aseta</string>
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>

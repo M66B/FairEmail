@@ -507,6 +507,7 @@
     <string name="title_no_folder">Mappe eksisterer ikke</string>
     <string name="title_no_format">Den opprinnelig mottatte meldingen vil bli inkludert</string>
     <string name="title_no_image">Bildet kunne ikke dekodes</string>
+    <string name="title_unused_inline">Ubrukte inline-bilder blir fjernet ved lagring/sending</string>
     <string name="title_accross_remark">Meldinger som er flyttet over kontoer, lastes ned igjen, noe som resulterer i ekstra databruk</string>
     <string name="title_raw_saved">Rå melding lagret</string>
     <string name="title_attachment_saved">Vedlegg lagret</string>

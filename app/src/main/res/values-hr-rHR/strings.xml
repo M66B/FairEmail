@@ -517,6 +517,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_folder">Mapa ne postoji</string>
     <string name="title_no_format">Prvobitno primljena poruka bit će uključena</string>
     <string name="title_no_image">Slika se ne može dekodirati</string>
+    <string name="title_unused_inline">Nekorištene umetnute slike uklanjaju se prilikom spremanja / slanja</string>
     <string name="title_accross_remark">Poruke prebačene preko računa ponovno će se preuzeti, što će rezultirati dodatnom upotrebom podataka</string>
     <string name="title_raw_saved">Spremljena je sirova poruka</string>
     <string name="title_attachment_saved">Prilog spremljen</string>

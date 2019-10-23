@@ -503,6 +503,7 @@
     <string name="title_no_folder">Mappe findes ikke</string>
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
     <string name="title_no_image">Billede kunne ikke afkodes</string>
+    <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved gen/send</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>
     <string name="title_attachment_saved">Vedhæftning gemt</string>

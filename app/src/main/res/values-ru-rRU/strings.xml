@@ -336,7 +336,7 @@
     <string name="title_advanced_name_email_hint">Если отключено, будут показаны только имена (при наличии)</string>
     <string name="title_advanced_preview_hint">Доступно, только если был загружен текст сообщения</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
-    <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, вложенные в сообщение</string>
+    <string name="title_advanced_inline_hint">Встроенные изображения - это изображения, включённые в сообщение</string>
     <string name="title_advanced_autoexpand_hint">Автоматически открывать сообщение, когда оно только одно или только одно непрочитанное сообщение в диалоге</string>
     <string name="title_advanced_autoclose_hint">Автоматически закрывать диалог, если все сообщения удалены, отправлены или помещены в архив</string>
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
@@ -529,6 +529,7 @@
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Оригинальное сообщение будет включено</string>
     <string name="title_no_image">Изображение не может быть декодировано</string>
+    <string name="title_unused_inline">Неиспользованные встроенные изображения будут удалены при сохранении/отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Вложение сохранено</string>

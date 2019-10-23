@@ -203,7 +203,7 @@
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu\'à</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
     <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
-    <string name="title_advanced_socks">Utiliser le proxy SOCKS</string>
+    <string name="title_advanced_socks">Utiliser un proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gérer la connectivité</string>
     <string name="title_advanced_landscape">Utiliser deux colonnes en mode paysage</string>
     <string name="title_advanced_startup">Afficher sur l\'écran de démarrage</string>
@@ -507,6 +507,7 @@
     <string name="title_no_folder">Le dossier n\'existe pas</string>
     <string name="title_no_format">Le message reçu initialement sera inclus</string>
     <string name="title_no_image">L\'image n\'a pas pu être décodée</string>
+    <string name="title_unused_inline">Les images en ligne non utilisées seront supprimées lors de l\'enregistrement/l\'envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
