@@ -504,6 +504,15 @@ class ImageHelper {
     }
 
     static Bitmap decodeImage(File file, int scaleToPixels) {
+        try {
+            return decodeImage(file, scaleToPixels);
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
+    private static Bitmap _decodeImage(File file, int scaleToPixels) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(file.getAbsolutePath(), options);
