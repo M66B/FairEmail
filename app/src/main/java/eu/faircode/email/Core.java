@@ -1585,11 +1585,6 @@ class Core {
             boolean sync_kept = prefs.getBoolean("sync_kept", true);
             boolean delete_unseen = prefs.getBoolean("delete_unseen", false);
 
-            if (account.host.toLowerCase(Locale.ROOT).contains("imap.zoho")) {
-                sync_unseen = false;
-                sync_flagged = false;
-            }
-
             Log.i(folder.name + " start sync after=" + sync_days + "/" + keep_days +
                     " sync unseen=" + sync_unseen + " flagged=" + sync_flagged +
                     " delete unseen=" + delete_unseen + " kept=" + sync_kept);
@@ -1838,7 +1833,7 @@ class Core {
 
                 for (int j = isub.length - 1; j >= 0 && state.isRunning() && state.isRecoverable(); j--)
                     try {
-                        // Some providers, like Zoho, erroneously return old messages
+                        // Some providers erroneously return old messages
                         if (full.contains(isub[j])) {
                             Date received = isub[j].getReceivedDate();
                             boolean unseen = (sync_unseen && !isub[j].isSet(Flags.Flag.SEEN));
