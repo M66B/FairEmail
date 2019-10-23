@@ -44,12 +44,13 @@ public class ServiceUI extends IntentService {
     static final int PI_TRASH = 2;
     static final int PI_JUNK = 3;
     static final int PI_ARCHIVE = 4;
-    static final int PI_REPLY_DIRECT = 5;
-    static final int PI_FLAG = 6;
-    static final int PI_SEEN = 7;
-    static final int PI_SNOOZE = 8;
-    static final int PI_IGNORED = 9;
-    static final int PI_WAKEUP = 10;
+    static final int PI_MOVE = 5;
+    static final int PI_REPLY_DIRECT = 6;
+    static final int PI_FLAG = 7;
+    static final int PI_SEEN = 8;
+    static final int PI_SNOOZE = 9;
+    static final int PI_IGNORED = 10;
+    static final int PI_WAKEUP = 11;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -109,6 +110,11 @@ public class ServiceUI extends IntentService {
                 case "archive":
                     cancel(group, id);
                     onMove(id, EntityFolder.ARCHIVE);
+                    break;
+
+                case "move":
+                    cancel(group, id);
+                    onMove(id);
                     break;
 
                 case "reply":
@@ -173,9 +179,30 @@ public class ServiceUI extends IntentService {
             if (message == null)
                 return;
 
-            EntityFolder trash = db.folder().getFolderByType(message.account, folderType);
-            if (trash != null)
-                EntityOperation.queue(this, message, EntityOperation.MOVE, trash.id);
+            EntityFolder folder = db.folder().getFolderByType(message.account, folderType);
+            if (folder != null)
+                EntityOperation.queue(this, message, EntityOperation.MOVE, folder.id);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    private void onMove(long id) {
+        DB db = DB.getInstance(this);
+        try {
+            db.beginTransaction();
+
+            EntityMessage message = db.message().getMessage(id);
+            if (message == null)
+                return;
+
+            EntityAccount account = db.account().getAccount(message.account);
+            if (account == null || account.move_to == null)
+                return;
+
+            EntityOperation.queue(this, message, EntityOperation.MOVE, account.move_to);
 
             db.setTransactionSuccessful();
         } finally {

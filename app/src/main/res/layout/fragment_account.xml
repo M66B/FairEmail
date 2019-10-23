@@ -619,13 +619,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/spRight" />
 
+        <TextView
+            android:id="@+id/tvMove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_account_move"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/spMove"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spMove" />
+
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_folders"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             app:barrierDirection="end"
-            app:constraint_referenced_ids="tvDrafts,tvSent,tvArchive,tvTrash,tvJunk,tvLeft,tvRight" />
+            app:constraint_referenced_ids="tvDrafts,tvSent,tvArchive,tvTrash,tvJunk,tvLeft,tvRight,tvMove" />
 
         <Spinner
             android:id="@+id/spDrafts"
@@ -716,6 +726,25 @@
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/spLeft" />
 
+        <View
+            android:id="@+id/vSeparatorMove"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="?attr/colorSeparator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spRight" />
+
+        <Spinner
+            android:id="@+id/spMove"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier_folders"
+            app:layout_constraintTop_toBottomOf="@id/vSeparatorMove" />
+
         <!-- save -->
 
         <Button
@@ -726,7 +755,7 @@
             android:tag="disable"
             android:text="@string/title_save"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spRight" />
+            app:layout_constraintTop_toBottomOf="@id/spMove" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbSave"
@@ -845,6 +874,7 @@
                 tvArchive,spArchive,
                 tvTrash,spTrash,
                 tvJunk,spJunk,
-                vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight" />
+                vSeparatorSwipe,tvLeft,spLeft,tvRight,spRight,
+                vSeparatorMove,tvMove,spMove" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

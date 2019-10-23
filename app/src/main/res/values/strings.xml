@@ -304,6 +304,7 @@
     <string name="title_advanced_notify_action_trash">Trash</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archive</string>
+    <string name="title_advanced_notify_action_move">Move</string>
     <string name="title_advanced_notify_action_reply">Reply</string>
     <string name="title_advanced_notify_action_reply_direct">Direct reply</string>
     <string name="title_advanced_notify_action_flag">Star</string>
@@ -406,6 +407,7 @@
     <string name="title_account_notify">Separate notifications</string>
     <string name="title_account_left">Swipe left</string>
     <string name="title_account_right">Swipe right</string>
+    <string name="title_account_move">Default move to</string>
     <string name="title_domain">Domain name</string>
     <string name="title_autoconfig">Get settings</string>
     <string name="title_imap" translatable="false">IMAP</string>
