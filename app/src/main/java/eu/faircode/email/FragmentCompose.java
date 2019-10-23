@@ -1669,7 +1669,7 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                     case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
-                        return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+                        return (PendingIntent) result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
                     case OpenPgpApi.RESULT_CODE_ERROR:
                         db.identity().setIdentitySignKey(identity.id, null);
