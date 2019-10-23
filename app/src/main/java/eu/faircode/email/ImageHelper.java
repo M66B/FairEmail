@@ -27,6 +27,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -46,6 +47,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.preference.PreferenceManager;
 
 import java.io.BufferedOutputStream;
@@ -266,7 +268,7 @@ class ImageHelper {
                             return gif;
                         }
                     } else {
-                        Bitmap bm = Helper.decodeImage(attachment.getFile(context), scaleToPixels);
+                        Bitmap bm = ImageHelper.decodeImage(attachment.getFile(context), scaleToPixels);
                         if (bm == null) {
                             Log.i("Image not decodable CID=" + cid);
                             Drawable d = res.getDrawable(R.drawable.baseline_broken_image_24, theme);
@@ -499,6 +501,77 @@ class ImageHelper {
         }
 
         return null;
+    }
+
+    static Bitmap decodeImage(File file, int scaleToPixels) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+        int factor = 1;
+        while (options.outWidth / factor > scaleToPixels)
+            factor *= 2;
+
+        Matrix rotation = null;
+        try {
+            rotation = getImageRotation(file);
+        } catch (IOException ex) {
+            Log.w(ex);
+        }
+
+        if (factor > 1 || rotation != null) {
+            Log.i("Decode image factor=" + factor);
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = factor;
+            Bitmap scaled = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+            if (scaled != null && rotation != null) {
+                Bitmap rotated = Bitmap.createBitmap(scaled, 0, 0, scaled.getWidth(), scaled.getHeight(), rotation, true);
+                scaled.recycle();
+                scaled = rotated;
+            }
+
+            return scaled;
+        }
+
+        return BitmapFactory.decodeFile(file.getAbsolutePath());
+    }
+
+    static Matrix getImageRotation(File file) throws IOException {
+        ExifInterface exif = new ExifInterface(file.getAbsolutePath());
+        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_NORMAL:
+                return null;
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                matrix.setScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                matrix.setRotate(180);
+                matrix.postScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_TRANSPOSE:
+                matrix.setRotate(90);
+                matrix.postScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_TRANSVERSE:
+                matrix.setRotate(-90);
+                matrix.postScale(-1, 1);
+                return matrix;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                matrix.setRotate(90);
+                return matrix;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                matrix.setRotate(180);
+                return matrix;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                matrix.setRotate(-90);
+                return matrix;
+            default:
+                return null;
+        }
     }
 
     static class AnnotatedSource {

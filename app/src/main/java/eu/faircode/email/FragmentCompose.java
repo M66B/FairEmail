@@ -2043,7 +2043,7 @@ public class FragmentCompose extends FragmentBase {
                     options.outHeight / factor > resize)
                 factor *= 2;
 
-            Matrix rotation = ("image/jpeg".equals(attachment.type) ? Helper.getImageRotation(file) : null);
+            Matrix rotation = ("image/jpeg".equals(attachment.type) ? ImageHelper.getImageRotation(file) : null);
             Log.i("Image type=" + attachment.type + " rotation=" + rotation);
 
             if (factor > 1 || rotation != null) {
