@@ -323,13 +323,6 @@
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_pin">PIN</string>
 
-    <string name="title_advanced_badge_hint">Only available on supported launchers</string>
-    <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
-    <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
-    <string name="title_advanced_notify_manage_hint">Tap on the channel name \'Notifications\' to set the default notification sound, etc</string>
-    <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
-    <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
-
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for updates</string>
@@ -367,7 +360,6 @@
     <string name="title_advanced_threading_hint">Group messages related to each other</string>
     <string name="title_advanced_name_email_hint">When disabled only names will be shown when available</string>
     <string name="title_advanced_preview_hint">Only available when message text has been downloaded</string>
-    <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
     <string name="title_advanced_inline_hint">Inline images are images included in the message</string>
 
     <string name="title_advanced_autoexpand_hint">Automatically open message when there is just one message or just one unread message in a conversation</string>
@@ -376,6 +368,15 @@
 
     <string name="title_advanced_display_hidden_hint">This can result in odd looking and double texts</string>
     <string name="title_advanced_display_pin_hint">A PIN takes precedence over biometrics authentication</string>
+
+    <string name="title_advanced_badge_hint">Only available on supported launchers</string>
+    <string name="title_advanced_notify_action_hint">At most three actions will be shown</string>
+    <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
+    <string name="title_advanced_notify_manage_hint">Tap on the channel name \'Notifications\' to set the default notification sound, etc</string>
+    <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
+    <string name="title_advanced_move_hint">The target folder can be configured in the account settings</string>
+    <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
+    <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
 
     <string name="title_advanced_subscribed_only_hint">Enabling this will delete all local folders without subscription</string>
     <string name="title_advanced_english_hint">This will restart the app</string>
