@@ -123,16 +123,16 @@ public class ContactInfo {
 
         if (Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
             ContentResolver resolver = context.getContentResolver();
-            try (Cursor cursor = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+            Uri uri = Uri.withAppendedPath(
+                    ContactsContract.CommonDataKinds.Email.CONTENT_LOOKUP_URI,
+                    Uri.encode(address.getAddress()));
+            try (Cursor cursor = resolver.query(uri,
                     new String[]{
                             ContactsContract.CommonDataKinds.Photo.CONTACT_ID,
                             ContactsContract.Contacts.LOOKUP_KEY,
                             ContactsContract.Contacts.DISPLAY_NAME
                     },
-                    ContactsContract.CommonDataKinds.Email.ADDRESS + " = ? COLLATE NOCASE",
-                    new String[]{
-                            address.getAddress()
-                    }, null)) {
+                    null, null, null)) {
 
                 if (cursor != null && cursor.moveToNext()) {
                     int colContactId = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Photo.CONTACT_ID);
