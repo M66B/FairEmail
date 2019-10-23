@@ -605,6 +605,14 @@ Searching local messages is case insensitive and on partial text.
 The message text of local messages will not be searched if the message text was not downloaded yet.
 Searching on the server might be case sensitive or case insensitive and might be on partial text or whole words, depending on the provider.
 
+Searching through a large number of messages is not very fast because of two limitations:
+
+* [sqlite](https://www.sqlite.org/), the database engine of Android has a record size limit, preventing message texts from being stored in the database
+* Android apps get only limited memory to work with, even if the device has plenty memory available
+
+This means that searching for a message text requires that files containing the message texts need to be opened one by one
+to check if the searched text is contained in the file, which is a relative expensive process.
+
 Searching messages on the device is a free feature, searching messages on the server is a pro feature.
 
 <br />
