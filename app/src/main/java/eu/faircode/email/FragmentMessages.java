@@ -1362,7 +1362,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-            TupleMessageEx message = getMessage(viewHolder);
+            int pos = viewHolder.getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return 0;
+
+            TupleMessageEx message = getMessage(pos);
             if (message == null)
                 return 0;
 
@@ -1411,7 +1415,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     handler.postDelayed(enableSelection, SWIPE_DISABLE_SELECT_DURATION);
             }
 
-            TupleMessageEx message = getMessage(viewHolder);
+            int pos = viewHolder.getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return;
+
+            TupleMessageEx message = getMessage(pos);
             if (message == null)
                 return;
 
@@ -1439,6 +1447,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 icon = (message.ui_snoozed == null ? R.drawable.baseline_visibility_off_24 :
                         (message.ui_snoozed == Long.MAX_VALUE
                                 ? R.drawable.baseline_visibility_24 : R.drawable.baseline_timer_off_24));
+            else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action))
+                icon = R.drawable.baseline_folder_24;
             else
                 icon = EntityFolder.getIcon(dX > 0 ? swipes.right_type : swipes.left_type);
             Drawable d = getResources().getDrawable(icon, getContext().getTheme()).mutate();
@@ -1475,7 +1485,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            final TupleMessageEx message = getMessage(viewHolder);
+            int pos = viewHolder.getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION) {
+                adapter.notifyDataSetChanged();
+                return;
+            }
+
+            TupleMessageEx message = getMessage(pos);
             if (message == null) {
                 adapter.notifyDataSetChanged();
                 return;
@@ -1495,24 +1511,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             Log.i("Swiped dir=" + direction + " message=" + message.id);
 
-            if (FragmentAccount.SWIPE_ACTION_ASK.equals(action))
-                swipeAsk(message, viewHolder);
-            else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
+            if (FragmentAccount.SWIPE_ACTION_ASK.equals(action)) {
+                adapter.notifyItemChanged(pos);
+                onSwipeAsk(message, viewHolder);
+            } else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
                 onActionSeenSelection(!message.ui_seen, message.id);
             else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
                 onActionSnooze(message);
             else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
                 onActionHide(message);
-            else
+            else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action)) {
+                adapter.notifyItemChanged(pos);
+                onSwipeMove(message);
+            } else
                 swipeFolder(message, action);
         }
 
-        private TupleMessageEx getMessage(@NonNull RecyclerView.ViewHolder viewHolder) {
+        private TupleMessageEx getMessage(int pos) {
             if (selectionTracker != null && selectionTracker.hasSelection())
-                return null;
-
-            int pos = viewHolder.getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
                 return null;
 
             PagedList<TupleMessageEx> list = ((AdapterMessage) rvMessage.getAdapter()).getCurrentList();
@@ -1532,13 +1548,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             return message;
         }
 
-        private void swipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
+        private void onSwipeAsk(final @NonNull TupleMessageEx message, @NonNull RecyclerView.ViewHolder viewHolder) {
             // Use fixed anchor
             ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) vwAnchor.getLayoutParams();
             lparam.topMargin = viewHolder.itemView.getTop() + viewHolder.itemView.getHeight();
             vwAnchor.setLayoutParams(lparam);
-
-            adapter.notifyDataSetChanged();
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
 
@@ -1578,7 +1592,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             onMenuColor();
                             return true;
                         case R.string.title_move:
-                            onMenuMove();
+                            onSwipeMove(message);
                             return true;
                         default:
                             return false;
@@ -1610,24 +1624,24 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_COLOR);
                     fragment.show(getParentFragmentManager(), "message:color");
                 }
-
-                private void onMenuMove() {
-                    Bundle args = new Bundle();
-                    args.putString("title", getString(R.string.title_move_to_folder));
-                    args.putLong("account", message.account);
-                    args.putLongArray("disabled", new long[]{message.folder});
-                    args.putLong("message", message.id);
-                    args.putBoolean("copy", false);
-                    args.putBoolean("similar", true);
-
-                    FragmentDialogFolder fragment = new FragmentDialogFolder();
-                    fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
-                    fragment.show(getParentFragmentManager(), "message:move");
-                }
             });
 
             popupMenu.show();
+        }
+
+        private void onSwipeMove(final @NonNull TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putString("title", getString(R.string.title_move_to_folder));
+            args.putLong("account", message.account);
+            args.putLongArray("disabled", new long[]{message.folder});
+            args.putLong("message", message.id);
+            args.putBoolean("copy", false);
+            args.putBoolean("similar", true);
+
+            FragmentDialogFolder fragment = new FragmentDialogFolder();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
+            fragment.show(getParentFragmentManager(), "message:move");
         }
 
         private void swipeFolder(@NonNull TupleMessageEx message, @NonNull Long target) {

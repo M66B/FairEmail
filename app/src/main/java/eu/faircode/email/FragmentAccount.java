@@ -152,6 +152,7 @@ public class FragmentAccount extends FragmentBase {
     static final Long SWIPE_ACTION_SEEN = -2L;
     static final Long SWIPE_ACTION_SNOOZE = -3L;
     static final Long SWIPE_ACTION_HIDE = -4L;
+    static final Long SWIPE_ACTION_MOVE = -5L;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1503,6 +1504,11 @@ public class FragmentAccount extends FragmentBase {
             hide.id = SWIPE_ACTION_HIDE;
             hide.name = getString(R.string.title_hide);
             folders.add(hide);
+
+            EntityFolder move = new EntityFolder();
+            move.id = SWIPE_ACTION_MOVE;
+            move.name = getString(R.string.title_move);
+            folders.add(move);
 
             folders.addAll(_folders);
 
