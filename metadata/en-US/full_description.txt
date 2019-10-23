@@ -1,7 +1,8 @@
-This open source, privacy friendly email app might be for you if you value your privacy.
+FairEmail might be for you if you value your privacy.
 
 <b>Main features</b>
 
+* Fully featured
 * 100 % open source
 * Privacy friendly
 * Multiple accounts
