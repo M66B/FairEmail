@@ -286,6 +286,7 @@
     <string name="title_advanced_notify_action_trash">Корзина</string>
     <string name="title_advanced_notify_action_junk">Спам</string>
     <string name="title_advanced_notify_action_archive">Архив</string>
+    <string name="title_advanced_notify_action_move">Переместить</string>
     <string name="title_advanced_notify_action_reply">Ответить</string>
     <string name="title_advanced_notify_action_reply_direct">Прямой ответ</string>
     <string name="title_advanced_notify_action_flag">В избранное</string>
@@ -370,6 +371,7 @@
     <string name="title_account_notify">Раздельные уведомления</string>
     <string name="title_account_left">Смахивание влево</string>
     <string name="title_account_right">Смахивание вправо</string>
+    <string name="title_account_move">По умолчанию перемещать в</string>
     <string name="title_domain">Имя домена</string>
     <string name="title_autoconfig">Получить параметры</string>
     <string name="title_aliases">Псевдонимы</string>

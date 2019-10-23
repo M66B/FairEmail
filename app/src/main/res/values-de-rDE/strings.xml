@@ -263,6 +263,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_notify_action_trash">Löschen</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivieren</string>
+    <string name="title_advanced_notify_action_move">Verschieben</string>
     <string name="title_advanced_notify_action_reply">Antworten</string>
     <string name="title_advanced_notify_action_reply_direct">Direktantwort</string>
     <string name="title_advanced_notify_action_flag">Kennzeichnen</string>
@@ -347,6 +348,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_account_left">Nach links wischen</string>
     <string name="title_account_right">Nach rechts wischen</string>
+    <string name="title_account_move">Standardmäßig verschieben nach</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
     <string name="title_aliases">Alias-Adressen</string>

@@ -252,6 +252,7 @@
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
     <string name="title_advanced_notify_action_junk">垃圾邮件</string>
     <string name="title_advanced_notify_action_archive">存档</string>
+    <string name="title_advanced_notify_action_move">移动</string>
     <string name="title_advanced_notify_action_reply">回复</string>
     <string name="title_advanced_notify_action_reply_direct">直接回复</string>
     <string name="title_advanced_notify_action_flag">标星</string>
@@ -336,6 +337,7 @@
     <string name="title_account_notify">单独的通知</string>
     <string name="title_account_left">左滑</string>
     <string name="title_account_right">右滑</string>
+    <string name="title_account_move">默认移动到</string>
     <string name="title_domain">域名</string>
     <string name="title_autoconfig">获取设置</string>
     <string name="title_aliases">別名</string>

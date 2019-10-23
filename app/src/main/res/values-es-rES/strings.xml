@@ -264,6 +264,7 @@
     <string name="title_advanced_notify_action_trash">Papelera</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archivar</string>
+    <string name="title_advanced_notify_action_move">Mover</string>
     <string name="title_advanced_notify_action_reply">Responder</string>
     <string name="title_advanced_notify_action_reply_direct">Responder</string>
     <string name="title_advanced_notify_action_flag">Destacar</string>
@@ -348,6 +349,7 @@
     <string name="title_account_notify">Notificaciones separadas</string>
     <string name="title_account_left">Deslizar a la izquierda</string>
     <string name="title_account_right">Deslizar hacia la derecha</string>
+    <string name="title_account_move">Mover por defecto a</string>
     <string name="title_domain">Nombre de dominio</string>
     <string name="title_autoconfig">Obtener ajustes</string>
     <string name="title_aliases">Alias</string>

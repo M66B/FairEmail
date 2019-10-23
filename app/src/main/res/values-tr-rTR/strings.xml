@@ -264,6 +264,7 @@
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
     <string name="title_advanced_notify_action_junk">İstenmeyen posta</string>
     <string name="title_advanced_notify_action_archive">Arşiv</string>
+    <string name="title_advanced_notify_action_move">Taşı</string>
     <string name="title_advanced_notify_action_reply">Yanıtla</string>
     <string name="title_advanced_notify_action_reply_direct">Doğrudan yanıt</string>
     <string name="title_advanced_notify_action_flag">Yıldız</string>
@@ -348,6 +349,7 @@
     <string name="title_account_notify">Ayrı bildirimler</string>
     <string name="title_account_left">Sola kaydır</string>
     <string name="title_account_right">Sağ kaydır</string>
+    <string name="title_account_move">Varsayılan taşıma hedefi</string>
     <string name="title_domain">Alan adı</string>
     <string name="title_autoconfig">Ayarları al</string>
     <string name="title_aliases">Takma adlar</string>

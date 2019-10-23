@@ -264,6 +264,7 @@
     <string name="title_advanced_notify_action_trash">Supprimer</string>
     <string name="title_advanced_notify_action_junk">Indésirable</string>
     <string name="title_advanced_notify_action_archive">Archiver</string>
+    <string name="title_advanced_notify_action_move">Déplacer</string>
     <string name="title_advanced_notify_action_reply">Répondre</string>
     <string name="title_advanced_notify_action_reply_direct">Répondre directement</string>
     <string name="title_advanced_notify_action_flag">Suivre</string>
@@ -319,7 +320,7 @@
     <string name="title_advanced_autoclose_hint">Fermer automatiquement les conversations quand tous les messages sont archivés, envoyés ou mis à la corbeille</string>
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n\'autorisent pas les adresses d\'expéditeur modifiées</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut entraîner un affichage étrange et des textes en double</string>
-    <string name="title_advanced_display_pin_hint">Le code PIN a priorité sur l\'authentification biométrique</string>
+    <string name="title_advanced_display_pin_hint">Le code PIN à la priorité sur l\'authentification biométrique</string>
     <string name="title_advanced_subscribed_only_hint">Activer ceci supprimera tous les dossiers locaux sans abonnement</string>
     <string name="title_advanced_english_hint">Ceci va redémarrer l’application</string>
     <string name="title_advanced_experiments_hint">Liste des fonctionnalités expérimentales actuelles</string>
@@ -348,6 +349,7 @@
     <string name="title_account_notify">Notifications séparées</string>
     <string name="title_account_left">Balayer vers la gauche</string>
     <string name="title_account_right">Balayer vers la droite</string>
+    <string name="title_account_move">Déplacement par défaut vers</string>
     <string name="title_domain">Nom de domaine</string>
     <string name="title_autoconfig">Obtenir les paramètres</string>
     <string name="title_aliases">Alias</string>

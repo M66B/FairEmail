@@ -264,6 +264,7 @@
     <string name="title_advanced_notify_action_trash">Weggooien</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archiveren</string>
+    <string name="title_advanced_notify_action_move">Verplaatsen</string>
     <string name="title_advanced_notify_action_reply">Beantwoorden</string>
     <string name="title_advanced_notify_action_reply_direct">Direct antwoord</string>
     <string name="title_advanced_notify_action_flag">Ster</string>
@@ -348,6 +349,7 @@
     <string name="title_account_notify">Afzonderlijke meldingen</string>
     <string name="title_account_left">Veeg links</string>
     <string name="title_account_right">Veeg rechts</string>
+    <string name="title_account_move">Standaard verplaatsen naar</string>
     <string name="title_domain">Domeinnaam</string>
     <string name="title_autoconfig">Instellingen ophalen</string>
     <string name="title_aliases">Aliassen</string>
