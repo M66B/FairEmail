@@ -249,9 +249,6 @@
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
-    <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
-    <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
-    <string name="title_advanced_notify_manage_hint">Tryck på kanalnamnet \"meddelanden\" för att ställa in standardmeddelande ljud, o.s.v.</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
@@ -280,6 +277,9 @@
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_autoclose_hint">Stäng automatiskt konversationstrådar när alla meddelanden arkiveras, skickas eller kastas</string>
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
+    <string name="title_advanced_badge_hint">Endast tillgänglig på programstartare som stöds</string>
+    <string name="title_advanced_notify_action_hint">Högst tre åtgärder kommer att visas</string>
+    <string name="title_advanced_notify_manage_hint">Tryck på kanalnamnet \"meddelanden\" för att ställa in standardmeddelande ljud, o.s.v.</string>
     <string name="title_advanced_subscribed_only_hint">Om du aktiverar detta tas alla lokala mappar utan abonnemang bort</string>
     <string name="title_advanced_english_hint">Detta startar om appen</string>
     <string name="title_advanced_experiments_hint">Lista över aktuella experimentella funktioner</string>
