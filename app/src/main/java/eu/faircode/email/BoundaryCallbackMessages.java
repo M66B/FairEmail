@@ -202,8 +202,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         try {
                             File file = EntityMessage.getFile(context, match.id);
                             if (file.exists()) {
-                                String body = Helper.readText(file);
-                                if (body.toLowerCase(Locale.ROOT).contains(find))
+                                String html = Helper.readText(file);
+                                String text = HtmlHelper.getText(html);
+                                if (text.toLowerCase(Locale.ROOT).contains(find))
                                     match.matched = true;
                             }
                         } catch (IOException ex) {
