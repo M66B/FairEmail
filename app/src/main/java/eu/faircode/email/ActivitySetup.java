@@ -751,10 +751,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         // Forward referenced
                         Long swipe_left = account.swipe_left;
                         Long swipe_right = account.swipe_right;
+                        Long move_to = account.move_to;
                         if (account.swipe_left != null && account.swipe_left > 0)
                             account.swipe_left = null;
                         if (account.swipe_right != null && account.swipe_right > 0)
                             account.swipe_right = null;
+                        account.move_to = null;
 
                         account.created = new Date().getTime();
                         account.id = db.account().insertAccount(account);
@@ -810,6 +812,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 account.swipe_left = folder.id;
                             if (Objects.equals(swipe_right, id))
                                 account.swipe_right = folder.id;
+                            if (Objects.equals(move_to, id))
+                                account.move_to = folder.id;
 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 if (jfolder.has("channel")) {

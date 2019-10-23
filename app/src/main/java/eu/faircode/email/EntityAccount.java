@@ -180,6 +180,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("swipe_left", swipe_left);
         json.put("swipe_right", swipe_right);
 
+        json.put("move_to", move_to);
+
         json.put("poll_interval", poll_interval);
         json.put("partial_fetch", partial_fetch);
         json.put("ignore_size", ignore_size);
@@ -232,6 +234,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.swipe_left = json.getLong("swipe_left");
         if (json.has("swipe_right"))
             account.swipe_right = json.getLong("swipe_right");
+
+        if (json.has("move_to"))
+            account.move_to = json.getLong("move_to");
 
         account.poll_interval = json.getInt("poll_interval");
 
