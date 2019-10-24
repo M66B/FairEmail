@@ -1,1 +1,1 @@
-FairEmail - Fully featured, open source, privacy friendly email app for Android
+FairEmail - Fully featured, open source, privacy oriented email app for Android

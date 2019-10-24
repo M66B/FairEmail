@@ -6,17 +6,17 @@ FairEmail might be for you if you value your privacy.
 
 * Fully featured
 * 100 % open source
-* Privacy friendly
-* Multiple accounts
-* Multiple email addresses
+* Privacy oriented
+* Unlimited accounts
+* Unlimited email addresses
 * Unified inbox
-* Flat conversation threading
+* Conversation threading
 * Two way synchronization
 * Offline storage and operations
 * Battery friendly
 * Low data usage
 * Small (< 10 MB)
-* Material design (including dark theme)
+* Material design (including dark/black theme)
 * Maintained and supported
 
 This app is minimalistic by design, so you can concentrate on reading and writing messages.

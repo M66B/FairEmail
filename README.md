@@ -15,7 +15,7 @@
 ![GitHub release](https://img.shields.io/github/release/M66B/FairEmail.svg)
 ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg)
 
-*Fully featured, open source, privacy friendly email app for Android*
+*Fully featured, open source, privacy oriented email app for Android*
 
 FairEmail is easy to setup and works with virtually all email providers, including Gmail, Outlook and Yahoo!
 
@@ -25,17 +25,17 @@ FairEmail might be for you if you value your privacy.
 
 * Fully featured
 * 100 % [open source](https://github.com/M66B/FairEmail/blob/master/LICENSE)
-* [Privacy friendly](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md)
-* Multiple accounts
-* Multiple email addresses
+* [Privacy oriented](https://github.com/M66B/FairEmail/blob/master/PRIVACY.md)
+* Unlimited accounts
+* Unlimited email addresses
 * Unified inbox
-* Flat [conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
+* [Conversation threading](https://en.wikipedia.org/wiki/Conversation_threading)
 * Two way synchronization
 * Offline storage and operations
 * Battery friendly
 * Low data usage
 * Small (< 10 MB)
-* Material design (including dark theme)
+* Material design (including dark/black theme)
 * Maintained and supported
 
 This app is minimalistic by design, so you can concentrate on reading and writing messages.

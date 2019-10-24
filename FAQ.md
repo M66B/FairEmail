@@ -88,7 +88,7 @@ The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
 Fonts, sizes, colors, etc should be material design whenever possible.
 
-Since FairEmail is meant to be privacy friendly, the following will not be added:
+Since FairEmail is privacy oriented, the following will not be added:
 
 * Opening links without confirmation
 * Showing images and original messages without confirmation, see also [this FAQ](#user-content-faq35)
@@ -2128,7 +2128,7 @@ So much about open standards ...
 
 Which email provider is best for you depends on your wishes/requirements.
 Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/)
-for a list of privacy friendly email providers with advantages and disadvantages.
+for a list of privacy oriented email providers with advantages and disadvantages.
 
 <br />
 
@@ -2470,7 +2470,7 @@ Requested features should:
 
 * be useful to most people
 * not complicate the usage of FairEmail
-* fit within the philosophy of FairEmail (privacy friendly, security minded)
+* fit within the philosophy of FairEmail (privacy oriented, security minded)
 
 Features not fulfilling these requirements will likely be rejected.
 
