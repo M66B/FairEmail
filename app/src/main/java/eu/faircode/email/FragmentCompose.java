@@ -112,9 +112,8 @@ import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -1557,130 +1556,144 @@ public class FragmentCompose extends FragmentBase {
                 MimeMessage imessage = new MimeMessage(isession);
                 MessageHelper.build(context, message, attachments, identity, imessage);
 
+                // Create temporary files
+                File plain = File.createTempFile("plain", "." + id, context.getCacheDir());
+                File encrypted = File.createTempFile("encrypted", "." + id, context.getCacheDir());
+
                 // Serialize message
-                ByteArrayOutputStream os = new ByteArrayOutputStream();
-                imessage.writeTo(os);
-                ByteArrayInputStream decrypted = new ByteArrayInputStream(os.toByteArray());
-                ByteArrayOutputStream encrypted = null;
-                if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
-                        OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction()))
-                    encrypted = new ByteArrayOutputStream();
+                try (OutputStream out = new FileOutputStream(plain)) {
+                    imessage.writeTo(out);
+                }
 
-                // Encrypt message
-                Log.i("Executing " + data.getAction());
-                OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                Intent result = api.executeApi(data, decrypted, encrypted);
+                // Call OpenPGP
+                Intent result;
+                try (InputStream in = new FileInputStream(plain)) {
+                    try (OutputStream out = new FileOutputStream(encrypted)) {
+                        Log.i("Executing " + data.getAction());
+                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                        result = api.executeApi(data, in, out);
+                    }
+                }
 
-                int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
-                Log.i("Result action=" + data.getAction() + " code=" + resultCode);
-                switch (resultCode) {
-                    case OpenPgpApi.RESULT_CODE_SUCCESS:
-                        // Attach encrypted data / signature
-                        if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
-                                OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction()) ||
-                                OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction()))
-                            try {
-                                db.beginTransaction();
+                plain.delete();
 
-                                String name;
-                                int encryption;
-                                if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
-                                    name = "keydata.asc";
-                                    encryption = EntityAttachment.PGP_KEY;
-                                } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
-                                    name = "encrypted.asc";
-                                    encryption = EntityAttachment.PGP_MESSAGE;
-                                } else if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
-                                    name = "signature.asc";
-                                    encryption = EntityAttachment.PGP_SIGNATURE;
-                                } else
-                                    throw new IllegalStateException(data.getAction());
+                // Process result
+                try {
+                    int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+                    Log.i("Result action=" + data.getAction() + " code=" + resultCode);
+                    switch (resultCode) {
+                        case OpenPgpApi.RESULT_CODE_SUCCESS:
+                            // Attach encrypted data / signature
+                            if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
+                                    OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction()) ||
+                                    OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction()))
+                                try {
+                                    db.beginTransaction();
 
-                                EntityAttachment attachment = new EntityAttachment();
-                                attachment.message = id;
-                                attachment.sequence = db.attachment().getAttachmentSequence(id) + 1;
-                                attachment.name = name;
-                                attachment.type = "application/octet-stream";
-                                attachment.disposition = Part.INLINE;
-                                attachment.encryption = encryption;
-                                attachment.id = db.attachment().insertAttachment(attachment);
+                                    String name;
+                                    int encryption;
+                                    if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
+                                        name = "keydata.asc";
+                                        encryption = EntityAttachment.PGP_KEY;
+                                    } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
+                                        name = "encrypted.asc";
+                                        encryption = EntityAttachment.PGP_MESSAGE;
+                                    } else if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
+                                        name = "signature.asc";
+                                        encryption = EntityAttachment.PGP_SIGNATURE;
+                                    } else
+                                        throw new IllegalStateException(data.getAction());
 
-                                byte[] bytes;
-                                if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction()))
-                                    bytes = result.getByteArrayExtra(OpenPgpApi.RESULT_DETACHED_SIGNATURE);
-                                else
-                                    bytes = encrypted.toByteArray();
+                                    EntityAttachment attachment = new EntityAttachment();
+                                    attachment.message = id;
+                                    attachment.sequence = db.attachment().getAttachmentSequence(id) + 1;
+                                    attachment.name = name;
+                                    attachment.type = "application/octet-stream";
+                                    attachment.disposition = Part.INLINE;
+                                    attachment.encryption = encryption;
+                                    attachment.id = db.attachment().insertAttachment(attachment);
 
-                                File file = attachment.getFile(context);
-                                Log.i("Writing " + file + " size=" + bytes.length);
-                                try (OutputStream out = new FileOutputStream(file)) {
-                                    out.write(bytes);
+                                    File file = attachment.getFile(context);
+
+                                    if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
+                                        byte[] bytes = result.getByteArrayExtra(OpenPgpApi.RESULT_DETACHED_SIGNATURE);
+                                        Log.i("Writing " + file + " size=" + bytes.length);
+                                        try (OutputStream out = new FileOutputStream(file)) {
+                                            out.write(bytes);
+                                        }
+                                        db.attachment().setDownloaded(attachment.id, (long) bytes.length);
+                                    } else {
+                                        Log.i("Writing " + file + " size=" + encrypted.length());
+                                        Helper.copy(encrypted, file);
+                                        db.attachment().setDownloaded(attachment.id, file.length());
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
                                 }
-                                db.attachment().setDownloaded(attachment.id, (long) bytes.length);
 
-                                db.setTransactionSuccessful();
-                            } finally {
-                                db.endTransaction();
-                            }
+                            if (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction())) {
+                                pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
+                                Log.i("Keys=" + pgpKeyIds.length);
 
-                        if (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction())) {
-                            pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
-                            Log.i("Keys=" + pgpKeyIds.length);
+                                // Send without encryption
+                                if (pgpKeyIds.length == 0)
+                                    return null;
 
-                            // Send without encryption
-                            if (pgpKeyIds.length == 0)
-                                return null;
+                                // Get encrypt key
+                                Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
+                                intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpKeyIds[0]);
+                                intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                return intent;
+                            } else if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
+                                if (identity.sign_key != null) {
+                                    // Encrypt message
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
+                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
+                                    intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
+                                    intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                    return intent;
+                                } else {
+                                    // Get sign key
+                                    return new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                                }
+                            } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
+                                pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
+                                db.identity().setIdentitySignKey(identity.id, pgpSignKeyId);
 
-                            // Get encrypt key
-                            Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
-                            intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpKeyIds[0]);
-                            intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                            return intent;
-                        } else if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
-                            if (identity.sign_key != null) {
                                 // Encrypt message
                                 Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
                                 intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
-                                intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
+                                intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
                                 intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                                 return intent;
+                            } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
+                                // Get signature
+                                Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
+                                intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
+                                return null;
                             } else {
-                                // Get sign key
-                                return new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                                // send message
+                                return null;
                             }
-                        } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
-                            pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
-                            db.identity().setIdentitySignKey(identity.id, pgpSignKeyId);
 
-                            // Encrypt message
-                            Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
-                            intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
-                            intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
-                            intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                            return intent;
-                        } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
-                            // Get signature
-                            Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
-                            intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
-                            return null;
-                        } else {
-                            // send message
-                            return null;
-                        }
+                        case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
+                            return (PendingIntent) result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
-                    case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
-                        return (PendingIntent) result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
+                        case OpenPgpApi.RESULT_CODE_ERROR:
+                            db.identity().setIdentitySignKey(identity.id, null);
+                            OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
+                            throw new IllegalArgumentException(
+                                    "OpenPgp" +
+                                            " error " + (error == null ? "?" : error.getErrorId()) +
+                                            ": " + (error == null ? "?" : error.getMessage()));
 
-                    case OpenPgpApi.RESULT_CODE_ERROR:
-                        db.identity().setIdentitySignKey(identity.id, null);
-                        OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                        throw new IllegalArgumentException(
-                                "OpenPgp" +
-                                        " error " + (error == null ? "?" : error.getErrorId()) +
-                                        ": " + (error == null ? "?" : error.getMessage()));
-
-                    default:
-                        throw new IllegalArgumentException("Unknown result code=" + resultCode);
+                        default:
+                            throw new IllegalArgumentException("Unknown result code=" + resultCode);
+                    }
+                } finally {
+                    encrypted.delete();
                 }
             }
 
