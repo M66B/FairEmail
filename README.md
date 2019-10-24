@@ -17,6 +17,8 @@
 
 *Fully featured, open source, privacy friendly email app for Android*
 
+FairEmail is easy to setup and works with virtually all email providers, including Gmail, Outlook and Yahoo!
+
 FairEmail might be for you if you value your privacy.
 
 ## Main features
