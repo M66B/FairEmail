@@ -1068,7 +1068,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 // https://docs.microsoft.com/en-us/graph/permissions-reference
                                 new String[]{
                                         "openid", "offline_access", "profile", "email",
-                                        "User.ReadBasic.All", "Mail.ReadWrite", "Mail.Send", "MailboxSettings.ReadWrite"},
+                                        "User.Read", "Mail.ReadWrite", "Mail.Send", "MailboxSettings.ReadWrite"},
                                 new AuthenticationCallback() {
                                     @Override
                                     public void onSuccess(IAuthenticationResult result) {
@@ -1127,7 +1127,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                                         @Override
                                                         protected Void onExecute(Context context, Bundle args) throws Throwable {
                                                             String token = args.getString("token");
-                                                            String email = args.getString("id");
+                                                            String email = args.getString("email");
                                                             String displayName = args.getString("displayName");
 
                                                             List<EntityFolder> folders;
