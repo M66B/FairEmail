@@ -505,7 +505,7 @@ class ImageHelper {
 
     static Bitmap decodeImage(File file, int scaleToPixels) {
         try {
-            return decodeImage(file, scaleToPixels);
+            return _decodeImage(file, scaleToPixels);
         } catch (OutOfMemoryError ex) {
             Log.e(ex);
             return null;
