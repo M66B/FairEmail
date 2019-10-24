@@ -262,6 +262,7 @@
     <string name="title_advanced_notify_action_trash">Papirkurv</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Arkiv</string>
+    <string name="title_advanced_notify_action_move">Flyt</string>
     <string name="title_advanced_notify_action_reply">Besvar</string>
     <string name="title_advanced_notify_action_reply_direct">Direkte besvarelse</string>
     <string name="title_advanced_notify_action_flag">Stjerne</string>
@@ -315,6 +316,7 @@
     <string name="title_advanced_notify_remove_hint">Nye beskednotifikationer fjernes altid, når de stryges væk samt ved markering af beskeder som læste</string>
     <string name="title_advanced_notify_manage_hint">Tryk på kanalnavnet \'Notifikationer\' for at opsætte standardnotifikationslyd mv.</string>
     <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
+    <string name="title_advanced_move_hint">Målmappen kan opsættes i kontoindstillingerne</string>
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
     <string name="title_advanced_subscribed_only_hint">Aktivering af dette vil slette alle lokale mapper uden abonnering</string>
@@ -345,6 +347,7 @@
     <string name="title_account_notify">Separate notifikationer</string>
     <string name="title_account_left">Stryg til venstre</string>
     <string name="title_account_right">Stryg til højre</string>
+    <string name="title_account_move">Flyt som standard til</string>
     <string name="title_domain">Domænenavn</string>
     <string name="title_autoconfig">Hent indstillinger</string>
     <string name="title_aliases">Aliaser</string>

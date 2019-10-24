@@ -274,6 +274,7 @@
     <string name="title_advanced_notify_action_trash">Gunoi</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Arhivare</string>
+    <string name="title_advanced_notify_action_move">Mută</string>
     <string name="title_advanced_notify_action_reply">Răspunde</string>
     <string name="title_advanced_notify_action_reply_direct">Răspuns</string>
     <string name="title_advanced_notify_action_flag">Stea</string>
@@ -328,6 +329,7 @@
     <string name="title_advanced_notify_remove_hint">Notificările de mesaj nou vor fi mereu eliminate dacă sunt glisate la o parte sau când mesajele sunt marcate drept citite</string>
     <string name="title_advanced_notify_manage_hint">Atingeți numele canalului \'Notificări\' pentru a configura sunetul implicit, etc</string>
     <string name="title_advanced_wearable_hint">Notificările sunt trimise la un dispozitiv portabil doar după ce textul mesajului a fost descărcat</string>
+    <string name="title_advanced_move_hint">Dosarul țintă poate fi configurat în setările contului</string>
     <string name="title_advanced_notify_no_grouping">Această versiune de Android nu suportă gruparea notificărilor</string>
     <string name="title_advanced_notify_no_channels">Această versiune de Android nu suportă canale de notificare</string>
     <string name="title_advanced_subscribed_only_hint">La activare se vor șterge toate dosarele locale fără abonament</string>
@@ -358,6 +360,7 @@
     <string name="title_account_notify">Separă notificările</string>
     <string name="title_account_left">Glisare spre stânga</string>
     <string name="title_account_right">Glisare spre dreapta</string>
+    <string name="title_account_move">Implicit mută la</string>
     <string name="title_domain">Nume domeniu</string>
     <string name="title_autoconfig">Obține setări</string>
     <string name="title_aliases">Aliasuri</string>
@@ -517,6 +520,7 @@
     <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_no_format">Mesajul primit inițial va fi inclus</string>
     <string name="title_no_image">Imaginea nu a putut fi decodată</string>
+    <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la salvare/trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
     <string name="title_attachment_saved">Atașament salvat</string>

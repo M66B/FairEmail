@@ -225,7 +225,7 @@
     <string name="title_advanced_text_color">显示文本颜色</string>
     <string name="title_advanced_collapse_quotes">折叠引用文本</string>
     <string name="title_advanced_images_inline">自动显示内联图像</string>
-    <string name="title_advanced_seekbar">用一个点显示相对会话位置</string>
+    <string name="title_advanced_seekbar">在底部用一个圆点显示会话相对位置</string>
     <string name="title_advanced_actionbar">显示对话操作栏</string>
     <string name="title_advanced_double_back">双击返回键退出</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>

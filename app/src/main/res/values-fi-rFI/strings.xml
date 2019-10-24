@@ -264,6 +264,7 @@
     <string name="title_advanced_notify_action_trash">Roskakori</string>
     <string name="title_advanced_notify_action_junk">Roskaposti</string>
     <string name="title_advanced_notify_action_archive">Arkisto</string>
+    <string name="title_advanced_notify_action_move">Siirrä</string>
     <string name="title_advanced_notify_action_reply">Vastaus sovelluksessa</string>
     <string name="title_advanced_notify_action_reply_direct">Vastaus</string>
     <string name="title_advanced_notify_action_flag">Tähti</string>
@@ -318,6 +319,7 @@
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
     <string name="title_advanced_notify_manage_hint">Näpäytä kanavan nimeä \'Ilmoitukset\' asettaaksesi oletusilmoitusäänen yms.</string>
     <string name="title_advanced_wearable_hint">Ilmoitukset lähetetään puettavaan laitteeseen vasta, kun viestin teksti on ladattu</string>
+    <string name="title_advanced_move_hint">Kohdekansio voidaan asettaa tilin asetuksissa</string>
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
     <string name="title_advanced_notify_no_channels">Tämä Android-versio ei tue ilmoituskanavia</string>
     <string name="title_advanced_subscribed_only_hint">Tämän käyttöönotto poistaa kaikki paikalliset kansiot, joita ei ole tilattu</string>
@@ -348,6 +350,7 @@
     <string name="title_account_notify">Erilliset ilmoitukset</string>
     <string name="title_account_left">Pyyhkäisy vasemmalle</string>
     <string name="title_account_right">Pyyhkäisy oikealle</string>
+    <string name="title_account_move">Oletuskohdekansio</string>
     <string name="title_domain">Verkkotunnus</string>
     <string name="title_autoconfig">Hae asetukset</string>
     <string name="title_aliases">Aliakset</string>

@@ -319,6 +319,7 @@
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
     <string name="title_advanced_notify_manage_hint">Öntanımlı bildirim sesi vs. ayarlamak için \'Bildirimler\' yazan yere dokunun</string>
     <string name="title_advanced_wearable_hint">Bildirimler, sadece mesaj metni indirildikten sonra giyilebilir cihazlara gönderilmektedir</string>
+    <string name="title_advanced_move_hint">Hedef klasörü, hesap ayarlarından yapılandırılabilir</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>
     <string name="title_advanced_notify_no_channels">Bu Android versiyonu bildirim kanallarını desteklememektedir</string>
     <string name="title_advanced_subscribed_only_hint">Bunu etkinleştirmek aboneliği olmayan tüm yerel klasörleri siler</string>
