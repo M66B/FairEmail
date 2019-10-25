@@ -98,8 +98,8 @@ public class ViewCardOptional extends CardView {
     public void setOutgoing(boolean outgoing) {
         if (cards && threading && indentation) {
             ViewGroup.MarginLayoutParams lparam = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            lparam.setMarginStart(outgoing ? margin : ident);
-            lparam.setMarginEnd(outgoing ? ident : margin);
+            lparam.setMarginStart(outgoing ? ident : margin);
+            lparam.setMarginEnd(outgoing ? margin : ident);
             setLayoutParams(lparam);
         }
     }
