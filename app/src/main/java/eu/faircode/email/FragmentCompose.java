@@ -2283,6 +2283,12 @@ public class FragmentCompose extends FragmentBase {
                             if (identity.id.equals(iid)) {
                                 Log.i("Selected requested identity=" + iid);
                                 selected = identity;
+                                if (data.draft.from != null)
+                                    for (Address sender : data.draft.from)
+                                        if (identity.similarAddress(sender)) {
+                                            from = sender;
+                                            break;
+                                        }
                                 break;
                             }
 
