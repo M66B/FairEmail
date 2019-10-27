@@ -177,7 +177,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         }
 
         if (state.matches == null) {
-            state.matches = db.message().matchMessages(folder, find, seen, flagged, snoozed);
+            state.matches = db.message().matchMessages(folder, "%" + find + "%", seen, flagged, snoozed);
             Log.i("Boundary device folder=" + folder +
                     " query=" + query +
                     " seen=" + seen +
