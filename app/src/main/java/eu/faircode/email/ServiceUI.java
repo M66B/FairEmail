@@ -161,7 +161,7 @@ public class ServiceUI extends IntentService {
 
     private void onClear(long group) {
         DB db = DB.getInstance(this);
-        int cleared = db.message().ignoreAll(group == 0 ? null : group);
+        int cleared = db.message().ignoreAll(group == 0 ? null : group, null);
         Log.i("Cleared=" + cleared);
     }
 

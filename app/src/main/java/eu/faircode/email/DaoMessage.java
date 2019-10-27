@@ -479,8 +479,10 @@ public interface DaoMessage {
     @Query("UPDATE message SET ui_ignored = 1" +
             " WHERE (:account IS NULL OR account = :account)" +
             " AND NOT ui_ignored" +
-            " AND folder IN (SELECT id FROM folder WHERE folder.unified)")
-    int ignoreAll(Long account);
+            " AND folder IN (" +
+            "  SELECT id FROM folder" +
+            "  WHERE (:folder IS NULL AND folder.unified) OR id = :folder)")
+    int ignoreAll(Long account, Long folder);
 
     @Query("UPDATE message SET ui_found = 1" +
             " WHERE account = :account" +

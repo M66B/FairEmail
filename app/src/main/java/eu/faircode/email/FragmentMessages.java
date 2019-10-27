@@ -2444,6 +2444,32 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "pro");
+
+        if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER) {
+            boolean notify_clear = prefs.getBoolean("notify_clear", false);
+            if (notify_clear) {
+                Bundle args = new Bundle();
+                args.putLong("folder", folder);
+
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) {
+                        Long folder = args.getLong("folder");
+                        if (folder < 0)
+                            folder = null;
+
+                        DB db = DB.getInstance(context);
+                        db.message().ignoreAll(null, folder);
+                        return null;
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(this, args, "messages:ignore");
+            }
+        }
     }
 
     @Override
