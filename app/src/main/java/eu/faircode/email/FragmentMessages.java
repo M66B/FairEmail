@@ -1375,11 +1375,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             int flags = 0;
             if (swipes.swipe_left != null &&
                     (swipes.swipe_left < 0 ||
-                            (swipes.left_type != null && !swipes.swipe_left.equals(message.folder))))
+                            (swipes.swipe_left.equals(message.folder)
+                                    ? EntityFolder.TRASH.equals(swipes.left_type) : swipes.left_type != null)))
                 flags |= ItemTouchHelper.LEFT;
             if (swipes.swipe_right != null &&
                     (swipes.swipe_right < 0 ||
-                            (swipes.right_type != null && !swipes.swipe_right.equals(message.folder))))
+                            (swipes.swipe_right.equals(message.folder)
+                                    ? EntityFolder.TRASH.equals(swipes.right_type) : swipes.right_type != null)))
                 flags |= ItemTouchHelper.RIGHT;
 
             return makeMovementFlags(0, flags);
@@ -1515,6 +1517,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else if (FragmentAccount.SWIPE_ACTION_MOVE.equals(action)) {
                 adapter.notifyItemChanged(pos);
                 onSwipeMove(message);
+            } else if (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) {
+                adapter.notifyItemChanged(pos);
+                onSwipeDelete(message);
             } else
                 swipeFolder(message, action);
         }
@@ -1634,6 +1639,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             fragment.setArguments(args);
             fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
             fragment.show(getParentFragmentManager(), "message:move");
+        }
+
+        private void onSwipeDelete(@NonNull TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putString("question", getString(R.string.title_ask_delete));
+            args.putLong("id", message.id);
+
+            FragmentDialogAsk ask = new FragmentDialogAsk();
+            ask.setArguments(args);
+            ask.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_MESSAGE_DELETE);
+            ask.show(getParentFragmentManager(), "message:delete");
         }
 
         private void swipeFolder(@NonNull TupleMessageEx message, @NonNull Long target) {
