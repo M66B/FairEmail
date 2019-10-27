@@ -64,7 +64,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
         private View view;
         private ImageView ivImage;
         private TextView tvCaption;
-        private TextView tvType;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -72,7 +71,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             view = itemView.findViewById(R.id.clItem);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvCaption = itemView.findViewById(R.id.tvCaption);
-            tvType = itemView.findViewById(R.id.tvType);
         }
 
         private void wire() {
@@ -98,7 +96,6 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             tvCaption.setVisibility(TextUtils.isEmpty(attachment.name) ? View.GONE : View.VISIBLE);
 
             tvCaption.setText(attachment.name);
-            tvType.setText(attachment.type);
         }
 
         @Override
