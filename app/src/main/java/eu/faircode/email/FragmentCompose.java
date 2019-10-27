@@ -1550,15 +1550,15 @@ public class FragmentCompose extends FragmentBase {
                         attachments.remove(attachment);
                     }
 
+                // Create temporary files
+                File plain = File.createTempFile("plain", "." + id, context.getCacheDir());
+                File encrypted = File.createTempFile("encrypted", "." + id, context.getCacheDir());
+
                 // Build message
                 Properties props = MessageHelper.getSessionProperties();
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
                 MessageHelper.build(context, message, attachments, identity, imessage);
-
-                // Create temporary files
-                File plain = File.createTempFile("plain", "." + id, context.getCacheDir());
-                File encrypted = File.createTempFile("encrypted", "." + id, context.getCacheDir());
 
                 // Serialize message
                 try (OutputStream out = new FileOutputStream(plain)) {
@@ -1567,15 +1567,14 @@ public class FragmentCompose extends FragmentBase {
 
                 // Call OpenPGP
                 Intent result;
-                try (InputStream in = new FileInputStream(plain)) {
-                    try (OutputStream out = new FileOutputStream(encrypted)) {
-                        Log.i("Executing " + data.getAction());
-                        OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                        result = api.executeApi(data, in, out);
-                    }
+                try {
+                    Log.i("Executing " + data.getAction());
+                    Log.logExtras(data);
+                    OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                    result = api.executeApi(data, new FileInputStream(plain), new FileOutputStream(encrypted));
+                } finally {
+                    plain.delete();
                 }
-
-                plain.delete();
 
                 // Process result
                 try {

@@ -3888,14 +3888,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 File plain = File.createTempFile("plain", "." + id, context.getCacheDir());
                 try {
                     // Decrypt message
-                    try {
-                        try (OutputStream out = new FileOutputStream(plain)) {
-                            OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
-                            result = api.executeApi(data, in, out);
-                        }
-                    } finally {
-                        in.close();
-                    }
+                    Log.i("Executing " + data.getAction());
+                    Log.logExtras(data);
+                    OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
+                    result = api.executeApi(data, in, new FileOutputStream(plain));
 
                     Log.i("PGP result=" + result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR));
                     switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
