@@ -293,6 +293,7 @@
     <string name="title_advanced_notify_action_seen">Прочитанное</string>
     <string name="title_advanced_notify_action_snooze">Отложить</string>
     <string name="title_advanced_notify_remove">Удалять уведомление о новом сообщении при нажатии на уведомление</string>
+    <string name="title_advanced_notify_clear">Удалять уведомления о новых сообщениях при просмотре списка сообщений</string>
     <string name="title_advanced_wearable_preview">Отправлять уведомления на носимые устройства только с предпросмотром</string>
     <string name="title_advanced_biometrics_notify">Показывать содержимое уведомлений при использовании биометрической аутентификации</string>
     <string name="title_advanced_light">Использовать индикатор уведомлений</string>
@@ -309,6 +310,7 @@
     <string name="title_advanced_crash_reports">Отправлять отчёты об ошибках</string>
     <string name="title_advanced_debug">Режим отладки</string>
     <string name="title_advanced_cleanup">Очистка</string>
+    <string name="title_advanced_hint">Все опции имеют разумные значения по умолчанию и должны быть изменены, только если необходимо</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
     <string name="title_advanced_manual_hint">Если синхронизация отключена, можно синхронизировать вручную, потянув вниз список сообщений. Это вызовет синхронизацию сообщений и выполнение операций в течение ограниченного времени.</string>
     <string name="title_advanced_poll_hint">Периодическая синхронизация будет каждый раз сравнивать сообщения на сервере с локальными. Это \"дорогая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений для синхронизации много. Непрерывная синхронизация избегает этого, постоянно отслеживая только изменения.</string>

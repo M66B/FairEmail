@@ -71,6 +71,7 @@
     <string name="menu_contacts">Lokala kontakter</string>
     <string name="menu_setup">Inställningar</string>
     <string name="menu_legend">Förklaring</string>
+    <string name="menu_test">Programtest</string>
     <string name="menu_faq">Support</string>
     <string name="menu_issue">Rapportera problem</string>
     <string name="menu_attribution">Attribueringar</string>
@@ -103,7 +104,9 @@
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_go">Kör</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_wizard_remark">Gå \"tillbaka\" för att gå till inkorgen</string>
     <string name="title_setup_other">Andra leverantör</string>
+    <string name="title_setup_gmail_support">Godkännande av Google-konton fungerar endast i officiella versioner eftersom Android kontrollerar appens signatur</string>
     <string name="title_setup_gmail_rationale">Vänligen bevilja behörigheter för att välja ett konto och läsa ditt namn</string>
     <string name="title_setup_select_account">Välj konto</string>
     <string name="title_setup_instructions">Inställningsinstruktioner</string>
@@ -124,6 +127,7 @@
     <string name="title_setup_doze_remark">Kontinuerligt ta emot e-post (valfritt)</string>
     <string name="title_setup_doze_instructions">I nästa dialogruta, välj ”Alla appar” högst upp, välj denna app och välj och bekräfta ”Optimera inte”</string>
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
+    <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
     <string name="title_setup_data">Datasparning är aktiverat</string>
     <string name="title_setup_inbox">Gå till meddelanden</string>
     <string name="title_setup_to_do">Att göra</string>
@@ -138,6 +142,7 @@
     <string name="title_setup_password_invalid">Ogiltigt lösenord</string>
     <string name="title_setup_exported">Inställningar exporterade</string>
     <string name="title_setup_imported">Inställningar importerade</string>
+    <string name="title_setup_import_invalid">Ogiltig inställningsfil</string>
     <string name="title_setup_notifications">Hantera aviseringar</string>
     <string name="title_setup_reorder_accounts">Ordna konton</string>
     <string name="title_setup_reorder_folders">Ordna mappar</string>
@@ -181,6 +186,8 @@
     <string name="title_advanced_sync_subscribed">Synkronisera abonnerade mappar bara</string>
     <string name="title_advanced_keyboard">Visa tangentbord som standard</string>
     <string name="title_advanced_suggest_local">Föreslå lokalt lagrade kontakter</string>
+    <string name="title_advanced_suggest_sent">Föreslå adresser som finns i skickade meddelanden</string>
+    <string name="title_advanced_suggest_received">Föreslå adresser som finns i mottagna meddelanden</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_plain_only">Skicka bara vanlig text som standard</string>
     <string name="title_advanced_usenet_signature">Signaturkonvention för Usenet</string>
@@ -192,7 +199,9 @@
     <string name="title_advanced_download">Hämta automatiskt meddelanden och bilagor på en uppmätt anslutning upp till</string>
     <string name="title_advanced_roaming">Hämta meddelanden och bilagor vid roaming</string>
     <string name="title_advanced_rlah">Roaming som hemma</string>
+    <string name="title_advanced_socks">Använd SOCKS-proxy</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
+    <string name="title_advanced_landscape">Använd två kolumner i landskapsläge</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Visa kort</string>
     <string name="title_advanced_date_header">Gruppera efter datum</string>
@@ -202,12 +211,15 @@
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>
+    <string name="title_advanced_color_saturation">Mättnad</string>
+    <string name="title_advanced_color_value">Ljusstyrka</string>
     <string name="title_advanced_name_email">Visa namn och e-postadresser</string>
     <string name="title_advanced_authentication">Visa en varning när den mottagande servern inte kunde autentisera meddelandet</string>
     <string name="title_advanced_subject_top">Visa ämne ovanför avsändaren</string>
     <string name="title_advanced_subject_italic">Visa ämnet kursivt</string>
     <string name="title_advanced_subject_elipsed">När det behövs, förkorta ämnet</string>
     <string name="title_advanced_flags">Visa stjärnor</string>
+    <string name="title_advanced_flags_background">Visa färgad bakgrund istället för färgade stjärnor</string>
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_preview_italic">Visa förhandsgranskning av meddelande i kursiv stil</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
@@ -226,6 +238,7 @@
     <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>
     <string name="title_advanced_reversed">Omvänd navigeringsriktning</string>
     <string name="title_advanced_autoexpand">Utöka meddelanden automatiskt</string>
+    <string name="title_advanced_expand_all">Expandera automatiskt alla lästa meddelanden</string>
     <string name="title_advanced_expand_one">Expandera endast ett meddelande åt gången</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
     <string name="title_advanced_onclose">När du stänger en konversation</string>
@@ -239,6 +252,7 @@
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
     <string name="title_advanced_notify_action_junk">Skräppost</string>
     <string name="title_advanced_notify_action_archive">Arkiv</string>
+    <string name="title_advanced_notify_action_move">Flytta</string>
     <string name="title_advanced_notify_action_reply">Svara</string>
     <string name="title_advanced_notify_action_reply_direct">Direkt svar</string>
     <string name="title_advanced_notify_action_flag">Stjärna</string>
@@ -248,7 +262,10 @@
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
+    <string name="title_advanced_display_hidden">Visa dolda meddelandetexter</string>
+    <string name="title_advanced_recents">Dölj FairEmail från skärmen med de senaste apparna</string>
     <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
+    <string name="title_advanced_pin">PIN-kod</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>
@@ -311,6 +328,7 @@
     <string name="title_custom">Anpassad</string>
     <string name="title_host">Värdnamn</string>
     <string name="title_allow_insecure">Tillåt osäkra anslutningar</string>
+    <string name="title_insecure_remark">Osäkra anslutningar bör endast tillåtas på betrodda nätverk och aldrig på offentliga nätverk</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Användarnamn</string>
     <string name="title_password">Lösenord</string>
@@ -318,7 +336,9 @@
     <string name="title_use_ip">Använd lokal IP-adress istället för värdnamn</string>
     <string name="title_primary_account">Primär (standardkonto)</string>
     <string name="title_primary_identity">Primär (standardidentitet)</string>
+    <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
     <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
+    <string name="title_related_identity">Lägg till relaterad identitet</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_no_name">Namn saknas</string>
     <string name="title_no_email">E-postadressen saknas</string>
@@ -340,7 +360,9 @@
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
+    <string name="title_activesync_support">ActiveSync stöds inte</string>
     <string name="title_oauth_support">OAuth stöds inte</string>
+    <string name="title_review">Granska</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>
@@ -349,6 +371,7 @@
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_delete_browsed">Ta bort bläddrade/sökta meddelanden</string>
     <string name="title_empty_trash">Töm papperskorgen</string>
+    <string name="title_empty_spam">Töm skräppost</string>
     <string name="title_edit_properties">Redigera egenskaper</string>
     <string name="title_edit_rules">Redigera regler</string>
     <string name="title_create_channel">Skapa aviseringskanal</string>
@@ -388,14 +411,19 @@
     <string name="title_folder_sent">Skickat</string>
     <string name="title_folder_system">System</string>
     <string name="title_folder_user">Användare</string>
+    <string name="title_folder_user_only">Endast användarmappar</string>
     <string name="title_folder_primary">Mappar primärt konto</string>
     <string name="title_folders_unified">Samlad inkorg mappar</string>
     <string name="title_no_folders">Inga mappar</string>
     <string name="title_no_messages">Inga meddelanden</string>
+    <string name="title_filters_active">Ett eller flera filter är aktiva</string>
+    <string name="title_duplicate_in">Dubblett i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
     <string name="title_seen">Märk som läst</string>
     <string name="title_unseen">Märk som oläst</string>
+    <string name="title_hide">Dölj</string>
+    <string name="title_unhide">Visa</string>
     <string name="title_flag">Lägg till stjärna</string>
     <string name="title_flag_color">Färgad stjärna &#8230;</string>
     <string name="title_unflag">Ta bort stjärna</string>
@@ -446,6 +474,7 @@
     <string name="title_no_connection">Synkronisering kommer att utföras vid nästa kontoanslutning</string>
     <string name="title_no_folder">Mappen finns inte</string>
     <string name="title_no_format">Det ursprungligen mottagna meddelandet kommer att inkluderas</string>
+    <string name="title_no_image">Bilden kunde inte avkodas</string>
     <string name="title_accross_remark">Meddelanden flyttade över konton kommer att hämtas igen och orsakar extra dataanvändning</string>
     <string name="title_raw_saved">Rent meddelande sparat</string>
     <string name="title_attachment_saved">Bilaga sparad</string>
@@ -501,8 +530,10 @@
     <string name="title_from_missing">Avsändaren saknas</string>
     <string name="title_to_missing">Mottagare saknas</string>
     <string name="title_subject_reminder">Ämnet är tomt</string>
+    <string name="title_text_reminder">Meddelandet är tomt</string>
     <string name="title_attachment_reminder">Hade du för avsikt att lägga till en bifogad fil?</string>
     <string name="title_attachments_missing">Inte alla bilagor har hämtats</string>
+    <string name="title_send_dialog_hint">Den här dialogrutan kommer fortfarande att vara tillgänglig via menyn med tre punkter i åtgärdsfältet</string>
     <string name="title_draft_deleted">Utkastet slängdes</string>
     <string name="title_draft_saved">Utkast sparat</string>
     <string name="title_ask_send_via">Skicka meddelande till %1$s via %2$s?</string>
@@ -526,10 +557,12 @@
     <string name="title_sort_on_sender">Avsändaren</string>
     <string name="title_sort_on_subject">Ämne</string>
     <string name="title_sort_on_size">Storlek</string>
+    <string name="title_sort_on_hidden">Dold</string>
     <string name="title_sort_ascending">Äldst först</string>
     <string name="title_filter">Filtrera bort</string>
     <string name="title_filter_seen">Läst</string>
     <string name="title_filter_unflagged">Utan stjärnmärkning</string>
+    <string name="title_filter_hidden">Dold</string>
     <string name="title_filter_duplicates">Dubbletter</string>
     <string name="title_compact">Kompakt vy</string>
     <string name="title_zoom">Textstorlek</string>
@@ -544,8 +577,10 @@
     <string name="title_answer_text">Malltext</string>
     <string name="title_answer_template_name">$name$ kommer att ersättas av avsändarens fullständiga namn</string>
     <string name="title_answer_template_email">$email$ kommer att ersättas av avsändarens e-postadress</string>
+    <string name="title_rule_noop">Ingen åtgärd</string>
     <string name="title_rule_seen">Markera som läst</string>
     <string name="title_rule_unseen">Markera som oläst</string>
+    <string name="title_rule_hide">Dölj</string>
     <string name="title_rule_snooze">Slumra</string>
     <string name="title_rule_flag">Lägg till stjärna</string>
     <string name="title_rule_move">Flytta</string>
@@ -562,6 +597,7 @@
     <string name="title_rule_sender_known">Avsändaren är en kontakt</string>
     <string name="title_rule_recipient">Mottagare innehåller</string>
     <string name="title_rule_subject">Ämnet innehåller</string>
+    <string name="title_rule_attachments">Har bilagor</string>
     <string name="title_rule_header">Rubriken innhåller</string>
     <string name="title_rule_time">Tid mellan</string>
     <string name="title_rule_regex">Regex</string>
@@ -620,6 +656,8 @@
     <string name="title_legend_thread">Konversation</string>
     <string name="title_legend_zoom">Ändra textstorlek</string>
     <string name="title_legend_draft">Har utkast</string>
+    <string name="title_legend_priority">Har hög prioritet</string>
+    <string name="title_legend_priority_low">Har låg prioritet</string>
     <string name="title_legend_auth">Autentisering misslyckades</string>
     <string name="title_legend_snoozed">Slumrar</string>
     <string name="title_legend_browsed">Bläddrat eller sökt</string>
@@ -635,6 +673,7 @@
     <string name="title_legend_download">Hämta innehåll</string>
     <string name="title_legend_external_image">Extern bildplatshållare</string>
     <string name="title_legend_embedded_image">Inbäddad bildplatshållare</string>
+    <string name="title_legend_tracking_pixel">Spårningsbild</string>
     <string name="title_legend_broken_image">Trasig bild</string>
     <string name="title_legend_pick">Välj kontakt</string>
     <string name="title_legend_cc">Visa kopia/dold kopia</string>
@@ -670,9 +709,11 @@
     <string name="title_hint_folder_actions">Långtryck för inställningar</string>
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
+    <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>
     <string name="title_hint_sync">Hämtning av meddelanden kan ta lite tid, beroende på leverantörens hastighet, internetanslutning och enhet och på antalet meddelanden. När du hämtar meddelanden kan appen svara långsammare.</string>
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_open_link">Öppna länken</string>
+    <string name="title_different_link">Titeln och länkadressen är olika</string>
     <string name="title_secure_link">Gör länken säker</string>
     <string name="title_link_secured">Länken är säker</string>
     <string name="title_sanitize_link">Ta bort spårningsparametrar</string>
@@ -707,6 +748,12 @@
     <string name="title_now">Nu</string>
     <string name="title_after">Efter %1$s</string>
     <string name="title_reset">Återställ</string>
+    <string name="title_hours">Timmar</string>
+    <string name="title_minutes">Minuter</string>
+    <string name="title_dismiss">Avfärda</string>
+    <string name="title_snooze_now">Slumra</string>
+    <string name="title_loading">Läser in &#8230;</string>
+    <string name="title_set">Ställ in</string>
     <string name="title_icalendar_accept">Godkänn</string>
     <string name="title_icalendar_decline">Avfärda</string>
     <string name="title_icalendar_maybe">Kanske</string>
@@ -791,5 +838,21 @@
         <item>5 minuter</item>
         <item>10 minuter</item>
         <item>20 minuter</item>
+    </string-array>
+    <string-array name="ellipsizeNames">
+        <item>I början</item>
+        <item>I mitten</item>
+        <item>I slutet</item>
+    </string-array>
+    <string-array name="priorityNames">
+        <item>Låg</item>
+        <item>Normal</item>
+        <item>Hög</item>
+    </string-array>
+    <string-array name="linesNames">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 </resources>

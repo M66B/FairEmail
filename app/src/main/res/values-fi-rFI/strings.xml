@@ -271,6 +271,7 @@
     <string name="title_advanced_notify_action_seen">Luettu</string>
     <string name="title_advanced_notify_action_snooze">Torkku</string>
     <string name="title_advanced_notify_remove">Poista ilmoitus uudesta viestistä näpäyttämällä sitä</string>
+    <string name="title_advanced_notify_clear">Poista ilmoitukset uusista viesteistä katsottaessa viestilistaa</string>
     <string name="title_advanced_wearable_preview">Lähetä puettaviin laitteisiin vain esikatselun kanssa olevat ilmoitukset</string>
     <string name="title_advanced_biometrics_notify">Näytä ilmoituksen sisältö käytettäessä biometristä tunnistautumista</string>
     <string name="title_advanced_light">Käytä LED-ilmoitusta</string>

@@ -285,6 +285,7 @@
     <string name="title_advanced_notify_action_trash">Kosz</string>
     <string name="title_advanced_notify_action_junk">Spam</string>
     <string name="title_advanced_notify_action_archive">Archiwum</string>
+    <string name="title_advanced_notify_action_move">Przenieś</string>
     <string name="title_advanced_notify_action_reply">Odpowiedz</string>
     <string name="title_advanced_notify_action_reply_direct">Odpowiedź</string>
     <string name="title_advanced_notify_action_flag">Oznacz</string>
@@ -339,6 +340,7 @@
     <string name="title_advanced_notify_remove_hint">Powiadomienia o nowych wiadomościach będą zawsze usuwane po przesunięciu i oznaczeniu wiadomości jako przeczytane</string>
     <string name="title_advanced_notify_manage_hint">Dotknij nazwę kanału \'Powiadomienia\', aby ustawić domyślny dźwięk powiadomienia, itd.</string>
     <string name="title_advanced_wearable_hint">Powiadomienia są wysyłane na urządzenie do noszenia tylko po pobraniu treści wiadomości</string>
+    <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_subscribed_only_hint">Włączenie tej opcji usunie wszystkie lokalne foldery bez subskrypcji</string>
@@ -369,6 +371,7 @@
     <string name="title_account_notify">Oddzielne powiadomienia</string>
     <string name="title_account_left">Przesuń w lewo</string>
     <string name="title_account_right">Przesuń w prawo</string>
+    <string name="title_account_move">Domyślnie przenieś do</string>
     <string name="title_domain">Nazwa domeny</string>
     <string name="title_autoconfig">Pobierz ustawienia</string>
     <string name="title_aliases">Aliasy</string>

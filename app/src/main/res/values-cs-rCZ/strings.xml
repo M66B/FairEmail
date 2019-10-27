@@ -341,6 +341,7 @@
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
     <string name="title_advanced_notify_manage_hint">Stiskněte název kanálu \"Oznámení\" pro nastavení výchozího zvuku oznámení, atd</string>
     <string name="title_advanced_wearable_hint">Oznámení jsou do nositelného zařízení odeslány teprve po stažení textu zprávy</string>
+    <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
     <string name="title_advanced_subscribed_only_hint">Povolení této volby vymaže všechny místní složky bez přihlášeného odběru</string>
@@ -371,6 +372,7 @@
     <string name="title_account_notify">Samostatná oznámení</string>
     <string name="title_account_left">Tažení doleva</string>
     <string name="title_account_right">Tažení doprava</string>
+    <string name="title_account_move">Výchozí cíl přesunu</string>
     <string name="title_domain">Název domény</string>
     <string name="title_autoconfig">Získat nastavení</string>
     <string name="title_aliases">Aliasy</string>

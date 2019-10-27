@@ -271,6 +271,7 @@
     <string name="title_advanced_notify_action_seen">Oku</string>
     <string name="title_advanced_notify_action_snooze">Ertele</string>
     <string name="title_advanced_notify_remove">Bildirimin üzerine dokunulduğunda yeni mesaj bildirimini kaldır</string>
+    <string name="title_advanced_notify_clear">Mesaj listesini görüntülerken yeni mesaj bildirimlerini kaldır</string>
     <string name="title_advanced_wearable_preview">Sadece mesaj önizlemesi olan bildirimleri giyilebilirler cihazlara gönderin</string>
     <string name="title_advanced_biometrics_notify">Biyometrik kimlik doğrulamayı kullanırken bildirim içeriğini göster</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>

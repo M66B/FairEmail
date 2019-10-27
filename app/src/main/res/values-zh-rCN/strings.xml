@@ -259,6 +259,7 @@
     <string name="title_advanced_notify_action_seen">已读</string>
     <string name="title_advanced_notify_action_snooze">打盹</string>
     <string name="title_advanced_notify_remove">点击通知时移除新的消息通知</string>
+    <string name="title_advanced_notify_clear">查看消息列表时移除新消息通知</string>
     <string name="title_advanced_wearable_preview">只向可穿戴设备发送有消息预览的通知</string>
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
     <string name="title_advanced_light">使用指示灯</string>

@@ -271,6 +271,7 @@
     <string name="title_advanced_notify_action_seen">Marquer lu</string>
     <string name="title_advanced_notify_action_snooze">Reporter</string>
     <string name="title_advanced_notify_remove">Supprimer la notification de nouveau message en tapant sur la notification</string>
+    <string name="title_advanced_notify_clear">Supprimer les notifications de nouveau message lors de la visualisation de la liste des messages</string>
     <string name="title_advanced_wearable_preview">Envoyer uniquement des notifications avec un aperçu de message aux appareils connectés</string>
     <string name="title_advanced_biometrics_notify">Afficher le contenu de notification lors de l\'utilisation de l\'authentification biométrique</string>
     <string name="title_advanced_light">Utiliser le voyant de notification</string>
@@ -287,6 +288,7 @@
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_debug">Débogage</string>
     <string name="title_advanced_cleanup">Nettoyage</string>
+    <string name="title_advanced_hint">Toutes les options ont des valeurs par défaut raisonnables et ne doivent être modifiées que lorsque cela est nécessaire</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception de messages</string>
     <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>

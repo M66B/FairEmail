@@ -269,7 +269,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_notify_action_flag">Kennzeichnen</string>
     <string name="title_advanced_notify_action_seen">Gelesen</string>
     <string name="title_advanced_notify_action_snooze">Zurückstellen</string>
-    <string name="title_advanced_notify_remove">Neue Nachricht-Benachrichtigungen beim Tippen auf die Benachrichtigungen entfernen</string>
+    <string name="title_advanced_notify_remove">Neue-Nachricht-Benachrichtigungen beim Tippen auf die Benachrichtigungen entfernen</string>
+    <string name="title_advanced_notify_clear">Neue-Nachrichten-Benachrichtigungen beim Anzeigen der Nachrichtenliste entfernen</string>
     <string name="title_advanced_wearable_preview">Nur Benachrichtigungen mit einer Nachrichtenvorschau an tragbare Gerätschaften senden</string>
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
@@ -315,7 +316,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
-    <string name="title_advanced_notify_remove_hint">Neue Nachrichten-Benachrichtigungen werden immer entfernt, wenn sie weggewischt werden oder Nachrichten gelesen werden</string>
+    <string name="title_advanced_notify_remove_hint">Neue-Nachrichten-Benachrichtigungen werden immer entfernt, wenn sie weggewischt werden oder Nachrichten gelesen werden</string>
     <string name="title_advanced_notify_manage_hint">„Benachrichtigungen” antippen, um den Standard-Benachrichtigungston usw. einzustellen</string>
     <string name="title_advanced_wearable_hint">Benachrichtigungen werden nur nach dem Download des Nachrichtentextes an einen tragbaren Empfänger gesendet</string>
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
