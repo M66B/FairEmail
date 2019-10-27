@@ -215,6 +215,9 @@ public class Log {
         config.beforeSend(new BeforeSend() {
             @Override
             public boolean run(@NonNull Report report) {
+                if (!"eu.faircode.email".equals(BuildConfig.APPLICATION_ID))
+                    return false;
+
                 // opt-in
                 boolean crash_reports = prefs.getBoolean("crash_reports", false);
                 if (!crash_reports)
