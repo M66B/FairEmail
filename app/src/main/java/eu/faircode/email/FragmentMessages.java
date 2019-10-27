@@ -215,7 +215,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private String searching = null;
     private boolean initialized = false;
     private boolean loading = false;
-    private boolean manual = false;
     private boolean swiping = false;
 
     private AdapterMessage adapter;
@@ -1129,11 +1128,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         new SimpleTask<Void>() {
             @Override
-            protected void onPreExecute(Bundle args) {
-                manual = true;
-            }
-
-            @Override
             protected Void onExecute(Context context, Bundle args) {
                 long fid = args.getLong("folder");
                 String type = args.getString("type");
@@ -1179,7 +1173,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                manual = false;
                 swipeRefresh.setRefreshing(false);
 
                 if (ex instanceof IllegalStateException) {
