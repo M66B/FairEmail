@@ -50,7 +50,8 @@ public class ServiceUI extends IntentService {
     static final int PI_SEEN = 8;
     static final int PI_SNOOZE = 9;
     static final int PI_IGNORED = 10;
-    static final int PI_WAKEUP = 11;
+    static final int PI_THREAD = 11;
+    static final int PI_WAKEUP = 12;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -139,7 +140,8 @@ public class ServiceUI extends IntentService {
                     break;
 
                 case "ignore":
-                    onIgnore(id);
+                    boolean view = intent.getBooleanExtra("view", false);
+                    onIgnore(id, view);
                     break;
 
                 case "wakeup":
@@ -340,12 +342,14 @@ public class ServiceUI extends IntentService {
         }
     }
 
-    private void onIgnore(long id) {
+    private void onIgnore(long id, boolean open) {
+        EntityMessage message;
+
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
 
-            EntityMessage message = db.message().getMessage(id);
+            message = db.message().getMessage(id);
             if (message == null)
                 return;
 
@@ -354,6 +358,15 @@ public class ServiceUI extends IntentService {
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
+        }
+
+        if (open) {
+            Intent thread = new Intent(this, ActivityView.class);
+            thread.setAction("thread:" + message.thread);
+            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            thread.putExtra("account", message.account);
+            thread.putExtra("id", message.id);
+            startActivity(thread);
         }
     }
 

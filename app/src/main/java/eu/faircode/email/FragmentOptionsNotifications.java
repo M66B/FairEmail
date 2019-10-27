@@ -362,6 +362,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swBadge.setChecked(prefs.getBoolean("badge", true));
         swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
         swNotifySummary.setChecked(prefs.getBoolean("notify_summary", false));
+        swNotifyRemove.setChecked(prefs.getBoolean("notify_remove", true));
         swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
         swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", true));
 
@@ -375,7 +376,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true) || !pro);
         cbNotifyActionSnooze.setChecked(prefs.getBoolean("notify_snooze", false) || !pro);
 
-        swNotifyRemove.setChecked(prefs.getBoolean("notify_remove", true));
         swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", false));
 
         swLight.setChecked(prefs.getBoolean("light", false));

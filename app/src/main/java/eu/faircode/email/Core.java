@@ -2878,13 +2878,20 @@ class Core {
             args.putLong("id", id);
 
             // Build pending intents
-            Intent thread = new Intent(context, ActivityView.class);
-            thread.setAction("thread:" + message.thread);
-            thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            thread.putExtra("account", message.account);
-            thread.putExtra("id", message.id);
-            PendingIntent piContent = PendingIntent.getActivity(
-                    context, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent piContent;
+            if (notify_remove) {
+                Intent thread = new Intent(context, ServiceUI.class);
+                thread.setAction("ignore:" + message.id);
+                thread.putExtra("view", true);
+                piContent = PendingIntent.getService(context, ServiceUI.PI_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+            } else {
+                Intent thread = new Intent(context, ActivityView.class);
+                thread.setAction("thread:" + message.thread);
+                thread.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                thread.putExtra("account", message.account);
+                thread.putExtra("id", message.id);
+                piContent = PendingIntent.getActivity(context, ActivityView.REQUEST_THREAD, thread, PendingIntent.FLAG_UPDATE_CURRENT);
+            }
 
             Intent ignore = new Intent(context, ServiceUI.class).setAction("ignore:" + message.id);
             PendingIntent piIgnore = PendingIntent.getService(context, ServiceUI.PI_IGNORED, ignore, PendingIntent.FLAG_UPDATE_CURRENT);
