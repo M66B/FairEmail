@@ -1,20 +1,22 @@
-This open source, privacy friendly email app might be for you if you value your privacy.
+FairEmail is easy to setup and works with virtually all email providers, including Gmail, Outlook and Yahoo!
+
+FairEmail might be for you if you value your privacy.
 
 <b>Main features</b>
 
+* Fully featured
 * 100 % open source
-* Privacy friendly
-* Multiple accounts
-* Multiple email addresses
+* Privacy oriented
+* Unlimited accounts
+* Unlimited email addresses
 * Unified inbox
-* Flat conversation threading
+* Conversation threading
 * Two way synchronization
 * Offline storage and operations
-* Encryption/decryption (OpenPGP)
 * Battery friendly
 * Low data usage
 * Small (< 10 MB)
-* Material design (including dark theme)
+* Material design (including dark/black theme)
 * Maintained and supported
 
 This app is minimalistic by design, so you can concentrate on reading and writing messages.
@@ -23,31 +25,12 @@ This app starts a foreground service with a low priority status bar notification
 
 <b>Privacy features</b>
 
+* Encryption/decryption supported (OpenPGP)
 * Reformat messages to prevent phishing
 * Confirm showing images to prevent tracking
 * Confirm opening links to prevent tracking and phishing
 * Automatically recognize and disable tracking images
 * Warning if messages could not be authenticated
-
-<b>Pro features</b>
-
-All pro features are convenience or advanced features.
-
-* Account/identity colors
-* Colored stars
-* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo)
-* Configurable notification actions
-* Snooze messages
-* Send messages after selected time
-* Synchronization scheduling
-* Reply templates
-* Accept/decline calendar invitations
-* Filter rules
-* Search on device or server
-* Keyword management
-* Biometric authentication
-* Unified inbox widget
-* Export settings
 
 <b>Simple</b>
 
@@ -69,8 +52,29 @@ All pro features are convenience or advanced features.
 
 <b>Efficient</b>
 
+* Fast and lightweight
 * IMAP IDLE (push messages) supported
 * Built with latest development tools and libraries
+
+<b>Pro features</b>
+
+All pro features are convenience or advanced features.
+
+* Account/identity colors
+* Colored stars
+* Notification settings (sounds) per account/folder/sender (requires Android 8 Oreo)
+* Configurable notification actions
+* Snooze messages
+* Send messages after selected time
+* Synchronization scheduling
+* Reply templates
+* Accept/decline calendar invitations
+* Filter rules
+* Search on server
+* Keyword management
+* Biometric authentication
+* Unified inbox widget
+* Export settings
 
 <b>Support</b>
 
