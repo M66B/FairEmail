@@ -249,9 +249,23 @@ public class Log {
                     return false;
 
                 Throwable ex = error.getException().getCause();
-                if (ex == null)
-                    return true;
+                if (shouldReport(ex)) {
+                    error.addToTab("extra", "installer", installer == null ? "-" : installer);
+                    error.addToTab("extra", "package", BuildConfig.APPLICATION_ID);
+                    error.addToTab("extra", "fingerprint", fingerprint);
+                    error.addToTab("extra", "thread", Thread.currentThread().getId());
+                    error.addToTab("extra", "free", Log.getFreeMemMb());
 
+                    String theme = prefs.getString("theme", "light");
+                    error.addToTab("extra", "theme", theme);
+
+                    return true;
+                }
+
+                return false;
+            }
+
+            private boolean shouldReport(Throwable ex) {
                 if (ex instanceof MessagingException &&
                         (ex.getCause() instanceof IOException ||
                                 ex.getCause() instanceof ProtocolException))
@@ -280,22 +294,10 @@ public class Log {
                     return false;
 
                 // Rate limit
-                int count = prefs.getInt("crash_report_count", 0);
-                count++;
+                int count = prefs.getInt("crash_report_count", 0) + 1;
                 prefs.edit().putInt("crash_report_count", count).apply();
-                if (count > MAX_CRASH_REPORTS)
-                    return false;
 
-                error.addToTab("extra", "installer", installer == null ? "-" : installer);
-                error.addToTab("extra", "fingerprint", fingerprint);
-                error.addToTab("extra", "thread", Thread.currentThread().getId());
-                error.addToTab("extra", "free", Log.getFreeMemMb());
-
-                String theme = prefs.getString("theme", "light");
-                error.addToTab("extra", "theme", theme);
-                error.addToTab("extra", "package", BuildConfig.APPLICATION_ID);
-
-                return true;
+                return (count <= MAX_CRASH_REPORTS);
             }
         });
     }
