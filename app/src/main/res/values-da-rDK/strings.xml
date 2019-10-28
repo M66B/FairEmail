@@ -269,6 +269,7 @@
     <string name="title_advanced_notify_action_seen">Læs</string>
     <string name="title_advanced_notify_action_snooze">Udsæt</string>
     <string name="title_advanced_notify_remove">Fjern nye beskednotifikationer ved tryk på notifikationen</string>
+    <string name="title_advanced_notify_clear">Fjern nye beskednotifikationer ved visnng af beskedliste</string>
     <string name="title_advanced_wearable_preview">Send kun notifikationer med en beskedforhåndsvisning til wearables</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
     <string name="title_advanced_light">Benyt notifikations-LED</string>
@@ -285,6 +286,7 @@
     <string name="title_advanced_crash_reports">Send fejlrapporter</string>
     <string name="title_advanced_debug">Fejlretningstilstand</string>
     <string name="title_advanced_cleanup">Oprydning</string>
+    <string name="title_advanced_hint">Alle indstillinger har formålstjenelige standarder og bør kun ændres, hvis nødvendigt</string>
     <string name="title_advanced_enabled_hint">Deaktivér/aktivér global modtagelse af beskeder</string>
     <string name="title_advanced_manual_hint">Er synkronisering deaktiveret, kan der stadig synkroniseres manuelt ved at trække ned i beskedlisten. Dette vil i en begrænset tidsperiode synkronisere beskeder samt eksekvere operationer.</string>
     <string name="title_advanced_poll_hint">Periodisk synkronisering vil hver gang sammenligne lokale og fjernplacerede beskeder, hvilket koster en del resssourcer, herunder et muligt ekstra strømforbrug, især hvis der er mange beskeder at synkronisere. Kontinuerlig synkronisering undgår dette ved løbende kun at tjekke for ændringer.</string>

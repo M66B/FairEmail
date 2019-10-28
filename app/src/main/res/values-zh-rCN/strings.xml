@@ -168,7 +168,7 @@
     <string name="title_advanced_section_misc">杂项</string>
     <string name="title_advanced_enabled">已启用</string>
     <string name="title_advanced_when">何时</string>
-    <string name="title_advanced_schedule">任务计划</string>
+    <string name="title_advanced_schedule">计划任务</string>
     <string name="title_advanced_unseen">所有未读消息</string>
     <string name="title_advanced_flagged">所有已标星消息</string>
     <string name="title_advanced_delete_unseen">删除旧的未读消息</string>
@@ -276,6 +276,7 @@
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_debug">调试模式</string>
     <string name="title_advanced_cleanup">清理</string>
+    <string name="title_advanced_hint">所有选项都有合理的默认值，只有必要时才应改变</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
     <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在限定的时间内同步消息和执行操作。</string>
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形。</string>
