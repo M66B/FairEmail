@@ -2469,7 +2469,11 @@ public class FragmentCompose extends FragmentBase {
                         ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
                         if (uris != null)
                             for (Uri uri : uris)
-                                addAttachment(context, data.draft.id, uri, false);
+                                try {
+                                    addAttachment(context, data.draft.id, uri, false);
+                                } catch (IOException ex) {
+                                    Log.e(ex);
+                                }
                     } else if (ref != null &&
                             ("reply".equals(action) || "reply_all".equals(action) ||
                                     "forward".equals(action) || "editasnew".equals(action))) {
