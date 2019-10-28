@@ -45,6 +45,7 @@ import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
 import com.bugsnag.android.BeforeNotify;
+import com.bugsnag.android.BeforeSend;
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
 import com.bugsnag.android.Callback;
@@ -211,46 +212,15 @@ public class Log {
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        Bugsnag.init(context, config);
-
-        Client client = Bugsnag.getClient();
-
-        try {
-            Log.i("Disabling orientation listener");
-            Field fOrientationListener = Client.class.getDeclaredField("orientationListener");
-            fOrientationListener.setAccessible(true);
-            OrientationEventListener orientationListener = (OrientationEventListener) fOrientationListener.get(client);
-            orientationListener.disable();
-            Log.i("Disabled orientation listener");
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        String uuid = prefs.getString("uuid", null);
-        if (uuid == null) {
-            uuid = UUID.randomUUID().toString();
-            prefs.edit().putString("uuid", uuid).apply();
-        }
-        Log.i("uuid=" + uuid);
-        client.setUserId(uuid);
-
-        if (prefs.getBoolean("crash_reports", false))
-            Bugsnag.startSession();
-
-        final String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-        final boolean fingerprint = Helper.hasValidFingerprint(context);
-
-        Bugsnag.beforeNotify(new BeforeNotify() {
+        config.beforeSend(new BeforeSend() {
             @Override
-            public boolean run(@NonNull Error error) {
+            public boolean run(@NonNull Report report) {
                 // opt-in
                 boolean crash_reports = prefs.getBoolean("crash_reports", false);
                 if (!crash_reports)
                     return false;
 
-                Throwable ex = error.getException().getCause();
-                if (ex == null)
-                    return true;
+                Throwable ex = report.getError().getException();
 
                 if (ex instanceof MessagingException &&
                         (ex.getCause() instanceof IOException ||
@@ -286,6 +256,42 @@ public class Log {
                 if (count > MAX_CRASH_REPORTS)
                     return false;
 
+                return true;
+            }
+        });
+
+        Bugsnag.init(context, config);
+
+        Client client = Bugsnag.getClient();
+
+        try {
+            Log.i("Disabling orientation listener");
+            Field fOrientationListener = Client.class.getDeclaredField("orientationListener");
+            fOrientationListener.setAccessible(true);
+            OrientationEventListener orientationListener = (OrientationEventListener) fOrientationListener.get(client);
+            orientationListener.disable();
+            Log.i("Disabled orientation listener");
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        String uuid = prefs.getString("uuid", null);
+        if (uuid == null) {
+            uuid = UUID.randomUUID().toString();
+            prefs.edit().putString("uuid", uuid).apply();
+        }
+        Log.i("uuid=" + uuid);
+        client.setUserId(uuid);
+
+        if (prefs.getBoolean("crash_reports", false))
+            Bugsnag.startSession();
+
+        final String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+        final boolean fingerprint = Helper.hasValidFingerprint(context);
+
+        Bugsnag.beforeNotify(new BeforeNotify() {
+            @Override
+            public boolean run(@NonNull Error error) {
                 error.addToTab("extra", "installer", installer == null ? "-" : installer);
                 error.addToTab("extra", "fingerprint", fingerprint);
                 error.addToTab("extra", "thread", Thread.currentThread().getId());
@@ -294,7 +300,6 @@ public class Log {
                 String theme = prefs.getString("theme", "light");
                 error.addToTab("extra", "theme", theme);
                 error.addToTab("extra", "package", BuildConfig.APPLICATION_ID);
-
                 return true;
             }
         });
