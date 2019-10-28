@@ -381,7 +381,7 @@ public class FragmentGmail extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.reload(getContext(), "Gmail");
+                ServiceSynchronize.reload(context, "Gmail");
 
                 return null;
             }
