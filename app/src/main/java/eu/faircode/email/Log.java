@@ -221,7 +221,10 @@ public class Log {
                     return false;
 
                 Throwable ex = report.getError().getException();
+                return shouldNotify(ex);
+            }
 
+            private boolean shouldNotify(Throwable ex) {
                 if (ex instanceof MessagingException &&
                         (ex.getCause() instanceof IOException ||
                                 ex.getCause() instanceof ProtocolException))
@@ -250,13 +253,10 @@ public class Log {
                     return false;
 
                 // Rate limit
-                int count = prefs.getInt("crash_report_count", 0);
-                count++;
+                int count = prefs.getInt("crash_report_count", 0) + 1;
                 prefs.edit().putInt("crash_report_count", count).apply();
-                if (count > MAX_CRASH_REPORTS)
-                    return false;
 
-                return true;
+                return (count <= MAX_CRASH_REPORTS);
             }
         });
 
