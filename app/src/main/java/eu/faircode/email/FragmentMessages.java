@@ -1763,6 +1763,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             result.flagged = true;
                         else
                             result.unflagged = true;
+
+                        if (threaded.folder.equals(message.folder))
+                            if (message.ui_snoozed == null)
+                                result.visible = true;
+                            else
+                                result.hidden = true;
                     }
 
                     EntityFolder folder = db.folder().getFolder(message.folder);
@@ -1815,6 +1821,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze);
 
+                if (result.visible)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, order++, R.string.title_hide);
+                if (result.hidden)
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, order++, R.string.title_unhide);
+
                 if (result.unflagged)
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag);
                 if (result.flagged)
@@ -1853,6 +1864,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 return true;
                             case R.string.title_snooze:
                                 onActionSnoozeSelection();
+                                return true;
+                            case R.string.title_hide:
+                                onHideSelection(true);
+                                return true;
+                            case R.string.title_unhide:
+                                onHideSelection(false);
                                 return true;
                             case R.string.title_flag:
                                 onActionFlagSelection(true, null);
@@ -1989,6 +2006,51 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_MESSAGES_SNOOZE);
         fragment.show(getParentFragmentManager(), "messages:snooze");
+    }
+
+    private void onHideSelection(boolean hide) {
+        Bundle args = new Bundle();
+        args.putLongArray("ids", getSelection());
+        args.putBoolean("hide", hide);
+
+        selectionTracker.clearSelection();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long[] ids = args.getLongArray("ids");
+                boolean hide = args.getBoolean("hide");
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    for (long id : ids) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message == null)
+                            continue;
+
+                        List<EntityMessage> messages = db.message().getMessagesByThread(
+                                message.account, message.thread, threading ? null : id, message.folder);
+                        for (EntityMessage threaded : messages) {
+                            db.message().setMessageSnoozed(threaded.id, hide ? Long.MAX_VALUE : null);
+                            EntityMessage.snooze(context, threaded.id, hide ? Long.MAX_VALUE : null);
+                        }
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "messages:flag");
     }
 
     private void onActionFlagSelection(boolean flagged, Integer color) {
@@ -4589,6 +4651,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private class MoreResult {
         boolean seen;
         boolean unseen;
+        boolean visible;
+        boolean hidden;
         boolean flagged;
         boolean unflagged;
         Boolean hasArchive;
