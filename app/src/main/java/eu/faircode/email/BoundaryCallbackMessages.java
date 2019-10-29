@@ -195,12 +195,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             " snoozed=" + snoozed +
                             " offset=" + state.offset +
                             " size=" + state.matches.size());
-                    if (state.matches.size() == 0)
-                        break;
-
                     state.offset += Math.min(state.matches.size(), SEARCH_LIMIT);
                     state.index = 0;
                 }
+
+                if (state.matches.size() == 0)
+                    break;
 
                 for (int i = state.index; i < state.matches.size() && found < pageSize && !state.destroyed; i++) {
                     state.index = i + 1;
