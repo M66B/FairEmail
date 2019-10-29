@@ -152,6 +152,18 @@
             app:layout_constraintBottom_toBottomOf="@id/etSocks"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <TextView
+            android:id="@+id/tvSocksHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_socks_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etSocks" />
+
         <Button
             android:id="@+id/btnManage"
             style="?android:attr/buttonStyleSmall"
@@ -162,7 +174,7 @@
             android:minHeight="0dp"
             android:text="@string/title_advanced_manage_connectivity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etSocks" />
+            app:layout_constraintTop_toBottomOf="@id/tvSocksHint" />
 
         <TextView
             android:id="@+id/tvConnectionType"
