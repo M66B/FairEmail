@@ -616,6 +616,7 @@
     <string name="title_compact">Tiivistetty näkymä</string>
     <string name="title_zoom">Tekstin koko</string>
     <string name="title_select_all">Valitse kaikki</string>
+    <string name="title_select_found">Valitse löytyneet</string>
     <string name="title_force_sync">Pakota synkronointi</string>
     <string name="title_previous">Edellinen</string>
     <string name="title_next">Seuraava</string>

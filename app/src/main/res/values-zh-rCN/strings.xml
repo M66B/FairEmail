@@ -467,6 +467,7 @@
     <string name="title_show_inline">显示内嵌附件</string>
     <string name="title_download_all">全部下载</string>
     <string name="title_save_all">全部保存</string>
+    <string name="title_save_eml">保存原始消息文件</string>
     <string name="title_trash">回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_copy_to">复制到 &#8230;</string>
@@ -753,6 +754,7 @@
     <string name="title_hint_message_selection">长按一则消息开始选择多条消息；按住并向上或向下滑动来选择更多消息</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_contact_actions">长按以显示更多选项</string>
+    <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_different_link">标题和链接地址不同</string>
     <string name="title_secure_link">确保链接安全</string>

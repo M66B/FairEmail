@@ -616,6 +616,7 @@
     <string name="title_compact">Derlitoplu görünüm</string>
     <string name="title_zoom">Metin boyutu</string>
     <string name="title_select_all">Hepsini seç</string>
+    <string name="title_select_found">Bulunanları seç</string>
     <string name="title_force_sync">Eşzamanlamaya zorla</string>
     <string name="title_previous">Önceki</string>
     <string name="title_next">Sonraki</string>

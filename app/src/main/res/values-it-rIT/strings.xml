@@ -478,6 +478,7 @@
     <string name="title_show_inline">Mostra gli allegati inline</string>
     <string name="title_download_all">Scarica tutti</string>
     <string name="title_save_all">Salva tutto</string>
+    <string name="title_save_eml">Salva il file del messaggio grezzo</string>
     <string name="title_trash">Cestino</string>
     <string name="title_copy">Copia &#8230;</string>
     <string name="title_copy_to">Copia in &#8230;</string>
@@ -764,6 +765,7 @@
     <string name="title_hint_message_selection">Premi a lungo su di un messaggio per iniziare a selezionare più messaggi; Tieni premuto e scorri verso l\'alto o verso il basso per selezionare più messaggi</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere molto tempo, a seconda della velocità del provider, della connessione internet e del dispositivo e dal numero di messaggi. Durante il download l\'app potrebbe funzionare più lentamente.</string>
     <string name="title_hint_contact_actions">Tieni premuto per le opzioni</string>
+    <string name="title_hint_eml">Questo è un riepilogo del contenuto di un file di messaggio grezzo. Salva il messaggio grezzo con l\'icona di salvataggio nella barra azioni per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_different_link">Il titolo del link e l\'indirizzo sono diversi</string>
     <string name="title_secure_link">Rendi il link sicuro</string>
