@@ -270,6 +270,7 @@
     <string name="title_advanced_notify_action_seen">Letto</string>
     <string name="title_advanced_notify_action_snooze">Posticipa</string>
     <string name="title_advanced_notify_remove">Rimuovi la notifica di nuovo messaggio quando si tocca la notifica</string>
+    <string name="title_advanced_notify_clear">Rimuovi le notifiche dei nuovi messaggi dalla lista dei messaggi</string>
     <string name="title_advanced_wearable_preview">Invia notifiche con un\'anteprima del messaggio solo agli indossabili</string>
     <string name="title_advanced_biometrics_notify">Mostra il contenuto delle notifiche quando si utilizza l\'autenticazione biometrica</string>
     <string name="title_advanced_light">Usa il led di notifica</string>
@@ -614,6 +615,7 @@
     <string name="title_compact">Vista compatta</string>
     <string name="title_zoom">Dimensione testo</string>
     <string name="title_select_all">Seleziona tutti</string>
+    <string name="title_select_found">Seleziona trovato</string>
     <string name="title_force_sync">Forza sincronizzazione</string>
     <string name="title_previous">Precedente</string>
     <string name="title_next">Successivo</string>

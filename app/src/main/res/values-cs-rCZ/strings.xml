@@ -293,6 +293,7 @@
     <string name="title_advanced_notify_action_seen">Přečteno</string>
     <string name="title_advanced_notify_action_snooze">Odložit</string>
     <string name="title_advanced_notify_remove">Odebrat oznámení nové zprávy při stisku oznámení</string>
+    <string name="title_advanced_notify_clear">Odebrat oznámení nové zprávy při zobrazení seznamu zpráv</string>
     <string name="title_advanced_wearable_preview">Do nositelného zařízení posílat pouze oznámení s náhledem zprávy</string>
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při používání biometrického ověření</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
@@ -309,6 +310,7 @@
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_debug">Režim ladění</string>
     <string name="title_advanced_cleanup">Úklid</string>
+    <string name="title_advanced_hint">Všechna nastavení mají rozumné výchozí hodnoty, které by měly být měněny pouze v případě potřeby</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí příjem zpráv</string>
     <string name="title_advanced_manual_hint">Je-li synchronizace vypnuta, stále je možné synchronizovat ručně tažením dolů v seznamu zpráv. Po omezený čas se tak budou synchronizovat zprávy a provádět operace.</string>
     <string name="title_advanced_poll_hint">Synchronizování periodicky bude pokaždé porovnávat místní a vzdálené zprávy, což je náročná operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>

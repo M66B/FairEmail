@@ -281,6 +281,7 @@
     <string name="title_advanced_notify_action_seen">Citit</string>
     <string name="title_advanced_notify_action_snooze">Amână</string>
     <string name="title_advanced_notify_remove">Elimina notificarea de mesaj nou dacă se atinge</string>
+    <string name="title_advanced_notify_clear">Elimină notificările mesajelor noi când se vizualizează lista de mesaje</string>
     <string name="title_advanced_wearable_preview">Trimite la portabile doar notificările cu previzualizare mesaj</string>
     <string name="title_advanced_biometrics_notify">Arată conținutul notificării atunci când se utilizează autentificarea biometrică</string>
     <string name="title_advanced_light">Folosire LED de notificare</string>
@@ -297,6 +298,7 @@
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_debug">Depanare</string>
     <string name="title_advanced_cleanup">Curățare</string>
+    <string name="title_advanced_hint">Setările implicite sunt de bun simț și ar trebui schimbate doar dacă este necesar</string>
     <string name="title_advanced_enabled_hint">Activează sau dezactivează global recepția mesajelor</string>
     <string name="title_advanced_manual_hint">Dacă sincronizarea este dezactivată, este posibilă sincronizarea manuală prin tragerea în jos a listei de mesaje. Astfel se vor sincroniza mesajele și se vor executa operațiile pentru o perioadă limitată de timp.</string>
     <string name="title_advanced_poll_hint">Sincronizarea periodică va compara mesajele locale cu cele de pe server de fiecare dată, aceasta este o operațiune costisitoare ce va rezulta într-un consum ridicat al bateriei, mai ales atunci când sunt multe mesaje de sincronizat. Modul de sincronizare permanent evită asta prin monitorizarea continuă a schimbărilor.</string>
@@ -624,6 +626,7 @@
     <string name="title_compact">Vizualizare compactă</string>
     <string name="title_zoom">Mărime text</string>
     <string name="title_select_all">Selectează tot</string>
+    <string name="title_select_found">Selectare găsite</string>
     <string name="title_force_sync">Sincronizare forțată</string>
     <string name="title_previous">Precedent</string>
     <string name="title_next">Următor</string>
