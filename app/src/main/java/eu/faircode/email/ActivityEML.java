@@ -44,12 +44,14 @@ import com.sun.mail.imap.IMAPFolder;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.Session;
+import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeMessage;
 
 public class ActivityEML extends ActivityBase {
@@ -64,13 +66,9 @@ public class ActivityEML extends ActivityBase {
 
         final TextView tvTo = findViewById(R.id.tvTo);
         final TextView tvFrom = findViewById(R.id.tvFrom);
-        final TextView tvReplyTo = findViewById(R.id.tvReplyTo);
-        final TextView tvCc = findViewById(R.id.tvCc);
         final TextView tvSubject = findViewById(R.id.tvSubject);
-        final TextView tvHeaders = findViewById(R.id.tvHeaders);
-        final TextView tvParts = findViewById(R.id.tvParts);
+        final TextView tvAttachments = findViewById(R.id.tvAttachments);
         final TextView tvBody = findViewById(R.id.tvBody);
-        final TextView tvHtml = findViewById(R.id.tvHtml);
         final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
         final Group grpReady = findViewById(R.id.grpReady);
 
@@ -118,10 +116,7 @@ public class ActivityEML extends ActivityBase {
 
                     result.from = MessageHelper.formatAddresses(helper.getFrom());
                     result.to = MessageHelper.formatAddresses(helper.getTo());
-                    result.replyto = MessageHelper.formatAddresses(helper.getReply());
-                    result.cc = MessageHelper.formatAddresses(helper.getCc());
                     result.subject = helper.getSubject();
-                    result.headers = HtmlHelper.highlightHeaders(context, helper.getHeaders());
 
                     MessageHelper.MessageParts parts = helper.getMessageParts();
 
@@ -129,20 +124,18 @@ public class ActivityEML extends ActivityBase {
                     for (MessageHelper.AttachmentPart apart : parts.getAttachmentParts()) {
                         if (sb.length() > 0)
                             sb.append("<br>");
-                        sb.append(apart.part.getContentType());
+                        ContentType ct = new ContentType(apart.part.getContentType());
+                        sb.append(ct.getBaseType().toLowerCase(Locale.ROOT));
                         if (apart.disposition != null)
                             sb.append(' ').append(apart.disposition);
                         if (apart.filename != null)
                             sb.append(' ').append(apart.filename);
                     }
-                    result.parts = HtmlHelper.fromHtml(sb.toString());
+                    result.attachments = HtmlHelper.fromHtml(sb.toString());
 
-                    result.html = parts.getHtml(context);
-                    if (result.html != null) {
-                        result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, result.html, false));
-                        if (result.html.length() > 100 * 1024)
-                            result.html = null;
-                    }
+                    String html = parts.getHtml(context);
+                    if (html != null)
+                        result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, html, false));
 
                     return result;
                 }
@@ -152,13 +145,9 @@ public class ActivityEML extends ActivityBase {
             protected void onExecuted(Bundle args, Result result) {
                 tvFrom.setText(result.from);
                 tvTo.setText(result.to);
-                tvReplyTo.setText(result.replyto);
-                tvCc.setText(result.cc);
                 tvSubject.setText(result.subject);
-                tvHeaders.setText(result.headers);
-                tvParts.setText(result.parts);
+                tvAttachments.setText(result.attachments);
                 tvBody.setText(result.body);
-                tvHtml.setText(result.html);
                 grpReady.setVisibility(View.VISIBLE);
             }
 
@@ -205,6 +194,7 @@ public class ActivityEML extends ActivityBase {
                 adapter.addAll(accounts);
 
                 new AlertDialog.Builder(ActivityEML.this)
+                        .setTitle(R.string.title_save_eml)
                         .setAdapter(adapter, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -289,12 +279,8 @@ public class ActivityEML extends ActivityBase {
     private class Result {
         String from;
         String to;
-        String replyto;
-        String cc;
         String subject;
-        Spanned headers;
-        Spanned parts;
+        Spanned attachments;
         Spanned body;
-        String html;
     }
 }
