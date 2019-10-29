@@ -202,6 +202,7 @@ public class FragmentCompose extends FragmentBase {
     private Uri photoURI = null;
 
     private OpenPgpServiceConnection pgpService;
+    private String[] pgpUserIds;
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
 
@@ -1250,12 +1251,12 @@ public class FragmentCompose extends FragmentBase {
                 if (ato.length == 0)
                     throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
-                String[] tos = new String[ato.length];
+                pgpUserIds = new String[ato.length];
                 for (int i = 0; i < ato.length; i++)
-                    tos[i] = ato[i].getAddress().toLowerCase(Locale.ROOT);
+                    pgpUserIds[i] = ato[i].getAddress().toLowerCase(Locale.ROOT);
 
                 Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
-                intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, tos);
+                intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
                 onPgp(intent);
             } catch (Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
@@ -1641,11 +1642,16 @@ public class FragmentCompose extends FragmentBase {
                                     return null;
 
                                 // Get encrypt key
-                                Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
-                                intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpKeyIds[0]);
-                                intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                                return intent;
-                            } else if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
+                                if (pgpKeyIds.length == 1) {
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
+                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpKeyIds[0]);
+                                    intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                    return intent;
+                                }
+                            }
+
+                            if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
+                                    (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction()) && pgpKeyIds.length > 1)) {
                                 if (identity.sign_key != null) {
                                     // Encrypt message
                                     Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
@@ -1655,7 +1661,9 @@ public class FragmentCompose extends FragmentBase {
                                     return intent;
                                 } else {
                                     // Get sign key
-                                    return new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                                    intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
+                                    return intent;
                                 }
                             } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
                                 pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
