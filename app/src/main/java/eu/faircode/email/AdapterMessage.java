@@ -793,7 +793,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ? R.drawable.baseline_edit_24
                     : EntityFolder.getIcon(outgoing ? EntityFolder.SENT : message.folderType));
             ivType.setVisibility(message.drafts > 0 ||
-                    (viewType == ViewType.UNIFIED && type == null && !inbox) ||
+                    (viewType == ViewType.UNIFIED && type == null && (!inbox || outgoing)) ||
                     (viewType == ViewType.FOLDER && outgoing && !EntityFolder.SENT.equals(message.folderType)) ||
                     (viewType == ViewType.THREAD && (outgoing || EntityFolder.SENT.equals(message.folderType))) ||
                     viewType == ViewType.SEARCH
