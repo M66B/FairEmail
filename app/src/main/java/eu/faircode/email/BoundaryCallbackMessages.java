@@ -181,20 +181,26 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             db.beginTransaction();
 
             while (found < pageSize && !state.destroyed) {
-                state.matches = db.message().matchMessages(
-                        folder,
-                        "%" + find + "%",
-                        seen, flagged, snoozed,
-                        SEARCH_LIMIT, state.offset);
-                Log.i("Boundary device folder=" + folder +
-                        " query=" + query +
-                        " seen=" + seen +
-                        " flagged=" + flagged +
-                        " snoozed=" + snoozed +
-                        " offset=" + state.offset +
-                        " size=" + state.matches.size());
-                if (state.matches.size() == 0)
-                    break;
+                if (state.matches == null ||
+                        (state.matches.size() > 0 && state.index >= state.matches.size())) {
+                    state.matches = db.message().matchMessages(
+                            folder,
+                            "%" + find + "%",
+                            seen, flagged, snoozed,
+                            SEARCH_LIMIT, state.offset);
+                    Log.i("Boundary device folder=" + folder +
+                            " query=" + query +
+                            " seen=" + seen +
+                            " flagged=" + flagged +
+                            " snoozed=" + snoozed +
+                            " offset=" + state.offset +
+                            " size=" + state.matches.size());
+                    if (state.matches.size() == 0)
+                        break;
+
+                    state.offset += Math.min(state.matches.size(), SEARCH_LIMIT);
+                    state.index = 0;
+                }
 
                 for (int i = state.index; i < state.matches.size() && found < pageSize && !state.destroyed; i++) {
                     state.index = i + 1;
@@ -223,8 +229,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         db.message().setMessageFound(match.account, match.thread);
                     }
                 }
-
-                state.offset += SEARCH_LIMIT;
             }
 
             db.setTransactionSuccessful();
