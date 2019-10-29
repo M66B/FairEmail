@@ -2730,6 +2730,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_select_all).setVisible(!outbox &&
                 (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER));
+        menu.findItem(R.id.menu_select_found).setVisible(viewType == AdapterMessage.ViewType.SEARCH);
         menu.findItem(R.id.menu_empty_trash).setVisible(
                 viewType == AdapterMessage.ViewType.FOLDER && EntityFolder.TRASH.equals(type));
         menu.findItem(R.id.menu_empty_spam).setVisible(
@@ -2820,6 +2821,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return true;
 
             case R.id.menu_select_all:
+            case R.id.menu_select_found:
                 onMenuSelectAll();
                 return true;
 
