@@ -458,6 +458,7 @@
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_edit_html">Edit as HTML</string>
+    <string name="title_sign_key">Sign key: %1$s</string>
     <string name="title_last_connected">Last connected: %1$s</string>
     <string name="title_pop_support">The POP3 protocol supports downloading and deleting messages from the inbox only. POP3 cannot mark messages as read, move messages, etc. POP3 will use more battery power and data than IMAP. So, consider using the IMAP protocol whenever possible.</string>
     <string name="title_activesync_support">ActiveSync is not supported</string>

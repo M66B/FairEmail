@@ -71,6 +71,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         private TextView tvHost;
         private ImageView ivState;
         private TextView tvAccount;
+        private TextView tvSignKeyId;
         private TextView tvLast;
         private TextView tvError;
 
@@ -88,6 +89,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvHost = itemView.findViewById(R.id.tvHost);
             ivState = itemView.findViewById(R.id.ivState);
             tvAccount = itemView.findViewById(R.id.tvAccount);
+            tvSignKeyId = itemView.findViewById(R.id.tvSignKeyId);
             tvLast = itemView.findViewById(R.id.tvLast);
             tvError = itemView.findViewById(R.id.tvError);
         }
@@ -123,6 +125,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             tvHost.setText(String.format("%s:%d", identity.host, identity.port));
             tvAccount.setText(identity.accountName);
+            tvSignKeyId.setText(identity.sign_key == null ? null
+                    : context.getString(R.string.title_sign_key, Long.toHexString(identity.sign_key)));
+            tvSignKeyId.setVisibility(identity.sign_key == null ? View.GONE : View.VISIBLE);
             tvLast.setText(context.getString(R.string.title_last_connected,
                     identity.last_connected == null ? "-" : DTF.format(identity.last_connected)));
 
