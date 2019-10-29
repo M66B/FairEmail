@@ -77,6 +77,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
     private State state;
 
+    private static final int SEARCH_LIMIT = 1000;
+
     interface IBoundaryCallbackMessages {
         void onLoading();
 
@@ -163,7 +165,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Boolean seen = null;
         Boolean flagged = null;
         Boolean snoozed = null;
-
         String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase(Locale.ROOT));
         if (find != null && find.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
             String special = find.split(":")[1];
@@ -173,49 +174,57 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 flagged = true;
             else if (context.getString(R.string.title_search_special_snoozed).equals(special))
                 snoozed = true;
-
-        }
-
-        if (state.matches == null) {
-            state.matches = db.message().matchMessages(folder, "%" + find + "%", seen, flagged, snoozed);
-            Log.i("Boundary device folder=" + folder +
-                    " query=" + query +
-                    " seen=" + seen +
-                    " flagged=" + flagged +
-                    " snoozed=" + snoozed +
-                    " matches=" + state.matches.size());
         }
 
         int found = 0;
         try {
             db.beginTransaction();
 
-            for (int i = state.index; i < state.matches.size() && found < pageSize && !state.destroyed; i++) {
-                state.index = i + 1;
+            while (found < pageSize && !state.destroyed) {
+                state.matches = db.message().matchMessages(
+                        folder,
+                        "%" + find + "%",
+                        seen, flagged, snoozed,
+                        SEARCH_LIMIT, state.offset);
+                Log.i("Boundary device folder=" + folder +
+                        " query=" + query +
+                        " seen=" + seen +
+                        " flagged=" + flagged +
+                        " snoozed=" + snoozed +
+                        " offset=" + state.offset +
+                        " size=" + state.matches.size());
+                if (state.matches.size() == 0)
+                    break;
 
-                TupleMatch match = state.matches.get(i);
+                for (int i = state.index; i < state.matches.size() && found < pageSize && !state.destroyed; i++) {
+                    state.index = i + 1;
 
-                if (find == null || seen != null || flagged != null || snoozed != null)
-                    match.matched = true;
-                else {
-                    if (match.matched == null || !match.matched)
-                        try {
-                            File file = EntityMessage.getFile(context, match.id);
-                            if (file.exists()) {
-                                String html = Helper.readText(file);
-                                String text = HtmlHelper.getText(html);
-                                if (text.toLowerCase(Locale.ROOT).contains(find))
-                                    match.matched = true;
+                    TupleMatch match = state.matches.get(i);
+
+                    if (find == null || seen != null || flagged != null || snoozed != null)
+                        match.matched = true;
+                    else {
+                        if (match.matched == null || !match.matched)
+                            try {
+                                File file = EntityMessage.getFile(context, match.id);
+                                if (file.exists()) {
+                                    String html = Helper.readText(file);
+                                    String text = HtmlHelper.getText(html);
+                                    if (text.toLowerCase(Locale.ROOT).contains(find))
+                                        match.matched = true;
+                                }
+                            } catch (IOException ex) {
+                                Log.e(ex);
                             }
-                        } catch (IOException ex) {
-                            Log.e(ex);
-                        }
+                    }
+
+                    if (match.matched != null && match.matched) {
+                        found++;
+                        db.message().setMessageFound(match.account, match.thread);
+                    }
                 }
 
-                if (match.matched != null && match.matched) {
-                    found++;
-                    db.message().setMessageFound(match.account, match.thread);
-                }
+                state.offset += SEARCH_LIMIT;
             }
 
             db.setTransactionSuccessful();
@@ -514,6 +523,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean destroyed = false;
         boolean error = false;
         int index = 0;
+        int offset = 0;
         List<TupleMatch> matches = null;
 
         MailService iservice = null;

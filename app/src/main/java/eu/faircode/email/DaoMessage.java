@@ -234,8 +234,9 @@ public interface DaoMessage {
             "  WHEN 0 THEN message.ui_snoozed IS NULL" +
             "  WHEN 1 THEN message.ui_snoozed IS NOT NULL" +
             "  ELSE 1 END" + // NULL: true
-            " ORDER BY message.received DESC")
-    List<TupleMatch> matchMessages(Long folder, String find, Boolean seen, Boolean flagged, Boolean snoozed);
+            " ORDER BY message.received DESC" +
+            " LIMIT :limit OFFSET :offset")
+    List<TupleMatch> matchMessages(Long folder, String find, Boolean seen, Boolean flagged, Boolean snoozed, int limit, int offset);
 
     @Query("SELECT id" +
             " FROM message" +
