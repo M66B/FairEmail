@@ -4030,19 +4030,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     String html = parts.getHtml(context);
                                     Helper.writeText(message.getFile(context), html);
 
-                                    // Remove previously decrypted attachments
+                                    // Remove attachments
                                     for (EntityAttachment local : attachments)
-                                        if (local.encryption == null)
-                                            db.attachment().deleteAttachment(local.id);
-
-                                    int sequence = db.attachment().getAttachmentSequence(id);
+                                        db.attachment().deleteAttachment(local.id);
 
                                     // Add decrypted attachments
                                     List<EntityAttachment> remotes = parts.getAttachments();
                                     for (int index = 0; index < remotes.size(); index++) {
                                         EntityAttachment remote = remotes.get(index);
                                         remote.message = id;
-                                        remote.sequence = ++sequence;
+                                        remote.sequence = index + 1;
                                         remote.id = db.attachment().insertAttachment(remote);
                                         try {
                                             parts.downloadAttachment(context, index, remote);

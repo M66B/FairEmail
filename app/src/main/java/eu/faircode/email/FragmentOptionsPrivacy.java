@@ -48,12 +48,13 @@ import androidx.preference.PreferenceManager;
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDisableTracking;
     private SwitchCompat swDisplayHidden;
+    private SwitchCompat swAutoDecrypt;
     private SwitchCompat swNoHistory;
     private Spinner spBiometricsTimeout;
     private Button btnPin;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "disable_tracking", "display_hidden", "no_history", "biometrics_timeout"
+            "disable_tracking", "display_hidden", "auto_decrypt", "no_history", "biometrics_timeout"
     };
 
     @Override
@@ -68,6 +69,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
+        swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swNoHistory = view.findViewById(R.id.swNoHistory);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         btnPin = view.findViewById(R.id.btnPin);
@@ -89,6 +91,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("display_hidden", checked).apply();
+            }
+        });
+
+        swAutoDecrypt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_decrypt", checked).apply();
             }
         });
 
@@ -169,6 +178,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
+        swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
         swNoHistory.setChecked(prefs.getBoolean("no_history", false));
 
         int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);

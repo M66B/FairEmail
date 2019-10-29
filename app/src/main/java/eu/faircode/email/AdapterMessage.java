@@ -1409,7 +1409,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // Check for inline encryption
                     int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
                     int end = body.indexOf(Helper.PGP_END_MESSAGE);
-                    args.putBoolean("iencrypted", begin >= 0 && begin < end);
+                    args.putBoolean("inline_encrypted", begin >= 0 && begin < end);
 
                     // Check for images
                     boolean has_images = false;
@@ -1518,7 +1518,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected void onExecuted(Bundle args, Object result) {
                     TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                    properties.setValue("iencrypted", message.id, args.getBoolean("iencrypted"));
+                    properties.setValue("inline_encrypted", message.id, args.getBoolean("inline_encrypted"));
 
                     TupleMessageEx amessage = getMessage();
                     if (amessage == null || !amessage.id.equals(message.id))
@@ -1567,9 +1567,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             grpAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
-            boolean iencrypted = properties.getValue("iencrypted", message.id);
             boolean show_inline = properties.getValue("inline", message.id);
-            Log.i("Show inline=" + show_inline);
+            boolean inline_encrypted = properties.getValue("inline_encrypted", message.id);
+            Log.i("Show inline=" + show_inline + " encrypted=" + inline_encrypted);
 
             boolean has_inline = false;
             boolean is_encrypted = false;
@@ -1620,7 +1620,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
-            ibDecrypt.setVisibility(iencrypted || is_encrypted ? View.VISIBLE : View.GONE);
+            ibDecrypt.setVisibility(inline_encrypted || is_encrypted ? View.VISIBLE : View.GONE);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
+            if (auto_decrypt && is_encrypted)
+                onActionDecrypt(message);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override

@@ -320,6 +320,7 @@
 
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
+    <string name="title_advanced_auto_decrypt">Automatically decrypt messages</string>
     <string name="title_advanced_recents">Hide FairEmail from screen with recent apps</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_pin">PIN</string>
