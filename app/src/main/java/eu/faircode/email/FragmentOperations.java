@@ -114,7 +114,7 @@ public class FragmentOperations extends FragmentBase {
                 onMenuHelp();
                 return true;
             case R.id.menu_delete:
-                new DialogDelete().show(getParentFragmentManager(), "operations:delete");
+                new FragmentDialogDelete().show(getParentFragmentManager(), "operations:delete");
                 return true;
 
             default:
@@ -126,7 +126,7 @@ public class FragmentOperations extends FragmentBase {
         Helper.viewFAQ(getContext(), 3);
     }
 
-    public static class DialogDelete extends FragmentDialogBase {
+    public static class FragmentDialogDelete extends FragmentDialogBase {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
