@@ -2514,7 +2514,8 @@ public class FragmentCompose extends FragmentBase {
                             }
                     }
 
-                    EntityOperation.queue(context, data.draft, EntityOperation.ADD);
+                    if (data.draft.encrypt == null || !data.draft.encrypt)
+                        EntityOperation.queue(context, data.draft, EntityOperation.ADD);
                 } else {
                     if (data.draft.content) {
                         File file = data.draft.getFile(context);
@@ -2782,7 +2783,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.ui_hide = ui_hide;
                         db.message().updateMessage(draft);
 
-                        if (draft.content)
+                        if (draft.content && (draft.encrypt == null || !draft.encrypt))
                             EntityOperation.queue(context, draft, EntityOperation.ADD);
                     }
 
@@ -2962,7 +2963,8 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
                         if (BuildConfig.DEBUG || dirty)
-                            EntityOperation.queue(context, draft, EntityOperation.ADD);
+                            if (draft.encrypt == null || !draft.encrypt)
+                                EntityOperation.queue(context, draft, EntityOperation.ADD);
 
                         if (action == R.id.action_check) {
                             // Check data
