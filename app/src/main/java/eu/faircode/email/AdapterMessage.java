@@ -1625,7 +1625,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
             if (auto_decrypt && is_encrypted)
-                onActionDecrypt(message);
+                onActionDecrypt(message, true);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -1973,7 +1973,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         onActionUnsubscribe(message);
                         break;
                     case R.id.ibDecrypt:
-                        onActionDecrypt(message);
+                        onActionDecrypt(message, false);
                         break;
 
                     case R.id.ibDownloading:
@@ -2650,11 +2650,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             onOpenLink(uri, context.getString(R.string.title_legend_show_unsubscribe));
         }
 
-        private void onActionDecrypt(TupleMessageEx message) {
+        private void onActionDecrypt(TupleMessageEx message, boolean auto) {
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(FragmentMessages.ACTION_DECRYPT)
-                            .putExtra("id", message.id));
+                            .putExtra("id", message.id)
+                            .putExtra("auto", auto));
         }
 
         private void onActionReplyMenu(TupleMessageEx message) {

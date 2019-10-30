@@ -3746,7 +3746,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             Intent data = new Intent();
             data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
 
-            onDecrypt(data, intent.getLongExtra("id", -1));
+            long id = intent.getLongExtra("id", -1);
+            boolean auto = intent.getBooleanExtra("auto", false);
+
+            onDecrypt(data, id, auto);
         } else
             Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG).show();
     }
@@ -3763,7 +3766,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     break;
                 case REQUEST_DECRYPT:
                     if (resultCode == RESULT_OK && data != null)
-                        onDecrypt(data, message);
+                        onDecrypt(data, message, false);
                     break;
                 case REQUEST_MESSAGE_DELETE:
                     if (resultCode == RESULT_OK && data != null)
@@ -3926,16 +3929,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "raw:save");
     }
 
-    private void onDecrypt(Intent data, long id) {
+    private void onDecrypt(Intent data, long id, boolean auto) {
         Bundle args = new Bundle();
         args.putLong("id", id);
         args.putParcelable("data", data);
+        args.putBoolean("auto", auto);
 
         new SimpleTask<PendingIntent>() {
             @Override
             protected PendingIntent onExecute(Context context, Bundle args) throws Throwable {
                 // Get arguments
                 long id = args.getLong("id");
+                boolean auto = args.getBoolean("auto");
                 Intent data = args.getParcelable("data");
 
                 DB db = DB.getInstance(context);
@@ -3980,8 +3985,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
-                if (in == null)
+                if (in == null) {
+                    if (auto)
+                        return null;
                     throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
+                }
 
                 Intent result;
                 File plain = File.createTempFile("plain", "." + id, context.getCacheDir());
@@ -4069,6 +4077,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             break;
 
                         case OpenPgpApi.RESULT_CODE_USER_INTERACTION_REQUIRED:
+                            if (auto)
+                                return null;
                             FragmentMessages.this.message = id;
                             return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
