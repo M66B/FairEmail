@@ -38,6 +38,7 @@ import com.sun.mail.imap.protocol.IMAPResponse;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -332,7 +333,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                                 } else {
                                     if (!protocol.supportsUtf8()) {
                                         arg.writeAtom("CHARSET");
-                                        arg.writeAtom("UTF-8");
+                                        arg.writeAtom(StandardCharsets.UTF_8.name());
                                     }
                                     if (keywords)
                                         arg.writeAtom("OR");

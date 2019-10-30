@@ -122,6 +122,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -4583,7 +4584,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 });
 
-                printWebView.loadDataWithBaseURL("about:blank", data[1], "text/html", "UTF-8", null);
+                printWebView.loadDataWithBaseURL("about:blank", data[1], "text/html", StandardCharsets.UTF_8.name(), null);
             }
 
             @Override

@@ -128,6 +128,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -1536,11 +1537,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         tvBody.setTextIsSelectable(true);
                         tvBody.setMovementMethod(new TouchHandler(message));
                     } else if (result instanceof String)
-                        ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", "UTF-8", null);
+                        ((WebView) wvBody).loadDataWithBaseURL(null, (String) result, "text/html", StandardCharsets.UTF_8.name(), null);
                     else if (result == null) {
                         boolean show_full = args.getBoolean("show_full");
                         if (show_full)
-                            ((WebView) wvBody).loadDataWithBaseURL(null, "", "text/html", "UTF-8", null);
+                            ((WebView) wvBody).loadDataWithBaseURL(null, "", "text/html", StandardCharsets.UTF_8.name(), null);
                         else
                             tvBody.setText(null);
                     } else

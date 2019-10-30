@@ -57,7 +57,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutorService;
@@ -67,6 +70,8 @@ import java.util.concurrent.TimeUnit;
 class ImageHelper {
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "image");
+
+    private static final int MAX_REDIRECTS = 10;
 
     static Bitmap generateIdenticon(@NonNull String email, int size, int pixels, Context context) {
         byte[] hash = getHash(email);
@@ -346,7 +351,43 @@ class ImageHelper {
                         }
 
                         Bitmap bm;
-                        try (BufferedInputStream is = new BufferedInputStream(new URL(a.source).openStream())) {
+                        HttpURLConnection urlConnection = null;
+                        try {
+                            String url = a.source;
+                            int redirects = 0;
+                            while (true) {
+                                urlConnection = (HttpURLConnection) new URL(url).openConnection();
+                                urlConnection.setRequestMethod("GET");
+                                urlConnection.setDoOutput(false);
+                                urlConnection.setInstanceFollowRedirects(true);
+                                urlConnection.connect();
+
+                                int status = urlConnection.getResponseCode();
+
+                                if (status == HttpURLConnection.HTTP_MOVED_PERM ||
+                                        status == HttpURLConnection.HTTP_MOVED_TEMP) {
+                                    redirects++;
+                                    if (redirects > MAX_REDIRECTS)
+                                        throw new IOException("Too many redirects");
+
+                                    String location = URLDecoder.decode(
+                                            urlConnection.getHeaderField("Location"),
+                                            StandardCharsets.UTF_8.name());
+                                    url = new URL(new URL(url), location).toExternalForm();
+                                    Log.i("Redirect #" + redirects + " to " + url);
+
+                                    urlConnection.disconnect();
+                                    continue;
+                                }
+
+                                if (status != HttpURLConnection.HTTP_OK)
+                                    throw new IOException("http " + status);
+
+                                break;
+                            }
+
+                            BufferedInputStream is = new BufferedInputStream(urlConnection.getInputStream());
+
                             Log.i("Probe " + a.source);
                             is.mark(8192);
                             BitmapFactory.Options options = new BitmapFactory.Options();
@@ -366,6 +407,9 @@ class ImageHelper {
                                 bm = BitmapFactory.decodeStream(is, null, options);
                             } else
                                 bm = BitmapFactory.decodeStream(is);
+                        } finally {
+                            if (urlConnection != null)
+                                urlConnection.disconnect();
                         }
 
                         if (bm == null)
