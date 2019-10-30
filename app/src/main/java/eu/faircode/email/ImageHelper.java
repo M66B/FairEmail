@@ -50,12 +50,12 @@ import androidx.core.graphics.ColorUtils;
 import androidx.exifinterface.media.ExifInterface;
 import androidx.preference.PreferenceManager;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -345,23 +345,22 @@ class ImageHelper {
                             return;
                         }
 
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        Log.i("Probe " + a.source);
-                        try (InputStream probe = new URL(a.source).openStream()) {
-                            options.inJustDecodeBounds = true;
-                            BitmapFactory.decodeStream(probe, null, options);
-                        }
-
-                        Log.i("Download " + a.source);
                         Bitmap bm;
-                        try (InputStream is = new URL(a.source).openStream()) {
+                        try (BufferedInputStream is = new BufferedInputStream(new URL(a.source).openStream())) {
+                            Log.i("Probe " + a.source);
+                            is.mark(8192);
+                            BitmapFactory.Options options = new BitmapFactory.Options();
+                            options.inJustDecodeBounds = true;
+                            BitmapFactory.decodeStream(is, null, options);
+
                             int scaleTo = res.getDisplayMetrics().widthPixels;
                             int factor = 1;
                             while (options.outWidth / factor > scaleTo)
                                 factor *= 2;
 
+                            Log.i("Download " + a.source + " factor=" + factor);
+                            is.reset();
                             if (factor > 1) {
-                                Log.i("Download image factor=" + factor);
                                 options.inJustDecodeBounds = false;
                                 options.inSampleSize = factor;
                                 bm = BitmapFactory.decodeStream(is, null, options);
