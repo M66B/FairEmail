@@ -353,10 +353,10 @@ class ImageHelper {
                         Bitmap bm;
                         HttpURLConnection urlConnection = null;
                         try {
-                            String url = a.source;
                             int redirects = 0;
+                            URL url = new URL(a.source);
                             while (true) {
-                                urlConnection = (HttpURLConnection) new URL(url).openConnection();
+                                urlConnection = (HttpURLConnection) url.openConnection();
                                 urlConnection.setRequestMethod("GET");
                                 urlConnection.setDoOutput(false);
                                 urlConnection.setInstanceFollowRedirects(true);
@@ -366,14 +366,13 @@ class ImageHelper {
 
                                 if (status == HttpURLConnection.HTTP_MOVED_PERM ||
                                         status == HttpURLConnection.HTTP_MOVED_TEMP) {
-                                    redirects++;
-                                    if (redirects > MAX_REDIRECTS)
+                                    if (++redirects > MAX_REDIRECTS)
                                         throw new IOException("Too many redirects");
 
                                     String location = URLDecoder.decode(
                                             urlConnection.getHeaderField("Location"),
                                             StandardCharsets.UTF_8.name());
-                                    url = new URL(new URL(url), location).toExternalForm();
+                                    url = new URL(url, location);
                                     Log.i("Redirect #" + redirects + " to " + url);
 
                                     urlConnection.disconnect();
@@ -381,7 +380,7 @@ class ImageHelper {
                                 }
 
                                 if (status != HttpURLConnection.HTTP_OK)
-                                    throw new IOException("http " + status);
+                                    throw new IOException("HTTP status=" + status);
 
                                 break;
                             }
