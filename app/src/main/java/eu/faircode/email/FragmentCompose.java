@@ -1243,17 +1243,25 @@ public class FragmentCompose extends FragmentBase {
         onAction(R.id.action_check, extras);
     }
 
-    private void onEncrypt() {
+    private void onEncrypt(EntityMessage draft) {
         if (pgpService.isBound())
             try {
-                String to = etTo.getText().toString();
-                InternetAddress ato[] = (TextUtils.isEmpty(to) ? new InternetAddress[0] : InternetAddress.parse(to));
-                if (ato.length == 0)
+                List<Address> recipients = new ArrayList<>();
+                if (draft.to != null)
+                    recipients.addAll(Arrays.asList(draft.to));
+                if (draft.cc != null)
+                    recipients.addAll(Arrays.asList(draft.cc));
+                if (draft.bcc != null)
+                    recipients.addAll(Arrays.asList(draft.bcc));
+
+                if (recipients.size() == 0)
                     throw new IllegalArgumentException(getString(R.string.title_to_missing));
 
-                pgpUserIds = new String[ato.length];
-                for (int i = 0; i < ato.length; i++)
-                    pgpUserIds[i] = ato[i].getAddress().toLowerCase(Locale.ROOT);
+                pgpUserIds = new String[recipients.size()];
+                for (int i = 0; i < recipients.size(); i++) {
+                    InternetAddress recipient = (InternetAddress) recipients.get(i);
+                    pgpUserIds[i] = recipient.getAddress().toLowerCase(Locale.ROOT);
+                }
 
                 Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                 intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
@@ -1336,8 +1344,8 @@ public class FragmentCompose extends FragmentBase {
                         onActionDiscardConfirmed();
                     break;
                 case REQUEST_SEND:
-                    if (resultCode == RESULT_OK && data != null)
-                        onActionSend(data.getBundleExtra("args"));
+                    if (resultCode == RESULT_OK)
+                        onActionSend();
                     break;
             }
         } catch (Throwable ex) {
@@ -1863,9 +1871,36 @@ public class FragmentCompose extends FragmentBase {
         onAction(R.id.action_delete);
     }
 
-    private void onActionSend(Bundle data) {
-        if (data.getBoolean("encrypt"))
-            onEncrypt();
+    private void onActionSend() {
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                return db.message().getMessage(id);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (draft != null)
+                    onActionSend(draft);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "draft:get");
+
+    }
+
+    private void onActionSend(EntityMessage draft) {
+        if (draft.encrypt != null && draft.encrypt)
+            onEncrypt(draft);
         else
             onAction(R.id.action_send);
     }
@@ -3120,12 +3155,8 @@ public class FragmentCompose extends FragmentBase {
                     fragment.setArguments(args);
                     fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
                     fragment.show(getParentFragmentManager(), "compose:send");
-                } else {
-                    if (encrypt)
-                        onEncrypt();
-                    else
-                        onAction(R.id.action_send);
-                }
+                } else
+                    onActionSend(draft);
 
             } else if (action == R.id.action_send) {
                 autosave = false;
@@ -3739,7 +3770,6 @@ public class FragmentCompose extends FragmentBase {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            getArguments().putBoolean("encrypt", cbEncrypt.isChecked());
                             sendResult(Activity.RESULT_OK);
                         }
                     })
