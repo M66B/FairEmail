@@ -288,6 +288,7 @@
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
+    <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
     <string name="title_advanced_recents">Ascunde din ecranul cu aplicații recente</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_pin">PIN</string>
@@ -313,6 +314,7 @@
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
     <string name="title_advanced_metered_warning">Dezactivarea acestei opțiuni va opri primirea și trimiterea mesajelor pe conexiunile mobile de internet</string>
     <string name="title_advanced_rlah_hint">În zona UE nu se tratează ca roaming</string>
+    <string name="title_advanced_socks_hint">Este nesigură folosirea unui server proxy pentru că aceste conexiuni nu sunt criptate</string>
     <string name="title_advanced_roaming_hint">Antetele mesajelor vor fi mereu descărcate și în roaming. Puteți folosi setările roaming ale dispozitivului pentru a dezactiva internetul atunci când sunteți în roaming.</string>
     <string name="title_advanced_browse_hint">Descarcă mai multe mesaje când se derulează în jos</string>
     <string name="title_advanced_layout_hint">Selectarea unui aspect mai compact și mărimea textului se poate face din meniul paginii de mesaje</string>
@@ -401,6 +403,7 @@
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
+    <string name="title_sign_key">Cheie semnatură: %1$s</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_pop_support">Protocolul POP3 acceptă descărcarea și ștergerea mesajelor numai din căsuța de mesaje primite. POP3 nu poate marca mesajele drept citite, nu poate muta mesajele etc. POP3 va consuma mai multă baterie și date decât IMAP. Deci, luați în considerare utilizarea protocolului IMAP ori de câte ori este posibil.</string>
     <string name="title_activesync_support">ActiveSync nu este suportat</string>
@@ -489,6 +492,7 @@
     <string name="title_show_inline">Arată atașamentele integrate</string>
     <string name="title_download_all">Descarcă tot</string>
     <string name="title_save_all">Salvează tot</string>
+    <string name="title_save_eml">Salvează mesaj original în fișier</string>
     <string name="title_trash">Gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
     <string name="title_copy_to">Copiază în &#8230;</string>

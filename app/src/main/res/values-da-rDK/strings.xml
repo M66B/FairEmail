@@ -369,6 +369,7 @@
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Lad beskeder forblive på server</string>
     <string name="title_keep_alive_interval">Hold i live/hentningsinterval (minutter)</string>
+    <string name="title_partial_fetch">Delvis hentning</string>
     <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
     <string name="title_no_name">Navn mangler</string>
