@@ -555,12 +555,12 @@ To decrypt a received message, open the message and just tap the padlock icon ju
 The first time you send an encrypted message you might be asked for a sign key.
 FairEmail will automatically store the sign key ID in the selected identity for the next time.
 If you need to reset the sign key, just save the identity to clear the sign key ID again.
+The sign key is visible in the list of identities.
 
 You can enable *Encrypt by default* in the identity settings, which replaces *Send* by *Encrypt and send*.
+You can enable *Automatically decrypt messages* in the privacy settings, but be aware that automatic decryption is not possible if user interaction is required.
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for other email clients.
-Received messages will not be decrypted automatically because of privacy and security reasons and because often manual interaction is required.
-This allows you to decrypt messages at a privacy friendly place and on a privacy friendly time.
 
 The decrypted message text and decrypted attachments are stored. If you want to undo this, you can use the *resync* message 'more' menu.
 
