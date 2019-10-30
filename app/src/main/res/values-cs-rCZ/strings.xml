@@ -501,6 +501,7 @@
     <string name="title_show_inline">Zobrazit vložené přílohy</string>
     <string name="title_download_all">Stáhnout vše</string>
     <string name="title_save_all">Uložit vše</string>
+    <string name="title_save_eml">Uložit soubor zdrojové zprávy</string>
     <string name="title_trash">Koš</string>
     <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_copy_to">Kopírovat do &#8230;</string>
@@ -638,6 +639,7 @@
     <string name="title_compact">Kompaktní zobrazení</string>
     <string name="title_zoom">Velikost textu</string>
     <string name="title_select_all">Vybrat vše</string>
+    <string name="title_select_found">Vybrat nalezené</string>
     <string name="title_force_sync">Vynutit synchronizaci</string>
     <string name="title_previous">Předchozí</string>
     <string name="title_next">Další</string>
