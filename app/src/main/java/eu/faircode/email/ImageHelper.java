@@ -365,7 +365,10 @@ class ImageHelper {
                                 int status = urlConnection.getResponseCode();
 
                                 if (status == HttpURLConnection.HTTP_MOVED_PERM ||
-                                        status == HttpURLConnection.HTTP_MOVED_TEMP) {
+                                        status == HttpURLConnection.HTTP_MOVED_TEMP ||
+                                        status == HttpURLConnection.HTTP_SEE_OTHER ||
+                                        status == 307 /* Temporary redirect */ ||
+                                        status == 308 /* Permanent redirect */) {
                                     if (++redirects > MAX_REDIRECTS)
                                         throw new IOException("Too many redirects");
 
