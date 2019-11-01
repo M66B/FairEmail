@@ -209,19 +209,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuOrder(R.string.title_setup_reorder_folders, TupleFolderSort.class);
             }
-        });
+        }).setSeparated();
         menus.add(order);
-
-        if (Helper.canAuthenticate(this))
-            menus.add(new NavMenuItem(R.drawable.baseline_fingerprint_24, R.string.title_setup_authentication, new Runnable() {
-                @Override
-                public void run() {
-                    drawerLayout.closeDrawer(drawerContainer);
-                    onMenuBiometrics();
-                }
-            }).setSeparated());
-        else
-            order.setSeparated();
 
         menus.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
             @Override
@@ -421,32 +410,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("order");
         fragmentTransaction.commit();
-    }
-
-    private void onMenuBiometrics() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivitySetup.this);
-        final boolean biometrics = prefs.getBoolean("biometrics", false);
-        final boolean pro = ActivityBilling.isPro(this);
-
-        Helper.authenticate(this, biometrics, new Runnable() {
-            @Override
-            public void run() {
-                if (pro) {
-                    prefs.edit().putBoolean("biometrics", !biometrics).apply();
-                    ToastEx.makeText(ActivitySetup.this,
-                            biometrics
-                                    ? R.string.title_setup_biometrics_disable
-                                    : R.string.title_setup_biometrics_enable,
-                            Toast.LENGTH_LONG).show();
-                } else
-                    startActivity(new Intent(ActivitySetup.this, ActivityBilling.class));
-            }
-        }, new Runnable() {
-            @Override
-            public void run() {
-                // Do nothing
-            }
-        });
     }
 
     private void onMenuLegend() {

@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -46,6 +47,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -54,6 +56,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisplayHidden;
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swNoHistory;
+    private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
     private Button btnPin;
 
@@ -75,6 +78,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swNoHistory = view.findViewById(R.id.swNoHistory);
+        btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         btnPin = view.findViewById(R.id.btnPin);
 
@@ -113,6 +117,40 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        btnBiometrics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final boolean biometrics = prefs.getBoolean("biometrics", false);
+
+                Helper.authenticate(getActivity(), biometrics, new Runnable() {
+                    @Override
+                    public void run() {
+                        boolean pro = ActivityBilling.isPro(getContext());
+                        if (pro) {
+                            prefs.edit().putBoolean("biometrics", !biometrics).apply();
+                            btnBiometrics.setText(biometrics
+                                    ? R.string.title_setup_biometrics_disable
+                                    : R.string.title_setup_biometrics_enable);
+                        } else
+                            startActivity(new Intent(getContext(), ActivityBilling.class));
+                    }
+                }, new Runnable() {
+                    @Override
+                    public void run() {
+                        // Do nothing
+                    }
+                });
+            }
+        });
+
+        btnPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentDialogPin fragment = new FragmentDialogPin();
+                fragment.show(getParentFragmentManager(), "pin");
+            }
+        });
+
         spBiometricsTimeout.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -123,14 +161,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("biometrics_timeout").apply();
-            }
-        });
-
-        btnPin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentDialogPin fragment = new FragmentDialogPin();
-                fragment.show(getParentFragmentManager(), "pin");
             }
         });
 
@@ -192,6 +222,12 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 spBiometricsTimeout.setSelection(pos);
                 break;
             }
+
+        boolean biometrics = prefs.getBoolean("biometrics", false);
+        btnBiometrics.setText(biometrics
+                ? R.string.title_setup_biometrics_disable
+                : R.string.title_setup_biometrics_enable);
+        btnBiometrics.setEnabled(Helper.canAuthenticate(getContext()));
     }
 
     public static class FragmentDialogPin extends FragmentDialogBase {
