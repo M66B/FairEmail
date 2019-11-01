@@ -163,7 +163,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
             finishAndRemoveTask();
-            startActivity(new Intent(this, ActivityMain.class));
+            Intent main = new Intent(this, ActivityMain.class);
+            main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(main);
         }
     }
 
@@ -208,9 +210,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
             Intent intent = getIntent();
             finishAndRemoveTask();
-            startActivity(
-                    new Intent(this, ActivityMain.class)
-                            .putExtra("intent", intent));
+            Intent main = new Intent(this, ActivityMain.class)
+                    .putExtra("intent", intent);
+            main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(main);
         }
     }
 
