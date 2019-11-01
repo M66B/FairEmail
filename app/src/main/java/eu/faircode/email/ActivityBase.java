@@ -161,10 +161,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     public void onUserInteraction() {
         Log.i("User interaction");
 
-        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
-            finishAndRemoveTask();
-            startActivity(new Intent(this, ActivityMain.class));
-        }
+        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this))
+            restart(null);
     }
 
     @Override
@@ -205,13 +203,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     private void checkAuthentication() {
-        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
-            Intent intent = getIntent();
-            finishAndRemoveTask();
-            startActivity(
-                    new Intent(this, ActivityMain.class)
-                            .putExtra("intent", intent));
-        }
+        if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this))
+            restart(getIntent());
     }
 
     @Override
@@ -280,6 +273,15 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    protected void restart(Intent intent) {
+        Intent main = new Intent(this, ActivityMain.class);
+        if (intent != null)
+            main.putExtra("intent", intent);
+        main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(main);
+        finishAndRemoveTask();
     }
 
     protected boolean backHandled() {
