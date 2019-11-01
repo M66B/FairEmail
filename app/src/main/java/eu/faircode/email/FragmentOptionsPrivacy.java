@@ -25,17 +25,21 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -197,14 +201,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_pin_set, null);
             final EditText etPin = dview.findViewById(R.id.etPin);
 
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    etPin.requestFocus();
-                }
-            });
-
-            return new AlertDialog.Builder(getContext())
+            final Dialog dialog = new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -219,6 +216,41 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+
+            etPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+
+            etPin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus)
+                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                }
+            });
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etPin.requestFocus();
+                }
+            });
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etPin.requestFocus();
+                }
+            });
+
+            return dialog;
         }
     }
 }

@@ -53,6 +53,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -824,14 +825,7 @@ public class Helper {
             final View dview = LayoutInflater.from(activity).inflate(R.layout.dialog_pin_ask, null);
             final EditText etPin = dview.findViewById(R.id.etPin);
 
-            new Handler().post(new Runnable() {
-                @Override
-                public void run() {
-                    etPin.requestFocus();
-                }
-            });
-
-            AlertDialog dialog = new AlertDialog.Builder(activity)
+            final AlertDialog dialog = new AlertDialog.Builder(activity)
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -869,6 +863,21 @@ public class Helper {
                         return true;
                     } else
                         return false;
+                }
+            });
+
+            etPin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus)
+                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                }
+            });
+
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    etPin.requestFocus();
                 }
             });
 
