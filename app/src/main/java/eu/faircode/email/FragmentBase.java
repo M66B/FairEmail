@@ -116,7 +116,10 @@ public class FragmentBase extends Fragment {
     }
 
     protected void restart() {
-        ((ActivityBase) getActivity()).restart(null);
+        Intent intent = new Intent(getContext(), ActivityMain.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        Runtime.getRuntime().exit(0);
     }
 
     @Override
