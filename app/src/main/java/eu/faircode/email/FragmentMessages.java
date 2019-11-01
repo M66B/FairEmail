@@ -4039,9 +4039,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     String html = parts.getHtml(context);
                                     Helper.writeText(message.getFile(context), html);
 
-                                    // Remove attachments
-                                    for (EntityAttachment local : attachments)
-                                        db.attachment().deleteAttachment(local.id);
+                                    // Remove existing attachments
+                                    db.attachment().deleteAttachments(id);
 
                                     // Add decrypted attachments
                                     List<EntityAttachment> remotes = parts.getAttachments();

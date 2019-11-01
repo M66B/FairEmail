@@ -103,4 +103,8 @@ public interface DaoAttachment {
     @Query("DELETE FROM attachment" +
             " WHERE id = :id")
     int deleteAttachment(long id);
+
+    @Query("DELETE FROM attachment" +
+            " WHERE message = :message")
+    int deleteAttachments(long message);
 }
