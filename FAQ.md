@@ -2118,9 +2118,8 @@ Disabling *Partial fetch* will result in more memory usage.
 OAuth is supported for Gmail via the quick setup wizard.
 The Android account manager will be used to fetch and refresh OAuth tokens for the selected account.
 
-Outlook, Live and Hotmail do not support OAuth for IMAP/SMTP connections:
-"*[We don't support OAuth for IMAP access to Office 365 and we have no plans to do so](https://stackoverflow.com/a/29747829/1794097)*".
-So much about open standards ...
+Outlook, Live and Hotmail do not yet support OAuth for IMAP/SMTP connections, but
+"*[We are actively working on OAuth support for IMAP connections to O365 mailboxes. We will make a public announcement once the same is available.](https://stackoverflow.com/a/58072053)*" (September 24, 2019).
 
 <br />
 
