@@ -1145,7 +1145,7 @@ class Core {
             EntityOperation.queue(context, message, EntityOperation.ADD);
         else {
             long uid = ifolder.getUID(imessages[0]);
-            EntityOperation.queue(context, message, EntityOperation.FETCH, uid);
+            EntityOperation.queue(context, folder, EntityOperation.FETCH, uid);
         }
     }
 
