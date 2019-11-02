@@ -281,12 +281,14 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_notify_action_seen">Pročitaj</string>
     <string name="title_advanced_notify_action_snooze">Utišaj</string>
     <string name="title_advanced_notify_remove">Uklonite novu obavijest o poruci dodirom na obavijest</string>
+    <string name="title_advanced_notify_clear">Ukloni nove obavijesti pri pregledavanju popisa poruka</string>
     <string name="title_advanced_wearable_preview">Nosivim uređajima slati samo obavijesti s pregledom poruke</string>
     <string name="title_advanced_biometrics_notify">Prikažite sadržaj obavijesti kada koristite biometrijsku provjeru autentičnosti</string>
     <string name="title_advanced_light">Koristi LED za obavijesti</string>
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_display_hidden">Prikaži skrivene tekstove poruka</string>
+    <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
     <string name="title_advanced_recents">Sakrij sa zaslona s nedavnim aplikacijama</string>
     <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
     <string name="title_advanced_pin">PIN</string>
@@ -297,6 +299,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_crash_reports">Pošalji izvješća o pogrešci</string>
     <string name="title_advanced_debug">Modus za lakše pronalaženje pogrešaka (debug)</string>
     <string name="title_advanced_cleanup">Čišćenje</string>
+    <string name="title_advanced_hint">Sve postavke imaju razumne zadane vrijednosti, koje bi trebalo mijenjati samo ako je potrebno</string>
     <string name="title_advanced_enabled_hint">Globalno onemogućiti ili omogućiti primanje poruka</string>
     <string name="title_advanced_manual_hint">Ako je sinkronizacija onemogućena, još uvijek je moguće ručno usklađivanje povlačenjem popisa poruka prema dolje. To će sinkronizirati poruke i izvršavati operacije na ograničeno vrijeme.</string>
     <string name="title_advanced_poll_hint">Periodično sinkroniziranje će svaki put usporediti lokalne i udaljene poruke, što je skupa operacija koja može rezultirati dodatnom potrošnjom baterije, pogotovo ako postoji puno poruka za sinkronizaciju. Uvijek sinkroniziranje će ovo izbjeći neprekidnim nadgledanjem isključivo promjena.</string>
@@ -311,6 +314,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_metered_hint">Mjerne veze su obično mobilne veze ili plaćene Wi-Fi pristupne točke</string>
     <string name="title_advanced_metered_warning">Onemogućivanjem ove opcije onemogućit ćete primanje i slanje poruka na mobilnim internetskim vezama</string>
     <string name="title_advanced_rlah_hint">Ne pretpostavljajući roaming unutar EU</string>
+    <string name="title_advanced_socks_hint">Upotreba udaljenog proxy poslužitelja nije sigurna jer proxy veze nisu šifrirane</string>
     <string name="title_advanced_roaming_hint">Zaglavlja poruka uvijek će se prikazivane prilikom roaminga. Postavku roaminga uređaja možete koristiti da biste onemogućili internet tijekom roaminga.</string>
     <string name="title_advanced_browse_hint">Dohvatite više poruka prilikom pomicanja prema dolje</string>
     <string name="title_advanced_layout_hint">Prebacivanje na kompaktniji izgled i promjena veličine teksta poruke može se izvršiti u izborniku gornje radne trake u prikazu poruka</string>
@@ -399,6 +403,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_account_delete">Želite li trajno izbrisati ovaj račun?</string>
     <string name="title_identity_delete">Želite li trajno izbrisati ovaj identitet?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
+    <string name="title_sign_key">Potpiši ključ: %1$s</string>
     <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
     <string name="title_pop_support">POP3 protokol podržava preuzimanje i brisanje poruka samo iz pristigle pošte. POP3 ne može označiti poruke kao pročitane, premjestiti poruke itd. POP3 će trošiti energije baterije i više podataka nego IMAP. Dakle, razmislite o korištenju protokola IMAP kad god je to moguće.</string>
     <string name="title_activesync_support">ActiveSync nije podržan</string>
@@ -425,6 +430,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_delete_operation">Brisanje operacija s porukom o pogrešci?</string>
     <string name="title_delete_contacts">Želite li izbrisati sve lokalne kontakte?</string>
     <string name="title_no_operations">Nema operacija na čekanju</string>
+    <string name="title_hint_operations">Brisanje operacija može rezultirati nestankom poruka i problemima sa sinkronizacijom</string>
     <string name="title_folder_name">Naziv mape</string>
     <string name="title_display_name">Prikaži ime</string>
     <string name="title_show_folders">Prikaži skrivene mape</string>
@@ -487,6 +493,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_show_inline">Prikaži umetnute priloge</string>
     <string name="title_download_all">Preuzmi sve</string>
     <string name="title_save_all">Spremi sve</string>
+    <string name="title_save_eml">Spremi sirovu datoteku poruke</string>
     <string name="title_trash">Otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj u &#8230;</string>
@@ -624,6 +631,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_compact">Kompaktni pregled</string>
     <string name="title_zoom">Veličina teksta</string>
     <string name="title_select_all">Odaberi sve</string>
+    <string name="title_select_found">Odaberi pronađene poruke</string>
     <string name="title_force_sync">Prisili sinkroniziranje</string>
     <string name="title_previous">Prethodno</string>
     <string name="title_next">Sljedeće</string>
@@ -772,6 +780,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_hint_message_selection">Dugo pritisnite poruku za početak odabiranja više poruka; Držite i prelazite prstom prema gore ili dolje da biste odabrali više poruka</string>
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
     <string name="title_hint_contact_actions">Dugo pritisni za opcije</string>
+    <string name="title_hint_eml">Ovo je sažetak sadržaja neobrađene datoteke poruke. Spremite neobrađenu poruku s ikonom za spremanje na radnoj traci da biste pregledali sav sadržaj.</string>
     <string name="title_open_link">Otvori link</string>
     <string name="title_different_link">Naslov i adresa veze su različiti</string>
     <string name="title_secure_link">Osiguraj vezu</string>

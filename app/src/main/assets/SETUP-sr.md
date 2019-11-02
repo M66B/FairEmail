@@ -4,38 +4,38 @@
 
 ## Захтеви
 
-An internet connection is required to set up accounts and identities.
+За поставку налога и идентитета је потреба интернет конекција.
 
 ## Брзо подешавање
 
-Just enter your name, email address and password and tap *Go*.
+Само унесите Ваше име, е-мејл адресу и лозинку и кликните *Напред*.
 
-This will work for most major email providers.
+Ово ће радити за већину провајдера.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Ако брзо подешавање не ради, можете подесити налог и идентетит на други начин, видите испод за упутства.
 
 ## Подесите налог - да примате поруке
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Да додате налог, кликните *Управљање налозима* и кликните на наранџасто *додај* дугме на дну. Одаберите провајдера са листе, унесите корисничко име, што је обично Ваша е-мејл адреса и унесите лозинку. Кликните *Провери* да пустите FairEmail да проба да се повеже на е-мејл сервер и дохвати листу системских фасцикли. После одабира системских фасцикли, можете додати налог кликом на *Сачувај*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ако Ваш провајдер није на листи провајдера, одаберите *Произвољни*. Унесите име домена, нпр. *gmail.com* и кликните *Дохвати поставке*. Ако Ваш провајдер подржава [ауто-откривање](https://tools.ietf.org/html/rfc6186), FairEmail ће попунити име домаћина и број порта, а у супротном проверите упутства за подешавање Вашег провајдера за право име IMAP домаћина, број порта и протокол (SSL/TLS или STARTTLS). За више о овоме, погледајте [овде](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
 ## Подесите идентитет - да шаљете поруке
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Слично, да подесите идентитет, кликните *Управљање идентитетима* и кликните на наранџасто *додај* дугме на дну. Унесите име које желите да се појављује када други виде Ваш е-мејл и одаберите повезани налог. Кликните *Сачувај* да додате идентитет.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Ако је налог ручно подешен, вероватно ћете требати да подесите и идентитет ручно. Унесите име домена, нпр. *gmail.com* и кликните *Дохвати поставке*. Ако Ваш провајдер подржава [ауто-откривање](https://tools.ietf.org/html/rfc6186), FairEmail ће попунити име домаћина и број порта, а у супротном проверите упутства за подешавање Вашег провајдера за право име SMTP домаћина, број порта и протокол (SSL/TLS или STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Погледајте [често постављана питања](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) око коришћења алијаса.
 
-## Grant permissions - to access contact information
+## Одобрите овлашћења - да приступите информацијама о контактима
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Ако желите да повежете адресу е-поште, да Вам се приказују слике контаката итд., морате одобрити право на читање контаката за FairEmail апликацију. Само кликните *Одобри овлашћења* и одаберите *Дозволи*.
 
-## Setup battery optimizations - to continuously receive emails
+## Подесите оптимизацију батерије - да стално примате е-мејлове
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+На скорашњим верзијама Андроида, апликација ће бити стављене у режим спавања ако је екран угашен неко време да би се смањила потрошња батерије. Ако желите да примате нове поруке без задршке, треба да искључите оптимизацију батерије за FairEmail апликацију. Кликните *Искључи оптимизацију батерије* и пратите упутства.
 
 ## Имате питања или проблем
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Ако имате питање или проблем, [погледајте овде](https://github.com/M66B/FairEmail/blob/master/FAQ.md) или користите ову [контакт форму](https://contact.faircode.eu/?product=fairemailsupport) да затражите помоћ (можете користити број трансакције „*помоћ поставке*“).

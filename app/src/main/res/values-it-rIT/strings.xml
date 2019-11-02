@@ -419,6 +419,7 @@
     <string name="title_delete_operation">Eliminare le operazioni con un messaggio di errore?</string>
     <string name="title_delete_contacts">Eliminare tutti i contatti locali?</string>
     <string name="title_no_operations">Nessuna operazione in sospeso</string>
+    <string name="title_hint_operations">Le operazioni di cancellazione possono causare la scomparsa dei messaggi e problemi di sincronizzazione</string>
     <string name="title_folder_name">Nome cartella</string>
     <string name="title_display_name">Nome visualizzato</string>
     <string name="title_show_folders">Mostra cartelle nascoste</string>

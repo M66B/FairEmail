@@ -338,7 +338,6 @@
     <string name="title_primary_identity">Primär (standardidentitet)</string>
     <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
     <string name="title_keep_alive_interval">Keep-alive/frågeintervall (minuter)</string>
-    <string name="title_related_identity">Lägg till relaterad identitet</string>
     <string name="title_check">Kontrollera</string>
     <string name="title_no_name">Namn saknas</string>
     <string name="title_no_email">E-postadressen saknas</string>
