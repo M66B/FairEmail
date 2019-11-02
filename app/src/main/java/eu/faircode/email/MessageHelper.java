@@ -146,10 +146,12 @@ public class MessageHelper {
         imessage.addHeader("X-Correlation-ID", message.msgid);
 
         // Addresses
-        if (message.from != null && message.from.length > 0) {
+        if (identity != null && identity.sender_extra &&
+                !TextUtils.isEmpty(message.extra) &&
+                message.from != null && message.from.length > 0) {
             String email = ((InternetAddress) message.from[0]).getAddress();
             String name = ((InternetAddress) message.from[0]).getPersonal();
-            if (email != null && identity != null && identity.sender_extra && !TextUtils.isEmpty(message.extra)) {
+            if (email != null) {
                 int at = email.indexOf('@');
                 email = message.extra + email.substring(at);
                 Log.i("extra=" + email);
