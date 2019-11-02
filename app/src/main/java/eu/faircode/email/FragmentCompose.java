@@ -90,6 +90,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.FileProvider;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
@@ -1968,23 +1969,35 @@ public class FragmentCompose extends FragmentBase {
 
         EntityAttachment attachment = new EntityAttachment();
 
-        String name = uri.getLastPathSegment();
-        String s = null;
+        String fname = null;
+        String ftype = null;
+        Long fsize = null;
 
         try {
-            try (Cursor cursor = context.getContentResolver().query(uri, null, null, null, null, null)) {
-                if (cursor != null && cursor.moveToFirst()) {
-                    int colName = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-                    int colSize = cursor.getColumnIndex(OpenableColumns.SIZE);
-                    if (colName >= 0)
-                        name = cursor.getString(colName);
-                    if (colSize >= 0)
-                        s = cursor.getString(colSize);
-                }
+            DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+            if (dfile != null) {
+                fname = dfile.getName();
+                ftype = dfile.getType();
+                fsize = dfile.length();
             }
         } catch (SecurityException ex) {
-            Log.w(ex);
+            Log.e(ex);
         }
+
+        if (TextUtils.isEmpty(fname))
+            fname = uri.getLastPathSegment();
+
+        if (TextUtils.isEmpty(ftype)) {
+            String extension = Helper.getExtension(fname);
+            if (extension != null)
+                ftype = MimeTypeMap.getSingleton()
+                        .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
+            if (ftype == null)
+                ftype = "application/octet-stream";
+        }
+
+        if (fsize != null && fsize <= 0)
+            fsize = null;
 
         DB db = DB.getInstance(context);
         try {
@@ -1995,17 +2008,10 @@ public class FragmentCompose extends FragmentBase {
 
             attachment.message = draft.id;
             attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-            attachment.name = name;
-
-            String extension = Helper.getExtension(attachment.name);
-            if (extension != null)
-                attachment.type = MimeTypeMap.getSingleton()
-                        .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
-            if (attachment.type == null)
-                attachment.type = "application/octet-stream";
+            attachment.name = fname;
+            attachment.type = ftype;
             attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
-
-            attachment.size = (s == null ? null : Long.parseLong(s));
+            attachment.size = fsize;
             attachment.progress = 0;
 
             attachment.id = db.attachment().insertAttachment(attachment);
