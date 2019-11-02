@@ -86,6 +86,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                         Log.logBundle(args);
 
                         Intent view = new Intent(ActivityMain.this, ActivityView.class);
+                        view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         if (ACTION_REFRESH.equals(getIntent().getAction()))
                             view.putExtra("refresh", true);
 
