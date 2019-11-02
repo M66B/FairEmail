@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.Manifest;
 import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -123,8 +124,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_SOUND = 2;
     static final int REQUEST_EXPORT = 3;
     static final int REQUEST_IMPORT = 4;
-    static final int REQUEST_CHOOSE_ACCOUNT = 5;
-    static final int REQUEST_DONE = 6;
+    static final int REQUEST_IMPORT_OAUTH = 5;
+    static final int REQUEST_CHOOSE_ACCOUNT = 6;
+    static final int REQUEST_DONE = 7;
 
     static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
     static final String ACTION_QUICK_OUTLOOK = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_OUTLOOK";
@@ -361,6 +363,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 case REQUEST_IMPORT:
                     if (resultCode == RESULT_OK && data != null)
                         handleImport(data, this.password);
+                    break;
+                case REQUEST_IMPORT_OAUTH:
+                    ServiceSynchronize.reload(this, "oauth");
                     break;
             }
         } catch (Throwable ex) {
@@ -626,14 +631,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         args.putParcelable("uri", data.getData());
         args.putString("password", password);
 
-        new SimpleTask<Void>() {
+        new SimpleTask<Boolean>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 ToastEx.makeText(ActivitySetup.this, R.string.title_executing, Toast.LENGTH_LONG).show();
             }
 
             @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
+            protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
@@ -641,6 +646,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     Log.w("Import uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
+
+                boolean oauth = false;
 
                 StringBuilder data = new StringBuilder();
                 Log.i("Reading URI=" + uri);
@@ -707,6 +714,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         EntityAccount account = EntityAccount.fromJSON(jaccount);
                         Long aid = account.id;
                         account.id = null;
+
+                        if (account.auth_type != MailService.AUTH_TYPE_PASSWORD)
+                            oauth = true;
 
                         if (primary != null)
                             account.primary = false;
@@ -930,12 +940,27 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Log.i("Imported data");
                 ServiceSynchronize.reload(context, "import");
 
-                return null;
+                return oauth;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
+            protected void onExecuted(Bundle args, Boolean oauth) {
                 ToastEx.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
+
+                if (oauth &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                        getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                    List<String> permissions = new ArrayList<>();
+                    permissions.add(Manifest.permission.READ_CONTACTS); // profile
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                        permissions.add(Manifest.permission.GET_ACCOUNTS);
+
+                    for (String permission : permissions)
+                        if (!hasPermission(permission)) {
+                            requestPermissions(permissions.toArray(new String[0]), REQUEST_IMPORT_OAUTH);
+                            break;
+                        }
+                }
             }
 
             @Override
