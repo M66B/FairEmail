@@ -3275,9 +3275,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         EntityMessage message = db.message().getMessage(id);
                         if (message == null || message.uid == null)
                             return null;
+
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (folder == null)
+                            return null;
+
                         db.message().deleteMessage(id);
 
-                        EntityOperation.sync(context, message.folder, true);
+                        EntityOperation.queue(context, folder, EntityOperation.FETCH, message.uid);
 
                         db.setTransactionSuccessful();
                     } finally {
