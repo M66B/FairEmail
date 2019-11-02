@@ -2606,7 +2606,7 @@ class Core {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_summary = prefs.getBoolean("notify_summary", false);
-        boolean wearable_preview = prefs.getBoolean("wearable_preview", true);
+        boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean biometrics = prefs.getBoolean("biometrics", false);
         boolean biometric_notify = prefs.getBoolean("biometrics_notify", false);
         boolean pro = ActivityBilling.isPro(context);
@@ -2759,7 +2759,7 @@ class Core {
         boolean name_email = prefs.getBoolean("name_email", false);
         boolean flags = prefs.getBoolean("flags", true);
         boolean notify_preview = prefs.getBoolean("notify_preview", true);
-        boolean wearable_preview = prefs.getBoolean("wearable_preview", true);
+        boolean wearable_preview = prefs.getBoolean("wearable_preview", false);
         boolean notify_trash = (prefs.getBoolean("notify_trash", true) || !pro);
         boolean notify_junk = (prefs.getBoolean("notify_junk", false) && pro);
         boolean notify_archive = (prefs.getBoolean("notify_archive", true) || !pro);
