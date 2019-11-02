@@ -253,6 +253,10 @@ public class Log {
                                 ex.getMessage().startsWith("https://autoconfig.thunderbird.net/")))
                     return false;
 
+                if (ex instanceof IOException &&
+                        "Resetting to invalid mark".equals(ex.getMessage()))
+                    return false;
+
                 // Rate limit
                 int count = prefs.getInt("crash_report_count", 0) + 1;
                 prefs.edit().putInt("crash_report_count", count).apply();
