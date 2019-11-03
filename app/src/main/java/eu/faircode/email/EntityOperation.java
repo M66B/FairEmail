@@ -32,6 +32,7 @@ import androidx.room.PrimaryKey;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -113,31 +114,38 @@ public class EntityOperation {
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
 
-        JSONArray jargs = new JSONArray();
-        for (Object value : values)
-            jargs.put(value);
-
-        long folder = message.folder;
         try {
+            JSONArray jargs = new JSONArray();
+            for (Object value : values)
+                jargs.put(value);
+
             if (SEEN.equals(name)) {
                 boolean seen = jargs.getBoolean(0);
                 boolean ignore = jargs.optBoolean(1, true);
                 for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
                     db.message().setMessageUiSeen(similar.id, seen);
                     db.message().setMessageUiIgnored(similar.id, ignore);
+                    queue(context, similar.account, similar.folder, similar.id, name, jargs);
                 }
+                return;
 
             } else if (FLAG.equals(name)) {
                 boolean flagged = jargs.getBoolean(0);
                 Integer color = (jargs.length() > 1 && !jargs.isNull(1) ? jargs.getInt(1) : null);
-                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
+                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
                     db.message().setMessageUiFlagged(similar.id, flagged, flagged ? color : null);
+                    queue(context, similar.account, similar.folder, similar.id, name, jargs);
+                }
+                return;
 
-            } else if (ANSWERED.equals(name))
-                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid))
+            } else if (ANSWERED.equals(name)) {
+                for (EntityMessage similar : db.message().getMessageByMsgId(message.account, message.msgid)) {
                     db.message().setMessageUiAnswered(similar.id, jargs.getBoolean(0));
+                    queue(context, similar.account, similar.folder, similar.id, name, jargs);
+                }
+                return;
 
-            else if (MOVE.equals(name)) {
+            } else if (MOVE.equals(name)) {
                 // Parameters:
                 // 0: target folder
                 // 1: mark seen
@@ -243,12 +251,15 @@ public class EntityOperation {
                 }
 
                 // Cross account move
+                long folder = source.id;
                 if (!source.account.equals(target.account))
                     if (message.raw != null && message.raw) {
                         name = ADD;
                         folder = target.id;
                     } else
                         name = RAW;
+                queue(context, message.account, folder, message.id, name, jargs);
+                return;
 
             } else if (DELETE.equals(name))
                 db.message().setMessageUiHide(message.id, true);
@@ -256,14 +267,20 @@ public class EntityOperation {
             else if (ATTACHMENT.equals(name))
                 db.attachment().setProgress(jargs.getLong(0), null);
 
+            queue(context, message.account, message.folder, message.id, name, jargs);
+
         } catch (JSONException ex) {
             Log.e(ex);
         }
+    }
+
+    private static void queue(Context context, long account, long folder, long message, String name, JSONArray jargs) {
+        DB db = DB.getInstance(context);
 
         EntityOperation op = new EntityOperation();
-        op.account = message.account;
+        op.account = account;
         op.folder = folder;
-        op.message = message.id;
+        op.message = message;
         op.name = name;
         op.args = jargs.toString();
         op.created = new Date().getTime();
