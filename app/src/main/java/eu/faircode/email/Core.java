@@ -3169,7 +3169,7 @@ class Core {
         }
 
         Uri uri = (sound == null ? null : Uri.parse(sound));
-        if (uri == null || "file".equals(uri.getScheme()))
+        if (uri == null || !"content".equals(uri.getScheme()))
             uri = null;
         Log.i("Notify sound=" + uri);
 

@@ -463,7 +463,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
-                if ("file".equals(uri.getScheme())) {
+                if (!"content".equals(uri.getScheme())) {
                     Log.w("Export uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
@@ -642,7 +642,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 Uri uri = args.getParcelable("uri");
                 String password = args.getString("password");
 
-                if ("file".equals(uri.getScheme())) {
+                if (!"content".equals(uri.getScheme())) {
                     Log.w("Import uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }

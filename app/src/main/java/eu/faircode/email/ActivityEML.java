@@ -96,7 +96,7 @@ public class ActivityEML extends ActivityBase {
             protected Result onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
 
-                if ("file".equals(uri.getScheme()) &&
+                if (!"content".equals(uri.getScheme()) &&
                         !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                     Log.w("EML uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));

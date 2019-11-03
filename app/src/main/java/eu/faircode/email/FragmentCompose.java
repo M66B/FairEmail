@@ -1962,7 +1962,7 @@ public class FragmentCompose extends FragmentBase {
                                                   boolean image) throws IOException {
         Log.w("Add attachment uri=" + uri);
 
-        if ("file".equals(uri.getScheme()) &&
+        if (!"content".equals(uri.getScheme()) &&
                 !Helper.hasPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             Log.w("Add attachment uri=" + uri);
             throw new SecurityException("Add attachment with file scheme");

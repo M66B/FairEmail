@@ -430,7 +430,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     private void onSelectSound(Uri uri) {
         Log.i("Selected ringtone=" + uri);
-        if (uri != null && "file".equals(uri.getScheme()))
+        if (uri != null && !"content".equals(uri.getScheme()))
             uri = null;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());

@@ -320,7 +320,7 @@ public class FragmentBase extends Fragment {
                 long id = args.getLong("id");
                 Uri uri = args.getParcelable("uri");
 
-                if ("file".equals(uri.getScheme())) {
+                if (!"content".equals(uri.getScheme())) {
                     Log.w("Save attachment uri=" + uri);
                     throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
                 }
