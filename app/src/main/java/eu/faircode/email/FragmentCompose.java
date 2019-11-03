@@ -1706,7 +1706,7 @@ public class FragmentCompose extends FragmentBase {
                                             ": " + (error == null ? "?" : error.getMessage()));
 
                         default:
-                            throw new IllegalArgumentException("Unknown result code=" + resultCode);
+                            throw new IllegalStateException("OpenPgp unknown result code=" + resultCode);
                     }
                 } finally {
                     encrypted.delete();
@@ -1736,9 +1736,10 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
+                if (ex instanceof IllegalArgumentException) {
+                    Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
+                } else
                     Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:encrypt");

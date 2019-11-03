@@ -3945,7 +3945,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Intent data = args.getParcelable("data");
 
                 DB db = DB.getInstance(context);
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    return null;
+                List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                if (attachments == null)
+                    return null;
 
                 InputStream in = null;
                 boolean inline = false;
@@ -3962,8 +3967,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
 
                 if (in == null) {
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message != null && message.content) {
+                    if (message.content) {
                         File file = message.getFile(context);
                         if (file.exists()) {
                             // https://tools.ietf.org/html/rfc4880#section-6.2
@@ -4001,13 +4005,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
                     result = api.executeApi(data, in, new FileOutputStream(plain));
 
-                    Log.i("PGP result=" + result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR));
-                    switch (result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR)) {
+                    int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
+                    Log.i("Result action=" + data.getAction() + " code=" + resultCode);
+                    switch (resultCode) {
                         case OpenPgpApi.RESULT_CODE_SUCCESS:
-                            EntityMessage message = db.message().getMessage(id);
-                            if (message == null)
-                                return null;
-
                             if (inline) {
                                 try {
                                     db.beginTransaction();
@@ -4084,7 +4085,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                         case OpenPgpApi.RESULT_CODE_ERROR:
                             OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
-                            throw new IllegalArgumentException(error.getMessage());
+                            throw new IllegalArgumentException(
+                                    "OpenPgp" +
+                                            " error " + (error == null ? "?" : error.getErrorId()) +
+                                            ": " + (error == null ? "?" : error.getMessage()));
+
+                        default:
+                            throw new IllegalStateException("OpenPgp unknown result code=" + resultCode);
                     }
                 } finally {
                     plain.delete();
@@ -4097,7 +4104,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onExecuted(Bundle args, PendingIntent pi) {
                 if (pi != null)
                     try {
-                        Log.i("PGP executing pi=" + pi);
+                        Log.i("Executing pi=" + pi);
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
                                 REQUEST_DECRYPT,
@@ -4109,9 +4116,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
+                if (ex instanceof IllegalArgumentException) {
+                    Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
-                else
+                } else
                     Helper.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "decrypt");
