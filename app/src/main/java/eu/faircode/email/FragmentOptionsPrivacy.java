@@ -246,8 +246,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                             if (TextUtils.isEmpty(pin))
                                 prefs.edit().remove("pin").apply();
-                            else
-                                prefs.edit().putString("pin", pin).apply();
+                            else {
+                                boolean pro = ActivityBilling.isPro(getContext());
+                                if (pro)
+                                    prefs.edit().putString("pin", pin).apply();
+                                else
+                                    startActivity(new Intent(getContext(), ActivityBilling.class));
+                            }
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)

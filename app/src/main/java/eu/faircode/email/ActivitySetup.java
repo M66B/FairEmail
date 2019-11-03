@@ -872,7 +872,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if ("pro".equals(key) && !BuildConfig.DEBUG)
                             continue;
 
-                        if ("biometrics".equals(key) && !Helper.canAuthenticate(context))
+                        if ("biometrics".equals(key) || "pin".equals(key))
                             continue;
 
                         if ("alert_once".equals(key))
