@@ -422,19 +422,26 @@
     <string name="title_no_operations">Ez dago eragiketarik egiteke</string>
     <string name="title_hint_operations">Eragiketak ezabatzeak mezuen desagertzea eta sinkronizazio arazoak eragin ditzake</string>
     <string name="title_folder_name">Karpetaren izena</string>
+    <string name="title_display_name">Pantaila-izena</string>
     <string name="title_show_folders">Erakutsi karpeta ezkutuak</string>
     <string name="title_apply_to_all">Aplikatu guztiei &#8230;</string>
     <string name="title_hide_folder">Ezkutatu karpeta</string>
     <string name="title_unified_folder">Erakutsi sarrera ontzi bateratuan</string>
     <string name="title_navigation_folder">Erakutsi nabigazio menuan</string>
     <string name="title_synchronize_folder">Sinkronizatu (jaso mezuak)</string>
+    <string name="title_poll_folder">Egiaztatu aldiro sinkronizazio etengabearen ordez</string>
+    <string name="title_download_folder">Deskargatu automatikoki mezuaren testua eta eranskinak</string>
     <string name="title_notify_folder">Jakinarazi mezu berriak daudenean</string>
+    <string name="title_sync_days">Sinkronizatu mezuak (egunak)</string>
+    <string name="title_sync_days_remark">Balio hau handitzean bateria eta datuen erabilera areagotuko da</string>
     <string name="title_keep_days">Mantendu mezuak (egunak)</string>
     <string name="title_keep_days_remark">Mezu zaharrak gailutik kenduko dira, baina zerbitzarian mantenduko dira</string>
     <string name="title_keep_all">Mantendu mezu guztiak</string>
+    <string name="title_auto_trash">Mugitu automatikoki mezu zaharrak zakarrontzira</string>
     <string name="title_auto_delete">Ezabatu mezu zaharrak behin betiko automatikoki</string>
     <string name="title_folder_name_missing">Karpetaren izena falta da</string>
     <string name="title_folder_exists">%1$s karpeta badago aurretik</string>
+    <string name="title_folder_delete">Ezabatu karpeta hau eta dituen mezuak behin betiko?</string>
     <string name="title_folder_unified">Sarrera ontzi bateratua</string>
     <string name="title_folder_inbox">Sarrera ontzia</string>
     <string name="title_folder_outbox">Irteera ontzia</string>
@@ -446,6 +453,7 @@
     <string name="title_folder_system">Sistema</string>
     <string name="title_folder_user">Erabiltzailea</string>
     <string name="title_folder_user_only">Erabiltzailearen karpetak soilik</string>
+    <string name="title_folder_primary">Kontu nagusiaren karpetak</string>
     <string name="title_folders_unified">Sarrera ontzi bateratuko karpetak</string>
     <string name="title_no_folders">Karpetarik ez</string>
     <string name="title_no_messages">Mezurik ez</string>
@@ -498,21 +506,39 @@
     <string name="title_open_with">Ireki honekin</string>
     <string name="title_authentication_failed">%1$s autentifikazioak huts egin du</string>
     <string name="title_receipt_subject">Irakurragiria: %1$s</string>
+    <string name="title_receipt_text">Irakurragiri honek mezua bistaratu dela adierazten du, besterik ez. Ez dago jasotzaileak mezuaren edukia irakurri duela bermatzerik.</string>
     <string name="title_no_answers">Ez da erantzun txantiloirik zehaztu</string>
+    <string name="title_no_viewer">Ez dago %1$s ikusteko aplikaziorik erabilgarri</string>
+    <string name="title_no_saf">Biltegiratzea atzitzeko tresneria ez dago eskuragarri</string>
+    <string name="title_no_stream">Zaharkitutako aplikazio batek fitxategi bide bat bidali du fitxategi jario baten ordez</string>
     <string name="title_no_contacts">Kontaktuan hautatzailea ez dago eskuragarri</string>
     <string name="title_no_internet">Internet konexiorik ez edo konexio desegokia</string>
+    <string name="title_no_connection">Sinkronizazioa kontua konektatzen den hurrengoan egingo da</string>
     <string name="title_no_folder">Karpeta ez da existitzen</string>
+    <string name="title_no_format">Jasotako jatorrizko mezua gehituko da</string>
     <string name="title_no_image">Ezin izan da irudia deskodetu</string>
+    <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira gorde/bidali sakatzean</string>
+    <string name="title_accross_remark">Kontuen artean mugitutako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
     <string name="title_raw_saved">Mezu gordina gorde da</string>
     <string name="title_attachment_saved">Eranskina gordeta</string>
     <string name="title_attachments_saved">Eranskinak gordeta</string>
+    <string name="title_attachments_incomplete">Eranskin edo irudi batzuk ez dira deskargatu eta ezin izan dira gehitu</string>
     <string name="title_ask_save">Gorde aldaketak?</string>
     <string name="title_ask_delete">Ezabatu mezua behin betiko?</string>
     <string name="title_ask_delete_answer">Ezabatu erantzun txantiloia behin betiko?</string>
     <string name="title_ask_delete_rule">Ezabatu araua behin betiko?</string>
     <string name="title_ask_discard">Baztertu zirriborroa?</string>
+    <string name="title_ask_show_html">Jatorrizko mezua erakusteak informazio pribatua agerira ekar lezake</string>
+    <string name="title_ask_show_html_remark">Ezin da jatorrizko mezua atzealde ilunean erakutsi testu eta irudi batzuk ikusezinak bihurtu litezkelako</string>
+    <string name="title_ask_show_image">Irudiak bistaratzeak informazio probatua agerira ekar lezake</string>
     <string name="title_ask_show_image_hint">Jarraipen irudi gisa antzemandako irudiak ez dira bistaratuko</string>
+    <string name="title_ask_delete_ref">Ezabatu erantzundako/birbidalitako mezuaren testua? Hau ezin da desegin.</string>
+    <string name="title_ask_sync_all">Sinkronizatu %1$s karpetako mezu guztiak?</string>
+    <string name="title_ask_delete_local">Ezabatu mezu lokalak? Mezuak urruneko zerbitzarian mantenduko dira.</string>
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
+    <string name="title_ask_reporting">Bidali errore txostenak?</string>
+    <string name="title_reporting_why">Errore txostenek FairEmail hobetzen laguntzen dute</string>
+    <string name="title_expand_warning">Mezu hau hedatzean %1$s deskargatuko da</string>
     <string name="title_download_message">Deskargatzen &#8230;</string>
     <string name="title_compose">Idatzi</string>
     <string name="title_from">Nork:</string>
@@ -552,6 +578,8 @@
     <string name="title_edit_plain_text">Editatu testu soil gisa</string>
     <string name="title_edit_formatted_text">Editatu birformateatutako testu gisa</string>
     <string name="title_send_plain_text">Testu soila besterik ez</string>
+    <string name="title_send_receipt">Eskatu bidaltze agiriak / irakurragiriak</string>
+    <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>
     <string name="title_from_missing">Igorlea falta da</string>
     <string name="title_to_missing">Hartzailea falta da</string>
     <string name="title_subject_reminder">Mintzagaia hutsik dago</string>
@@ -559,9 +587,12 @@
     <string name="title_attachment_keywords">erantsita,eranskina,eranskinak,txertatuta</string>
     <string name="title_attachment_reminder">Eranskin bat gehitzeko asmoa zenuen?</string>
     <string name="title_attachments_missing">Ez dira eranskin guztiak deskargatu</string>
+    <string name="title_send_dialog_hint">Elkarrizketa-koadro hau ekintza-barrako hiru puntuen menuan eskuragarri dago</string>
     <string name="title_draft_deleted">Zirriborroa baztertu da</string>
     <string name="title_draft_saved">Zirriborroa gordeta</string>
+    <string name="title_ask_send_via">Bidali mezua %1$s jasotzaileari %2$s bidez?</string>
     <string name="title_queued">Mezua bidaltzen</string>
+    <string name="title_queued_at">Mezua %1$s(r)ak inguru bidaliko da</string>
     <string name="title_encrypt">Zifratu</string>
     <string name="title_decrypt">Deszifratu</string>
     <string name="title_resync">Birsinkronizatu</string>
@@ -629,7 +660,9 @@
     <string name="title_rule_regex">Adierazpen erregularra</string>
     <string name="title_rule_and">ETA</string>
     <string name="title_rule_action">Ekintza</string>
+    <string name="title_rule_action_remark">Ekintza hau %1$s karpetara heldutako mezu berriei aplikatuko zaie</string>
     <string name="title_rule_hours">Orduak</string>
+    <string name="title_rule_schedule_end">Denbora baldintzaren amaieratik</string>
     <string name="title_rule_folder">Karpeta</string>
     <string name="title_rule_thread">Elkarrizketa eta karpeta bereko mezu guztiak</string>
     <string name="title_rule_identity">Identitatea</string>
@@ -637,9 +670,11 @@
     <string name="title_rule_cc">Erantzun CC helbideei</string>
     <string name="title_rule_name_missing">Arauaren izena falta da</string>
     <string name="title_rule_condition_missing">Baldintza falta da</string>
+    <string name="title_rule_automation_hint">Honek \'%1$s\' intent-a bidaliko du \'%2$s\' gehigarriekin</string>
     <string name="title_rule_execute">Exekutatu orain</string>
     <string name="title_rule_applied">Eragindako mezuak: %1$d</string>
     <string name="title_rule_check">Egiaztatu</string>
+    <string name="title_rule_no_headers">Goiburu baldintzak ezin dira egiaztatu</string>
     <string name="title_rule_matched">Bat datozen mezuak</string>
     <string name="title_rule_no_matches">Ez dago bat datorren mezurik</string>
     <string name="title_legend_section_synchronize">Sinkronizatu</string>
@@ -649,6 +684,7 @@
     <string name="title_legend_primary_connected">Kontua konektatuta</string>
     <string name="title_legend_primary_disconnected">Kontua deskonektatuta</string>
     <string name="title_legend_download_on">Deskargatu mezuaren edukia automatikoki</string>
+    <string name="title_legend_download_off">Deskargatu mezuaren eskaria eskatzen denean</string>
     <string name="title_legend_synchronize_on">Sinkronizazioa aktibo</string>
     <string name="title_legend_synchronize_off">Sinkronizazioa inaktibo</string>
     <string name="title_legend_disconnected">Deskonektatuta</string>
@@ -672,6 +708,7 @@
     <string name="title_legend_similar">Bilatu antzeko mezuak</string>
     <string name="title_legend_notify">Jakinarazi mezu berriak daudenean</string>
     <string name="title_legend_sync_keep">Sinkronizatzeko / mezuak mantentzeko egun kopurua</string>
+    <string name="title_legend_download_fetch">Deskargatutako mezu / jasotako goiburu kopurua</string>
     <string name="title_legend_stop">Utzi arauak prozesatzeari</string>
     <string name="title_legend_thread">Elkarrizketa</string>
     <string name="title_legend_zoom">Aldatu testuaren tamaina</string>
@@ -680,6 +717,7 @@
     <string name="title_legend_priority_low">Lehentasun baxua du</string>
     <string name="title_legend_auth">Autentifikazioak huts egin du</string>
     <string name="title_legend_snoozed">Atzeratu da</string>
+    <string name="title_legend_browsed">Arakatua edo bilatua da</string>
     <string name="title_legend_answered">Erantzun izan da</string>
     <string name="title_legend_plain_only">Testu soila da</string>
     <string name="title_legend_receipt">Irakurragiria eskatu da</string>
@@ -690,6 +728,8 @@
     <string name="title_legend_view">Ikusi edukia</string>
     <string name="title_legend_hide">Ezkutatu edukia</string>
     <string name="title_legend_download">Deskargatu edukia</string>
+    <string name="title_legend_external_image">Kanpo irudiarentzat tokia</string>
+    <string name="title_legend_embedded_image">Txertatutako irudiarentzat tokia</string>
     <string name="title_legend_tracking_pixel">Jarraipen irudia</string>
     <string name="title_legend_broken_image">Irudi hautsia</string>
     <string name="title_legend_pick">Hautatu kontaktua</string>
@@ -715,6 +755,7 @@
     <string name="title_legend_show_full">Erakutsi pantaila osoan</string>
     <string name="title_legend_edit">Editatu</string>
     <string name="title_legend_default_color">Lehenetsitako kolorea</string>
+    <string name="title_legend_close_hint">Itxi laguntza</string>
     <string name="title_legend_connection_state">Konexioaren egoera</string>
     <string name="title_legend_sync_state">Sinkronizazioaren egoera</string>
     <string name="title_legend_download_state">Deskargaren egoera</string>
@@ -724,7 +765,10 @@
     <string name="title_legend_folder_type">Karpeta mota</string>
     <string name="title_hint_folder_actions">Sakatu luze aukeretarako</string>
     <string name="title_hint_folder_sync">Bateria eta sarearen erabilera mugatzeko ez dira karpeta eta mezu guztiak sinkronizatuko lehenetsita</string>
+    <string name="title_hint_support">Galdera edo arazoren bat baduzu, erabili laguntza menua laguntza jasotzeko</string>
     <string name="title_hint_message_actions">Pasatu hatza ezkerrera zakarrontzira botatzeko, pasatu hatza eskuinera artxibatzeko (eskuragarri badago). Hatza pasatzeko ekintzak kontuaren ezarpenetan konfiguratu daitezke</string>
+    <string name="title_hint_message_selection">Sakatu luze mezu bat hainbat mezu hautatzen hasteko. Mantendu eta pasatu hatza gora edo behera mezu gehiago hautatzeko</string>
+    <string name="title_hint_sync">Mezuak deskargatzeak denbora hartu dezake, hornitzailearen abiadura, internet konexioa, gailua eta mezu kopuruaren arabera. Mezuak deskargatu bitartean aplikazioa motel erantzun lezake.</string>
     <string name="title_hint_contact_actions">Sakatu luze aukeretarako</string>
     <string name="title_hint_eml">Hau mezu gordin fitxategi baten edukiaren laburpena da. Gorde mezu gordina ekintza-barrako \'gorde\' ikonoarekin eduki osoa ikusteko.</string>
     <string name="title_open_link">Ireki esteka</string>
@@ -734,6 +778,7 @@
     <string name="title_sanitize_link">Kendu jarraipen parametroak</string>
     <string name="title_insecure_link">Esteka hau ez da segurua</string>
     <string name="title_check_owner">Egiaztatu jabea</string>
+    <string name="title_remark_owner">Informazioa <a href="https://ipinfo.io/">ipinfo.io</a> helbidetik eskuratuko da</string>
     <string name="title_ip_owner">Jabearen IP helbidea</string>
     <string name="title_select_app">Hautatu aplikazioa</string>
     <string name="title_updated">%1$s bertsiora eguneraketa eskuragarri dago</string>
@@ -753,7 +798,10 @@
     <string name="title_completed">Burututa</string>
     <string name="title_ask_what">Galdetu zer egin</string>
     <string name="title_no_ask_again">Ez galdetu hau berriro</string>
+    <string name="title_no_ask_for_again">Ez galdetu hau berriro %1$s helbidearentzat</string>
     <string name="title_no_body">Ez da mezuaren testurik aurkitu</string>
+    <string name="title_no_charset">Euskarririk gabeko kodetzea: %1$s</string>
+    <string name="title_via">Honen bidez: %1$s</string>
     <string name="title_1hour">Ordu 1</string>
     <string name="title_1day">Egun 1</string>
     <string name="title_now">Orain</string>
@@ -773,6 +821,10 @@
     <string name="title_pro_list">Ordainpeko ezaugarrien zerrenda</string>
     <string name="title_pro_purchase">Erosi</string>
     <string name="title_pro_once">Behin bakarrik</string>
+    <string name="title_pro_info">        FairEmail garatzeko literalki milaka ordu erabili dira ezaugarri gehienak doan erabili badaitezke ere.
+        FairEmail epe luzera mantengarria izan dadin, erosotasun funtzio batzuk edo funtzio aurreratu batzuk ordainpekokoak dira.
+        FairEmail-ek mezu txiki bat bistaratzen du hau gogorarazteko, ordainpeko ezaugarriak erosiz gero mezua desagertzen da.
+    </string>
     <string name="title_pro_hint">Ordainpeko ezaugarriak erostean oraingo eta etorkizuneko ordainpeko ezaugarri guztiak erabiltzeko eskubidea ematen dizu, eta aplikazio hau mantentzen lagunduko du.</string>
     <string name="title_pro_price">Begiratu <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">maiz egindako galderak</a> ordainpeko ezaugarrien salneurriari buruz</string>
     <string name="title_pro_pending">Erosketa egiteke</string>

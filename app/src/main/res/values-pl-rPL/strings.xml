@@ -241,6 +241,7 @@
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
     <string name="title_advanced_color_saturation">Nasycenie</string>
     <string name="title_advanced_color_value">Jasność</string>
+    <string name="title_advanced_color_threshold">Próg koloru czcionki</string>
     <string name="title_advanced_name_email">Pokaż nazwy i adresy e-mail</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenie, gdy serwer odbierający nie może uwierzytelnić wiadomości</string>
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>

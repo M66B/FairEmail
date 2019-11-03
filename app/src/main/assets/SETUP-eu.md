@@ -1,41 +1,41 @@
-# Setup help
+# Ezartzeko laguntza
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+FairEmail ezartzea oso erraza da. Gutxienez kontu bat behar duzu e-maila jasotzeko eta identitate bat e-maila bidaltzeko. Ezarpen azkarrak kontu eta identitate bana gehituko ditu aldi berean hornitzaile ezagun gehienentzat.
 
-## Requirements
+## Betebeharrak
 
-An internet connection is required to set up accounts and identities.
+Internet konexioa behar da kontuak eta identitateak ezartzeko.
 
-## Quick setup
+## Ezarpen azkarra
 
-Just enter your name, email address and password and tap *Go*.
+Idatzi zure izena, e-mail helbidea eta pasahitza eta sakatu *Goazen*.
 
-This will work for most major email providers.
+Hau nahikoa da e-mail hornitzaile nagusi gehienentzat.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Ezarpen azkarra ez badabil, kontu eta identitate bana sortu beharko dituzu, azpian daude argibideak.
 
-## Set up account - to receive email
+## Ezarri kontua - e-maila jasotzeko
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+Kontu bat gehitzeko, sakatu *Kudeatu kontuak* eta sakatu behealdeko *gehitu* botoi laranja. Hautatu hornitzaile bat zerrendatik, idatzi erabiltzaile-izena, gehienetan zure e-mail helbidea dena eta sartu zure pasahitza. Sakatu *Egiaztatu* FairEmail e-mail zerbitzarira konektatu dadin eta sistemako karpeten zerrenda jaso dezan. Sistemako karpeten hautaketa egin eta gero kontua gehitu dezakezu *Gorde* sakatuz.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Zure hornitzailea ez badago hornitzaileen zerrendan, hautatu *Pertsonalizatua*. Sartu domeinuaren izena, adibidez *gmail.com* eta sakatu *Jaso ezarpenak*. Zure hornitzaileak [aurkitze automatikoa](https://tools.ietf.org/html/rfc6186) onartzen badu, FairEmail-ek hostalari izena eta ataka zenbakia beteko ditu, bestela kontsultatu zure hornitzailearen ezarpen argibideak IMAP ostalari izen, ataka zenbaki eta protokolo (SSL/TLS edo STARTTLS) egokiak zeintzuk diren jakiteko. Honi buruz gehiago jakiteko begiratu [hemen](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Ezarri identitatea - e-maila bidaltzeko
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+Identitatea gehitzeko, sakatu *Kudeatu identitatea* eta sakatu behealdeko *gehitu* botoi laranja. Sartu zuk bidalitako mezuen igorlearen eremuan agertzea nahi duzun izena eta hautatu dagokion kontua. Sakatu *Gorde* identitatea gehitzeko.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Kontua eskuz konfiguratu bada, ziur aski identitatea ere eskuz konfiguratu beharko duzu. Sartu domeinuaren izena, adibidez *gmail.com* eta sakatu *Jaso ezarpenak*. Zure hornitzaileak [aurkitze automatikoa](https://tools.ietf.org/html/rfc6186) onartzen badu, FairEmail-ek hostalari izena eta ataka zenbakia beteko ditu, bestela kontsultatu zure hornitzailearen ezarpen argibideak SMTP ostalari izen, ataka zenbaki eta protokolo (SSL/TLS edo STARTTLS) egokiak zeintzuk diren jakiteko.
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Ikusi ezizenei buruzko [FAQ hau](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9).
 
-## Grant permissions - to access contact information
+## Baimenak ematea - kontaktuen informazioa atzitzeko
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Kontaktuen e-mail helbideak bilatu, kontaktuen argaziak bistaratu eta abar nahi baduzu FairEmail aplikazioari kontaktuak atzitzeko baimena eman beharko diozu. Sakatu *Eman baimenak* eta aukeratu *Baimendu*.
 
-## Setup battery optimizations - to continuously receive emails
+## Ezarri bateria optimizazioak - mezua etenik gabe jasotzeko
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+Android bertsio berrietan, sistemak aplikazioak lokartzen ditu pantaila itzalita dagoenean edo denbora batera bateria aurrezteko. E-mail berriak atzerapenik gabe jaso nahi badituzu, bateria optimizazioa desgaitu beharko zenuke FairEmail aplikazioarentzat. Sakatu *Desgaitu bateria optimizazioak* eta jarraitu argibideak.
 
-## Questions or problems
+## Galderak edo arazoak
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Galdera edo arazoren bat baduzu, mesedez [begiratu hemen](https://github.com/M66B/FairEmail/blob/master/FAQ.md) edo erabili [kontaktu formulario hau](https://contact.faircode.eu/?product=fairemailsupport) laguntza eskatzeko ("*setup help*" transakzioa erabili dezakezu).
