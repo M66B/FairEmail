@@ -2508,11 +2508,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShow(final TupleMessageEx message, boolean full) {
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
             boolean current = properties.getValue(full ? "full" : "images", message.id);
             boolean asked = properties.getValue(full ? "full_asked" : "images_asked", message.id);
             if (current || asked) {
                 if (current) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     SharedPreferences.Editor editor = prefs.edit();
                     for (Address address : message.from) {
                         String from = ((InternetAddress) address).getAddress();
@@ -2529,6 +2530,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             View dview = LayoutInflater.from(context).inflate(
                     full ? R.layout.dialog_show_full : R.layout.dialog_show_images, null);
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+            CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
+
+            if (full)
+                cbAlwaysImages.setChecked(prefs.getBoolean("html_always_images", false));
+
+            cbAlwaysImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    prefs.edit().putBoolean("html_always_images", isChecked).apply();
+                }
+            });
 
             if (message.from == null || message.from.length == 0)
                 cbNotAgain.setVisibility(View.GONE);
@@ -2543,7 +2555,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     SharedPreferences.Editor editor = prefs.edit();
                     for (Address address : message.from) {
                         String from = ((InternetAddress) address).getAddress();
@@ -2557,7 +2568,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 TextView tvDark = dview.findViewById(R.id.tvDark);
                 tvDark.setVisibility(Helper.isDarkTheme(context) ? View.VISIBLE : View.GONE);
             } else {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean disable_tracking = prefs.getBoolean("disable_tracking", true);
 
                 ImageView ivInfo = dview.findViewById(R.id.ivInfo);
@@ -2581,9 +2591,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         public void onClick(DialogInterface dialog, int which) {
                             properties.setValue(full ? "full" : "images", message.id, true);
                             properties.setValue(full ? "full_asked" : "images_asked", message.id, true);
-                            if (full)
+                            if (full) {
+                                boolean images = prefs.getBoolean("html_always_images", false);
+                                if (images) {
+                                    properties.setValue("images", message.id, true);
+                                    onShowImagesConfirmed(message);
+                                }
                                 onShowFullConfirmed(message);
-                            onShowImagesConfirmed(message);
+                            } else
+                                onShowImagesConfirmed(message);
                         }
                     })
                     .setNegativeButton(android.R.string.cancel, null)
