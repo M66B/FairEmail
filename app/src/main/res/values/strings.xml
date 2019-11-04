@@ -950,7 +950,7 @@
     <string name="title_search_special_prefix">special</string>
     <string name="title_search_special_unseen">unread</string>
     <string name="title_search_special_flagged">starred</string>
-    <string name="title_search_special_snoozed">snoozed</string>
+    <string name="title_search_special_snoozed">hidden</string>
 
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">All</string>
