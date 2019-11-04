@@ -2640,6 +2640,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         menu.findItem(R.id.menu_folders).setActionView(R.layout.action_button);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_folders).getActionView();
+        ib.setImageResource(R.drawable.baseline_folder_24);
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -4333,7 +4334,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             account, thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
                         db.message().setMessageSnoozed(threaded.id, wakeup);
-                        db.message().setMessageUiIgnored(message.id, true);
+                        db.message().setMessageUiIgnored(threaded.id, true);
                         EntityMessage.snooze(context, threaded.id, wakeup);
                     }
 
