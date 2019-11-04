@@ -2167,6 +2167,8 @@ Moreover, setting up an account/identity with the quick setup is simple, so it i
 Email address [chips](https://material.io/design/components/chips.html) look nice, but cannot be edited,
 which is quite inconvenient when you made a typo in an email address.
 
+Note that FairEmail will select the address only when long pressing an address, which makes it easy to delete an address.
+
 Chips are not suitable for showing in a list
 and since the message header in a list should look similar to the message header of the message view it is not an option to use chips for viewing messages.
 
