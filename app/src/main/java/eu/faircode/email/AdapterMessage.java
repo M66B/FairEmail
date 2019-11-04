@@ -2625,8 +2625,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 onShowImagesConfirmed(message);
             }
 
-            properties.setSize(message.id, 0);
-            properties.setHeight(message.id, 0);
+            properties.setSize(message.id, null);
+            properties.setHeight(message.id, null);
+            properties.setPosition(message.id, null);
 
             bindBody(message);
         }
@@ -4155,11 +4156,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         boolean getValue(String name, long id);
 
-        void setSize(long id, float size);
+        void setSize(long id, Float size);
 
         float getSize(long id, float defaultSize);
 
-        void setHeight(long id, int height);
+        void setHeight(long id, Integer height);
 
         int getHeight(long id, int defaultHeight);
 
