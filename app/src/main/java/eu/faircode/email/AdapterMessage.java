@@ -2523,7 +2523,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
 
                 properties.setValue(full ? "full" : "images", message.id, !current);
-                onShowFullConfirmed(message);
+                if (full)
+                    onShowFullConfirmed(message);
+                else
+                    onShowImagesConfirmed(message);
                 return;
             }
 
@@ -2532,15 +2535,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
             CheckBox cbAlwaysImages = dview.findViewById(R.id.cbAlwaysImages);
 
-            if (full)
+            if (full) {
                 cbAlwaysImages.setChecked(prefs.getBoolean("html_always_images", false));
 
-            cbAlwaysImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    prefs.edit().putBoolean("html_always_images", isChecked).apply();
-                }
-            });
+                cbAlwaysImages.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        prefs.edit().putBoolean("html_always_images", isChecked).apply();
+                    }
+                });
+            }
 
             if (message.from == null || message.from.length == 0)
                 cbNotAgain.setVisibility(View.GONE);
@@ -2591,14 +2595,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         public void onClick(DialogInterface dialog, int which) {
                             properties.setValue(full ? "full" : "images", message.id, true);
                             properties.setValue(full ? "full_asked" : "images_asked", message.id, true);
-                            if (full) {
-                                boolean images = prefs.getBoolean("html_always_images", false);
-                                if (images) {
-                                    properties.setValue("images", message.id, true);
-                                    onShowImagesConfirmed(message);
-                                }
+                            if (full)
                                 onShowFullConfirmed(message);
-                            } else
+                            else
                                 onShowImagesConfirmed(message);
                         }
                     })
@@ -2619,6 +2618,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onShowFullConfirmed(final TupleMessageEx message) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean images = prefs.getBoolean("html_always_images", false);
+            if (images) {
+                properties.setValue("images", message.id, true);
+                onShowImagesConfirmed(message);
+            }
+
             properties.setSize(message.id, 0);
             properties.setHeight(message.id, 0);
 
