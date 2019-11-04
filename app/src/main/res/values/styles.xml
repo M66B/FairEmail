@@ -3,6 +3,7 @@
     <attr name="colorRead" format="reference" />
     <attr name="colorUnread" format="reference" />
     <attr name="colorUnreadHighlight" format="reference" />
+    <attr name="colorEncrypt" format="reference" />
     <attr name="colorSeparator" format="reference" />
     <attr name="colorWarning" format="reference" />
     <attr name="colorDrawerScrim" format="reference" />
@@ -29,6 +30,8 @@
         <item name="colorRead">@color/colorReadLight</item>
         <item name="colorUnread">@color/colorUnreadLight</item>
         <item name="colorUnreadHighlight">@color/colorAccentDark</item>
+
+        <item name="colorEncrypt">@color/colorEncrypt</item>
 
         <item name="colorSeparator">@color/lightColorSeparator</item>
         <item name="colorWarning">@color/lightColorWarning</item>
@@ -74,6 +77,8 @@
         <item name="colorRead">@color/colorReadDark</item>
         <item name="colorUnread">@color/colorUnreadDark</item>
         <item name="colorUnreadHighlight">@color/colorAccent</item>
+
+        <item name="colorEncrypt">@color/colorEncrypt</item>
 
         <item name="colorSeparator">@color/darkColorSeparator</item>
         <item name="colorWarning">@color/darkColorWarning</item>

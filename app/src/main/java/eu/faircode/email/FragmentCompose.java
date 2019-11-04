@@ -32,6 +32,7 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -962,6 +963,16 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_compose, menu);
+
+        menu.findItem(R.id.menu_encrypt).setActionView(R.layout.action_button);
+        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
+        ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onMenuEncrypt();
+            }
+        });
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -987,7 +998,12 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer).setEnabled(!busy);
         menu.findItem(R.id.menu_send).setEnabled(!busy);
 
-        menu.findItem(R.id.menu_encrypt).setIcon(encrypt ? R.drawable.baseline_lock_open_24 : R.drawable.baseline_lock_24);
+        int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
+        ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
+        ib.setEnabled(!busy);
+        ib.setImageResource(encrypt ? R.drawable.baseline_lock_24 : R.drawable.baseline_lock_open_24);
+        ib.setImageTintList(encrypt ? ColorStateList.valueOf(colorEncrypt) : null);
+
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
