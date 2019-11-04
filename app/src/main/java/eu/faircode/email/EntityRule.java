@@ -471,11 +471,10 @@ public class EntityRule {
 
         DB db = DB.getInstance(context);
         db.message().setMessageSnoozed(message.id, wakeup);
+        db.message().setMessageUiIgnored(message.id, true);
         EntityMessage.snooze(context, message.id, wakeup);
 
         message.ui_snoozed = wakeup;
-
-        onActionSeen(context, message, true);
 
         return true;
     }

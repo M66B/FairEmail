@@ -3206,6 +3206,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             return null;
 
                         db.message().setMessageSnoozed(message.id, hide ? Long.MAX_VALUE : null);
+                        db.message().setMessageUiIgnored(message.id, true);
                         EntityMessage.snooze(context, message.id, hide ? Long.MAX_VALUE : null);
 
                         db.setTransactionSuccessful();

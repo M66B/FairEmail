@@ -332,7 +332,7 @@ public class ServiceUI extends IntentService {
                 return;
 
             db.message().setMessageSnoozed(id, wakeup);
-            EntityOperation.queue(this, message, EntityOperation.SEEN, true);
+            db.message().setMessageUiIgnored(message.id, true);
             EntityMessage.snooze(this, id, wakeup);
 
             db.setTransactionSuccessful();

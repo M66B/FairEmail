@@ -2035,6 +2035,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
                             db.message().setMessageSnoozed(threaded.id, hide ? Long.MAX_VALUE : null);
+                            db.message().setMessageUiIgnored(message.id, true);
                             EntityMessage.snooze(context, threaded.id, hide ? Long.MAX_VALUE : null);
                         }
                     }
@@ -4332,7 +4333,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             account, thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
                         db.message().setMessageSnoozed(threaded.id, wakeup);
-                        EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
+                        db.message().setMessageUiIgnored(message.id, true);
                         EntityMessage.snooze(context, threaded.id, wakeup);
                     }
 
@@ -4391,8 +4392,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages) {
                             db.message().setMessageSnoozed(threaded.id, wakeup);
+                            db.message().setMessageUiIgnored(message.id, true);
                             EntityMessage.snooze(context, threaded.id, wakeup);
-                            EntityOperation.queue(context, threaded, EntityOperation.SEEN, true);
                         }
                     }
 
