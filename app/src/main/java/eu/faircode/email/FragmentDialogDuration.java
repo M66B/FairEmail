@@ -61,6 +61,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         final TextView tvDuration = dview.findViewById(R.id.tvDuration);
         final Button btn1hour = dview.findViewById(R.id.btn1hour);
         final Button btn1day = dview.findViewById(R.id.btn1day);
+        final Button btn1week = dview.findViewById(R.id.btn1week);
         final TimePicker timePicker = dview.findViewById(R.id.timePicker);
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
 
@@ -114,13 +115,18 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                 })
                 .create();
 
-        btn1hour.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener buttonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
 
                 long now = new Date().getTime();
+
                 long duration = 3600 * 1000L;
+                if (view.getId() != R.id.btn1hour)
+                    duration *= 24;
+                if (view.getId() == R.id.btn1week)
+                    duration *= 7;
 
                 Bundle args = getArguments();
                 args.putLong("duration", duration);
@@ -128,23 +134,11 @@ public class FragmentDialogDuration extends FragmentDialogBase {
 
                 sendResult(RESULT_OK);
             }
-        });
+        };
 
-        btn1day.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-
-                long now = new Date().getTime();
-                long duration = 24 * 3600 * 1000L;
-
-                Bundle args = getArguments();
-                args.putLong("duration", duration);
-                args.putLong("time", now + duration);
-
-                sendResult(RESULT_OK);
-            }
-        });
+        btn1hour.setOnClickListener(buttonListener);
+        btn1day.setOnClickListener(buttonListener);
+        btn1week.setOnClickListener(buttonListener);
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override

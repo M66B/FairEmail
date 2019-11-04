@@ -43,8 +43,21 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_1day"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn1week"
             app:layout_constraintStart_toEndOf="@id/btn1hour"
+            app:layout_constraintTop_toBottomOf="@id/tvDuration" />
+
+        <Button
+            android:id="@+id/btn1week"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_1week"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn1day"
             app:layout_constraintTop_toBottomOf="@id/tvDuration" />
 
         <TimePicker
