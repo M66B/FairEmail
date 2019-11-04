@@ -841,7 +841,6 @@
     <string name="title_search_special_prefix">erityinen</string>
     <string name="title_search_special_unseen">lukematon</string>
     <string name="title_search_special_flagged">tähdellinen</string>
-    <string name="title_search_special_snoozed">torkutettu</string>
     <string name="title_widget_account">Tili</string>
     <string name="title_widget_account_all">Kaikki</string>
     <string name="title_widget_unseen">Vain lukemattomat viestit</string>

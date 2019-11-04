@@ -552,6 +552,7 @@
     <string name="title_ask_discard">Удалить черновик?</string>
     <string name="title_ask_show_html">Отображение исходного сообщения может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_html_remark">Отображение исходного сообщения с тёмным фоном невозможно, потому что это может привести к сокрытию тёмного текста и изображений</string>
+    <string name="title_ask_show_html_images">Всегда показывать изображения при показе оригинальных сообщений</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
     <string name="title_ask_delete_ref">Удалить цитируемый в ответе/пересылаемый текст сообщения? Это действие не может быть отменено.</string>
@@ -826,6 +827,7 @@
     <string name="title_via">Через: %1$s</string>
     <string name="title_1hour">1 час</string>
     <string name="title_1day">1 день</string>
+    <string name="title_1week">1 неделя</string>
     <string name="title_now">Сейчас</string>
     <string name="title_after">После %1$s</string>
     <string name="title_reset">Сброс</string>
@@ -863,7 +865,7 @@
     <string name="title_search_special_prefix">особый</string>
     <string name="title_search_special_unseen">непрочитано</string>
     <string name="title_search_special_flagged">избранное</string>
-    <string name="title_search_special_snoozed">отложено</string>
+    <string name="title_search_special_snoozed">скрыто</string>
     <string name="title_widget_account">Учётная запись</string>
     <string name="title_widget_account_all">Все</string>
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>

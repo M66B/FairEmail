@@ -862,7 +862,6 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_search_special_prefix">specjalna</string>
     <string name="title_search_special_unseen">nieodczytana</string>
     <string name="title_search_special_flagged">oznaczona</string>
-    <string name="title_search_special_snoozed">odłożona</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Wszystkie</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>

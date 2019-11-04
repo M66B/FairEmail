@@ -518,6 +518,7 @@
     <string name="title_ask_discard">丢弃草稿？</string>
     <string name="title_ask_show_html">显示原件可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_html_remark">无法在暗色背景下显示原始消息，因为会导致看不见的黑色文本和图像</string>
+    <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
     <string name="title_ask_delete_ref">删除回复/转发的消息文本？此操作无法撤销</string>
@@ -792,6 +793,7 @@
     <string name="title_via">通过: %1$s</string>
     <string name="title_1hour">1 小时</string>
     <string name="title_1day">1 天</string>
+    <string name="title_1week">1 周</string>
     <string name="title_now">现在</string>
     <string name="title_after">%1$s之后</string>
     <string name="title_reset">重置</string>
@@ -828,7 +830,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_search_special_prefix">特殊</string>
     <string name="title_search_special_unseen">未读</string>
     <string name="title_search_special_flagged">星标</string>
-    <string name="title_search_special_snoozed">打盹</string>
+    <string name="title_search_special_snoozed">隐藏</string>
     <string name="title_widget_account">账户</string>
     <string name="title_widget_account_all">全部</string>
     <string name="title_widget_unseen">仅未读信息</string>

@@ -851,7 +851,6 @@
     <string name="title_search_special_prefix">special</string>
     <string name="title_search_special_unseen">necitit</string>
     <string name="title_search_special_flagged">stea</string>
-    <string name="title_search_special_snoozed">amanat</string>
     <string name="title_widget_account">Cont</string>
     <string name="title_widget_account_all">Toate</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>

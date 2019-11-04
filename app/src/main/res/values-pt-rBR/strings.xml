@@ -840,7 +840,6 @@
     <string name="title_search_special_prefix">especial</string>
     <string name="title_search_special_unseen">não_lida</string>
     <string name="title_search_special_flagged">favorito</string>
-    <string name="title_search_special_snoozed">adiado</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todos</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>

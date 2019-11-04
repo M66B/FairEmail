@@ -852,7 +852,6 @@
     <string name="title_search_special_prefix">специјално</string>
     <string name="title_search_special_unseen">непрочитано</string>
     <string name="title_search_special_flagged">озвездано</string>
-    <string name="title_search_special_snoozed">одложено</string>
     <string name="title_widget_account">Налог</string>
     <string name="title_widget_account_all">Све</string>
     <string name="title_widget_unseen">Само непрочитане поруке</string>

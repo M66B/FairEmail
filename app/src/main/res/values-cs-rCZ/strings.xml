@@ -862,7 +862,6 @@
     <string name="title_search_special_prefix">speciální</string>
     <string name="title_search_special_unseen">nepřečteno</string>
     <string name="title_search_special_flagged">hvězdička</string>
-    <string name="title_search_special_snoozed">odloženo</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všechny</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>

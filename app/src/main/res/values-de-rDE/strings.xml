@@ -529,6 +529,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_discard">Entwurf löschen?</string>
     <string name="title_ask_show_html">Das Anzeigen der originalen Nachricht kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_html_remark">Das Anzeigen der Originalnachricht mit dunklem Hintergrund ist nicht möglich, da dadurch dunkle Texte und Bilder nicht sichtbar wären</string>
+    <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image_hint">Bilder, die als Tracking-Bilder erkannt werden, werden nicht angezeigt</string>
     <string name="title_ask_delete_ref">Den Text der beantworteten/weitergeleiteten Nachricht löschen? Dies kann nicht rückgängig gemacht werden.</string>
@@ -803,6 +804,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
     <string name="title_1day">1 Tag</string>
+    <string name="title_1week">1 Woche</string>
     <string name="title_now">Jetzt</string>
     <string name="title_after">Nach %1$s</string>
     <string name="title_reset">Zurücksetzen</string>
@@ -839,7 +841,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_search_special_prefix">speziell</string>
     <string name="title_search_special_unseen">ungelesen</string>
     <string name="title_search_special_flagged">markiert</string>
-    <string name="title_search_special_snoozed">zurückgestellt</string>
+    <string name="title_search_special_snoozed">verborgen</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>

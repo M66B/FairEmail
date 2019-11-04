@@ -777,7 +777,6 @@
     <string name="title_search_special_prefix">speciell</string>
     <string name="title_search_special_unseen">oläst</string>
     <string name="title_search_special_flagged">stjärnmärkt</string>
-    <string name="title_search_special_snoozed">slumrade</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alla</string>
     <string name="title_widget_unseen">Endast olästa meddelanden</string>

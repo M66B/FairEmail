@@ -835,7 +835,6 @@
     <string name="title_search_special_prefix">speciel</string>
     <string name="title_search_special_unseen">ulæst</string>
     <string name="title_search_special_flagged">stjernemarkeret</string>
-    <string name="title_search_special_snoozed">udsat</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>

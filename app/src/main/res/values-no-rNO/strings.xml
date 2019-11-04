@@ -530,6 +530,7 @@
     <string name="title_ask_discard">Kast utkast?</string>
     <string name="title_ask_show_html">Visning av den opprinnelige meldingen kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_html_remark">Det er ikke mulig å vise den opprinnelige meldingen med mørk bakgrunn fordi den kan forårsake usynlige mørke tekster og bilder</string>
+    <string name="title_ask_show_html_images">Vis alltid bilder når du viser originale meldinger</string>
     <string name="title_ask_show_image">Å vise bilder kan lekke sensitiv informasjon</string>
     <string name="title_ask_show_image_hint">Bilder som blir gjenkjent som sporingsbilder, vises ikke</string>
     <string name="title_ask_delete_ref">Vil du slette svart/videresendt meldingstekst? Dette kan ikke angres.</string>
@@ -804,6 +805,7 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 time</string>
     <string name="title_1day">1 dag</string>
+    <string name="title_1week">1 uke</string>
     <string name="title_now">Nå</string>
     <string name="title_after">Etter %1$s</string>
     <string name="title_reset">Tilbakestill</string>
@@ -841,7 +843,7 @@
     <string name="title_search_special_prefix">spesiell</string>
     <string name="title_search_special_unseen">ulest</string>
     <string name="title_search_special_flagged">stjernemerkede</string>
-    <string name="title_search_special_snoozed">utsatt</string>
+    <string name="title_search_special_snoozed">skjult</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_unseen">Bare uleste meldinger</string>

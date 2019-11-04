@@ -841,7 +841,6 @@
     <string name="title_search_special_prefix">özel</string>
     <string name="title_search_special_unseen">okunmamış</string>
     <string name="title_search_special_flagged">yıldızlı</string>
-    <string name="title_search_special_snoozed">ertelendi</string>
     <string name="title_widget_account">Hesap</string>
     <string name="title_widget_account_all">Tümü</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>

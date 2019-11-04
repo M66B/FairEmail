@@ -841,7 +841,6 @@
     <string name="title_search_special_prefix">berezia</string>
     <string name="title_search_special_unseen">irakurri gabea</string>
     <string name="title_search_special_flagged">izarduna</string>
-    <string name="title_search_special_snoozed">atzeratuta</string>
     <string name="title_widget_account">Kontua</string>
     <string name="title_widget_account_all">Denak</string>
     <string name="title_widget_unseen">Irakurri gabeko mezuak soilik</string>

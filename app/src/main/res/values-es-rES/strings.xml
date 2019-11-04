@@ -841,7 +841,6 @@
     <string name="title_search_special_prefix">especial</string>
     <string name="title_search_special_unseen">no_leído</string>
     <string name="title_search_special_flagged">destacado</string>
-    <string name="title_search_special_snoozed">pospuesto</string>
     <string name="title_widget_account">Cuenta</string>
     <string name="title_widget_account_all">Todas</string>
     <string name="title_widget_unseen">Sólo mensajes no leídos</string>

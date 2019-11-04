@@ -825,7 +825,6 @@
     <string name="title_search_special_prefix">especial</string>
     <string name="title_search_special_unseen">sense llegir</string>
     <string name="title_search_special_flagged">destacats</string>
-    <string name="title_search_special_snoozed">posposada</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tots</string>
     <string name="title_widget_unseen">Missatges no llegits només</string>

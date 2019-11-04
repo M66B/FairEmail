@@ -850,7 +850,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_search_special_prefix">posebno</string>
     <string name="title_search_special_unseen">nepročitano</string>
     <string name="title_search_special_flagged">označeno</string>
-    <string name="title_search_special_snoozed">odgođeno</string>
     <string name="title_widget_account">Račun</string>
     <string name="title_widget_account_all">Sve</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>

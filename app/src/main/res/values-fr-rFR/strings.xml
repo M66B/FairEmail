@@ -530,6 +530,7 @@
     <string name="title_ask_discard">Supprimer le brouillon ?</string>
     <string name="title_ask_show_html">Afficher le message original peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_html_remark">Afficher le message original avec un fond sombre n\'est pas possible car cela peut rendre des textes et des images invisibles</string>
+    <string name="title_ask_show_html_images">Toujours afficher les images lors de l\'affichage des messages originaux</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image_hint">Les images identifiées comme images de suivi ne seront pas affichées</string>
     <string name="title_ask_delete_ref">Supprimer le texte du message répondu/transmis ? Ceci ne peut pas être annulé.</string>
@@ -804,6 +805,7 @@
     <string name="title_via">Via : %1$s</string>
     <string name="title_1hour">1 heure</string>
     <string name="title_1day">1 jour</string>
+    <string name="title_1week">1 semaine</string>
     <string name="title_now">Maintenant</string>
     <string name="title_after">Après %1$s</string>
     <string name="title_reset">Réinitialiser</string>
@@ -841,7 +843,7 @@
     <string name="title_search_special_prefix">spécial</string>
     <string name="title_search_special_unseen">non_lus</string>
     <string name="title_search_special_flagged">suivis</string>
-    <string name="title_search_special_snoozed">reportés</string>
+    <string name="title_search_special_snoozed">masqué</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tous</string>
     <string name="title_widget_unseen">Messages non lus seulement</string>
