@@ -360,4 +360,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Migadu"
+        link="https://www.migadu.com/en/guides/config.html">
+        <imap
+            host="imap.migadu.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.migadu.com"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
