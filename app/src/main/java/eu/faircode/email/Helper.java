@@ -882,7 +882,7 @@ public class Helper {
         }
     }
 
-    private static void setAuthenticated(Context context) {
+    static void setAuthenticated(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().putLong("last_authentication", new Date().getTime()).apply();
     }

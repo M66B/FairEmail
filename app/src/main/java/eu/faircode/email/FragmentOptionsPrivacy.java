@@ -47,7 +47,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
-import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -61,7 +60,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnPin;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "disable_tracking", "display_hidden", "auto_decrypt", "no_history", "biometrics_timeout"
+            "disable_tracking", "display_hidden", "auto_decrypt", "no_history", "biometrics", "pin", "biometrics_timeout"
     };
 
     @Override
@@ -215,6 +214,12 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
         swNoHistory.setChecked(prefs.getBoolean("no_history", false));
 
+        boolean biometrics = prefs.getBoolean("biometrics", false);
+        btnBiometrics.setText(biometrics
+                ? R.string.title_setup_biometrics_disable
+                : R.string.title_setup_biometrics_enable);
+        btnBiometrics.setEnabled(Helper.canAuthenticate(getContext()));
+
         int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);
         int[] biometricTimeoutValues = getResources().getIntArray(R.array.biometricsTimeoutValues);
         for (int pos = 0; pos < biometricTimeoutValues.length; pos++)
@@ -222,12 +227,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 spBiometricsTimeout.setSelection(pos);
                 break;
             }
-
-        boolean biometrics = prefs.getBoolean("biometrics", false);
-        btnBiometrics.setText(biometrics
-                ? R.string.title_setup_biometrics_disable
-                : R.string.title_setup_biometrics_enable);
-        btnBiometrics.setEnabled(Helper.canAuthenticate(getContext()));
     }
 
     public static class FragmentDialogPin extends FragmentDialogBase {
@@ -237,26 +236,38 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_pin_set, null);
             final EditText etPin = dview.findViewById(R.id.etPin);
 
-            final Dialog dialog = new AlertDialog.Builder(getContext())
+            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                     .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             String pin = etPin.getText().toString();
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                             if (TextUtils.isEmpty(pin))
                                 prefs.edit().remove("pin").apply();
                             else {
                                 boolean pro = ActivityBilling.isPro(getContext());
-                                if (pro)
+                                if (pro) {
+                                    Helper.setAuthenticated(getContext());
                                     prefs.edit().putString("pin", pin).apply();
-                                else
+                                } else
                                     startActivity(new Intent(getContext(), ActivityBilling.class));
                             }
                         }
                     })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
+                    .setNegativeButton(android.R.string.cancel, null);
+
+            String pin = prefs.getString("pin", null);
+            if (!TextUtils.isEmpty(pin))
+                builder.setNeutralButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        prefs.edit().remove("pin").apply();
+                    }
+                });
+
+            final Dialog dialog = builder.create();
 
             etPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
