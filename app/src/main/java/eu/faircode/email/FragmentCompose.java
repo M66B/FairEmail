@@ -55,7 +55,6 @@ import android.os.Handler;
 import android.os.LocaleList;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -655,7 +654,9 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternetAttachments.setVisibility(View.GONE);
         tvUnusedInlineImages.setVisibility(View.GONE);
 
-        pgpService = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
+        pgpService = new OpenPgpServiceConnection(
+                getContext(),
+                Helper.getOpenKeychainPackage(getContext()));
         pgpService.bindToService();
 
         return view;

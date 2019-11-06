@@ -892,6 +892,10 @@ public class Helper {
         prefs.edit().remove("last_authentication").apply();
     }
 
+    static String getOpenKeychainPackage(Context context) {
+        return "org.sufficientlysecure.keychain";
+    }
+
     // Miscellaneous
 
     static <T> List<List<T>> chunkList(List<T> list, int size) {

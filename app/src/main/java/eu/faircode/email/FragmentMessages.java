@@ -1046,7 +1046,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
         });
 
-        pgpService = new OpenPgpServiceConnection(getContext(), "org.sufficientlysecure.keychain");
+        pgpService = new OpenPgpServiceConnection(
+                getContext(),
+                Helper.getOpenKeychainPackage(getContext()));
         pgpService.bindToService();
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
