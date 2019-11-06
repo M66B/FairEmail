@@ -132,9 +132,6 @@ public class Helper {
     static final String FAQ_URI = "https://github.com/M66B/FairEmail/blob/master/FAQ.md";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
-    static final String PGP_URI = "https://f-droid.org/en/packages/org.sufficientlysecure.keychain/";
-    static final String PLAY_APPS_URI = "https://play.google.com/store/apps/dev?id=8420080860664580239";
-    static final String GITHUB_APPS_URI = "https://github.com/M66B?tab=repositories";
     static final String TEST_URI = "https://play.google.com/apps/testing/" + BuildConfig.APPLICATION_ID;
 
     static ExecutorService getBackgroundExecutor(int threads, String name) {
@@ -283,7 +280,7 @@ public class Helper {
 
     static Intent getIntentOpenKeychain() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(PGP_URI));
+        intent.setData(Uri.parse(BuildConfig.OPENKEYCHAIN_URI));
         return intent;
     }
 
