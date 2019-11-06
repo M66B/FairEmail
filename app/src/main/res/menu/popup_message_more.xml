@@ -9,6 +9,10 @@
         android:title="@string/title_unseen" />
 
     <item
+        android:id="@+id/menu_snooze"
+        android:title="@string/title_snooze" />
+
+    <item
         android:id="@+id/menu_hide"
         android:title="@string/title_hide" />
 

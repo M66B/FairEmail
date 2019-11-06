@@ -251,7 +251,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_ASKED_MOVE_ACROSS = 10;
     static final int REQUEST_MESSAGE_COLOR = 11;
     private static final int REQUEST_MESSAGES_COLOR = 12;
-    private static final int REQUEST_MESSAGE_SNOOZE = 13;
+    static final int REQUEST_MESSAGE_SNOOZE = 13;
     private static final int REQUEST_MESSAGES_SNOOZE = 14;
     static final int REQUEST_MESSAGE_MOVE = 15;
     private static final int REQUEST_MESSAGES_MOVE = 16;

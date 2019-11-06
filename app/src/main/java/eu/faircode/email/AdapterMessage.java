@@ -2996,6 +2996,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         case R.id.menu_unseen:
                             onMenuUnseen(message);
                             return true;
+                        case R.id.menu_snooze:
+                            onMenuSnooze(message);
+                            return true;
                         case R.id.menu_hide:
                             onMenuHide(message);
                             return true;
@@ -3207,6 +3210,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:unseen");
+        }
+
+        private void onMenuSnooze(final TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putString("title", context.getString(R.string.title_snooze));
+            args.putLong("account", message.account);
+            args.putString("thread", message.thread);
+            args.putLong("id", message.id);
+            args.putBoolean("finish", true);
+
+            FragmentDialogDuration fragment = new FragmentDialogDuration();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_SNOOZE);
+            fragment.show(parentFragment.getParentFragmentManager(), "message:snooze");
         }
 
         private void onMenuHide(final TupleMessageEx message) {
