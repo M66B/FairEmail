@@ -1283,6 +1283,7 @@ public class FragmentCompose extends FragmentBase {
 
                 Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                 intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
+                intent.putExtra(BuildConfig.APPLICATION_ID, working);
                 onPgp(intent);
             } catch (Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
@@ -1549,15 +1550,14 @@ public class FragmentCompose extends FragmentBase {
 
     private void onPgp(Intent data) {
         final Bundle args = new Bundle();
-        args.putLong("id", working);
         args.putParcelable("data", data);
 
         new SimpleTask<Object>() {
             @Override
             protected Object onExecute(Context context, Bundle args) throws Throwable {
                 // Get arguments
-                long id = args.getLong("id");
                 Intent data = args.getParcelable("data");
+                long id = data.getLongExtra(BuildConfig.APPLICATION_ID, -1);
 
                 DB db = DB.getInstance(context);
 
@@ -1607,6 +1607,7 @@ public class FragmentCompose extends FragmentBase {
                 try {
                     int resultCode = result.getIntExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_ERROR);
                     Log.i("Result action=" + data.getAction() + " code=" + resultCode);
+                    Log.logExtras(data);
                     switch (resultCode) {
                         case OpenPgpApi.RESULT_CODE_SUCCESS:
                             // Attach encrypted data / signature
@@ -1672,6 +1673,7 @@ public class FragmentCompose extends FragmentBase {
                                     Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
                                     intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpKeyIds[0]);
                                     intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                    intent.putExtra(BuildConfig.APPLICATION_ID, id);
                                     return intent;
                                 }
                             }
@@ -1684,11 +1686,13 @@ public class FragmentCompose extends FragmentBase {
                                     intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
                                     intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
                                     intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                    intent.putExtra(BuildConfig.APPLICATION_ID, id);
                                     return intent;
                                 } else {
                                     // Get sign key
                                     Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
                                     intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
+                                    intent.putExtra(BuildConfig.APPLICATION_ID, id);
                                     return intent;
                                 }
                             } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
@@ -1700,11 +1704,13 @@ public class FragmentCompose extends FragmentBase {
                                 intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
                                 intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
                                 intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
+                                intent.putExtra(BuildConfig.APPLICATION_ID, id);
                                 return intent;
                             } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
                                 // Get signature
                                 Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
                                 intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
+                                intent.putExtra(BuildConfig.APPLICATION_ID, id);
                                 return null;
                             } else {
                                 // send message
