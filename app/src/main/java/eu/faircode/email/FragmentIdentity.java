@@ -242,6 +242,7 @@ public class FragmentIdentity extends FragmentBase {
                             etHost.setText(provider.smtp.host);
                             etPort.setText(Integer.toString(provider.smtp.port));
                             rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                            cbUseIp.setChecked(provider.useip);
 
                             break;
                         }
@@ -357,6 +358,7 @@ public class FragmentIdentity extends FragmentBase {
                 etHost.setText(provider.smtp.host);
                 etPort.setText(position == 0 ? null : Integer.toString(provider.smtp.port));
                 rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                cbUseIp.setChecked(provider.useip);
             }
 
             @Override
@@ -470,6 +472,7 @@ public class FragmentIdentity extends FragmentBase {
                 etHost.setText(provider.smtp.host);
                 etPort.setText(Integer.toString(provider.smtp.port));
                 rgEncryption.check(provider.smtp.starttls ? R.id.radio_starttls : R.id.radio_ssl);
+                cbUseIp.setChecked(provider.useip);
             }
 
             @Override

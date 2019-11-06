@@ -372,4 +372,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="XS4ALL"
+        link="https://www.xs4all.nl/service/diensten/email/installeren/e-mailinstellingen.htm"
+        useip="false">
+        <imap
+            host="imap.xs4all.nl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.xs4all.nl"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>

@@ -268,6 +268,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
                 try (MailService iservice = new MailService(context, iprotocol, null, false, true, true)) {
+                    iservice.setUseIp(provider.useip);
                     iservice.connect(provider.smtp.host, provider.smtp.port, MailService.AUTH_TYPE_PASSWORD, user, password);
                 }
 
@@ -333,6 +334,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     identity.auth_type = MailService.AUTH_TYPE_PASSWORD;
                     identity.user = user;
                     identity.password = password;
+                    identity.use_ip = provider.useip;
                     identity.synchronize = true;
                     identity.primary = true;
 

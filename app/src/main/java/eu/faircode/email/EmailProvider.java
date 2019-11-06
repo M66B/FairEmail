@@ -58,10 +58,11 @@ import java.util.concurrent.Future;
 public class EmailProvider {
     public String name;
     public List<String> domain;
-    public String link;
     public int order;
     public String type;
     public int keepalive;
+    public boolean useip;
+    public String link;
     public Server imap = new Server();
     public Server smtp = new Server();
     public UserType user = UserType.EMAIL;
@@ -104,11 +105,12 @@ public class EmailProvider {
                     else if ("provider".equals(name)) {
                         provider = new EmailProvider();
                         provider.name = xml.getAttributeValue(null, "name");
-                        provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
-                        provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)
                             provider.domain = Arrays.asList(domain.split(","));
+                        provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
+                        provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
+                        provider.useip = xml.getAttributeBooleanValue(null, "useip", true);
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
                         String user = xml.getAttributeValue(null, "user");
