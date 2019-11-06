@@ -766,6 +766,8 @@ see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/)
 
 The error *... Read timed out ...* means that the email server is not responding anymore or that the internet connection is bad.
 
+The error *... Unexpected end of zlib input stream ...*" means that not all data was received, possibly due to a bad or interrupted connection.
+
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
 FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
 
@@ -1876,15 +1878,18 @@ This is why texts with dots are sometimes incorrectly recognized as links, which
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
 and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
+Servers generally have more memory and computing power, so are much better suited for this task.
+Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client.
 
 Of course you can report messages as spam with FairEmail,
 which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
+This can be done automatically with [filter rules](#user-content-faq71) too.
 
 Also, FairEmail can show a small red warning flag
 when DKIM, SPF or [DMARC](https://en.wikipedia.org/wiki/DMARC) authentication failed on the receiving server.
 You can enable/disable [authentication verification](https://en.wikipedia.org/wiki/Email_authentication) in the behavior settings.
 
-FairEmail can show a warning flag too when the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
+FairEmail can show a warning flag too if the domain name of the (reply) email address of the sender does not define an MX record pointing to an email server.
 This can be enabled in the receive settings. Be aware that this will slow down synchronization of messages significantly.
 
 If legitimate messages are failing authentication, you should notify the sender because this will result in a high risk of messages ending up in the spam folder.
