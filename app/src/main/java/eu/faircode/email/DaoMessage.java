@@ -257,7 +257,7 @@ public interface DaoMessage {
     @Query("SELECT * FROM message" +
             " WHERE account = :account" +
             " AND msgid = :msgid")
-    List<EntityMessage> getMessageByMsgId(long account, String msgid);
+    List<EntityMessage> getMessagesByMsgId(long account, String msgid);
 
     @Query("SELECT * FROM message" +
             " WHERE account = :account" +

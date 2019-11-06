@@ -517,7 +517,7 @@ public class MessageHelper {
 
         DB db = DB.getInstance(context);
         for (String ref : refs) {
-            List<EntityMessage> messages = db.message().getMessageByMsgId(account, ref);
+            List<EntityMessage> messages = db.message().getMessagesByMsgId(account, ref);
             if (messages.size() > 0)
                 return messages.get(0).thread;
         }

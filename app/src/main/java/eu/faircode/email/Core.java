@@ -1424,7 +1424,7 @@ class Core {
                         else {
                             msgid = helper.getMessageID();
                             if (existing.contains(msgid)) {
-                                List<EntityMessage> messages = db.message().getMessageByMsgId(account.id, msgid);
+                                List<EntityMessage> messages = db.message().getMessagesByMsgId(account.id, msgid);
                                 if (messages.size() == 1) {
                                     messages.get(0).msgid = uid;
                                     db.message().updateMessage(messages.get(0));
@@ -2036,7 +2036,7 @@ class Core {
         if (message == null) {
             String msgid = helper.getMessageID();
             Log.i(folder.name + " searching for " + msgid);
-            for (EntityMessage dup : db.message().getMessageByMsgId(folder.account, msgid)) {
+            for (EntityMessage dup : db.message().getMessagesByMsgId(folder.account, msgid)) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
                 Log.i(folder.name + " found as id=" + dup.id + "/" + dup.uid +
                         " folder=" + dfolder.type + ":" + dup.folder + "/" + folder.type + ":" + folder.id +

@@ -442,7 +442,7 @@ public class ServiceSend extends ServiceBase {
                 }
 
                 if (message.inreplyto != null) {
-                    List<EntityMessage> replieds = db.message().getMessageByMsgId(message.account, message.inreplyto);
+                    List<EntityMessage> replieds = db.message().getMessagesByMsgId(message.account, message.inreplyto);
                     for (EntityMessage replied : replieds)
                         EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
                 }
