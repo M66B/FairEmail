@@ -789,7 +789,7 @@
     <string name="title_undo">Herstel</string>
     <string name="title_redo">Opnieuw</string>
     <string name="title_add">Toevoegen</string>
-    <string name="title_browse">Gebruik app</string>
+    <string name="title_browse">Standaard app</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>

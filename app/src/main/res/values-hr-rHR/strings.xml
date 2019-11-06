@@ -798,7 +798,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_undo">Poništi</string>
     <string name="title_redo">Ponovi</string>
     <string name="title_add">Dodaj</string>
-    <string name="title_browse">Koristi aplikaciju</string>
     <string name="title_info">Informacije</string>
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
