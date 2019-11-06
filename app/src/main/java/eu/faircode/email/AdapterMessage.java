@@ -4361,7 +4361,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             return new AlertDialog.Builder(getContext())
                     .setView(view)
-                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Uri uri = Uri.parse(etLink.getText().toString());
@@ -4375,7 +4375,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             Helper.view(getContext(), uri, true);
                         }
                     })
-                    .setNegativeButton(R.string.title_no, null)
+                    .setNegativeButton(android.R.string.cancel, null)
                     .create();
         }
     }
