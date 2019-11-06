@@ -31,7 +31,7 @@
         <item name="colorUnread">@color/colorUnreadLight</item>
         <item name="colorUnreadHighlight">@color/colorAccentDark</item>
 
-        <item name="colorEncrypt">@color/colorEncrypt</item>
+        <item name="colorEncrypt">@color/colorEncryptLight</item>
 
         <item name="colorSeparator">@color/lightColorSeparator</item>
         <item name="colorWarning">@color/lightColorWarning</item>
@@ -78,7 +78,7 @@
         <item name="colorUnread">@color/colorUnreadDark</item>
         <item name="colorUnreadHighlight">@color/colorAccent</item>
 
-        <item name="colorEncrypt">@color/colorEncrypt</item>
+        <item name="colorEncrypt">@color/colorEncryptDark</item>
 
         <item name="colorSeparator">@color/darkColorSeparator</item>
         <item name="colorWarning">@color/darkColorWarning</item>
@@ -126,6 +126,8 @@
         <item name="colorAccent">@color/greyAccent</item>
 
         <item name="colorUnreadHighlight">@color/greyAccentDark</item>
+
+        <item name="colorEncrypt">@color/colorEncryptDark</item>
 
         <item name="colorFabBackground">@color/greyAccent</item>
 
