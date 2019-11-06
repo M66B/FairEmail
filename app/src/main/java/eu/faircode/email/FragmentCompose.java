@@ -654,9 +654,9 @@ public class FragmentCompose extends FragmentBase {
         tvNoInternetAttachments.setVisibility(View.GONE);
         tvUnusedInlineImages.setVisibility(View.GONE);
 
-        pgpService = new OpenPgpServiceConnection(
-                getContext(),
-                Helper.getOpenKeychainPackage(getContext()));
+        String pkg = Helper.getOpenKeychainPackage(getContext());
+        Log.i("Binding to " + pkg);
+        pgpService = new OpenPgpServiceConnection(getContext(), pkg);
         pgpService.bindToService();
 
         return view;
