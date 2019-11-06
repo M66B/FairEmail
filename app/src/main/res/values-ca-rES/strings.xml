@@ -203,6 +203,7 @@
     <string name="title_advanced_download">Baixeu de forma automàtica missatges i fitxers adjunts fins a una connexió de dosificació fins a</string>
     <string name="title_advanced_roaming">Baixeu missatges i fitxers adjunts en itinerància</string>
     <string name="title_advanced_rlah">Itinerant com a casa</string>
+    <string name="title_advanced_socks">Utilitza el proxy SOCKS</string>
     <string name="title_advanced_manage_connectivity">Gestiona la connectivitat</string>
     <string name="title_advanced_landscape">Utilitzeu dues columnes en mode horitzontal</string>
     <string name="title_advanced_startup">Mostra a la pantalla d\'inici</string>
@@ -263,6 +264,7 @@
     <string name="title_advanced_notify_action_trash">Paperera</string>
     <string name="title_advanced_notify_action_junk">Correu brossa</string>
     <string name="title_advanced_notify_action_archive">Arxiu</string>
+    <string name="title_advanced_notify_action_move">Mou</string>
     <string name="title_advanced_notify_action_reply">Respon</string>
     <string name="title_advanced_notify_action_reply_direct">Resposta directa</string>
     <string name="title_advanced_notify_action_flag">Destacat</string>
@@ -275,6 +277,7 @@
     <string name="title_advanced_sound">Selecciona so de notificació</string>
     <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_display_hidden">Mostra textos de missatges ocults</string>
+    <string name="title_advanced_auto_decrypt">Xifra automàticament els missatges</string>
     <string name="title_advanced_recents">Oculta de la pantalla amb aplicacions recents</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_pin">PIN</string>
@@ -347,6 +350,7 @@
     <string name="title_account_notify">Notificacions independents</string>
     <string name="title_account_left">Llisca a l\'esquerra</string>
     <string name="title_account_right">Llisca a dreta</string>
+    <string name="title_account_move">Per defecte mou a</string>
     <string name="title_domain">Nom de domini</string>
     <string name="title_autoconfig">Obté la configuració de</string>
     <string name="title_aliases">Àlies</string>
@@ -364,6 +368,7 @@
     <string name="title_primary_identity">Primària (identitat per defecte)</string>
     <string name="title_leave_on_server">Deixa els missatges al servidor</string>
     <string name="title_keep_alive_interval">Interval d\'activitat (minuts)</string>
+    <string name="title_related_identity">Afegiu identitat relacionada</string>
     <string name="title_check">Comprovar</string>
     <string name="title_no_name">Falta nom</string>
     <string name="title_no_email">Falta l\'adreça de correu electrònic</string>
@@ -384,6 +389,7 @@
     <string name="title_account_delete">Esborrar aquest compte per sempre?</string>
     <string name="title_identity_delete">Esborrar aquesta identitat per sempre?</string>
     <string name="title_edit_html">Edita com HTML</string>
+    <string name="title_sign_key">Clau signada: %1$s</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
     <string name="title_pop_support">El protocol POP3 només permet descarregar i esborrar missatges de la safata d\'entrada. No deixa marcar missatges com a llegits, moure missatges, etc. Com que POP3 també necessita més bateria i dades, pot ser preferible utilitzar el protocol IMAP.</string>
     <string name="title_activesync_support">ActiveSync no està suportat</string>
@@ -472,6 +478,7 @@
     <string name="title_show_inline">Mostra els fitxers adjunts</string>
     <string name="title_download_all">Baixa-ho tot</string>
     <string name="title_save_all">Desa-ho tot</string>
+    <string name="title_save_eml">Descarregueu el fitxer del missatge en brut</string>
     <string name="title_trash">Paperera</string>
     <string name="title_copy">S\'està copiant &#8230;</string>
     <string name="title_copy_to">Copiar a &#8230;</string>
@@ -789,6 +796,7 @@
     <string name="title_via">Mitjançant: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 dia</string>
+    <string name="title_1week">1 setmana</string>
     <string name="title_now">Ara</string>
     <string name="title_after">Després de %1$s</string>
     <string name="title_reset">Restablir</string>
@@ -797,6 +805,7 @@
     <string name="title_dismiss">Descartar</string>
     <string name="title_snooze_now">Posposa</string>
     <string name="title_loading">S\'està carregant&#8230;</string>
+    <string name="title_set">Estableix</string>
     <string name="title_icalendar_accept">Acceptar</string>
     <string name="title_icalendar_decline">Rebutja</string>
     <string name="title_icalendar_maybe">Potser</string>
@@ -825,6 +834,7 @@
     <string name="title_search_special_prefix">especial</string>
     <string name="title_search_special_unseen">sense llegir</string>
     <string name="title_search_special_flagged">destacats</string>
+    <string name="title_search_special_snoozed">ocult</string>
     <string name="title_widget_account">Compte</string>
     <string name="title_widget_account_all">Tots</string>
     <string name="title_widget_unseen">Missatges no llegits només</string>

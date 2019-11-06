@@ -530,6 +530,7 @@
     <string name="title_ask_discard">¿Descartar el borrador?</string>
     <string name="title_ask_show_html">Mostrar el mensaje original puede filtrar información privada sensible</string>
     <string name="title_ask_show_html_remark">No es posible mostrar el mensaje original con un fondo oscuro porque puede causar que textos e imágenes oscuros sean invisibles</string>
+    <string name="title_ask_show_html_images">Siempre mostrar imágenes al mostrar mensajes originales</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
     <string name="title_ask_delete_ref">¿Eliminar el texto del mensaje contestado/reenviado? Esto no se puede deshacer.</string>
@@ -804,6 +805,7 @@
     <string name="title_via">Vía: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 día</string>
+    <string name="title_1week">1 semana</string>
     <string name="title_now">Ahora</string>
     <string name="title_after">Después de %1$s</string>
     <string name="title_reset">Restablecer</string>
@@ -841,6 +843,7 @@
     <string name="title_search_special_prefix">especial</string>
     <string name="title_search_special_unseen">no_leído</string>
     <string name="title_search_special_flagged">destacado</string>
+    <string name="title_search_special_snoozed">oculto</string>
     <string name="title_widget_account">Cuenta</string>
     <string name="title_widget_account_all">Todas</string>
     <string name="title_widget_unseen">Sólo mensajes no leídos</string>

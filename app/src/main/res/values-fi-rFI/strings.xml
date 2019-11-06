@@ -530,6 +530,7 @@
     <string name="title_ask_discard">Hylätäänkö luonnos?</string>
     <string name="title_ask_show_html">Alkuperäisen viestin näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_html_remark">Alkuperäisen viestin näyttäminen tummalla taustalla ei ole mahdollista, koska tummat tekstit ja kuvat eivät erotu</string>
+    <string name="title_ask_show_html_images">Näytä aina kuvat alkuperäisiä viestejä näytettäessä</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image_hint">Seurantakuviksi tunnistettuja kuvia ei näytetä</string>
     <string name="title_ask_delete_ref">Poista vastattu/edelleenlähetetty viestiteksti? Tätä ei voi perua.</string>

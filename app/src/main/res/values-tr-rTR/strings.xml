@@ -530,6 +530,7 @@
     <string name="title_ask_discard">Taslak silinsin mi?</string>
     <string name="title_ask_show_html">Özgün iletiyi göstermek gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_html_remark">Orijinal mesajı koyu arka planda görüntülemek mümkün değildir çünkü görünmez koyu metinlere ve resimlere neden olabilir</string>
+    <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
     <string name="title_ask_delete_ref">Yanıtlanan/iletilen ileti metni silinsin mi? Bu geri alınamaz.</string>
@@ -804,6 +805,7 @@
     <string name="title_via">Şu yol ile: %1$s</string>
     <string name="title_1hour">1 saat</string>
     <string name="title_1day">1 gün</string>
+    <string name="title_1week">1 hafta</string>
     <string name="title_now">Şimdi</string>
     <string name="title_after">%1$s\'den sonra</string>
     <string name="title_reset">Sıfırlama</string>
@@ -841,6 +843,7 @@
     <string name="title_search_special_prefix">özel</string>
     <string name="title_search_special_unseen">okunmamış</string>
     <string name="title_search_special_flagged">yıldızlı</string>
+    <string name="title_search_special_snoozed">gizli</string>
     <string name="title_widget_account">Hesap</string>
     <string name="title_widget_account_all">Tümü</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>

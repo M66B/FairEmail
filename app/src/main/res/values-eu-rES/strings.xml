@@ -530,6 +530,7 @@
     <string name="title_ask_discard">Baztertu zirriborroa?</string>
     <string name="title_ask_show_html">Jatorrizko mezua erakusteak informazio pribatua agerira ekar lezake</string>
     <string name="title_ask_show_html_remark">Ezin da jatorrizko mezua atzealde ilunean erakutsi testu eta irudi batzuk ikusezinak bihurtu litezkelako</string>
+    <string name="title_ask_show_html_images">Beti erakutsi irudiak jatorrizko mezuak erakustean</string>
     <string name="title_ask_show_image">Irudiak bistaratzeak informazio probatua agerira ekar lezake</string>
     <string name="title_ask_show_image_hint">Jarraipen irudi gisa antzemandako irudiak ez dira bistaratuko</string>
     <string name="title_ask_delete_ref">Ezabatu erantzundako/birbidalitako mezuaren testua? Hau ezin da desegin.</string>
@@ -804,6 +805,7 @@
     <string name="title_via">Honen bidez: %1$s</string>
     <string name="title_1hour">Ordu 1</string>
     <string name="title_1day">Egun 1</string>
+    <string name="title_1week">aste 1</string>
     <string name="title_now">Orain</string>
     <string name="title_after">%1$s eta gero</string>
     <string name="title_reset">Berrezarri</string>
@@ -841,6 +843,7 @@
     <string name="title_search_special_prefix">berezia</string>
     <string name="title_search_special_unseen">irakurri gabea</string>
     <string name="title_search_special_flagged">izarduna</string>
+    <string name="title_search_special_snoozed">ezkutuan</string>
     <string name="title_widget_account">Kontua</string>
     <string name="title_widget_account_all">Denak</string>
     <string name="title_widget_unseen">Irakurri gabeko mezuak soilik</string>

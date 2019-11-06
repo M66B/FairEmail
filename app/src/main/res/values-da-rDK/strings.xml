@@ -526,6 +526,7 @@
     <string name="title_ask_discard">Kassér kladde?</string>
     <string name="title_ask_show_html">Visning af beskedindhold kan lække personfølsomme data</string>
     <string name="title_ask_show_html_remark">Visning af originalbeskeden på en mørk baggrund er ikke mulig, da det kan afstedkomme usynlige mørke tekster og billeder</string>
+    <string name="title_ask_show_html_images">Vis altid billeder, når originalbeskederne vises</string>
     <string name="title_ask_show_image">Visning af billeder kan lække personfølsomme data</string>
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
     <string name="title_ask_delete_ref">Slet besvaret/videresendt beskedtekst? Dette kan ikke fortrydes.</string>
@@ -799,6 +800,7 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 time</string>
     <string name="title_1day">1 dag</string>
+    <string name="title_1week">1 uge</string>
     <string name="title_now">Nu</string>
     <string name="title_after">Efter %1$s</string>
     <string name="title_reset">Nulstil</string>
@@ -835,6 +837,7 @@
     <string name="title_search_special_prefix">speciel</string>
     <string name="title_search_special_unseen">ulæst</string>
     <string name="title_search_special_flagged">stjernemarkeret</string>
+    <string name="title_search_special_snoozed">skjult</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
