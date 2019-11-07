@@ -706,7 +706,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     @Override
                     protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                        moveAsk(result);
+                        moveAsk(result, false);
                     }
 
                     @Override
@@ -1336,7 +1336,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                    moveAsk(result);
+                    moveAsk(result, false);
                 }
 
                 @Override
@@ -2229,7 +2229,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (EntityFolder.JUNK.equals(type))
                     moveAskConfirmed(result);
                 else
-                    moveAsk(result);
+                    moveAsk(result, true);
             }
 
             @Override
@@ -2293,7 +2293,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                moveAsk(result);
+                moveAsk(result, true);
             }
 
             @Override
@@ -3484,13 +3484,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:navigate");
     }
 
-    private void moveAsk(final ArrayList<MessageTarget> result) {
+    private void moveAsk(final ArrayList<MessageTarget> result, boolean undo) {
         if (result.size() == 0)
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean("automove", false)) {
-            moveUndo(result);
+            if (undo)
+                moveUndo(result);
+            else
+                moveAskConfirmed(result);
             return;
         }
 
@@ -4489,7 +4492,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
             @Override
             protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                moveAsk(result);
+                moveAsk(result, false);
             }
 
             @Override
