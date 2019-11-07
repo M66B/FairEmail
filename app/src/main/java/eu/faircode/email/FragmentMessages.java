@@ -1668,7 +1668,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             args.putLong("id", message.id);
             args.putBoolean("thread", viewType != AdapterMessage.ViewType.THREAD);
             args.putLong("target", target);
-            args.putLong("busy", new Date().getTime() + UNDO_TIMEOUT * 2);
 
             new SimpleTask<ArrayList<MessageTarget>>() {
                 @Override
@@ -1676,7 +1675,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     long id = args.getLong("id");
                     boolean thread = args.getBoolean("thread");
                     long tid = args.getLong("target");
-                    long busy = args.getLong("busy");
 
                     ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -1696,13 +1694,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         EntityAccount account = db.account().getAccount(target.account);
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading && thread ? null : id, message.folder);
-                        for (EntityMessage threaded : messages) {
+                        for (EntityMessage threaded : messages)
                             result.add(new MessageTarget(threaded, account, target));
-                            db.message().setMessageUiBusy(threaded.id, busy);
-                            db.message().setMessageUiHide(threaded.id, true);
-                            // Prevent new message notification on undo
-                            db.message().setMessageUiIgnored(threaded.id, true);
-                        }
 
                         db.setTransactionSuccessful();
                     } finally {
@@ -3497,7 +3490,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         if (prefs.getBoolean("automove", false)) {
-            moveAskConfirmed(result);
+            moveUndo(result);
             return;
         }
 
@@ -3557,98 +3550,127 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:move");
     }
 
-    private void moveUndo(final ArrayList<MessageTarget> result) {
-        // Show undo snackbar
-        final Snackbar snackbar = Snackbar.make(
-                view,
-                getString(R.string.title_moving, getDisplay(result)),
-                Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
+    private void moveUndo(ArrayList<MessageTarget> result) {
+        Bundle args = new Bundle();
+        args.putParcelableArrayList("result", result);
+
+        new SimpleTask<ArrayList<MessageTarget>>() {
             @Override
-            public void onClick(View v) {
-                snackbar.dismiss();
-                snackbar.getView().setTag(true);
+            protected ArrayList<MessageTarget> onExecute(Context context, Bundle args) throws Throwable {
+                ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
 
-                Bundle args = new Bundle();
-                args.putParcelableArrayList("result", result);
+                DB db = DB.getInstance(context);
+                long busy = new Date().getTime() + UNDO_TIMEOUT * 2;
+                for (MessageTarget target : result) {
+                    db.message().setMessageUiBusy(target.id, busy);
+                    db.message().setMessageUiHide(target.id, true);
+                    // Prevent new message notification on undo
+                    db.message().setMessageUiIgnored(target.id, true);
+                }
 
-                // Show message again
-                new SimpleTask<Void>() {
+                return result;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, final ArrayList<MessageTarget> result) {
+                // Show undo snackbar
+                final Snackbar snackbar = Snackbar.make(
+                        view,
+                        getString(R.string.title_moving, getDisplay(result)),
+                        Snackbar.LENGTH_INDEFINITE);
+                snackbar.setAction(R.string.title_undo, new View.OnClickListener() {
                     @Override
-                    protected Void onExecute(Context context, Bundle args) {
-                        DB db = DB.getInstance(context);
+                    public void onClick(View v) {
+                        snackbar.dismiss();
+                        snackbar.getView().setTag(true);
 
-                        try {
-                            db.beginTransaction();
+                        Bundle args = new Bundle();
+                        args.putParcelableArrayList("result", result);
 
-                            ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
-                            for (MessageTarget target : result) {
-                                Log.i("Move undo id=" + target.id);
-                                db.message().setMessageUiBusy(target.id, null);
-                                db.message().setMessageUiHide(target.id, false);
+                        // Show message again
+                        new SimpleTask<Void>() {
+                            @Override
+                            protected Void onExecute(Context context, Bundle args) {
+                                ArrayList<MessageTarget> result = args.getParcelableArrayList("result");
+
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    for (MessageTarget target : result) {
+                                        Log.i("Move undo id=" + target.id);
+                                        db.message().setMessageUiBusy(target.id, null);
+                                        db.message().setMessageUiHide(target.id, false);
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } finally {
+                                    db.endTransaction();
+                                }
+
+                                return null;
                             }
 
-                            db.setTransactionSuccessful();
-                        } finally {
-                            db.endTransaction();
-                        }
-
-                        return null;
+                            @Override
+                            protected void onException(Bundle args, Throwable ex) {
+                                Helper.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        }.execute(FragmentMessages.this, args, "messages:moveundo");
                     }
+                });
+                snackbar.show();
 
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentMessages.this, args, "messages:undo");
-            }
-        });
-        snackbar.show();
+                final Context context = getContext().getApplicationContext();
 
-        final Context context = getContext().getApplicationContext();
-
-        // Wait
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("Move timeout");
-
-                if (snackbar.getView().getTag() != null)
-                    return;
-
-                // Remove snackbar
-                if (snackbar.isShown())
-                    snackbar.dismiss();
-
-                Thread thread = new Thread(new Runnable() {
+                // Wait
+                new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        DB db = DB.getInstance(context);
-                        try {
-                            db.beginTransaction();
+                        Log.i("Move timeout");
 
-                            for (MessageTarget target : result) {
-                                EntityMessage message = db.message().getMessage(target.id);
-                                if (message == null || !message.ui_hide)
-                                    continue;
+                        if (snackbar.getView().getTag() != null)
+                            return;
 
-                                Log.i("Move id=" + id + " target=" + target.folder.name);
-                                db.message().setMessageUiBusy(target.id, null);
-                                EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
+                        // Remove snackbar
+                        if (snackbar.isShown())
+                            snackbar.dismiss();
+
+                        Thread thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                DB db = DB.getInstance(context);
+                                try {
+                                    db.beginTransaction();
+
+                                    for (MessageTarget target : result) {
+                                        EntityMessage message = db.message().getMessage(target.id);
+                                        if (message == null || !message.ui_hide)
+                                            continue;
+
+                                        Log.i("Move id=" + id + " target=" + target.folder.name);
+                                        db.message().setMessageUiBusy(target.id, null);
+                                        EntityOperation.queue(context, message, EntityOperation.MOVE, target.folder.id);
+                                    }
+
+                                    db.setTransactionSuccessful();
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                } finally {
+                                    db.endTransaction();
+                                }
                             }
-
-                            db.setTransactionSuccessful();
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        } finally {
-                            db.endTransaction();
-                        }
+                        }, "messages:movetimeout");
+                        thread.setPriority(THREAD_PRIORITY_BACKGROUND);
+                        thread.start();
                     }
-                }, "messages:timeout");
-                thread.setPriority(THREAD_PRIORITY_BACKGROUND);
-                thread.start();
+                }, UNDO_TIMEOUT);
             }
-        }, UNDO_TIMEOUT);
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Helper.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "messages:movehide");
     }
 
     private String getDisplay(ArrayList<MessageTarget> result) {
