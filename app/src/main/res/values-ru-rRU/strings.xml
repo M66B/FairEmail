@@ -215,7 +215,8 @@
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс темы при ответе или пересылке</string>
-    <string name="title_advanced_extended_reply">Использовать расширенный заголовок ответа</string>
+    <string name="title_advanced_extended_reply">Использовать расширенный заголовок для ответа/пересылки</string>
+    <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
     <string name="title_advanced_autoresize">Автоматически изменять размер прикреплённых и встроенных изображений</string>

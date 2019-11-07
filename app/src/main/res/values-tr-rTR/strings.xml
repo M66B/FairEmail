@@ -193,6 +193,8 @@
     <string name="title_advanced_suggest_sent">Daha önce gönderilmiş iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
+    <string name="title_advanced_extended_reply">Genişletilmiş cevapla/ilet başlığı kullan</string>
+    <string name="title_advanced_quote_reply">Cevap metnini alıntıla</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_autoresize">Ekli ve gömülü görüntüleri otomatik olarak yeniden boyutlandır</string>
@@ -789,6 +791,7 @@
     <string name="title_undo">Geri Al</string>
     <string name="title_redo">Yinele</string>
     <string name="title_add">Ekle</string>
+    <string name="title_browse">Birlikte aç</string>
     <string name="title_info">Bilgi</string>
     <string name="title_report">Rapor Et</string>
     <string name="title_fix">Düzelt</string>

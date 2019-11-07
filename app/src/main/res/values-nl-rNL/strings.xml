@@ -193,7 +193,8 @@
     <string name="title_advanced_suggest_sent">Suggereer adressen gevonden in verzonden berichten</string>
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
-    <string name="title_advanced_extended_reply">Uitgebreide kop bij antwoorden gebruiken</string>
+    <string name="title_advanced_extended_reply">Gebruik uitgebreide kop bij antwoorden/doorsturen</string>
+    <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>

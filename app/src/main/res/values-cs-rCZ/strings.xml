@@ -215,6 +215,7 @@
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
+    <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_plain_only">Odeslat pouze prostý text jako výchozí</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
     <string name="title_advanced_autoresize">Automaticky upravit velikost přiložených a vložených obrázků</string>
@@ -552,6 +553,7 @@
     <string name="title_ask_discard">Zahodit koncept?</string>
     <string name="title_ask_show_html">Zobrazením původní zprávy může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_html_remark">Zobrazení původní zprávy s tmavým pozadím není možné, neboť může způsobit zneviditelnění tmavého textu a obrázků</string>
+    <string name="title_ask_show_html_images">Vždy zobrazit obrázky při zobrazení původních zpráv</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
     <string name="title_ask_delete_ref">Smazat text odpovídané/přeposílané zprávy? Tuto akci nelze vrátit zpět.</string>
@@ -810,6 +812,7 @@
     <string name="title_undo">Zpět</string>
     <string name="title_redo">Znovu</string>
     <string name="title_add">Přidat</string>
+    <string name="title_browse">Otevřít s</string>
     <string name="title_info">Info</string>
     <string name="title_report">Nahlásit</string>
     <string name="title_fix">Opravit</string>
@@ -825,6 +828,7 @@
     <string name="title_via">Přes: %1$s</string>
     <string name="title_1hour">1 hodina</string>
     <string name="title_1day">1 den</string>
+    <string name="title_1week">1 týden</string>
     <string name="title_now">Nyní</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Obnovit</string>
@@ -861,6 +865,7 @@
     <string name="title_search_special_prefix">speciální</string>
     <string name="title_search_special_unseen">nepřečteno</string>
     <string name="title_search_special_flagged">hvězdička</string>
+    <string name="title_search_special_snoozed">skryté</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všechny</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
