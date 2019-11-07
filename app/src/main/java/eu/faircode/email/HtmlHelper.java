@@ -674,7 +674,9 @@ public class HtmlHelper {
                     newline();
                     tlevel = qlevel;
                 }
-                if (!nl)
+                if (!nl &&
+                        (text != null && !text.startsWith(" ")) &&
+                        (sb.length() > 0 && sb.charAt(sb.length() - 1) != ' '))
                     sb.append(" ");
                 sb.append(text);
                 nl = false;
