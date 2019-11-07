@@ -244,6 +244,8 @@ public class ActivityEML extends ActivityBase {
                                                     imessage.setFlag(Flags.Flag.DRAFT, false);
 
                                                 ifolder.appendMessages(new Message[]{imessage});
+
+                                                EntityOperation.sync(context, inbox.id, true);
                                             }
                                         }
 
