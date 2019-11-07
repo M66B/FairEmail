@@ -49,6 +49,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Button btnLocalContacts;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swExtendedReply;
+    private SwitchCompat swQuoteReply;
     private SwitchCompat swPlainOnly;
     private SwitchCompat swUsenetSignature;
     private SwitchCompat swAutoResize;
@@ -60,7 +61,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "suggest_sent", "suggested_received", "prefix_once", "extended_reply", "plain_only", "usenet_signature",
+            "keyboard", "suggest_sent", "suggested_received",
+            "prefix_once", "extended_reply", "quote_reply",
+            "plain_only", "usenet_signature",
             "autoresize", "encrypt_default", "receipt_default", "resize", "lookup_mx", "send_delayed"
     };
 
@@ -80,6 +83,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swExtendedReply = view.findViewById(R.id.swExtendedReply);
+        swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
         swAutoResize = view.findViewById(R.id.swAutoResize);
@@ -136,6 +140,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("extended_reply", checked).apply();
+            }
+        });
+
+        swQuoteReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("quote_reply", checked).apply();
             }
         });
 
@@ -260,6 +271,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
+        swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
 

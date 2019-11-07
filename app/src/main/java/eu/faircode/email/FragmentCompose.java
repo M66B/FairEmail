@@ -2517,9 +2517,6 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }
 
-                        if ("reply".equals(action) || "reply_all".equals(action))
-                            refText = "<blockquote>" + refText + "</blockquote>";
-
                         // Build reply header
                         StringBuilder sb = new StringBuilder();
                         DateFormat DF = Helper.getDateTimeInstance(context);
@@ -2551,7 +2548,14 @@ public class FragmentCompose extends FragmentBase {
                             sb.append("</p>\n");
                         }
 
+                        boolean quote_reply = prefs.getBoolean("quote_reply", true);
+                        boolean quote = (quote_reply && ("reply".equals(action) || "reply_all".equals(action)));
+                        if (quote)
+                            sb.append("<blockquote>");
                         sb.append(refText);
+                        if (quote)
+                            sb.append("</blockquote>");
+
                         Helper.writeText(data.draft.getRefFile(context), sb.toString());
                     }
 
