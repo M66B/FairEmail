@@ -2522,6 +2522,7 @@ public class FragmentCompose extends FragmentBase {
 
                         // Build reply header
                         StringBuilder sb = new StringBuilder();
+                        DateFormat DF = Helper.getDateTimeInstance(context);
                         boolean extended_reply = prefs.getBoolean("extended_reply", false);
                         if (extended_reply) {
                             sb.append("<p>");
@@ -2538,14 +2539,14 @@ public class FragmentCompose extends FragmentBase {
                                         .append(Html.escapeHtml(MessageHelper.formatAddresses(ref.cc)))
                                         .append("<br>\n");
                             sb.append("<strong>").append(context.getString(R.string.title_received)).append("</strong> ")
-                                    .append(Html.escapeHtml(new Date(ref.received).toString()))
+                                    .append(Html.escapeHtml(DF.format(ref.received)))
                                     .append("<br>\n");
                             sb.append("<strong>").append(context.getString(R.string.title_subject)).append("</strong> ")
                                     .append(Html.escapeHtml(ref.subject == null ? "" : ref.subject));
                             sb.append("</p>\n");
                         } else {
                             sb.append("<p>");
-                            sb.append(Html.escapeHtml(new Date(ref.received).toString())).append(" ");
+                            sb.append(Html.escapeHtml(DF.format(new Date(ref.received)))).append(" ");
                             sb.append(Html.escapeHtml(MessageHelper.formatAddresses(ref.from))).append(":");
                             sb.append("</p>\n");
                         }
