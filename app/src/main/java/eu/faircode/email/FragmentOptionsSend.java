@@ -48,6 +48,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestReceived;
     private Button btnLocalContacts;
     private SwitchCompat swPrefixOnce;
+    private SwitchCompat swExtendedReply;
     private SwitchCompat swPlainOnly;
     private SwitchCompat swUsenetSignature;
     private SwitchCompat swAutoResize;
@@ -59,7 +60,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private Spinner spSendDelayed;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "keyboard", "suggest_sent", "suggested_received", "prefix_once", "plain_only", "usenet_signature",
+            "keyboard", "suggest_sent", "suggested_received", "prefix_once", "extended_reply", "plain_only", "usenet_signature",
             "autoresize", "encrypt_default", "receipt_default", "resize", "lookup_mx", "send_delayed"
     };
 
@@ -78,6 +79,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
+        swExtendedReply = view.findViewById(R.id.swExtendedReply);
         swPlainOnly = view.findViewById(R.id.swPlainOnly);
         swUsenetSignature = view.findViewById(R.id.swUsenetSignature);
         swAutoResize = view.findViewById(R.id.swAutoResize);
@@ -127,6 +129,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("prefix_once", checked).apply();
+            }
+        });
+
+        swExtendedReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("extended_reply", checked).apply();
             }
         });
 
@@ -250,6 +259,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", false));
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
+        swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
         swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
         swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
 

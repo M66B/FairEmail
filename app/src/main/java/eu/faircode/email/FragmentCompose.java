@@ -2520,11 +2520,38 @@ public class FragmentCompose extends FragmentBase {
                         if ("reply".equals(action) || "reply_all".equals(action))
                             refText = "<blockquote>" + refText + "</blockquote>";
 
-                        String refBody = String.format("<p>%s %s:</p>\n%s",
-                                Html.escapeHtml(new Date(ref.received).toString()),
-                                Html.escapeHtml(MessageHelper.formatAddresses(ref.from)),
-                                refText);
-                        Helper.writeText(data.draft.getRefFile(context), refBody);
+                        // Build reply header
+                        StringBuilder sb = new StringBuilder();
+                        boolean extended_reply = prefs.getBoolean("extended_reply", false);
+                        if (extended_reply) {
+                            sb.append("<p>");
+                            if (ref.from != null && ref.from.length > 0)
+                                sb.append("<strong>").append(context.getString(R.string.title_from)).append("</strong> ")
+                                        .append(Html.escapeHtml(MessageHelper.formatAddresses(ref.from)))
+                                        .append("<br>\n");
+                            if (ref.to != null && ref.to.length > 0)
+                                sb.append("<strong>").append(context.getString(R.string.title_to)).append("</strong> ")
+                                        .append(Html.escapeHtml(MessageHelper.formatAddresses(ref.to))).
+                                        append("<br>\n");
+                            if (ref.cc != null && ref.cc.length > 0)
+                                sb.append("<strong>").append(context.getString(R.string.title_cc)).append("</strong> ")
+                                        .append(Html.escapeHtml(MessageHelper.formatAddresses(ref.cc)))
+                                        .append("<br>\n");
+                            sb.append("<strong>").append(context.getString(R.string.title_received)).append("</strong> ")
+                                    .append(Html.escapeHtml(new Date(ref.received).toString()))
+                                    .append("<br>\n");
+                            sb.append("<strong>").append(context.getString(R.string.title_subject)).append("</strong> ")
+                                    .append(Html.escapeHtml(ref.subject == null ? "" : ref.subject));
+                            sb.append("</p>\n");
+                        } else {
+                            sb.append("<p>");
+                            sb.append(Html.escapeHtml(new Date(ref.received).toString())).append(" ");
+                            sb.append(Html.escapeHtml(MessageHelper.formatAddresses(ref.from))).append(":");
+                            sb.append("</p>\n");
+                        }
+
+                        sb.append(refText);
+                        Helper.writeText(data.draft.getRefFile(context), sb.toString());
                     }
 
                     if ("new".equals(action)) {
