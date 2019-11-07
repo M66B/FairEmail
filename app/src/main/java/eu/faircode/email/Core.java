@@ -231,7 +231,7 @@ class Core {
                         if (op.message != null)
                             crumb.put("message", Long.toString(op.message));
                         crumb.put("similar", TextUtils.join(",", sids));
-                        crumb.put("thread", Long.toString(Thread.currentThread().getId()));
+                        crumb.put("thread", Thread.currentThread().getName());
                         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                         Log.breadcrumb("start operation", crumb);
 
@@ -362,7 +362,7 @@ class Core {
                             }
                         }
 
-                        crumb.put("thread", Long.toString(Thread.currentThread().getId()));
+                        crumb.put("thread", Thread.currentThread().getName());
                         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
                         Log.breadcrumb("end operation", crumb);
 
