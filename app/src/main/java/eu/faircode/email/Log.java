@@ -293,6 +293,7 @@ public class Log {
 
         final String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
         final boolean fingerprint = Helper.hasValidFingerprint(context);
+        final boolean ignoringOptimizations = Helper.isIgnoringOptimizations(context);
 
         Bugsnag.beforeNotify(new BeforeNotify() {
             @Override
@@ -301,6 +302,7 @@ public class Log {
                 error.addToTab("extra", "fingerprint", fingerprint);
                 error.addToTab("extra", "thread", Thread.currentThread().getName());
                 error.addToTab("extra", "free", Log.getFreeMemMb());
+                error.addToTab("extra", "optimizing", !ignoringOptimizations);
 
                 String theme = prefs.getString("theme", "light");
                 error.addToTab("extra", "theme", theme);
