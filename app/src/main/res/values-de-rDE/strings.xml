@@ -788,7 +788,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_undo">Rückgängig</string>
     <string name="title_redo">Rückgängig</string>
     <string name="title_add">Hinzufügen</string>
-    <string name="title_browse">Standard-App</string>
+    <string name="title_browse">Öffnen mit</string>
     <string name="title_info">Info</string>
     <string name="title_report">Bericht</string>
     <string name="title_fix">Problem beheben</string>

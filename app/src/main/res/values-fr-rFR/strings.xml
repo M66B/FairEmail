@@ -789,7 +789,7 @@
     <string name="title_undo">Annuler</string>
     <string name="title_redo">Recommencer</string>
     <string name="title_add">Ajouter</string>
-    <string name="title_browse">Application par défaut</string>
+    <string name="title_browse">Ouvrir avec</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapport</string>
     <string name="title_fix">Corriger</string>

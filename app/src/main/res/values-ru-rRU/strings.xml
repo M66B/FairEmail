@@ -811,7 +811,7 @@
     <string name="title_undo">Отменить</string>
     <string name="title_redo">Восстановить</string>
     <string name="title_add">Добавить</string>
-    <string name="title_browse">Приложение по умолчанию</string>
+    <string name="title_browse">Открыть с помощью</string>
     <string name="title_info">Информация</string>
     <string name="title_report">Отчёт</string>
     <string name="title_fix">Исправить</string>

@@ -552,6 +552,7 @@
     <string name="title_ask_discard">Odrzucić szkic?</string>
     <string name="title_ask_show_html">Pokazywanie oryginalnej wiadomości może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_html_remark">Wyświetlanie oryginalnej wiadomości na ciemnym tle nie jest możliwe, ponieważ może to powodować brak widoczności ciemnych tekstów i obrazów</string>
+    <string name="title_ask_show_html_images">Zawsze pokazuj obrazy, pokazując oryginalne wiadomości</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
     <string name="title_ask_delete_ref">Usunąć tekst odpowiedzi/przesłanej dalej wiadomości? Tego nie da się cofnąć.</string>
@@ -810,6 +811,7 @@
     <string name="title_undo">Cofnij</string>
     <string name="title_redo">Ponów</string>
     <string name="title_add">Dodaj</string>
+    <string name="title_browse">Otwórz za pomocą</string>
     <string name="title_info">Info</string>
     <string name="title_report">Raport</string>
     <string name="title_fix">Popraw</string>
@@ -825,6 +827,7 @@
     <string name="title_via">Przez: %1$s</string>
     <string name="title_1hour">1 godzina</string>
     <string name="title_1day">1 dzień</string>
+    <string name="title_1week">1 tydzień</string>
     <string name="title_now">Teraz</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Resetuj</string>
@@ -861,6 +864,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_search_special_prefix">specjalna</string>
     <string name="title_search_special_unseen">nieodczytana</string>
     <string name="title_search_special_flagged">oznaczona</string>
+    <string name="title_search_special_snoozed">ukryty</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Wszystkie</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>

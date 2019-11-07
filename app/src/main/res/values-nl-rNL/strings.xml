@@ -193,6 +193,7 @@
     <string name="title_advanced_suggest_sent">Suggereer adressen gevonden in verzonden berichten</string>
     <string name="title_advanced_suggest_received">Suggereer adressen gevonden in ontvangen berichten</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
+    <string name="title_advanced_extended_reply">Uitgebreide kop bij antwoorden gebruiken</string>
     <string name="title_advanced_plain_only">Verstuur standaard alleen tekst</string>
     <string name="title_advanced_usenet_signature">Usenet handtekening conventie</string>
     <string name="title_advanced_autoresize">Automatisch bijgevoegde en ingesloten afbeeldingen verkleinen</string>
@@ -789,7 +790,7 @@
     <string name="title_undo">Herstel</string>
     <string name="title_redo">Opnieuw</string>
     <string name="title_add">Toevoegen</string>
-    <string name="title_browse">Standaard app</string>
+    <string name="title_browse">Open met</string>
     <string name="title_info">Info</string>
     <string name="title_report">Rapporteer</string>
     <string name="title_fix">Oplossen</string>

@@ -120,10 +120,10 @@
     <string name="title_setup_grant">Concedi</string>
     <string name="title_setup_account">Imposta account</string>
     <string name="title_setup_account_remark">Per ricevere email</string>
-    <string name="title_setup_account_hint">Per cambiare colore, scorri la cartella di destinazione a sinistra/destra, ecc.</string>
+    <string name="title_setup_account_hint">Per cambiare colore, scorri la cartella di destinazione a sinistra/destra, ecc</string>
     <string name="title_setup_identity">Imposta identità</string>
     <string name="title_setup_identity_remark">Per inviare email</string>
-    <string name="title_setup_identity_hint">Per cambiare nome, colore, firma, ecc.</string>
+    <string name="title_setup_identity_hint">Per cambiare nome, colore, firma, ecc</string>
     <string name="title_setup_permissions">Concedi permessi</string>
     <string name="title_setup_permissions_remark">Per accedere a informazioni di contatto (facoltativo)</string>
     <string name="title_setup_doze">Imposta ottimizzazioni della batteria</string>
@@ -187,7 +187,7 @@
     <string name="title_advanced_sync_folders">Sincronizza elenco cartelle</string>
     <string name="title_advanced_subscriptions">Gestisci abbonamenti cartelle</string>
     <string name="title_advanced_sync_subscribed">Sincronizza solo le cartelle sottoscritte</string>
-    <string name="title_advanced_keyboard">Mostra di default la tastiera</string>
+    <string name="title_advanced_keyboard">Mostra tastiera di default</string>
     <string name="title_advanced_suggest_local">Suggerisci contatti memorizzati localmente</string>
     <string name="title_advanced_suggest_sent">Suggerisci indirizzi trovati nei messaggi inviati</string>
     <string name="title_advanced_suggest_received">Suggerisci indirizzi trovati nei messaggi ricevuti</string>
@@ -529,7 +529,7 @@
     <string name="title_ask_discard">Eliminare la bozza?</string>
     <string name="title_ask_show_html">Mostrare il messaggio originale rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_html_remark">Non è possibile visualizzare il messaggio originale con uno sfondo scuro perché potrebbe nascondere testi e immagini</string>
-    <string name="title_ask_show_html_images">Mostra sempre le immagini sui messaggi originali</string>
+    <string name="title_ask_show_html_images">Mostra sempre le immagini nella visualizzazione dei messaggi originali</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come immagini di tracciamento non verranno mostrate</string>
     <string name="title_ask_delete_ref">Elimina testo del messaggio risposto/inoltrato? Questo non può essere annullato.</string>
@@ -788,7 +788,7 @@
     <string name="title_undo">Annulla</string>
     <string name="title_redo">Ripeti</string>
     <string name="title_add">Aggiungi</string>
-    <string name="title_browse">App predefinita</string>
+    <string name="title_browse">Apri con</string>
     <string name="title_info">Info</string>
     <string name="title_report">Report</string>
     <string name="title_fix">Correggi</string>

@@ -789,6 +789,7 @@
     <string name="title_undo">Kumoa</string>
     <string name="title_redo">Tee uudelleen</string>
     <string name="title_add">Lisää</string>
+    <string name="title_browse">Avaa sovelluksessa</string>
     <string name="title_info">Lisätietoa</string>
     <string name="title_report">Raportoi</string>
     <string name="title_fix">Korjaa</string>
@@ -804,6 +805,7 @@
     <string name="title_via">Kautta: %1$s</string>
     <string name="title_1hour">1 tunti</string>
     <string name="title_1day">1 päivä</string>
+    <string name="title_1week">1 viikko</string>
     <string name="title_now">Nyt</string>
     <string name="title_after">%1$s päästä</string>
     <string name="title_reset">Palauta oletukset</string>
@@ -841,6 +843,7 @@
     <string name="title_search_special_prefix">erityinen</string>
     <string name="title_search_special_unseen">lukematon</string>
     <string name="title_search_special_flagged">tähdellinen</string>
+    <string name="title_search_special_snoozed">piilotettu</string>
     <string name="title_widget_account">Tili</string>
     <string name="title_widget_account_all">Kaikki</string>
     <string name="title_widget_unseen">Vain lukemattomat viestit</string>
