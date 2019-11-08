@@ -1508,9 +1508,11 @@ public class FragmentCompose extends FragmentBase {
             protected void onExecuted(Bundle args, final Spanned body) {
                 if (body == null)
                     return;
+                int start = args.getInt("start");
 
                 etBody.setText(body);
-                etBody.setSelection(args.getInt("start"));
+                if (start < body.length())
+                    etBody.setSelection(start);
 
                 // Save text & update remote draft
                 onAction(R.id.action_save);
