@@ -44,7 +44,8 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
         TextView text2 = view.findViewById(android.R.id.text2);
 
         vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
-        text1.setText(identity.accountName + "/" + identity.getDisplayName() + (identity.primary ? " ★" : ""));
+        String identityPrefix = identity.accountName != identity.email ? identity.accountName + "/" : "";
+        text1.setText(identityPrefix + identity.getDisplayName() + (identity.primary ? " ★" : ""));
         text2.setText(identity.email);
 
         return view;
