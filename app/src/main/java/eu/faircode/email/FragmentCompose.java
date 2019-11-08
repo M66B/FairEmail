@@ -2827,14 +2827,12 @@ public class FragmentCompose extends FragmentBase {
                     else
                         EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
 
-                    if (!empty) {
-                        Handler handler = new Handler(context.getMainLooper());
-                        handler.post(new Runnable() {
-                            public void run() {
-                                ToastEx.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
+                    Handler handler = new Handler(context.getMainLooper());
+                    handler.post(new Runnable() {
+                        public void run() {
+                            ToastEx.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 } else {
                     // Move draft to new account
                     if (draft.account != aid && aid >= 0) {
