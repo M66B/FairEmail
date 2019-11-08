@@ -301,7 +301,7 @@ public class MailService implements AutoCloseable {
                 }
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
-            String haddr = host;
+            String haddr = BuildConfig.APPLICATION_ID;
 
             if (useip)
                 try {
