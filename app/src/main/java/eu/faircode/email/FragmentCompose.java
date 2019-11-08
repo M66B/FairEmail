@@ -755,7 +755,7 @@ public class FragmentCompose extends FragmentBase {
                 args.putBoolean("plain", plain);
                 args.putString("body", HtmlHelper.toHtml(etBody.getText()));
 
-                new SimpleTask<Spanned>() {
+                new SimpleTask<String>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         ibReferenceDelete.setEnabled(false);
@@ -769,7 +769,7 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     @Override
-                    protected Spanned onExecute(Context context, Bundle args) throws Throwable {
+                    protected String onExecute(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
                         boolean plain = args.getBoolean("plain");
                         String body = args.getString("body");
@@ -784,13 +784,13 @@ public class FragmentCompose extends FragmentBase {
                             html = HtmlHelper.sanitize(context, ref, true);
                         refFile.delete();
 
-                        return HtmlHelper.fromHtml(body + html);
+                        return body + html;
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, Spanned body) {
-                        etBody.setText(body);
+                    protected void onExecuted(Bundle args, String html) {
                         Bundle extras = new Bundle();
+                        extras.putString("html", html);
                         extras.putBoolean("show", true);
                         onAction(R.id.action_save, extras);
                     }
@@ -1959,7 +1959,11 @@ public class FragmentCompose extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
-        args.putString("body", HtmlHelper.toHtml(etBody.getText()));
+        if (extras.containsKey("html")) {
+            args.putString("body", extras.getString("html"));
+            extras.remove("html");
+        } else
+            args.putString("body", HtmlHelper.toHtml(etBody.getText()));
         args.putBoolean("empty", isEmpty());
         args.putBundle("extras", extras);
 
