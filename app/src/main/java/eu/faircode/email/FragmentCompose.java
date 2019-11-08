@@ -112,11 +112,9 @@ import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedOutputStream;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -754,9 +752,10 @@ public class FragmentCompose extends FragmentBase {
             private void convertRef(boolean plain) {
                 Bundle args = new Bundle();
                 args.putLong("id", working);
+                args.putBoolean("plain", plain);
                 args.putString("body", HtmlHelper.toHtml(etBody.getText()));
 
-                new SimpleTask<EntityMessage>() {
+                new SimpleTask<Spanned>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
                         ibReferenceDelete.setEnabled(false);
@@ -770,46 +769,30 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     @Override
-                    protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                    protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                         long id = args.getLong("id");
+                        boolean plain = args.getBoolean("plain");
                         String body = args.getString("body");
 
-                        DB db = DB.getInstance(context);
-                        EntityMessage draft = db.message().getMessage(id);
-                        if (draft == null || !draft.content)
-                            throw new IllegalArgumentException(context.getString(R.string.title_no_body));
-
-
-                        File file = draft.getFile(context);
-                        File refFile = draft.getRefFile(context);
-
                         String html;
+                        File refFile = EntityMessage.getRefFile(context, id);
                         String ref = Helper.readText(refFile);
                         if (plain) {
-                            String plain = HtmlHelper.getText(ref);
-                            html = "<p>" + plain.replaceAll("\\r?\\n", "<br>") + "</p>";
+                            String text = HtmlHelper.getText(ref);
+                            html = "<p>" + text.replaceAll("\\r?\\n", "<br>") + "</p>";
                         } else
                             html = HtmlHelper.sanitize(context, ref, true);
-
-                        try (BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
-                            out.write(body);
-                            out.write(html);
-                        }
-
                         refFile.delete();
 
-                        draft.revision = null;
-                        draft.revisions = null;
-
-                        db.message().setMessageRevision(draft.id, null);
-                        db.message().setMessageRevisions(draft.id, null);
-
-                        return draft;
+                        return HtmlHelper.fromHtml(body + html);
                     }
 
                     @Override
-                    protected void onExecuted(Bundle args, EntityMessage draft) {
-                        showDraft(draft);
+                    protected void onExecuted(Bundle args, Spanned body) {
+                        etBody.setText(body);
+                        Bundle extras = new Bundle();
+                        extras.putBoolean("show", true);
+                        onAction(R.id.action_save, extras);
                     }
 
                     @Override
@@ -825,7 +808,9 @@ public class FragmentCompose extends FragmentBase {
 
     private void onReferenceImages() {
         show_images = true;
-        showDraft(working);
+        Bundle extras = new Bundle();
+        extras.putBoolean("show", true);
+        onAction(R.id.action_save, extras);
     }
 
     @Override
@@ -1953,10 +1938,10 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAction(int action) {
-        onAction(action, null);
+        onAction(action, new Bundle());
     }
 
-    private void onAction(int action, Bundle extras) {
+    private void onAction(int action, @NonNull Bundle extras) {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
         if (identity == null)
             throw new IllegalArgumentException(getString(R.string.title_from_missing));
@@ -1976,8 +1961,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("subject", etSubject.getText().toString().trim());
         args.putString("body", HtmlHelper.toHtml(etBody.getText()));
         args.putBoolean("empty", isEmpty());
-        if (extras != null)
-            args.putBundle("extras", extras);
+        args.putBundle("extras", extras);
 
         Log.i("Run execute id=" + working);
         actionLoader.execute(this, args, "compose:action:" + action);
@@ -3191,7 +3175,9 @@ public class FragmentCompose extends FragmentBase {
                 showDraft(draft);
 
             } else if (action == R.id.action_save) {
-                // Do nothing
+                boolean show = args.getBundle("extras").getBoolean("show");
+                if (show)
+                    showDraft(draft);
 
             } else if (action == R.id.action_check) {
                 boolean dialog = args.getBundle("extras").getBoolean("dialog");
@@ -3263,29 +3249,6 @@ public class FragmentCompose extends FragmentBase {
         while (subject.toLowerCase(Locale.ROOT).startsWith(prefix))
             subject = subject.substring(prefix.length()).trim();
         return subject;
-    }
-
-    private void showDraft(long id) {
-        Bundle args = new Bundle();
-        args.putLong("id", id);
-
-        new SimpleTask<EntityMessage>() {
-            @Override
-            protected EntityMessage onExecute(Context context, Bundle args) {
-                long id = args.getLong("id");
-                return DB.getInstance(context).message().getMessage(id);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, EntityMessage draft) {
-                showDraft(draft);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "compose:show");
     }
 
     private void showDraft(final EntityMessage draft) {
