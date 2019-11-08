@@ -386,8 +386,12 @@ public class ServiceUI extends IntentService {
                 Log.i("Delayed send id=" + message.id);
                 EntityOperation.queue(this, message, EntityOperation.SEND);
             } else {
-                if (folder.notify)
+                if (folder.notify) {
+                    message.id = null;
+                    message.id = db.message().insertMessage(message);
+                    db.message().deleteMessage(id);
                     EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
+                }
             }
 
             db.setTransactionSuccessful();
