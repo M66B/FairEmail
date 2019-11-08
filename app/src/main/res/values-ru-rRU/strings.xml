@@ -302,6 +302,7 @@
     <string name="title_advanced_sound">Выбрать звук уведомления</string>
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
+    <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
     <string name="title_advanced_recents">Не показывать в недавних приложениях</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>

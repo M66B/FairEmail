@@ -280,6 +280,7 @@
     <string name="title_advanced_sound">Velg varslingslyd</string>
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_display_hidden">Vis skjulte meldingstekster</string>
+    <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_auto_decrypt">Dekrypter meldinger automatisk</string>
     <string name="title_advanced_recents">Skjul fra skjermen med nylige brukte apper</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>

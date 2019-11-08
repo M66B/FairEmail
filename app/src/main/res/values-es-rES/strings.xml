@@ -280,6 +280,7 @@
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
+    <string name="title_advanced_openpgp">Proveedor OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Descifrar automáticamente los mensajes</string>
     <string name="title_advanced_recents">Ocultar de pantalla con aplicaciones recientes</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>

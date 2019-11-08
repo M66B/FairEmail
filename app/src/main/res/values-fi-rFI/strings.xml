@@ -280,6 +280,7 @@
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
+    <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
     <string name="title_advanced_recents">Piilota viimeisimmistä sovelluksista</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>

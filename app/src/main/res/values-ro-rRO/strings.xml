@@ -203,6 +203,8 @@
     <string name="title_advanced_suggest_sent">Sugerează adrese găsite în mesajele trimise</string>
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
     <string name="title_advanced_prefix_once">Adaugă prefix la subiect o singură dată pentru răspuns sau redirecționare</string>
+    <string name="title_advanced_extended_reply">Folosește antetul extins pentru răspuns/redirecționare</string>
+    <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_usenet_signature">Semnatură conform Usenet</string>
     <string name="title_advanced_autoresize">Redimensionează automat imaginile atașate și incorporate</string>
@@ -288,6 +290,7 @@
     <string name="title_advanced_sound">Selectare sunet de notificare</string>
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
+    <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
     <string name="title_advanced_recents">Ascunde din ecranul cu aplicații recente</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
@@ -799,6 +802,7 @@
     <string name="title_undo">Anulează</string>
     <string name="title_redo">Refacere</string>
     <string name="title_add">Adaugă</string>
+    <string name="title_browse">Deschide cu</string>
     <string name="title_info">Informații</string>
     <string name="title_report">Raportează</string>
     <string name="title_fix">Remediere</string>
