@@ -111,6 +111,7 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName" +
+            ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
             ", SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) AS snoozed" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id) AS operations" +
@@ -153,8 +154,9 @@ public interface DaoFolder {
             " AND type <> '" + EntityFolder.USER + "'")
     List<EntityFolder> getSystemFolders(long account);
 
-    @Query("SELECT folder.type," +
-            " SUM(CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN 1 ELSE 0 END) AS unseen" +
+    @Query("SELECT folder.type" +
+            ", COUNT(message.id) AS messages" +
+            ", SUM(CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " LEFT JOIN message ON message.folder = folder.id" +
@@ -162,7 +164,7 @@ public interface DaoFolder {
             " AND folder.type <> '" + EntityFolder.SYSTEM + "'" +
             " AND folder.type <> '" + EntityFolder.USER + "'" +
             " GROUP BY folder.type")
-    LiveData<List<EntityFolderUnified>> liveUnified();
+    LiveData<List<TupleFolderUnified>> liveUnified();
 
     @Query("SELECT * FROM folder WHERE id = :id")
     EntityFolder getFolder(Long id);

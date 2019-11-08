@@ -19,7 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-public class EntityFolderUnified {
+public class TupleFolderUnified {
     public String type;
-    public long unseen;
+    public int messages;
+    public int unseen;
 }

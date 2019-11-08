@@ -29,6 +29,7 @@ import java.util.Locale;
 public class TupleFolderNav extends EntityFolder implements Serializable {
     public Integer accountOrder;
     public String accountName;
+    public int messages;
     public int unseen;
     public int snoozed;
     public int operations;

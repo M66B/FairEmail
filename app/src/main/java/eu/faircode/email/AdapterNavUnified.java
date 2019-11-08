@@ -51,7 +51,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     private int colorUnread;
     private int textColorSecondary;
 
-    private List<EntityFolderUnified> items = new ArrayList<>();
+    private List<TupleFolderUnified> items = new ArrayList<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -82,17 +82,23 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             view.setOnClickListener(null);
         }
 
-        private void bindTo(EntityFolderUnified folder) {
+        private void bindTo(TupleFolderUnified folder) {
             ivItem.setImageResource(EntityFolder.getIcon(folder.type));
 
-            if (folder.unseen == 0)
+            long count;
+            if (EntityFolder.DRAFTS.equals(folder.type))
+                count = folder.messages;
+            else
+                count = folder.unseen;
+
+            if (count == 0)
                 tvItem.setText(Helper.localizeFolderType(context, folder.type));
             else
                 tvItem.setText(context.getString(R.string.title_name_count,
-                        Helper.localizeFolderType(context, folder.type), NF.format(folder.unseen)));
+                        Helper.localizeFolderType(context, folder.type), NF.format(count)));
 
-            tvItem.setTextColor(folder.unseen == 0 ? textColorSecondary : colorUnread);
-            tvItem.setTypeface(folder.unseen == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+            tvItem.setTextColor(count == 0 ? textColorSecondary : colorUnread);
+            tvItem.setTypeface(count == 0 ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
 
             tvItemExtra.setVisibility(View.GONE);
             ivExternal.setVisibility(View.GONE);
@@ -105,7 +111,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
             if (pos == RecyclerView.NO_POSITION)
                 return;
 
-            EntityFolderUnified folder = items.get(pos);
+            TupleFolderUnified folder = items.get(pos);
             if (folder == null || folder.type == null)
                 return;
 
@@ -127,12 +133,12 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
     }
 
-    public void set(@NonNull List<EntityFolderUnified> types) {
+    public void set(@NonNull List<TupleFolderUnified> types) {
         Log.i("Set nav unified=" + types.size());
 
-        Collections.sort(types, new Comparator<EntityFolderUnified>() {
+        Collections.sort(types, new Comparator<TupleFolderUnified>() {
             @Override
-            public int compare(EntityFolderUnified f1, EntityFolderUnified f2) {
+            public int compare(TupleFolderUnified f1, TupleFolderUnified f2) {
                 int i1 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f1.type);
                 int i2 = EntityFolder.FOLDER_SORT_ORDER.indexOf(f2.type);
                 return Integer.compare(i1, i2);
@@ -168,10 +174,10 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     }
 
     private class DiffCallback extends DiffUtil.Callback {
-        private List<EntityFolderUnified> prev = new ArrayList<>();
-        private List<EntityFolderUnified> next = new ArrayList<>();
+        private List<TupleFolderUnified> prev = new ArrayList<>();
+        private List<TupleFolderUnified> next = new ArrayList<>();
 
-        DiffCallback(List<EntityFolderUnified> prev, List<EntityFolderUnified> next) {
+        DiffCallback(List<TupleFolderUnified> prev, List<TupleFolderUnified> next) {
             this.prev.addAll(prev);
             this.next.addAll(next);
         }
@@ -188,16 +194,16 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
 
         @Override
         public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityFolderUnified f1 = prev.get(oldItemPosition);
-            EntityFolderUnified f2 = next.get(newItemPosition);
+            TupleFolderUnified f1 = prev.get(oldItemPosition);
+            TupleFolderUnified f2 = next.get(newItemPosition);
             return f1.type.equals(f2.type);
         }
 
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-            EntityFolderUnified f1 = prev.get(oldItemPosition);
-            EntityFolderUnified f2 = next.get(newItemPosition);
-            return (f1.unseen == f2.unseen);
+            TupleFolderUnified f1 = prev.get(oldItemPosition);
+            TupleFolderUnified f2 = next.get(newItemPosition);
+            return (f1.messages == f2.messages && f1.unseen == f2.unseen);
         }
     }
 
@@ -215,7 +221,7 @@ public class AdapterNavUnified extends RecyclerView.Adapter<AdapterNavUnified.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.unwire();
-        EntityFolderUnified folder = items.get(position);
+        TupleFolderUnified folder = items.get(position);
         holder.bindTo(folder);
         holder.wire();
     }

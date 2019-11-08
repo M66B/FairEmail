@@ -413,9 +413,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             }
         });
 
-        db.folder().liveUnified().observe(this, new Observer<List<EntityFolderUnified>>() {
+        db.folder().liveUnified().observe(this, new Observer<List<TupleFolderUnified>>() {
             @Override
-            public void onChanged(List<EntityFolderUnified> folders) {
+            public void onChanged(List<TupleFolderUnified> folders) {
                 if (folders == null)
                     folders = new ArrayList<>();
                 ibExpanderUnified.setVisibility(folders.size() > 0 ? View.VISIBLE : View.GONE);
