@@ -203,6 +203,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_suggest_sent">Predložiti adrese pronađene u poslanim porukama</string>
     <string name="title_advanced_suggest_received">Predložiti adrese pronađene u primljenim porukama</string>
     <string name="title_advanced_prefix_once">Dodati predmet samo jednom prilikom odgovaranja ili prosljeđivanja</string>
+    <string name="title_advanced_extended_reply">Koristi prošireno zaglavlje odgovora / naprijed</string>
+    <string name="title_advanced_quote_reply">Citiraj odgovoreni tekst</string>
     <string name="title_advanced_plain_only">Standardno šaljite samo običan tekst</string>
     <string name="title_advanced_usenet_signature">Usenet konvencija potpisa</string>
     <string name="title_advanced_autoresize">Automatski promijeniti veličinu priloženih i ugrađenih slika</string>
@@ -288,6 +290,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_sound">Odaberite zvuk obavijesti</string>
     <string name="title_advanced_tracking">Automatsko prepoznavanje i onemogućavanje slika za praćenje</string>
     <string name="title_advanced_display_hidden">Prikaži skrivene tekstove poruka</string>
+    <string name="title_advanced_openpgp">Pružatelj OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
     <string name="title_advanced_recents">Sakrij sa zaslona s nedavnim aplikacijama</string>
     <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
@@ -540,6 +543,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_ask_discard">Odbaciti skicu?</string>
     <string name="title_ask_show_html">Prikazivanje izvorne poruke može propuštati povjerljive informacije</string>
     <string name="title_ask_show_html_remark">Prikazivanje izvorne poruke na tamnoj pozadini nije moguće jer može uzrokovati nevidljive tamne tekstove i slike</string>
+    <string name="title_ask_show_html_images">Uvijek prikažite slike pri prikazivanju originalnih poruka</string>
     <string name="title_ask_show_image">Prikazivanje slika može propuštati povjerljive informacije</string>
     <string name="title_ask_show_image_hint">Slike prepoznate kao slike za praćenje neće se prikazivati</string>
     <string name="title_ask_delete_ref">Izbrisati tekst odgovora / proslijediti poruku? To se ne može povratiti.</string>
@@ -798,6 +802,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_undo">Poništi</string>
     <string name="title_redo">Ponovi</string>
     <string name="title_add">Dodaj</string>
+    <string name="title_browse">Otvori sa</string>
     <string name="title_info">Informacije</string>
     <string name="title_report">Izvješće</string>
     <string name="title_fix">Popravi</string>
@@ -813,6 +818,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_via">Preko: %1$s</string>
     <string name="title_1hour">1 sat</string>
     <string name="title_1day">1 dan</string>
+    <string name="title_1week">1 tjedan</string>
     <string name="title_now">Sada</string>
     <string name="title_after">Poslije %1$s</string>
     <string name="title_reset">Resetiraj</string>
@@ -849,6 +855,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_search_special_prefix">posebno</string>
     <string name="title_search_special_unseen">nepročitano</string>
     <string name="title_search_special_flagged">označeno</string>
+    <string name="title_search_special_snoozed">skriveno</string>
     <string name="title_widget_account">Račun</string>
     <string name="title_widget_account_all">Sve</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>

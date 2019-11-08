@@ -279,6 +279,7 @@
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_tracking">Riconoscere e disabilitare automaticamente le immagini di tracciamento</string>
     <string name="title_advanced_display_hidden">Mostra il testo nascosto del messaggio</string>
+    <string name="title_advanced_openpgp">Provider OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Decodifica automaticamente i messaggi</string>
     <string name="title_advanced_recents">Nascondi dallo schermata con app recenti</string>
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>

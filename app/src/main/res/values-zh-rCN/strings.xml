@@ -268,6 +268,7 @@
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
+    <string name="title_advanced_openpgp">OpenPGP 提供者</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
     <string name="title_advanced_recents">在最近应用隐藏FairEmail</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>

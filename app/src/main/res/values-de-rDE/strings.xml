@@ -279,6 +279,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_display_hidden">Versteckte Nachrichtentexte anzeigen</string>
+    <string name="title_advanced_openpgp">OpenPGP Anbieter</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
     <string name="title_advanced_recents">Von Bildschirm mit den zuletzt genutzten Apps ausblenden</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>

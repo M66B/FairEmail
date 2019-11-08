@@ -280,6 +280,7 @@
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
+    <string name="title_advanced_openpgp">OpenPGP provider</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
     <string name="title_advanced_recents">Verbergen op het scherm met recente apps</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
