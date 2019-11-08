@@ -111,8 +111,8 @@ public interface DaoFolder {
 
     @Query("SELECT folder.*" +
             ", account.`order` AS accountOrder, account.name AS accountName" +
-            ", COUNT(message.id) AS messages" +
-            ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
+            ", SUM(CASE WHEN NOT message.ui_hide THEN 1 ELSE 0 END) AS messages" +
+            ", SUM(CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN 1 ELSE 0 END) AS unseen" +
             ", SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) AS snoozed" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id) AS operations" +
             ", (SELECT COUNT(operation.id) FROM operation WHERE operation.folder = folder.id AND operation.state = 'executing') AS executing" +
@@ -155,7 +155,7 @@ public interface DaoFolder {
     List<EntityFolder> getSystemFolders(long account);
 
     @Query("SELECT folder.type" +
-            ", COUNT(message.id) AS messages" +
+            ", SUM(CASE WHEN NOT message.ui_hide THEN 1 ELSE 0 END) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
