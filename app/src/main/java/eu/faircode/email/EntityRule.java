@@ -126,7 +126,7 @@ public class EntityRule {
 
                         if (known) {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean suggest_sent = prefs.getBoolean("suggest_sent", false);
+                            boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
                             if (suggest_sent) {
                                 DB db = DB.getInstance(context);
                                 EntityContact contact =

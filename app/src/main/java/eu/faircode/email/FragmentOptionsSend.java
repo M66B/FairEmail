@@ -258,7 +258,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
-        swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", false));
+        swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));
         swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));

@@ -584,7 +584,7 @@ public class FragmentCompose extends FragmentBase {
         });
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean suggest_sent = prefs.getBoolean("suggest_sent", false);
+        boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
         cadapter.setFilterQueryProvider(new FilterQueryProvider() {

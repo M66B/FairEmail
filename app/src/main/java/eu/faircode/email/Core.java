@@ -2415,7 +2415,7 @@ class Core {
         }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean suggest_sent = prefs.getBoolean("suggest_sent", false);
+        boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
         if (type == EntityContact.TYPE_TO && !suggest_sent)
