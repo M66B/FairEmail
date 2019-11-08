@@ -1883,7 +1883,8 @@ class Core {
                 }
             } else {
                 // Delete not synchronized messages without uid
-                db.message().deleteOrphans(folder.id);
+                if (!EntityFolder.DRAFTS.equals(folder.type))
+                    db.message().deleteOrphans(folder.id);
             }
 
             int count = ifolder.getMessageCount();
