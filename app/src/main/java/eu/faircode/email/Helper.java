@@ -284,6 +284,11 @@ public class Helper {
         return intent;
     }
 
+    static String getOpenKeychainPackage(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+    }
+
     static Intent getIntentIssue(Context context) {
         if (ActivityBilling.isPro(context)) {
             String version = BuildConfig.VERSION_NAME + "/" +
@@ -890,10 +895,6 @@ public class Helper {
     static void clearAuthentication(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().remove("last_authentication").apply();
-    }
-
-    static String getOpenKeychainPackage(Context context) {
-        return "org.sufficientlysecure.keychain";
     }
 
     // Miscellaneous

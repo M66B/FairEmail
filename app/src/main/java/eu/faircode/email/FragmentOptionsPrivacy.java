@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -36,6 +37,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -50,14 +52,22 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
+import org.openintents.openpgp.util.OpenPgpApi;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDisableTracking;
     private SwitchCompat swDisplayHidden;
+    private Spinner spOpenPgp;
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swNoHistory;
     private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
     private Button btnPin;
+
+    private List<String> openPgpProvider = new ArrayList<>();
 
     private final static String[] RESET_OPTIONS = new String[]{
             "disable_tracking", "display_hidden", "auto_decrypt", "no_history", "biometrics", "pin", "biometrics_timeout"
@@ -75,11 +85,23 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
+        spOpenPgp = view.findViewById(R.id.spOpenPgp);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swNoHistory = view.findViewById(R.id.swNoHistory);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         btnPin = view.findViewById(R.id.btnPin);
+
+        Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
+        List<ResolveInfo> ris = getContext().getPackageManager().queryIntentServices(intent, 0);
+        for (ResolveInfo ri : ris)
+            if (ri.serviceInfo != null)
+                openPgpProvider.add(ri.serviceInfo.packageName);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1);
+        adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        adapter.addAll(openPgpProvider);
+        spOpenPgp.setAdapter(adapter);
 
         setOptions();
 
@@ -98,6 +120,18 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("display_hidden", checked).apply();
+            }
+        });
+
+        spOpenPgp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                prefs.edit().putString("openpgp_provider", openPgpProvider.get(position)).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("openpgp_provider").apply();
             }
         });
 
@@ -211,6 +245,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
+
+        String provider = prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
+        for (int pos = 0; pos < openPgpProvider.size(); pos++)
+            if (provider.equals(openPgpProvider.get(pos))) {
+                spOpenPgp.setSelection(pos);
+                break;
+            }
+
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
         swNoHistory.setChecked(prefs.getBoolean("no_history", false));
 
