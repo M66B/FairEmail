@@ -156,10 +156,10 @@ public interface DaoFolder {
 
     @Query("SELECT folder.type" +
             ", COUNT(message.id) AS messages" +
-            ", SUM(CASE WHEN NOT message.ui_seen AND NOT message.ui_hide THEN 1 ELSE 0 END) AS unseen" +
+            ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +
             " FROM folder" +
             " JOIN account ON account.id = folder.account" +
-            " LEFT JOIN message ON message.folder = folder.id" +
+            " LEFT JOIN message ON message.folder = folder.id AND NOT message.ui_hide" +
             " WHERE account.synchronize" +
             " AND folder.type <> '" + EntityFolder.SYSTEM + "'" +
             " AND folder.type <> '" + EntityFolder.USER + "'" +
