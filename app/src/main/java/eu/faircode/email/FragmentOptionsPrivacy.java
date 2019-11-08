@@ -61,6 +61,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisableTracking;
     private SwitchCompat swDisplayHidden;
     private Spinner spOpenPgp;
+    private SwitchCompat swEncrypt;
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swNoHistory;
     private Button btnBiometrics;
@@ -70,7 +71,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private List<String> openPgpProvider = new ArrayList<>();
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "disable_tracking", "display_hidden", "auto_decrypt", "no_history", "biometrics", "pin", "biometrics_timeout"
+            "disable_tracking", "display_hidden",
+            "openpgp_provider", "encrypt_default", "auto_decrypt",
+            "no_history",
+            "biometrics", "pin", "biometrics_timeout"
     };
 
     @Override
@@ -86,6 +90,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
+        swEncrypt = view.findViewById(R.id.swEncrypt);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swNoHistory = view.findViewById(R.id.swNoHistory);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
@@ -98,8 +103,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             if (ri.serviceInfo != null)
                 openPgpProvider.add(ri.serviceInfo.packageName);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1);
-        adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter.addAll(openPgpProvider);
         spOpenPgp.setAdapter(adapter);
 
@@ -132,6 +137,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("openpgp_provider").apply();
+            }
+        });
+
+        swEncrypt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("encrypt_default", checked).apply();
             }
         });
 
@@ -253,6 +265,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 break;
             }
 
+        swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
         swNoHistory.setChecked(prefs.getBoolean("no_history", false));
 
