@@ -2135,6 +2135,8 @@ Which email provider is best for you depends on your wishes/requirements.
 Please see the websites of [Restore privacy](https://restoreprivacy.com/secure-email/) or [Privacy Tools](https://www.privacytools.io/providers/email/)
 for a list of privacy oriented email providers with advantages and disadvantages.
 
+Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
+
 <br />
 
 <a name="faq113"></a>
