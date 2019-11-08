@@ -1383,15 +1383,14 @@ but even Google's Chrome cannot handle this.
 <a name="faq61"></a>
 **(61) Why are some messages shown dimmed?**
 
-Messages shown dimmed are locally moved messages for which the move is not confirmed by the server yet.
-This can happen when the folder is set to not synchronize, when there is no connection to the server or when the messages are too old to be synchronized.
-Eventually, these messages will be synchronized when the connection to the server is restored or will be deleted if they are too old to be synchronized.
+Messages shown dimmed (grayed) are locally moved messages for which the move is not confirmed by the server yet.
+This can happen when there is no connection to the server or the account (yet).
+These messages will be synchronized after a connection to the server and the account has been made
+or, if this never happens, will be deleted if they are too old to be synchronized.
 
-You can view these messages, but you cannot move these messages again until the previous move has been confirmed by the server.
+You can view these messages, but you cannot move these messages again until the previous move has been confirmed.
 
-Some providers don't keep track of sent messages or you might be using an SMTP server not related to the provider.
-This will result in messages in the sent folder never to be synchronized.
-See [this FAQ](#user-content-faq7) for more information on this.
+Pending [operations](#user-content-faq3) are shown in the operations view accessible from the main navigation menu.
 
 <br />
 
