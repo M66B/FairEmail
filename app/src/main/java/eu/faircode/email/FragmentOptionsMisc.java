@@ -285,6 +285,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         ? View.GONE : View.VISIBLE);
         swExperiments.setChecked(prefs.getBoolean("experiments", false));
         swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
+        tvUuid.setText(prefs.getString("uuid", null));
         swDebug.setChecked(prefs.getBoolean("debug", false));
 
         tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
@@ -295,8 +296,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         tvStorageSpace.setText(getString(R.string.title_advanced_storage_space,
                 Helper.humanReadableByteCount(Helper.getStorageSpace(), true)));
-
-        tvUuid.setText(prefs.getString("uuid", null));
 
         grpDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }

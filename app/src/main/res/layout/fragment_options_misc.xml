@@ -107,6 +107,19 @@
             app:layout_constraintTop_toBottomOf="@id/tvExperimentsHint"
             app:switchPadding="12dp" />
 
+        <TextView
+            android:id="@+id/tvUuid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:fontFamily="monospace"
+            android:text="UUID"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textIsSelectable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swCrashReports" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swDebug"
             android:layout_width="0dp"
@@ -115,7 +128,7 @@
             android:text="@string/title_advanced_debug"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swCrashReports"
+            app:layout_constraintTop_toBottomOf="@id/tvUuid"
             app:switchPadding="12dp" />
 
         <TextView
@@ -208,22 +221,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvStorageSpace" />
 
-        <TextView
-            android:id="@+id/tvUuid"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="UUID"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvLastCleanup" />
-
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpDebug"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvStorageSpace,tvLastCleanup,tvUuid" />
+            app:constraint_referenced_ids="tvProcessors,tvMemoryClass,tvStorageSpace,tvLastCleanup" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
