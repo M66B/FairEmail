@@ -2137,6 +2137,8 @@ for a list of privacy oriented email providers with advantages and disadvantages
 
 Be aware that not all providers support standard email protocols, see [this FAQ](#user-content-faq129) for more information.
 
+Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
+
 <br />
 
 <a name="faq113"></a>
