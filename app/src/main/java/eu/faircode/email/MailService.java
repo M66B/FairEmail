@@ -18,6 +18,8 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -301,7 +303,9 @@ public class MailService implements AutoCloseable {
                 }
 
         } else if ("smtp".equals(protocol) || "smtps".equals(protocol)) {
-            String haddr = BuildConfig.APPLICATION_ID;
+            String[] c = BuildConfig.APPLICATION_ID.split("\\.");
+            Collections.reverse(Arrays.asList(c));
+            String haddr = TextUtils.join(".", c);
 
             if (useip)
                 try {
