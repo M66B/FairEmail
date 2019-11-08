@@ -48,7 +48,6 @@
                     android:id="@+id/rbThemeDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:padding="6dp"
                     android:text="@string/title_setup_dark_theme"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -57,7 +56,6 @@
                     android:id="@+id/rbThemeBlack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:padding="6dp"
                     android:text="@string/title_setup_black_theme"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -66,7 +64,6 @@
                     android:id="@+id/rbThemeGreyLight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:padding="6dp"
                     android:text="@string/title_setup_grey_light_theme"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -75,7 +72,6 @@
                     android:id="@+id/rbThemeGreyDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:padding="6dp"
                     android:text="@string/title_setup_grey_dark_theme"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -84,7 +80,6 @@
                     android:id="@+id/rbThemeSystem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:padding="6dp"
                     android:text="@string/title_setup_system_theme"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -93,22 +88,21 @@
                     android:id="@+id/rbThemeGreySystem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:padding="6dp"
                     android:text="@string/title_setup_grey_system_theme"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvSystem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/title_setup_system_theme_hint"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rgTheme" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/tvSystem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/title_setup_system_theme_hint"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scroll" />
 </androidx.constraintlayout.widget.ConstraintLayout>
