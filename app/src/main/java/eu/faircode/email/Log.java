@@ -300,7 +300,7 @@ public class Log {
             public boolean run(@NonNull Error error) {
                 error.addToTab("extra", "installer", installer == null ? "-" : installer);
                 error.addToTab("extra", "fingerprint", fingerprint);
-                error.addToTab("extra", "thread", Thread.currentThread().getName());
+                error.addToTab("extra", "thread", Thread.currentThread().getName() + ":" + Thread.currentThread().getId());
                 error.addToTab("extra", "free", Log.getFreeMemMb());
                 error.addToTab("extra", "optimizing", (ignoringOptimizations != null && !ignoringOptimizations));
 
