@@ -280,6 +280,7 @@
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_display_hidden">Gizli mesaj metinlerini göster</string>
+    <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
     <string name="title_advanced_recents">Son uygulamalar ekranından gizle</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>

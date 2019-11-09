@@ -317,6 +317,7 @@
     <string name="title_advanced_preview_hint">Eskuragarri soilik mezuaren testua deskargatu bada</string>
     <string name="title_advanced_inline_hint">Lineako irudiak mezuan sartutako irudiak dira</string>
     <string name="title_advanced_autoexpand_hint">Ireki automatikoki mezua elkarrizketan mezu bakarra edo irakurri gabeko mezu bakarra dagoenean</string>
+    <string name="title_advanced_autoseen_hint">Mezuak irekitzean automatikoki irakurrita gisa markatzea kontu bakoitzaren ezarpenetan desgaitu daiteke</string>
     <string name="title_advanced_autoclose_hint">Itxi automatikoki elkarrizketak mezu guztiak artxibatu, bidali edo zakarrontzira bota direnean</string>
     <string name="title_advanced_sender_hint">Hornitzaile gehienek ez dute igorlearen helbide aldatuak onartzen</string>
     <string name="title_advanced_display_hidden_hint">Honek bitxikeriak eta testu bikoitzak eragin ditzake</string>
