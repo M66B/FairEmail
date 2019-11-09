@@ -878,6 +878,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         if ("alert_once".equals(key))
                             continue;
 
+                        if (key != null && key.startsWith("widget."))
+                            continue;
+
                         Object value = jsetting.get("value");
                         String type = jsetting.optString("type");
                         Log.i("Setting name=" + key + " value=" + value + " type=" + type);

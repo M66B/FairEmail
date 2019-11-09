@@ -83,6 +83,8 @@ public class ActivityWidgetUnified extends ActivityBase {
                 SharedPreferences.Editor editor = prefs.edit();
                 if (account != null && account.id > 0)
                     editor.putString("widget." + appWidgetId + ".name", account.name);
+                else
+                    editor.remove("widget." + appWidgetId + ".name");
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
