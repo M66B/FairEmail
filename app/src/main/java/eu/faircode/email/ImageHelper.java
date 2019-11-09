@@ -391,7 +391,7 @@ class ImageHelper {
                             BufferedInputStream is = new BufferedInputStream(urlConnection.getInputStream());
 
                             Log.i("Probe " + a.source);
-                            is.mark(8192);
+                            is.mark(64 * 1024);
                             BitmapFactory.Options options = new BitmapFactory.Options();
                             options.inJustDecodeBounds = true;
                             BitmapFactory.decodeStream(is, null, options);
