@@ -2956,6 +2956,35 @@ public class FragmentCompose extends FragmentBase {
                         db.message().updateMessage(draft);
                     }
 
+                    // Save changed draft
+                    File file = draft.getFile(context);
+                    if (!file.exists())
+                        Helper.writeText(file, body);
+                    String previous = Helper.readText(file);
+                    if (!body.equals(previous)) {
+                        dirty = true;
+
+                        if (draft.revisions == null)
+                            draft.revisions = 1;
+                        else
+                            draft.revisions++;
+
+                        if (action != R.id.action_undo && action != R.id.action_redo)
+                            draft.revision = draft.revisions;
+
+                        Helper.writeText(draft.getFile(context), body);
+                        Helper.writeText(draft.getFile(context, draft.revisions), body);
+
+                        db.message().setMessageRevision(draft.id, draft.revision);
+                        db.message().setMessageRevisions(draft.id, draft.revisions);
+
+                        db.message().setMessageContent(draft.id,
+                                true,
+                                draft.plain_only,
+                                HtmlHelper.getPreview(body),
+                                null);
+                    }
+
                     if (action == R.id.action_undo || action == R.id.action_redo) {
                         if (draft.revision != null && draft.revisions != null) {
                             dirty = true;
@@ -2976,32 +3005,6 @@ public class FragmentCompose extends FragmentBase {
                             db.message().setMessageContent(draft.id,
                                     true,
                                     draft.plain_only, // unchanged
-                                    HtmlHelper.getPreview(body),
-                                    null);
-                        }
-                    } else {
-                        File file = draft.getFile(context);
-                        if (!file.exists())
-                            Helper.writeText(file, body);
-                        String previous = Helper.readText(file);
-                        if (!body.equals(previous)) {
-                            dirty = true;
-
-                            if (draft.revisions == null)
-                                draft.revisions = 1;
-                            else
-                                draft.revisions++;
-                            draft.revision = draft.revisions;
-
-                            Helper.writeText(draft.getFile(context), body);
-                            Helper.writeText(draft.getFile(context, draft.revisions), body);
-
-                            db.message().setMessageRevision(draft.id, draft.revision);
-                            db.message().setMessageRevisions(draft.id, draft.revisions);
-
-                            db.message().setMessageContent(draft.id,
-                                    true,
-                                    draft.plain_only,
                                     HtmlHelper.getPreview(body),
                                     null);
                         }
