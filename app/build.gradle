@@ -179,9 +179,9 @@ configurations.all {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    def core_version = "1.2.0-beta01"
+    def core_version = "1.2.0-beta02"
     def appcompat_version = "1.1.0"
-    def fragment_version = "1.2.0-rc01"
+    def fragment_version = "1.2.0-rc02"
     def recyclerview_version = "1.1.0-rc01"
     def coordinatorlayout_version = "1.1.0-rc01"
     def constraintlayout_version = "2.0.0-beta3"
@@ -190,13 +190,13 @@ dependencies {
     def lbm_version = "1.0.0"
     def swiperefresh_version = "1.0.0"
     def documentfile_version = "1.0.1"
-    def lifecycle_version = "2.2.0-rc01"
+    def lifecycle_version = "2.2.0-rc02"
     def room_version = "2.2.1"
     def paging_version = "2.1.0"
     def preference_version = "1.1.0"
     def work_version = "2.2.0"
     def exif_version = "1.1.0-rc01"
-    def biometric_version = "1.0.0-rc02"
+    def biometric_version = "1.0.0"
     def billingclient_version = "2.0.3"
     def javamail_version = "1.6.5-SNAPSHOT"
     def jsoup_version = "1.12.1"
@@ -258,7 +258,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-common:$room_version" // because of exclude
     // https://mvnrepository.com/artifact/androidx.sqlite/sqlite-framework
-    implementation "androidx.sqlite:sqlite-framework:2.0.1" // because of exclude
+    implementation "androidx.sqlite:sqlite-framework:2.1.0-alpha01" // because of exclude
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     // https://mvnrepository.com/artifact/androidx.paging/paging-runtime

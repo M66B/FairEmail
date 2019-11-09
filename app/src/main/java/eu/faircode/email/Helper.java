@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
@@ -32,8 +31,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.hardware.biometrics.BiometricManager;
-import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -68,6 +65,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.biometric.BiometricManager;
 import androidx.biometric.BiometricPrompt;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -730,18 +728,8 @@ public class Helper {
         if (!TextUtils.isEmpty(pin))
             return true;
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            return false;
-        else if (Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q) {
-            if (!context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT))
-                return false;
-            FingerprintManager fpm = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-            return (fpm != null && fpm.isHardwareDetected() && fpm.hasEnrolledFingerprints());
-        } else {
-            @SuppressLint("WrongConstant")
-            BiometricManager bm = (BiometricManager) context.getSystemService(Context.BIOMETRIC_SERVICE);
-            return (bm != null && bm.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS);
-        }
+        BiometricManager bm = BiometricManager.from(context);
+        return (bm.canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS);
     }
 
     static boolean shouldAuthenticate(Context context) {
