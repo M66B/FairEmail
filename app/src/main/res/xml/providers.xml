@@ -398,4 +398,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="Mailfence"
+        link="https://mailfence.com/en/faq.jsp"
+        useip="false">
+        <imap
+            host="imap.mailfence.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.mailfence.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
