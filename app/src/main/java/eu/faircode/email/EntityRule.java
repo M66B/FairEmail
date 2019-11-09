@@ -454,6 +454,7 @@ public class EntityRule {
     private boolean onActionSnooze(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         int duration = jargs.getInt("duration");
         boolean schedule_end = jargs.optBoolean("schedule_end", false);
+        boolean seen = jargs.optBoolean("seen", false);
 
         long wakeup;
         if (schedule_end) {
@@ -475,6 +476,9 @@ public class EntityRule {
         EntityMessage.snooze(context, message.id, wakeup);
 
         message.ui_snoozed = wakeup;
+
+        if (seen)
+            onActionSeen(context, message, true);
 
         return true;
     }

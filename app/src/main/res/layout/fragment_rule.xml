@@ -514,6 +514,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/npDuration" />
 
+                <CheckBox
+                    android:id="@+id/cbSnoozeSeen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_rule_seen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbScheduleEnd" />
+
                 <TextView
                     android:id="@+id/tvColor"
                     android:layout_width="wrap_content"
@@ -522,7 +531,7 @@
                     android:text="@string/title_color"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbScheduleEnd" />
+                    app:layout_constraintTop_toBottomOf="@id/cbSnoozeSeen" />
 
                 <eu.faircode.email.ViewButtonColor
                     android:id="@+id/btnColor"
@@ -667,7 +676,7 @@
                     android:id="@+id/grpSnooze"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvHours,npDuration,cbScheduleEnd" />
+                    app:constraint_referenced_ids="tvHours,npDuration,cbScheduleEnd,cbSnoozeSeen" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpFlag"

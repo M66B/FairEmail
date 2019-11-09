@@ -112,6 +112,7 @@ public class FragmentRule extends FragmentBase {
 
     private NumberPicker npDuration;
     private CheckBox cbScheduleEnd;
+    private CheckBox cbSnoozeSeen;
 
     private ViewButtonColor btnColor;
 
@@ -218,6 +219,7 @@ public class FragmentRule extends FragmentBase {
 
         npDuration = view.findViewById(R.id.npDuration);
         cbScheduleEnd = view.findViewById(R.id.cbScheduleEnd);
+        cbSnoozeSeen = view.findViewById(R.id.cbSnoozeSeen);
 
         btnColor = view.findViewById(R.id.btnColor);
 
@@ -676,6 +678,7 @@ public class FragmentRule extends FragmentBase {
                             case EntityRule.TYPE_SNOOZE:
                                 npDuration.setValue(jaction.optInt("duration", 0));
                                 cbScheduleEnd.setChecked(jaction.optBoolean("schedule_end", false));
+                                cbSnoozeSeen.setChecked(jaction.optBoolean("seen", false));
                                 break;
 
                             case EntityRule.TYPE_FLAG:
@@ -969,6 +972,7 @@ public class FragmentRule extends FragmentBase {
                 case EntityRule.TYPE_SNOOZE:
                     jaction.put("duration", npDuration.getValue());
                     jaction.put("schedule_end", cbScheduleEnd.isChecked());
+                    jaction.put("seen", cbSnoozeSeen.isChecked());
                     break;
 
                 case EntityRule.TYPE_FLAG:
