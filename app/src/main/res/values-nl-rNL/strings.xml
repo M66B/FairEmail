@@ -822,6 +822,7 @@
     <string name="title_icalendar_accept">Accepteer</string>
     <string name="title_icalendar_decline">Weiger</string>
     <string name="title_icalendar_maybe">Misschien</string>
+    <string name="title_icalendar_calendar">Agenda</string>
     <string name="title_try">Probeer FairEmail, een open source, privacy vriendelijke e-mail app voor Android</string>
     <string name="title_pro_feature">Dit is een pro-functie</string>
     <string name="title_pro_list">Lijst van pro-functies</string>

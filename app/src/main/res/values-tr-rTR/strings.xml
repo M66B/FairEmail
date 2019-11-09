@@ -317,6 +317,7 @@
     <string name="title_advanced_preview_hint">Yalnızca ileti metni indirildiğinde kullanılabilir</string>
     <string name="title_advanced_inline_hint">Satıriçi resimler mesajın içine eklenen resimlerdir</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
+    <string name="title_advanced_autoseen_hint">Genişletme sırasında okunan mesajları otomatik olarak işaretleme, bireysel hesap ayarlarında devre dışı bırakılabilir</string>
     <string name="title_advanced_autoclose_hint">Tüm iletiler arşivlendiğinde veya çöpe gittiğinde bu iletişim kutusunu otomatik olarak kapat</string>
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
@@ -821,6 +822,7 @@
     <string name="title_icalendar_accept">Kabul</string>
     <string name="title_icalendar_decline">Reddet</string>
     <string name="title_icalendar_maybe">Olabilir</string>
+    <string name="title_icalendar_calendar">Takvim</string>
     <string name="title_try">Android için açık kaynaklı, gizlilik dostu bir e-posta uygulaması olan FairEmail\'i deneyin</string>
     <string name="title_pro_feature">Bu Pro özelliğidir</string>
     <string name="title_pro_list">Pro özelliklerin listesi</string>

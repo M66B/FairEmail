@@ -822,6 +822,7 @@
     <string name="title_icalendar_accept">Godta</string>
     <string name="title_icalendar_decline">Avslå</string>
     <string name="title_icalendar_maybe">Kanskje</string>
+    <string name="title_icalendar_calendar">Kalender</string>
     <string name="title_try">Prøv FairEmail, en e-postapp for Android med åpen kildekode som respekterer din integritet</string>
     <string name="title_pro_feature">Dette er en Pro-funksjon</string>
     <string name="title_pro_list">Liste over Pro funksjoner</string>

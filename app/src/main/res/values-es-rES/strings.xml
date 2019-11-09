@@ -822,6 +822,7 @@
     <string name="title_icalendar_accept">Aceptar</string>
     <string name="title_icalendar_decline">Rechazar</string>
     <string name="title_icalendar_maybe">Tal vez</string>
+    <string name="title_icalendar_calendar">Calendario</string>
     <string name="title_try">Pruebe FairEmail, un cliente de correo electrónico para Android de código abierto y enfocado en la privacidad</string>
     <string name="title_pro_feature">Esta es una característica Pro</string>
     <string name="title_pro_list">Lista de características Pro</string>

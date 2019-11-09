@@ -822,6 +822,7 @@
     <string name="title_icalendar_accept">Accepter</string>
     <string name="title_icalendar_decline">Refuser</string>
     <string name="title_icalendar_maybe">Peut-être</string>
+    <string name="title_icalendar_calendar">Calendrier</string>
     <string name="title_try">Essayez FairEmail, une application de messagerie pour Android, open source, respectant la vie privée</string>
     <string name="title_pro_feature">Il s\'agit d\'une fonctionnalité Pro</string>
     <string name="title_pro_list">Liste des fonctionnalités Pro</string>

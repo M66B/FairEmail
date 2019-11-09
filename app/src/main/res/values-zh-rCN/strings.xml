@@ -305,6 +305,7 @@
     <string name="title_advanced_preview_hint">只有当消息文本下载时才可用</string>
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
+    <string name="title_advanced_autoseen_hint">可以在单独的账户设置中禁用展开消息时自动标记消息为已读</string>
     <string name="title_advanced_autoclose_hint">在所有邮件存档、发送或丢弃时自动关闭对话线程</string>
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
@@ -809,6 +810,7 @@
     <string name="title_icalendar_accept">接受</string>
     <string name="title_icalendar_decline">拒绝</string>
     <string name="title_icalendar_maybe">待定</string>
+    <string name="title_icalendar_calendar">日历</string>
     <string name="title_try">请试下FairEmail吧！一个安卓平台上开源、隐私友好的邮件客户端</string>
     <string name="title_pro_feature">这是专业版功能</string>
     <string name="title_pro_list">专业版功能列表</string>

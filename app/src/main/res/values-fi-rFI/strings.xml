@@ -822,6 +822,7 @@
     <string name="title_icalendar_accept">Hyväksy</string>
     <string name="title_icalendar_decline">Hylkää</string>
     <string name="title_icalendar_maybe">Ehkä</string>
+    <string name="title_icalendar_calendar">Kalenteri</string>
     <string name="title_try">Kokeile FairEmailia, yksityisyyttä kunnioittavaa avoimen lähdekoodin sähköpostisovellusta Androidille</string>
     <string name="title_pro_feature">Tämä on pro-ominaisuus</string>
     <string name="title_pro_list">Luettelo pro-ominaisuuksista</string>

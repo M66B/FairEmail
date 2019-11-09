@@ -821,6 +821,7 @@
     <string name="title_icalendar_accept">Accetta</string>
     <string name="title_icalendar_decline">Rifiuta</string>
     <string name="title_icalendar_maybe">Forse</string>
+    <string name="title_icalendar_calendar">Calendario</string>
     <string name="title_try">Prova FairEmail, un\'app email per Android open source e rispettosa della privacy</string>
     <string name="title_pro_feature">Questa è una funzionalità a pagamento</string>
     <string name="title_pro_list">Elenco delle funzionalità a pagamento</string>
