@@ -113,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="?attr/colorActionBackground"
-        android:contentDescription="@string/title_decrypt"
+        android:contentDescription="@string/title_icalendar_calendar"
         android:tint="@color/action_foreground"
         android:tooltipText="@string/title_icalendar_accept"
         app:layout_constraintBottom_toBottomOf="@id/btnCalendarAccept"

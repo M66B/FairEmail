@@ -924,6 +924,7 @@
     <string name="title_icalendar_accept">Accept</string>
     <string name="title_icalendar_decline">Decline</string>
     <string name="title_icalendar_maybe">Maybe</string>
+    <string name="title_icalendar_calendar">Calendar</string>
 
     <string name="title_try">Try FairEmail, an open source, privacy friendly email app for Android</string>
 
