@@ -487,6 +487,9 @@ public interface DaoMessage {
             "  WHERE (:folder IS NULL AND folder.unified) OR id = :folder)")
     int ignoreAll(Long account, Long folder);
 
+    @Query("UPDATE message SET ui_found = 1 WHERE id = :id")
+    int setMessageFound(long id);
+
     @Query("UPDATE message SET ui_found = 1" +
             " WHERE account = :account" +
             " AND thread = :thread")

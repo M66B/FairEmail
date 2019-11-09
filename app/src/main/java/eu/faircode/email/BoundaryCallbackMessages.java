@@ -163,6 +163,9 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int load_device(State state) {
         DB db = DB.getInstance(context);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean threading = prefs.getBoolean("threading", true);
+
         Boolean seen = null;
         Boolean flagged = null;
         Boolean snoozed = null;
@@ -229,7 +232,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     if (match.matched != null && match.matched) {
                         found++;
-                        db.message().setMessageFound(match.account, match.thread);
+                        if (threading)
+                            db.message().setMessageFound(match.account, match.thread);
+                        else
+                            db.message().setMessageFound(match.id);
                     }
                 }
             }
@@ -249,6 +255,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     private int load_server(State state) throws MessagingException, IOException {
         DB db = DB.getInstance(context);
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean threading = prefs.getBoolean("threading", true);
+        boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
+
         final EntityFolder browsable = db.folder().getBrowsableFolder(folder, query != null);
         if (browsable == null)
             return 0;
@@ -262,9 +272,6 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 // Check connectivity
                 if (!ConnectionHelper.getNetworkState(context).isSuitable())
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.BETA_RELEASE);
 
                 Log.i("Boundary server connecting account=" + account.name);
                 state.iservice = new MailService(context, account.getProtocol(), account.realm, account.insecure, false, debug);
@@ -473,7 +480,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                             found++;
                         }
                         if (message != null)
-                            db.message().setMessageFound(message.account, message.thread);
+                            if (threading)
+                                db.message().setMessageFound(message.account, message.thread);
+                            else
+                                db.message().setMessageFound(message.id);
                     } catch (MessageRemovedException ex) {
                         Log.w(browsable.name + " boundary server", ex);
                     } catch (FolderClosedException ex) {
