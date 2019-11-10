@@ -409,6 +409,7 @@ class Core {
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
+                                ex instanceof SQLiteConstraintException ||
                                 ex.getCause() instanceof BadCommandException ||
                                 ex.getCause() instanceof CommandFailedException) {
                             // com.sun.mail.iap.BadCommandException: B13 BAD [TOOBIG] Message too large
@@ -489,12 +490,13 @@ class Core {
         if (TextUtils.isEmpty(message.msgid))
             throw new IllegalArgumentException("Message without msgid for " + op.name);
 
-        message.uid = findUid(ifolder, message.msgid, false);
-        if (message.uid == null)
+        Long uid = findUid(ifolder, message.msgid, false);
+        if (uid == null)
             throw new IllegalArgumentException("Message not found for " + op.name);
 
         DB db = DB.getInstance(context);
         db.message().setMessageUid(message.id, message.uid);
+        message.uid = uid;
     }
 
     private static Long findUid(IMAPFolder ifolder, String msgid, boolean purge) throws MessagingException {
