@@ -1971,32 +1971,33 @@ class Core {
             return _synchronizeMessage(context, account, folder, uid, istore, imessage, browsed, download, rules, state);
         } catch (MessagingException ex) {
             // https://javaee.github.io/javamail/FAQ#imapserverbug
-            if (MessageHelper.retryRaw(ex)) try {
-                Log.w(folder.name + " " + ex.getMessage());
+            if (MessageHelper.retryRaw(ex))
+                try {
+                    Log.w(folder.name + " " + ex.getMessage());
 
-                Log.i(folder.name + " fetching raw message uid=" + uid);
-                File file = File.createTempFile("serverbug." + folder.id, "." + uid, context.getCacheDir());
-                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                    imessage.writeTo(os);
+                    Log.i(folder.name + " fetching raw message uid=" + uid);
+                    File file = File.createTempFile("serverbug." + folder.id, "." + uid, context.getCacheDir());
+                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                        imessage.writeTo(os);
+                    }
+
+                    Properties props = MessageHelper.getSessionProperties();
+                    Session isession = Session.getInstance(props, null);
+
+                    Log.i(folder.name + " decoding again uid=" + uid);
+                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                        imessage = new MimeMessageEx(isession, is, imessage);
+                    }
+
+                    file.delete();
+
+                    Log.i(folder.name + " synchronizing again uid=" + uid);
+                    return _synchronizeMessage(context, account, folder, uid, istore, imessage, browsed, download, rules, state);
+                } catch (MessagingException ex1) {
+                    if (MessageHelper.retryRaw(ex1))
+                        Log.e(ex1);
+                    throw ex1;
                 }
-
-                Properties props = MessageHelper.getSessionProperties();
-                Session isession = Session.getInstance(props, null);
-
-                Log.i(folder.name + " decoding again uid=" + uid);
-                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                    imessage = new MimeMessageEx(isession, is, imessage);
-                }
-
-                file.delete();
-
-                Log.i(folder.name + " synchronizing again uid=" + uid);
-                return _synchronizeMessage(context, account, folder, uid, istore, imessage, browsed, download, rules, state);
-            } catch (MessagingException ex1) {
-                if (MessageHelper.retryRaw(ex1))
-                    Log.e(ex1);
-                throw ex1;
-            }
 
             throw ex;
         }
