@@ -211,7 +211,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(103) How can I record audio?](#user-content-faq103)
 * [(104) What do I need to know about error reporting?](#user-content-faq104)
 * [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show the number of new messages?](#user-content-faq106)
+* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
 * [(107) How do I used colored stars?](#user-content-faq107)
 * [(108) Can you add permanently delete messages from any folder?](#user-content-faq108)
 * [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
@@ -2049,12 +2049,20 @@ So, you don't have to disable this option if you don't have an EU SIM or are not
 <br />
 
 <a name="faq106"></a>
-**(106) Which launchers can show the number of new messages?**
+**(106) Which launchers can show a badge count with the number of unread messages?**
 
 Please [see here](https://github.com/leolin310148/ShortcutBadger#supported-launchers)
 for a list of launchers which can show the number of new messages.
 
-Note that this needs to be enabled in the advance options (default enabled).
+Note that the notification setting *Show launcher icon with number of new messages* needs to be enabled (default enabled).
+
+Depending on what you want, the notification settings *Let the number of new messages match the number of notifications* needs to be enabled or disabled.
+
+This feature depends on support of your launcher.
+FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
+If it doesn't work, this cannot be fixed by changes in FairEmail.
+
+Note that Tesla Unread is [not supported anymore](https://forum.xda-developers.com/android/general/bad-news-tesla-unread-devoloper-t3920415).
 
 <br />
 
