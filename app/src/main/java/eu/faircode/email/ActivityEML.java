@@ -23,26 +23,36 @@ import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -50,12 +60,17 @@ import java.util.Properties;
 import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeMessage;
 
 public class ActivityEML extends ActivityBase {
     private Uri uri;
+    private Result result;
+    private MessageHelper.AttachmentPart apart;
+
+    private static final int REQUEST_ATTACHMENT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +82,27 @@ public class ActivityEML extends ActivityBase {
         final TextView tvTo = findViewById(R.id.tvTo);
         final TextView tvFrom = findViewById(R.id.tvFrom);
         final TextView tvSubject = findViewById(R.id.tvSubject);
-        final TextView tvAttachments = findViewById(R.id.tvAttachments);
+        final ListView lvAttachment = findViewById(R.id.lvAttachment);
         final TextView tvBody = findViewById(R.id.tvBody);
         final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
         final Group grpReady = findViewById(R.id.grpReady);
+
+        lvAttachment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                apart = result.parts.getAttachmentParts().get(position);
+
+                Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                create.addCategory(Intent.CATEGORY_OPENABLE);
+                create.setType(apart.attachment.getMimeType());
+                if (!TextUtils.isEmpty(apart.attachment.name))
+                    create.putExtra(Intent.EXTRA_TITLE, apart.attachment.name);
+                if (create.resolveActivity(getPackageManager()) == null)
+                    ToastEx.makeText(ActivityEML.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+                else
+                    startActivityForResult(Helper.getChooser(ActivityEML.this, create), REQUEST_ATTACHMENT);
+            }
+        });
 
         grpReady.setVisibility(View.GONE);
 
@@ -117,23 +149,9 @@ public class ActivityEML extends ActivityBase {
                     result.from = MessageHelper.formatAddresses(helper.getFrom());
                     result.to = MessageHelper.formatAddresses(helper.getTo());
                     result.subject = helper.getSubject();
+                    result.parts = helper.getMessageParts();
 
-                    MessageHelper.MessageParts parts = helper.getMessageParts();
-
-                    StringBuilder sb = new StringBuilder();
-                    for (MessageHelper.AttachmentPart apart : parts.getAttachmentParts()) {
-                        if (sb.length() > 0)
-                            sb.append("<br>");
-                        ContentType ct = new ContentType(apart.part.getContentType());
-                        sb.append(ct.getBaseType().toLowerCase(Locale.ROOT));
-                        if (apart.disposition != null)
-                            sb.append(' ').append(apart.disposition);
-                        if (apart.filename != null)
-                            sb.append(' ').append(apart.filename);
-                    }
-                    result.attachments = HtmlHelper.fromHtml(sb.toString());
-
-                    String html = parts.getHtml(context);
+                    String html = result.parts.getHtml(context);
                     if (html != null)
                         result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, html, false));
 
@@ -143,10 +161,32 @@ public class ActivityEML extends ActivityBase {
 
             @Override
             protected void onExecuted(Bundle args, Result result) {
+                ActivityEML.this.result = result;
+
                 tvFrom.setText(result.from);
                 tvTo.setText(result.to);
                 tvSubject.setText(result.subject);
-                tvAttachments.setText(result.attachments);
+
+                List<String> attachments = new ArrayList<>();
+                for (MessageHelper.AttachmentPart apart : result.parts.getAttachmentParts()) {
+                    StringBuilder sb = new StringBuilder();
+                    try {
+                        ContentType ct = new ContentType(apart.part.getContentType());
+                        sb.append(ct.getBaseType().toLowerCase(Locale.ROOT));
+                    } catch (MessagingException ex) {
+                        sb.append(ex.getMessage());
+                    }
+                    if (apart.disposition != null)
+                        sb.append(' ').append(apart.disposition);
+                    if (apart.filename != null)
+                        sb.append(' ').append(apart.filename);
+                    attachments.add(sb.toString());
+                }
+
+                ArrayAdapter adapter = new ArrayAdapter<>(
+                        ActivityEML.this, R.layout.list_item1, android.R.id.text1, attachments);
+                lvAttachment.setAdapter(adapter);
+
                 tvBody.setText(result.body);
                 grpReady.setVisibility(View.VISIBLE);
             }
@@ -159,6 +199,81 @@ public class ActivityEML extends ActivityBase {
                     Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "eml:decode");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_ATTACHMENT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSaveAttachment(data);
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    private void onSaveAttachment(Intent data) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", data.getData());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+
+                if (!"content".equals(uri.getScheme())) {
+                    Log.w("Save attachment uri=" + uri);
+                    throw new IllegalArgumentException(context.getString(R.string.title_no_stream));
+                }
+
+                ParcelFileDescriptor pfd = null;
+                OutputStream os = null;
+                InputStream is;
+                try {
+                    pfd = getContentResolver().openFileDescriptor(uri, "w");
+                    os = new FileOutputStream(pfd.getFileDescriptor());
+                    is = apart.part.getInputStream();
+
+                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                    int read;
+                    while ((read = is.read(buffer)) != -1)
+                        os.write(buffer, 0, read);
+                } finally {
+                    try {
+                        if (pfd != null)
+                            pfd.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                    try {
+                        if (os != null)
+                            os.close();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
+                }
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(ActivityEML.this, R.string.title_attachment_saved, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
+                    ToastEx.makeText(ActivityEML.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, args, "eml:attachment");
     }
 
     @Override
@@ -282,7 +397,7 @@ public class ActivityEML extends ActivityBase {
         String from;
         String to;
         String subject;
-        Spanned attachments;
+        MessageHelper.MessageParts parts;
         Spanned body;
     }
 }

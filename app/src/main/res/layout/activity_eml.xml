@@ -103,17 +103,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
-            <TextView
-                android:id="@+id/tvAttachments"
+            <eu.faircode.email.ListViewEx
+                android:id="@+id/lvAttachment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:text="Attachments"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textIsSelectable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vSeparatorAttachments" />
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
 
             <View
                 android:id="@+id/vSeparatorBody"
@@ -123,7 +119,7 @@
                 android:background="?attr/colorSeparator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAttachments" />
+                app:layout_constraintTop_toBottomOf="@id/lvAttachment" />
 
             <TextView
                 android:id="@+id/tvBody"
@@ -146,7 +142,7 @@
                     vSeparatorHeader,tvFromTitle,tvFrom,
                     tvToTitle,tvTo,
                     tvSubject,
-                    vSeparatorAttachments,tvAttachments,
+                    vSeparatorAttachments,lvAttachment,
                     vSeparatorBody,tvBody" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
