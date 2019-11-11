@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/activatableItemBackground"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/ivAttachments"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/title_legend_attachment"
+            app:layout_constraintBottom_toBottomOf="@+id/tvType"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_attachment_24" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            android:text="Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toStartOf="@+id/tvSize"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@id/ivAttachments"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="start"
+            android:singleLine="true"
+            android:text="text/plain"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toStartOf="@+id/tvSize"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="10 kB"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@id/tvType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvType"
+            app:layout_constraintTop_toTopOf="@id/tvName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

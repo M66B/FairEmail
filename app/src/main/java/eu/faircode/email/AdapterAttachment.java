@@ -154,7 +154,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             int pos = getAdapterPosition();
             if (pos == RecyclerView.NO_POSITION)
                 return;
-            final EntityAttachment attachment = items.get(pos);
+            EntityAttachment attachment = items.get(pos);
+            if (attachment == null)
+                return;
 
             if (view.getId() == R.id.ibDelete)
                 onDelete(attachment);

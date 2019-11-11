@@ -34,9 +34,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +42,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
@@ -69,7 +69,6 @@ public class ActivityEML extends ActivityBase {
     private Uri uri;
     private Result result;
     private MessageHelper.AttachmentPart apart;
-
     private static final int REQUEST_ATTACHMENT = 1;
 
     @Override
@@ -82,27 +81,14 @@ public class ActivityEML extends ActivityBase {
         final TextView tvTo = findViewById(R.id.tvTo);
         final TextView tvFrom = findViewById(R.id.tvFrom);
         final TextView tvSubject = findViewById(R.id.tvSubject);
-        final ListView lvAttachment = findViewById(R.id.lvAttachment);
+        final RecyclerView rvAttachment = findViewById(R.id.rvAttachment);
         final TextView tvBody = findViewById(R.id.tvBody);
         final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
         final Group grpReady = findViewById(R.id.grpReady);
 
-        lvAttachment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                apart = result.parts.getAttachmentParts().get(position);
-
-                Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-                create.addCategory(Intent.CATEGORY_OPENABLE);
-                create.setType(apart.attachment.getMimeType());
-                if (!TextUtils.isEmpty(apart.attachment.name))
-                    create.putExtra(Intent.EXTRA_TITLE, apart.attachment.name);
-                if (create.resolveActivity(getPackageManager()) == null)
-                    ToastEx.makeText(ActivityEML.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-                else
-                    startActivityForResult(Helper.getChooser(ActivityEML.this, create), REQUEST_ATTACHMENT);
-            }
-        });
+        rvAttachment.setHasFixedSize(false);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rvAttachment.setLayoutManager(llm);
 
         grpReady.setVisibility(View.GONE);
 
@@ -183,9 +169,27 @@ public class ActivityEML extends ActivityBase {
                     attachments.add(sb.toString());
                 }
 
-                ArrayAdapter adapter = new ArrayAdapter<>(
-                        ActivityEML.this, R.layout.list_item1, android.R.id.text1, attachments);
-                lvAttachment.setAdapter(adapter);
+                AdapterAttachmentEML adapter = new AdapterAttachmentEML(
+                        ActivityEML.this,
+                        result.parts.getAttachmentParts(),
+                        new AdapterAttachmentEML.IEML() {
+                            @Override
+                            public void onSelected(MessageHelper.AttachmentPart apart) {
+                                ActivityEML.this.apart = apart;
+
+                                Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                                create.addCategory(Intent.CATEGORY_OPENABLE);
+                                create.setType(apart.attachment.getMimeType());
+                                if (!TextUtils.isEmpty(apart.attachment.name))
+                                    create.putExtra(Intent.EXTRA_TITLE, apart.attachment.name);
+                                if (create.resolveActivity(getPackageManager()) == null)
+                                    ToastEx.makeText(ActivityEML.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+                                else
+                                    startActivityForResult(Helper.getChooser(ActivityEML.this, create), REQUEST_ATTACHMENT);
+
+                            }
+                        });
+                rvAttachment.setAdapter(adapter);
 
                 tvBody.setText(result.body);
                 grpReady.setVisibility(View.VISIBLE);

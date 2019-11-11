@@ -103,8 +103,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSubject" />
 
-            <eu.faircode.email.ListViewEx
-                android:id="@+id/lvAttachment"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAttachment"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +119,7 @@
                 android:background="?attr/colorSeparator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lvAttachment" />
+                app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
 
             <TextView
                 android:id="@+id/tvBody"
@@ -142,7 +142,7 @@
                     vSeparatorHeader,tvFromTitle,tvFrom,
                     tvToTitle,tvTo,
                     tvSubject,
-                    vSeparatorAttachments,lvAttachment,
+                    vSeparatorAttachments,rvAttachment,
                     vSeparatorBody,tvBody" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
