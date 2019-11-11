@@ -1446,6 +1446,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 icon = R.drawable.baseline_list_24;
             else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
                 icon = (message.ui_seen ? R.drawable.baseline_visibility_off_24 : R.drawable.baseline_visibility_24);
+            else if (FragmentAccount.SWIPE_ACTION_FLAG.equals(action))
+                icon = (message.ui_flagged ? R.drawable.baseline_star_border_24 : R.drawable.baseline_star_24);
             else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.baseline_timelapse_24 : R.drawable.baseline_timer_off_24);
             else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
@@ -1521,6 +1523,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 onSwipeAsk(message, viewHolder);
             } else if (FragmentAccount.SWIPE_ACTION_SEEN.equals(action))
                 onActionSeenSelection(!message.ui_seen, message.id);
+            else if (FragmentAccount.SWIPE_ACTION_FLAG.equals(action))
+                onActionFlagSelection(!message.ui_flagged, null, message.id);
             else if (FragmentAccount.SWIPE_ACTION_SNOOZE.equals(action))
                 onActionSnooze(message);
             else if (FragmentAccount.SWIPE_ACTION_HIDE.equals(action))
@@ -1569,15 +1573,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             else
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, 1, R.string.title_seen);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 2, R.string.title_snooze);
+            if (message.ui_flagged)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, 2, R.string.title_unflag);
+            else
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, 2, R.string.title_flag);
+
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, 3, R.string.title_snooze);
 
             if (message.ui_snoozed == null)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, 3, R.string.title_hide);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, 4, R.string.title_hide);
             else if (message.ui_snoozed == Long.MAX_VALUE)
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, 3, R.string.title_unhide);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, 4, R.string.title_unhide);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 4, R.string.title_flag_color);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 5, R.string.title_move);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, 5, R.string.title_flag_color);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, 6, R.string.title_move);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -1588,6 +1597,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             return true;
                         case R.string.title_unseen:
                             onActionSeenSelection(false, message.id);
+                            return true;
+                        case R.string.title_flag:
+                            onActionFlagSelection(true, null, message.id);
+                            return true;
+                        case R.string.title_unflag:
+                            onActionFlagSelection(false, null, message.id);
                             return true;
                         case R.string.title_snooze:
                             onMenuSnooze();
@@ -1876,10 +1891,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 onHideSelection(false);
                                 return true;
                             case R.string.title_flag:
-                                onActionFlagSelection(true, null);
+                                onActionFlagSelection(true, null, null);
                                 return true;
                             case R.string.title_unflag:
-                                onActionFlagSelection(false, null);
+                                onActionFlagSelection(false, null, null);
                                 return true;
                             case R.string.title_flag_color:
                                 onActionFlagColorSelection();
@@ -2058,9 +2073,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "messages:flag");
     }
 
-    private void onActionFlagSelection(boolean flagged, Integer color) {
+    private void onActionFlagSelection(boolean flagged, Integer color, Long id) {
         Bundle args = new Bundle();
-        args.putLongArray("ids", getSelection());
+        args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
         args.putBoolean("flagged", flagged);
         if (color != null)
             args.putInt("color", color);
@@ -3845,7 +3860,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         }
 
                         Bundle args = data.getBundleExtra("args");
-                        onActionFlagSelection(true, args.getInt("color"));
+                        onActionFlagSelection(true, args.getInt("color"), null);
                     }
                     break;
                 case REQUEST_MESSAGE_SNOOZE:
