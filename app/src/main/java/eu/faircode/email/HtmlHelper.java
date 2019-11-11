@@ -609,6 +609,15 @@ public class HtmlHelper {
     }
 
     static String getPreview(String body) {
+        try {
+            return _getPreview(body);
+        } catch (OutOfMemoryError ex) {
+            Log.e(ex);
+            return null;
+        }
+    }
+
+    private static String _getPreview(String body) {
         if (body == null)
             return null;
 
