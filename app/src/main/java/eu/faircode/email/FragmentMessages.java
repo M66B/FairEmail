@@ -1761,11 +1761,18 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 DB db = DB.getInstance(context);
 
+                boolean pop = false;
                 result.folders = new ArrayList<>();
                 for (long id : ids) {
                     EntityMessage message = db.message().getMessage(id);
                     if (message == null)
                         continue;
+
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account == null)
+                        continue;
+                    if (account.pop)
+                        pop = true;
 
                     if (!result.folders.contains(message.folder))
                         result.folders.add(message.folder);
@@ -1792,7 +1799,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     EntityFolder folder = db.folder().getFolder(message.folder);
                     boolean isArchive = EntityFolder.ARCHIVE.equals(folder.type);
-                    boolean isTrash = EntityFolder.TRASH.equals(folder.type);
+                    boolean isTrash = (EntityFolder.TRASH.equals(folder.type) || account.pop);
                     boolean isJunk = EntityFolder.JUNK.equals(folder.type);
                     boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
 
@@ -1820,9 +1827,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (result.hasJunk == null) result.hasJunk = false;
 
                 result.accounts = new ArrayList<>();
-                for (EntityAccount account : db.account().getSynchronizingAccounts())
-                    if (!account.pop)
-                        result.accounts.add(account);
+                if (!pop)
+                    for (EntityAccount account : db.account().getSynchronizingAccounts())
+                        if (!account.pop)
+                            result.accounts.add(account);
 
                 return result;
             }
@@ -2150,10 +2158,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (message == null)
                             continue;
 
+                        EntityAccount account = db.account().getAccount(message.account);
+                        if (account == null)
+                            continue;
+
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages)
-                            if (message.uid != null)
+                            if (message.uid != null || account.pop)
                                 ids.add(threaded.id);
                     }
 

@@ -46,6 +46,9 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message == null) // happens when restoring state
             return true;
 
+        if (message.accountPop)
+            return true;
+
         if (message.uid != null && !message.folderReadOnly)
             return true;
 
@@ -60,6 +63,9 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         AdapterMessage adapter = (AdapterMessage) recyclerView.getAdapter();
         TupleMessageEx message = adapter.getItemAtPosition(position);
         if (message == null) // happens when restoring state
+            return true;
+
+        if (message.accountPop)
             return true;
 
         if (message.uid != null && !message.folderReadOnly)

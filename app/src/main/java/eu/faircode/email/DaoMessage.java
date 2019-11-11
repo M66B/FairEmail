@@ -241,13 +241,14 @@ public interface DaoMessage {
             " ORDER BY message.received DESC")
     List<Long> getMessageWithContent();
 
-    @Query("SELECT *" +
+    @Query("SELECT message.*" +
             " FROM message" +
+            " JOIN account ON account.id = message.account" +
             " WHERE account = :account" +
             " AND thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
-            " AND NOT uid IS NULL" +
+            " AND (NOT uid IS NULL OR account.pop)" +
             " AND NOT ui_hide")
     List<EntityMessage> getMessagesByThread(long account, String thread, Long id, Long folder);
 
