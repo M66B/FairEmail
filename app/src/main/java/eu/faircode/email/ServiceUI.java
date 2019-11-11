@@ -390,6 +390,9 @@ public class ServiceUI extends IntentService {
                     db.message().deleteMessage(id);
                     message.id = null;
                     message.id = db.message().insertMessage(message);
+                    if (message.content)
+                        EntityMessage.getFile(this, id)
+                                .renameTo(message.getFile(this));
                     db.message().setMessageSnoozed(message.id, null);
                     EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
                 }
