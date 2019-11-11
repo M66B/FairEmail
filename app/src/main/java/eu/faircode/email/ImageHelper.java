@@ -372,9 +372,11 @@ class ImageHelper {
                                     if (++redirects > MAX_REDIRECTS)
                                         throw new IOException("Too many redirects");
 
-                                    String location = URLDecoder.decode(
-                                            urlConnection.getHeaderField("Location"),
-                                            StandardCharsets.UTF_8.name());
+                                    String header = urlConnection.getHeaderField("Location");
+                                    if (header == null)
+                                        throw new IOException("Location header missing");
+
+                                    String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
                                     url = new URL(url, location);
                                     Log.i("Redirect #" + redirects + " to " + url);
 
