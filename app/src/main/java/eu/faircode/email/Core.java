@@ -276,7 +276,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.DELETE:
-                                    onDelete(context, jargs, account, folder, message, (POP3Folder) ifolder, state);
+                                    onDelete(context, jargs, account, folder, message, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
 
                                 case EntityOperation.SYNC:
@@ -986,18 +986,27 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, State state) throws MessagingException {
+    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException {
         // Delete message
         DB db = DB.getInstance(context);
 
         if (!account.browse && EntityFolder.INBOX.equals(folder.type)) {
+            Map<String, String> caps = istore.capabilities();
+
             Message[] imessages = ifolder.getMessages();
             Log.i(folder.name + " POP messages=" + imessages.length);
 
             boolean found = false;
             for (Message imessage : imessages) {
                 MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-                String msgid = helper.getMessageID();
+
+                String msgid;
+                if (caps.containsKey("UIDL"))
+                    msgid = ifolder.getUID(imessage);
+                else
+                    msgid = helper.getMessageID();
+
+                Log.i("POP searching=" + message.msgid + " iterate=" + msgid);
                 if (msgid != null && msgid.equals(message.msgid)) {
                     found = true;
                     Log.i(folder.name + " POP delete=" + msgid);
