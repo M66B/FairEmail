@@ -411,4 +411,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Freedom Internet"
+        link="https://www.freedom.nl/support"
+        useip="false">
+        <imap
+            host="imap.freedom.nl"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.freedom.nl"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
