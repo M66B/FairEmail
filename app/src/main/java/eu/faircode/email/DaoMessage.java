@@ -243,7 +243,7 @@ public interface DaoMessage {
 
     @Query("SELECT message.*" +
             " FROM message" +
-            " JOIN account ON account.id = message.account" +
+            " LEFT JOIN account ON account.id = message.account" +
             " WHERE account = :account" +
             " AND thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
