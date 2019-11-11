@@ -822,6 +822,7 @@
     <string name="title_icalendar_accept">Onartu</string>
     <string name="title_icalendar_decline">Errefusatu</string>
     <string name="title_icalendar_maybe">Agian</string>
+    <string name="title_icalendar_calendar">Egutegia</string>
     <string name="title_try">Probatu FairEmail, Android plataformarako e-mail bezeroa, kode irekikoa eta pribatutasuna aintzat duena</string>
     <string name="title_pro_feature">Hau ordainpeko ezaugarri bat da</string>
     <string name="title_pro_list">Ordainpeko ezaugarrien zerrenda</string>
