@@ -230,6 +230,10 @@ public class HtmlHelper {
                                     Log.i("Removing element " + element.tagName());
                                     element.empty();
                                 }
+
+                                if ("inline".equals(value) || "inline-block".equals(value))
+                                    element.attr("inline", "true");
+
                                 break;
                         }
                     }
@@ -472,7 +476,8 @@ public class HtmlHelper {
 
         // Selective new lines
         for (Element div : document.select("div"))
-            if (div.children().select("div").size() == 0 &&
+            if (!Boolean.parseBoolean(div.attr("inline")) &&
+                    div.children().select("div").size() == 0 &&
                     hasVisibleContent(div.childNodes())) {
                 div.appendElement("br");
                 div.appendElement("br");
