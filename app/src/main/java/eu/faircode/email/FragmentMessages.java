@@ -1379,6 +1379,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return 0;
 
+            if (message.accountPop)
+                return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
+
             TupleAccountSwipes swipes = accountSwipes.get(message.account);
             if (swipes == null)
                 return 0;
@@ -1428,9 +1431,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (message == null)
                 return;
 
-            TupleAccountSwipes swipes = accountSwipes.get(message.account);
-            if (swipes == null)
-                return;
+            TupleAccountSwipes swipes;
+            if (message.accountPop) {
+                swipes = new TupleAccountSwipes();
+                swipes.swipe_right = FragmentAccount.SWIPE_ACTION_SEEN;
+                swipes.swipe_left = 0L;
+                swipes.left_type = EntityFolder.TRASH;
+            } else {
+                swipes = accountSwipes.get(message.account);
+                if (swipes == null)
+                    return;
+            }
 
             Long action = (dX > 0 ? swipes.swipe_right : swipes.swipe_left);
             if (action == null)
@@ -1504,6 +1515,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
             }
 
+            if (message.accountPop)
+                if (direction == ItemTouchHelper.LEFT) {
+                    adapter.notifyItemChanged(pos);
+                    onSwipeDelete(message);
+                } else
+                    onActionSeenSelection(!message.ui_seen, message.id);
+
             TupleAccountSwipes swipes = accountSwipes.get(message.account);
             if (swipes == null) {
                 adapter.notifyDataSetChanged();
@@ -1548,7 +1566,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return null;
 
             TupleMessageEx message = list.get(pos);
-            if (message == null || message.uid == null)
+            if (message == null || (message.uid == null && !message.accountPop))
                 return null;
 
             if (iProperties.getValue("expanded", message.id))
