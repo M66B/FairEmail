@@ -382,68 +382,71 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 return false;
 
             final TupleFolderEx folder = items.get(pos);
-            if (!folder.selectable || folder.tbd != null)
+            if (folder.tbd != null)
                 return false;
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            popupMenu.getMenu().add(Menu.NONE, 0, 0, folder.getDisplayName(context)).setEnabled(false);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
+            if (folder.selectable) {
+                popupMenu.getMenu().add(Menu.NONE, 0, 0, folder.getDisplayName(context)).setEnabled(false);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
-            if (folder.account != null && !folder.accountPop) {
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
+                if (folder.account != null && !folder.accountPop) {
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_browsed, 4, R.string.title_delete_browsed);
 
-                if (EntityFolder.TRASH.equals(folder.type))
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
-                else if (EntityFolder.JUNK.equals(folder.type))
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, 5, R.string.title_empty_spam);
-            }
-
-            if (folder.account != null) {
-                String startup = prefs.getString("startup", "unified");
-                if (!"accounts".equals(startup))
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 6, R.string.title_unified_folder)
-                            .setCheckable(true).setChecked(folder.unified);
-
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 7, R.string.title_navigation_folder)
-                        .setCheckable(true).setChecked(folder.navigation);
-
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 8, R.string.title_notify_folder)
-                        .setCheckable(true).setChecked(folder.notify);
-            }
-
-            if (folder.account != null && !folder.accountPop) {
-                boolean subscriptions = prefs.getBoolean("subscriptions", false);
-                if (folder.subscribed != null && subscriptions)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, 9, R.string.title_subscribe)
-                            .setCheckable(true).setChecked(folder.subscribed);
-
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 10, R.string.title_synchronize_enabled)
-                        .setCheckable(true).setChecked(folder.synchronize);
-
-                if (!folder.read_only)
-                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 11, R.string.title_edit_rules);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 12, R.string.title_edit_properties);
-
-                if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    String channelId = EntityFolder.getNotificationChannelId(folder.id);
-                    NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                    NotificationChannel channel = nm.getNotificationChannel(channelId);
-                    if (channel == null)
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 13, R.string.title_create_channel);
-                    else {
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 14, R.string.title_edit_channel);
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 15, R.string.title_delete_channel);
-                    }
+                    if (EntityFolder.TRASH.equals(folder.type))
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_trash, 5, R.string.title_empty_trash);
+                    else if (EntityFolder.JUNK.equals(folder.type))
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_empty_spam, 5, R.string.title_empty_spam);
                 }
 
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, 15, R.string.title_create_sub_folder);
+                if (folder.account != null) {
+                    String startup = prefs.getString("startup", "unified");
+                    if (!"accounts".equals(startup))
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_unified_folder, 6, R.string.title_unified_folder)
+                                .setCheckable(true).setChecked(folder.unified);
+
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_navigation_folder, 7, R.string.title_navigation_folder)
+                            .setCheckable(true).setChecked(folder.navigation);
+
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_notify_folder, 8, R.string.title_notify_folder)
+                            .setCheckable(true).setChecked(folder.notify);
+                }
+
+                if (folder.account != null && !folder.accountPop) {
+                    boolean subscriptions = prefs.getBoolean("subscriptions", false);
+                    if (folder.subscribed != null && subscriptions)
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, 9, R.string.title_subscribe)
+                                .setCheckable(true).setChecked(folder.subscribed);
+
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_enabled, 10, R.string.title_synchronize_enabled)
+                            .setCheckable(true).setChecked(folder.synchronize);
+
+                    if (!folder.read_only)
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_rules, 11, R.string.title_edit_rules);
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, 12, R.string.title_edit_properties);
+
+                    if (folder.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        String channelId = EntityFolder.getNotificationChannelId(folder.id);
+                        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                        NotificationChannel channel = nm.getNotificationChannel(channelId);
+                        if (channel == null)
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_create_channel, 13, R.string.title_create_channel);
+                        else {
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 14, R.string.title_edit_channel);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_channel, 15, R.string.title_delete_channel);
+                        }
+                    }
+                }
             }
+
+            if (folder.account != null && !folder.accountPop)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, 16, R.string.title_create_sub_folder);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
