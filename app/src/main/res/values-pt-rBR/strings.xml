@@ -772,8 +772,6 @@
     <string name="title_hint_eml">Este é um resumo do conteúdo de um arquivo de mensagem crua. Salve a mensagem bruta com o ícone de salvar na barra de ação para ver todo o conteúdo.</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_different_link">O título e o endereço do link são diferentes</string>
-    <string name="title_secure_link">Tornar o link seguro</string>
-    <string name="title_link_secured">Link seguro</string>
     <string name="title_sanitize_link">Remover parâmetros de rastreamento</string>
     <string name="title_insecure_link">Este link é inseguro</string>
     <string name="title_check_owner">Verificar proprietário</string>

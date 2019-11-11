@@ -777,8 +777,6 @@
     <string name="title_hint_eml">Dette er en oversigt over indholdet af en råformatsbeskedfil. Gem den rå besked med Gem-ikonet i handlingsbjælken for at se alt indhold.</string>
     <string name="title_open_link">Åbn link</string>
     <string name="title_different_link">Titlen og linkadressen er forskellige</string>
-    <string name="title_secure_link">Gør forbindelse sikker</string>
-    <string name="title_link_secured">Forbindelse er sikker</string>
     <string name="title_sanitize_link">Fjern sporingsparametre</string>
     <string name="title_insecure_link">Dette link er usikkert</string>
     <string name="title_check_owner">Tjek ejer</string>

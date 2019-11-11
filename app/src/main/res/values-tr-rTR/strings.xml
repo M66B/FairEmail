@@ -778,8 +778,8 @@
     <string name="title_hint_eml">Bu, ham mesaj dosyasının içeriğinin bir özetidir. Tüm içeriği görüntülemek için ham iletiyi işlem çubuğundaki kaydet simgesiyle kaydedin.</string>
     <string name="title_open_link">Bağlantıyı aç</string>
     <string name="title_different_link">Başlık ve link adresi farklı</string>
-    <string name="title_secure_link">Bağlantıyı güvenli hale getir</string>
-    <string name="title_link_secured">Bağlantı güvenli</string>
+    <string name="title_secure_link">Trafik şifrelenmeyecek</string>
+    <string name="title_link_https">Trafik şifrelenecek</string>
     <string name="title_sanitize_link">İzleme etkenlerini kaldır</string>
     <string name="title_insecure_link">Bu bağlantı güvensiz</string>
     <string name="title_check_owner">Sahibini denetle</string>

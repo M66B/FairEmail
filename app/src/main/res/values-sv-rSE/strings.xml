@@ -713,8 +713,6 @@
     <string name="title_hint_contact_actions">Långt tryck för alternativ</string>
     <string name="title_open_link">Öppna länken</string>
     <string name="title_different_link">Titeln och länkadressen är olika</string>
-    <string name="title_secure_link">Gör länken säker</string>
-    <string name="title_link_secured">Länken är säker</string>
     <string name="title_sanitize_link">Ta bort spårningsparametrar</string>
     <string name="title_insecure_link">Denna länk är osäker</string>
     <string name="title_check_owner">Kontrollera ägare</string>

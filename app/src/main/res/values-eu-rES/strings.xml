@@ -778,8 +778,6 @@
     <string name="title_hint_eml">Hau mezu gordin fitxategi baten edukiaren laburpena da. Gorde mezu gordina ekintza-barrako \'gorde\' ikonoarekin eduki osoa ikusteko.</string>
     <string name="title_open_link">Ireki esteka</string>
     <string name="title_different_link">Izenburua eta estekaren helbidea desberdinak dira</string>
-    <string name="title_secure_link">Egin konexioa segurua</string>
-    <string name="title_link_secured">Konexioa segurua da</string>
     <string name="title_sanitize_link">Kendu jarraipen parametroak</string>
     <string name="title_insecure_link">Esteka hau ez da segurua</string>
     <string name="title_check_owner">Egiaztatu jabea</string>

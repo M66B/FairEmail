@@ -778,8 +778,8 @@
     <string name="title_hint_eml">Ceci est un résumé du contenu d\'un fichier de message brut. Enregistrez le message brut au moyen de l\'icône de sauvegarde dans la barre d\'action pour afficher tout le contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_different_link">Le titre et l\'adresse du lien sont différents</string>
-    <string name="title_secure_link">Sécuriser le lien</string>
-    <string name="title_link_secured">Le lien est sécurisé</string>
+    <string name="title_secure_link">Le trafic ne sera pas chiffré</string>
+    <string name="title_link_https">Le trafic sera chiffré</string>
     <string name="title_sanitize_link">Supprimer les paramètres de suivi</string>
     <string name="title_insecure_link">Ce lien n’est pas sécurisé</string>
     <string name="title_check_owner">Vérifier le propriétaire</string>

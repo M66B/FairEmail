@@ -778,8 +778,8 @@
     <string name="title_hint_eml">Tämä on tiivistelmä raakaviestistä. Tallenna raakaviesti toimintopalkin tallennuskuvakkeesta nähdäksesi koko sisällön.</string>
     <string name="title_open_link">Avaa linkki</string>
     <string name="title_different_link">Verkko-osoite linkin nimessä ei vastaa linkin kohdeosoitetta</string>
-    <string name="title_secure_link">Tee linkistä turvallinen</string>
-    <string name="title_link_secured">Linkki on turvallinen</string>
+    <string name="title_secure_link">Verkkoliikennettä ei salata</string>
+    <string name="title_link_https">Verkkoliikenne salataan</string>
     <string name="title_sanitize_link">Poista seurantaparametrit</string>
     <string name="title_insecure_link">Tämä linkki ei ole turvallinen</string>
     <string name="title_check_owner">Tarkista omistaja</string>

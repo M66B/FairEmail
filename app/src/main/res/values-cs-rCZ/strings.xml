@@ -797,8 +797,6 @@
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_different_link">Název a adresa odkazu jsou odlišné</string>
-    <string name="title_secure_link">Učinit odkaz bezpečným</string>
-    <string name="title_link_secured">Odkaz je bezpečný</string>
     <string name="title_sanitize_link">Odebrat sledovací parametry</string>
     <string name="title_insecure_link">Tento odkaz není bezpečný</string>
     <string name="title_check_owner">Zkontrolovat vlastníka</string>

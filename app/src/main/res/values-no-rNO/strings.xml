@@ -778,8 +778,6 @@
     <string name="title_hint_eml">Dette er et sammendrag av innholdet i en rå meldingsfil. Lagre råmeldingen med lagringsikonet i handlingslinjen for å se alt innhold.</string>
     <string name="title_open_link">Åpne link</string>
     <string name="title_different_link">Tittelen og linkadressen er forskjellige</string>
-    <string name="title_secure_link">Gjør koblingen sikker</string>
-    <string name="title_link_secured">Koblingen er sikker</string>
     <string name="title_sanitize_link">Fjern sporingsparametere</string>
     <string name="title_insecure_link">Denne linken er usikker</string>
     <string name="title_check_owner">Sjekk eier</string>

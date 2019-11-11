@@ -765,8 +765,6 @@
     <string name="title_hint_contact_actions">Pulsació llarga per opcions</string>
     <string name="title_open_link">Obrir l\'enllaç</string>
     <string name="title_different_link">El títol i la direcció de l\'enllaç són diferents</string>
-    <string name="title_secure_link">Assegurar la connexió</string>
-    <string name="title_link_secured">La connexió és segura</string>
     <string name="title_sanitize_link">Elimineu els paràmetres de seguiment</string>
     <string name="title_insecure_link">Aquest enllaç no és segur</string>
     <string name="title_check_owner">Comproveu el propietari</string>

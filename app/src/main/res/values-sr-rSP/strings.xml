@@ -784,8 +784,6 @@
     <string name="title_hint_eml">Ово је сажетак садржаја фајла сирове поруке. Сачувајте сирову поруку преко иконице за чување у траци са радњама да бисте јој видели садржај.</string>
     <string name="title_open_link">Отвори везу</string>
     <string name="title_different_link">Текст везе и адреса везе су различити</string>
-    <string name="title_secure_link">Направи безбедну конекцију</string>
-    <string name="title_link_secured">Конекција је безбедна</string>
     <string name="title_sanitize_link">Уклони параметре за праћење</string>
     <string name="title_insecure_link">Веза је небезбедна</string>
     <string name="title_check_owner">Провери власника</string>

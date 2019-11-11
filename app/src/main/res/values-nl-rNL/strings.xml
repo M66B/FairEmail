@@ -778,8 +778,8 @@
     <string name="title_hint_eml">Dit is een samenvatting van de inhoud van een ruw berichtbestand. Sla het ruwe bericht op met het \'bewaar\' icoon in de actiebalk om alle inhoud te bekijken.</string>
     <string name="title_open_link">Koppeling openen</string>
     <string name="title_different_link">De titel en het link-adres zijn verschillend</string>
-    <string name="title_secure_link">Maak koppeling veilig</string>
-    <string name="title_link_secured">Link is veilig</string>
+    <string name="title_secure_link">Verkeer wordt niet versleuteld</string>
+    <string name="title_link_https">Verkeer wordt versleuteld</string>
     <string name="title_sanitize_link">Verwijder tracking parameters</string>
     <string name="title_insecure_link">Deze koppeling is onveilig</string>
     <string name="title_check_owner">Controleer eigenaar</string>

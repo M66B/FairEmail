@@ -800,8 +800,6 @@
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_different_link">Заголовок и адрес ссылки отличаются</string>
-    <string name="title_secure_link">Сделать ссылку безопасной</string>
-    <string name="title_link_secured">Ссылка безопасна</string>
     <string name="title_sanitize_link">Удалить параметры отслеживания</string>
     <string name="title_insecure_link">Ссылка небезопасна</string>
     <string name="title_check_owner">Проверить владельца</string>
