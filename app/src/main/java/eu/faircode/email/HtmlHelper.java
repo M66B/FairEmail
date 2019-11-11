@@ -247,13 +247,15 @@ public class HtmlHelper {
         }
 
         // Remove new lines without surrounding content
-        for (Element br : document.select("br"))
-            if (br.parent() != null && !hasVisibleContent(br.parent().childNodes()))
-                br.tagName("span");
+        //for (Element br : document.select("br"))
+        //    if (br.parent() != null && !hasVisibleContent(br.parent().childNodes()))
+        //        br.tagName("span");
 
         // Paragraphs
-        for (Element p : document.select("p"))
+        for (Element p : document.select("p")) {
+            p.appendElement("br");
             p.tagName("div");
+        }
 
         // Short quotes
         for (Element q : document.select("q")) {
@@ -479,7 +481,6 @@ public class HtmlHelper {
             if (!Boolean.parseBoolean(div.attr("inline")) &&
                     div.children().select("div").size() == 0 &&
                     hasVisibleContent(div.childNodes())) {
-                div.appendElement("br");
                 div.appendElement("br");
             }
 
