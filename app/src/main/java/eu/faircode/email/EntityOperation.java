@@ -273,7 +273,7 @@ public class EntityOperation {
         }
     }
 
-    private static void queue(Context context, long account, long folder, long message, String name, JSONArray jargs) {
+    private static void queue(Context context, Long account, long folder, long message, String name, JSONArray jargs) {
         DB db = DB.getInstance(context);
 
         EntityOperation op = new EntityOperation();
