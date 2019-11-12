@@ -3261,6 +3261,7 @@ class Core {
         void error(Throwable ex) {
             if (ex instanceof MessagingException &&
                     ("connection failure".equals(ex.getMessage()) ||
+                            "Not connected".equals(ex.getMessage()) || // POP3
                             ex.getCause() instanceof SocketException ||
                             ex.getCause() instanceof ConnectionException))
                 recoverable = false;
