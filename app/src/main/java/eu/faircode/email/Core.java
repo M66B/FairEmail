@@ -2783,7 +2783,7 @@ class Core {
             // Build notification
             NotificationCompat.Builder builder =
                     new NotificationCompat.Builder(context, "notification")
-                            .setSmallIcon(R.drawable.baseline_email_white_24)
+                            .setSmallIcon(R.drawable.baseline_mail_white_24)
                             .setContentTitle(title)
                             .setContentIntent(piUnified)
                             .setNumber(messages.size())
@@ -2906,7 +2906,7 @@ class Core {
             NotificationCompat.Builder mbuilder =
                     new NotificationCompat.Builder(context, channelName)
                             .addExtras(args)
-                            .setSmallIcon(R.drawable.baseline_email_white_24)
+                            .setSmallIcon(R.drawable.baseline_mail_white_24)
                             .setContentIntent(piContent)
                             .setWhen(message.received)
                             .setDeleteIntent(piIgnore)
