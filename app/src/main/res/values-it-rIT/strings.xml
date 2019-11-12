@@ -81,7 +81,7 @@
     <string name="menu_attribution">Attribuzione</string>
     <string name="menu_privacy">Privacy</string>
     <string name="menu_about">Al riguardo</string>
-    <string name="menu_pro">Funzionalità Pro</string>
+    <string name="menu_pro">Funzionalità versione Pro</string>
     <string name="menu_invite">Invita</string>
     <string name="menu_rate">Valuta questa app</string>
     <string name="menu_other">Altre app</string>
@@ -114,6 +114,7 @@
     <string name="title_setup_select_account">Seleziona account</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
+    <string name="title_setup_no_system_folders">Cartella in arrivo o bozza non trovata</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
     <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità anche qui sotto</string>
     <string name="title_setup_manage">Gestisci</string>
@@ -777,7 +778,7 @@
     <string name="title_hint_eml">Questo è un riepilogo del contenuto di un file di messaggio grezzo. Salva il messaggio grezzo con l\'icona di salvataggio nella barra azioni per vedere tutto il contenuto.</string>
     <string name="title_open_link">Apri collegamento</string>
     <string name="title_different_link">Il titolo del link e l\'indirizzo sono diversi</string>
-    <string name="title_secure_link">Il traffico non verrà criptato</string>
+    <string name="title_link_http">Il traffico non verrà criptato</string>
     <string name="title_link_https">Il traffico verrà crittografato</string>
     <string name="title_sanitize_link">Rimuovi i parametri di tracciamento</string>
     <string name="title_insecure_link">Questo link non è sicuro</string>

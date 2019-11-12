@@ -215,6 +215,7 @@
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
+    <string name="title_advanced_extended_reply">Użyj rozszerzonego nagłówka odpowiedzi/przesyłania dalej</string>
     <string name="title_advanced_plain_only">Domyślnie wysyłaj czystym tekstem</string>
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_autoresize">Automatycznie zmieniaj rozmiar załączonych i osadzonych obrazów</string>
@@ -300,6 +301,7 @@
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
     <string name="title_advanced_tracking">Automatyczne rozpoznawanie i wyłączanie śledzenia obrazów</string>
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
+    <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
     <string name="title_advanced_recents">Ukryj na ekranie z ostatnimi aplikacjami</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
@@ -336,6 +338,7 @@
     <string name="title_advanced_preview_hint">Dostępne tylko po pobraniu tekstu wiadomości</string>
     <string name="title_advanced_inline_hint">Obrazy wstawione są obrazami zawartymi w wiadomości</string>
     <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
+    <string name="title_advanced_autoseen_hint">Automatyczne oznaczanie wiadomości czytanych podczas rozwijania można wyłączyć w ustawieniach poszczególnych kont</string>
     <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie akceptuje zmodyfikowanych adresów nadawcy</string>
     <string name="title_advanced_display_hidden_hint">Może to powodować dziwne i podwójne teksty</string>
@@ -796,6 +799,7 @@
     <string name="title_hint_eml">To jest podsumowanie zawartości nieprzetworzonego pliku wiadomości. Zapisz nieprzetworzoną wiadomość używając ikony zapisu na pasku akcji, aby wyświetlić całą zawartość.</string>
     <string name="title_open_link">Otwórz link</string>
     <string name="title_different_link">Tytuł i adres linku są różne</string>
+    <string name="title_link_https">Ruch będzie szyfrowany</string>
     <string name="title_sanitize_link">Usuń parametry śledzenia</string>
     <string name="title_insecure_link">Ten link nie jest bezpieczny</string>
     <string name="title_check_owner">Sprawdź właściciela</string>
@@ -838,6 +842,7 @@
     <string name="title_icalendar_accept">Akceptuj</string>
     <string name="title_icalendar_decline">Odrzuć</string>
     <string name="title_icalendar_maybe">Może</string>
+    <string name="title_icalendar_calendar">Kalendarz</string>
     <string name="title_try">Wypróbuj FairEmail, przyjazna prywatności aplikacja pocztowa dla Android o otwartym kodzie</string>
     <string name="title_pro_feature">Jest to funkcja pro</string>
     <string name="title_pro_list">Lista funkcji pro</string>

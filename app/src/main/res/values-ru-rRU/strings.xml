@@ -137,6 +137,7 @@
     <string name="title_setup_select_account">Выбрать учётную запись</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
     <string name="title_setup_no_settings">Не найдено настроек для домена \'%1$s\'</string>
+    <string name="title_setup_no_system_folders">Папка \"Входящие\" или \"Черновики\" не найдена</string>
     <string name="title_setup_quick_success">Учётная запись и идентификатор добавлены успешно</string>
     <string name="title_setup_quick_failed">Вы также можете настроить учётную запись и идентификатор ниже</string>
     <string name="title_setup_manage">Редактировать</string>
@@ -800,6 +801,8 @@
     <string name="title_hint_eml">Это обзор содержимого файла оригинального сообщения. Сохраните его с помощью значка \"Сохранить\" на панели действий, чтобы просмотреть содержимое полностью.</string>
     <string name="title_open_link">Открыть ссылку</string>
     <string name="title_different_link">Заголовок и адрес ссылки отличаются</string>
+    <string name="title_link_http">Трафик не будет зашифрован</string>
+    <string name="title_link_https">Трафик будет зашифрован</string>
     <string name="title_sanitize_link">Удалить параметры отслеживания</string>
     <string name="title_insecure_link">Ссылка небезопасна</string>
     <string name="title_check_owner">Проверить владельца</string>
@@ -813,7 +816,7 @@
     <string name="title_undo">Отменить</string>
     <string name="title_redo">Восстановить</string>
     <string name="title_add">Добавить</string>
-    <string name="title_browse">Открыть с помощью</string>
+    <string name="title_browse">В браузере</string>
     <string name="title_info">Информация</string>
     <string name="title_report">Отчёт</string>
     <string name="title_fix">Исправить</string>

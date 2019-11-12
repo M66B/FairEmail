@@ -115,6 +115,7 @@
     <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
+    <string name="title_setup_no_system_folders">Boîte de réception ou dossier brouillon introuvables</string>
     <string name="title_setup_quick_success">Un compte et une identité ont été ajoutés avec succès</string>
     <string name="title_setup_quick_failed">Vous pouvez essayer de configurer un compte et une identité ci-dessous</string>
     <string name="title_setup_manage">Gérer</string>
@@ -778,7 +779,7 @@
     <string name="title_hint_eml">Ceci est un résumé du contenu d\'un fichier de message brut. Enregistrez le message brut au moyen de l\'icône de sauvegarde dans la barre d\'action pour afficher tout le contenu.</string>
     <string name="title_open_link">Ouvrir le lien</string>
     <string name="title_different_link">Le titre et l\'adresse du lien sont différents</string>
-    <string name="title_secure_link">Le trafic ne sera pas chiffré</string>
+    <string name="title_link_http">Le trafic ne sera pas chiffré</string>
     <string name="title_link_https">Le trafic sera chiffré</string>
     <string name="title_sanitize_link">Supprimer les paramètres de suivi</string>
     <string name="title_insecure_link">Ce lien n’est pas sécurisé</string>

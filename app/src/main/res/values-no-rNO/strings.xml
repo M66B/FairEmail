@@ -115,6 +115,7 @@
     <string name="title_setup_select_account">Velg konto</string>
     <string name="title_setup_instructions">Oppsett instruksjoner</string>
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
+    <string name="title_setup_no_system_folders">Innboks eller kladdmappe ikke funnet</string>
     <string name="title_setup_quick_success">En konto og en identitet har blitt lagt til</string>
     <string name="title_setup_quick_failed">Du kan prøve å konfigurere en konto og en identitet nedenfor også</string>
     <string name="title_setup_manage">Behandle</string>
@@ -778,6 +779,8 @@
     <string name="title_hint_eml">Dette er et sammendrag av innholdet i en rå meldingsfil. Lagre råmeldingen med lagringsikonet i handlingslinjen for å se alt innhold.</string>
     <string name="title_open_link">Åpne link</string>
     <string name="title_different_link">Tittelen og linkadressen er forskjellige</string>
+    <string name="title_link_http">Trafikk blir ikke kryptert</string>
+    <string name="title_link_https">Trafikken blir kryptert</string>
     <string name="title_sanitize_link">Fjern sporingsparametere</string>
     <string name="title_insecure_link">Denne linken er usikker</string>
     <string name="title_check_owner">Sjekk eier</string>

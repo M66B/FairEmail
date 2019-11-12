@@ -215,6 +215,7 @@
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_prefix_once">Přidat do předmětu pouze jednu předponu při odpovídání nebo přeposílání</string>
+    <string name="title_advanced_extended_reply">Použít rozšířenou hlavičku pro odpověď/přeposlání</string>
     <string name="title_advanced_quote_reply">Citovat text odpovědi</string>
     <string name="title_advanced_plain_only">Odeslat pouze prostý text jako výchozí</string>
     <string name="title_advanced_usenet_signature">Používat Usenet konvenci pro podpisy</string>
@@ -301,6 +302,7 @@
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
+    <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
     <string name="title_advanced_recents">Skrýt z obrazovky s posledními aplikacemi</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
@@ -337,6 +339,7 @@
     <string name="title_advanced_preview_hint">K dispozici pouze pokud byl stažen text zprávy</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky, které jsou součástí zprávy</string>
     <string name="title_advanced_autoexpand_hint">Automaticky otevřít zprávu, pokud je v konverzaci pouze jediná zpráva nebo jediná nepřečtená</string>
+    <string name="title_advanced_autoseen_hint">Automatické označování zpráv jako přečtených při rozbalení lze zakázat v nastavení jednotlivých účtů</string>
     <string name="title_advanced_autoclose_hint">Automaticky zavřít konverzace, když jsou všechny zprávy archivovány, odeslány nebo v koši</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
@@ -797,6 +800,7 @@
     <string name="title_hint_eml">Toto je souhrn obsahu souboru zdrojové zprávy. Uložte zdrojovou zprávu pomocí ikony uložit v panelu akcí pro zobrazení celého obsahu.</string>
     <string name="title_open_link">Otevřít odkaz</string>
     <string name="title_different_link">Název a adresa odkazu jsou odlišné</string>
+    <string name="title_link_https">Provoz bude šifrován</string>
     <string name="title_sanitize_link">Odebrat sledovací parametry</string>
     <string name="title_insecure_link">Tento odkaz není bezpečný</string>
     <string name="title_check_owner">Zkontrolovat vlastníka</string>
@@ -839,6 +843,7 @@
     <string name="title_icalendar_accept">Přijmout</string>
     <string name="title_icalendar_decline">Odmítnout</string>
     <string name="title_icalendar_maybe">Nezávazně</string>
+    <string name="title_icalendar_calendar">Kalendář</string>
     <string name="title_try">Vyzkoušej FairEmail, e-mailový klient pro Android s otevřeným zdrojovým kódem, respektující soukromí</string>
     <string name="title_pro_feature">Toto je Pro funkce</string>
     <string name="title_pro_list">Seznam Pro funkcí</string>

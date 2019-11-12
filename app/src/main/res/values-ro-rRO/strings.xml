@@ -327,6 +327,7 @@
     <string name="title_advanced_preview_hint">Disponibil doar atunci când a fost descarcat textul mesajului</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
+    <string name="title_advanced_autoseen_hint">Marcarea mesajelor drept citite la extindere poate fi dezactivată în setările individuale ale contului</string>
     <string name="title_advanced_autoclose_hint">Atunci când toate mesajele sunt arhivate, trimise sau mutate la gunoi</string>
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
@@ -787,6 +788,7 @@
     <string name="title_hint_eml">Acesta este sumarul conținutului unui fișier cu mesajul original. Salvați mesajul original folosind iconița de salvare din bara de acțiuni pentru a putea vizualiza tot conținutul.</string>
     <string name="title_open_link">Deschide legătura</string>
     <string name="title_different_link">Titlul legăturii este diferit de adresa legăturii</string>
+    <string name="title_link_https">Traficul va fi criptat</string>
     <string name="title_sanitize_link">Elimină parametrii de urmărire</string>
     <string name="title_insecure_link">Această legătură este nesigură</string>
     <string name="title_check_owner">Verificare proprietar</string>
@@ -829,6 +831,7 @@
     <string name="title_icalendar_accept">Acceptă</string>
     <string name="title_icalendar_decline">Refuză</string>
     <string name="title_icalendar_maybe">Poate</string>
+    <string name="title_icalendar_calendar">Calendar</string>
     <string name="title_try">Încearcă FairEmail, o aplicație de e-mail pentru Android cu sursă deschisă, ce protejează intimitatea și confidențialitatea</string>
     <string name="title_pro_feature">Aceasta este o caracteristică Pro</string>
     <string name="title_pro_list">Lista de caracteristici Pro</string>
