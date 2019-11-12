@@ -82,7 +82,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
@@ -2638,13 +2637,13 @@ class Core {
         // Current
         for (TupleMessageEx message : messages) {
             // Check if notification channel enabled
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O &&
-                    message.notifying == 0 && message.from != null && message.from.length > 0) {
-                InternetAddress from = (InternetAddress) message.from[0];
-                NotificationChannel channel = nm.getNotificationChannel(
-                        "notification." + from.getAddress().toLowerCase(Locale.ROOT));
-                if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE)
-                    continue;
+            if (message.notifying == 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && pro) {
+                String channelId = message.getNotificationChannelId();
+                if (channelId != null) {
+                    NotificationChannel channel = nm.getNotificationChannel(channelId);
+                    if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE)
+                        continue;
+                }
             }
 
             long group = (pro && message.accountNotify ? message.account : 0);
@@ -2911,25 +2910,23 @@ class Core {
             PendingIntent piIgnore = PendingIntent.getService(context, ServiceUI.PI_IGNORED, ignore, PendingIntent.FLAG_UPDATE_CURRENT);
 
             // Get channel name
-            String channelName = null;
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+            String channelName = EntityAccount.getNotificationChannelId(0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && pro) {
                 NotificationChannel channel = null;
 
-                if (message.from != null && message.from.length > 0) {
-                    InternetAddress from = (InternetAddress) message.from[0];
-                    channel = nm.getNotificationChannel(
-                            "notification." + from.getAddress().toLowerCase(Locale.ROOT));
-                }
+                String channelId = message.getNotificationChannelId();
+                if (channelId != null)
+                    channel = nm.getNotificationChannel(channelId);
 
                 if (channel == null)
                     channel = nm.getNotificationChannel(EntityFolder.getNotificationChannelId(message.folder));
 
-                if (channel != null)
+                if (channel == null) {
+                    if (message.accountNotify)
+                        channelName = EntityAccount.getNotificationChannelId(message.account);
+                } else
                     channelName = channel.getId();
             }
-            if (channelName == null)
-                channelName = EntityAccount.getNotificationChannelId(
-                        pro && message.accountNotify ? message.account : 0);
 
             NotificationCompat.Builder mbuilder =
                     new NotificationCompat.Builder(context, channelName)

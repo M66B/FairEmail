@@ -737,6 +737,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             account.deleteNotificationChannel(context);
+
                             if (account.notify)
                                 if (jaccount.has("channel")) {
                                     NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
@@ -789,12 +790,15 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                                 account.move_to = folder.id;
 
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                String channelId = EntityFolder.getNotificationChannelId(folder.id);
+                                nm.deleteNotificationChannel(channelId);
+
                                 if (jfolder.has("channel")) {
                                     NotificationChannelGroup group = new NotificationChannelGroup("group." + account.id, account.name);
                                     nm.createNotificationChannelGroup(group);
 
                                     JSONObject jchannel = (JSONObject) jfolder.get("channel");
-                                    jchannel.put("id", EntityFolder.getNotificationChannelId(folder.id));
+                                    jchannel.put("id", channelId);
                                     jchannel.put("group", group.getId());
                                     nm.createNotificationChannel(channelFromJSON(context, jchannel));
 
@@ -928,6 +932,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             JSONArray jchannels = jimport.getJSONArray("channels");
                             for (int i = 0; i < jchannels.length(); i++) {
                                 JSONObject jchannel = (JSONObject) jchannels.get(i);
+
+                                String channelId = jchannel.getString("id");
+                                nm.deleteNotificationChannel(channelId);
+
                                 nm.createNotificationChannel(channelFromJSON(context, jchannel));
 
                                 Log.i("Imported contact channel=" + jchannel);

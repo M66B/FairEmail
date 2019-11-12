@@ -2318,8 +2318,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         @TargetApi(Build.VERSION_CODES.O)
         private void onNotifyContact(final TupleMessageEx message) {
             final NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            final InternetAddress from = (InternetAddress) message.from[0];
-            final String channelId = "notification." + from.getAddress().toLowerCase(Locale.ROOT);
+            final String channelId = message.getNotificationChannelId();
 
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibAddContact);
             NotificationChannel channel = nm.getNotificationChannel(channelId);
@@ -2358,6 +2357,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
                     }
 
+                    InternetAddress from = (InternetAddress) message.from[0];
                     NotificationChannel channel = new NotificationChannel(
                             channelId, from.getAddress(),
                             NotificationManager.IMPORTANCE_HIGH);

@@ -37,10 +37,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.UUID;
 
 import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
 
 import static androidx.room.ForeignKey.CASCADE;
 import static androidx.room.ForeignKey.SET_NULL;
@@ -199,6 +201,13 @@ public class EntityMessage implements Serializable {
                         addresses.remove(address);
 
         return addresses.toArray(new Address[0]);
+    }
+
+    String getNotificationChannelId() {
+        if (from == null || from.length == 0)
+            return null;
+        InternetAddress sender = (InternetAddress) from[0];
+        return "notification." + sender.getAddress().toLowerCase(Locale.ROOT);
     }
 
     static File getFile(Context context, Long id) {
