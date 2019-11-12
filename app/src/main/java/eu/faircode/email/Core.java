@@ -58,7 +58,6 @@ import com.sun.mail.util.MessageRemovedIOException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.jsoup.nodes.Element;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -97,7 +96,6 @@ import javax.mail.FolderNotFoundException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
-import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.UIDFolder;
@@ -1100,9 +1098,6 @@ class Core {
                 parts.isPlainOnly(),
                 HtmlHelper.getPreview(body),
                 parts.getWarnings(message.warning));
-
-        if (!TextUtils.isEmpty(body))
-            fixAttachments(context, message.id, body);
     }
 
     private static void onAttachment(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
@@ -2222,9 +2217,6 @@ class Core {
                     Log.i(folder.name + " inline downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
-                    if (!TextUtils.isEmpty(body))
-                        fixAttachments(context, message.id, body);
-
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
                         reportEmptyMessage(context, account, istore);
@@ -2552,9 +2544,6 @@ class Core {
                     Log.i(folder.name + " downloaded message id=" + message.id +
                             " size=" + message.size + "/" + (body == null ? null : body.length()));
 
-                    if (!TextUtils.isEmpty(body))
-                        fixAttachments(context, message.id, body);
-
                     Long size = parts.getBodySize();
                     if (TextUtils.isEmpty(body) && size != null && size > 0)
                         reportEmptyMessage(context, account, istore);
@@ -2591,20 +2580,6 @@ class Core {
                 Log.e("Empty message " + account.host);
         } catch (Throwable ex) {
             Log.w(ex);
-        }
-    }
-
-    private static void fixAttachments(Context context, long id, String body) {
-        DB db = DB.getInstance(context);
-        for (Element element : JsoupEx.parse(body).select("img")) {
-            String src = element.attr("src");
-            if (src.startsWith("cid:")) {
-                EntityAttachment attachment = db.attachment().getAttachment(id, "<" + src.substring(4) + ">");
-                if (attachment != null && !attachment.isInline()) {
-                    Log.i("Setting attachment type to inline id=" + attachment.id);
-                    db.attachment().setDisposition(attachment.id, Part.INLINE);
-                }
-            }
         }
     }
 
