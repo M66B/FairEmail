@@ -1280,8 +1280,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (message.from != null)
-                for (Address address : message.from) {
-                    String from = ((InternetAddress) address).getAddress();
+                for (Address sender : message.from) {
+                    String from = ((InternetAddress) sender).getAddress();
                     if (prefs.getBoolean(from + ".show_full", false)) {
                         properties.setValue("full", message.id, true);
                         properties.setValue("full_asked", message.id, true);
@@ -2515,8 +2515,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (current || asked) {
                 if (current) {
                     SharedPreferences.Editor editor = prefs.edit();
-                    for (Address address : message.from) {
-                        String from = ((InternetAddress) address).getAddress();
+                    for (Address sender : message.from) {
+                        String from = ((InternetAddress) sender).getAddress();
                         editor.remove(from + (full ? ".show_full" : ".show_images"));
                     }
                     editor.apply();
@@ -2560,8 +2560,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     SharedPreferences.Editor editor = prefs.edit();
-                    for (Address address : message.from) {
-                        String from = ((InternetAddress) address).getAddress();
+                    for (Address sender : message.from) {
+                        String from = ((InternetAddress) sender).getAddress();
                         editor.putBoolean(from + (full ? ".show_full" : ".show_images"), isChecked);
                     }
                     editor.apply();
