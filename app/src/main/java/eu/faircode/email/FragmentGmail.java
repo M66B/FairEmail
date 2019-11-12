@@ -301,8 +301,7 @@ public class FragmentGmail extends FragmentBase {
                     folders = iservice.getFolders();
 
                     if (folders == null)
-                        throw new IllegalArgumentException(
-                                context.getString(R.string.title_setup_no_settings, domain));
+                        throw new IllegalArgumentException(context.getString(R.string.title_setup_no_system_folders));
                 }
 
                 String iprotocol = provider.smtp.starttls ? "smtp" : "smtps";
