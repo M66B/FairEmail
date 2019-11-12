@@ -313,13 +313,8 @@ class ImageHelper {
                 return d;
             }
 
-            // Get cache file name
-            File dir = new File(context.getCacheDir(), "images");
-            if (!dir.exists())
-                dir.mkdir();
-            final File file = new File(dir, id + "_" + Math.abs(a.source.hashCode()) + ".png");
-
-            Drawable cached = getCachedImage(context, file);
+            // Check cache
+            Drawable cached = getCachedImage(context, id, a.source);
             if (cached != null || view == null) {
                 if (view == null)
                     if (cached == null) {
@@ -343,92 +338,16 @@ class ImageHelper {
                 @Override
                 public void run() {
                     try {
-                        Drawable cached = getCachedImage(context, file);
+                        // Check cache again
+                        Drawable cached = getCachedImage(context, id, a.source);
                         if (cached != null) {
                             fitDrawable(cached, a, view);
                             post(cached, a.source);
                             return;
                         }
 
-                        Bitmap bm;
-                        HttpURLConnection urlConnection = null;
-                        try {
-                            int redirects = 0;
-                            URL url = new URL(a.source);
-                            while (true) {
-                                urlConnection = (HttpURLConnection) url.openConnection();
-                                urlConnection.setRequestMethod("GET");
-                                urlConnection.setDoOutput(false);
-                                urlConnection.setInstanceFollowRedirects(true);
-                                urlConnection.connect();
-
-                                int status = urlConnection.getResponseCode();
-
-                                if (status == HttpURLConnection.HTTP_MOVED_PERM ||
-                                        status == HttpURLConnection.HTTP_MOVED_TEMP ||
-                                        status == HttpURLConnection.HTTP_SEE_OTHER ||
-                                        status == 307 /* Temporary redirect */ ||
-                                        status == 308 /* Permanent redirect */) {
-                                    if (++redirects > MAX_REDIRECTS)
-                                        throw new IOException("Too many redirects");
-
-                                    String header = urlConnection.getHeaderField("Location");
-                                    if (header == null)
-                                        throw new IOException("Location header missing");
-
-                                    String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
-                                    url = new URL(url, location);
-                                    Log.i("Redirect #" + redirects + " to " + url);
-
-                                    urlConnection.disconnect();
-                                    continue;
-                                }
-
-                                if (status != HttpURLConnection.HTTP_OK)
-                                    throw new IOException("HTTP status=" + status);
-
-                                break;
-                            }
-
-                            BufferedInputStream is = new BufferedInputStream(urlConnection.getInputStream());
-
-                            Log.i("Probe " + a.source);
-                            is.mark(64 * 1024);
-                            BitmapFactory.Options options = new BitmapFactory.Options();
-                            options.inJustDecodeBounds = true;
-                            BitmapFactory.decodeStream(is, null, options);
-
-                            int scaleTo = res.getDisplayMetrics().widthPixels;
-                            int factor = 1;
-                            while (options.outWidth / factor > scaleTo)
-                                factor *= 2;
-
-                            Log.i("Download " + a.source + " factor=" + factor);
-                            is.reset();
-                            if (factor > 1) {
-                                options.inJustDecodeBounds = false;
-                                options.inSampleSize = factor;
-                                bm = BitmapFactory.decodeStream(is, null, options);
-                            } else
-                                bm = BitmapFactory.decodeStream(is);
-                        } finally {
-                            if (urlConnection != null)
-                                urlConnection.disconnect();
-                        }
-
-                        if (bm == null)
-                            throw new FileNotFoundException("Download image failed source=" + a.source);
-
-                        Log.i("Downloaded image source=" + a.source);
-
-                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                            bm.compress(Bitmap.CompressFormat.PNG, 90, os);
-                        }
-
-                        // Create drawable from bitmap
-                        Drawable d = new BitmapDrawable(res, bm);
-                        DisplayMetrics dm = context.getResources().getDisplayMetrics();
-                        d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+                        // Download image
+                        Drawable d = downloadImage(context, id, a.source);
                         fitDrawable(d, a, view);
                         post(d, a.source);
                     } catch (Throwable ex) {
@@ -533,7 +452,8 @@ class ImageHelper {
         return d;
     }
 
-    private static Drawable getCachedImage(Context context, File file) {
+    private static Drawable getCachedImage(Context context, long id, String source) {
+        File file = getCacheFile(context, id, source);
         if (file.exists()) {
             Log.i("Using cached " + file);
             Bitmap bm = BitmapFactory.decodeFile(file.getAbsolutePath());
@@ -548,6 +468,100 @@ class ImageHelper {
         }
 
         return null;
+    }
+
+    @NonNull
+    private static Drawable downloadImage(Context context, long id, String source) throws IOException {
+        Resources res = context.getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+
+        Bitmap bm;
+        HttpURLConnection urlConnection = null;
+        try {
+            int redirects = 0;
+            URL url = new URL(source);
+            while (true) {
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("GET");
+                urlConnection.setDoOutput(false);
+                urlConnection.setInstanceFollowRedirects(true);
+                urlConnection.connect();
+
+                int status = urlConnection.getResponseCode();
+
+                if (status == HttpURLConnection.HTTP_MOVED_PERM ||
+                        status == HttpURLConnection.HTTP_MOVED_TEMP ||
+                        status == HttpURLConnection.HTTP_SEE_OTHER ||
+                        status == 307 /* Temporary redirect */ ||
+                        status == 308 /* Permanent redirect */) {
+                    if (++redirects > MAX_REDIRECTS)
+                        throw new IOException("Too many redirects");
+
+                    String header = urlConnection.getHeaderField("Location");
+                    if (header == null)
+                        throw new IOException("Location header missing");
+
+                    String location = URLDecoder.decode(header, StandardCharsets.UTF_8.name());
+                    url = new URL(url, location);
+                    Log.i("Redirect #" + redirects + " to " + url);
+
+                    urlConnection.disconnect();
+                    continue;
+                }
+
+                if (status != HttpURLConnection.HTTP_OK)
+                    throw new IOException("HTTP status=" + status);
+
+                break;
+            }
+
+            BufferedInputStream is = new BufferedInputStream(urlConnection.getInputStream());
+
+            Log.i("Probe " + source);
+            is.mark(64 * 1024);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeStream(is, null, options);
+
+            int scaleToPixels = dm.widthPixels;
+            int factor = 1;
+            while (options.outWidth / factor > scaleToPixels)
+                factor *= 2;
+
+            Log.i("Download " + source + " factor=" + factor);
+            is.reset();
+            if (factor > 1) {
+                options.inJustDecodeBounds = false;
+                options.inSampleSize = factor;
+                bm = BitmapFactory.decodeStream(is, null, options);
+            } else
+                bm = BitmapFactory.decodeStream(is);
+        } finally {
+            if (urlConnection != null)
+                urlConnection.disconnect();
+        }
+
+        if (bm == null)
+            throw new FileNotFoundException("Download image failed source=" + source);
+
+        Log.i("Downloaded image source=" + source);
+
+        File file = getCacheFile(context, id, source);
+        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+            bm.compress(Bitmap.CompressFormat.PNG, 90, os);
+        }
+
+        Drawable d = new BitmapDrawable(res, bm);
+        d.setBounds(0, 0, Math.round(bm.getWidth() * dm.density), Math.round(bm.getHeight() * dm.density));
+        return d;
+    }
+
+    @NonNull
+    private static File getCacheFile(Context context, long id, String source) {
+        File dir = new File(context.getCacheDir(), "images");
+        if (!dir.exists())
+            dir.mkdir();
+        return new File(dir, id + "_" + Math.abs(source.hashCode()) + ".png");
     }
 
     static Bitmap decodeImage(File file, int scaleToPixels) {
