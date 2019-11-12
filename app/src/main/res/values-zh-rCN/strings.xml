@@ -103,6 +103,7 @@
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
+    <string name="title_setup_no_system_folders">找不到收件箱或草稿文件夹</string>
     <string name="title_setup_quick_success">已成功添加了一个账户和身份</string>
     <string name="title_setup_quick_failed">您也可以尝试在下方配置一个账户和身份</string>
     <string name="title_setup_manage">管理</string>
@@ -766,6 +767,7 @@
     <string name="title_hint_eml">这是一个原始消息文件内容的摘要。用操作栏中的保存图标保存原始消息以查看所有内容。</string>
     <string name="title_open_link">打开链接</string>
     <string name="title_different_link">标题和链接地址不同</string>
+    <string name="title_link_http">流量不会被加密</string>
     <string name="title_link_https">流量将被加密</string>
     <string name="title_sanitize_link">删除跟踪参数</string>
     <string name="title_insecure_link">此链接不安全</string>
