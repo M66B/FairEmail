@@ -2783,7 +2783,9 @@ class Core {
             // Build notification
             NotificationCompat.Builder builder =
                     new NotificationCompat.Builder(context, "notification")
-                            .setSmallIcon(R.drawable.baseline_mail_white_24)
+                            .setSmallIcon(messages.size() > 1
+                                    ? R.drawable.baseline_mail_more_white_24
+                                    : R.drawable.baseline_mail_white_24)
                             .setContentTitle(title)
                             .setContentIntent(piUnified)
                             .setNumber(messages.size())
