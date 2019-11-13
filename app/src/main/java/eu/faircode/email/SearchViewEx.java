@@ -115,7 +115,10 @@ public class SearchViewEx extends SearchView {
                 intf.onSave(query);
                 menuSearch.collapseActionView();
                 intf.onSearch(query);
-                prefs.edit().putString("last_search", query).apply();
+
+                String prefix = getContext().getString(R.string.title_search_special_prefix);
+                if (query != null && !query.startsWith(prefix + ":"))
+                    prefs.edit().putString("last_search", query).apply();
                 return true;
             }
         });
