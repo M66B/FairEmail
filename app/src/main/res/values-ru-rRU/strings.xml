@@ -128,7 +128,6 @@
     <string name="title_setup_quick_hint">Быстрая настройка считывает информацию о конфигурации с autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-сервер для получения сообщений</string>
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
-    <string name="title_setup_go">Далее</string>
     <string name="title_setup_wizard">Мастер</string>
     <string name="title_setup_wizard_remark">Переход \"назад\" приводит в папку \"Входящие\"</string>
     <string name="title_setup_other">Другой провайдер</string>
@@ -157,6 +156,7 @@
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
     <string name="title_setup_data">Сохранение данных включено</string>
     <string name="title_setup_inbox">Перейти к сообщениям</string>
+    <string name="title_setup_go">Далее</string>
     <string name="title_setup_to_do">Выполнить</string>
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_export">Экспорт настроек</string>
@@ -170,7 +170,6 @@
     <string name="title_setup_exported">Настройки экспортированы</string>
     <string name="title_setup_imported">Настройки импортированы</string>
     <string name="title_setup_import_invalid">Неправильный файл настроек</string>
-    <string name="title_setup_notifications">Настроить уведомления</string>
     <string name="title_setup_reorder_accounts">Упорядочить уч. записи</string>
     <string name="title_setup_reorder_folders">Упорядочить папки</string>
     <string name="title_reset_order">Изменить порядок</string>
@@ -348,7 +347,6 @@
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
-    <string name="title_advanced_notify_manage_hint">Нажмите на название канала \"Уведомления\" для установки звука уведомлений по умолчанию и т.д.</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
@@ -919,7 +917,7 @@
         <item>Маленький</item>
         <item>Средний</item>
         <item>Большой</item>
-        <item>Extra large</item>
+        <item>Очень большой</item>
     </string-array>
     <string-array name="targetNames">
         <item>Кому</item>

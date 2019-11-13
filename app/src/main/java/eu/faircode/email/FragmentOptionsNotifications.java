@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -37,7 +36,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +49,9 @@ import androidx.preference.PreferenceManager;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private Button btnManage;
+    private Button btnManageDefault;
+    private Button btnManageService;
     private SwitchCompat swBadge;
     private SwitchCompat swUnseenIgnored;
     private SwitchCompat swNotifySummary;
@@ -69,15 +70,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private CheckBox cbNotifyActionSnooze;
     private TextView tvNotifyActionsPro;
     private SwitchCompat swBiometricsNotify;
-    private Button btnManage;
-    private TextView tvManageHint;
-    private ImageButton ibManage;
     private SwitchCompat swLight;
     private Button btnSound;
     private SwitchCompat swAlertOnce;
     private TextView tvNoGrouping;
     private TextView tvNoChannels;
 
+    private Group grpChannel;
     private Group grpNotification;
 
     private final static String[] RESET_OPTIONS = new String[]{
@@ -100,6 +99,9 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         // Get controls
 
+        btnManage = view.findViewById(R.id.btnManage);
+        btnManageDefault = view.findViewById(R.id.btnManageDefault);
+        btnManageService = view.findViewById(R.id.btnManageService);
         swBadge = view.findViewById(R.id.swBadge);
         swUnseenIgnored = view.findViewById(R.id.swUnseenIgnored);
         swNotifySummary = view.findViewById(R.id.swNotifySummary);
@@ -118,15 +120,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         cbNotifyActionSnooze = view.findViewById(R.id.cbNotifyActionSnooze);
         tvNotifyActionsPro = view.findViewById(R.id.tvNotifyActionsPro);
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
-        btnManage = view.findViewById(R.id.btnManage);
-        tvManageHint = view.findViewById(R.id.tvManageHint);
-        ibManage = view.findViewById(R.id.ibManage);
         swLight = view.findViewById(R.id.swLight);
         btnSound = view.findViewById(R.id.btnSound);
         swAlertOnce = view.findViewById(R.id.swAlertOnce);
         tvNoGrouping = view.findViewById(R.id.tvNoGrouping);
         tvNoChannels = view.findViewById(R.id.tvNoChannels);
 
+        grpChannel = view.findViewById(R.id.grpChannel);
         grpNotification = view.findViewById(R.id.grpNotification);
 
         setOptions();
@@ -135,6 +135,43 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         PackageManager pm = getContext().getPackageManager();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        final Intent manage = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra("app_package", getContext().getPackageName())
+                .putExtra("app_uid", getContext().getApplicationInfo().uid)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName());
+
+        btnManage.setEnabled(manage.resolveActivity(pm) != null);
+        btnManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(manage);
+            }
+        });
+
+        final Intent channelNotification = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
+                .putExtra(Settings.EXTRA_CHANNEL_ID, "notification");
+
+        btnManageDefault.setEnabled(channelNotification.resolveActivity(pm) != null);
+        btnManageDefault.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(channelNotification);
+            }
+        });
+
+        final Intent channelService = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
+                .putExtra(Settings.EXTRA_CHANNEL_ID, "service");
+
+        btnManageService.setEnabled(channelService.resolveActivity(pm) != null);
+        btnManageService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(channelService);
+            }
+        });
 
         swBadge.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -261,29 +298,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
-        final Intent manage = getIntentNotifications(getContext());
-        btnManage.setVisibility(manage.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
-        btnManage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(manage);
-            }
-        });
-
-        final Intent channel = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
-                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
-                .putExtra(Settings.EXTRA_CHANNEL_ID, "notification");
-
-        tvManageHint.setVisibility(channel.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
-
-        ibManage.setVisibility(channel.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
-        ibManage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(channel);
-            }
-        });
-
         swLight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -313,13 +327,15 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         swAlertOnce.setVisibility(Log.isXiaomi() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
-        grpNotification.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         // https://developer.android.com/training/notify-user/group
         tvNoGrouping.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.N ? View.VISIBLE : View.GONE);
 
         // https://developer.android.com/training/notify-user/channels
         tvNoChannels.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+
+        grpChannel.setVisibility(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
+        grpNotification.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
@@ -439,12 +455,4 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         else
             prefs.edit().putString("sound", uri.toString()).apply();
     }
-
-    private static Intent getIntentNotifications(Context context) {
-        return new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
-                .putExtra("app_package", context.getPackageName())
-                .putExtra("app_uid", context.getApplicationInfo().uid)
-                .putExtra(Settings.EXTRA_APP_PACKAGE, context.getPackageName());
-    }
-
 }

@@ -17,13 +17,13 @@
     <string name="title_setup_help">Довідка</string>
     <string name="title_setup_quick_imap">Сервер IMAP для отримання повідомлень</string>
     <string name="title_setup_quick_smtp">Сервер SMTP для надсилання повідомлень</string>
-    <string name="title_setup_go">Розпочати</string>
     <string name="title_setup_no_settings">Не знайдено налаштувань для домену \'%1$s\'</string>
     <string name="title_setup_grant">Надати</string>
     <string name="title_setup_identity_remark">Надіслати епошту</string>
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_doze">Налаштувати оптимізацію батареї</string>
     <string name="title_setup_inbox">Перейти до повідомлень</string>
+    <string name="title_setup_go">Розпочати</string>
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_export">Експорт налаштувань</string>
     <string name="title_setup_import">Імпорт налаштувань</string>
@@ -33,7 +33,6 @@
     <string name="title_setup_password_invalid">Пароль не є дійсним</string>
     <string name="title_setup_exported">Налаштування експортовано</string>
     <string name="title_setup_imported">Налаштування імпортовано</string>
-    <string name="title_setup_notifications">Керування сповіщеннями</string>
     <string name="title_setup_reorder_accounts">Порядок обліковок</string>
     <string name="title_setup_reorder_folders">Порядок тек</string>
     <string name="title_reset_order">Скинути порядок</string>

@@ -24,6 +24,75 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/btnManage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_notifications"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAdvancedHint" />
+
+        <TextView
+            android:id="@+id/tvManageHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_manage_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnManage" />
+
+        <Button
+            android:id="@+id/btnManageDefault"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_notifications_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvManageHint" />
+
+        <TextView
+            android:id="@+id/tvManageDefaultHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_manage_default_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnManageDefault" />
+
+        <Button
+            android:id="@+id/btnManageService"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_notifications_service"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvManageDefaultHint" />
+
+        <TextView
+            android:id="@+id/tvManageServiceHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_notify_manage_service_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnManageService" />
+
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swBadge"
             android:layout_width="0dp"
@@ -33,7 +102,7 @@
             android:text="@string/title_advanced_badge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAdvancedHint"
+            app:layout_constraintTop_toBottomOf="@id/tvManageServiceHint"
             app:switchPadding="12dp" />
 
         <TextView
@@ -296,38 +365,6 @@
             app:layout_constraintTop_toBottomOf="@id/tvNotifyActionsPro"
             app:switchPadding="12dp" />
 
-        <Button
-            android:id="@+id/btnManage"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_setup_notifications"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swBiometricsNotify" />
-
-        <TextView
-            android:id="@+id/tvManageHint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/title_advanced_notify_manage_hint"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/ibManage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnManage" />
-
-        <ImageButton
-            android:id="@+id/ibManage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/title_setup_notifications"
-            app:layout_constraintBottom_toBottomOf="@id/tvManageHint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/baseline_launch_24" />
-
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swLight"
             android:layout_width="0dp"
@@ -336,7 +373,7 @@
             android:text="@string/title_advanced_light"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvManageHint"
+            app:layout_constraintTop_toBottomOf="@id/swBiometricsNotify"
             app:switchPadding="12dp" />
 
         <Button
@@ -387,6 +424,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNoGrouping" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpChannel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvManageHint,btnManageDefault,tvManageDefaultHint,btnManageService,tvManageServiceHint" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpNotification"

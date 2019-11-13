@@ -106,7 +106,6 @@
     <string name="title_setup_quick_hint">De snelle instelling zal configuratie-informatie ophalen van autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-server om berichten te ontvangen</string>
     <string name="title_setup_quick_smtp">SMTP-server om berichten te verzenden</string>
-    <string name="title_setup_go">Ga</string>
     <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_remark">Ga \'terug\' om naar het postvak in te gaan</string>
     <string name="title_setup_other">Andere provider</string>
@@ -135,6 +134,7 @@
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
     <string name="title_setup_data">Gegevensbesparing is ingeschakeld</string>
     <string name="title_setup_inbox">Ga naar berichten</string>
+    <string name="title_setup_go">Ga</string>
     <string name="title_setup_to_do">Te doen</string>
     <string name="title_setup_done">Gedaan</string>
     <string name="title_setup_export">Exporteer instellingen</string>
@@ -148,7 +148,6 @@
     <string name="title_setup_exported">Instellingen geëxporteerd</string>
     <string name="title_setup_imported">Instellingen geïmporteerd</string>
     <string name="title_setup_import_invalid">Ongeldig instellingenbestand</string>
-    <string name="title_setup_notifications">Beheer meldingen</string>
     <string name="title_setup_reorder_accounts">Volgorde accounts</string>
     <string name="title_setup_reorder_folders">Volgorde mappen</string>
     <string name="title_reset_order">Reset volgorde</string>
@@ -259,6 +258,9 @@
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
     <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept permanent verwijderen</string>
     <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
+    <string name="title_advanced_notifications">Beheer meldingen</string>
+    <string name="title_advanced_notifications_default">Standaardkanaal</string>
+    <string name="title_advanced_notifications_service">Servicekanaal</string>
     <string name="title_advanced_badge">Toon opstartpictogram met aantal nieuwe berichten</string>
     <string name="title_advanced_unseen_ignored">Laat het aantal nieuwe berichten overeenkomen met het aantal meldingen</string>
     <string name="title_advanced_notify_summary">Toon alleen melding met een samenvatting</string>
@@ -326,7 +328,9 @@
     <string name="title_advanced_badge_hint">Alleen beschikbaar op ondersteunde launchers</string>
     <string name="title_advanced_notify_action_hint">Er worden maximaal drie acties getoond</string>
     <string name="title_advanced_notify_remove_hint">Meldingen van nieuwe berichten worden altijd verwijderd als ze worden weggeveegd en als berichten worden gemarkeerd als gelezen</string>
-    <string name="title_advanced_notify_manage_hint">Tik op de naam van het kanaal \'Meldingen\' om het standaard meldingsgeluid in te stellen, etc</string>
+    <string name="title_advanced_notify_manage_hint">Tik op de kanaalnaam om de kanaaleigenschappen in te stellen</string>
+    <string name="title_advanced_notify_manage_default_hint">Om het standaardgeluid, etc in te stellen</string>
+    <string name="title_advanced_notify_manage_service_hint">Om de permanente melding uit te schakelen</string>
     <string name="title_advanced_wearable_hint">Meldingen worden alleen verzonden naar een wearable nadat de berichttekst is gedownload</string>
     <string name="title_advanced_move_hint">De doelmap kan worden geconfigureerd in de accountinstellingen</string>
     <string name="title_advanced_notify_no_grouping">Deze Android-versie ondersteunt geen meldingsgroepering</string>

@@ -59,7 +59,6 @@
     <string name="title_setup_quick">الإعداد السريع</string>
     <string name="title_setup_quick_imap">خادم IMAP لتلقي الرسائل</string>
     <string name="title_setup_quick_smtp">خادم SMTP لإرسال الرسائل</string>
-    <string name="title_setup_go">إبدأ</string>
     <string name="title_setup_instructions">تعليمات الضبط</string>
     <string name="title_setup_quick_success">تمت إضافة هوية وحساب بنجاح</string>
     <string name="title_setup_manage">إدارة</string>
@@ -73,6 +72,7 @@
     <string name="title_setup_doze_remark">لتلقي البريد الإلكتروني باستمرار (اختياري)</string>
     <string name="title_setup_doze_instructions">في مربع الحوار التالي، حدد \"كافة تطبيقات\" في الجزء العلوي، حدد هذا التطبيق وتحديد وتأكيد \"لا الأمثل\"</string>
     <string name="title_setup_inbox">الإنتقال إلى الرسائل</string>
+    <string name="title_setup_go">إبدأ</string>
     <string name="title_setup_to_do">للانجاز</string>
     <string name="title_setup_done">تمّ</string>
     <string name="title_setup_export">تصدير الإعدادات</string>
@@ -83,7 +83,6 @@
     <string name="title_setup_password_invalid">الكلمة السرية غير صالحة</string>
     <string name="title_setup_exported">تم تصدير الإعدادات</string>
     <string name="title_setup_imported">تم استيراد الإعدادات</string>
-    <string name="title_setup_notifications">إدارة الإشعارات</string>
     <string name="title_setup_authentication">المصادقة</string>
     <string name="title_setup_biometrics_enable">تمكين</string>
     <string name="title_setup_biometrics_disable">تعطيل</string>

@@ -106,7 +106,6 @@
     <string name="title_setup_quick_hint">Hurtig oppsettet henter konfigurasjons informasjon fra autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">IMAP-serveren til å motta meldinger</string>
     <string name="title_setup_quick_smtp">SMTP-server for å sende meldinger</string>
-    <string name="title_setup_go">Utfør</string>
     <string name="title_setup_wizard">Veiviser</string>
     <string name="title_setup_wizard_remark">Gå \'tilbake\' for å gå til innboksen</string>
     <string name="title_setup_other">Annen leverandør</string>
@@ -135,6 +134,7 @@
     <string name="title_setup_doze_stopped">Synkroniseringen stoppet?</string>
     <string name="title_setup_data">Datasparing er aktivert</string>
     <string name="title_setup_inbox">Gå til meldinger</string>
+    <string name="title_setup_go">Utfør</string>
     <string name="title_setup_to_do">Gjøremål</string>
     <string name="title_setup_done">Utført</string>
     <string name="title_setup_export">Eksporter innstillingene</string>
@@ -148,7 +148,6 @@
     <string name="title_setup_exported">Innstillinger eksportert</string>
     <string name="title_setup_imported">Innstillinger importert</string>
     <string name="title_setup_import_invalid">Ugyldig innstillingsfil</string>
-    <string name="title_setup_notifications">Administrer varsler</string>
     <string name="title_setup_reorder_accounts">Sortere kontoer</string>
     <string name="title_setup_reorder_folders">Sortere mapper</string>
     <string name="title_reset_order">Tilbakestill rekkefølge</string>
@@ -326,7 +325,6 @@
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_notify_remove_hint">Varsler om nye meldinger vil alltid bli fjernet når de blir sveipet og når merking av meldinger er lest</string>
-    <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet \'Varsler\' for å angi standard varslings lyd, osv</string>
     <string name="title_advanced_wearable_hint">Varsler sendes bare til bærbare enheter etter at meldingsteksten er lastet ned</string>
     <string name="title_advanced_move_hint">Målmappen kan konfigureres i kontoinnstillingene</string>
     <string name="title_advanced_notify_no_grouping">Denne Android versjonen støtter ikke varslingsgruppering</string>
@@ -897,7 +895,7 @@
         <item>Liten</item>
         <item>Medium</item>
         <item>Stor</item>
-        <item>Extra large</item>
+        <item>Ekstra stor</item>
     </string-array>
     <string-array name="targetNames">
         <item>Til</item>

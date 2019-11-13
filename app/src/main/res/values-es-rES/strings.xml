@@ -106,7 +106,6 @@
     <string name="title_setup_quick_hint">La configuración rápida obtendrá información de configuración de autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Servidor IMAP para recibir mensajes</string>
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensajes</string>
-    <string name="title_setup_go">Comenzar</string>
     <string name="title_setup_wizard">Asistente</string>
     <string name="title_setup_wizard_remark">Ir \'atrás\' para ir a la bandeja de entrada</string>
     <string name="title_setup_other">Otro proveedor</string>
@@ -135,6 +134,7 @@
     <string name="title_setup_doze_stopped">¿Sincronización detenida?</string>
     <string name="title_setup_data">El ahorro de datos está activado</string>
     <string name="title_setup_inbox">Ir a mensajes</string>
+    <string name="title_setup_go">Comenzar</string>
     <string name="title_setup_to_do">Pendiente</string>
     <string name="title_setup_done">Hecho</string>
     <string name="title_setup_export">Exportar ajustes</string>
@@ -148,7 +148,6 @@
     <string name="title_setup_exported">Ajustes exportados</string>
     <string name="title_setup_imported">Ajustes importados</string>
     <string name="title_setup_import_invalid">Archivo de configuración inválido</string>
-    <string name="title_setup_notifications">Administrar notificaciones</string>
     <string name="title_setup_reorder_accounts">Ordenar cuentas</string>
     <string name="title_setup_reorder_folders">Ordenar carpetas</string>
     <string name="title_reset_order">Restablecer orden</string>
@@ -326,7 +325,6 @@
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
-    <string name="title_advanced_notify_manage_hint">Pulse el nombre del canal \"Notificaciones\" para establecer el sonido de notificación por defecto, etc</string>
     <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos llevables (wearable) luego de que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>

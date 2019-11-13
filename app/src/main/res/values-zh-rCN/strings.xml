@@ -94,7 +94,6 @@
     <string name="title_setup_quick_hint">快速设置将从autoconfig.thunderbird.net 获取配置信息</string>
     <string name="title_setup_quick_imap">接收邮件的IMAP服务器</string>
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
-    <string name="title_setup_go">前往</string>
     <string name="title_setup_wizard">向导</string>
     <string name="title_setup_wizard_remark">按返回键前往收件箱</string>
     <string name="title_setup_other">其他提供商</string>
@@ -123,6 +122,7 @@
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_data">已启用数据节省</string>
     <string name="title_setup_inbox">前往邮件</string>
+    <string name="title_setup_go">前往</string>
     <string name="title_setup_to_do">待办事项</string>
     <string name="title_setup_done">已完成</string>
     <string name="title_setup_export">导出设置</string>
@@ -136,7 +136,6 @@
     <string name="title_setup_exported">设置已导出！</string>
     <string name="title_setup_imported">设置已导入！</string>
     <string name="title_setup_import_invalid">无效的设置文件</string>
-    <string name="title_setup_notifications">通知管理</string>
     <string name="title_setup_reorder_accounts">账户顺序</string>
     <string name="title_setup_reorder_folders">文件夹顺序</string>
     <string name="title_reset_order">重置顺序</string>
@@ -247,6 +246,9 @@
     <string name="title_advanced_automove">确认移动邮件</string>
     <string name="title_advanced_discard_delete">丢弃草稿时将其永久删除</string>
     <string name="title_advanced_default_snooze">默认打盹时间</string>
+    <string name="title_advanced_notifications">管理通知</string>
+    <string name="title_advanced_notifications_default">默认频道</string>
+    <string name="title_advanced_notifications_service">服务频道</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
     <string name="title_advanced_notify_summary">仅显示摘要通知</string>
@@ -314,7 +316,9 @@
     <string name="title_advanced_badge_hint">仅可用于支持的启动器</string>
     <string name="title_advanced_notify_action_hint">最多显示三项操作</string>
     <string name="title_advanced_notify_remove_hint">滑走或标为已读时将总会移除新消息通知</string>
-    <string name="title_advanced_notify_manage_hint">点击左侧按钮设置默认通知声音等</string>
+    <string name="title_advanced_notify_manage_hint">点击频道名称来设置频道属性</string>
+    <string name="title_advanced_notify_manage_default_hint">设置默认声音等</string>
+    <string name="title_advanced_notify_manage_service_hint">禁用永久通知</string>
     <string name="title_advanced_wearable_hint">通知仅在消息文本下载后发送到可穿戴设备</string>
     <string name="title_advanced_move_hint">可在账户设定中配置目标文件夹</string>
     <string name="title_advanced_notify_no_grouping">此Android版本不支持通知分组</string>
@@ -884,7 +888,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>小</item>
         <item>中等</item>
         <item>大</item>
-        <item>Extra large</item>
+        <item>特大</item>
     </string-array>
     <string-array name="targetNames">
         <item>发送至</item>
