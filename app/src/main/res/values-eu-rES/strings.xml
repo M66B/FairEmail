@@ -115,6 +115,7 @@
     <string name="title_setup_select_account">Hautatu kontua</string>
     <string name="title_setup_instructions">Ezartzeko argibideak</string>
     <string name="title_setup_no_settings">Ez da \'%1$s\' domeinuarentzat ezarpenik aurkitu</string>
+    <string name="title_setup_no_system_folders">Sarrera-ontzia edo zirriborroen karpeta ez da aurkitu</string>
     <string name="title_setup_quick_success">Kontu eta identitate bat gehitu dira</string>
     <string name="title_setup_quick_failed">Kontu eta identitate bat konfiguratzen saiatu zaitezke hemen azpian</string>
     <string name="title_setup_manage">Kudeatu</string>
@@ -778,6 +779,7 @@
     <string name="title_hint_eml">Hau mezu gordin fitxategi baten edukiaren laburpena da. Gorde mezu gordina ekintza-barrako \'gorde\' ikonoarekin eduki osoa ikusteko.</string>
     <string name="title_open_link">Ireki esteka</string>
     <string name="title_different_link">Izenburua eta estekaren helbidea desberdinak dira</string>
+    <string name="title_link_http">Trafikoa ez da zifratuko</string>
     <string name="title_link_https">Trafikoa zifratuko da</string>
     <string name="title_sanitize_link">Kendu jarraipen parametroak</string>
     <string name="title_insecure_link">Esteka hau ez da segurua</string>
@@ -895,6 +897,7 @@
         <item>Txikia</item>
         <item>Ertaina</item>
         <item>Handia</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Nori</item>

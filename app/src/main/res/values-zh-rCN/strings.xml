@@ -884,6 +884,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>小</item>
         <item>中等</item>
         <item>大</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>发送至</item>

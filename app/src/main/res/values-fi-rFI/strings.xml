@@ -897,6 +897,7 @@
         <item>Pieni</item>
         <item>Keskikokoinen</item>
         <item>Suuri</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Vastaanottaja</item>

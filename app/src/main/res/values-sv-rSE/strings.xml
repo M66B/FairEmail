@@ -821,6 +821,7 @@
         <item>Liten</item>
         <item>Mellan</item>
         <item>Stor</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Till</item>

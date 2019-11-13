@@ -895,6 +895,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>Klein</item>
         <item>Mittel</item>
         <item>Groß</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>An</item>

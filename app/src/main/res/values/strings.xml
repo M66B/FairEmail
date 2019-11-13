@@ -1056,12 +1056,14 @@
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+        <item>Extra large</item>
     </string-array>
 
     <integer-array name="resizeValues" translatable="false">
         <item>1080</item>
         <item>1440</item>
         <item>1920</item>
+        <item>2560</item>
     </integer-array>
 
     <string-array name="targetNames">

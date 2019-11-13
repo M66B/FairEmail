@@ -915,6 +915,7 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Małe</item>
         <item>Średnie</item>
         <item>Duże</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Do</item>

@@ -897,6 +897,7 @@
         <item>Petit</item>
         <item>Moyen</item>
         <item>Grand</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>A</item>

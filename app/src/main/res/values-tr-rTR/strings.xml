@@ -897,6 +897,7 @@
         <item>Küçük</item>
         <item>Orta</item>
         <item>Büyük</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Kime</item>

@@ -906,6 +906,7 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
         <item>Maleno</item>
         <item>Srednje</item>
         <item>Veliko</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Za</item>

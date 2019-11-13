@@ -894,6 +894,7 @@
         <item>Klein</item>
         <item>Gemiddeld</item>
         <item>Groot</item>
+        <item>Extra groot</item>
     </string-array>
     <string-array name="targetNames">
         <item>Aan</item>

@@ -115,6 +115,7 @@
     <string name="title_setup_select_account">Selecionar conta</string>
     <string name="title_setup_instructions">Instruções de configuração</string>
     <string name="title_setup_no_settings">Nenhuma configuração encontrada para o domínio \'%1$s\'</string>
+    <string name="title_setup_no_system_folders">Caixa de entrada ou pasta de rascunho não encontrada</string>
     <string name="title_setup_quick_success">Uma conta e uma identidade foram adicionados com sucesso</string>
     <string name="title_setup_quick_failed">Você também pode tentar configurar uma conta e uma identidade abaixo</string>
     <string name="title_setup_manage">Configurar</string>
@@ -193,6 +194,8 @@
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados em mensagens enviadas</string>
     <string name="title_advanced_suggest_received">Sugerir endereços encontrados em mensagens recebidas</string>
     <string name="title_advanced_prefix_once">Prefixo de assunto apenas uma vez na resposta ou encaminhamento</string>
+    <string name="title_advanced_extended_reply">Usar cabeçalho de resposta/encaminhamento estendido</string>
+    <string name="title_advanced_quote_reply">Citar texto respondido</string>
     <string name="title_advanced_plain_only">Enviar texto simples por padrão</string>
     <string name="title_advanced_usenet_signature">Convenção de assinatura do Usenet</string>
     <string name="title_advanced_autoresize">Redimensionar automaticamente as imagens anexadas e incorporadas</string>
@@ -278,6 +281,7 @@
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_tracking">Reconhecer e desativar automaticamente as imagens de rastreamento</string>
     <string name="title_advanced_display_hidden">Exibir textos de mensagens ocultas</string>
+    <string name="title_advanced_openpgp">Provedor OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Descriptografar mensagens automaticamente</string>
     <string name="title_advanced_recents">Ocultar FairEmail da tela apps recentes</string>
     <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
@@ -314,6 +318,7 @@
     <string name="title_advanced_preview_hint">Somente disponível quando o texto da mensagem for baixado</string>
     <string name="title_advanced_inline_hint">Imagens em linha são incluídas na mensagem</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
+    <string name="title_advanced_autoseen_hint">A marcação automática de mensagens lidas na expansão pode ser desativada nas configurações individuais da conta</string>
     <string name="title_advanced_autoclose_hint">Fechar automaticamente conversas quando todas as mensagens estiverem arquivadas, enviadas ou na lixeira</string>
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_display_hidden_hint">Isso pode resultar em textos estranhos e duplos</string>
@@ -372,6 +377,7 @@
     <string name="title_primary_identity">Primária (identidade padrão)</string>
     <string name="title_leave_on_server">Deixar mensagens no servidor</string>
     <string name="title_keep_alive_interval">Intervalo de manutenção da conexão (minutos)</string>
+    <string name="title_related_identity">Adicionar identidade relacionada</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Nome ausente</string>
     <string name="title_no_email">Endereço de e-mail ausente</string>
@@ -529,6 +535,7 @@
     <string name="title_ask_discard">Descartar rascunho?</string>
     <string name="title_ask_show_html">Mostrar a mensagem original pode vazar informações confidenciais de privacidade</string>
     <string name="title_ask_show_html_remark">Não é possível exibir a mensagem original com um fundo escuro porque textos e imagens escuros podem ficar invisíveis</string>
+    <string name="title_ask_show_html_images">Sempre mostrar imagens nas mensagens originais</string>
     <string name="title_ask_show_image">Mostrar imagens pode vazar informações sensíveis à privacidade</string>
     <string name="title_ask_show_image_hint">Imagens reconhecidas como monitoramento de imagens não serão mostradas</string>
     <string name="title_ask_delete_ref">Excluir texto de mensagem respondido/encaminhado? Isso não pode ser desfeito.</string>
@@ -772,6 +779,8 @@
     <string name="title_hint_eml">Este é um resumo do conteúdo de um arquivo de mensagem crua. Salve a mensagem bruta com o ícone de salvar na barra de ação para ver todo o conteúdo.</string>
     <string name="title_open_link">Abrir link</string>
     <string name="title_different_link">O título e o endereço do link são diferentes</string>
+    <string name="title_link_http">Tráfego não será criptografado</string>
+    <string name="title_link_https">Tráfego será criptografado</string>
     <string name="title_sanitize_link">Remover parâmetros de rastreamento</string>
     <string name="title_insecure_link">Este link é inseguro</string>
     <string name="title_check_owner">Verificar proprietário</string>
@@ -785,6 +794,7 @@
     <string name="title_undo">Desfazer</string>
     <string name="title_redo">Refazer</string>
     <string name="title_add">Adicionar</string>
+    <string name="title_browse">Abrir com</string>
     <string name="title_info">Informações</string>
     <string name="title_report">Reportar</string>
     <string name="title_fix">Corrigir</string>
@@ -800,6 +810,7 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 dia</string>
+    <string name="title_1week">1 semana</string>
     <string name="title_now">Agora</string>
     <string name="title_after">Após %1$s</string>
     <string name="title_reset">Resetar</string>
@@ -812,6 +823,7 @@
     <string name="title_icalendar_accept">Aceitar</string>
     <string name="title_icalendar_decline">Recusar</string>
     <string name="title_icalendar_maybe">Talvez</string>
+    <string name="title_icalendar_calendar">Calendário</string>
     <string name="title_try">Experimente o FairEmail, um aplicativo de e-mail aberto e amigo da privacidade para Android</string>
     <string name="title_pro_feature">Esta é uma funcionalidade Pro</string>
     <string name="title_pro_list">Lista de recursos Pro</string>
@@ -837,6 +849,7 @@
     <string name="title_search_special_prefix">especial</string>
     <string name="title_search_special_unseen">não_lida</string>
     <string name="title_search_special_flagged">favorito</string>
+    <string name="title_search_special_snoozed">oculto</string>
     <string name="title_widget_account">Conta</string>
     <string name="title_widget_account_all">Todos</string>
     <string name="title_widget_unseen">Apenas mensagens não lidas</string>
@@ -884,6 +897,7 @@
         <item>Pequeno</item>
         <item>Médio</item>
         <item>Grande</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Para</item>

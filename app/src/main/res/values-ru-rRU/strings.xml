@@ -919,6 +919,7 @@
         <item>Маленький</item>
         <item>Средний</item>
         <item>Большой</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Кому</item>

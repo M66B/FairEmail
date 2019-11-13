@@ -907,6 +907,7 @@
         <item>Mic</item>
         <item>Mediu</item>
         <item>Mare</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Către</item>

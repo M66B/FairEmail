@@ -896,6 +896,7 @@
         <item>Мала</item>
         <item>Средња</item>
         <item>Велика</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>To</item>

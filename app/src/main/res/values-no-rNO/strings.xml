@@ -897,6 +897,7 @@
         <item>Liten</item>
         <item>Medium</item>
         <item>Stor</item>
+        <item>Extra large</item>
     </string-array>
     <string-array name="targetNames">
         <item>Til</item>
