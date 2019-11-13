@@ -678,8 +678,10 @@ public class ServiceSynchronize extends ServiceBase {
     private void stop() {
         EntityLog.log(this, "Main stop");
 
-        state.stop();
-        state.join();
+        if (state != null) {
+            state.stop();
+            state.join();
+        }
 
         EntityLog.log(this, "Main stopped");
 
