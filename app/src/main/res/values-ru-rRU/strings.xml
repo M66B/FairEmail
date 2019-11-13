@@ -280,6 +280,9 @@
     <string name="title_advanced_automove">Подтверждать перемещение сообщений</string>
     <string name="title_advanced_discard_delete">Удалять черновик навсегда</string>
     <string name="title_advanced_default_snooze">Время повтора по умолчанию</string>
+    <string name="title_advanced_notifications">Настроить уведомления</string>
+    <string name="title_advanced_notifications_default">Канал по умолчанию</string>
+    <string name="title_advanced_notifications_service">Сервисный канал</string>
     <string name="title_advanced_badge">Показывать значок запуска с числом новых сообщений</string>
     <string name="title_advanced_unseen_ignored">Количество уведомлений соответствует количеству новых сообщений</string>
     <string name="title_advanced_notify_summary">Показывать только сводное уведомление</string>
@@ -347,6 +350,9 @@
     <string name="title_advanced_badge_hint">Доступно только на поддерживаемых лаунчерах</string>
     <string name="title_advanced_notify_action_hint">Будут показаны максимум три действия</string>
     <string name="title_advanced_notify_remove_hint">Уведомления о новых о сообщениях всегда будут удаляться при смахивании сообщения и пометке о прочтении</string>
+    <string name="title_advanced_notify_manage_hint">Нажмите на название канала, чтобы установить свойства канала</string>
+    <string name="title_advanced_notify_manage_default_hint">Для установки звука по умолчанию и т.д.</string>
+    <string name="title_advanced_notify_manage_service_hint">Для отключения постоянного уведомления</string>
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>

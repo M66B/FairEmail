@@ -258,6 +258,9 @@
     <string name="title_advanced_automove">İletileri taşımayı onaylayın</string>
     <string name="title_advanced_discard_delete">Taslak gönderildiğinde taslağı kalıcı olarak sil</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme süresi</string>
+    <string name="title_advanced_notifications">Bildirimleri yönet</string>
+    <string name="title_advanced_notifications_default">Varsayılan kanal</string>
+    <string name="title_advanced_notifications_service">Hizmet kanalı</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
     <string name="title_advanced_notify_summary">Sadece özet bildirimini göster</string>
@@ -325,6 +328,9 @@
     <string name="title_advanced_badge_hint">Yalnızca desteklenen launcherlar üzerinde kullanılabilir</string>
     <string name="title_advanced_notify_action_hint">En fazla üç eylem gösterilecek</string>
     <string name="title_advanced_notify_remove_hint">Kaydırıldığında ya da mesajlar okundu olarak işaretlendiğinde yeni mesaj bildirimleri her zaman kaldırılacaktır</string>
+    <string name="title_advanced_notify_manage_hint">Kanal özelliklerini ayarlamak için kanal adına dokunun</string>
+    <string name="title_advanced_notify_manage_default_hint">Varsayılan sesi ayarlamak için, vs</string>
+    <string name="title_advanced_notify_manage_service_hint">Kalıcı bildirimi devre dışı bırakmak için</string>
     <string name="title_advanced_wearable_hint">Bildirimler, sadece mesaj metni indirildikten sonra giyilebilir cihazlara gönderilmektedir</string>
     <string name="title_advanced_move_hint">Hedef klasörü, hesap ayarlarından yapılandırılabilir</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>
@@ -895,7 +901,7 @@
         <item>Küçük</item>
         <item>Orta</item>
         <item>Büyük</item>
-        <item>Extra large</item>
+        <item>Ekstra büyük</item>
     </string-array>
     <string-array name="targetNames">
         <item>Kime</item>

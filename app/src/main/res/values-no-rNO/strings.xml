@@ -258,6 +258,9 @@
     <string name="title_advanced_automove">Bekreft flytting av meldinger</string>
     <string name="title_advanced_discard_delete">Ved å kaste utkast permanent slett utkast</string>
     <string name="title_advanced_default_snooze">Standard slumretid</string>
+    <string name="title_advanced_notifications">Administrer varsler</string>
+    <string name="title_advanced_notifications_default">Standard kanal</string>
+    <string name="title_advanced_notifications_service">Servicekanal</string>
     <string name="title_advanced_badge">Vis epost ikonet med antall nye meldinger</string>
     <string name="title_advanced_unseen_ignored">La antallet nye meldinger samsvare med antall varsler</string>
     <string name="title_advanced_notify_summary">Vis bare sammendragsvarsel</string>
@@ -325,6 +328,9 @@
     <string name="title_advanced_badge_hint">Kun tilgjengelig på støttede launchere</string>
     <string name="title_advanced_notify_action_hint">Høyst tre handlinger vil bli vist</string>
     <string name="title_advanced_notify_remove_hint">Varsler om nye meldinger vil alltid bli fjernet når de blir sveipet og når merking av meldinger er lest</string>
+    <string name="title_advanced_notify_manage_hint">Trykk på kanalnavnet for å angi kanalegenskapene</string>
+    <string name="title_advanced_notify_manage_default_hint">Slik angir du standardlyden, osv</string>
+    <string name="title_advanced_notify_manage_service_hint">For å deaktivere den permanente varslingen</string>
     <string name="title_advanced_wearable_hint">Varsler sendes bare til bærbare enheter etter at meldingsteksten er lastet ned</string>
     <string name="title_advanced_move_hint">Målmappen kan konfigureres i kontoinnstillingene</string>
     <string name="title_advanced_notify_no_grouping">Denne Android versjonen støtter ikke varslingsgruppering</string>

@@ -258,6 +258,9 @@
     <string name="title_advanced_automove">Confirmar mover mensajes</string>
     <string name="title_advanced_discard_delete">Al descartar borrador eliminarlo permanentemente</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer por defecto</string>
+    <string name="title_advanced_notifications">Gestionar notificaciones</string>
+    <string name="title_advanced_notifications_default">Canal por defecto</string>
+    <string name="title_advanced_notifications_service">Canal de servicio</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
     <string name="title_advanced_notify_summary">Mostrar notificación resumen únicamente</string>
@@ -325,6 +328,9 @@
     <string name="title_advanced_badge_hint">Sólo disponible en lanzadores soportados</string>
     <string name="title_advanced_notify_action_hint">Máximo 3 acciones mostradas</string>
     <string name="title_advanced_notify_remove_hint">Las notificaciones de nuevos mensajes siempre serán eliminadas al deslizarlas y al marcar mensajes como leídos</string>
+    <string name="title_advanced_notify_manage_hint">Toca en el nombre del canal para establecer las propiedades del canal</string>
+    <string name="title_advanced_notify_manage_default_hint">Para configurar el sonido por defecto, etc</string>
+    <string name="title_advanced_notify_manage_service_hint">Para deshabilitar la notificación permanente</string>
     <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos llevables (wearable) luego de que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
@@ -895,7 +901,7 @@
         <item>Pequeño</item>
         <item>Medio</item>
         <item>Grande</item>
-        <item>Extra large</item>
+        <item>Extra grande</item>
     </string-array>
     <string-array name="targetNames">
         <item>A</item>

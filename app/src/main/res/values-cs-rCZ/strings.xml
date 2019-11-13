@@ -280,6 +280,9 @@
     <string name="title_advanced_automove">Potvrzovat přesun zpráv</string>
     <string name="title_advanced_discard_delete">Při zahození konceptu jej permanentně smazat</string>
     <string name="title_advanced_default_snooze">Výchozí délka odložení</string>
+    <string name="title_advanced_notifications">Spravovat oznámení</string>
+    <string name="title_advanced_notifications_default">Výchozí kanál</string>
+    <string name="title_advanced_notifications_service">Servisní kanál</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv na ikoně aplikace</string>
     <string name="title_advanced_unseen_ignored">Nechť počet nových zpráv souhlasí s počtem oznámení</string>
     <string name="title_advanced_notify_summary">Zobrazit pouze souhrnné oznámení</string>
@@ -347,6 +350,9 @@
     <string name="title_advanced_badge_hint">K dispozici pouze v podporovaných spouštěčích aplikací</string>
     <string name="title_advanced_notify_action_hint">Budou zobrazeny nejvýše tři akce</string>
     <string name="title_advanced_notify_remove_hint">Oznámení nových zpráv budou při odtažení prstem a při označení zpráv jako přečtených odebrána vždy</string>
+    <string name="title_advanced_notify_manage_hint">Dotkněte se názvu kanálu pro nastavení jeho vlastností</string>
+    <string name="title_advanced_notify_manage_default_hint">Pro nastavení výchozího zvuku, apod</string>
+    <string name="title_advanced_notify_manage_service_hint">Pro vypnutí permanentního oznámení</string>
     <string name="title_advanced_wearable_hint">Oznámení jsou do nositelného zařízení odeslány teprve po stažení textu zprávy</string>
     <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
@@ -916,7 +922,7 @@
         <item>Malé</item>
         <item>Střední</item>
         <item>Velké</item>
-        <item>Extra large</item>
+        <item>Velmi velké</item>
     </string-array>
     <string-array name="targetNames">
         <item>Komu</item>
