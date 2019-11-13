@@ -476,6 +476,9 @@ public class ServiceSynchronize extends ServiceBase {
                 am.set(AlarmManager.RTC_WAKEUP, at, piOneshot);
             else
                 am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, at, piOneshot);
+
+            if (!started)
+                onReload(true, "oneshot start");
         } else
             onReload(true, "oneshot end");
     }
