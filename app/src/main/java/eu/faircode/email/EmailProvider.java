@@ -26,6 +26,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 
 import org.xbill.DNS.Lookup;
+import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.SimpleResolver;
@@ -85,9 +86,9 @@ public class EmailProvider {
         this.name = name;
     }
 
-    private void checkValid() throws UnknownHostException {
-        if (this.imap.host == null || this.imap.port == 0 ||
-                this.smtp.host == null || this.smtp.port == 0)
+    private void validate() throws UnknownHostException {
+        if (TextUtils.isEmpty(this.imap.host) || this.imap.port <= 0 ||
+                TextUtils.isEmpty(this.smtp.host) || this.smtp.port <= 0)
             throw new UnknownHostException(this.name + " invalid");
     }
 
@@ -159,6 +160,16 @@ public class EmailProvider {
 
     @NonNull
     static EmailProvider fromDomain(Context context, String domain, Discover discover) throws IOException {
+        return fromEmail(context, domain, discover);
+    }
+
+    @NonNull
+    static EmailProvider fromEmail(Context context, String email, Discover discover) throws IOException {
+        int at = email.indexOf("@");
+        String domain = (at < 0 ? email : email.substring(at + 1));
+        if (at < 0)
+            email = "someone@" + domain;
+
         List<EmailProvider> providers = loadProfiles(context);
         for (EmailProvider provider : providers)
             if (provider.domain != null)
@@ -168,7 +179,7 @@ public class EmailProvider {
                         return provider;
                     }
 
-        EmailProvider autoconfig = _fromDomain(context, domain.toLowerCase(Locale.ROOT), discover);
+        EmailProvider autoconfig = _fromDomain(context, domain.toLowerCase(Locale.ROOT), email, discover);
 
         // Always prefer built-in profiles
         // - ISPDB is not always correct
@@ -184,7 +195,7 @@ public class EmailProvider {
     }
 
     @NonNull
-    private static EmailProvider _fromDomain(Context context, String domain, Discover discover) throws IOException {
+    private static EmailProvider _fromDomain(Context context, String domain, String email, Discover discover) throws IOException {
         try {
             // Assume the provider knows best
             Log.i("Provider from DNS domain=" + domain);
@@ -194,7 +205,7 @@ public class EmailProvider {
             try {
                 // Check ISPDB
                 Log.i("Provider from ISPDB domain=" + domain);
-                return fromISPDB(context, domain);
+                return fromISPDB(context, domain, email);
             } catch (Throwable ex1) {
                 Log.w(ex1);
                 try {
@@ -210,10 +221,42 @@ public class EmailProvider {
     }
 
     @NonNull
-    private static EmailProvider fromISPDB(Context context, String domain) throws IOException, XmlPullParserException {
+    private static EmailProvider fromISPDB(Context context, String domain, String email) throws IOException, XmlPullParserException {
+        try {
+            return _fromISPDB(context, domain, email);
+        } catch (Throwable ex) {
+            Log.w(ex);
+
+            Record[] records = lookupDNS(context, domain, Type.MX);
+            for (Record record : records) {
+                String target = ((MXRecord) record).getTarget().toString(true);
+                while (!TextUtils.isEmpty(target)) {
+                    try {
+                        return _fromISPDB(context, target, email);
+                    } catch (Throwable ex1) {
+                        Log.w(ex1);
+
+                        int dot = target.indexOf('.');
+                        if (dot < 0)
+                            target = null;
+                        else {
+                            target = target.substring(dot + 1);
+                            if (target.indexOf('.') < 0)
+                                target = null;
+                        }
+                    }
+                }
+            }
+
+            throw new UnknownHostException(domain);
+        }
+    }
+
+    @NonNull
+    private static EmailProvider _fromISPDB(Context context, String domain, String email) throws IOException, XmlPullParserException {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
         try {
-            URL url = new URL("https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=someone@" + domain);
+            URL url = new URL("https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email);
             return getISPDB(domain, url);
         } catch (Throwable ex) {
             Log.w(ex);
@@ -404,7 +447,7 @@ public class EmailProvider {
             Log.i("imap=" + provider.imap.host + ":" + provider.imap.port + ":" + provider.imap.starttls);
             Log.i("smtp=" + provider.smtp.host + ":" + provider.smtp.port + ":" + provider.smtp.starttls);
 
-            provider.checkValid();
+            provider.validate();
 
             return provider;
         } finally {
@@ -419,38 +462,34 @@ public class EmailProvider {
         EmailProvider provider = new EmailProvider(domain);
 
         if (discover == Discover.ALL || discover == Discover.IMAP) {
-            SRVRecord imap;
-            boolean starttls;
             try {
                 // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
-                imap = lookup(context, "_imaps._tcp." + domain);
+                Record[] records = lookupDNS(context, "_imaps._tcp." + domain, Type.SRV);
                 // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
-                if (TextUtils.isEmpty(imap.getTarget().toString(true)))
-                    throw new UnknownHostException(imap.toString());
-                starttls = false;
+                SRVRecord srv = (SRVRecord) records[0];
+                provider.imap.host = srv.getTarget().toString(true);
+                provider.imap.port = srv.getPort();
+                provider.imap.starttls = false;
             } catch (UnknownHostException ex) {
                 // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
-                imap = lookup(context, "_imap._tcp." + domain);
-                if (TextUtils.isEmpty(imap.getTarget().toString(true)))
-                    throw new UnknownHostException(imap.toString());
-                starttls = (imap.getPort() == 143);
+                Record[] records = lookupDNS(context, "_imap._tcp." + domain, Type.SRV);
+                SRVRecord srv = (SRVRecord) records[0];
+                provider.imap.host = srv.getTarget().toString(true);
+                provider.imap.port = srv.getPort();
+                provider.imap.starttls = (provider.imap.port == 143);
             }
-
-            provider.imap.host = imap.getTarget().toString(true);
-            provider.imap.port = imap.getPort();
-            provider.imap.starttls = starttls;
         }
 
         if (discover == Discover.ALL || discover == Discover.SMTP) {
             // Note that this covers connections both with and without Transport Layer Security (TLS)
-            SRVRecord smtp = lookup(context, "_submission._tcp." + domain);
-            if (TextUtils.isEmpty(smtp.getTarget().toString(true)))
-                throw new UnknownHostException(smtp.toString());
-
-            provider.smtp.host = smtp.getTarget().toString(true);
-            provider.smtp.port = smtp.getPort();
+            Record[] records = lookupDNS(context, "_submission._tcp." + domain, Type.SRV);
+            SRVRecord srv = (SRVRecord) records[0];
+            provider.smtp.host = srv.getTarget().toString(true);
+            provider.smtp.port = srv.getPort();
             provider.smtp.starttls = (provider.smtp.port == 587);
         }
+
+        provider.validate();
 
         return provider;
     }
@@ -536,12 +575,12 @@ public class EmailProvider {
     }
 
     @NonNull
-    private static SRVRecord lookup(Context context, String name) throws TextParseException, UnknownHostException {
-        Lookup lookup = new Lookup(name, Type.SRV);
+    private static Record[] lookupDNS(Context context, String name, int type) throws TextParseException, UnknownHostException {
+        Lookup lookup = new Lookup(name, type);
 
         SimpleResolver resolver = new SimpleResolver(ConnectionHelper.getDnsServer(context));
         lookup.setResolver(resolver);
-        Log.i("Lookup name=" + name + " @" + resolver.getAddress());
+        Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + type);
         Record[] records = lookup.run();
 
         if (lookup.getResult() != Lookup.SUCCESSFUL)
@@ -554,9 +593,10 @@ public class EmailProvider {
         if (records.length == 0)
             throw new UnknownHostException(name);
 
-        SRVRecord result = (SRVRecord) records[0];
-        Log.i("Found records=" + records.length + " result=" + result.toString());
-        return result;
+        for (Record record : records)
+            Log.i("Found record=" + record);
+
+        return records;
     }
 
     @NonNull

@@ -230,15 +230,17 @@ public class FragmentQuickSetup extends FragmentBase {
                 if (TextUtils.isEmpty(password))
                     throw new IllegalArgumentException(context.getString(R.string.title_no_password));
 
-                String[] dparts = email.split("@");
-                EmailProvider provider = EmailProvider.fromDomain(context, dparts[1], EmailProvider.Discover.ALL);
+                EmailProvider provider = EmailProvider.fromEmail(context, email, EmailProvider.Discover.ALL);
 
                 if (provider.link != null)
                     args.putString("link", provider.link);
                 if (provider.documentation != null)
                     args.putString("documentation", provider.documentation.toString());
 
-                String user = (provider.user == EmailProvider.UserType.EMAIL ? email : dparts[0]);
+                int at = email.indexOf('@');
+                String username = email.substring(0, at);
+
+                String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
                 Log.i("User type=" + provider.user + " name=" + user);
 
                 boolean empty;
@@ -249,9 +251,9 @@ public class FragmentQuickSetup extends FragmentBase {
                     try {
                         iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, user, password);
                     } catch (AuthenticationFailedException ex) {
-                        if (user.contains("@")) {
+                        if (!user.equals(username)) {
                             Log.w(ex);
-                            user = dparts[0];
+                            user = username;
                             Log.i("Retry with user=" + user);
                             iservice.connect(provider.imap.host, provider.imap.port, MailService.AUTH_TYPE_PASSWORD, user, password);
                         } else
