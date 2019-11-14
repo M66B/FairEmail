@@ -1448,15 +1448,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         return document.html();
                     } else {
-                        // Collapse quotes
-                        if (!show_quotes) {
-                            for (Element quote : document.select("blockquote"))
-                                quote.html("&#8230;");
-                            body = document.html();
-                        }
-
                         // Cleanup message
                         String html = HtmlHelper.sanitize(context, body, show_images);
+
+                        // Collapse quotes
+                        if (!show_quotes) {
+                            Document doc = JsoupEx.parse(html);
+                            for (Element quote : doc.select("blockquote"))
+                                quote.html("&#8230;");
+                            html = doc.html();
+                        }
+
+                        // Add debug info
                         if (debug) {
                             Document format = JsoupEx.parse(html);
                             format.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
@@ -1466,6 +1469,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             html += "<pre>" + TextUtils.join("<br>", lines) + "</pre>";
                         }
 
+                        // Draw images
                         Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
@@ -1481,35 +1485,31 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }, null);
 
                         // Replace quote spans
+                        final int px = Helper.dp2pixels(context, 24 + (zoom) * 8);
                         SpannableStringBuilder builder = new SpannableStringBuilder(spanned);
                         QuoteSpan[] quoteSpans = builder.getSpans(0, builder.length(), QuoteSpan.class);
                         for (QuoteSpan quoteSpan : quoteSpans) {
-                            builder.setSpan(
-                                    new StyledQuoteSpan(context, colorPrimary),
-                                    builder.getSpanStart(quoteSpan),
-                                    builder.getSpanEnd(quoteSpan),
-                                    builder.getSpanFlags(quoteSpan));
+                            int s = builder.getSpanStart(quoteSpan);
+                            int e = builder.getSpanEnd(quoteSpan);
+                            Log.i("Quote start=" + s + " end=" + e);
+
                             builder.removeSpan(quoteSpan);
-                        }
 
-                        // Make collapsed quotes clickable
-                        if (!show_quotes) {
-                            final int px = Helper.dp2pixels(context, 24 + (zoom) * 8);
+                            StyledQuoteSpan squote = new StyledQuoteSpan(context, colorPrimary);
+                            builder.setSpan(squote, s, e, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
 
-                            StyledQuoteSpan[] squotes = builder.getSpans(0, builder.length(), StyledQuoteSpan.class);
-                            for (StyledQuoteSpan squote : squotes)
-                                builder.setSpan(new DynamicDrawableSpan() {
-                                                    @Override
-                                                    public Drawable getDrawable() {
-                                                        Drawable d = context.getDrawable(R.drawable.baseline_format_quote_24);
-                                                        d.setTint(colorAccent);
-                                                        d.setBounds(0, 0, px, px);
-                                                        return d;
-                                                    }
-                                                },
-                                        builder.getSpanStart(squote),
-                                        builder.getSpanEnd(squote),
-                                        builder.getSpanFlags(squote));
+                            if (!show_quotes)
+                                builder.setSpan(
+                                        new DynamicDrawableSpan() {
+                                            @Override
+                                            public Drawable getDrawable() {
+                                                Drawable d = context.getDrawable(R.drawable.baseline_format_quote_24);
+                                                d.setTint(colorAccent);
+                                                d.setBounds(0, 0, px, px);
+                                                return d;
+                                            }
+                                        },
+                                        s, e, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                         }
 
                         return builder;
