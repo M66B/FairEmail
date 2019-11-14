@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.net.Uri;
-import android.text.Html;
 import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
@@ -1041,60 +1040,8 @@ public class MessageHelper {
                 warnings.add(Helper.formatThrowable(ex, false));
             }
 
-            // Prevent Jsoup throwing an exception
-            if (part == plain) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("<span>");
-
-                int level = 0;
-                String[] lines = result.split("\\r?\\n");
-                for (String line : lines) {
-                    // Opening quotes
-                    int tlevel = 0;
-                    while (line.startsWith(">")) {
-                        tlevel++;
-                        if (tlevel > level)
-                            sb.append("<blockquote>");
-
-                        line = line.substring(1); // >
-
-                        if (line.startsWith(" "))
-                            line = line.substring(1);
-                    }
-
-                    // Closing quotes
-                    for (int i = 0; i < level - tlevel; i++)
-                        sb.append("</blockquote>");
-                    level = tlevel;
-
-                    // Show as-is
-                    line = Html.escapeHtml(line);
-
-                    // Non breaking spaces
-                    boolean start = true;
-                    int len = line.length();
-                    for (int j = 0; j < len; j++) {
-                        char kar = line.charAt(j);
-                        if (kar == ' ' &&
-                                (start || j + 1 < len && line.charAt(j + 1) == ' '))
-                            sb.append("&nbsp;");
-                        else {
-                            start = false;
-                            sb.append(kar);
-                        }
-                    }
-
-                    sb.append("<br>");
-                }
-
-                // Closing quotes
-                for (int i = 0; i < level; i++)
-                    sb.append("</blockquote>");
-
-                sb.append("</span>");
-
-                result = sb.toString();
-            }
+            if (part == plain)
+                result = "<pre>" + result + "</pre>";
 
             return result;
         }
