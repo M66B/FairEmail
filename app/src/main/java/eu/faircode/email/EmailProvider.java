@@ -73,7 +73,7 @@ public class EmailProvider {
 
     enum UserType {LOCAL, EMAIL}
 
-    private static final int DNS_TIMEOUT = 5 * 1000; // milliseconds
+    private static final int SCAN_TIMEOUT = 5 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 15 * 1000; // milliseconds
 
     private static final ExecutorService executor =
@@ -623,21 +623,21 @@ public class EmailProvider {
             this.reachable = executor.submit(new Callable<Boolean>() {
                 @Override
                 public Boolean call() {
-                    try (Socket socket = new Socket()) {
-                        InetAddress[] iaddr = InetAddress.getAllByName(host);
-                        for (int i = 0; i < iaddr.length; i++)
-                            try {
-                                Log.i("Connecting to " + iaddr[i]);
-                                InetSocketAddress inetSocketAddress = new InetSocketAddress(iaddr[i], Server.this.port);
-                                socket.connect(inetSocketAddress, DNS_TIMEOUT);
+                    try {
+                        for (InetAddress iaddr : InetAddress.getAllByName(host)) {
+                            InetSocketAddress address = new InetSocketAddress(iaddr, Server.this.port);
+                            try (Socket socket = new Socket()) {
+                                Log.i("Connecting to " + address);
+                                socket.connect(address, SCAN_TIMEOUT);
+                                Log.i("Reachable " + address);
+                                return true;
                             } catch (Throwable ex) {
-                                if (i + 1 == iaddr.length)
-                                    throw ex;
+                                Log.i("Unreachable " + address + ": " + Helper.formatThrowable(ex));
                             }
-                        Log.i("Reachable " + Server.this);
-                        return true;
-                    } catch (IOException ex) {
-                        Log.i("Unreachable " + Server.this + ": " + Helper.formatThrowable(ex));
+                        }
+                        return false;
+                    } catch (Throwable ex) {
+                        Log.w(ex);
                         return false;
                     }
                 }
