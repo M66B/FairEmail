@@ -56,7 +56,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.RejectedExecutionException;
@@ -261,14 +260,7 @@ public class ServiceSynchronize extends ServiceBase {
                     for (int i = 0; i < last.size(); i++) {
                         TupleMessageWidget m1 = last.get(i);
                         TupleMessageWidget m2 = messages.get(i);
-                        if (!m1.id.equals(m2.id) ||
-                                !Objects.equals(m1.account, m2.account) ||
-                                !Objects.equals(m1.accountName, m2.accountName) ||
-                                !MessageHelper.equal(m1.from, m2.from) ||
-                                !m1.received.equals(m2.received) ||
-                                !Objects.equals(m1.subject, m2.subject) ||
-                                !(m1.unseen == m2.unseen) ||
-                                !(m1.unflagged == m2.unflagged)) {
+                        if (!m1.equals(m2)) {
                             changed = true;
                             break;
                         }

@@ -323,7 +323,8 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
-    String widget_unified = "SELECT message.*, account.name AS accountName" +
+    String widget_unified = "SELECT message.*" +
+            ", account.name AS accountName, folder.unified AS folderUnified" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", COUNT(message.id) - SUM(message.ui_flagged) AS unflagged" +
             ", MAX(message.received) AS dummy" +
@@ -331,7 +332,6 @@ public interface DaoMessage {
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
-            " AND folder.unified" +
             " AND NOT message.ui_hide" +
             " AND message.ui_snoozed IS NULL" +
             " AND (NOT :unseen OR NOT message.ui_seen)" +

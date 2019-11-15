@@ -23,15 +23,22 @@ import java.util.Objects;
 
 public class TupleMessageWidget extends EntityMessage {
     public String accountName;
+    public boolean folderUnified;
     public int unseen;
     public int unflagged;
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof TupleMessageEx) {
-            TupleMessageEx other = (TupleMessageEx) obj;
-            return (super.equals(obj) &&
+        if (obj instanceof TupleMessageWidget) {
+            TupleMessageWidget other = (TupleMessageWidget) obj;
+            return (this.id.equals(other.id) &&
+                    this.account.equals(other.account) &&
                     Objects.equals(this.accountName, other.accountName) &&
+                    this.folder.equals(other.folder) &&
+                    this.folderUnified == other.folderUnified &&
+                    MessageHelper.equal(this.from, other.from) &&
+                    this.received.equals(other.received) &&
+                    Objects.equals(this.subject, other.subject) &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged);
         }

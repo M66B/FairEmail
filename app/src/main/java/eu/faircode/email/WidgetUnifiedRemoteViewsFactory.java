@@ -45,6 +45,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private boolean threading;
     private boolean subject_top;
     private boolean subject_italic;
+    private long folder;
     private long account;
     private boolean unseen;
     private boolean flagged;
@@ -73,6 +74,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         subject_top = prefs.getBoolean("subject_top", false);
         subject_italic = prefs.getBoolean("subject_italic", true);
         account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+        folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         unseen = prefs.getBoolean("widget." + appWidgetId + ".unseen", false);
         flagged = prefs.getBoolean("widget." + appWidgetId + ".flagged", false);
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
@@ -83,7 +85,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         DB db = DB.getInstance(context);
         List<TupleMessageWidget> wmessages = db.message().getWidgetUnified(threading, unseen, flagged);
         for (TupleMessageWidget wmessage : wmessages)
-            if (account < 0 || wmessage.account == account)
+            if ((account < 0 || wmessage.account == account) &&
+                    (folder < 0 ? wmessage.folderUnified : wmessage.folder == folder))
                 messages.add(wmessage);
     }
 
@@ -117,11 +120,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             thread.putExtra("id", message.id);
             views.setOnClickFillInIntent(R.id.llMessage, thread);
 
-            String froms = MessageHelper.formatAddressesShort(message.from);
-            if (message.unseen > 1)
-                froms = context.getString(R.string.title_name_count, froms, Integer.toString(message.unseen));
-
-            SpannableString ssFrom = new SpannableString(froms);
+            SpannableString ssFrom = new SpannableString(MessageHelper.formatAddressesShort(message.from));
             SpannableString ssTime = new SpannableString(Helper.getRelativeTimeSpanString(context, message.received));
             SpannableString ssSubject = new SpannableString(TextUtils.isEmpty(message.subject) ? "" : message.subject);
             SpannableString ssAccount = new SpannableString(TextUtils.isEmpty(message.accountName) ? "" : message.accountName);

@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -34,19 +35,22 @@ import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ActivityWidgetUnified extends ActivityBase {
     private int appWidgetId;
 
     private Spinner spAccount;
+    private Spinner spFolder;
     private CheckBox cbUnseen;
     private CheckBox cbFlagged;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
-    private ArrayAdapter<EntityAccount> adapter;
+    private ArrayAdapter<EntityAccount> adapterAccount;
+    private ArrayAdapter<TupleFolderEx> adapterFolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +69,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         setContentView(R.layout.activity_widget_unified);
 
         spAccount = findViewById(R.id.spAccount);
+        spFolder = findViewById(R.id.spFolder);
         cbUnseen = findViewById(R.id.cbUnseen);
         cbFlagged = findViewById(R.id.cbFlagged);
         btnSave = findViewById(R.id.btnSave);
@@ -78,14 +83,19 @@ public class ActivityWidgetUnified extends ActivityBase {
             @Override
             public void onClick(View view) {
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
+                TupleFolderEx folder = (TupleFolderEx) spFolder.getSelectedItem();
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetUnified.this);
                 SharedPreferences.Editor editor = prefs.edit();
                 if (account != null && account.id > 0)
-                    editor.putString("widget." + appWidgetId + ".name", account.name);
+                    if (folder != null && folder.id > 0)
+                        editor.putString("widget." + appWidgetId + ".name", folder.getDisplayName(ActivityWidgetUnified.this));
+                    else
+                        editor.putString("widget." + appWidgetId + ".name", account.name);
                 else
                     editor.remove("widget." + appWidgetId + ".name");
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
+                editor.putLong("widget." + appWidgetId + ".folder", folder == null ? -1L : folder.id);
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.apply();
@@ -98,9 +108,60 @@ public class ActivityWidgetUnified extends ActivityBase {
             }
         });
 
-        adapter = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityAccount>());
-        adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-        spAccount.setAdapter(adapter);
+        adapterAccount = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityAccount>());
+        adapterAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spAccount.setAdapter(adapterAccount);
+
+        adapterFolder = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<TupleFolderEx>());
+        adapterFolder.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spFolder.setAdapter(adapterFolder);
+
+        spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                EntityAccount account = (EntityAccount) spAccount.getAdapter().getItem(position);
+                setFolders(account.id);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                setFolders(-1);
+            }
+
+            private void setFolders(long account) {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+
+                new SimpleTask<List<TupleFolderEx>>() {
+                    @Override
+                    protected List<TupleFolderEx> onExecute(Context context, Bundle args) {
+                        long account = args.getLong("account");
+
+                        DB db = DB.getInstance(context);
+                        List<TupleFolderEx> folders = db.folder().getFoldersEx(account);
+                        if (folders.size() > 0)
+                            Collections.sort(folders, folders.get(0).getComparator(context));
+                        return folders;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<TupleFolderEx> folders) {
+                        TupleFolderEx unified = new TupleFolderEx();
+                        unified.id = -1L;
+                        unified.name = getString(R.string.title_widget_folder_unified);
+                        folders.add(0, unified);
+
+                        adapterFolder.clear();
+                        adapterFolder.addAll(folders);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    }
+                }.execute(ActivityWidgetUnified.this, args, "widget:folders");
+            }
+        });
 
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -123,7 +184,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 all.primary = false;
                 accounts.add(0, all);
 
-                adapter.addAll(accounts);
+                adapterAccount.addAll(accounts);
 
                 grpReady.setVisibility(View.VISIBLE);
                 pbWait.setVisibility(View.GONE);
@@ -131,7 +192,6 @@ public class ActivityWidgetUnified extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.e(ex);
                 Helper.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "widget:accounts");
