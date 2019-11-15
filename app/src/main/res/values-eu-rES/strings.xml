@@ -285,7 +285,6 @@
     <string name="title_advanced_display_hidden">Erakutsi ezkutatutako mezuen testuak</string>
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
-    <string name="title_advanced_recents">Ezkutatu FairEmail berriki erabilitako pantailatik</string>
     <string name="title_advanced_biometrics_timeout">Autentifikazio biometrikoaren iraupena</string>
     <string name="title_advanced_pin">PINa</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>

@@ -137,6 +137,7 @@
     <string name="title_setup_go">Comenzar</string>
     <string name="title_setup_to_do">Pendiente</string>
     <string name="title_setup_done">Hecho</string>
+    <string name="title_setup_error">Error</string>
     <string name="title_setup_export">Exportar ajustes</string>
     <string name="title_setup_import">Importar ajustes</string>
     <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
@@ -285,7 +286,7 @@
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
     <string name="title_advanced_openpgp">Proveedor OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Descifrar automáticamente los mensajes</string>
-    <string name="title_advanced_recents">Ocultar de pantalla con aplicaciones recientes</string>
+    <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
@@ -608,6 +609,7 @@
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
     <string name="title_not_encrypted">El mensaje no está cifrado</string>
+    <string name="title_reset_sign_key">Restablecer clave de firma</string>
     <string name="title_signature_none">Mensaje no firmado</string>
     <string name="title_signature_valid">Firma de mensaje válida</string>
     <string name="title_signature_invalid">Firma de mensaje no válida</string>
@@ -854,8 +856,12 @@
     <string name="title_search_special_unseen">no_leído</string>
     <string name="title_search_special_flagged">destacado</string>
     <string name="title_search_special_snoozed">oculto</string>
+    <string name="title_widget_title_count">Recuento de mensajes</string>
+    <string name="title_widget_title_list">Lista de mensajes</string>
     <string name="title_widget_account">Cuenta</string>
     <string name="title_widget_account_all">Todas</string>
+    <string name="title_widget_folder">Carpeta</string>
+    <string name="title_widget_folder_unified">Carpetas de bandeja de entrada unificadas</string>
     <string name="title_widget_unseen">Sólo mensajes no leídos</string>
     <string name="title_widget_flagged">Sólo mensajes destacados</string>
     <string-array name="pollIntervalNames">

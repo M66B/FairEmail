@@ -284,7 +284,6 @@
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
-    <string name="title_advanced_recents">Skjul fra skærmen med de seneste apps</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>

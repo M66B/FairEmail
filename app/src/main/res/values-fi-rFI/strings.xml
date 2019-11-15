@@ -258,6 +258,7 @@
     <string name="title_advanced_automove">Vahvista viestien siirto</string>
     <string name="title_advanced_discard_delete">Luonnosta hylättäessä poista se pysyvästi</string>
     <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
+    <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän täsmätä ilmoitusten lukumäärän kanssa</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
@@ -282,7 +283,6 @@
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
-    <string name="title_advanced_recents">Piilota viimeisimmistä sovelluksista</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>

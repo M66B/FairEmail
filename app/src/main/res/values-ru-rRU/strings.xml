@@ -159,6 +159,7 @@
     <string name="title_setup_go">Далее</string>
     <string name="title_setup_to_do">Выполнить</string>
     <string name="title_setup_done">Готово</string>
+    <string name="title_setup_error">Ошибка</string>
     <string name="title_setup_export">Экспорт настроек</string>
     <string name="title_setup_import">Импорт настроек</string>
     <string name="title_setup_import_do">Импортированные учётные записи будут добавлены без перезаписи существующих</string>
@@ -307,7 +308,7 @@
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
-    <string name="title_advanced_recents">Не показывать в недавних приложениях</string>
+    <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить делать снимки экрана</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
@@ -630,6 +631,7 @@
     <string name="title_resync">Синхронизировать заново</string>
     <string name="title_no_openpgp">OpenKeychain не найдено</string>
     <string name="title_not_encrypted">Сообщение не зашифровано</string>
+    <string name="title_reset_sign_key">Сброс ключа подписи</string>
     <string name="title_signature_none">Сообщение не подписано</string>
     <string name="title_signature_valid">Подпись сообщения действительна</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
@@ -876,8 +878,12 @@
     <string name="title_search_special_unseen">непрочитано</string>
     <string name="title_search_special_flagged">избранное</string>
     <string name="title_search_special_snoozed">скрыто</string>
+    <string name="title_widget_title_count">Количество новых сообщений</string>
+    <string name="title_widget_title_list">Список сообщений</string>
     <string name="title_widget_account">Учётная запись</string>
     <string name="title_widget_account_all">Все</string>
+    <string name="title_widget_folder">Папка</string>
+    <string name="title_widget_folder_unified">Папки единого почтового ящика</string>
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>
     <string name="title_widget_flagged">Только избранные сообщения</string>
     <string-array name="pollIntervalNames">

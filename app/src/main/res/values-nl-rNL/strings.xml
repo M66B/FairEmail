@@ -137,6 +137,7 @@
     <string name="title_setup_go">Ga</string>
     <string name="title_setup_to_do">Te doen</string>
     <string name="title_setup_done">Gedaan</string>
+    <string name="title_setup_error">Fout</string>
     <string name="title_setup_export">Exporteer instellingen</string>
     <string name="title_setup_import">Importeer instellingen</string>
     <string name="title_setup_import_do">Geïmporteerde accounts worden toegevoegd zonder de bestaande te overschrijven</string>
@@ -285,7 +286,7 @@
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
-    <string name="title_advanced_recents">Verbergen op het scherm met recente apps</string>
+    <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
@@ -608,6 +609,7 @@
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
     <string name="title_not_encrypted">Bericht is niet versleuteld</string>
+    <string name="title_reset_sign_key">Reset tekensleutel</string>
     <string name="title_signature_none">Bericht niet ondertekend</string>
     <string name="title_signature_valid">Handtekening bericht geldig</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
@@ -851,8 +853,12 @@
     <string name="title_search_special_unseen">ongelezen</string>
     <string name="title_search_special_flagged">ster</string>
     <string name="title_search_special_snoozed">verborgen</string>
+    <string name="title_widget_title_count">Aantal nieuwe berichten</string>
+    <string name="title_widget_title_list">Berichtenlijst</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Alle</string>
+    <string name="title_widget_folder">Map</string>
+    <string name="title_widget_folder_unified">Gecombineerde postvak in mappen</string>
     <string name="title_widget_unseen">Alleen ongelezen berichten</string>
     <string name="title_widget_flagged">Alleen berichten met een ster</string>
     <string-array name="pollIntervalNames">

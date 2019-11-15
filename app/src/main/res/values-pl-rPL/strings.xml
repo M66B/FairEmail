@@ -159,6 +159,7 @@
     <string name="title_setup_go">Idż</string>
     <string name="title_setup_to_do">Do zrobienia</string>
     <string name="title_setup_done">Gotowe</string>
+    <string name="title_setup_error">Błąd</string>
     <string name="title_setup_export">Eksport ustawień</string>
     <string name="title_setup_import">Import ustawień</string>
     <string name="title_setup_import_do">Zaimportowane konta zostaną dodane bez nadpisywania istniejących</string>
@@ -307,7 +308,6 @@
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
-    <string name="title_advanced_recents">Ukryj na ekranie z ostatnimi aplikacjami</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
@@ -630,6 +630,7 @@
     <string name="title_resync">Resynchronizuj</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
     <string name="title_not_encrypted">Wiadomość nie jest zaszyfrowana</string>
+    <string name="title_reset_sign_key">Resetuj klucz podpisu</string>
     <string name="title_signature_none">Wiadomość niepodpisana</string>
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
@@ -877,6 +878,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_search_special_snoozed">ukryty</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Wszystkie</string>
+    <string name="title_widget_folder">Folder</string>
+    <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
     <string-array name="pollIntervalNames">

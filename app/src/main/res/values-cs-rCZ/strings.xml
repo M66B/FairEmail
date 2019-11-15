@@ -307,7 +307,6 @@
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
-    <string name="title_advanced_recents">Skrýt z obrazovky s posledními aplikacemi</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>

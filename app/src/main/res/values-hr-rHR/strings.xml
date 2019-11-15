@@ -292,7 +292,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_display_hidden">Prikaži skrivene tekstove poruka</string>
     <string name="title_advanced_openpgp">Pružatelj OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automatski dešifriraj poruke</string>
-    <string name="title_advanced_recents">Sakrij sa zaslona s nedavnim aplikacijama</string>
     <string name="title_advanced_biometrics_timeout">Timeout biometrijske autentifikacije</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Prisiliti engleski jezik</string>

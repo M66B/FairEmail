@@ -295,7 +295,6 @@
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
-    <string name="title_advanced_recents">Ascunde din ecranul cu aplicații recente</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>

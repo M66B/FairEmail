@@ -262,7 +262,6 @@
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_tracking">Automatiskt känna igen och inaktivera spårningsbilder</string>
     <string name="title_advanced_display_hidden">Visa dolda meddelandetexter</string>
-    <string name="title_advanced_recents">Dölj FairEmail från skärmen med de senaste apparna</string>
     <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
     <string name="title_advanced_pin">PIN-kod</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>

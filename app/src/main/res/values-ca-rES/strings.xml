@@ -277,7 +277,6 @@
     <string name="title_advanced_tracking">Reconèixer i desactivar automàticament les imatges de seguiment</string>
     <string name="title_advanced_display_hidden">Mostra textos de missatges ocults</string>
     <string name="title_advanced_auto_decrypt">Xifra automàticament els missatges</string>
-    <string name="title_advanced_recents">Oculta de la pantalla amb aplicacions recents</string>
     <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Forçar idioma anglès</string>
