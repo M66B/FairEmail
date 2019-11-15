@@ -80,7 +80,9 @@ public class WidgetUnified extends AppWidgetProvider {
             views.setViewVisibility(R.id.pro, pro ? View.GONE : View.VISIBLE);
             if (pro) {
                 String name = prefs.getString("widget." + appWidgetId + ".name", null);
-                if (name != null)
+                if (name == null)
+                    views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
+                else
                     views.setTextViewText(R.id.title, name);
 
                 views.setOnClickPendingIntent(R.id.title, pi);

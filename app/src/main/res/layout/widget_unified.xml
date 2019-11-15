@@ -14,7 +14,7 @@
         android:gravity="center"
         android:paddingTop="6dp"
         android:paddingBottom="6dp"
-        android:text="@string/title_folder_unified"
+        android:text="@string/title_widget_title_list"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorWidgetForeground"
         android:textStyle="bold" />

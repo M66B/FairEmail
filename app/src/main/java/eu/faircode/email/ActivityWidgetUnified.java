@@ -65,7 +65,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
-        getSupportActionBar().setSubtitle(R.string.title_folder_unified);
+        getSupportActionBar().setSubtitle(R.string.title_widget_title_list);
         setContentView(R.layout.activity_widget_unified);
 
         spAccount = findViewById(R.id.spAccount);
@@ -153,6 +153,8 @@ public class ActivityWidgetUnified extends ActivityBase {
 
                         adapterFolder.clear();
                         adapterFolder.addAll(folders);
+
+                        spFolder.setSelection(0);
                     }
 
                     @Override
