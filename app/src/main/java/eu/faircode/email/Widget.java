@@ -33,7 +33,7 @@ import androidx.preference.PreferenceManager;
 import java.text.NumberFormat;
 import java.util.concurrent.ExecutorService;
 
-public class WidgetCount extends AppWidgetProvider {
+public class Widget extends AppWidgetProvider {
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "widget");
 
@@ -63,7 +63,7 @@ public class WidgetCount extends AppWidgetProvider {
             return;
         }
 
-        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetCount.class));
+        int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, Widget.class));
         update(context, appWidgetManager, appWidgetIds, count);
     }
 
@@ -77,7 +77,7 @@ public class WidgetCount extends AppWidgetProvider {
         PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
 
         for (int appWidgetId : appWidgetIds) {
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_count);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
 
             views.setOnClickPendingIntent(R.id.widget, pi);
 

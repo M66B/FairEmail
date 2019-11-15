@@ -180,7 +180,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     .putBoolean("play_store", false)
                     .apply();
 
-            WidgetList.update(context);
+            WidgetUnified.update(context);
             return true;
         } else {
             Log.i("IAB response invalid");
@@ -400,7 +400,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
 
             editor.apply();
 
-            WidgetList.update(this);
+            WidgetUnified.update(this);
         }
 
         if (query.size() > 0)
@@ -462,7 +462,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                     for (IBillingListener listener : listeners)
                         listener.onPurchased(purchase.getSku());
 
-                    WidgetList.update(ActivityBilling.this);
+                    WidgetUnified.update(ActivityBilling.this);
                 } else
                     reportError(result, "IAB acknowledged SKU=" + purchase.getSku());
             }

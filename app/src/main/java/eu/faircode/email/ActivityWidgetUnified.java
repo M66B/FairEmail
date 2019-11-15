@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ActivityWidgetList extends ActivityBase {
+public class ActivityWidgetUnified extends ActivityBase {
     private int appWidgetId;
 
     private Spinner spAccount;
@@ -65,7 +65,7 @@ public class ActivityWidgetList extends ActivityBase {
         appWidgetId = extras.getInt(
                 AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 
-        getSupportActionBar().setSubtitle(R.string.title_widget_title_list);
+        getSupportActionBar().setSubtitle(R.string.title_folder_unified);
         setContentView(R.layout.activity_widget_unified);
 
         spAccount = findViewById(R.id.spAccount);
@@ -85,11 +85,11 @@ public class ActivityWidgetList extends ActivityBase {
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
                 TupleFolderEx folder = (TupleFolderEx) spFolder.getSelectedItem();
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetList.this);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityWidgetUnified.this);
                 SharedPreferences.Editor editor = prefs.edit();
                 if (account != null && account.id > 0)
                     if (folder != null && folder.id > 0)
-                        editor.putString("widget." + appWidgetId + ".name", folder.getDisplayName(ActivityWidgetList.this));
+                        editor.putString("widget." + appWidgetId + ".name", folder.getDisplayName(ActivityWidgetUnified.this));
                     else
                         editor.putString("widget." + appWidgetId + ".name", account.name);
                 else
@@ -100,7 +100,7 @@ public class ActivityWidgetList extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.apply();
 
-                WidgetList.init(ActivityWidgetList.this, appWidgetId);
+                WidgetUnified.init(ActivityWidgetUnified.this, appWidgetId);
                 //WidgetUnified.update(ActivityWidgetUnified.this);
 
                 setResult(RESULT_OK, resultValue);
@@ -159,7 +159,7 @@ public class ActivityWidgetList extends ActivityBase {
                     protected void onException(Bundle args, Throwable ex) {
                         Helper.unexpectedError(getSupportFragmentManager(), ex);
                     }
-                }.execute(ActivityWidgetList.this, args, "widget:folders");
+                }.execute(ActivityWidgetUnified.this, args, "widget:folders");
             }
         });
 
