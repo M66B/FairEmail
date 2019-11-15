@@ -784,7 +784,6 @@ public class FragmentCompose extends FragmentBase {
                             html = "<p>" + text.replaceAll("\\r?\\n", "<br>") + "</p>";
                         } else
                             html = HtmlHelper.sanitize(context, ref, true, false);
-                        refFile.delete();
 
                         return body + html;
                     }
@@ -794,6 +793,7 @@ public class FragmentCompose extends FragmentBase {
                         Bundle extras = new Bundle();
                         extras.putString("html", html);
                         extras.putBoolean("show", true);
+                        extras.putBoolean("reference", false);
                         onAction(R.id.action_save, extras);
                     }
 
@@ -2958,50 +2958,53 @@ public class FragmentCompose extends FragmentBase {
                         dirty = true;
 
                         if (draft.revisions == null)
-                            draft.revisions = 1;
-                        else
-                            draft.revisions++;
+                            draft.revisions = 0;
 
-                        if (action != R.id.action_undo && action != R.id.action_redo)
-                            draft.revision = draft.revisions;
+                        boolean reference;
+                        Bundle extras = args.getBundle("extras");
+                        File refFile = EntityMessage.getRefFile(context, draft.id);
+                        if (extras != null && extras.containsKey("reference"))
+                            reference = extras.getBoolean("reference", refFile.exists());
+                        else {
+                            EntityRevision revision = db.revision().getRevision(draft.id, draft.revisions);
+                            reference = (revision == null ? refFile.exists() : revision.reference);
+                        }
+
+                        draft.revisions++;
+
+                        Log.i("Inserting revision sequence=" + draft.revisions + " reference=" + reference);
+                        EntityRevision revision = new EntityRevision();
+                        revision.message = draft.id;
+                        revision.sequence = draft.revisions;
+                        revision.reference = reference;
+                        db.revision().insertRevision(revision);
 
                         Helper.writeText(draft.getFile(context), body);
                         Helper.writeText(draft.getFile(context, draft.revisions), body);
-
-                        db.message().setMessageRevision(draft.id, draft.revision);
-                        db.message().setMessageRevisions(draft.id, draft.revisions);
-
-                        db.message().setMessageContent(draft.id,
-                                true,
-                                draft.plain_only,
-                                HtmlHelper.getPreview(body),
-                                null);
                     }
 
                     if (action == R.id.action_undo || action == R.id.action_redo) {
-                        if (draft.revision != null && draft.revisions != null) {
-                            dirty = true;
-
-                            if (action == R.id.action_undo) {
-                                if (draft.revision > 1)
-                                    draft.revision--;
-                            } else {
-                                if (draft.revision < draft.revisions)
-                                    draft.revision++;
-                            }
-
-                            body = Helper.readText(draft.getFile(context, draft.revision));
-                            Helper.writeText(draft.getFile(context), body);
-
-                            db.message().setMessageRevision(draft.id, draft.revision);
-
-                            db.message().setMessageContent(draft.id,
-                                    true,
-                                    draft.plain_only, // unchanged
-                                    HtmlHelper.getPreview(body),
-                                    null);
+                        if (action == R.id.action_undo) {
+                            if (draft.revision > 1)
+                                draft.revision--;
+                        } else {
+                            if (draft.revision < draft.revisions)
+                                draft.revision++;
                         }
-                    }
+
+                        body = Helper.readText(draft.getFile(context, draft.revision));
+                        Helper.writeText(draft.getFile(context), body);
+                    } else
+                        draft.revision = draft.revisions;
+
+                    db.message().setMessageContent(draft.id,
+                            true,
+                            draft.plain_only, // unchanged
+                            HtmlHelper.getPreview(body),
+                            null);
+
+                    db.message().setMessageRevision(draft.id, draft.revision);
+                    db.message().setMessageRevisions(draft.id, draft.revisions);
 
                     if (dirty) {
                         draft.received = new Date().getTime();
@@ -3308,7 +3311,10 @@ public class FragmentCompose extends FragmentBase {
 
                 Spanned spannedRef = null;
                 File refFile = draft.getRefFile(context);
-                if (refFile.exists()) {
+                EntityRevision revision = db.revision().getRevision(draft.id, draft.revision == null ? 0 : draft.revision);
+                Log.i("Revision sequence=" + (revision == null ? null : revision.sequence) +
+                        " reference=" + (revision == null ? null : revision.reference));
+                if (revision == null ? refFile.exists() : revision.reference) {
                     String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), show_images, false);
                     Spanned spannedQuote = HtmlHelper.fromHtml(quote,
                             new Html.ImageGetter() {

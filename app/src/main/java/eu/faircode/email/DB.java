@@ -56,12 +56,13 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 112,
+        version = 113,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
                 EntityFolder.class,
                 EntityMessage.class,
+                EntityRevision.class,
                 EntityAttachment.class,
                 EntityOperation.class,
                 EntityContact.class,
@@ -82,6 +83,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoFolder folder();
 
     public abstract DaoMessage message();
+
+    public abstract DaoRevision revision();
 
     public abstract DaoAttachment attachment();
 
@@ -1084,6 +1087,20 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `move_to` INTEGER");
+                    }
+                })
+                .addMigrations(new Migration(112, 113) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE TABLE IF NOT EXISTS `revision`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                                ", `message` INTEGER NOT NULL" +
+                                ", `sequence` INTEGER NOT NULL" +
+                                ", `reference` INTEGER NOT NULL" +
+                                ", FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+                        db.execSQL("CREATE INDEX IF NOT EXISTS `index_revision_message` ON `revision` (`message`)");
+                        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_revision_message_sequence` ON `revision` (`message`, `sequence`)");
                     }
                 })
                 .build();
