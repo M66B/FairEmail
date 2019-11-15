@@ -230,20 +230,13 @@ public class EmailProvider {
             Record[] records = lookupDNS(context, domain, Type.MX);
             for (Record record : records) {
                 String target = ((MXRecord) record).getTarget().toString(true);
-                while (!TextUtils.isEmpty(target)) {
+                while (target != null && target.indexOf('.') > 0) {
                     try {
                         return _fromISPDB(context, target, email);
                     } catch (Throwable ex1) {
                         Log.w(ex1);
-
                         int dot = target.indexOf('.');
-                        if (dot < 0)
-                            target = null;
-                        else {
-                            target = target.substring(dot + 1);
-                            if (target.indexOf('.') < 0)
-                                target = null;
-                        }
+                        target = target.substring(dot + 1);
                     }
                 }
             }
