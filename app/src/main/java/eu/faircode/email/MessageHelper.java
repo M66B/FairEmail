@@ -772,6 +772,16 @@ public class MessageHelper {
     }
 
     long getReceived() throws MessagingException {
+        String date = imessage.getHeader("Date", null);
+        if (date != null) {
+            try {
+                Date received = new MailDateFormat().parse(date);
+                Log.i("Parsed received=" + received);
+                return received.getTime();
+            } catch (java.text.ParseException ignored) {
+            }
+        }
+
         Date received = imessage.getReceivedDate();
         if (received == null)
             received = imessage.getSentDate();
