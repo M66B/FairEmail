@@ -781,7 +781,7 @@ public class FragmentCompose extends FragmentBase {
                             String text = HtmlHelper.getText(ref);
                             html = "<p>" + text.replaceAll("\\r?\\n", "<br>") + "</p>";
                         } else
-                            html = HtmlHelper.sanitize(context, ref, true);
+                            html = HtmlHelper.sanitize(context, ref, true, false);
                         refFile.delete();
 
                         return body + html;
@@ -2235,7 +2235,7 @@ public class FragmentCompose extends FragmentBase {
                         data.draft.subject = args.getString("subject", "");
                         body = args.getString("body", "");
                         if (!TextUtils.isEmpty(body))
-                            body = HtmlHelper.sanitize(context, body, false);
+                            body = HtmlHelper.sanitize(context, body, false, false);
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
@@ -2309,7 +2309,7 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.subject = ref.subject;
                             if (ref.content) {
                                 String html = Helper.readText(ref.getFile(context));
-                                body = HtmlHelper.sanitize(context, html, true);
+                                body = HtmlHelper.sanitize(context, html, true, false);
                             }
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
@@ -2596,7 +2596,7 @@ public class FragmentCompose extends FragmentBase {
                     if (data.draft.content) {
                         File file = data.draft.getFile(context);
                         String html = Helper.readText(file);
-                        html = HtmlHelper.sanitize(context, html, true);
+                        html = HtmlHelper.sanitize(context, html, true, false);
                         Helper.writeText(file, html);
                     } else {
                         if (data.draft.uid == null)
@@ -3316,7 +3316,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedRef = null;
                 File refFile = draft.getRefFile(context);
                 if (refFile.exists()) {
-                    String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), show_images);
+                    String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), show_images, false);
                     Spanned spannedQuote = HtmlHelper.fromHtml(quote,
                             new Html.ImageGetter() {
                                 @Override

@@ -80,9 +80,9 @@ public class HtmlHelper {
     private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
 
-    static String sanitize(Context context, String html, boolean show_images) {
+    static String sanitize(Context context, String html, boolean show_images, boolean autolink) {
         try {
-            return _sanitize(context, html, show_images);
+            return _sanitize(context, html, show_images, autolink);
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);
@@ -90,7 +90,7 @@ public class HtmlHelper {
         }
     }
 
-    private static String _sanitize(Context context, String html, boolean show_images) {
+    private static String _sanitize(Context context, String html, boolean show_images, boolean autolink) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
@@ -450,69 +450,71 @@ public class HtmlHelper {
         }
 
         // Autolink
-        final Pattern pattern = Pattern.compile(
-                PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
-                        PatternsCompat.AUTOLINK_WEB_URL.pattern());
+        if (autolink) {
+            final Pattern pattern = Pattern.compile(
+                    PatternsCompat.AUTOLINK_EMAIL_ADDRESS.pattern() + "|" +
+                            PatternsCompat.AUTOLINK_WEB_URL.pattern());
 
-        NodeTraversor.traverse(new NodeVisitor() {
-            private int links = 0;
+            NodeTraversor.traverse(new NodeVisitor() {
+                private int links = 0;
 
-            @Override
-            public void head(Node node, int depth) {
-                if (links < MAX_AUTO_LINK && node instanceof TextNode) {
-                    TextNode tnode = (TextNode) node;
-                    String text = tnode.getWholeText();
+                @Override
+                public void head(Node node, int depth) {
+                    if (links < MAX_AUTO_LINK && node instanceof TextNode) {
+                        TextNode tnode = (TextNode) node;
+                        String text = tnode.getWholeText();
 
-                    Matcher matcher = pattern.matcher(text);
-                    if (matcher.find()) {
-                        Element span = document.createElement("span");
+                        Matcher matcher = pattern.matcher(text);
+                        if (matcher.find()) {
+                            Element span = document.createElement("span");
 
-                        int pos = 0;
-                        do {
-                            boolean linked = false;
-                            Node parent = tnode.parent();
-                            while (parent != null) {
-                                if ("a".equals(parent.nodeName())) {
-                                    linked = true;
-                                    break;
+                            int pos = 0;
+                            do {
+                                boolean linked = false;
+                                Node parent = tnode.parent();
+                                while (parent != null) {
+                                    if ("a".equals(parent.nodeName())) {
+                                        linked = true;
+                                        break;
+                                    }
+                                    parent = parent.parent();
                                 }
-                                parent = parent.parent();
-                            }
 
-                            boolean email = matcher.group().contains("@") && !matcher.group().contains(":");
-                            if (BuildConfig.DEBUG)
-                                Log.i("Web url=" + matcher.group() +
-                                        " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
-                                        " linked=" + linked + " email=" + email + " count=" + links);
+                                boolean email = matcher.group().contains("@") && !matcher.group().contains(":");
+                                if (BuildConfig.DEBUG)
+                                    Log.i("Web url=" + matcher.group() +
+                                            " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
+                                            " linked=" + linked + " email=" + email + " count=" + links);
 
-                            if (linked)
-                                span.appendText(text.substring(pos, matcher.end()));
-                            else {
-                                span.appendText(text.substring(pos, matcher.start()));
+                                if (linked)
+                                    span.appendText(text.substring(pos, matcher.end()));
+                                else {
+                                    span.appendText(text.substring(pos, matcher.start()));
 
-                                Element a = document.createElement("a");
-                                a.attr("href", (email ? "mailto:" : "") + matcher.group());
-                                a.text(matcher.group());
-                                span.appendChild(a);
+                                    Element a = document.createElement("a");
+                                    a.attr("href", (email ? "mailto:" : "") + matcher.group());
+                                    a.text(matcher.group());
+                                    span.appendChild(a);
 
-                                links++;
-                            }
+                                    links++;
+                                }
 
-                            pos = matcher.end();
-                        } while (links < MAX_AUTO_LINK && matcher.find());
+                                pos = matcher.end();
+                            } while (links < MAX_AUTO_LINK && matcher.find());
 
-                        span.appendText(text.substring(pos));
+                            span.appendText(text.substring(pos));
 
-                        tnode.before(span);
-                        tnode.text("");
+                            tnode.before(span);
+                            tnode.text("");
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void tail(Node node, int depth) {
-            }
-        }, document);
+                @Override
+                public void tail(Node node, int depth) {
+                }
+            }, document);
+        }
 
         // Selective new lines
         for (Element div : document.select("div"))

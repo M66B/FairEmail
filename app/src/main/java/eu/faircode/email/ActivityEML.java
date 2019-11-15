@@ -139,7 +139,7 @@ public class ActivityEML extends ActivityBase {
 
                     String html = result.parts.getHtml(context);
                     if (html != null)
-                        result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, html, false));
+                        result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, html, false, false));
 
                     return result;
                 }

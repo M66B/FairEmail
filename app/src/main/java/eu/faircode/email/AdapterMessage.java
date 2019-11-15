@@ -1449,7 +1449,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return document.html();
                     } else {
                         // Cleanup message
-                        String html = HtmlHelper.sanitize(context, body, show_images);
+                        String html = HtmlHelper.sanitize(context, body, show_images, true);
 
                         // Collapse quotes
                         if (!show_quotes) {
