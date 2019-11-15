@@ -690,6 +690,7 @@
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">OpenKeychain not found</string>
     <string name="title_not_encrypted">Message is not encrypted</string>
+    <string name="title_reset_sign_key">Reset sign key</string>
 
     <string name="title_signature_none">Message not signed</string>
     <string name="title_signature_valid">Message signature valid</string>

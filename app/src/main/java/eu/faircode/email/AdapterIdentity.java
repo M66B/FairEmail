@@ -168,7 +168,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(identity.synchronize);
 
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 2, R.string.title_copy);
+            if (identity.sign_key != null)
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 2, R.string.title_reset_sign_key);
+
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -176,6 +179,10 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                     switch (item.getItemId()) {
                         case R.string.title_enabled:
                             onActionSync(!item.isChecked());
+                            return true;
+
+                        case R.string.title_reset_sign_key:
+                            onActionClearSignKey();
                             return true;
 
                         case R.string.title_copy:
@@ -211,6 +218,28 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                             Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "identitty:enable");
+                }
+
+                private void onActionClearSignKey() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", identity.id);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.identity().setIdentitySignKey(id, null);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Helper.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "identitty:clear_sign_key");
                 }
 
                 private void onActionCopy() {

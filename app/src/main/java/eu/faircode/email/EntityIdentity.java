@@ -256,7 +256,7 @@ public class EntityIdentity {
                     Objects.equals(this.sender_extra_regex, other.sender_extra_regex) &&
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.bcc, other.bcc) &&
-                    this.encrypt.equals(other.encrypt) &&
+                    Objects.equals(this.sign_key, other.sign_key) &&
                     Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.error, other.error) &&
