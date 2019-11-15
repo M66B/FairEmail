@@ -52,8 +52,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.Date;
 
 import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentPop extends FragmentBase {
     private ViewGroup view;
@@ -164,8 +162,6 @@ public class FragmentPop extends FragmentBase {
 
         // Initialize
         Helper.setViewsEnabled(view, false);
-
-        tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
         pbSave.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);

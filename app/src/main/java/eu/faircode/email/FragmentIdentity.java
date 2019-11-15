@@ -69,8 +69,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentIdentity extends FragmentBase {
     private ViewGroup view;
@@ -217,7 +215,6 @@ public class FragmentIdentity extends FragmentBase {
                     tvInstructions.setVisibility(View.GONE);
                     grpAdvanced.setVisibility(View.GONE);
                 }
-                tilPassword.setEndIconMode(position == 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
                 Integer tag = (Integer) adapterView.getTag();
                 if (Objects.equals(tag, position))
@@ -424,7 +421,6 @@ public class FragmentIdentity extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
-        tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
         btnAdvanced.setVisibility(View.GONE);
 

@@ -68,8 +68,6 @@ import java.util.Objects;
 import javax.mail.Folder;
 
 import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 
 public class FragmentAccount extends FragmentBase {
     private ViewGroup view;
@@ -423,7 +421,6 @@ public class FragmentAccount extends FragmentBase {
 
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
-        tilPassword.setEndIconMode(id < 0 ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
 
         btnAdvanced.setVisibility(View.GONE);
 
