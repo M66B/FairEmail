@@ -197,10 +197,8 @@ class ImageHelper {
         return round;
     }
 
-    static Drawable decodeImage(final Context context, final long id, String source, boolean show, final TextView view) {
+    static Drawable decodeImage(final Context context, final long id, String source, boolean show, int zoom, final TextView view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         boolean inline = prefs.getBoolean("inline_images", false);
 
         final int px = Helper.dp2pixels(context, (zoom + 1) * 24);

@@ -179,6 +179,13 @@ public class ApplicationEx extends Application {
                 editor.putBoolean("secure", prefs.getBoolean("no_history", false));
                 editor.remove("no_history");
             }
+
+            if (prefs.contains("zoom")) {
+                int zoom = prefs.getInt("zoom", 1);
+                editor.putInt("view_zoom", zoom);
+                editor.putInt("compose_zoom", zoom);
+                editor.remove("zoom");
+            }
         }
 
         if (version < BuildConfig.VERSION_CODE)

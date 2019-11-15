@@ -577,7 +577,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         rvMessage.addItemDecoration(dateDecorator);
 
         boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         String sort = prefs.getString("sort", "time");
         boolean ascending = prefs.getBoolean(
                 viewType == AdapterMessage.ViewType.THREAD ? "ascending_thread" : "ascending_list", false);
@@ -2553,7 +2553,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
 
@@ -2943,9 +2943,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private void onMenuZoom() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
+        int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         zoom = ++zoom % 3;
-        prefs.edit().putInt("zoom", zoom).apply();
+        prefs.edit().putInt("view_zoom", zoom).apply();
         adapter.setZoom(zoom);
     }
 
@@ -2955,7 +2955,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         prefs.edit().putBoolean("compact", compact).apply();
 
         int zoom = (compact ? 0 : 1);
-        prefs.edit().putInt("zoom", zoom).apply();
+        prefs.edit().putInt("view_zoom", zoom).apply();
 
         adapter.setCompact(compact);
         adapter.setZoom(zoom);

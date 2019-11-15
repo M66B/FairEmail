@@ -1392,10 +1392,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected Object onExecute(final Context context, final Bundle args) throws IOException {
                     TupleMessageEx message = (TupleMessageEx) args.getSerializable("message");
-                    boolean show_full = args.getBoolean("show_full");
-                    boolean show_images = args.getBoolean("show_images");
-                    boolean show_quotes = args.getBoolean("show_quotes");
-                    int zoom = args.getInt("zoom");
+                    final boolean show_full = args.getBoolean("show_full");
+                    final boolean show_images = args.getBoolean("show_images");
+                    final boolean show_quotes = args.getBoolean("show_quotes");
+                    final int zoom = args.getInt("zoom");
 
                     if (message == null || !message.content)
                         return null;
@@ -1473,7 +1473,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
-                                Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, tvBody);
+                                Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, zoom, tvBody);
 
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                                     if (drawable instanceof AnimatedImageDrawable)
@@ -3155,6 +3155,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Bundle args = new Bundle();
             args.putLong("id", id);
             args.putString("source", source);
+            args.putInt("zoom", zoom);
 
             FragmentDialogImage fragment = new FragmentDialogImage();
             fragment.setArguments(args);
@@ -4391,7 +4392,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 protected Drawable onExecute(Context context, Bundle args) throws Throwable {
                     long id = args.getLong("id");
                     String source = args.getString("source");
-                    return ImageHelper.decodeImage(context, id, source, true, null);
+                    int zoom = args.getInt("zoom");
+                    return ImageHelper.decodeImage(context, id, source, true, zoom, null);
                 }
 
                 @Override

@@ -191,6 +191,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean encrypt = false;
     private boolean media = true;
     private boolean compact = false;
+    private int zoom = 0;
 
     private long working = -1;
     private State state = State.NONE;
@@ -235,6 +236,7 @@ public class FragmentCompose extends FragmentBase {
         monospaced = prefs.getBoolean("monospaced", false);
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
+        zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
 
         setTitle(R.string.page_compose);
         setSubtitle(getResources().getQuantityString(R.plurals.page_message, 1));
@@ -1071,22 +1073,13 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuZoom() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
         zoom = ++zoom % 3;
-        prefs.edit().putInt("zoom", zoom).apply();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit().putInt("compose_zoom", zoom).apply();
         setZoom();
     }
 
     private void setZoom() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean compact = prefs.getBoolean("compact", false);
-        int zoom = prefs.getInt("zoom", compact ? 0 : 1);
-        setZoom(zoom);
-    }
-
-    private void setZoom(int zoom) {
         float textSize = Helper.getTextSize(getContext(), zoom);
         if (textSize != 0) {
             etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
@@ -1484,7 +1477,7 @@ public class FragmentCompose extends FragmentBase {
                 return HtmlHelper.fromHtml(HtmlHelper.toHtml(s), new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        return ImageHelper.decodeImage(context, id, source, true, etBody);
+                        return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
                     }
                 }, null);
             }
@@ -3296,7 +3289,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedBody = HtmlHelper.fromHtml(body, new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
-                        return ImageHelper.decodeImage(context, id, source, true, etBody);
+                        return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
                     }
                 }, null);
 
@@ -3321,7 +3314,7 @@ public class FragmentCompose extends FragmentBase {
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
-                                    return ImageHelper.decodeImage(context, id, source, show_images, tvReference);
+                                    return ImageHelper.decodeImage(context, id, source, show_images, zoom, tvReference);
                                 }
                             },
                             null);
