@@ -286,6 +286,7 @@
     <string name="title_advanced_display_hidden">Gizli mesaj metinlerini göster</string>
     <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
+    <string name="title_advanced_secure">Son kullanılan uygulamalar ekranından gizle ve ekran görüntüsü alınmasını engelle</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
@@ -855,8 +856,12 @@
     <string name="title_search_special_unseen">okunmamış</string>
     <string name="title_search_special_flagged">yıldızlı</string>
     <string name="title_search_special_snoozed">gizli</string>
+    <string name="title_widget_title_count">Yeni mesaj sayısı</string>
+    <string name="title_widget_title_list">Mesaj listesi</string>
     <string name="title_widget_account">Hesap</string>
     <string name="title_widget_account_all">Tümü</string>
+    <string name="title_widget_folder">Klasör</string>
+    <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
     <string-array name="pollIntervalNames">
