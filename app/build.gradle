@@ -294,6 +294,7 @@ dependencies {
     implementation "dnsjava:dnsjava:$dnsjava_version"
 
     // https://github.com/open-keychain/openpgp-api
+    // https://mvnrepository.com/artifact/org.sufficientlysecure/openpgp-api
     implementation "org.sufficientlysecure:openpgp-api:$openpgp_version"
 
     // https://www.sqlite.org/changes.html
