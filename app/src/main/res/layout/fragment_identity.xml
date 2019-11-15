@@ -594,17 +594,28 @@
             app:layout_constraintTop_toTopOf="@id/btnSave" />
 
         <TextView
-            android:id="@+id/tvError"
+            android:id="@+id/tvErrorTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:text="@string/title_setup_error"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSave" />
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:autoLink="web"
-            android:text="error"
+            android:text="error message"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSave" />
+            app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
 
         <Button
             android:id="@+id/btnHelp"
@@ -675,5 +686,11 @@
                 cbSynchronize,cbPrimary,
                 cbSenderExtra,tvSenderExtra,etSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvBcc,etBcc" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpError"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvErrorTitle,tvError" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

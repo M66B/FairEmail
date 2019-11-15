@@ -47,6 +47,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.Group;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -66,6 +67,7 @@ public class FragmentGmail extends FragmentBase {
     private ContentLoadingProgressBar pbSelect;
 
     private TextView tvError;
+    private Group grpError;
 
     @Override
     @Nullable
@@ -84,6 +86,7 @@ public class FragmentGmail extends FragmentBase {
         pbSelect = view.findViewById(R.id.pbSelect);
 
         tvError = view.findViewById(R.id.tvError);
+        grpError = view.findViewById(R.id.grpError);
 
         List<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.READ_CONTACTS); // profile
@@ -105,11 +108,11 @@ public class FragmentGmail extends FragmentBase {
                 String name = etName.getText().toString().trim();
                 if (TextUtils.isEmpty(name)) {
                     tvError.setText(R.string.title_no_name);
-                    tvError.setVisibility(View.VISIBLE);
+                    grpError.setVisibility(View.VISIBLE);
                     return;
                 }
 
-                tvError.setVisibility(View.GONE);
+                grpError.setVisibility(View.GONE);
 
                 startActivityForResult(
                         Helper.getChooser(getContext(), newChooseAccountIntent(
@@ -128,7 +131,7 @@ public class FragmentGmail extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
         pbSelect.setVisibility(View.GONE);
-        tvError.setVisibility(View.GONE);
+        grpError.setVisibility(View.GONE);
 
         boolean granted = true;
         for (String permission : permissions)
@@ -240,7 +243,7 @@ public class FragmentGmail extends FragmentBase {
                                 } catch (Throwable ex) {
                                     Log.e(ex);
                                     tvError.setText(Helper.formatThrowable(ex));
-                                    tvError.setVisibility(View.VISIBLE);
+                                    grpError.setVisibility(View.VISIBLE);
 
                                     new Handler().post(new Runnable() {
                                         @Override
@@ -401,7 +404,7 @@ public class FragmentGmail extends FragmentBase {
                     tvError.setText(ex.getMessage());
                 else
                     tvError.setText(Helper.formatThrowable(ex));
-                tvError.setVisibility(View.VISIBLE);
+                grpError.setVisibility(View.VISIBLE);
 
                 new Handler().post(new Runnable() {
                     @Override

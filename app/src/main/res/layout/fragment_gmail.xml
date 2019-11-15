@@ -85,16 +85,33 @@
             app:layout_constraintTop_toTopOf="@id/btnSelect" />
 
         <TextView
-            android:id="@+id/tvError"
+            android:id="@+id/tvErrorTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:text="@string/title_setup_error"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSelect" />
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:autoLink="web"
-            android:text="error"
+            android:text="error message"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSelect" />
+            app:layout_constraintTop_toBottomOf="@id/tvErrorTitle" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpError"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvErrorTitle,tvError" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

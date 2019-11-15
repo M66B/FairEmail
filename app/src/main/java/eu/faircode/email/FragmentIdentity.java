@@ -120,6 +120,7 @@ public class FragmentIdentity extends FragmentBase {
 
     private Group grpAuthorize;
     private Group grpAdvanced;
+    private Group grpError;
 
     private long id = -1;
     private long copy = -1;
@@ -201,6 +202,7 @@ public class FragmentIdentity extends FragmentBase {
 
         grpAuthorize = view.findViewById(R.id.grpAuthorize);
         grpAdvanced = view.findViewById(R.id.grpAdvanced);
+        grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
 
@@ -209,7 +211,7 @@ public class FragmentIdentity extends FragmentBase {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 grpAuthorize.setVisibility(position > 0 ? View.VISIBLE : View.GONE);
                 if (position == 0) {
-                    tvError.setVisibility(View.GONE);
+                    grpError.setVisibility(View.GONE);
                     btnHelp.setVisibility(View.GONE);
                     btnSupport.setVisibility(View.GONE);
                     tvInstructions.setVisibility(View.GONE);
@@ -428,13 +430,13 @@ public class FragmentIdentity extends FragmentBase {
 
         btnSave.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
-        tvError.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
         btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
 
         grpAuthorize.setVisibility(View.GONE);
         grpAdvanced.setVisibility(View.GONE);
+        grpError.setVisibility(View.GONE);
 
         return view;
     }
@@ -530,7 +532,7 @@ public class FragmentIdentity extends FragmentBase {
                 getActivity().invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, false);
                 pbSave.setVisibility(View.VISIBLE);
-                tvError.setVisibility(View.GONE);
+                grpError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
                 btnSupport.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
@@ -803,7 +805,7 @@ public class FragmentIdentity extends FragmentBase {
 
     private void showError(Throwable ex) {
         tvError.setText(Helper.formatThrowable(ex, false));
-        tvError.setVisibility(View.VISIBLE);
+        grpError.setVisibility(View.VISIBLE);
 
         final EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
         if (provider != null && provider.link != null) {

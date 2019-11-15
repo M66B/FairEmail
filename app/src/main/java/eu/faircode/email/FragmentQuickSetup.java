@@ -73,6 +73,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private ContentLoadingProgressBar pbSave;
 
     private Group grpSetup;
+    private Group grpError;
 
     @Override
     @Nullable
@@ -101,6 +102,7 @@ public class FragmentQuickSetup extends FragmentBase {
         pbSave = view.findViewById(R.id.pbSave);
 
         grpSetup = view.findViewById(R.id.grpSetup);
+        grpError = view.findViewById(R.id.grpError);
 
         // Wire controls
 
@@ -149,12 +151,12 @@ public class FragmentQuickSetup extends FragmentBase {
         // Initialize
         pbCheck.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
-        tvError.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
         btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
         grpSetup.setVisibility(View.GONE);
+        grpError.setVisibility(View.GONE);
 
         return view;
     }
@@ -200,7 +202,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 Helper.setViewsEnabled(view, false);
                 pbCheck.setVisibility(check ? View.VISIBLE : View.GONE);
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
-                tvError.setVisibility(View.GONE);
+                grpError.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
                 btnSupport.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
@@ -376,7 +378,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException) {
                     tvError.setText(ex.getMessage());
-                    tvError.setVisibility(View.VISIBLE);
+                    grpError.setVisibility(View.VISIBLE);
 
                     new Handler().post(new Runnable() {
                         @Override
@@ -386,7 +388,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     });
                 } else {
                     tvError.setText(Helper.formatThrowable(ex, false));
-                    tvError.setVisibility(View.VISIBLE);
+                    grpError.setVisibility(View.VISIBLE);
 
                     if (args.containsKey("link")) {
                         Uri uri = Uri.parse(args.getString("link"));
