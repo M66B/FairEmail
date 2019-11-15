@@ -173,6 +173,12 @@ public class ApplicationEx extends Application {
                 editor.putInt("default_snooze", hours);
                 editor.remove("notify_snooze_duration");
             }
+
+        } else if (version < 819) {
+            if (prefs.contains("no_history")) {
+                editor.putBoolean("secure", prefs.getBoolean("no_history", false));
+                editor.remove("no_history");
+            }
         }
 
         if (version < BuildConfig.VERSION_CODE)

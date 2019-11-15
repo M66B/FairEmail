@@ -73,8 +73,9 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         this.contacts = hasPermission(Manifest.permission.READ_CONTACTS);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean no_history = prefs.getBoolean("no_history", false);
-        if (no_history)
+
+        boolean secure = prefs.getBoolean("secure", false);
+        if (secure)
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 
         if (!this.getClass().equals(ActivityMain.class)) {

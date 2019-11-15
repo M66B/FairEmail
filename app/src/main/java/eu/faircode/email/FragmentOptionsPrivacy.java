@@ -63,7 +63,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Spinner spOpenPgp;
     private SwitchCompat swEncrypt;
     private SwitchCompat swAutoDecrypt;
-    private SwitchCompat swNoHistory;
+    private SwitchCompat swSecure;
     private Button btnBiometrics;
     private Spinner spBiometricsTimeout;
     private Button btnPin;
@@ -73,7 +73,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private final static String[] RESET_OPTIONS = new String[]{
             "disable_tracking", "display_hidden",
             "openpgp_provider", "encrypt_default", "auto_decrypt",
-            "no_history",
+            "secure",
             "biometrics", "pin", "biometrics_timeout"
     };
 
@@ -92,7 +92,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
         swEncrypt = view.findViewById(R.id.swEncrypt);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
-        swNoHistory = view.findViewById(R.id.swNoHistory);
+        swSecure = view.findViewById(R.id.swSecure);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         btnPin = view.findViewById(R.id.btnPin);
@@ -154,10 +154,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
-        swNoHistory.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swSecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("no_history", checked).commit(); // apply won't work here
+                prefs.edit().putBoolean("secure", checked).commit(); // apply won't work here
                 restart();
             }
         });
@@ -267,7 +267,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
-        swNoHistory.setChecked(prefs.getBoolean("no_history", false));
+        swSecure.setChecked(prefs.getBoolean("secure", false));
 
         boolean biometrics = prefs.getBoolean("biometrics", false);
         btnBiometrics.setText(biometrics
