@@ -271,7 +271,7 @@ public class ServiceSynchronize extends ServiceBase {
                 last = messages;
 
                 if (changed)
-                    WidgetUnified.update(ServiceSynchronize.this);
+                    WidgetList.update(ServiceSynchronize.this);
             }
         });
     }
@@ -412,7 +412,7 @@ public class ServiceSynchronize extends ServiceBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean badge = prefs.getBoolean("badge", true);
 
-        Widget.update(this, unseen);
+        WidgetCount.update(this, unseen);
 
         try {
             if (unseen == null || !badge)

@@ -206,7 +206,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("threading", checked).apply();
-                WidgetUnified.update(getContext());
+                WidgetList.update(getContext());
             }
         });
 
@@ -336,7 +336,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subject_top", checked).apply();
-                WidgetUnified.update(getContext());
+                WidgetList.update(getContext());
             }
         });
 
@@ -344,7 +344,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("subject_italic", checked).apply();
-                WidgetUnified.update(getContext());
+                WidgetList.update(getContext());
             }
         });
 

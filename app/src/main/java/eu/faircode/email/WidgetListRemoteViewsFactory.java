@@ -38,7 +38,7 @@ import androidx.preference.PreferenceManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
+public class WidgetListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     private Context context;
     private int appWidgetId;
 
@@ -53,7 +53,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int colorWidgetRead;
     private List<TupleMessageWidget> messages = new ArrayList<>();
 
-    WidgetUnifiedRemoteViewsFactory(final Context context, Intent intent) {
+    WidgetListRemoteViewsFactory(final Context context, Intent intent) {
         this.context = context;
         this.appWidgetId = intent.getIntExtra(
                 AppWidgetManager.EXTRA_APPWIDGET_ID,

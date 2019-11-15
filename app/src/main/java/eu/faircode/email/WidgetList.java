@@ -32,7 +32,7 @@ import android.widget.RemoteViews;
 
 import androidx.preference.PreferenceManager;
 
-public class WidgetUnified extends AppWidgetProvider {
+public class WidgetList extends AppWidgetProvider {
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
         update(context, appWidgetManager, appWidgetIds);
@@ -59,7 +59,7 @@ public class WidgetUnified extends AppWidgetProvider {
                 return;
             }
 
-            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetUnified.class));
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetList.class));
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.lv);
         }
     }
@@ -75,17 +75,19 @@ public class WidgetUnified extends AppWidgetProvider {
 
         boolean pro = ActivityBilling.isPro(context);
         for (int appWidgetId : appWidgetIds) {
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_list);
 
             views.setViewVisibility(R.id.pro, pro ? View.GONE : View.VISIBLE);
             if (pro) {
                 String name = prefs.getString("widget." + appWidgetId + ".name", null);
-                if (name != null)
+                if (name == null)
+                    views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
+                else
                     views.setTextViewText(R.id.title, name);
 
                 views.setOnClickPendingIntent(R.id.title, pi);
 
-                Intent service = new Intent(context, WidgetUnifiedService.class);
+                Intent service = new Intent(context, WidgetListService.class);
                 service.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
                 service.setData(Uri.parse(service.toUri(Intent.URI_INTENT_SCHEME)));
 

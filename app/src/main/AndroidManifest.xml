@@ -90,7 +90,7 @@
         </activity>
 
         <activity
-            android:name=".ActivityWidgetUnified"
+            android:name=".ActivityWidgetList"
             android:exported="true">
 
             <intent-filter>
@@ -279,12 +279,12 @@
         </provider>
 
         <receiver
-            android:name=".Widget"
+            android:name=".WidgetCount"
             android:label="@string/title_widget_title_count">
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget" />
+                android:resource="@xml/widget_count" />
 
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -292,12 +292,12 @@
         </receiver>
 
         <receiver
-            android:name=".WidgetUnified"
+            android:name=".WidgetList"
             android:label="@string/title_widget_title_list">
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_unified" />
+                android:resource="@xml/widget_list" />
 
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -305,7 +305,7 @@
         </receiver>
 
         <service
-            android:name="WidgetUnifiedService"
+            android:name="WidgetListService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <receiver android:name=".ReceiverAutoStart">
