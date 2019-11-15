@@ -831,6 +831,7 @@ public class MessageHelper {
                 else {
                     if (compose) {
                         boolean quote = false;
+                        personal = personal.replace("\"", "");
                         for (int c = 0; c < personal.length(); c++)
                             if ("()<>,;:\\\"[]@".indexOf(personal.charAt(c)) >= 0) {
                                 quote = true;
