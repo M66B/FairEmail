@@ -280,7 +280,7 @@
 
         <receiver
             android:name=".Widget"
-            android:label="@string/tile_unseen">
+            android:label="@string/title_widget_title_count">
 
             <meta-data
                 android:name="android.appwidget.provider"
@@ -293,7 +293,7 @@
 
         <receiver
             android:name=".WidgetUnified"
-            android:label="@string/title_folder_unified">
+            android:label="@string/title_widget_title_list">
 
             <meta-data
                 android:name="android.appwidget.provider"
