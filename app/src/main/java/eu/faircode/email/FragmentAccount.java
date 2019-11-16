@@ -79,7 +79,6 @@ public class FragmentAccount extends FragmentBase {
     private Button btnAutoConfig;
     private ContentLoadingProgressBar pbAutoConfig;
 
-    private TextView tvActiveSyncSupport;
     private EditText etHost;
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
@@ -182,7 +181,6 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig = view.findViewById(R.id.btnAutoConfig);
         pbAutoConfig = view.findViewById(R.id.pbAutoConfig);
 
-        tvActiveSyncSupport = view.findViewById(R.id.tvActiveSyncSupport);
         etHost = view.findViewById(R.id.etHost);
         etPort = view.findViewById(R.id.etPort);
         rgEncryption = view.findViewById(R.id.rgEncryption);
@@ -280,14 +278,6 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
-
-        tvActiveSyncSupport.setPaintFlags(tvActiveSyncSupport.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvActiveSyncSupport.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Helper.viewFAQ(getContext(), 133);
             }
         });
 

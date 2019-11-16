@@ -167,7 +167,8 @@ public class FragmentSetup extends FragmentBase {
 
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_gmail, 1, R.string.title_setup_gmail);
                 //popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_outlook, 2, R.string.title_setup_outlook);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, 3, R.string.title_setup_other);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_activesync, 3, R.string.title_setup_activesync);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_other, 4, R.string.title_setup_other);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -182,6 +183,9 @@ public class FragmentSetup extends FragmentBase {
                                 return true;
                             case R.string.title_setup_outlook:
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_OUTLOOK));
+                                return true;
+                            case R.string.title_setup_activesync:
+                                Helper.viewFAQ(getContext(), 133);
                                 return true;
                             case R.string.title_setup_other:
                                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
