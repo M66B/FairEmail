@@ -793,7 +793,6 @@ public class FragmentCompose extends FragmentBase {
                         Bundle extras = new Bundle();
                         extras.putString("html", html);
                         extras.putBoolean("show", true);
-                        extras.putBoolean("reference", false);
                         onAction(R.id.action_save, extras);
                     }
 
@@ -1952,11 +1951,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
-        if (extras.containsKey("html")) {
-            args.putString("body", extras.getString("html"));
-            extras.remove("html");
-        } else
-            args.putString("body", HtmlHelper.toHtml(etBody.getText()));
+        args.putString("body", HtmlHelper.toHtml(etBody.getText()));
         args.putBoolean("empty", isEmpty());
         args.putBundle("extras", extras);
 
@@ -2438,6 +2433,9 @@ public class FragmentCompose extends FragmentBase {
                     data.draft.seen = true;
                     data.draft.ui_seen = true;
 
+                    data.draft.revision = 1;
+                    data.draft.revisions = 1;
+
                     data.draft.id = db.message().insertMessage(data.draft);
                     Helper.writeText(data.draft.getFile(context), body);
 
@@ -2582,6 +2580,14 @@ public class FragmentCompose extends FragmentBase {
                                     args.putBoolean("incomplete", true);
                             }
                     }
+
+                    // Create initial revision
+                    EntityRevision revision = new EntityRevision();
+                    revision.message = data.draft.id;
+                    revision.sequence = data.draft.revision;
+                    revision.reference = data.draft.getRefFile(context).exists();
+                    db.revision().insertRevision(revision);
+                    Helper.writeText(data.draft.getFile(context, data.draft.revision), body);
 
                     if (data.draft.encrypt == null || !data.draft.encrypt)
                         EntityOperation.queue(context, data.draft, EntityOperation.ADD);
@@ -2784,6 +2790,7 @@ public class FragmentCompose extends FragmentBase {
             String subject = args.getString("subject");
             String body = args.getString("body");
             boolean empty = args.getBoolean("empty");
+            Bundle extras = args.getBundle("extras");
 
             EntityMessage draft;
 
@@ -2949,53 +2956,62 @@ public class FragmentCompose extends FragmentBase {
                         db.message().updateMessage(draft);
                     }
 
-                    // Save changed draft
-                    File file = draft.getFile(context);
-                    if (!file.exists())
-                        Helper.writeText(file, body);
-                    String previous = Helper.readText(file);
-                    if (!body.equals(previous)) {
-                        dirty = true;
+                    if (action == R.id.action_undo || action == R.id.action_redo) {
+                        if (draft.revision != null && draft.revisions != null) {
+                            Helper.writeText(draft.getFile(context, draft.revision), body);
 
-                        if (draft.revisions == null)
-                            draft.revisions = 0;
+                            if (action == R.id.action_undo) {
+                                if (draft.revision > 1)
+                                    draft.revision--;
+                            } else {
+                                if (draft.revision < draft.revisions)
+                                    draft.revision++;
+                            }
 
-                        boolean reference;
-                        Bundle extras = args.getBundle("extras");
-                        File refFile = EntityMessage.getRefFile(context, draft.id);
-                        if (extras != null && extras.containsKey("reference"))
-                            reference = extras.getBoolean("reference", refFile.exists());
-                        else {
-                            EntityRevision revision = db.revision().getRevision(draft.id, draft.revisions);
-                            reference = (revision == null ? refFile.exists() : revision.reference);
+                            // Restore revision
+                            Log.i("Restoring revision=" + draft.revision);
+                            body = Helper.readText(draft.getFile(context, draft.revision));
                         }
+                    } else {
+                        String previous = Helper.readText(draft.getFile(context));
+                        if ((body != null && !body.equals(previous)) ||
+                                (extras != null && extras.containsKey("html"))) {
+                            dirty = true;
 
-                        draft.revisions++;
+                            // Get revision info
+                            boolean reference;
+                            if (extras != null && extras.containsKey("html")) {
+                                reference = false;
+                                body = extras.getString("html");
+                            } else {
+                                File refFile = EntityMessage.getRefFile(context, draft.id);
+                                if (draft.revision == null)
+                                    reference = refFile.exists();
+                                else {
+                                    EntityRevision revision = db.revision().getRevision(draft.id, draft.revision);
+                                    reference = (revision == null ? refFile.exists() : revision.reference);
+                                }
+                            }
 
-                        Log.i("Inserting revision sequence=" + draft.revisions + " reference=" + reference);
-                        EntityRevision revision = new EntityRevision();
-                        revision.message = draft.id;
-                        revision.sequence = draft.revisions;
-                        revision.reference = reference;
-                        db.revision().insertRevision(revision);
+                            // Create new revision
+                            if (draft.revisions == null)
+                                draft.revisions = 1;
+                            else
+                                draft.revisions++;
+                            draft.revision = draft.revisions;
 
-                        Helper.writeText(draft.getFile(context), body);
-                        Helper.writeText(draft.getFile(context, draft.revisions), body);
+                            Log.i("Creating revision sequence=" + draft.revision + " reference=" + reference);
+                            EntityRevision revision = new EntityRevision();
+                            revision.message = draft.id;
+                            revision.sequence = draft.revision;
+                            revision.reference = reference;
+                            db.revision().insertRevision(revision);
+
+                            Helper.writeText(draft.getFile(context, draft.revision), body);
+                        }
                     }
 
-                    if (action == R.id.action_undo || action == R.id.action_redo) {
-                        if (action == R.id.action_undo) {
-                            if (draft.revision > 1)
-                                draft.revision--;
-                        } else {
-                            if (draft.revision < draft.revisions)
-                                draft.revision++;
-                        }
-
-                        body = Helper.readText(draft.getFile(context, draft.revision));
-                        Helper.writeText(draft.getFile(context), body);
-                    } else
-                        draft.revision = draft.revisions;
+                    Helper.writeText(draft.getFile(context), body);
 
                     db.message().setMessageContent(draft.id,
                             true,
@@ -3312,7 +3328,7 @@ public class FragmentCompose extends FragmentBase {
                 Spanned spannedRef = null;
                 File refFile = draft.getRefFile(context);
                 EntityRevision revision = db.revision().getRevision(draft.id, draft.revision == null ? 0 : draft.revision);
-                Log.i("Revision sequence=" + (revision == null ? null : revision.sequence) +
+                Log.i("Viewing revision=" + (revision == null ? null : revision.sequence) +
                         " reference=" + (revision == null ? null : revision.reference));
                 if (revision == null ? refFile.exists() : revision.reference) {
                     String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), show_images, false);
