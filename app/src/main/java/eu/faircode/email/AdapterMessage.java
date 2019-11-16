@@ -2417,7 +2417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Uri lookupUri = ContactsContract.Contacts.getLookupUri(contactId, lookupKey);
 
                         edit.setAction(Intent.ACTION_EDIT);
-                        edit.setDataAndType(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
+                        edit.setDataAndTypeAndNormalize(lookupUri, ContactsContract.Contacts.CONTENT_ITEM_TYPE);
                     } else {
                         edit.setAction(Intent.ACTION_INSERT);
                         edit.setType(ContactsContract.Contacts.CONTENT_TYPE);

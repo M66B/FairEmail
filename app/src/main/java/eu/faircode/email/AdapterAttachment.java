@@ -227,7 +227,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
             // Build intent
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setDataAndType(uri, type);
+            intent.setDataAndTypeAndNormalize(uri, type);
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             if (!TextUtils.isEmpty(attachment.name))
                 intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(attachment.name));

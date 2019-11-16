@@ -115,7 +115,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
 
                 // Build intent
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(uri, attachment.type);
+                intent.setDataAndTypeAndNormalize(uri, attachment.type);
                 intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 if (!TextUtils.isEmpty(attachment.name))
                     intent.putExtra(Intent.EXTRA_TITLE, attachment.name);

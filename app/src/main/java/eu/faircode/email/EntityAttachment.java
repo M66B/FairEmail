@@ -154,6 +154,8 @@ public class EntityAttachment {
         if (encryption != null)
             return type;
 
+        // https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/
+
         String extension = Helper.getExtension(name);
         if (extension == null)
             return type;
