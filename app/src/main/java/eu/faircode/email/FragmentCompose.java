@@ -2113,14 +2113,14 @@ public class FragmentCompose extends FragmentBase {
 
             Matrix rotation = ("image/jpeg".equals(attachment.type) ? ImageHelper.getImageRotation(file) : null);
             Log.i("Image type=" + attachment.type + " rotation=" + rotation);
-
             if (factor > 1 || rotation != null) {
                 options.inJustDecodeBounds = false;
                 options.inSampleSize = factor;
 
+                Log.i("Image target size=" + resize + " factor=" + factor + " source=" + options.outWidth + "x" + options.outHeight);
                 Bitmap resized = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
                 if (resized != null) {
-                    Log.i("Image target size=" + resized.getWidth() + "x" + resized.getHeight() + " rotation=" + rotation);
+                    Log.i("Image result size=" + resized.getWidth() + "x" + resized.getHeight() + " rotation=" + rotation);
 
                     if (rotation != null) {
                         Bitmap rotated = Bitmap.createBitmap(resized, 0, 0, resized.getWidth(), resized.getHeight(), rotation, true);
