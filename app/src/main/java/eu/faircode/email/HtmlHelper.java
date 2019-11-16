@@ -135,6 +135,7 @@ public class HtmlHelper {
 
         Whitelist whitelist = Whitelist.relaxed()
                 .addTags("hr", "abbr", "big", "font")
+                .addAttributes("pre", "plain")
                 .removeTags("col", "colgroup", "thead", "tbody")
                 .removeAttributes("table", "width")
                 .removeAttributes("td", "colspan", "rowspan", "width")
@@ -327,7 +328,9 @@ public class HtmlHelper {
             for (int i = 0; i < level; i++)
                 sb.append("</blockquote>");
 
-            pre.tagName("tt"); // monospace
+            String plain = pre.attr("plain");
+            pre.tagName(Boolean.parseBoolean(plain) ? "div" : "tt");
+
             pre.html(sb.toString());
         }
 

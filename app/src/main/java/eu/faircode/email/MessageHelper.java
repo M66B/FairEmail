@@ -1042,7 +1042,7 @@ public class MessageHelper {
             }
 
             if (part == plain)
-                result = "<pre>" + result + "</pre>";
+                result = "<pre plain=\"true\">" + result + "</pre>";
 
             return result;
         }
