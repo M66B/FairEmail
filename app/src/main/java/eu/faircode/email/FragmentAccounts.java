@@ -284,7 +284,7 @@ public class FragmentAccounts extends FragmentBase {
             public void onSearch(String query) {
                 FragmentMessages.search(
                         getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                        -1, false, query);
+                        -1, -1, false, query);
             }
         });
 

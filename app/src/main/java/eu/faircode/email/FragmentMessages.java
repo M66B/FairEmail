@@ -134,7 +134,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -817,62 +816,77 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         fabSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (folder < 0) {
-                    Bundle args = new Bundle();
+                Bundle args = new Bundle();
+                args.putLong("account", account);
 
-                    new SimpleTask<List<EntityAccount>>() {
-                        @Override
-                        protected List<EntityAccount> onExecute(Context context, Bundle args) {
-                            Map<EntityAccount, List<EntityFolder>> result = new LinkedHashMap<>();
+                new SimpleTask<List<EntityAccount>>() {
+                    @Override
+                    protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                        long aid = args.getLong("account");
 
-                            DB db = DB.getInstance(context);
-                            return db.account().getSynchronizingAccounts();
-                        }
-
-                        @Override
-                        protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
-                            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
-
-                            popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_search_server).setEnabled(false);
-
-                            int order = 1;
+                        List<EntityAccount> result = new ArrayList<>();
+                        DB db = DB.getInstance(context);
+                        if (aid < 0) {
+                            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
                             for (EntityAccount account : accounts)
                                 if (!account.pop)
-                                    popupMenu.getMenu().add(Menu.NONE, 0, order++, account.name)
-                                            .setIntent(new Intent().putExtra("account", account.id));
-
-                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                                @Override
-                                public boolean onMenuItemClick(MenuItem target) {
-                                    Intent intent = target.getIntent();
-                                    if (intent == null)
-                                        return false;
-
-                                    Bundle args = new Bundle();
-                                    args.putString("title", getString(R.string.title_search_in));
-                                    args.putLong("account", intent.getLongExtra("account", -1));
-                                    args.putLongArray("disabled", new long[]{});
-                                    args.putString("query", query);
-
-                                    FragmentDialogFolder fragment = new FragmentDialogFolder();
-                                    fragment.setArguments(args);
-                                    fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_SEARCH);
-                                    fragment.show(getParentFragmentManager(), "messages:search");
-
-                                    return true;
-                                }
-                            });
-
-                            popupMenu.show();
+                                    result.add(account);
+                        } else {
+                            EntityAccount account = db.account().getAccount(aid);
+                            if (account != null && !account.pop)
+                                result.add(account);
                         }
 
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
+                        if (result.size() == 0)
+                            throw new IllegalArgumentException(context.getString(R.string.title_no_search));
+                        else
+                            return result;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), fabSearch);
+
+                        popupMenu.getMenu().add(Menu.NONE, 0, 0, R.string.title_search_server).setEnabled(false);
+
+                        int order = 1;
+                        for (EntityAccount account : accounts)
+                            popupMenu.getMenu().add(Menu.NONE, 0, order++, account.name)
+                                    .setIntent(new Intent().putExtra("account", account.id));
+
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem target) {
+                                Intent intent = target.getIntent();
+                                if (intent == null)
+                                    return false;
+
+                                Bundle args = new Bundle();
+                                args.putString("title", getString(R.string.title_search_in));
+                                args.putLong("account", intent.getLongExtra("account", -1));
+                                args.putLongArray("disabled", new long[]{});
+                                args.putString("query", query);
+
+                                FragmentDialogFolder fragment = new FragmentDialogFolder();
+                                fragment.setArguments(args);
+                                fragment.setTargetFragment(FragmentMessages.this, FragmentMessages.REQUEST_SEARCH);
+                                fragment.show(getParentFragmentManager(), "messages:search");
+
+                                return true;
+                            }
+                        });
+
+                        popupMenu.show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        if (ex instanceof IllegalArgumentException)
+                            ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                        else
                             Helper.unexpectedError(getParentFragmentManager(), ex);
-                        }
-                    }.execute(FragmentMessages.this, args, "messages:search");
-                } else
-                    search(getContext(), getViewLifecycleOwner(), getParentFragmentManager(), folder, true, query);
+                    }
+                }.execute(FragmentMessages.this, args, "messages:search");
             }
         });
 
@@ -2682,7 +2696,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             public void onSearch(String query) {
                 FragmentMessages.search(
                         getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                        folder, false, query);
+                        account, folder, false, query);
             }
         });
 
@@ -3920,7 +3934,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Bundle args = data.getBundleExtra("args");
                         search(
                                 getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                                args.getLong("folder"), true, args.getString("query"));
+                                args.getLong("account"),
+                                args.getLong("folder"),
+                                true,
+                                args.getString("query"));
                     }
                     break;
                 case REQUEST_ACCOUNT:
@@ -4725,7 +4742,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     static void search(
             final Context context, final LifecycleOwner owner, final FragmentManager manager,
-            long folder, boolean server, String query) {
+            long account, long folder, boolean server, String query) {
         if (server && !ActivityBilling.isPro(context)) {
             context.startActivity(new Intent(context, ActivityBilling.class));
             return;
@@ -4735,6 +4752,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             manager.popBackStack("search", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
+        args.putLong("account", account);
         args.putLong("folder", folder);
         args.putBoolean("server", server);
         args.putString("query", query);

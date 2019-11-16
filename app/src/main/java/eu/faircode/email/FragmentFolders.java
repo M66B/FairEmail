@@ -396,7 +396,7 @@ public class FragmentFolders extends FragmentBase {
             public void onSearch(String query) {
                 FragmentMessages.search(
                         getContext(), getViewLifecycleOwner(), getParentFragmentManager(),
-                        -1, false, query);
+                        account, -1, false, query);
             }
         });
 

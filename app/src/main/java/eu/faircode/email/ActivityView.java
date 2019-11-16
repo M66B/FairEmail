@@ -820,7 +820,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 searching = true;
                 FragmentMessages.search(
                         ActivityView.this, ActivityView.this, getSupportFragmentManager(),
-                        -1, false, search);
+                        -1, -1, false, search);
             }
 
             intent.removeExtra(Intent.EXTRA_PROCESS_TEXT);
@@ -1040,11 +1040,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onSearchMessages(Intent intent) {
+        long account = intent.getLongExtra("account", -1);
         long folder = intent.getLongExtra("folder", -1);
         String query = intent.getStringExtra("query");
         FragmentMessages.search(
                 this, this, getSupportFragmentManager(),
-                folder, false, query);
+                account, folder, false, query);
     }
 
     private void onViewThread(Intent intent) {
