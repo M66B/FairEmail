@@ -3027,25 +3027,6 @@ public class FragmentCompose extends FragmentBase {
                         db.message().setMessageReceived(draft.id, draft.received);
                     }
 
-                    // Remove unused inline images
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(body);
-                    File rfile = draft.getRefFile(context);
-                    if (rfile.exists())
-                        sb.append(Helper.readText(rfile));
-                    List<String> cids = new ArrayList<>();
-                    for (Element element : JsoupEx.parse(sb.toString()).select("img")) {
-                        String src = element.attr("src");
-                        if (src.startsWith("cid:"))
-                            cids.add("<" + src.substring(4) + ">");
-                    }
-
-                    for (EntityAttachment attachment : new ArrayList<>(attachments))
-                        if (attachment.isInline() && !cids.contains(attachment.cid)) {
-                            Log.i("Removing unused inline attachment cid=" + attachment.cid);
-                            db.attachment().deleteAttachment(attachment.id);
-                        }
-
                     // Execute action
                     if (action == R.id.action_save ||
                             action == R.id.action_undo ||
@@ -3112,6 +3093,25 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                     } else if (action == R.id.action_send) {
+                        // Remove unused inline images
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(body);
+                        File rfile = draft.getRefFile(context);
+                        if (rfile.exists())
+                            sb.append(Helper.readText(rfile));
+                        List<String> cids = new ArrayList<>();
+                        for (Element element : JsoupEx.parse(sb.toString()).select("img")) {
+                            String src = element.attr("src");
+                            if (src.startsWith("cid:"))
+                                cids.add("<" + src.substring(4) + ">");
+                        }
+
+                        for (EntityAttachment attachment : new ArrayList<>(attachments))
+                            if (attachment.isInline() && !cids.contains(attachment.cid)) {
+                                Log.i("Removing unused inline attachment cid=" + attachment.cid);
+                                db.attachment().deleteAttachment(attachment.id);
+                            }
+
                         // Delete draft (cannot move to outbox)
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
 
