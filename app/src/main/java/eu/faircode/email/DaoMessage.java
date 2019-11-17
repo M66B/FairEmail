@@ -441,9 +441,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET received = :sent, sent = :sent WHERE id = :id")
     int setMessageSent(long id, Long sent);
 
-    @Query("UPDATE message SET error = :warning WHERE id = :id")
-    int setMessageWarning(long id, String warning);
-
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);
 

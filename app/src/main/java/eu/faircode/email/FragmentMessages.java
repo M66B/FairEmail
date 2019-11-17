@@ -4175,7 +4175,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             else if (sresult == RESULT_VALID_KEY_CONFIRMED)
                                 Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
                             else
-                                db.message().setMessageWarning(id, getString(R.string.title_signature_invalid));
+                                Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
 
                             break;
 
