@@ -4141,7 +4141,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     Helper.writeText(message.getFile(context), html);
 
                                     // Remove existing attachments
-                                    db.attachment().deleteAttachments(id);
+                                    for (EntityAttachment attachment : attachments)
+                                        if (attachment.encryption == null)
+                                            db.attachment().deleteAttachment(attachment.id);
 
                                     // Add decrypted attachments
                                     List<EntityAttachment> remotes = parts.getAttachments();
