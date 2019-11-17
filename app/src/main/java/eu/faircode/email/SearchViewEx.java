@@ -63,6 +63,7 @@ public class SearchViewEx extends SearchView {
                     cursor.addRow(new Object[]{-2, prefix + ":" + getContext().getString(R.string.title_search_special_unseen)});
                     cursor.addRow(new Object[]{-3, prefix + ":" + getContext().getString(R.string.title_search_special_flagged)});
                     cursor.addRow(new Object[]{-4, prefix + ":" + getContext().getString(R.string.title_search_special_snoozed)});
+                    cursor.addRow(new Object[]{-5, prefix + ":" + getContext().getString(R.string.title_search_special_encrypted)});
                     SimpleCursorAdapter adapter = new SimpleCursorAdapter(
                             getContext(),
                             R.layout.search_suggestion,

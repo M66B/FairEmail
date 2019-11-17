@@ -169,6 +169,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Boolean seen = null;
         Boolean flagged = null;
         Boolean snoozed = null;
+        Boolean encrypted = null;
         String find = (TextUtils.isEmpty(query) ? null : query.toLowerCase(Locale.ROOT));
         if (find != null && find.startsWith(context.getString(R.string.title_search_special_prefix) + ":")) {
             String special = find.split(":")[1];
@@ -178,6 +179,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 flagged = true;
             else if (context.getString(R.string.title_search_special_snoozed).equals(special))
                 snoozed = true;
+            else if (context.getString(R.string.title_search_special_encrypted).equals(special))
+                encrypted = true;
         }
 
         int found = 0;
@@ -190,13 +193,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     state.matches = db.message().matchMessages(
                             folder,
                             "%" + find + "%",
-                            seen, flagged, snoozed,
+                            seen, flagged, snoozed, encrypted,
                             SEARCH_LIMIT, state.offset);
                     Log.i("Boundary device folder=" + folder +
                             " query=" + query +
                             " seen=" + seen +
                             " flagged=" + flagged +
                             " snoozed=" + snoozed +
+                            " encrypted=" + encrypted +
                             " offset=" + state.offset +
                             " size=" + state.matches.size());
                     state.offset += Math.min(state.matches.size(), SEARCH_LIMIT);
@@ -211,7 +215,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                     TupleMatch match = state.matches.get(i);
 
-                    if (find == null || seen != null || flagged != null || snoozed != null)
+                    if (find == null || seen != null || flagged != null || snoozed != null || encrypted != null)
                         match.matched = true;
                     else {
                         if (match.matched == null || !match.matched)

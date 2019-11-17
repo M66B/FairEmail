@@ -234,9 +234,13 @@ public interface DaoMessage {
             " AND (:seen IS NULL OR ui_seen = :seen)" +
             " AND (:flagged IS NULL OR ui_flagged = :flagged)" +
             " AND (:hidden IS NULL OR (CASE WHEN ui_snoozed IS NULL THEN 0 ELSE 1 END) = :hidden)" +
+            " AND (:encrypted IS NULL OR encrypt = 1)" +
             " ORDER BY received DESC" +
             " LIMIT :limit OFFSET :offset")
-    List<TupleMatch> matchMessages(Long folder, String find, Boolean seen, Boolean flagged, Boolean hidden, int limit, int offset);
+    List<TupleMatch> matchMessages(
+            Long folder, String find,
+            Boolean seen, Boolean flagged, Boolean hidden, Boolean encrypted,
+            int limit, int offset);
 
     @Query("SELECT id" +
             " FROM message" +
