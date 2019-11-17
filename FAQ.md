@@ -253,6 +253,7 @@ FairEmail follows all the best practices for an email client as described in [th
 * [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
 * [(138) Can you add calendar / contact management?](#user-content-faq138)
 * [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
+* [(140) Why does the message text contain strange characters?](#user-content-faq140)
 
 [I have another question.](#user-content-support)
 
@@ -2489,6 +2490,16 @@ The error *User is authenticated but not connected* might occur if:
 
 * The account password was changed: changing it in FairEmail too should fix the problem
 * There are too many simultaneous connections: see [this FAQ](#user-content-faq23) for more information and a workaround
+
+<br />
+
+<a name="faq140"></a>
+**(140) Why does the message text contain strange characters?**
+
+Displaying strange characters is almost always caused by specifying no or an invalid character encoding by the sending software.
+There is no way to reliably determine the correct character encoding automatically,
+so this cannot be fixed by FairEmail. The right action is to complain to the sender.
+
 
 <br />
 
