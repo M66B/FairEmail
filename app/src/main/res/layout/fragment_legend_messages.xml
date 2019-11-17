@@ -148,13 +148,35 @@
             app:layout_constraintTop_toTopOf="@id/ivLowPriority" />
 
         <ImageView
+            android:id="@+id/ivEncrypted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_priority"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivLowPriority"
+            app:srcCompat="@drawable/baseline_lock_24" />
+
+        <TextView
+            android:id="@+id/tvEncrypted"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_encrypted"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivEncrypted"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivEncrypted"
+            app:layout_constraintTop_toTopOf="@id/ivEncrypted" />
+
+        <ImageView
             android:id="@+id/ivSnoozed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_snoozed"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivLowPriority"
+            app:layout_constraintTop_toBottomOf="@id/ivEncrypted"
             app:srcCompat="@drawable/baseline_timelapse_24" />
 
         <TextView
