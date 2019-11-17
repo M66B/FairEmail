@@ -406,7 +406,6 @@
     <string name="title_sign_key">Clé de signature : %1$s</string>
     <string name="title_last_connected">Dernière connexion : %1$s</string>
     <string name="title_pop_support">Le protocole POP3 supporte le téléchargement et la suppression des messages depuis la boîte de réception uniquement. POP3 ne permet pas de marquer les messages lus, de déplacer des messages, etc. POP3 utilisera plus de batterie et de données que IMAP. Par conséquent, envisagez d\'utiliser le protocole IMAP lorsque cela est possible.</string>
-    <string name="title_activesync_support">ActiveSync n\'est pas pris en charge</string>
     <string name="title_oauth_support">OAuth n\'est pas pris en charge</string>
     <string name="title_review">Récapitulatif</string>
     <string name="title_hint_alias">Appuyer longuement pour les options, comme copier pour créer des identités alias</string>
@@ -527,7 +526,8 @@
     <string name="title_no_folder">Le dossier n\'existe pas</string>
     <string name="title_no_format">Le message reçu initialement sera inclus</string>
     <string name="title_no_image">L\'image n\'a pas pu être décodée</string>
-    <string name="title_unused_inline">Les images en ligne non utilisées seront supprimées lors de l\'enregistrement/l\'envoi</string>
+    <string name="title_no_search">La recherche sur le serveur n\'est pas disponible pour ce compte</string>
+    <string name="title_unused_inline">Les images incluses inutilisées seront supprimées lors de l\'envoi</string>
     <string name="title_accross_remark">Les messages déplacés entre comptes seront téléchargés à nouveau entraînant une utilisation supplémentaire des données</string>
     <string name="title_raw_saved">Message brut enregistré</string>
     <string name="title_attachment_saved">Pièce jointe enregistrée</string>
@@ -727,6 +727,7 @@
     <string name="title_legend_draft">A un brouillon</string>
     <string name="title_legend_priority">A une priorité élevée</string>
     <string name="title_legend_priority_low">A une priorité basse</string>
+    <string name="title_legend_encrypted">Est chiffré</string>
     <string name="title_legend_auth">Échec de l\'authentification</string>
     <string name="title_legend_snoozed">Est reporté</string>
     <string name="title_legend_browsed">Est parcouru ou recherché</string>
@@ -856,6 +857,7 @@
     <string name="title_search_special_unseen">non_lus</string>
     <string name="title_search_special_flagged">suivis</string>
     <string name="title_search_special_snoozed">masqué</string>
+    <string name="title_search_special_encrypted">chiffré</string>
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
     <string name="title_widget_title_list">Liste des messages</string>
     <string name="title_widget_account">Compte</string>
@@ -909,6 +911,8 @@
         <item>Grand</item>
         <item>Très grand</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>A</item>
         <item>Cc</item>

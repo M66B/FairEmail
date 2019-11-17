@@ -406,7 +406,6 @@
     <string name="title_sign_key">İmzalama anahtarı: %1$s</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
     <string name="title_pop_support">POP3 protokolü sadece gelen kutusundan mesajları indirmeyi ve silmeyi desteklemektedir. POP3 mesajları okundu olarak işaretleyemez, taşıyamaz, vs. POP3 IMAP\'ten daha fazla batarya gücü ve veri kullanacaktır. Bu yüzden, mümkün olduğunca IMAP protokolünü kullanmayı göz önünde bulundurun.</string>
-    <string name="title_activesync_support">ActiveSync desteklenmiyor</string>
     <string name="title_oauth_support">OAuth desteklenmemektedir</string>
     <string name="title_review">Gözden geçir</string>
     <string name="title_hint_alias">Takma ad kimlikleri oluşturmak için kopyalamak gibi seçenekler için uzun basın</string>
@@ -527,7 +526,8 @@
     <string name="title_no_folder">Klasör yok</string>
     <string name="title_no_format">Alınan özgün iletiye eklenecek</string>
     <string name="title_no_image">Görselin kodu çözülemedi</string>
-    <string name="title_unused_inline">Kullanılmayan satır içi resimler kaydederken/gönderirken kaldırılacaktır</string>
+    <string name="title_no_search">Bu hesap için sunucuda arama yapılamıyor</string>
+    <string name="title_unused_inline">Kullanılmayan satır içi resimler gönderirken kaldırılacaktır</string>
     <string name="title_accross_remark">Hesaplar arasında taşınan iletiler daha fazla veri kullanımıyla sonuçlanacak şekilde tekrar indirilecek</string>
     <string name="title_raw_saved">Ham ileti kaydedildi</string>
     <string name="title_attachment_saved">Ek kaydedildi</string>
@@ -727,6 +727,7 @@
     <string name="title_legend_draft">Taslak var</string>
     <string name="title_legend_priority">Yüksek önceliğe sahip</string>
     <string name="title_legend_priority_low">Düşük önceliğe sahip</string>
+    <string name="title_legend_encrypted">Şifrelenmiş</string>
     <string name="title_legend_auth">Kimlik doğrulama başarısız</string>
     <string name="title_legend_snoozed">Ertelendi</string>
     <string name="title_legend_browsed">Gözatılmış ve aranmış</string>
@@ -856,6 +857,7 @@
     <string name="title_search_special_unseen">okunmamış</string>
     <string name="title_search_special_flagged">yıldızlı</string>
     <string name="title_search_special_snoozed">gizli</string>
+    <string name="title_search_special_encrypted">şifreli</string>
     <string name="title_widget_title_count">Yeni mesaj sayısı</string>
     <string name="title_widget_title_list">Mesaj listesi</string>
     <string name="title_widget_account">Hesap</string>
@@ -909,6 +911,8 @@
         <item>Büyük</item>
         <item>Ekstra büyük</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Kime</item>
         <item>Kopya yollanacaklar</item>

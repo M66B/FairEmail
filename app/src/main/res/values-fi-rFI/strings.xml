@@ -137,6 +137,7 @@
     <string name="title_setup_go">Aloita</string>
     <string name="title_setup_to_do">Tekemättä</string>
     <string name="title_setup_done">Valmis</string>
+    <string name="title_setup_error">Virhe</string>
     <string name="title_setup_export">Vie asetukset</string>
     <string name="title_setup_import">Tuo asetukset</string>
     <string name="title_setup_import_do">Tuodut tilit lisätään korvaamatta olemassa olevia</string>
@@ -259,6 +260,8 @@
     <string name="title_advanced_discard_delete">Luonnosta hylättäessä poista se pysyvästi</string>
     <string name="title_advanced_default_snooze">Torkutuksen oletusaika</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
+    <string name="title_advanced_notifications_default">Oletuskanava</string>
+    <string name="title_advanced_notifications_service">Palvelukanava</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän täsmätä ilmoitusten lukumäärän kanssa</string>
     <string name="title_advanced_notify_summary">Näytä vain yhteenvetoilmoitus</string>
@@ -283,6 +286,7 @@
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
+    <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
@@ -325,6 +329,9 @@
     <string name="title_advanced_badge_hint">Käytössä vain tuetuissa käynnistinsovelluksissa</string>
     <string name="title_advanced_notify_action_hint">Enintään kolme toimintoa näytetään</string>
     <string name="title_advanced_notify_remove_hint">Ilmoitukset uusista viesteistä poistetaan aina pyyhkäisemällä tai merkitsemällä viestit luetuiksi</string>
+    <string name="title_advanced_notify_manage_hint">Napauta kanavan nimeä asettaaksesi sen ominaisuudet</string>
+    <string name="title_advanced_notify_manage_default_hint">Oletusäänten jne. asettamiseksi</string>
+    <string name="title_advanced_notify_manage_service_hint">Pysyvän ilmoituksen käytöstä poistamiseksi</string>
     <string name="title_advanced_wearable_hint">Ilmoitukset lähetetään puettavaan laitteeseen vasta, kun viestin teksti on ladattu</string>
     <string name="title_advanced_move_hint">Kohdekansio voidaan asettaa tilin asetuksissa</string>
     <string name="title_advanced_notify_no_grouping">Tämä Android-versio ei tue ilmoitusten ryhmittelyä</string>
@@ -399,7 +406,6 @@
     <string name="title_sign_key">Allekirjoitusavain: %1$s</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
     <string name="title_pop_support">POP3-protokolla tukee vain viestien latausta ja poistamista. POP3 ei merkitse viestejä luetuksi, siirrä niitä, jne. POP3 käyttää enemmän akkua ja dataa kuin IMAP. Kannattaa harkita IMAP-protokollan käyttöä aina kuin mahdollista.</string>
-    <string name="title_activesync_support">ActiveSync ei ole tuettu</string>
     <string name="title_oauth_support">OAuth ei ole tuettu</string>
     <string name="title_review">Tarkista</string>
     <string name="title_hint_alias">Pitkä painallus näyttää vaihtoehdot, kuten kopioinnin aliasten luomiseksi</string>
@@ -520,7 +526,8 @@
     <string name="title_no_folder">Kansiota ei ole</string>
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
     <string name="title_no_image">Kuvan koodauksen purku epäonnistui</string>
-    <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan tallennettaessa/lähetettäessä</string>
+    <string name="title_no_search">Palvelimelta haku ei ole saatavilla tällä tilillä</string>
+    <string name="title_unused_inline">Käyttämättömät upotetut kuvat poistetaan lähetettäessä</string>
     <string name="title_accross_remark">Tilien välillä siirretyt viestit ladataan uudelleen, mikä lisää datan käyttöä</string>
     <string name="title_raw_saved">Raakaviesti tallennettu</string>
     <string name="title_attachment_saved">Liite tallennettu</string>
@@ -602,6 +609,7 @@
     <string name="title_resync">Synkronoi uudelleen</string>
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
     <string name="title_not_encrypted">Viestiä ei ole salattu</string>
+    <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>
     <string name="title_signature_valid">Viestin allekirjoitus vahvistettu</string>
     <string name="title_signature_invalid">Viestin allekirjoitus ei vahvistettu</string>
@@ -719,6 +727,7 @@
     <string name="title_legend_draft">Sisältää luonnoksen</string>
     <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>
     <string name="title_legend_priority_low">Alhainen prioriteetti</string>
+    <string name="title_legend_encrypted">Salattu</string>
     <string name="title_legend_auth">Tunnistautuminen epäonnistui</string>
     <string name="title_legend_snoozed">Torkutettu</string>
     <string name="title_legend_browsed">Selattu tai haettu</string>
@@ -848,8 +857,13 @@
     <string name="title_search_special_unseen">lukematon</string>
     <string name="title_search_special_flagged">tähdellinen</string>
     <string name="title_search_special_snoozed">piilotettu</string>
+    <string name="title_search_special_encrypted">salattu</string>
+    <string name="title_widget_title_count">Uusien viestien lukumäärä</string>
+    <string name="title_widget_title_list">Viestilista</string>
     <string name="title_widget_account">Tili</string>
     <string name="title_widget_account_all">Kaikki</string>
+    <string name="title_widget_folder">Kansio</string>
+    <string name="title_widget_folder_unified">Yhdistetyn saapuneet-kansion kansiot</string>
     <string name="title_widget_unseen">Vain lukemattomat viestit</string>
     <string name="title_widget_flagged">Vain tähdelliset viestit</string>
     <string-array name="pollIntervalNames">
@@ -897,6 +911,8 @@
         <item>Suuri</item>
         <item>Erittäin suuri</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Vastaanottaja</item>
         <item>Kopio</item>

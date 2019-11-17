@@ -405,7 +405,6 @@
     <string name="title_sign_key">Firma chiave: %1$s</string>
     <string name="title_last_connected">Ultima connessione:%1$s</string>
     <string name="title_pop_support">Il protocollo POP3 supporta il download e l\'eliminazione dei messaggi solo dalla casella di posta in arrivo. POP3 non può contrassegnare i messaggi come letti, spostare i messaggi, ecc. POP3 userà più energia e dati di IMAP. Quindi, considera l\'uso del protocollo IMAP quando possibile.</string>
-    <string name="title_activesync_support">ActiveSync non è supportato</string>
     <string name="title_oauth_support">OAuth non è supportato</string>
     <string name="title_review">Revisione</string>
     <string name="title_hint_alias">Premi a lungo per le opzioni, come copia per creare le identità alias</string>
@@ -526,7 +525,8 @@
     <string name="title_no_folder">La cartella non esiste</string>
     <string name="title_no_format">Verrà incluso Il messaggio originale ricevuto</string>
     <string name="title_no_image">L\'immagine potrebbe non essere decodificata</string>
-    <string name="title_unused_inline">Le immagini in linea non utilizzate verranno rimosse al salvataggio/invio</string>
+    <string name="title_no_search">La ricerca sul server non è disponibile per questo account</string>
+    <string name="title_unused_inline">Le immagini in linea inutilizzate verranno rimosse all\'invio</string>
     <string name="title_accross_remark">I messaggi spostati tra gli account verranno scaricati di nuovo causando un ulteriore utilizzo dei dati</string>
     <string name="title_raw_saved">Messaggio non elaborato salvato</string>
     <string name="title_attachment_saved">Allegato salvato</string>
@@ -726,6 +726,7 @@
     <string name="title_legend_draft">Ha bozza</string>
     <string name="title_legend_priority">Ha priorità alta</string>
     <string name="title_legend_priority_low">Ha priorità bassa</string>
+    <string name="title_legend_encrypted">È criptato</string>
     <string name="title_legend_auth">Autenticazione fallita</string>
     <string name="title_legend_snoozed">È posticipato</string>
     <string name="title_legend_browsed">È browser o ricercato</string>
@@ -855,6 +856,7 @@
     <string name="title_search_special_unseen">non_letto</string>
     <string name="title_search_special_flagged">stellato</string>
     <string name="title_search_special_snoozed">nascosto</string>
+    <string name="title_search_special_encrypted">criptato</string>
     <string name="title_widget_title_count">Nuovo conteggio di messaggi</string>
     <string name="title_widget_title_list">Elenco messaggi</string>
     <string name="title_widget_account">Account</string>
@@ -908,6 +910,8 @@
         <item>Grande</item>
         <item>Molto grande</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>A</item>
         <item>Cc</item>

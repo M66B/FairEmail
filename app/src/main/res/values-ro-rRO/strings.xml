@@ -414,7 +414,6 @@
     <string name="title_sign_key">Cheie semnatură: %1$s</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
     <string name="title_pop_support">Protocolul POP3 acceptă descărcarea și ștergerea mesajelor numai din căsuța de mesaje primite. POP3 nu poate marca mesajele drept citite, nu poate muta mesajele etc. POP3 va consuma mai multă baterie și date decât IMAP. Deci, luați în considerare utilizarea protocolului IMAP ori de câte ori este posibil.</string>
-    <string name="title_activesync_support">ActiveSync nu este suportat</string>
     <string name="title_oauth_support">OAuth nu este suportat</string>
     <string name="title_review">Revizuire</string>
     <string name="title_hint_alias">Apăsare lunga pentru opțiuni, precum copiere pentru crearea de identități alias</string>
@@ -535,7 +534,6 @@
     <string name="title_no_folder">Dosarul nu există</string>
     <string name="title_no_format">Mesajul primit inițial va fi inclus</string>
     <string name="title_no_image">Imaginea nu a putut fi decodată</string>
-    <string name="title_unused_inline">Imaginile integrate nefolosite vor fi eliminate la salvare/trimitere</string>
     <string name="title_accross_remark">Mesajele mutate între conturi vor fi descărcate din nou consumând date în plus</string>
     <string name="title_raw_saved">Mesaj original salvat</string>
     <string name="title_attachment_saved">Atașament salvat</string>
@@ -912,6 +910,8 @@
         <item>Mare</item>
         <item>Foarte mare</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Către</item>
         <item>Cc</item>

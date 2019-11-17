@@ -406,7 +406,6 @@
     <string name="title_sign_key">Tekensleutel: %1$s</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
     <string name="title_pop_support">Het POP3-protocol ondersteunt alleen het downloaden en verwijderen van berichten uit de inbox. POP3 kan berichten niet markeren als gelezen, berichten verplaatsen, enz. POP3 gebruikt meer batterijvermogen en gegevens dan IMAP. Overweeg daarom het IMAP-protocol waar mogelijk te gebruiken.</string>
-    <string name="title_activesync_support">ActiveSync wordt niet ondersteund</string>
     <string name="title_oauth_support">OAuth wordt niet ondersteund</string>
     <string name="title_review">Review</string>
     <string name="title_hint_alias">Druk lang voor opties, zoals kopiëren om alias identiteiten te maken</string>
@@ -527,7 +526,8 @@
     <string name="title_no_folder">Map bestaat niet</string>
     <string name="title_no_format">Het oorspronkelijke ontvangen bericht zal worden opgenomen</string>
     <string name="title_no_image">Afbeelding kon niet gedecodeerd worden</string>
-    <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij opslaan/verzenden</string>
+    <string name="title_no_search">Zoeken op server is niet beschikbaar voor dit account</string>
+    <string name="title_unused_inline">Ongebruikte inline afbeeldingen worden verwijderd bij verzenden</string>
     <string name="title_accross_remark">Berichten die worden verplaatst tussen accounts worden opnieuw gedownload en veroorzaken extra dataverbruik</string>
     <string name="title_raw_saved">Ruw bericht opgeslagen</string>
     <string name="title_attachment_saved">Bijlage opgeslagen</string>
@@ -727,6 +727,7 @@
     <string name="title_legend_draft">Heeft concept</string>
     <string name="title_legend_priority">Heeft hoge prioriteit</string>
     <string name="title_legend_priority_low">Heeft lage prioriteit</string>
+    <string name="title_legend_encrypted">Is versleuteld</string>
     <string name="title_legend_auth">Authenticatie mislukt</string>
     <string name="title_legend_snoozed">Is gesluimerd</string>
     <string name="title_legend_browsed">Is gebladerd of gezocht</string>
@@ -853,6 +854,7 @@
     <string name="title_search_special_unseen">ongelezen</string>
     <string name="title_search_special_flagged">ster</string>
     <string name="title_search_special_snoozed">verborgen</string>
+    <string name="title_search_special_encrypted">versleuteld</string>
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
     <string name="title_widget_title_list">Berichtenlijst</string>
     <string name="title_widget_account">Account</string>
@@ -906,6 +908,8 @@
         <item>Groot</item>
         <item>Extra groot</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Aan</item>
         <item>Cc</item>

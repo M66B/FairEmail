@@ -136,6 +136,7 @@
     <string name="title_setup_go">Start</string>
     <string name="title_setup_to_do">Resterer</string>
     <string name="title_setup_done">Udført</string>
+    <string name="title_setup_error">Fejl</string>
     <string name="title_setup_export">Eksportindstillinger</string>
     <string name="title_setup_import">Importindstillinger</string>
     <string name="title_setup_import_do">Importerede konti tilføjes uden at overskrive eksisterende ditto</string>
@@ -284,6 +285,7 @@
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
+    <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
@@ -403,7 +405,6 @@
     <string name="title_sign_key">Signér nøgle: %1$s</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
     <string name="title_pop_support">POP3-protokollen understøtter kun download og sletning af beskeder fra Indbakken. POP3 kan ikke markere beskeder som læste eller flytte dem mv. POP3 forbruger mere batteristrøm og data end IMAP, så overvej at benytte IMAP-protokollen, når det er muligt.</string>
-    <string name="title_activesync_support">ActiveSync er uunderstøttet</string>
     <string name="title_oauth_support">OAuth er uunderstøttet</string>
     <string name="title_review">Gennemse</string>
     <string name="title_hint_alias">Tryk og hold for indstillinger, såsom kopiér for at oprette aliasidentiteter</string>
@@ -524,7 +525,8 @@
     <string name="title_no_folder">Mappe findes ikke</string>
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
     <string name="title_no_image">Billede kunne ikke afkodes</string>
-    <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved gen/send</string>
+    <string name="title_no_search">Søgning på serveren er ikke tilgængelig for denne konto</string>
+    <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>
     <string name="title_attachment_saved">Vedhæftning gemt</string>
@@ -606,6 +608,7 @@
     <string name="title_resync">Synkronisér igen</string>
     <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
     <string name="title_not_encrypted">Besked er ikke krypteret</string>
+    <string name="title_reset_sign_key">Nulstil sign key</string>
     <string name="title_signature_none">Besked ikke signeret</string>
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
@@ -851,8 +854,12 @@
     <string name="title_search_special_unseen">ulæst</string>
     <string name="title_search_special_flagged">stjernemarkeret</string>
     <string name="title_search_special_snoozed">skjult</string>
+    <string name="title_widget_title_count">Ny besked-tæller</string>
+    <string name="title_widget_title_list">Beskedliste</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Alle</string>
+    <string name="title_widget_folder">Mappe</string>
+    <string name="title_widget_folder_unified">Samlede Indbakkemapper</string>
     <string name="title_widget_unseen">Kun ulæste beskeder</string>
     <string name="title_widget_flagged">Kun stjerne-beskeder</string>
     <string-array name="pollIntervalNames">
@@ -900,6 +907,8 @@
         <item>Stor</item>
         <item>Ekstra stor</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Til</item>
         <item>Cc</item>

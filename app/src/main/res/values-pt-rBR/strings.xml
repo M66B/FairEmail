@@ -398,7 +398,6 @@
     <string name="title_sign_key">Assinar chave: %1$s</string>
     <string name="title_last_connected">Última vez conectado: %1$s</string>
     <string name="title_pop_support">O protocolo POP3 suporta o download e a exclusão de mensagens apenas da caixa de entrada. O POP3 não pode marcar mensagens como lidas, mover mensagens etc. O POP3 usará mais energia e dados da bateria que o IMAP. Portanto, considere usar o protocolo IMAP sempre que possível.</string>
-    <string name="title_activesync_support">O ActiveSync não é suportado</string>
     <string name="title_oauth_support">OAuth não é suportado</string>
     <string name="title_review">Revisar</string>
     <string name="title_hint_alias">Toque longo para opções, como copiar para criar identidades de alias</string>
@@ -519,7 +518,6 @@
     <string name="title_no_folder">A pasta não existe</string>
     <string name="title_no_format">Mensagem originalmente recebida será incluída</string>
     <string name="title_no_image">A imagem não pôde ser decodificada</string>
-    <string name="title_unused_inline">Imagens inline não utilizadas serão removidas ao salvar/enviar</string>
     <string name="title_accross_remark">Mensagens movidas entre contas serão baixadas novamente, resultando em uso extra de dados</string>
     <string name="title_raw_saved">Mensagem bruta salva</string>
     <string name="title_attachment_saved">Anexo salvo</string>
@@ -896,6 +894,8 @@
         <item>Grande</item>
         <item>Extra large</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Para</item>
         <item>Cc</item>

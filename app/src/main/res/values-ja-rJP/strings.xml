@@ -127,6 +127,8 @@
         <item>2 MB</item>
         <item>&#8734;</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="biometricsTimeoutNames">
         <item>1分</item>
         <item>2分</item>

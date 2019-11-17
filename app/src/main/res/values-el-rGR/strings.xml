@@ -65,4 +65,6 @@
     <string name="title_password">Κωδικός πρόσβασης</string>
     <string name="title_check">Έλεγχος</string>
     <string name="title_edit_html">Επεξεργασία ως HTML</string>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>

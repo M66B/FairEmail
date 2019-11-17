@@ -408,7 +408,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
     <string name="title_last_connected">Posljednje povezivanje: %1$s</string>
     <string name="title_pop_support">POP3 protokol podržava preuzimanje i brisanje poruka samo iz pristigle pošte. POP3 ne može označiti poruke kao pročitane, premjestiti poruke itd. POP3 će trošiti energije baterije i više podataka nego IMAP. Dakle, razmislite o korištenju protokola IMAP kad god je to moguće.</string>
-    <string name="title_activesync_support">ActiveSync nije podržan</string>
     <string name="title_oauth_support">OAuth nije podržan</string>
     <string name="title_review">Recenzija</string>
     <string name="title_hint_alias">Dugo pritisnite za opcije, poput kopiranja za stvaranje identiteta aliasa</string>
@@ -529,7 +528,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_folder">Mapa ne postoji</string>
     <string name="title_no_format">Prvobitno primljena poruka bit će uključena</string>
     <string name="title_no_image">Slika se ne može dekodirati</string>
-    <string name="title_unused_inline">Nekorištene umetnute slike uklanjaju se prilikom spremanja / slanja</string>
     <string name="title_accross_remark">Poruke prebačene preko računa ponovno će se preuzeti, što će rezultirati dodatnom upotrebom podataka</string>
     <string name="title_raw_saved">Spremljena je sirova poruka</string>
     <string name="title_attachment_saved">Prilog spremljen</string>
@@ -905,6 +903,8 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
         <item>Veliko</item>
         <item>Extra large</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Za</item>
         <item>Cc</item>

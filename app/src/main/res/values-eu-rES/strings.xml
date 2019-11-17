@@ -137,6 +137,7 @@
     <string name="title_setup_go">Goazen</string>
     <string name="title_setup_to_do">Egiteke</string>
     <string name="title_setup_done">Eginda</string>
+    <string name="title_setup_error">Akatsa</string>
     <string name="title_setup_export">Esportatu ezarpenak</string>
     <string name="title_setup_import">Inportatu ezarpenak</string>
     <string name="title_setup_import_do">Inportatutako kontuak daudenak gainidatzi gabe gehituko dira</string>
@@ -285,6 +286,7 @@
     <string name="title_advanced_display_hidden">Erakutsi ezkutatutako mezuen testuak</string>
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
+    <string name="title_advanced_secure">Ezkutatu erabilitako azken aplikazioen pantailatik eta saihestu pantaila-argazkia egitea</string>
     <string name="title_advanced_biometrics_timeout">Autentifikazio biometrikoaren iraupena</string>
     <string name="title_advanced_pin">PINa</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
@@ -404,7 +406,6 @@
     <string name="title_sign_key">Sinadura-gakoa: %1$s</string>
     <string name="title_last_connected">Azken konexioa: %1$s</string>
     <string name="title_pop_support">POP3 protokoloak mezuak deskargatzea eta ezabatzea soilik sarrerako ontzitik onartzen du. POP3-k ezin ditu mezuak irakurrita gisa markatu, mugitu eta abar. POP3-k bateriaren energia eta datu gehiago erabiliko ditu IMAPek baino. Beraz, hobetsi IMAP protokoloa erabiltzea ahal den guztietan.</string>
-    <string name="title_activesync_support">Ez da ActiveSync onartzen</string>
     <string name="title_oauth_support">Ez da OAuth onartzen</string>
     <string name="title_review">Berrikusi</string>
     <string name="title_hint_alias">Sakatu luze aukeratzeko, hala nola kopiatzeko ezizen identitateak sortzeko</string>
@@ -525,7 +526,8 @@
     <string name="title_no_folder">Karpeta ez da existitzen</string>
     <string name="title_no_format">Jasotako jatorrizko mezua gehituko da</string>
     <string name="title_no_image">Ezin izan da irudia deskodetu</string>
-    <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira gorde/bidali sakatzean</string>
+    <string name="title_no_search">Zerbitzariko bilaketa ez dago erabilgarri kontu honetarako</string>
+    <string name="title_unused_inline">Erabili gabeko txertatutako irudiak kenduko dira bidaltzean</string>
     <string name="title_accross_remark">Kontuen artean mugitutako mezuak berriro deskargatuko dira horrek dakarren datuen erabilera gehigarriarekin</string>
     <string name="title_raw_saved">Mezu gordina gorde da</string>
     <string name="title_attachment_saved">Eranskina gordeta</string>
@@ -607,6 +609,7 @@
     <string name="title_resync">Birsinkronizatu</string>
     <string name="title_no_openpgp">Ez da OpenKeychain aurkitu</string>
     <string name="title_not_encrypted">Mezua ez dago zifratuta</string>
+    <string name="title_reset_sign_key">Berrezarri sinadura gakoa</string>
     <string name="title_signature_none">Mezua ez dago sinatuta</string>
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
@@ -724,6 +727,7 @@
     <string name="title_legend_draft">Zirriborroa du</string>
     <string name="title_legend_priority">Lehentasun altua du</string>
     <string name="title_legend_priority_low">Lehentasun baxua du</string>
+    <string name="title_legend_encrypted">Zifratuta dago</string>
     <string name="title_legend_auth">Autentifikazioak huts egin du</string>
     <string name="title_legend_snoozed">Atzeratu da</string>
     <string name="title_legend_browsed">Arakatua edo bilatua da</string>
@@ -853,8 +857,13 @@
     <string name="title_search_special_unseen">irakurri gabea</string>
     <string name="title_search_special_flagged">izarduna</string>
     <string name="title_search_special_snoozed">ezkutuan</string>
+    <string name="title_search_special_encrypted">zifratuta</string>
+    <string name="title_widget_title_count">Mezu berrien kopurua</string>
+    <string name="title_widget_title_list">Mezuen zerrenda</string>
     <string name="title_widget_account">Kontua</string>
     <string name="title_widget_account_all">Denak</string>
+    <string name="title_widget_folder">Karpeta</string>
+    <string name="title_widget_folder_unified">Bateratutako sarrera-ontziko karpetak</string>
     <string name="title_widget_unseen">Irakurri gabeko mezuak soilik</string>
     <string name="title_widget_flagged">Izardun mezuak soilik</string>
     <string-array name="pollIntervalNames">
@@ -902,6 +911,8 @@
         <item>Handia</item>
         <item>Oso handia</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Nori</item>
         <item>Cc</item>

@@ -427,7 +427,6 @@
     <string name="title_sign_key">Klucz podpisu: %1$s</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
     <string name="title_pop_support">Protokół POP3 obsługuje tylko pobieranie i usuwanie wiadomości ze skrzynki odbiorczej. POP3 nie może oznaczać wiadomości jako przeczytanej, przenosić wiadomości itp. POP3 zużywa więcej energii baterii i danych niż IMAP. Dlatego rozważ użycie protokołu IMAP, gdy tylko jest to możliwe.</string>
-    <string name="title_activesync_support">ActiveSync nie jest wspierany</string>
     <string name="title_oauth_support">OAuth nie jest wspierane</string>
     <string name="title_review">Przejrzyj</string>
     <string name="title_hint_alias">Naciśnij długo, aby wyświetlić opcje, takie jak kopiuj, aby utworzyć alias tożsamości</string>
@@ -548,7 +547,6 @@
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>
-    <string name="title_unused_inline">Niewykorzystane obrazy wbudowane zostaną usunięte podczas zapisywania/wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
@@ -927,6 +925,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
         <item>Duże</item>
         <item>Bardzo duży</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Do</item>
         <item>Dw</item>

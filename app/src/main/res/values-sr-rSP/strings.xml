@@ -404,7 +404,6 @@
     <string name="title_sign_key">Кључ потписа: %1$s</string>
     <string name="title_last_connected">Последње повезан: %1$s</string>
     <string name="title_pop_support">POP3 протокол подржава преузимање и брисање порука само из пријемног сандучета. POP3 не може да означава поруке као прочитане, да премешта поруке, итд. POP3 ће више трошити батерију и користити више података него IMAP. Размислите да користите IMAP протокол кад год можете.</string>
-    <string name="title_activesync_support">ActiveSync није подржан</string>
     <string name="title_oauth_support">OAuth није подржан</string>
     <string name="title_review">Осврт</string>
     <string name="title_hint_alias">Притисни дуго за опције, као копирање да се направе алијаси идентитета</string>
@@ -525,7 +524,6 @@
     <string name="title_no_folder">Фасцикла не постоји</string>
     <string name="title_no_format">Биће укључена и оригинална порука</string>
     <string name="title_no_image">Слика не може да се декодује</string>
-    <string name="title_unused_inline">Неискоришћене уметнуте слике ће бити уклоњене при чувању/слању</string>
     <string name="title_accross_remark">Поруке које се премештају између налога ће бити преузимане опет што доводи до повећане потрошње података</string>
     <string name="title_raw_saved">Сачувана сирова порука</string>
     <string name="title_attachment_saved">Прилог сачуван</string>
@@ -895,6 +893,8 @@
         <item>Велика</item>
         <item>Extra large</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>To</item>
         <item>Cc</item>

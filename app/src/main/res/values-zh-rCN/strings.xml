@@ -274,7 +274,7 @@
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
-    <string name="title_advanced_secure">从最近使用过的应用列表中隐藏并防止截屏</string>
+    <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_english">强制使用英语</string>
@@ -394,7 +394,6 @@
     <string name="title_sign_key">签名密钥:%1$s</string>
     <string name="title_last_connected">上次连接%1$s前</string>
     <string name="title_pop_support">POP3协议仅支持从收件箱下载并删除消息。POP3无法标记消息为已读、移动消息等。相比IMAP协议，POP3消耗的电量和数流量都更多。因此，尽可能考虑使用 IMAP 协议。</string>
-    <string name="title_activesync_support">不支持ActiveSync</string>
     <string name="title_oauth_support">不支持OAuth</string>
     <string name="title_review">评论</string>
     <string name="title_hint_alias">长按出现选项，如复制以创建别名身份</string>
@@ -515,7 +514,8 @@
     <string name="title_no_folder">文件夹不存在</string>
     <string name="title_no_format">将包含最初收到的消息</string>
     <string name="title_no_image">无法解码图像</string>
-    <string name="title_unused_inline">保存/发送时未使用的内联图像将被移除</string>
+    <string name="title_no_search">在服务器上搜索对该账户不可用</string>
+    <string name="title_unused_inline">未使用的内联图像将在发送时被删除</string>
     <string name="title_accross_remark">App会再次下载在不同账户间移动的消息，这将导致额外的数据使用</string>
     <string name="title_raw_saved">原始消息已保存</string>
     <string name="title_attachment_saved">附件已保存</string>
@@ -715,6 +715,7 @@
     <string name="title_legend_draft">有草稿</string>
     <string name="title_legend_priority">具备高优先级</string>
     <string name="title_legend_priority_low">低优先级</string>
+    <string name="title_legend_encrypted">已加密</string>
     <string name="title_legend_auth">认证失败</string>
     <string name="title_legend_snoozed">已打盹</string>
     <string name="title_legend_browsed">已浏览或搜索</string>
@@ -843,6 +844,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     <string name="title_search_special_unseen">未读</string>
     <string name="title_search_special_flagged">星标</string>
     <string name="title_search_special_snoozed">隐藏</string>
+    <string name="title_search_special_encrypted">已加密</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>
     <string name="title_widget_account">账户</string>
@@ -896,6 +898,8 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>大</item>
         <item>特大</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>发送至</item>
         <item>抄送</item>

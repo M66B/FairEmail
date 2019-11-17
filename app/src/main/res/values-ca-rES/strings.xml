@@ -389,7 +389,6 @@
     <string name="title_sign_key">Clau signada: %1$s</string>
     <string name="title_last_connected">Darrera connexió: %1$s</string>
     <string name="title_pop_support">El protocol POP3 només permet descarregar i esborrar missatges de la safata d\'entrada. No deixa marcar missatges com a llegits, moure missatges, etc. Com que POP3 també necessita més bateria i dades, pot ser preferible utilitzar el protocol IMAP.</string>
-    <string name="title_activesync_support">ActiveSync no està suportat</string>
     <string name="title_oauth_support">OAuth no està suportat</string>
     <string name="title_review">Revisa</string>
     <string name="title_hint_alias">Premuda llarga per a opcions com ara copiar per crear noves àlies d\'identitats</string>
@@ -878,6 +877,8 @@
         <item>Gran</item>
         <item>Extra large</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>A</item>
         <item>Cc</item>

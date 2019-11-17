@@ -50,4 +50,6 @@
     <string name="title_setup_import">Beállítások importálása</string>
     <string name="title_setup_exported">Beállítások exportálva</string>
     <string name="title_setup_imported">Beállítások importálva</string>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
 </resources>

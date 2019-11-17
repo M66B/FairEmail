@@ -159,6 +159,7 @@
     <string name="title_setup_go">Přejít</string>
     <string name="title_setup_to_do">Zbývá dokončit</string>
     <string name="title_setup_done">Hotovo</string>
+    <string name="title_setup_error">Chyba</string>
     <string name="title_setup_export">Export nastavení</string>
     <string name="title_setup_import">Import nastavení</string>
     <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
@@ -307,6 +308,7 @@
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
+    <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
@@ -426,7 +428,6 @@
     <string name="title_sign_key">Podpisový klíč: %1$s</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
     <string name="title_pop_support">Protokol POP3 podporuje stahování a odstraňování zpráv pouze ze složky doručené. POP3 neumí zprávu označit jako oblíbenou, přesouvat zprávy, atd. Oproti IMAP bude POP3 také více zatěžovat baterii. Zvažte tak použití protokolu IMAP, kdykoli to bude možné.</string>
-    <string name="title_activesync_support">ActiveSync není podporován</string>
     <string name="title_oauth_support">OAuth není podporováno</string>
     <string name="title_review">Zkontrolovat</string>
     <string name="title_hint_alias">Dlouze podržet pro možnosti, např. kopírovat pro vytvoření aliasu identity</string>
@@ -547,7 +548,8 @@
     <string name="title_no_folder">Složka neexistuje</string>
     <string name="title_no_format">Původní zpráva bude zahrnuta</string>
     <string name="title_no_image">Obrázek nemohl být dekódován</string>
-    <string name="title_unused_inline">Nepoužité vložené obrázky budou při uložení/odeslání odebrány</string>
+    <string name="title_no_search">Vyhledávání na serveru není pro tento účet k dispozici</string>
+    <string name="title_unused_inline">Nepoužité vložené obrázky budou při odeslání odebrány</string>
     <string name="title_accross_remark">Zprávy přesunuté napříč účty budou opětovně staženy, což povede ke spotřebě dat navíc</string>
     <string name="title_raw_saved">Zdrojová zpráva uložena</string>
     <string name="title_attachment_saved">Příloha uložena</string>
@@ -629,6 +631,7 @@
     <string name="title_resync">Znovu synchronizovat</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_not_encrypted">Zpráva není šifrována</string>
+    <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>
     <string name="title_signature_none">Zpráva není podepsána</string>
     <string name="title_signature_valid">Podpis zprávy je platný</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
@@ -746,6 +749,7 @@
     <string name="title_legend_draft">Má koncept</string>
     <string name="title_legend_priority">Má vysokou prioritu</string>
     <string name="title_legend_priority_low">Má nízkou prioritu</string>
+    <string name="title_legend_encrypted">Je šifrováno</string>
     <string name="title_legend_auth">Ověřování selhalo</string>
     <string name="title_legend_snoozed">Je odloženo</string>
     <string name="title_legend_browsed">Je prohlédnuto/vyhledáno</string>
@@ -873,9 +877,14 @@
     <string name="title_search_special_prefix">speciální</string>
     <string name="title_search_special_unseen">nepřečteno</string>
     <string name="title_search_special_flagged">hvězdička</string>
-    <string name="title_search_special_snoozed">skryté</string>
+    <string name="title_search_special_snoozed">skryto</string>
+    <string name="title_search_special_encrypted">šifrováno</string>
+    <string name="title_widget_title_count">Počet nových zpráv</string>
+    <string name="title_widget_title_list">Seznam zpráv</string>
     <string name="title_widget_account">Účet</string>
     <string name="title_widget_account_all">Všechny</string>
+    <string name="title_widget_folder">Složka</string>
+    <string name="title_widget_folder_unified">Složky sjednocené doručené pošty</string>
     <string name="title_widget_unseen">Pouze nepřečtené zprávy</string>
     <string name="title_widget_flagged">Pouze zprávy označené hvězdičkou</string>
     <string-array name="pollIntervalNames">
@@ -923,6 +932,8 @@
         <item>Velké</item>
         <item>Velmi velké</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Komu</item>
         <item>Kopie</item>

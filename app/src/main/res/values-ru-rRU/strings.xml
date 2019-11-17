@@ -308,7 +308,7 @@
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
-    <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить делать снимки экрана</string>
+    <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
     <string name="title_advanced_pin">PIN-код</string>
     <string name="title_advanced_english">Принудительно использовать английский язык</string>
@@ -428,7 +428,6 @@
     <string name="title_sign_key">Ключ подписи: %1$s</string>
     <string name="title_last_connected">Последнее подключение: %1$s</string>
     <string name="title_pop_support">Протокол POP3 поддерживает загрузку и удаление сообщений только из папки \"Входящие\". POP3 не может помечать сообщения прочитанными, перемещать их и т.д. POP3 расходует больше энергии батареи и трафика, чем IMAP. Поэтому всегда используйте протокол IMAP, если это возможно.</string>
-    <string name="title_activesync_support">ActiveSync не поддерживается</string>
     <string name="title_oauth_support">OAuth не поддерживается</string>
     <string name="title_review">Пересмотр</string>
     <string name="title_hint_alias">Длительное нажатие для других действий, например, копирования для создания псевдонима идентификатора</string>
@@ -549,7 +548,8 @@
     <string name="title_no_folder">Папка не существует</string>
     <string name="title_no_format">Оригинальное сообщение будет включено</string>
     <string name="title_no_image">Изображение не может быть декодировано</string>
-    <string name="title_unused_inline">Неиспользованные встроенные изображения будут удалены при сохранении/отправке</string>
+    <string name="title_no_search">Поиск на сервере недоступен для этой учётной записи</string>
+    <string name="title_unused_inline">Неиспользуемые встроенные изображения будут удалены при отправке</string>
     <string name="title_accross_remark">Сообщения, перемещаемые между учётными записями, будут загружены заново, порождая дополнительный трафик</string>
     <string name="title_raw_saved">Оригинал сообщения сохранён</string>
     <string name="title_attachment_saved">Вложение сохранено</string>
@@ -749,6 +749,7 @@
     <string name="title_legend_draft">Имеет черновик</string>
     <string name="title_legend_priority">Имеет высокий приоритет</string>
     <string name="title_legend_priority_low">Имеет низкий приоритет</string>
+    <string name="title_legend_encrypted">Зашифровано</string>
     <string name="title_legend_auth">Ошибка аутентификации</string>
     <string name="title_legend_snoozed">Отложено</string>
     <string name="title_legend_browsed">Сообщение на сервере</string>
@@ -878,6 +879,7 @@
     <string name="title_search_special_unseen">непрочитано</string>
     <string name="title_search_special_flagged">избранное</string>
     <string name="title_search_special_snoozed">скрыто</string>
+    <string name="title_search_special_encrypted">зашифровано</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>
     <string name="title_widget_account">Учётная запись</string>
@@ -931,6 +933,8 @@
         <item>Большой</item>
         <item>Очень большой</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Кому</item>
         <item>Копия</item>

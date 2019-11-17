@@ -356,7 +356,6 @@
     <string name="title_identity_delete">Ta bort denna identitet permanent?</string>
     <string name="title_edit_html">Redigera som HTML</string>
     <string name="title_last_connected">Senast ansluten: %1$s</string>
-    <string name="title_activesync_support">ActiveSync stöds inte</string>
     <string name="title_oauth_support">OAuth stöds inte</string>
     <string name="title_review">Granska</string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
@@ -820,6 +819,8 @@
         <item>Stor</item>
         <item>Extra large</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>Till</item>
         <item>Kopia</item>

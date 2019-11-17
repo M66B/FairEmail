@@ -406,7 +406,6 @@
     <string name="title_sign_key">Clave de firma: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
     <string name="title_pop_support">El protocolo POP3 soporta descargar y eliminar mensajes de la bandeja de entrada únicamente. POP3 no puede marcar mensajes como leídos, mover mensajes, etc. POP3 utilizará más batería y datos que IMAP. Por lo tanto considera utilizar el protocolo IMAP cuando sea posible.</string>
-    <string name="title_activesync_support">ActiveSync no es compatible</string>
     <string name="title_oauth_support">OAuth no está soportado</string>
     <string name="title_review">Revisar</string>
     <string name="title_hint_alias">Dejar pulsado para opciones, como copiar para crear identidades de alias</string>
@@ -527,7 +526,8 @@
     <string name="title_no_folder">La carpeta no existe</string>
     <string name="title_no_format">El mensaje recibido originalmente será incluido</string>
     <string name="title_no_image">La imagen no se pudo decodificar</string>
-    <string name="title_unused_inline">Las imágenes embebidas serán eliminadas al guardar/enviar</string>
+    <string name="title_no_search">La búsqueda en el servidor no está disponible para esta cuenta</string>
+    <string name="title_unused_inline">Las imágenes embebidas no usadas serán eliminadas al enviar</string>
     <string name="title_accross_remark">Los mensajes movidos a otras cuentas serán descargados nuevamente causando uso adicional de datos</string>
     <string name="title_raw_saved">Mensaje raw guardado</string>
     <string name="title_attachment_saved">Adjunto guardado</string>
@@ -909,6 +909,8 @@
         <item>Grande</item>
         <item>Extra grande</item>
     </string-array>
+    <!-- https://en.wikipedia.org/wiki/Display_resolution -->
+    <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <string-array name="targetNames">
         <item>A</item>
         <item>CC</item>
