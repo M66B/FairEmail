@@ -195,6 +195,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean avatars;
     private boolean name_email;
     private boolean distinguish_contacts;
+    private Float font_size_sender;
+    private Float font_size_subject;
     private boolean subject_top;
     private boolean subject_italic;
     private String subject_ellipsize;
@@ -684,15 +686,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             // Text size
             if (textSize != 0) {
-                tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * (message.unseen > 0 ? 1.1f : 1f));
-                tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
+                float fz_sender = (font_size_sender == null ? textSize : font_size_sender) * (message.unseen > 0 ? 1.1f : 1f);
+                float fz_subject = (font_size_subject == null ? textSize : font_size_subject) * 0.9f;
+                tvFrom.setTextSize(TypedValue.COMPLEX_UNIT_PX, fz_sender);
+                tvSubject.setTextSize(TypedValue.COMPLEX_UNIT_PX, fz_subject);
                 tvFolder.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
                 tvPreview.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * 0.9f);
 
-                int px = Math.round(
-                        textSize * (message.unseen > 0 ? 1.1f : 1f) +
-                                textSize * 0.9f +
-                                (compact ? 0 : textSize * 0.9f));
+                int px = Math.round(fz_sender + fz_subject + (compact ? 0 : textSize * 0.9f));
                 ViewGroup.LayoutParams lparams = ibAvatar.getLayoutParams();
                 if (lparams.height != px) {
                     lparams.width = px;
@@ -3634,6 +3635,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.avatars = (contacts && avatars) || generated;
         this.name_email = prefs.getBoolean("name_email", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
+
+        int fz_sender = prefs.getInt("font_size_sender", -1);
+        if (fz_sender >= 0)
+            font_size_sender = Helper.getTextSize(context, fz_sender);
+
+        int fz_subject = prefs.getInt("font_size_subject", -1);
+        if (fz_subject >= 0)
+            font_size_subject = Helper.getTextSize(context, fz_subject);
+
         this.subject_top = prefs.getBoolean("subject_top", false);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "middle");

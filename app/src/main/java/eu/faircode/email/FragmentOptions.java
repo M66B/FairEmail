@@ -41,6 +41,7 @@ public class FragmentOptions extends FragmentBase {
             "subscriptions",
             "landscape", "startup", "cards", "indentation", "date", "threading", "highlight_unread",
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
+            "font_size_sender", "font_size_subject",
             "name_email", "distinguish_contacts", "authentication",
             "subject_top", "subject_italic", "subject_ellipsize",
             "flags", "flags_background", "preview", "preview_italic", "preview_lines",

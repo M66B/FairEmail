@@ -264,6 +264,8 @@
     <string name="title_advanced_color_threshold">Threshold letter color</string>
     <string name="title_advanced_name_email">Show names and email addresses</string>
     <string name="title_advanced_authentication">Show a warning when the receiving server could not authenticate the message</string>
+    <string name="title_advanced_font_size_sender">Font size sender</string>
+    <string name="title_advanced_font_size_subject">Font size subject</string>
     <string name="title_advanced_subject_top">Show subject above sender</string>
     <string name="title_advanced_subject_italic">Show subject in italics</string>
     <string name="title_advanced_subject_elipsed">When needed, shorten the subject</string>
@@ -1128,6 +1130,20 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <integer-array name="fontSizeValues" translatable="false">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
+    <string-array name="fontSizeNames">
+        <item>Default</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
