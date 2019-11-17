@@ -45,6 +45,7 @@ public class TupleMessageEx extends EntityMessage {
     public int unseen;
     public int unflagged;
     public int drafts;
+    public int encrypted;
     public int visible;
     public Long totalSize;
 
@@ -78,6 +79,7 @@ public class TupleMessageEx extends EntityMessage {
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&
                     this.drafts == other.drafts &&
+                    this.encrypted == other.encrypted &&
                     this.visible == other.visible &&
                     Objects.equals(this.totalSize, other.totalSize) &&
                     this.duplicate == other.duplicate);

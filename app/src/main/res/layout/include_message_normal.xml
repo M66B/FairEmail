@@ -93,6 +93,17 @@
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
         app:srcCompat="@drawable/baseline_low_priority_24" />
 
+    <ImageView
+        android:id="@+id/ivEncrypted"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="6dp"
+        android:contentDescription="@string/title_legend_priority_low"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
+        app:layout_constraintStart_toEndOf="@id/ivPriorityLow"
+        app:layout_constraintTop_toTopOf="@+id/tvFrom"
+        app:srcCompat="@drawable/baseline_lock_24" />
+
     <TextView
         android:id="@+id/tvFrom"
         android:layout_width="0dp"
@@ -104,7 +115,7 @@
         android:text="From"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toStartOf="@+id/tvSize"
-        app:layout_constraintStart_toEndOf="@id/ivPriorityLow"
+        app:layout_constraintStart_toEndOf="@id/ivEncrypted"
         app:layout_constraintTop_toBottomOf="@id/paddingTop" />
 
     <TextView
