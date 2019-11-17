@@ -104,12 +104,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private boolean searching = false;
 
     static final int REQUEST_UNIFIED = 1;
-    static final int REQUEST_WHY = 2;
-    static final int REQUEST_THREAD = 3;
-    static final int REQUEST_OUTBOX = 4;
-    static final int REQUEST_ERROR = 5;
-    static final int REQUEST_UPDATE = 6;
-    static final int REQUEST_WIDGET = 7;
+    static final int REQUEST_FOLDER = 2;
+    static final int REQUEST_WHY = 3;
+    static final int REQUEST_THREAD = 4;
+    static final int REQUEST_OUTBOX = 5;
+    static final int REQUEST_ERROR = 6;
+    static final int REQUEST_UPDATE = 7;
+    static final int REQUEST_WIDGET = 8;
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
@@ -789,6 +790,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Intent clear = new Intent(this, ServiceUI.class)
                             .setAction(action.replace("unified", "clear"));
                     startService(clear);
+                }
+
+            } else if (action.startsWith("folder")) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
+                long folder = Long.parseLong(action.split(":", 2)[1]);
+                if (folder > 0) {
+                    intent.putExtra("folder", folder);
+                    onViewMessages(intent);
                 }
 
             } else if ("why".equals(action)) {

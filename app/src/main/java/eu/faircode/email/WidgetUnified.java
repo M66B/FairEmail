@@ -67,14 +67,18 @@ public class WidgetUnified extends AppWidgetProvider {
     private static void update(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        Intent view = new Intent(context, ActivityView.class);
-        view.setAction("unified");
-        view.putExtra("refresh", true);
-        view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_UNIFIED, view, PendingIntent.FLAG_UPDATE_CURRENT);
-
         boolean pro = ActivityBilling.isPro(context);
         for (int appWidgetId : appWidgetIds) {
+            long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+            long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
+
+            Intent view = new Intent(context, ActivityView.class);
+            view.setAction("folder:" + folder);
+            view.putExtra("account", account);
+            view.putExtra("refresh", true);
+            view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_FOLDER, view, PendingIntent.FLAG_UPDATE_CURRENT);
+
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_unified);
 
             views.setViewVisibility(R.id.pro, pro ? View.GONE : View.VISIBLE);
