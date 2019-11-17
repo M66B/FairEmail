@@ -51,7 +51,7 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", SUM(message.encrypt IS NOT NULL) AS encrypted" +
+            ", SUM(message.encrypt = 1) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
             ", MAX(CASE WHEN" +
@@ -101,7 +101,7 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", SUM(message.encrypt IS NOT NULL) AS encrypted" +
+            ", SUM(message.encrypt = 1) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
@@ -145,7 +145,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", (message.encrypt IS NOT NULL) AS encrypted" +
+            ", (message.encrypt = 1) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
             " FROM message" +
@@ -280,7 +280,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", (message.encrypt IS NOT NULL) AS encrypted" +
+            ", (message.encrypt = 1) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
             " FROM message" +
@@ -314,7 +314,7 @@ public interface DaoMessage {
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
             ", 0 AS drafts" +
-            ", (message.encrypt IS NOT NULL) AS encrypted" +
+            ", (message.encrypt = 1) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
             " FROM message" +
