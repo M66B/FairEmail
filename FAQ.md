@@ -1850,6 +1850,9 @@ You can directly access this setting [here](https://login.yahoo.com/account/secu
 If you enable "*less secure sign in*", you should use a [strong password](https://en.wikipedia.org/wiki/Password_strength) for your Yahoo! account, which is a good idea anyway.
 Note that using the [standard](https://tools.ietf.org/html/rfc3501) IMAP protocol in itself is not less secure and not outdated.
 
+Depending on the age of your Yahoo! account you need to create a third-party app password.
+Please see [here](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html) for the instructions.
+
 <br />
 
 <a name="faq89"></a>
