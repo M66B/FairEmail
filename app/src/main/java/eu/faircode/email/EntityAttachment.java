@@ -160,13 +160,18 @@ public class EntityAttachment {
         if (extension == null)
             return type;
 
+        String gtype = MimeTypeMap.getSingleton()
+                .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
+
+        // Some servers remove dots from mime types
+        if (gtype != null && gtype.replace(".", "").equals(type))
+            return gtype;
+
         if ("application/zip".equals(type) ||
                 "application/octet-stream".equals(type)) {
             if ("log".equalsIgnoreCase(extension))
                 return "text/plain";
 
-            String gtype = MimeTypeMap.getSingleton()
-                    .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
             if (gtype == null || gtype.equals(type))
                 return type;
 
