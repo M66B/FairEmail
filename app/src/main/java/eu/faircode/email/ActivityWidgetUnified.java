@@ -96,6 +96,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                     editor.remove("widget." + appWidgetId + ".name");
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
                 editor.putLong("widget." + appWidgetId + ".folder", folder == null ? -1L : folder.id);
+                editor.putString("widget." + appWidgetId + ".type", folder == null ? null : folder.type);
                 editor.putBoolean("widget." + appWidgetId + ".unseen", cbUnseen.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".flagged", cbFlagged.isChecked());
                 editor.apply();

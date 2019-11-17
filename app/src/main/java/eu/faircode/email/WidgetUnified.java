@@ -71,10 +71,12 @@ public class WidgetUnified extends AppWidgetProvider {
         for (int appWidgetId : appWidgetIds) {
             long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
             long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
+            String type = prefs.getString("widget." + appWidgetId + ".type", null);
 
             Intent view = new Intent(context, ActivityView.class);
             view.setAction("folder:" + folder);
             view.putExtra("account", account);
+            view.putExtra("type", type);
             view.putExtra("refresh", true);
             view.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent pi = PendingIntent.getActivity(context, ActivityView.REQUEST_FOLDER, view, PendingIntent.FLAG_UPDATE_CURRENT);
