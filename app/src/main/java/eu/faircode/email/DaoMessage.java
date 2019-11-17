@@ -50,7 +50,7 @@ public interface DaoMessage {
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
-            ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
+            ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", SUM(message.encrypt IS NOT NULL) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
@@ -100,7 +100,7 @@ public interface DaoMessage {
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
-            ", SUM(CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END) AS drafts" +
+            ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", SUM(message.encrypt IS NOT NULL) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
@@ -144,7 +144,7 @@ public interface DaoMessage {
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
-            ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
+            ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", (message.encrypt IS NOT NULL) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
@@ -279,7 +279,7 @@ public interface DaoMessage {
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
-            ", CASE WHEN folder.type = '" + EntityFolder.DRAFTS + "' THEN 1 ELSE 0 END AS drafts" +
+            ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
             ", (message.encrypt IS NOT NULL) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
