@@ -52,22 +52,17 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Properties;
 
 import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Session;
-import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeMessage;
 
 public class ActivityEML extends ActivityBase {
     private Uri uri;
-    private Result result;
     private MessageHelper.AttachmentPart apart;
     private static final int REQUEST_ATTACHMENT = 1;
 
@@ -81,6 +76,7 @@ public class ActivityEML extends ActivityBase {
         final TextView tvTo = findViewById(R.id.tvTo);
         final TextView tvFrom = findViewById(R.id.tvFrom);
         final TextView tvSubject = findViewById(R.id.tvSubject);
+        final View vSeparatorAttachments = findViewById(R.id.vSeparatorAttachments);
         final RecyclerView rvAttachment = findViewById(R.id.rvAttachment);
         final TextView tvBody = findViewById(R.id.tvBody);
         final ContentLoadingProgressBar pbWait = findViewById(R.id.pbWait);
@@ -90,6 +86,7 @@ public class ActivityEML extends ActivityBase {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rvAttachment.setLayoutManager(llm);
 
+        vSeparatorAttachments.setVisibility(View.GONE);
         grpReady.setVisibility(View.GONE);
 
         uri = getIntent().getData();
@@ -147,27 +144,11 @@ public class ActivityEML extends ActivityBase {
 
             @Override
             protected void onExecuted(Bundle args, Result result) {
-                ActivityEML.this.result = result;
-
                 tvFrom.setText(result.from);
                 tvTo.setText(result.to);
                 tvSubject.setText(result.subject);
 
-                List<String> attachments = new ArrayList<>();
-                for (MessageHelper.AttachmentPart apart : result.parts.getAttachmentParts()) {
-                    StringBuilder sb = new StringBuilder();
-                    try {
-                        ContentType ct = new ContentType(apart.part.getContentType());
-                        sb.append(ct.getBaseType().toLowerCase(Locale.ROOT));
-                    } catch (MessagingException ex) {
-                        sb.append(ex.getMessage());
-                    }
-                    if (apart.disposition != null)
-                        sb.append(' ').append(apart.disposition);
-                    if (apart.filename != null)
-                        sb.append(' ').append(apart.filename);
-                    attachments.add(sb.toString());
-                }
+                vSeparatorAttachments.setVisibility(result.parts.getAttachmentParts().size() > 0 ? View.VISIBLE : View.GONE);
 
                 AdapterAttachmentEML adapter = new AdapterAttachmentEML(
                         ActivityEML.this,

@@ -142,7 +142,7 @@
                     vSeparatorHeader,tvFromTitle,tvFrom,
                     tvToTitle,tvTo,
                     tvSubject,
-                    vSeparatorAttachments,rvAttachment,
+                    rvAttachment,
                     vSeparatorBody,tvBody" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
