@@ -245,6 +245,7 @@ public class MessageHelper {
 
         for (final EntityAttachment attachment : attachments)
             if (attachment.available && EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
+                // https://tools.ietf.org/html/rfc3156
                 Multipart multipart = new MimeMultipart("encrypted; protocol=\"application/pgp-encrypted\"");
 
                 BodyPart pgp = new MimeBodyPart();
