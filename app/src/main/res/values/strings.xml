@@ -698,6 +698,7 @@
 
     <string name="title_signature_none">Message not signed</string>
     <string name="title_signature_valid">Message signature valid</string>
+    <string name="title_signature_unconfirmed">Message signature valid but not confirmed</string>
     <string name="title_signature_invalid">Message signature invalid</string>
 
     <string name="title_search">Search</string>

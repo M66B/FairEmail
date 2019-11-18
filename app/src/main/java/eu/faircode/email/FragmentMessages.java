@@ -151,6 +151,7 @@ import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_CONFIRMED;
+import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_VALID_KEY_UNCONFIRMED;
 
 public class FragmentMessages extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ViewGroup view;
@@ -4202,6 +4203,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Snackbar.make(view, R.string.title_signature_none, Snackbar.LENGTH_LONG).show();
                             else if (sresult == RESULT_VALID_KEY_CONFIRMED)
                                 Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
+                            else if (sresult == RESULT_VALID_KEY_UNCONFIRMED)
+                                Snackbar.make(view, R.string.title_signature_unconfirmed, Snackbar.LENGTH_LONG).show();
                             else
                                 Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
 
