@@ -3195,7 +3195,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     TupleMessageEx message = messages.get(i);
                     if (message != null && !ids.contains(message.id)) {
                         ids.add(message.id);
-                        if (!message.ui_seen)
+                        if (!message.ui_seen && !message.duplicate)
                             gotoTop = true;
                     }
                 }
