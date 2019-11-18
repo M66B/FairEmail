@@ -3636,6 +3636,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.name_email = prefs.getBoolean("name_email", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
 
+        this.subject_top = prefs.getBoolean("subject_top", false);
+
         int fz_sender = prefs.getInt("font_size_sender", -1);
         if (fz_sender >= 0)
             font_size_sender = Helper.getTextSize(context, fz_sender);
@@ -3644,7 +3646,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (fz_subject >= 0)
             font_size_subject = Helper.getTextSize(context, fz_subject);
 
-        this.subject_top = prefs.getBoolean("subject_top", false);
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
         this.flags = prefs.getBoolean("flags", true);

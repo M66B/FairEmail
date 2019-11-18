@@ -69,9 +69,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swNameEmail;
     private SwitchCompat swDistinguishContacts;
     private SwitchCompat swAuthentication;
+    private SwitchCompat swSubjectTop;
     private Spinner spFontSizeSender;
     private Spinner spFontSizeSubject;
-    private SwitchCompat swSubjectTop;
     private SwitchCompat swSubjectItalic;
     private Spinner spSubjectEllipsize;
     private SwitchCompat swFlags;
@@ -94,8 +94,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "theme", "landscape", "startup", "cards", "indentation", "date", "threading", "highlight_unread",
             "avatars", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "name_email", "distinguish_contacts", "authentication",
-            "font_size_sender", "font_size_subject",
-            "subject_top", "subject_italic", "subject_ellipsize",
+            "subject_top", "font_size_sender", "font_size_subject", "subject_italic", "subject_ellipsize",
             "flags", "flags_background", "preview", "preview_italic", "preview_lines", "addresses", "attachments_alt",
             "contrast", "monospaced", "text_color",
             "inline_images", "collapse_quotes", "seekbar", "actionbar",
@@ -132,9 +131,9 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swNameEmail = view.findViewById(R.id.swNameEmail);
         swDistinguishContacts = view.findViewById(R.id.swDistinguishContacts);
         swAuthentication = view.findViewById(R.id.swAuthentication);
+        swSubjectTop = view.findViewById(R.id.swSubjectTop);
         spFontSizeSender = view.findViewById(R.id.spFontSizeSender);
         spFontSizeSubject = view.findViewById(R.id.spFontSizeSubject);
-        swSubjectTop = view.findViewById(R.id.swSubjectTop);
         swSubjectItalic = view.findViewById(R.id.swSubjectItalic);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
         swFlags = view.findViewById(R.id.swFlags);
@@ -337,6 +336,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swSubjectTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("subject_top", checked).apply();
+                WidgetUnified.update(getContext());
+            }
+        });
+
         spFontSizeSender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -360,14 +367,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("font_size_subject").apply();
-            }
-        });
-
-        swSubjectTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("subject_top", checked).apply();
-                WidgetUnified.update(getContext());
             }
         });
 
@@ -580,6 +579,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
         swAuthentication.setChecked(prefs.getBoolean("authentication", true));
 
+        swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
+
         int[] fontSizeValues = getResources().getIntArray(R.array.fontSizeValues);
 
         int font_size_sender = prefs.getInt("font_size_sender", -1);
@@ -596,7 +597,6 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                 break;
             }
 
-        swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
         swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
 
         String subject_ellipsize = prefs.getString("subject_ellipsize", "middle");
