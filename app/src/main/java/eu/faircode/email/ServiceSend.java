@@ -435,16 +435,18 @@ public class ServiceSend extends ServiceBase {
                     db.message().setMessageSize(sid, size, total);
                     db.message().setMessageSent(sid, time);
                     db.message().setMessageUiHide(sid, false);
-
-                    // Check for sent orphans
-                    EntityMessage orphan = db.message().getMessage(sid);
-                    EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
                 }
 
                 if (message.inreplyto != null) {
                     List<EntityMessage> replieds = db.message().getMessagesByMsgId(message.account, message.inreplyto);
                     for (EntityMessage replied : replieds)
                         EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
+                }
+
+                if (sid != null) {
+                    // Check for sent orphans
+                    EntityMessage orphan = db.message().getMessage(sid);
+                    EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
                 }
 
                 db.setTransactionSuccessful();
