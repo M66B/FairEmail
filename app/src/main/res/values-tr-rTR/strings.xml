@@ -225,6 +225,8 @@
     <string name="title_advanced_color_threshold">Eşik harf rengi</string>
     <string name="title_advanced_name_email">Adları ve e-posta adreslarini göster</string>
     <string name="title_advanced_authentication">Alıcı sunucu iletinin kimliğini doğrulayamadığında bir uyarı göster</string>
+    <string name="title_advanced_font_size_sender">Gönderen yazı boyutu</string>
+    <string name="title_advanced_font_size_subject">Konu yazı boyutu</string>
     <string name="title_advanced_subject_top">Gönderenin üzerinde konuyu göster</string>
     <string name="title_advanced_subject_italic">Konuyu eğik yazı ile göster</string>
     <string name="title_advanced_subject_elipsed">Gerektiğinde konuyu kısaltın</string>
