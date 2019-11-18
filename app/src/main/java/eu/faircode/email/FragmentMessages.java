@@ -3186,25 +3186,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (handleThreadActions(messages))
                     return;
 
-            if (viewType == AdapterMessage.ViewType.THREAD)
-                adapter.gotoTop();
-            else if (viewType != AdapterMessage.ViewType.SEARCH) {
+            if (viewType != AdapterMessage.ViewType.SEARCH) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean autoscroll = prefs.getBoolean("autoscroll", true);
-                if (autoscroll) {
-                    boolean gotoTop = false;
-                    for (int i = 0; i < messages.size(); i++) {
-                        TupleMessageEx message = messages.get(i);
-                        if (message != null && !ids.contains(message.id)) {
-                            ids.add(message.id);
-                            if (!message.ui_seen)
-                                gotoTop = true;
-                        }
-                    }
 
-                    if (gotoTop)
-                        adapter.gotoTop();
+                boolean gotoTop = false;
+                for (int i = 0; i < messages.size() && i < ViewModelMessages.LOCAL_PAGE_SIZE; i++) {
+                    TupleMessageEx message = messages.get(i);
+                    if (message != null && !ids.contains(message.id)) {
+                        ids.add(message.id);
+                        if (!message.ui_seen)
+                            gotoTop = true;
+                    }
                 }
+
+                if (gotoTop &&
+                        (autoscroll || viewType == AdapterMessage.ViewType.THREAD))
+                    adapter.gotoTop();
             }
 
             Log.i("Submit messages=" + messages.size());
