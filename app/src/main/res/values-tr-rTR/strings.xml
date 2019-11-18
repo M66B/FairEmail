@@ -941,4 +941,10 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+    <string-array name="fontSizeNames">
+        <item>Varsayılan</item>
+        <item>Küçük</item>
+        <item>Orta</item>
+        <item>Büyük</item>
+    </string-array>
 </resources>

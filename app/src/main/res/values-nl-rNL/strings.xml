@@ -225,6 +225,8 @@
     <string name="title_advanced_color_threshold">Drempel letterkleur</string>
     <string name="title_advanced_name_email">Toon namen en e-mailadressen</string>
     <string name="title_advanced_authentication">Toon een waarschuwing wanneer de ontvangende server het bericht niet kon verifiëren</string>
+    <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
+    <string name="title_advanced_font_size_subject">Tekengrootte onderwerp</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
     <string name="title_advanced_subject_italic">Toon onderwerp cursief</string>
     <string name="title_advanced_subject_elipsed">Wanneer nodig, verkort het onderwerp</string>
@@ -937,5 +939,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Standaard</item>
+        <item>Klein</item>
+        <item>Gemiddeld</item>
+        <item>Groot</item>
     </string-array>
 </resources>

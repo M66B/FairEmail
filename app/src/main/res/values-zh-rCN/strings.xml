@@ -213,6 +213,8 @@
     <string name="title_advanced_color_threshold">阈值字母颜色</string>
     <string name="title_advanced_name_email">显示名称和电子邮件地址</string>
     <string name="title_advanced_authentication">当接收服务器无法验证消息时显示警告</string>
+    <string name="title_advanced_font_size_sender">字体大小发送器</string>
+    <string name="title_advanced_font_size_subject">邮件主题字体大小</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
     <string name="title_advanced_subject_italic">用斜体字显示邮件主题</string>
     <string name="title_advanced_subject_elipsed">必要时缩短邮件主题</string>
@@ -927,5 +929,11 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>默认</item>
+        <item>小</item>
+        <item>中</item>
+        <item>大</item>
     </string-array>
 </resources>

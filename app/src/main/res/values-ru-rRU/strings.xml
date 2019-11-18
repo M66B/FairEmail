@@ -247,6 +247,8 @@
     <string name="title_advanced_color_threshold">Порог яркости отображения букв</string>
     <string name="title_advanced_name_email">Показывать имена и адреса электронной почты</string>
     <string name="title_advanced_authentication">Показывать предупреждение, когда сервер не может аутентифицировать сообщение</string>
+    <string name="title_advanced_font_size_sender">Размера шрифта поля \"Отправитель\"</string>
+    <string name="title_advanced_font_size_subject">Размера шрифта поля \"Тема\"</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
     <string name="title_advanced_subject_italic">Показывать тему курсивом</string>
     <string name="title_advanced_subject_elipsed">При необходимости сокращать тему</string>
@@ -962,5 +964,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>По умолчанию</item>
+        <item>Мелкий</item>
+        <item>Средний</item>
+        <item>Крупный</item>
     </string-array>
 </resources>

@@ -224,6 +224,8 @@
     <string name="title_advanced_color_threshold">Soglia colore lettera</string>
     <string name="title_advanced_name_email">Mostra nomi e indirizzi email</string>
     <string name="title_advanced_authentication">Mostra un avviso quando il server ricevente non può autenticare il messaggio</string>
+    <string name="title_advanced_font_size_sender">Dimensione font mittente</string>
+    <string name="title_advanced_font_size_subject">Dimensione carattere oggetto</string>
     <string name="title_advanced_subject_top">Mostra oggetto sopra il mittente</string>
     <string name="title_advanced_subject_italic">Mostra soggetto in corsivo</string>
     <string name="title_advanced_subject_elipsed">Quando necessario, accorcia l\'oggetto</string>
@@ -939,5 +941,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Predefinito</item>
+        <item>Piccolo</item>
+        <item>Medio</item>
+        <item>Grande</item>
     </string-array>
 </resources>

@@ -224,6 +224,8 @@
     <string name="title_advanced_color_threshold">Grænseværdi, bogstavsfarve</string>
     <string name="title_advanced_name_email">Vis navne og e-mailadresser</string>
     <string name="title_advanced_authentication">Vis en advarsel, når indgående server ikke kunne bekræfte beskeden</string>
+    <string name="title_advanced_font_size_sender">Skriftstørrelse, Afsender</string>
+    <string name="title_advanced_font_size_subject">Skriftstørrelse, Emne</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
     <string name="title_advanced_subject_italic">Vis emnet med kursiv</string>
     <string name="title_advanced_subject_elipsed">Når nødvendigt, afkort emnet</string>
@@ -525,7 +527,7 @@
     <string name="title_no_folder">Mappe findes ikke</string>
     <string name="title_no_format">Den oprindeligt modtagne besked bliver inkluderet</string>
     <string name="title_no_image">Billede kunne ikke afkodes</string>
-    <string name="title_no_search">Søgning på serveren er ikke tilgængelig for denne konto</string>
+    <string name="title_no_search">Søg på server er utilgængelig for denne konto</string>
     <string name="title_unused_inline">Ubrugte inline-billeder fjernes ved afsendelsen</string>
     <string name="title_accross_remark">Beskeder flyttet mellem konti gen-downloades, hvilket betyder ekstra dataforbrug</string>
     <string name="title_raw_saved">Besked i råformat gemt</string>
@@ -726,6 +728,7 @@
     <string name="title_legend_draft">Har kladde</string>
     <string name="title_legend_priority">Har høj prioritet</string>
     <string name="title_legend_priority_low">Har lav prioritet</string>
+    <string name="title_legend_encrypted">Er krypteret</string>
     <string name="title_legend_auth">Godkendelse mislykkedes</string>
     <string name="title_legend_snoozed">Er udsat</string>
     <string name="title_legend_browsed">Gennemses eller søges i</string>
@@ -854,6 +857,7 @@
     <string name="title_search_special_unseen">ulæst</string>
     <string name="title_search_special_flagged">stjernemarkeret</string>
     <string name="title_search_special_snoozed">skjult</string>
+    <string name="title_search_special_encrypted">krypteret</string>
     <string name="title_widget_title_count">Ny besked-tæller</string>
     <string name="title_widget_title_list">Beskedliste</string>
     <string name="title_widget_account">Konto</string>
@@ -936,5 +940,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Standard</item>
+        <item>Lille</item>
+        <item>Mellem</item>
+        <item>Stor</item>
     </string-array>
 </resources>

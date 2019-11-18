@@ -225,6 +225,8 @@
     <string name="title_advanced_color_threshold">Terskelbokstavfarge</string>
     <string name="title_advanced_name_email">Vis navn og e-postadresser</string>
     <string name="title_advanced_authentication">Vis en advarsel når mottakeren ikke kunne godkjenne meldingen</string>
+    <string name="title_advanced_font_size_sender">Skriftstørrelse for avsender</string>
+    <string name="title_advanced_font_size_subject">Skriftstørrelse emne</string>
     <string name="title_advanced_subject_top">Vis emne over avsender</string>
     <string name="title_advanced_subject_italic">Vis emnet i kursivt</string>
     <string name="title_advanced_subject_elipsed">Forkorte emnet ved behov</string>
@@ -940,5 +942,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Standard</item>
+        <item>Liten</item>
+        <item>Medium</item>
+        <item>Stor</item>
     </string-array>
 </resources>

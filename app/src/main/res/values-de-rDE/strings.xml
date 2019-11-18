@@ -224,6 +224,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_color_threshold">Schwellenwert für Buchstabenfarbe</string>
     <string name="title_advanced_name_email">Namen und E-Mail-Adressen anzeigen</string>
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
+    <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
+    <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
     <string name="title_advanced_subject_top">Zeige Betreff oberhalb des Absenders</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_subject_elipsed">Wenn nötig, den Betreff kürzen</string>
@@ -938,5 +940,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Standard</item>
+        <item>Klein</item>
+        <item>Mittel</item>
+        <item>Groß</item>
     </string-array>
 </resources>

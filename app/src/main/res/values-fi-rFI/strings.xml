@@ -225,6 +225,8 @@
     <string name="title_advanced_color_threshold">Kirjasimen värin kynnysarvo</string>
     <string name="title_advanced_name_email">Näytä nimet ja sähköpostiosoitteet</string>
     <string name="title_advanced_authentication">Näytä varoitus, kun vastaanottava palvelin ei voinut todentaa viestiä</string>
+    <string name="title_advanced_font_size_sender">Viestin lähettäjän kirjaisimen koko</string>
+    <string name="title_advanced_font_size_subject">Viestin aiheen kirjaisimen koko</string>
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>
     <string name="title_advanced_subject_italic">Näytä aihe kursiivilla</string>
     <string name="title_advanced_subject_elipsed">Lyhennä tarvittaessa viestin aihetta</string>
@@ -940,5 +942,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Oletus</item>
+        <item>Pieni</item>
+        <item>Keskikokoinen</item>
+        <item>Suuri</item>
     </string-array>
 </resources>

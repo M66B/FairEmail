@@ -247,6 +247,8 @@
     <string name="title_advanced_color_threshold">Mezní hodnota barvy písmena</string>
     <string name="title_advanced_name_email">Zobrazit jména a e-mailové adresy</string>
     <string name="title_advanced_authentication">Zobrazit upozornění, pokud přijímající server nemůže zprávu ověřit</string>
+    <string name="title_advanced_font_size_sender">Velikost písma odesílatele</string>
+    <string name="title_advanced_font_size_subject">Velikost písma předmětu</string>
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
     <string name="title_advanced_subject_italic">Zobrazit předmět kurzívou</string>
     <string name="title_advanced_subject_elipsed">V případě potřeby zestručnit předmět</string>
@@ -961,5 +963,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Výchozí</item>
+        <item>Malé</item>
+        <item>Střední</item>
+        <item>Velké</item>
     </string-array>
 </resources>

@@ -225,6 +225,8 @@
     <string name="title_advanced_color_threshold">Seuil de couleur de lettre</string>
     <string name="title_advanced_name_email">Afficher les noms et les adresses e-mail</string>
     <string name="title_advanced_authentication">Afficher un avertissement lorsque le serveur de réception n\'a pas pu authentifier le message</string>
+    <string name="title_advanced_font_size_sender">Taille de police de l\'expéditeur</string>
+    <string name="title_advanced_font_size_subject">Taille de police de l\'objet</string>
     <string name="title_advanced_subject_top">Afficher l\'objet au dessus de l\'expéditeur</string>
     <string name="title_advanced_subject_italic">Afficher l\'objet en italiques</string>
     <string name="title_advanced_subject_elipsed">Raccourcir l\'objet si nécessaire</string>
@@ -940,5 +942,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Par défaut</item>
+        <item>Petite</item>
+        <item>Moyenne</item>
+        <item>Grande</item>
     </string-array>
 </resources>
