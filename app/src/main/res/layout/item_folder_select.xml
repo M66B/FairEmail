@@ -26,7 +26,6 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:background="?android:attr/selectableItemBackground"
             android:contentDescription="@string/title_legend_expander"
-            android:padding="6dp"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toEndOf="@+id/vwLevel"
             app:layout_constraintTop_toTopOf="parent"
