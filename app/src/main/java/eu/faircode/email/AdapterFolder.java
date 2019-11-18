@@ -892,6 +892,10 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             if (!f1.equals(f2))
                 return false;
 
+            if (f1.indentation != f2.indentation ||
+                    f1.expander != f2.expander)
+                return false;
+
             TupleFolderEx p1 = f1.parent_ref;
             TupleFolderEx p2 = f2.parent_ref;
             while (p1 != null && p2 != null) {
