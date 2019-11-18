@@ -2317,7 +2317,9 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.subject = status + ": " + ref.subject;
 
                         if (ref.plain_only != null && ref.plain_only)
-                            data.draft.plain_only = ref.plain_only;
+                            data.draft.plain_only = true;
+                        if (ref.encrypt != null && ref.encrypt)
+                            data.draft.encrypt = true;
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
@@ -2557,12 +2559,7 @@ public class FragmentCompose extends FragmentBase {
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
-                            if (attachment.encryption != null &&
-                                    attachment.encryption.equals(EntityAttachment.PGP_MESSAGE)) {
-                                data.draft.encrypt = true;
-                                db.message().setMessageEncrypt(data.draft.id, true);
-
-                            } else if (attachment.encryption == null &&
+                            if (attachment.encryption == null &&
                                     ("forward".equals(action) || "editasnew".equals(action) ||
                                             (attachment.isInline() && attachment.isImage()))) {
                                 if (attachment.available) {
