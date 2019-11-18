@@ -86,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:hint="10"
                     android:inputType="number"
+                    android:maxLength="9"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
