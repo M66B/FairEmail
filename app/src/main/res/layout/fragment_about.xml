@@ -13,8 +13,9 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
-        android:text="Version 1.0"
+        android:text="Version 1.234"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textIsSelectable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
