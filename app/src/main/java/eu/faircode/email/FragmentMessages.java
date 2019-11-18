@@ -4122,7 +4122,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 }
 
                 Intent result;
-                File plain = File.createTempFile("plain", "." + id, context.getCacheDir());
+                File plain = File.createTempFile("plain", "." + message.id, context.getCacheDir());
                 try {
                     // Decrypt message
                     Log.i("Executing " + data.getAction());
@@ -4141,7 +4141,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                                     // Write decrypted body
                                     Helper.copy(plain, message.getFile(context));
-                                    db.message().setMessageStored(id, new Date().getTime());
+                                    db.message().setMessageStored(message.id, new Date().getTime());
 
                                     db.setTransactionSuccessful();
                                 } finally {
@@ -4167,15 +4167,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     Helper.writeText(message.getFile(context), html);
 
                                     // Remove existing attachments
-                                    for (EntityAttachment attachment : attachments)
-                                        if (attachment.encryption == null)
-                                            db.attachment().deleteAttachment(attachment.id);
+                                    db.attachment().deleteAttachments(message.id);
 
                                     // Add decrypted attachments
                                     List<EntityAttachment> remotes = parts.getAttachments();
                                     for (int index = 0; index < remotes.size(); index++) {
                                         EntityAttachment remote = remotes.get(index);
-                                        remote.message = id;
+                                        remote.message = message.id;
                                         remote.sequence = index + 1;
                                         remote.id = db.attachment().insertAttachment(remote);
                                         try {
@@ -4185,7 +4183,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                         }
                                     }
 
-                                    db.message().setMessageStored(id, new Date().getTime());
+                                    db.message().setMessageStored(message.id, new Date().getTime());
 
                                     db.setTransactionSuccessful();
                                 } finally {
