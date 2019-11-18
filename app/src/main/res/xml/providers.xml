@@ -436,4 +436,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="DomainFactory"
+        link="https://www.df.eu/de/support/df-faq/e-mail/pop3-imap-postfaecher/mail-programme/">
+        <imap
+            host="sslin.df.eu"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="sslout.df.eu"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
