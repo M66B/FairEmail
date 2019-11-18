@@ -4084,7 +4084,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 for (EntityAttachment attachment : attachments)
                     if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
                         if (!attachment.available)
-                            throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
+                            if (auto)
+                                return null;
+                            else
+                                throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
 
                         File file = attachment.getFile(context);
                         in = new FileInputStream(file);
@@ -4115,11 +4118,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 }
 
-                if (in == null) {
+                if (in == null)
                     if (auto)
                         return null;
-                    throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
-                }
+                    else
+                        throw new IllegalArgumentException(context.getString(R.string.title_not_encrypted));
 
                 Intent result;
                 File plain = File.createTempFile("plain", "." + message.id, context.getCacheDir());
