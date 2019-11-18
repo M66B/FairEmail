@@ -332,8 +332,16 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
-    String widget_unified = "SELECT message.*" +
-            ", account.name AS accountName, folder.unified AS folderUnified" +
+    @Query("SELECT COUNT(*) AS total" +
+            ", SUM(ui_seen) AS seen" +
+            ", SUM(ui_flagged) AS flagged" +
+            " FROM message" +
+            " WHERE NOT ui_hide" +
+            " AND message.ui_snoozed IS NULL")
+    LiveData<TupleMessageWidgetCount> liveWidgetUnified();
+
+    @Query("SELECT message.*" +
+            ", account.name AS accountName" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", COUNT(message.id) - SUM(message.ui_flagged) AS unflagged" +
             ", MAX(message.received) AS dummy" +
@@ -341,6 +349,7 @@ public interface DaoMessage {
             " JOIN account ON account.id = message.account" +
             " JOIN folder ON folder.id = message.folder" +
             " WHERE account.`synchronize`" +
+            " AND ((:folder IS NULL AND folder.unified) OR folder.id = :folder)" +
             " AND NOT message.ui_hide" +
             " AND message.ui_snoozed IS NULL" +
             " AND (NOT :unseen OR NOT message.ui_seen)" +
@@ -348,15 +357,9 @@ public interface DaoMessage {
             " GROUP BY account.id" +
             ", CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
             " ORDER BY message.received DESC" +
-            " LIMIT 100";
-
-    @Query(widget_unified)
+            " LIMIT 100")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    LiveData<List<TupleMessageWidget>> liveWidgetUnified(boolean threading, boolean unseen, boolean flagged);
-
-    @Query(widget_unified)
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    List<TupleMessageWidget> getWidgetUnified(boolean threading, boolean unseen, boolean flagged);
+    List<TupleMessageWidget> getWidgetUnified(Long folder, boolean threading, boolean unseen, boolean flagged);
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +

@@ -80,14 +80,8 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         colorWidgetForeground = ContextCompat.getColor(context, R.color.colorWidgetForeground);
         colorWidgetRead = ContextCompat.getColor(context, R.color.colorWidgetRead);
 
-        messages.clear();
-
         DB db = DB.getInstance(context);
-        List<TupleMessageWidget> wmessages = db.message().getWidgetUnified(threading, unseen, flagged);
-        for (TupleMessageWidget wmessage : wmessages)
-            if ((account < 0 || wmessage.account == account) &&
-                    (folder < 0 ? wmessage.folderUnified : wmessage.folder == folder))
-                messages.add(wmessage);
+        messages = db.message().getWidgetUnified(folder < 0 ? null : folder, threading, unseen, flagged);
     }
 
     @Override

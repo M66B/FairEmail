@@ -19,8 +19,21 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
-public class TupleMessageWidget extends EntityMessage {
-    public String accountName;
-    public int unseen;
-    public int unflagged;
+import androidx.annotation.Nullable;
+
+public class TupleMessageWidgetCount {
+    public int total;
+    public int seen;
+    public int flagged;
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj instanceof TupleMessageWidgetCount) {
+            TupleMessageWidgetCount other = (TupleMessageWidgetCount) obj;
+            return (this.total == other.total &&
+                    this.seen == other.seen &&
+                    this.flagged == other.flagged);
+        } else
+            return false;
+    }
 }
