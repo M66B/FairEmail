@@ -1812,10 +1812,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     List<EntityMessage> messages = db.message().getMessagesByThread(
                             message.account, message.thread, threading ? null : id, null);
                     for (EntityMessage threaded : messages) {
-                        if (threaded.ui_seen)
-                            result.seen = true;
-                        else
-                            result.unseen = true;
+                        if (threaded.folder.equals(message.folder))
+                            if (threaded.ui_seen)
+                                result.seen = true;
+                            else
+                                result.unseen = true;
 
                         if (threaded.ui_flagged)
                             result.flagged = true;
