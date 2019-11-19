@@ -1045,7 +1045,7 @@ public class MessageHelper {
             }
 
             if (part == plain)
-                result = "<pre plain=\"true\">" + result + "</pre>";
+                result = "<div>" + HtmlHelper.formatPre(result) + "</div>";
 
             return result;
         }
