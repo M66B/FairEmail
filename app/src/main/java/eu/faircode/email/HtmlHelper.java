@@ -80,17 +80,21 @@ public class HtmlHelper {
     private static final List<String> tails = Collections.unmodifiableList(Arrays.asList(
             "h1", "h2", "h3", "h4", "h5", "h6", "p", "ol", "ul", "li"));
 
-    static String sanitize(Context context, String html, boolean show_images, boolean autolink) {
+    static Document sanitize(Context context, String html, boolean show_images, boolean autolink) {
         try {
             return _sanitize(context, html, show_images, autolink);
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);
-            return Helper.formatThrowable(ex);
+            Document document = new Document("");
+            Element strong = document.createElement("strong");
+            strong.text(Helper.formatThrowable(ex));
+            document.appendChild(strong);
+            return document;
         }
     }
 
-    private static String _sanitize(Context context, String html, boolean show_images, boolean autolink) {
+    private static Document _sanitize(Context context, String html, boolean show_images, boolean autolink) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean text_color = prefs.getBoolean("text_color", true);
         boolean display_hidden = prefs.getBoolean("display_hidden", false);
@@ -472,8 +476,7 @@ public class HtmlHelper {
                 if (!TextUtils.isEmpty(span.attr("color")))
                     span.tagName("font");
 
-        Element body = document.body();
-        return (body == null ? "" : body.html());
+        return document;
     }
 
     private static boolean hasVisibleContent(List<Node> nodes) {

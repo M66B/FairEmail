@@ -31,6 +31,8 @@ import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -284,9 +286,6 @@ public class MessageHelper {
     }
 
     static void build(Context context, EntityMessage message, List<EntityAttachment> attachments, EntityIdentity identity, MimeMessage imessage) throws IOException, MessagingException {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean usenet = prefs.getBoolean("usenet_signature", false);
-
         if (message.receipt != null && message.receipt) {
             // https://www.ietf.org/rfc/rfc3798.txt
             Multipart report = new MimeMultipart("report; report-type=disposition-notification");
@@ -322,30 +321,29 @@ public class MessageHelper {
         }
 
         // Build html body
-        StringBuilder body = new StringBuilder();
-        body.append("<html><body>");
+        Document document = JsoupEx.parse(Helper.readText(message.getFile(context)));
+        Elements ref = document.select("div[fairemail=reference]");
+        ref.remove();
+        ref.removeAttr("fairemail");
 
-        Document mdoc = JsoupEx.parse(Helper.readText(message.getFile(context)));
-        if (mdoc.body() != null)
-            body.append(mdoc.body().html());
-
-        // When sending message
-        if (identity != null) {
-            if (!TextUtils.isEmpty(identity.signature) && message.signature) {
-                Document sdoc = JsoupEx.parse(identity.signature);
-                if (sdoc.body() != null) {
-                    if (usenet) // https://www.ietf.org/rfc/rfc3676.txt
-                        body.append("<span>-- <br></span>");
-                    body.append(sdoc.body().html());
+        if (document.body() != null) {
+            // When sending message
+            if (identity != null && !TextUtils.isEmpty(identity.signature) && message.signature) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean usenet = prefs.getBoolean("usenet_signature", false);
+                if (usenet) {
+                    // https://www.ietf.org/rfc/rfc3676.txt
+                    Element span = document.createElement("span");
+                    span.text("-- ");
+                    span.appendElement("br");
+                    document.body().appendChild(span);
                 }
+                document.body().append(identity.signature);
             }
 
-            File refFile = message.getRefFile(context);
-            if (refFile.exists())
-                body.append(Helper.readText(refFile));
+            if (ref.size() > 0)
+                document.body().appendChild(ref.first());
         }
-
-        body.append("</body></html>");
 
         // multipart/mixed
         //   multipart/related
@@ -355,7 +353,7 @@ public class MessageHelper {
         //     inlines
         //  attachments
 
-        String htmlContent = body.toString();
+        String htmlContent = document.html();
         String plainContent = HtmlHelper.getText(htmlContent);
 
         BodyPart plainPart = new MimeBodyPart();

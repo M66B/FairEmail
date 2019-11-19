@@ -103,10 +103,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
-import org.jsoup.select.NodeTraversor;
-import org.jsoup.select.NodeVisitor;
+import org.jsoup.select.Elements;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
@@ -168,7 +166,6 @@ public class FragmentCompose extends FragmentBase {
     private CheckBox cbSignature;
     private TextView tvReference;
     private ImageButton ibCloseRefHint;
-    private ImageButton ibReferenceDelete;
     private ImageButton ibReferenceEdit;
     private ImageButton ibReferenceImages;
     private BottomNavigationView style_bar;
@@ -220,12 +217,11 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_RECORD_AUDIO = 7;
     private static final int REQUEST_ENCRYPT = 8;
     private static final int REQUEST_COLOR = 9;
-    private static final int REQUEST_REF_DELETE = 10;
-    private static final int REQUEST_CONTACT_GROUP = 11;
-    private static final int REQUEST_ANSWER = 12;
-    private static final int REQUEST_LINK = 13;
-    private static final int REQUEST_DISCARD = 14;
-    private static final int REQUEST_SEND = 15;
+    private static final int REQUEST_CONTACT_GROUP = 10;
+    private static final int REQUEST_ANSWER = 11;
+    private static final int REQUEST_LINK = 12;
+    private static final int REQUEST_DISCARD = 13;
+    private static final int REQUEST_SEND = 14;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -268,7 +264,6 @@ public class FragmentCompose extends FragmentBase {
         cbSignature = view.findViewById(R.id.cbSignature);
         tvReference = view.findViewById(R.id.tvReference);
         ibCloseRefHint = view.findViewById(R.id.ibCloseRefHint);
-        ibReferenceDelete = view.findViewById(R.id.ibReferenceDelete);
         ibReferenceEdit = view.findViewById(R.id.ibReferenceEdit);
         ibReferenceImages = view.findViewById(R.id.ibReferenceImages);
         style_bar = view.findViewById(R.id.style_bar);
@@ -443,13 +438,6 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
-        ibReferenceDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onReferenceDelete();
-            }
-        });
-
         ibReferenceEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -547,7 +535,6 @@ public class FragmentCompose extends FragmentBase {
         grpBody.setVisibility(View.GONE);
         grpSignature.setVisibility(View.GONE);
         grpReferenceHint.setVisibility(View.GONE);
-        ibReferenceDelete.setVisibility(View.GONE);
         ibReferenceEdit.setVisibility(View.GONE);
         ibReferenceImages.setVisibility(View.GONE);
         tvReference.setVisibility(View.GONE);
@@ -663,77 +650,12 @@ public class FragmentCompose extends FragmentBase {
         return view;
     }
 
-    private void onReferenceDelete() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        if (prefs.getBoolean("delete_ref_confirmed", false)) {
-            onReferenceDeleteConfirmed();
-            return;
-        }
-
-        Bundle args = new Bundle();
-        args.putString("question", getString(R.string.title_ask_delete_ref));
-        args.putString("notagain", "delete_ref_confirmed");
-
-        FragmentDialogAsk fragment = new FragmentDialogAsk();
-        fragment.setArguments(args);
-        fragment.setTargetFragment(this, REQUEST_REF_DELETE);
-        fragment.show(getParentFragmentManager(), "compose:refdelete");
-    }
-
-    private void onReferenceDeleteConfirmed() {
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-
-        new SimpleTask<EntityMessage>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                ibReferenceDelete.setEnabled(false);
-                ibReferenceEdit.setEnabled(false);
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                ibReferenceDelete.setEnabled(true);
-                ibReferenceEdit.setEnabled(true);
-            }
-
-            @Override
-            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-
-                DB db = DB.getInstance(context);
-                EntityMessage draft = db.message().getMessage(id);
-                if (draft != null) {
-                    File refFile = draft.getRefFile(context);
-                    refFile.delete();
-                }
-
-                return draft;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, EntityMessage draft) {
-                if (draft != null) {
-                    tvReference.setVisibility(View.GONE);
-                    grpReferenceHint.setVisibility(View.GONE);
-                    ibReferenceDelete.setVisibility(View.GONE);
-                    ibReferenceEdit.setVisibility(View.GONE);
-                    ibReferenceImages.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "compose:refdelete");
-    }
-
     private void onReferenceEdit() {
         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), ibReferenceEdit);
 
         popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_plain_text, 1, R.string.title_edit_plain_text);
         popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_formatted_text, 2, R.string.title_edit_formatted_text);
+        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 3, R.string.title_delete);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
@@ -745,6 +667,10 @@ public class FragmentCompose extends FragmentBase {
 
                     case R.string.title_edit_formatted_text:
                         convertRef(false);
+                        return true;
+
+                    case R.string.title_delete:
+                        deleteRef();
                         return true;
 
                     default:
@@ -761,13 +687,11 @@ public class FragmentCompose extends FragmentBase {
                 new SimpleTask<String>() {
                     @Override
                     protected void onPreExecute(Bundle args) {
-                        ibReferenceDelete.setEnabled(false);
                         ibReferenceEdit.setEnabled(false);
                     }
 
                     @Override
                     protected void onPostExecute(Bundle args) {
-                        ibReferenceDelete.setEnabled(true);
                         ibReferenceEdit.setEnabled(true);
                     }
 
@@ -777,16 +701,27 @@ public class FragmentCompose extends FragmentBase {
                         boolean plain = args.getBoolean("plain");
                         String body = args.getString("body");
 
-                        String html;
-                        File refFile = EntityMessage.getRefFile(context, id);
-                        String ref = Helper.readText(refFile);
-                        if (plain) {
-                            String text = HtmlHelper.getText(ref);
-                            html = "<p>" + text.replaceAll("\\r?\\n", "<br>") + "</p>";
-                        } else
-                            html = HtmlHelper.sanitize(context, ref, true, false);
+                        Document doc = JsoupEx.parse(Helper.readText(EntityMessage.getFile(context, id)));
+                        Elements ref = doc.select("div[fairemail=reference]");
+                        ref.removeAttr("fairemail");
 
-                        return body + html;
+                        Document document = JsoupEx.parse(body);
+                        if (plain) {
+                            String text = HtmlHelper.getText(ref.outerHtml());
+                            Element p = document.createElement("p");
+                            p.html(text.replaceAll("\\r?\\n", "<br>"));
+                            if (document.body() != null)
+                                document.body().appendChild(p);
+                        } else {
+                            Document d = HtmlHelper.sanitize(context, ref.outerHtml(), true, false);
+                            Element b = d.body();
+                            if (document.body() != null && b != null) {
+                                b.tagName("div");
+                                document.body().appendChild(b);
+                            }
+                        }
+
+                        return document.html();
                     }
 
                     @Override
@@ -802,6 +737,13 @@ public class FragmentCompose extends FragmentBase {
                         Helper.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentCompose.this, args, "compose:convert");
+            }
+
+            private void deleteRef() {
+                Bundle extras = new Bundle();
+                extras.putString("html", HtmlHelper.toHtml(etBody.getText()));
+                extras.putBoolean("show", true);
+                onAction(R.id.action_save, extras);
             }
         });
 
@@ -1315,10 +1257,6 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_ENCRYPT:
                     if (resultCode == RESULT_OK && data != null)
                         onPgp(data);
-                    break;
-                case REQUEST_REF_DELETE:
-                    if (resultCode == RESULT_OK)
-                        onReferenceDeleteConfirmed();
                     break;
                 case REQUEST_CONTACT_GROUP:
                     if (resultCode == RESULT_OK && data != null)
@@ -2187,7 +2125,7 @@ public class FragmentCompose extends FragmentBase {
 
                     EntityMessage ref = db.message().getMessage(reference);
 
-                    String body = "";
+                    Document document = JsoupEx.parse("");
 
                     data.draft = new EntityMessage();
                     data.draft.msgid = EntityMessage.generateMessageId();
@@ -2224,15 +2162,26 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         data.draft.subject = args.getString("subject", "");
-                        body = args.getString("body", "");
-                        if (!TextUtils.isEmpty(body))
-                            body = HtmlHelper.sanitize(context, body, false, false);
+                        String b = args.getString("body", "");
+                        if (!TextUtils.isEmpty(b)) {
+                            Document d = HtmlHelper.sanitize(context, b, false, false);
+                            Element e = d.body();
+                            if (e != null) {
+                                e.tagName("div");
+                                document.body().appendChild(e);
+                            }
+                        }
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
                             if (a != null) {
                                 data.draft.subject = a.name;
-                                body = a.getText(null) + body;
+                                Document d = JsoupEx.parse(a.getText(null));
+                                Element e = d.body();
+                                if (e != null) {
+                                    e.tagName("div");
+                                    document.body().appendChild(e);
+                                }
                             }
                         }
                     } else {
@@ -2300,20 +2249,31 @@ public class FragmentCompose extends FragmentBase {
                             data.draft.subject = ref.subject;
                             if (ref.content) {
                                 String html = Helper.readText(ref.getFile(context));
-                                body = HtmlHelper.sanitize(context, html, true, false);
+                                Document d = HtmlHelper.sanitize(context, html, true, false);
+                                Element e = d.body();
+                                if (e != null) {
+                                    e.tagName("div");
+                                    document.body().appendChild(e);
+                                }
                             }
                         } else if ("list".equals(action)) {
                             data.draft.subject = ref.subject;
                         } else if ("receipt".equals(action)) {
                             data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
-                            Configuration configuration = new Configuration(context.getResources().getConfiguration());
-                            configuration.setLocale(new Locale("en"));
-                            Resources res = context.createConfigurationContext(configuration).getResources();
+                            Element p = document.createElement("p");
+                            p.text(context.getString(R.string.title_receipt_text));
+                            document.body().appendChild(p);
 
-                            body = "<p>" + context.getString(R.string.title_receipt_text) + "</p>";
-                            if (!Locale.getDefault().getLanguage().equals("en"))
-                                body += "<p>" + res.getString(R.string.title_receipt_text) + "</p>";
+                            if (!Locale.getDefault().getLanguage().equals("en")) {
+                                Configuration configuration = new Configuration(context.getResources().getConfiguration());
+                                configuration.setLocale(new Locale("en"));
+                                Resources res = context.createConfigurationContext(configuration).getResources();
+
+                                p = document.createElement("p");
+                                p.text(res.getString(R.string.title_receipt_text));
+                                document.body().appendChild(p);
+                            }
                         } else if ("participation".equals(action))
                             data.draft.subject = status + ": " + ref.subject;
 
@@ -2324,8 +2284,93 @@ public class FragmentCompose extends FragmentBase {
 
                         if (answer > 0) {
                             EntityAnswer a = db.answer().getAnswer(answer);
-                            if (a != null)
-                                body = a.getText(data.draft.to) + body;
+                            if (a != null) {
+                                Document d = JsoupEx.parse(a.getText(data.draft.to));
+                                Element e = d.body();
+                                if (e != null) {
+                                    e.tagName("div");
+                                    document.body().appendChild(e);
+                                }
+                            }
+                        }
+
+                        if (ref.content &&
+                                !"editasnew".equals(action) &&
+                                !"list".equals(action) &&
+                                !"receipt".equals(action)) {
+                            // Reply/forward
+                            Element div = document.createElement("div");
+                            div.attr("fairemail", "reference");
+
+                            // Build reply header
+                            Element p = document.createElement("p");
+                            DateFormat DF = Helper.getDateTimeInstance(context);
+                            boolean extended_reply = prefs.getBoolean("extended_reply", false);
+                            if (extended_reply) {
+                                if (ref.from != null && ref.from.length > 0) {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_from) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(MessageHelper.formatAddresses(ref.from));
+                                    p.appendElement("br");
+                                }
+                                if (ref.to != null && ref.to.length > 0) {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_to) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(MessageHelper.formatAddresses(ref.to));
+                                    p.appendElement("br");
+                                }
+                                if (ref.cc != null && ref.cc.length > 0) {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_cc) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(MessageHelper.formatAddresses(ref.cc));
+                                    p.appendElement("br");
+                                }
+                                {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_received) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(DF.format(ref.received));
+                                    p.appendElement("br");
+                                }
+                                {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_subject) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(ref.subject == null ? "" : ref.subject);
+                                    p.appendElement("br");
+                                }
+                            } else
+                                p.text(DF.format(new Date(ref.received)) + " " + MessageHelper.formatAddresses(ref.from) + ":");
+
+                            div.appendChild(p);
+
+                            // Get referenced message body
+                            Document d = JsoupEx.parse(Helper.readText(ref.getFile(context)));
+
+                            // Remove signature separators
+                            boolean usenet = prefs.getBoolean("usenet_signature", false);
+                            if (usenet)
+                                for (Element span : d.select("span"))
+                                    if (span.childNodeSize() == 2 &&
+                                            span.childNode(0) instanceof TextNode &&
+                                            "-- ".equals(span.wholeText()) &&
+                                            "br".equals(span.childNode(1).nodeName()))
+                                        span.remove();
+
+                            // Quote referenced message body
+                            Element e = d.body();
+                            if (e != null) {
+                                boolean quote_reply = prefs.getBoolean("quote_reply", true);
+                                boolean quote = (quote_reply && ("reply".equals(action) || "reply_all".equals(action)));
+
+                                e.tagName(quote ? "blockquote" : "div");
+                                div.appendChild(e);
+                            }
+
+                            document.body().appendChild(div);
                         }
                     }
 
@@ -2442,12 +2487,15 @@ public class FragmentCompose extends FragmentBase {
                     data.draft.revisions = 1;
 
                     data.draft.id = db.message().insertMessage(data.draft);
-                    Helper.writeText(data.draft.getFile(context), body);
+
+                    String html = document.html();
+                    Helper.writeText(data.draft.getFile(context), html);
+                    Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
 
                     db.message().setMessageContent(data.draft.id,
                             true,
                             data.draft.plain_only,
-                            HtmlHelper.getPreview(body),
+                            HtmlHelper.getPreview(html),
                             null);
 
                     if ("participation".equals(action)) {
@@ -2462,87 +2510,6 @@ public class FragmentCompose extends FragmentBase {
                         attachment.available = true;
                         attachment.id = db.attachment().insertAttachment(attachment);
                         ics.renameTo(attachment.getFile(context));
-                    }
-
-                    // Write reference text
-                    if (ref != null && ref.content &&
-                            !"editasnew".equals(action) &&
-                            !"list".equals(action) &&
-                            !"receipt".equals(action)) {
-                        String refText = Helper.readText(ref.getFile(context));
-
-                        boolean usenet = prefs.getBoolean("usenet_signature", false);
-                        if (usenet) {
-                            Document rdoc = JsoupEx.parse(refText);
-
-                            List<Node> tbd = new ArrayList<>();
-
-                            NodeTraversor.traverse(new NodeVisitor() {
-                                boolean found = false;
-
-                                public void head(Node node, int depth) {
-                                    if (node instanceof TextNode &&
-                                            "-- ".equals(((TextNode) node).getWholeText()) &&
-                                            node.nextSibling() != null &&
-                                            "br".equals(node.nextSibling().nodeName()))
-                                        found = true;
-                                    if (found)
-                                        tbd.add(node);
-                                }
-
-                                public void tail(Node node, int depth) {
-                                    // Do nothing
-                                }
-                            }, rdoc);
-
-                            if (tbd.size() > 0) {
-                                for (Node node : tbd)
-                                    node.remove();
-
-                                refText = (rdoc.body() == null ? "" : rdoc.body().html());
-                            }
-                        }
-
-                        // Build reply header
-                        StringBuilder sb = new StringBuilder();
-                        DateFormat DF = Helper.getDateTimeInstance(context);
-                        boolean extended_reply = prefs.getBoolean("extended_reply", false);
-                        if (extended_reply) {
-                            sb.append("<p>");
-                            if (ref.from != null && ref.from.length > 0)
-                                sb.append("<strong>").append(context.getString(R.string.title_from)).append("</strong> ")
-                                        .append(Html.escapeHtml(MessageHelper.formatAddresses(ref.from)))
-                                        .append("<br>\n");
-                            if (ref.to != null && ref.to.length > 0)
-                                sb.append("<strong>").append(context.getString(R.string.title_to)).append("</strong> ")
-                                        .append(Html.escapeHtml(MessageHelper.formatAddresses(ref.to))).
-                                        append("<br>\n");
-                            if (ref.cc != null && ref.cc.length > 0)
-                                sb.append("<strong>").append(context.getString(R.string.title_cc)).append("</strong> ")
-                                        .append(Html.escapeHtml(MessageHelper.formatAddresses(ref.cc)))
-                                        .append("<br>\n");
-                            sb.append("<strong>").append(context.getString(R.string.title_received)).append("</strong> ")
-                                    .append(Html.escapeHtml(DF.format(ref.received)))
-                                    .append("<br>\n");
-                            sb.append("<strong>").append(context.getString(R.string.title_subject)).append("</strong> ")
-                                    .append(Html.escapeHtml(ref.subject == null ? "" : ref.subject));
-                            sb.append("</p>\n");
-                        } else {
-                            sb.append("<p>");
-                            sb.append(Html.escapeHtml(DF.format(new Date(ref.received)))).append(" ");
-                            sb.append(Html.escapeHtml(MessageHelper.formatAddresses(ref.from))).append(":");
-                            sb.append("</p>\n");
-                        }
-
-                        boolean quote_reply = prefs.getBoolean("quote_reply", true);
-                        boolean quote = (quote_reply && ("reply".equals(action) || "reply_all".equals(action)));
-                        if (quote)
-                            sb.append("<blockquote>");
-                        sb.append(refText);
-                        if (quote)
-                            sb.append("</blockquote>");
-
-                        Helper.writeText(data.draft.getRefFile(context), sb.toString());
                     }
 
                     if ("new".equals(action)) {
@@ -2581,22 +2548,43 @@ public class FragmentCompose extends FragmentBase {
                             }
                     }
 
-                    // Create initial revision
-                    EntityRevision revision = new EntityRevision();
-                    revision.message = data.draft.id;
-                    revision.sequence = data.draft.revision;
-                    revision.reference = data.draft.getRefFile(context).exists();
-                    db.revision().insertRevision(revision);
-                    Helper.writeText(data.draft.getFile(context, data.draft.revision), body);
-
                     if (data.draft.encrypt == null || !data.draft.encrypt)
                         EntityOperation.queue(context, data.draft, EntityOperation.ADD);
                 } else {
                     if (data.draft.content) {
+
+                        if (data.draft.revision == null) {
+                            data.draft.revision = 1;
+                            data.draft.revisions = 1;
+                            db.message().setMessageRevision(data.draft.id, data.draft.revision);
+                            db.message().setMessageRevisions(data.draft.id, data.draft.revisions);
+                        }
+
                         File file = data.draft.getFile(context);
-                        String html = Helper.readText(file);
-                        html = HtmlHelper.sanitize(context, html, true, false);
+
+                        Document doc = JsoupEx.parse(Helper.readText(file));
+                        Elements ref = doc.select("div[fairemail=reference]");
+                        ref.remove();
+
+                        File refFile = data.draft.getRefFile(context);
+                        if (refFile.exists()) {
+                            ref.html(Helper.readText(refFile));
+                            refFile.delete();
+                        }
+
+                        Document document = HtmlHelper.sanitize(context, doc.html(), true, false);
+                        for (Element e : ref)
+                            document.appendChild(e);
+
+                        String html = JsoupEx.parse(document.html()).html();
                         Helper.writeText(file, html);
+                        Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
+
+                        db.message().setMessageContent(data.draft.id,
+                                true,
+                                data.draft.plain_only,
+                                HtmlHelper.getPreview(html),
+                                null);
                     } else {
                         if (data.draft.uid == null)
                             throw new IllegalStateException("Draft without uid");
@@ -2653,10 +2641,8 @@ public class FragmentCompose extends FragmentBase {
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
             ibCcBcc.setVisibility(View.VISIBLE);
 
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(
-                    data.draft.revision != null && data.draft.revision > 1);
-            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(
-                    data.draft.revision != null && !data.draft.revision.equals(data.draft.revisions));
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(data.draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(data.draft.revision < data.draft.revisions);
 
             if (args.getBoolean("incomplete"))
                 Snackbar.make(view, R.string.title_attachments_incomplete, Snackbar.LENGTH_LONG).show();
@@ -2956,59 +2942,54 @@ public class FragmentCompose extends FragmentBase {
                         db.message().updateMessage(draft);
                     }
 
-                    if (action == R.id.action_undo || action == R.id.action_redo) {
-                        if (draft.revision != null && draft.revisions != null) {
-                            Helper.writeText(draft.getFile(context, draft.revision), body);
+                    String p = Helper.readText(draft.getFile(context));
+                    Document doc = JsoupEx.parse(p);
+                    if ((body != null && !body.equals(doc.html())) ||
+                            (extras != null && extras.containsKey("html"))) {
+                        dirty = true;
 
-                            if (action == R.id.action_undo) {
-                                if (draft.revision > 1)
-                                    draft.revision--;
-                            } else {
-                                if (draft.revision < draft.revisions)
-                                    draft.revision++;
-                            }
+                        Elements ref = doc.select("div[fairemail=reference]");
+                        ref.remove();
 
-                            // Restore revision
-                            Log.i("Restoring revision=" + draft.revision);
-                            body = Helper.readText(draft.getFile(context, draft.revision));
+                        // Get saved body
+                        Document d;
+                        if (extras != null && extras.containsKey("html")) {
+                            // Save current revision
+                            Document c = JsoupEx.parse(body);
+                            if (c.body() != null && ref.size() > 0)
+                                c.body().appendChild(ref.first());
+                            Helper.writeText(draft.getFile(context, draft.revision), c.html());
+
+                            d = JsoupEx.parse(extras.getString("html"));
+                        } else {
+                            d = JsoupEx.parse(body);
+                            if (d.body() != null && ref.size() > 0)
+                                d.body().appendChild(ref.first());
                         }
-                    } else {
-                        String previous = Helper.readText(draft.getFile(context));
-                        if ((body != null && !body.equals(previous)) ||
-                                (extras != null && extras.containsKey("html"))) {
-                            dirty = true;
 
-                            // Get revision info
-                            boolean reference;
-                            if (extras != null && extras.containsKey("html")) {
-                                reference = false;
-                                body = extras.getString("html");
-                            } else {
-                                File refFile = EntityMessage.getRefFile(context, draft.id);
-                                if (draft.revision == null)
-                                    reference = refFile.exists();
-                                else {
-                                    EntityRevision revision = db.revision().getRevision(draft.id, draft.revision);
-                                    reference = (revision == null ? refFile.exists() : revision.reference);
-                                }
-                            }
+                        body = d.html();
 
-                            // Create new revision
-                            if (draft.revisions == null)
-                                draft.revisions = 1;
-                            else
-                                draft.revisions++;
+                        // Create new revision
+                        if (action != R.id.action_undo && action != R.id.action_redo) {
+                            draft.revisions++;
                             draft.revision = draft.revisions;
-
-                            Log.i("Creating revision sequence=" + draft.revision + " reference=" + reference);
-                            EntityRevision revision = new EntityRevision();
-                            revision.message = draft.id;
-                            revision.sequence = draft.revision;
-                            revision.reference = reference;
-                            db.revision().insertRevision(revision);
-
-                            Helper.writeText(draft.getFile(context, draft.revision), body);
                         }
+
+                        Helper.writeText(draft.getFile(context, draft.revision), body);
+                    }
+
+                    if (action == R.id.action_undo || action == R.id.action_redo) {
+                        if (action == R.id.action_undo) {
+                            if (draft.revision > 1)
+                                draft.revision--;
+                        } else {
+                            if (draft.revision < draft.revisions)
+                                draft.revision++;
+                        }
+
+                        // Restore revision
+                        Log.i("Restoring revision=" + draft.revision);
+                        body = Helper.readText(draft.getFile(context, draft.revision));
                     }
 
                     Helper.writeText(draft.getFile(context), body);
@@ -3094,13 +3075,8 @@ public class FragmentCompose extends FragmentBase {
 
                     } else if (action == R.id.action_send) {
                         // Remove unused inline images
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(body);
-                        File rfile = draft.getRefFile(context);
-                        if (rfile.exists())
-                            sb.append(Helper.readText(rfile));
                         List<String> cids = new ArrayList<>();
-                        for (Element element : JsoupEx.parse(sb.toString()).select("img")) {
+                        for (Element element : JsoupEx.parse(body).select("img")) {
                             String src = element.attr("src");
                             if (src.startsWith("cid:"))
                                 cids.add("<" + src.substring(4) + ">");
@@ -3115,8 +3091,6 @@ public class FragmentCompose extends FragmentBase {
                         // Delete draft (cannot move to outbox)
                         EntityOperation.queue(context, draft, EntityOperation.DELETE);
 
-                        File refDraftFile = draft.getRefFile(context);
-
                         // Copy message to outbox
                         draft.id = null;
                         draft.folder = db.folder().getOutbox().id;
@@ -3124,10 +3098,6 @@ public class FragmentCompose extends FragmentBase {
                         draft.ui_hide = false;
                         draft.id = db.message().insertMessage(draft);
                         Helper.writeText(draft.getFile(context), body);
-                        if (refDraftFile.exists()) {
-                            File refFile = draft.getRefFile(context);
-                            refDraftFile.renameTo(refFile);
-                        }
 
                         // Move attachments
                         for (EntityAttachment attachment : attachments)
@@ -3183,8 +3153,8 @@ public class FragmentCompose extends FragmentBase {
             etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
             etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
-            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision != null && draft.revision > 1);
-            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
+            bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
+            bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
 
             if (action == R.id.action_delete) {
                 autosave = false;
@@ -3289,8 +3259,8 @@ public class FragmentCompose extends FragmentBase {
 
                 pbWait.setVisibility(View.GONE);
                 media_bar.setVisibility(media ? View.VISIBLE : View.GONE);
-                bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision != null && draft.revision > 1);
-                bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision != null && !draft.revision.equals(draft.revisions));
+                bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
+                bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
                 bottom_navigation.setVisibility(View.VISIBLE);
 
                 Helper.setViewsEnabled(view, true);
@@ -3310,8 +3280,11 @@ public class FragmentCompose extends FragmentBase {
                 if (draft == null || !draft.content)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_body));
 
-                String body = Helper.readText(draft.getFile(context));
-                Spanned spannedBody = HtmlHelper.fromHtml(body, new Html.ImageGetter() {
+                Document doc = JsoupEx.parse(Helper.readText(draft.getFile(context)));
+                Elements ref = doc.select("div[fairemail=reference]");
+                ref.remove();
+
+                Spanned spannedBody = HtmlHelper.fromHtml(doc.html(), new Html.ImageGetter() {
                     @Override
                     public Drawable getDrawable(String source) {
                         return ImageHelper.decodeImage(context, id, source, true, zoom, etBody);
@@ -3332,13 +3305,9 @@ public class FragmentCompose extends FragmentBase {
                 spannedBody = bodyBuilder;
 
                 Spanned spannedRef = null;
-                File refFile = draft.getRefFile(context);
-                EntityRevision revision = db.revision().getRevision(draft.id, draft.revision == null ? 0 : draft.revision);
-                Log.i("Viewing revision=" + (revision == null ? null : revision.sequence) +
-                        " reference=" + (revision == null ? null : revision.reference));
-                if (revision == null ? refFile.exists() : revision.reference) {
-                    String quote = HtmlHelper.sanitize(context, Helper.readText(refFile), show_images, false);
-                    Spanned spannedQuote = HtmlHelper.fromHtml(quote,
+                if (!ref.isEmpty()) {
+                    Document quote = HtmlHelper.sanitize(context, ref.outerHtml(), show_images, false);
+                    Spanned spannedQuote = HtmlHelper.fromHtml(quote.html(),
                             new Html.ImageGetter() {
                                 @Override
                                 public Drawable getDrawable(String source) {
@@ -3384,7 +3353,6 @@ public class FragmentCompose extends FragmentBase {
                 tvReference.setText(text[1]);
                 tvReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 grpReferenceHint.setVisibility(text[1] == null || !ref_hint ? View.GONE : View.VISIBLE);
-                ibReferenceDelete.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceEdit.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 ibReferenceImages.setVisibility(ref_has_images && !show_images ? View.VISIBLE : View.GONE);
 

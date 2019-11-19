@@ -37,6 +37,8 @@ import androidx.core.view.inputmethod.EditorInfoCompat;
 import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
 
+import org.jsoup.nodes.Document;
+
 public class EditTextCompose extends AppCompatEditText {
     private ISelection selectionListener = null;
     private IInputContentListener inputContentListener = null;
@@ -70,8 +72,8 @@ public class EditTextCompose extends AppCompatEditText {
                     ClipData.Item item = clipboard.getPrimaryClip().getItemAt(0);
 
                     String html = item.coerceToHtmlText(context);
-                    html = HtmlHelper.sanitize(context, html, false, false);
-                    Spanned paste = HtmlHelper.fromHtml(html);
+                    Document document = HtmlHelper.sanitize(context, html, false, false);
+                    Spanned paste = HtmlHelper.fromHtml(document.html());
 
                     int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
 

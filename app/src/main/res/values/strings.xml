@@ -623,7 +623,6 @@
     <string name="title_ask_show_html_images">Always show images on showing original messages</string>
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_ask_show_image_hint">Images recognized as tracking images will not be shown</string>
-    <string name="title_ask_delete_ref">Delete replied/forwarded message text? This cannot be undone.</string>
     <string name="title_ask_sync_all">Synchronize all messages in %1$s?</string>
     <string name="title_ask_delete_local">Delete local messages? Messages will remain on the remote server.</string>
     <string name="title_ask_help">Help improve FairEmail</string>

@@ -228,15 +228,11 @@ public class EntityMessage implements Serializable {
         return new File(dir, id + "." + revision);
     }
 
-    static File getRefFile(Context context, Long id) {
+    File getRefFile(Context context) {
         File dir = new File(context.getFilesDir(), "references");
         if (!dir.exists())
             dir.mkdir();
         return new File(dir, id.toString());
-    }
-
-    File getRefFile(Context context) {
-        return getRefFile(context, id);
     }
 
     File getRawFile(Context context) {

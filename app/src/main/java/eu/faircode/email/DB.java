@@ -56,13 +56,12 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 114,
+        version = 115,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
                 EntityFolder.class,
                 EntityMessage.class,
-                EntityRevision.class,
                 EntityAttachment.class,
                 EntityOperation.class,
                 EntityContact.class,
@@ -83,8 +82,6 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoFolder folder();
 
     public abstract DaoMessage message();
-
-    public abstract DaoRevision revision();
 
     public abstract DaoAttachment attachment();
 
@@ -1111,6 +1108,13 @@ public abstract class DB extends RoomDatabase {
                         db.execSQL("UPDATE message SET encrypt = 1 WHERE id IN " +
                                 "(SELECT DISTINCT message FROM attachment" +
                                 " WHERE encryption = " + EntityAttachment.PGP_MESSAGE + ")");
+                    }
+                })
+                .addMigrations(new Migration(114, 115) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP TABLE revision");
                     }
                 })
                 .build();

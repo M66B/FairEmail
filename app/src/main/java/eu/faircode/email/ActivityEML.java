@@ -48,6 +48,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.imap.IMAPFolder;
 
+import org.jsoup.nodes.Document;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -135,8 +137,10 @@ public class ActivityEML extends ActivityBase {
                     result.parts = helper.getMessageParts();
 
                     String html = result.parts.getHtml(context);
-                    if (html != null)
-                        result.body = HtmlHelper.fromHtml(HtmlHelper.sanitize(context, html, false, false));
+                    if (html != null) {
+                        Document document = HtmlHelper.sanitize(context, html, false, false);
+                        result.body = HtmlHelper.fromHtml(document.html());
+                    }
 
                     return result;
                 }

@@ -1455,28 +1455,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return document.html();
                     } else {
                         // Cleanup message
-                        String html = HtmlHelper.sanitize(context, body, show_images, true);
+                        document = HtmlHelper.sanitize(context, body, show_images, true);
 
                         // Collapse quotes
                         if (!show_quotes) {
-                            Document doc = JsoupEx.parse(html);
-                            for (Element quote : doc.select("blockquote"))
+                            for (Element quote : document.select("blockquote"))
                                 quote.html("&#8230;");
-                            html = doc.html();
                         }
 
                         // Add debug info
                         if (debug) {
-                            Document format = JsoupEx.parse(html);
-                            format.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
-                            String[] lines = format.html().split("\\r?\\n");
+                            document.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
+                            String[] lines = document.html().split("\\r?\\n");
                             for (int i = 0; i < lines.length; i++)
                                 lines[i] = Html.escapeHtml(lines[i]);
-                            html += "<pre>" + TextUtils.join("<br>", lines) + "</pre>";
+                            Element pre = document.createElement("pre");
+                            pre.html(TextUtils.join("<br>", lines));
+                            document.appendChild(pre);
                         }
 
                         // Draw images
-                        Spanned spanned = HtmlHelper.fromHtml(html, new Html.ImageGetter() {
+                        Spanned spanned = HtmlHelper.fromHtml(document.html(), new Html.ImageGetter() {
                             @Override
                             public Drawable getDrawable(String source) {
                                 Drawable drawable = ImageHelper.decodeImage(context, message.id, source, show_images, zoom, tvBody);
