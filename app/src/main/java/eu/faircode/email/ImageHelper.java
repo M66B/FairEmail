@@ -391,7 +391,7 @@ class ImageHelper {
     private static void fitDrawable(final Drawable d, final AnnotatedSource a, final View view) {
         Semaphore semaphore = new Semaphore(0);
 
-        new Handler(view.getContext().getMainLooper()).post(new Runnable() {
+        view.post(new Runnable() {
             @Override
             public void run() {
                 Rect bounds = d.getBounds();
