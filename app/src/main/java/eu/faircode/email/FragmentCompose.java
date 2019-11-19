@@ -536,6 +536,7 @@ public class FragmentCompose extends FragmentBase {
 
         etExtra.setHint("");
         tvDomain.setText(null);
+        etBody.setText(null);
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
@@ -3275,6 +3276,12 @@ public class FragmentCompose extends FragmentBase {
         args.putBoolean("show_images", show_images);
 
         new SimpleTask<Spanned[]>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                // Needed to get width for images
+                grpBody.setVisibility(View.VISIBLE);
+            }
+
             @Override
             protected void onPostExecute(Bundle args) {
                 state = State.LOADED;
