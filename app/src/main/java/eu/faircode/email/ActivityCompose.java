@@ -25,12 +25,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.view.MenuItem;
 
 import androidx.core.app.TaskStackBuilder;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
 
 import java.util.ArrayList;
 
@@ -165,7 +163,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                         Uri stream = intent.getParcelableExtra(Intent.EXTRA_STREAM);
                         if (stream != null) {
                             ArrayList<Uri> uris = new ArrayList<>();
-                            uris.add((Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM));
+                            uris.add(intent.getParcelableExtra(Intent.EXTRA_STREAM));
                             args.putParcelableArrayList("attachments", uris);
                         }
                     }
