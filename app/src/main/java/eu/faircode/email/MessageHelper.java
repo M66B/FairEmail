@@ -1260,19 +1260,18 @@ public class MessageHelper {
                     filename = null;
                 }
 
-                String pct = part.getContentType();
-                if (TextUtils.isEmpty(pct))
-                    pct = "text/plain";
-                ContentType contentType = new ContentType(pct);
-                if (part instanceof MimeMessage) {
-                    String header = ((MimeMessage) part).getHeader("Content-Type", null);
-                    if (!TextUtils.isEmpty(header)) {
-                        ContentType messageContentType = new ContentType(header);
-                        if (!messageContentType.getBaseType().equalsIgnoreCase(contentType.getBaseType())) {
-                            Log.w("Content type message=" + messageContentType + " part=" + contentType);
-                            contentType = messageContentType;
-                        }
-                    }
+                ContentType contentType;
+                try {
+                    String c = part.getContentType();
+                    contentType = new ContentType(c == null ? "" : c);
+                } catch (ParseException ex) {
+                    Log.w(ex);
+                    parts.warnings.add(Helper.formatThrowable(ex, false));
+
+                    if (part instanceof MimeMessage)
+                        contentType = new ContentType("text/html");
+                    else
+                        contentType = new ContentType(Helper.guessMimeType(filename));
                 }
 
                 if (!Part.ATTACHMENT.equalsIgnoreCase(disposition) &&
@@ -1290,15 +1289,6 @@ public class MessageHelper {
                     apart.pgp = pgp;
                     apart.part = part;
 
-                    ContentType ct;
-                    try {
-                        ct = new ContentType(apart.part.getContentType());
-                    } catch (ParseException ex) {
-                        Log.w(ex);
-                        parts.warnings.add(Helper.formatThrowable(ex, false));
-                        ct = new ContentType("application/octet-stream");
-                    }
-
                     String[] cid = null;
                     try {
                         cid = apart.part.getHeader("Content-ID");
@@ -1310,7 +1300,7 @@ public class MessageHelper {
 
                     apart.attachment = new EntityAttachment();
                     apart.attachment.name = apart.filename;
-                    apart.attachment.type = ct.getBaseType().toLowerCase(Locale.ROOT);
+                    apart.attachment.type = contentType.getBaseType().toLowerCase(Locale.ROOT);
                     apart.attachment.disposition = apart.disposition;
                     apart.attachment.size = (long) apart.part.getSize();
                     apart.attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
