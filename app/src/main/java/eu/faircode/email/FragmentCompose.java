@@ -70,7 +70,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -135,8 +134,10 @@ import javax.mail.MessageRemovedException;
 import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.internet.AddressException;
+import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.ParseException;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -1927,17 +1928,21 @@ public class FragmentCompose extends FragmentBase {
             Log.e(ex);
         }
 
+        // Check name
         if (TextUtils.isEmpty(fname))
             fname = uri.getLastPathSegment();
 
-        if (TextUtils.isEmpty(ftype)) {
-            String extension = Helper.getExtension(fname);
-            if (extension != null)
-                ftype = MimeTypeMap.getSingleton()
-                        .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
-            if (ftype == null)
-                ftype = "application/octet-stream";
-        }
+        // Check type
+        if (!TextUtils.isEmpty(ftype))
+            try {
+                new ContentType(ftype);
+            } catch (ParseException ex) {
+                Log.w(ex);
+                ftype = null;
+            }
+
+        if (TextUtils.isEmpty(ftype))
+            ftype = Helper.guessMimeType(fname);
 
         if (fsize != null && fsize <= 0)
             fsize = null;

@@ -52,6 +52,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.MimeTypeMap;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -645,6 +646,20 @@ public class Helper {
         if (index < 0)
             return null;
         return filename.substring(index + 1);
+    }
+
+    static String guessMimeType(String filename) {
+        String type = null;
+
+        String extension = Helper.getExtension(filename);
+        if (extension != null)
+            type = MimeTypeMap.getSingleton()
+                    .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
+
+        if (TextUtils.isEmpty(type))
+            type = "application/octet-stream";
+
+        return type;
     }
 
     static void writeText(File file, String content) throws IOException {
