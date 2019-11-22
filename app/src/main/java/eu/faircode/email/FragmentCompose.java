@@ -2548,15 +2548,14 @@ public class FragmentCompose extends FragmentBase {
                     if (data.draft.encrypt == null || !data.draft.encrypt)
                         EntityOperation.queue(context, data.draft, EntityOperation.ADD);
                 } else {
+                    if (data.draft.revision == null) {
+                        data.draft.revision = 1;
+                        data.draft.revisions = 1;
+                        db.message().setMessageRevision(data.draft.id, data.draft.revision);
+                        db.message().setMessageRevisions(data.draft.id, data.draft.revisions);
+                    }
+
                     if (data.draft.content) {
-
-                        if (data.draft.revision == null) {
-                            data.draft.revision = 1;
-                            data.draft.revisions = 1;
-                            db.message().setMessageRevision(data.draft.id, data.draft.revision);
-                            db.message().setMessageRevisions(data.draft.id, data.draft.revisions);
-                        }
-
                         File file = data.draft.getFile(context);
 
                         Document doc = JsoupEx.parse(Helper.readText(file));
