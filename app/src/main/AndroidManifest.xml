@@ -17,6 +17,9 @@
     <uses-permission
         android:name="android.permission.USE_CREDENTIALS"
         android:maxSdkVersion="22" />
+    <uses-permission
+        android:name="android.permission.READ_PROFILE"
+        android:maxSdkVersion="22" />
 
     <!-- https://developer.android.com/guide/topics/manifest/uses-feature-element#features-reference -->
     <uses-feature
