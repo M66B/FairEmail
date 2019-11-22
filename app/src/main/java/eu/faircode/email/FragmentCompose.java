@@ -161,7 +161,7 @@ public class FragmentCompose extends FragmentBase {
     private ImageButton ibCcBcc;
     private RecyclerView rvAttachment;
     private TextView tvNoInternetAttachments;
-    private TextView tvUnusedInlineImages;
+    private ImageButton ibCloseUnusedImagesHint;
     private EditTextCompose etBody;
     private TextView tvNoInternet;
     private TextView tvSignature;
@@ -178,6 +178,7 @@ public class FragmentCompose extends FragmentBase {
     private Group grpExtra;
     private Group grpAddresses;
     private Group grpAttachments;
+    private Group grpUnusedImagesHint;
     private Group grpBody;
     private Group grpSignature;
     private Group grpReferenceHint;
@@ -259,7 +260,7 @@ public class FragmentCompose extends FragmentBase {
         ibCcBcc = view.findViewById(R.id.ivCcBcc);
         rvAttachment = view.findViewById(R.id.rvAttachment);
         tvNoInternetAttachments = view.findViewById(R.id.tvNoInternetAttachments);
-        tvUnusedInlineImages = view.findViewById(R.id.tvUnusedInlineImages);
+        ibCloseUnusedImagesHint = view.findViewById(R.id.ibCloseUnusedImagesHint);
         etBody = view.findViewById(R.id.etBody);
         tvNoInternet = view.findViewById(R.id.tvNoInternet);
         tvSignature = view.findViewById(R.id.tvSignature);
@@ -278,6 +279,7 @@ public class FragmentCompose extends FragmentBase {
         grpAddresses = view.findViewById(R.id.grpAddresses);
         grpAttachments = view.findViewById(R.id.grpAttachments);
         grpBody = view.findViewById(R.id.grpBody);
+        grpUnusedImagesHint = view.findViewById(R.id.grpUnusedImagesHint);
         grpSignature = view.findViewById(R.id.grpSignature);
         grpReferenceHint = view.findViewById(R.id.grpReferenceHint);
 
@@ -383,6 +385,15 @@ public class FragmentCompose extends FragmentBase {
         ibBccAdd.setOnClickListener(onPick);
 
         setZoom();
+
+        ibCloseUnusedImagesHint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                prefs.edit().putBoolean("inline_image_hint", false).apply();
+                grpUnusedImagesHint.setVisibility(View.GONE);
+            }
+        });
 
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
@@ -642,7 +653,7 @@ public class FragmentCompose extends FragmentBase {
         rvAttachment.setAdapter(adapter);
 
         tvNoInternetAttachments.setVisibility(View.GONE);
-        tvUnusedInlineImages.setVisibility(View.GONE);
+        grpUnusedImagesHint.setVisibility(View.GONE);
 
         String pkg = Helper.getOpenKeychainPackage(getContext());
         Log.i("Binding to " + pkg);
@@ -2705,7 +2716,9 @@ public class FragmentCompose extends FragmentBase {
                             rvAttachment.setTag(downloading);
                             checkInternet();
 
-                            tvUnusedInlineImages.setVisibility(inline_images ? View.VISIBLE : View.GONE);
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            boolean inline_image_hint = prefs.getBoolean("inline_image_hint", true);
+                            grpUnusedImagesHint.setVisibility(inline_images && inline_image_hint ? View.VISIBLE : View.GONE);
                         }
                     });
 
