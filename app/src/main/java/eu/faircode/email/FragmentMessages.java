@@ -262,6 +262,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
+    static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
 
     private static final List<String> DUPLICATE_ORDER = Collections.unmodifiableList(Arrays.asList(
             EntityFolder.INBOX,
@@ -2560,6 +2561,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_STORE_RAW);
         iff.addAction(ACTION_DECRYPT);
+        iff.addAction(ACTION_NEW_MESSAGE);
         lbm.registerReceiver(receiver, iff);
 
         ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -3184,27 +3186,26 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (messages == null)
                 return;
 
-            if (viewType == AdapterMessage.ViewType.THREAD)
+            if (viewType == AdapterMessage.ViewType.THREAD) {
                 if (handleThreadActions(messages))
                     return;
 
-            if (viewType != AdapterMessage.ViewType.SEARCH) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean autoscroll = prefs.getBoolean("autoscroll", true);
-
-                boolean gotoTop = false;
-                for (int i = 0; i < messages.size() && i < ViewModelMessages.LOCAL_PAGE_SIZE; i++) {
-                    TupleMessageEx message = messages.get(i);
-                    if (message != null && !ids.contains(message.id)) {
-                        ids.add(message.id);
-                        if (!message.ui_seen && !message.duplicate)
-                            gotoTop = true;
+                if (autoscroll) {
+                    boolean gotoTop = false;
+                    for (int i = 0; i < messages.size(); i++) {
+                        TupleMessageEx message = messages.get(i);
+                        if (message != null && !ids.contains(message.id)) {
+                            ids.add(message.id);
+                            if (!message.ui_seen && !message.duplicate)
+                                gotoTop = true;
+                        }
                     }
-                }
 
-                if (gotoTop &&
-                        (autoscroll || viewType == AdapterMessage.ViewType.THREAD))
-                    adapter.gotoTop();
+                    if (gotoTop)
+                        adapter.gotoTop();
+                }
             }
 
             Log.i("Submit messages=" + messages.size());
@@ -3850,6 +3851,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     onStoreRaw(intent);
                 else if (ACTION_DECRYPT.equals(action))
                     onDecrypt(intent);
+                else if (ACTION_NEW_MESSAGE.equals(action))
+                    onNewMessage(intent);
             }
         }
     };
@@ -3878,6 +3881,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             onDecrypt(data, auto);
         } else
             Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG).show();
+    }
+
+    private void onNewMessage(Intent intent) {
+        long fid = intent.getLongExtra("folder", -1);
+        boolean unified = intent.getBooleanExtra("unified", false);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean autoscroll = prefs.getBoolean("autoscroll", true);
+
+        if (autoscroll &&
+                ((viewType == AdapterMessage.ViewType.UNIFIED && unified) ||
+                        (viewType == AdapterMessage.ViewType.FOLDER && folder == fid)))
+            adapter.gotoTop();
     }
 
     @Override

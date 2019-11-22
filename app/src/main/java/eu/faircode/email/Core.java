@@ -37,6 +37,7 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.RemoteInput;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import com.sun.mail.iap.BadCommandException;
@@ -2177,6 +2178,16 @@ class Core {
                 }
 
                 runRules(context, imessage, message, rules);
+
+                // Prepare scroll to top
+                if (!message.ui_seen && message.received > account.created) {
+                    Intent report = new Intent(FragmentMessages.ACTION_NEW_MESSAGE);
+                    report.putExtra("folder", folder.id);
+                    report.putExtra("unified", folder.unified);
+
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
+                    lbm.sendBroadcast(report);
+                }
 
                 db.setTransactionSuccessful();
             } catch (SQLiteConstraintException ex) {
