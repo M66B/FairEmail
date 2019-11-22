@@ -404,6 +404,12 @@ public class Helper {
         return df.format(bytes / Math.pow(unit, exp)) + " " + pre + "B";
     }
 
+    static boolean isPrintableChar(char c) {
+        Character.UnicodeBlock block = Character.UnicodeBlock.of(c);
+        if (block == null || block == Character.UnicodeBlock.SPECIALS)
+            return false;
+        return !Character.isISOControl(c);
+    }
     // https://issuetracker.google.com/issues/37054851
 
     static DateFormat getTimeInstance(Context context) {

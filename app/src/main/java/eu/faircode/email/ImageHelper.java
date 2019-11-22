@@ -115,7 +115,7 @@ class ImageHelper {
         String letter = null;
         for (int i = 0; i < name.length(); i++) {
             char kar = name.charAt(i);
-            if (Character.isAlphabetic(kar)) {
+            if (Helper.isPrintableChar(kar)) {
                 letter = name.substring(i, i + 1).toUpperCase();
                 break;
             }
