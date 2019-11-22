@@ -53,6 +53,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.LocaleList;
+import android.os.OperationCanceledException;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.text.Html;
@@ -1581,7 +1582,7 @@ public class FragmentCompose extends FragmentBase {
                                 pgpKeyIds = result.getLongArrayExtra(OpenPgpApi.EXTRA_KEY_IDS);
                                 Log.i("Keys=" + pgpKeyIds.length);
                                 if (pgpKeyIds.length == 0)
-                                    throw new IllegalStateException("Got no key");
+                                    throw new OperationCanceledException("Got no key");
 
                                 // Get encrypt key
                                 if (pgpKeyIds.length == 1) {
@@ -1680,7 +1681,9 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException) {
+                if (ex instanceof OperationCanceledException)
+                    ; // Do nothing
+                else if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 } else
