@@ -544,7 +544,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_ask_show_html_images">Bilder immer anzeigen, wenn Originalnachrichten angezeigt werden</string>
     <string name="title_ask_show_image">Das Anzeigen von Bildern kann datenschutzrelevante Informationen preisgeben</string>
     <string name="title_ask_show_image_hint">Bilder, die als Tracking-Bilder erkannt werden, werden nicht angezeigt</string>
-    <string name="title_ask_delete_ref">Den Text der beantworteten/weitergeleiteten Nachricht löschen? Dies kann nicht rückgängig gemacht werden.</string>
     <string name="title_ask_sync_all">Alle Nachrichten in %1$s synchronisieren?</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
@@ -613,6 +612,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_reset_sign_key">Sign-Schlüssel zurücksetzen</string>
     <string name="title_signature_none">Unsignierte Nachricht</string>
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
+    <string name="title_signature_unconfirmed">Die Signatur der Nachricht ist zwar gültig, aber nicht bestätigt</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
     <string name="title_search">Suche</string>
     <string name="title_search_server">Auf dem Server suchen</string>

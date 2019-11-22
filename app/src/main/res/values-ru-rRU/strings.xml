@@ -567,7 +567,6 @@
     <string name="title_ask_show_html_images">Всегда показывать изображения при показе оригинальных сообщений</string>
     <string name="title_ask_show_image">Отображение изображений может привести к утечке конфиденциальной информации</string>
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
-    <string name="title_ask_delete_ref">Удалить цитируемый в ответе/пересылаемый текст сообщения? Это действие не может быть отменено.</string>
     <string name="title_ask_sync_all">Синхронизировать все сообщения в %1$s?</string>
     <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удалённом сервере.</string>
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
@@ -636,6 +635,7 @@
     <string name="title_reset_sign_key">Сброс ключа подписи</string>
     <string name="title_signature_none">Сообщение не подписано</string>
     <string name="title_signature_valid">Подпись сообщения действительна</string>
+    <string name="title_signature_unconfirmed">Подпись сообщения действительна, но не подтверждена</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_server">Поиск на сервере</string>

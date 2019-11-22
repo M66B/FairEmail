@@ -545,7 +545,6 @@
     <string name="title_ask_show_html_images">Toujours afficher les images lors de l\'affichage des messages originaux</string>
     <string name="title_ask_show_image">Afficher les images peut divulguer des informations sensibles privées</string>
     <string name="title_ask_show_image_hint">Les images identifiées comme images de suivi ne seront pas affichées</string>
-    <string name="title_ask_delete_ref">Supprimer le texte du message répondu/transmis ? Ceci ne peut pas être annulé.</string>
     <string name="title_ask_sync_all">Synchroniser tous les messages dans %1$s ?</string>
     <string name="title_ask_delete_local">Supprimer les messages locaux ? Les messages resteront sur le serveur distant.</string>
     <string name="title_ask_help">Aider à améliorer FairEmail</string>
@@ -614,6 +613,7 @@
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
     <string name="title_signature_none">Message non signé</string>
     <string name="title_signature_valid">Signature de message valide</string>
+    <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_server">Rechercher sur le serveur</string>

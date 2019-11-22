@@ -545,7 +545,6 @@
     <string name="title_ask_show_html_images">Orijinal mesajları görüntülerken her zaman resimleri göster</string>
     <string name="title_ask_show_image">Resimlerin gösterilmesi gizliliğe duyarlı bilgilerin sızmasına neden olabilir</string>
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
-    <string name="title_ask_delete_ref">Yanıtlanan/iletilen ileti metni silinsin mi? Bu geri alınamaz.</string>
     <string name="title_ask_sync_all">%1$s\'deki tüm iletiler eşzamanlandı mı?</string>
     <string name="title_ask_delete_local">Yerel iletiler silinsin mi? İletiler uzak sunucuda kalacaktır.</string>
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
@@ -614,6 +613,7 @@
     <string name="title_reset_sign_key">İmzalama anahtarını sıfırla</string>
     <string name="title_signature_none">İleti imzalı değil</string>
     <string name="title_signature_valid">İleti imzası geçerli</string>
+    <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak onaylanmamış</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
     <string name="title_search">Ara</string>
     <string name="title_search_server">Sunucuda ara</string>

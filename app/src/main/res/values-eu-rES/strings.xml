@@ -225,6 +225,8 @@
     <string name="title_advanced_color_threshold">Letren kolorearen atalasea</string>
     <string name="title_advanced_name_email">Erakutsi izenak eta e-mail helbideak</string>
     <string name="title_advanced_authentication">Erakutsi abisua zerbitzari jasotzaileak ezin izan badu mezua autentifikatu</string>
+    <string name="title_advanced_font_size_sender">Igorlearen letra tamaina</string>
+    <string name="title_advanced_font_size_subject">Gaiaren letra tamaina</string>
     <string name="title_advanced_subject_top">Erakutsi mintzagaia igorlearen gainean</string>
     <string name="title_advanced_subject_italic">Erakutsi mintzagaia letra etzanean</string>
     <string name="title_advanced_subject_elipsed">Behar denean laburtu mintzagaia</string>
@@ -543,7 +545,6 @@
     <string name="title_ask_show_html_images">Beti erakutsi irudiak jatorrizko mezuak erakustean</string>
     <string name="title_ask_show_image">Irudiak bistaratzeak informazio probatua agerira ekar lezake</string>
     <string name="title_ask_show_image_hint">Jarraipen irudi gisa antzemandako irudiak ez dira bistaratuko</string>
-    <string name="title_ask_delete_ref">Ezabatu erantzundako/birbidalitako mezuaren testua? Hau ezin da desegin.</string>
     <string name="title_ask_sync_all">Sinkronizatu %1$s karpetako mezu guztiak?</string>
     <string name="title_ask_delete_local">Ezabatu mezu lokalak? Mezuak urruneko zerbitzarian mantenduko dira.</string>
     <string name="title_ask_help">Lagundu FairEmail hobetzen</string>
@@ -612,6 +613,7 @@
     <string name="title_reset_sign_key">Berrezarri sinadura gakoa</string>
     <string name="title_signature_none">Mezua ez dago sinatuta</string>
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
+    <string name="title_signature_unconfirmed">Mezuaren sinadura baliozkoa da baina ez da baieztatu</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
     <string name="title_search">Bilatu</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>
@@ -940,5 +942,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Lehenetsia</item>
+        <item>Txikia</item>
+        <item>Ertaina</item>
+        <item>Handia</item>
     </string-array>
 </resources>

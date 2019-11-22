@@ -523,7 +523,7 @@
     <string name="title_no_saf">Storage access framework ei ole käytettävissä</string>
     <string name="title_no_stream">Vanhentunut sovellus lähetti tiedoston kansion tiedostovirran sijaan</string>
     <string name="title_no_contacts">Yhteystiedon valitsin ei ole käytettävissä</string>
-    <string name="title_no_internet">Ei sopivaa verkkoyhteyttä tai ei yhteyttä ollenkaan</string>
+    <string name="title_no_internet">Ei verkkoyhteyttä tai ei sopivaa verkkoyhteyttä</string>
     <string name="title_no_connection">Synkronoidaan, kun yhteys tiliin on muodostettu</string>
     <string name="title_no_folder">Kansiota ei ole</string>
     <string name="title_no_format">Alkuperäinen vastaanotettu viesti sisällytetään</string>
@@ -545,7 +545,6 @@
     <string name="title_ask_show_html_images">Näytä aina kuvat alkuperäisiä viestejä näytettäessä</string>
     <string name="title_ask_show_image">Kuvien näyttäminen voi vuotaa yksityisyyden kannalta haitallisia tietoja</string>
     <string name="title_ask_show_image_hint">Seurantakuviksi tunnistettuja kuvia ei näytetä</string>
-    <string name="title_ask_delete_ref">Poista vastattu/edelleenlähetetty viestiteksti? Tätä ei voi perua.</string>
     <string name="title_ask_sync_all">Synkronoi kaikki viestit kansiossa %1$s?</string>
     <string name="title_ask_delete_local">Poistetaanko paikalliset viestit? Viestit säilyvät palvelimella.</string>
     <string name="title_ask_help">Auta parantamaan FairEmailia</string>
@@ -613,8 +612,9 @@
     <string name="title_not_encrypted">Viestiä ei ole salattu</string>
     <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>
-    <string name="title_signature_valid">Viestin allekirjoitus vahvistettu</string>
-    <string name="title_signature_invalid">Viestin allekirjoitus ei vahvistettu</string>
+    <string name="title_signature_valid">Viestin allekirjoitus voimassaoleva</string>
+    <string name="title_signature_unconfirmed">Viestin allekirjoitus voimassaoleva muttei vahvistettu</string>
+    <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
     <string name="title_search">Hae</string>
     <string name="title_search_server">Hae palvelimella</string>
     <string name="title_search_in">Hae kohteesta</string>

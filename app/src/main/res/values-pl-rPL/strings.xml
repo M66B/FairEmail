@@ -310,6 +310,7 @@
     <string name="title_advanced_display_hidden">Wyświetlaj ukryte teksty wiadomości</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
+    <string name="title_advanced_secure">Ukryj z ekranu najnowszych aplikacji i uniemożliwiaj wykonywanie zrzutów ekranu</string>
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
@@ -549,6 +550,8 @@
     <string name="title_no_folder">Folder nie istnieje</string>
     <string name="title_no_format">Oryginalnie odebrana wiadomość zostanie dołączona</string>
     <string name="title_no_image">Nie można zdekodować obrazu</string>
+    <string name="title_no_search">Wyszukiwanie na serwerze nie jest dostępne dla tego konta</string>
+    <string name="title_unused_inline">Niewykorzystane wstawione obrazy zostaną usunięte podczas wysyłania</string>
     <string name="title_accross_remark">Wiadomości przenoszone pomiędzy kontami zostaną pobrane ponownie, wpływając na dodatkowe użycie danych</string>
     <string name="title_raw_saved">Zapisano nieprzetworzoną wiadomość</string>
     <string name="title_attachment_saved">Załącznik zapisany</string>
@@ -564,7 +567,6 @@
     <string name="title_ask_show_html_images">Zawsze pokazuj obrazy, pokazując oryginalne wiadomości</string>
     <string name="title_ask_show_image">Pokazywanie obrazów może spowodować wyciek wrażliwych informacji</string>
     <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
-    <string name="title_ask_delete_ref">Usunąć tekst odpowiedzi/przesłanej dalej wiadomości? Tego nie da się cofnąć.</string>
     <string name="title_ask_sync_all">Synchronizować wszystkie wiadomości w %1$s?</string>
     <string name="title_ask_delete_local">Usunąć wiadomości lokalne? Wiadomości pozostaną na serwerze zdalnym.</string>
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
@@ -633,6 +635,7 @@
     <string name="title_reset_sign_key">Resetuj klucz podpisu</string>
     <string name="title_signature_none">Wiadomość niepodpisana</string>
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
+    <string name="title_signature_unconfirmed">Podpis wiadomości prawidłowy, ale nie potwierdzony</string>
     <string name="title_signature_invalid">Nieważny podpis wiadomości</string>
     <string name="title_search">Szukaj</string>
     <string name="title_search_server">Szukaj na serwerze</string>
@@ -878,6 +881,8 @@ FairEmail wyświetla o tym małą wiadomość przypominającą, która zostanie 
     <string name="title_search_special_flagged">oznaczona</string>
     <string name="title_search_special_snoozed">ukryty</string>
     <string name="title_search_special_encrypted">zaszyfrowana</string>
+    <string name="title_widget_title_count">Liczba nowych wiadomości</string>
+    <string name="title_widget_title_list">Lista wiadomości</string>
     <string name="title_widget_account">Konto</string>
     <string name="title_widget_account_all">Wszystkie</string>
     <string name="title_widget_folder">Folder</string>

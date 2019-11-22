@@ -555,7 +555,6 @@
     <string name="title_ask_show_html_images">Arată mereu imaginile când se arată mesajele originale</string>
     <string name="title_ask_show_image">Vizualizarea imaginilor poate duce la divulgarea de informații confidențiale</string>
     <string name="title_ask_show_image_hint">Imaginile recunoscute drept imagini folosite la urmărire nu vor fi afișate</string>
-    <string name="title_ask_delete_ref">Stergeți textul mesajului răspuns/redirecționat? Acesta nu se va putea recupera.</string>
     <string name="title_ask_sync_all">Se sincronizează toate mesajele din %1$s?</string>
     <string name="title_ask_delete_local">Ștergeți mesajele locale? Mesajele vor rămâne pe serverul gazdă.</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
@@ -624,6 +623,7 @@
     <string name="title_reset_sign_key">Resetare cheie de semnare</string>
     <string name="title_signature_none">Mesaj nesemnat</string>
     <string name="title_signature_valid">Semnătura mesaj validă</string>
+    <string name="title_signature_unconfirmed">Semnătura mesajului este validă dar nu este confirmată</string>
     <string name="title_signature_invalid">Semnătura mesaj invalidă</string>
     <string name="title_search">Caută</string>
     <string name="title_search_server">Căutare pe server</string>

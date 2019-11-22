@@ -105,7 +105,7 @@
     <string name="title_setup_quick_hint">La configurazione rapida recupererà le informazioni di configurazione da autoconfig.thunderbird.net</string>
     <string name="title_setup_quick_imap">Server IMAP per ricevere messaggi</string>
     <string name="title_setup_quick_smtp">Server SMTP per inviare messaggi</string>
-    <string name="title_setup_wizard">Procedura Guidata</string>
+    <string name="title_setup_wizard">Wizard</string>
     <string name="title_setup_wizard_remark">Vai \'indietro\' per andare alla casella di posta in arrivo</string>
     <string name="title_setup_other">Altro provider</string>
     <string name="title_setup_gmail_support">L\'autorizzazione degli account Google funzionerà solo nelle versioni ufficiali, perché Android controlla la firma dell\'app</string>
@@ -115,7 +115,7 @@
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
     <string name="title_setup_no_system_folders">Cartella in arrivo o bozza non trovata</string>
     <string name="title_setup_quick_success">Un account e un\'identità sono stati aggiunti con successo</string>
-    <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità anche qui sotto</string>
+    <string name="title_setup_quick_failed">Puoi provare a configurare un account e un\'identità qui sotto</string>
     <string name="title_setup_manage">Gestisci</string>
     <string name="title_setup_grant">Concedi</string>
     <string name="title_setup_account">Imposta account</string>
@@ -195,12 +195,12 @@
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta per rispondere o inoltrare</string>
     <string name="title_advanced_extended_reply">Usa intestazione estesa di risposta/inoltro</string>
     <string name="title_advanced_quote_reply">Cita il testo nella risposta</string>
-    <string name="title_advanced_plain_only">Invia in testo semplice per impostazione predefinita</string>
+    <string name="title_advanced_plain_only">Invia solo in testo semplice per impostazione predefinita</string>
     <string name="title_advanced_usenet_signature">Convenzione firma Usenet</string>
     <string name="title_advanced_autoresize">Ridimensiona automaticamente le immagini allegate e incorporate</string>
     <string name="title_advanced_resize_pixels">&lt; %1$d pixel</string>
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
-    <string name="title_advanced_send_delayed">Ritarda l\'invio messaggi</string>
+    <string name="title_advanced_send_delayed">Ritardo invio messaggi</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente i messaggi e gli allegati con una connessione a consumo fino a</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati durante il roaming</string>
@@ -215,7 +215,7 @@
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
     <string name="title_advanced_highlight_unread">Evidenzia i messaggi non letti</string>
     <string name="title_advanced_distinguish_contacts">Distingui i messaggi tra contatti noti e sconosciuti</string>
-    <string name="title_advanced_avatars">Mostra foto dei contatti</string>
+    <string name="title_advanced_avatars">Mostra foto del contatto</string>
     <string name="title_advanced_generated_icons">Mostra icone generate</string>
     <string name="title_advanced_identicons">Visualizza identicon</string>
     <string name="title_advanced_circular">Mostra icone rotonde</string>
@@ -234,7 +234,7 @@
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_preview_italic">Mostra anteprima messaggio in corsivo</string>
     <string name="title_advanced_preview_lines">Numero di linee di anteprima</string>
-    <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo come impostazione predefinita</string>
+    <string name="title_advanced_addresses">Mostra i dettagli dell\'indirizzo per impostazione predefinita</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
     <string name="title_advanced_monospaced">Usa il carattere monospazio per il testo del messaggio</string>
@@ -255,9 +255,9 @@
     <string name="title_advanced_collapse_multiple">Comprimi i messaggi in una conversazione con più messaggi premendo \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
-    <string name="title_advanced_autoread">Contrassegna automaticamente il messaggio come letto sul messaggio in movimento</string>
+    <string name="title_advanced_autoread">Segna automaticamente i messaggi come letti quando si spostano</string>
     <string name="title_advanced_autounstar">Rimuovi automaticamente la stella dai messaggi sullo spostamento dei messaggi</string>
-    <string name="title_advanced_automove">Conferma i messaggi in movimento</string>
+    <string name="title_advanced_automove">Conferma lo spostamento dei messaggi</string>
     <string name="title_advanced_discard_delete">In caso la bozza venga scartata, eliminala definitivamente</string>
     <string name="title_advanced_default_snooze">Tempo di rinvio predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
@@ -544,7 +544,6 @@
     <string name="title_ask_show_html_images">Mostra sempre le immagini nella visualizzazione dei messaggi originali</string>
     <string name="title_ask_show_image">Mostrare le immagini rende possibile una fuga di informazioni personali sensibili</string>
     <string name="title_ask_show_image_hint">Le immagini riconosciute come immagini di tracciamento non verranno mostrate</string>
-    <string name="title_ask_delete_ref">Elimina testo del messaggio risposto/inoltrato? Questo non può essere annullato.</string>
     <string name="title_ask_sync_all">Sincronizza tutti i messaggi in %1$s?</string>
     <string name="title_ask_delete_local">Elimina i messaggi locali? I messaggi rimarranno sul server remoto.</string>
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
@@ -613,6 +612,7 @@
     <string name="title_reset_sign_key">Reimposta il tasto del segno</string>
     <string name="title_signature_none">Messaggio non firmato</string>
     <string name="title_signature_valid">Firma messaggio valida</string>
+    <string name="title_signature_unconfirmed">Firma del messaggio valida ma non confermata</string>
     <string name="title_signature_invalid">Firma messaggio non valida</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca sul server</string>
@@ -859,7 +859,7 @@
     <string name="title_search_special_flagged">stellato</string>
     <string name="title_search_special_snoozed">nascosto</string>
     <string name="title_search_special_encrypted">criptato</string>
-    <string name="title_widget_title_count">Nuovo conteggio di messaggi</string>
+    <string name="title_widget_title_count">Nuovo conteggio dei messaggi</string>
     <string name="title_widget_title_list">Elenco messaggi</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Tutti</string>

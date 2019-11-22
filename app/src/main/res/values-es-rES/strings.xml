@@ -225,6 +225,8 @@
     <string name="title_advanced_color_threshold">Umbral de color de letras</string>
     <string name="title_advanced_name_email">Mostrar nombres y direcciones de correo electrónico</string>
     <string name="title_advanced_authentication">Mostrar una advertencia cuando el servidor de recepción no pudo autenticar el mensaje</string>
+    <string name="title_advanced_font_size_sender">Tamaño de fuente de remitente</string>
+    <string name="title_advanced_font_size_subject">Tamaño de fuente del asunto</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
     <string name="title_advanced_subject_italic">Mostrar asunto en cursiva</string>
     <string name="title_advanced_subject_elipsed">Acortar el asunto cuando sea necesario</string>
@@ -543,7 +545,6 @@
     <string name="title_ask_show_html_images">Siempre mostrar imágenes al mostrar mensajes originales</string>
     <string name="title_ask_show_image">Mostrar imágenes puede filtrar información privada sensible</string>
     <string name="title_ask_show_image_hint">Las imágenes reconocidas como imágenes de seguimiento no se mostrarán</string>
-    <string name="title_ask_delete_ref">¿Eliminar el texto del mensaje contestado/reenviado? Esto no se puede deshacer.</string>
     <string name="title_ask_sync_all">Sincronizar todos los mensajes en %1$s?</string>
     <string name="title_ask_delete_local">¿Borrar mensajes locales? Los mensajes permanecerán en el servidor remoto.</string>
     <string name="title_ask_help">Ayude a mejorar FairEmail</string>
@@ -612,6 +613,7 @@
     <string name="title_reset_sign_key">Restablecer clave de firma</string>
     <string name="title_signature_none">Mensaje no firmado</string>
     <string name="title_signature_valid">Firma de mensaje válida</string>
+    <string name="title_signature_unconfirmed">Firma del mensaje válida pero no confirmada</string>
     <string name="title_signature_invalid">Firma de mensaje no válida</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_server">Buscar en el servidor</string>
@@ -727,6 +729,7 @@
     <string name="title_legend_draft">Tiene borrador</string>
     <string name="title_legend_priority">Tiene prioridad alta</string>
     <string name="title_legend_priority_low">Tiene prioridad baja</string>
+    <string name="title_legend_encrypted">Está cifrado</string>
     <string name="title_legend_auth">Error de autenticación</string>
     <string name="title_legend_snoozed">Está postergado</string>
     <string name="title_legend_browsed">Está navegado o buscado</string>
@@ -856,6 +859,7 @@
     <string name="title_search_special_unseen">no_leído</string>
     <string name="title_search_special_flagged">destacado</string>
     <string name="title_search_special_snoozed">oculto</string>
+    <string name="title_search_special_encrypted">cifrado</string>
     <string name="title_widget_title_count">Recuento de mensajes</string>
     <string name="title_widget_title_list">Lista de mensajes</string>
     <string name="title_widget_account">Cuenta</string>
@@ -938,5 +942,11 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+    <string-array name="fontSizeNames">
+        <item>Por defecto</item>
+        <item>Pequeño</item>
+        <item>Mediano</item>
+        <item>Grande</item>
     </string-array>
 </resources>

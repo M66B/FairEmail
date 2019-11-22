@@ -567,7 +567,6 @@
     <string name="title_ask_show_html_images">Vždy zobrazit obrázky při zobrazení původních zpráv</string>
     <string name="title_ask_show_image">Zobrazením obrázků může dojít k úniku citlivých informací</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
-    <string name="title_ask_delete_ref">Smazat text odpovídané/přeposílané zprávy? Tuto akci nelze vrátit zpět.</string>
     <string name="title_ask_sync_all">Synchronizovat všechny zprávy v %1$s?</string>
     <string name="title_ask_delete_local">Smazat místní zprávy? Zprávy zůstanou na vzdáleném serveru.</string>
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
@@ -636,6 +635,7 @@
     <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>
     <string name="title_signature_none">Zpráva není podepsána</string>
     <string name="title_signature_valid">Podpis zprávy je platný</string>
+    <string name="title_signature_unconfirmed">Podpis zprávy je platný, ale nepotvrzený</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_server">Hledat na serveru</string>

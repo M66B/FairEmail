@@ -522,7 +522,6 @@
     <string name="title_ask_show_html_remark">No es pot mostrar el missatge original amb un fons fosc perquè pot provocar imatges i textos foscos invisibles</string>
     <string name="title_ask_show_image">Si es mostra imatges, es pot filtrar informació sensible a la privadesa</string>
     <string name="title_ask_show_image_hint">Les imatges reconegudes com a imatges de seguiment no es mostraran</string>
-    <string name="title_ask_delete_ref">Voleu suprimir el text del missatge resposta/reenviat? Això no es pot desfer.</string>
     <string name="title_ask_sync_all">Sincronitza tots els missatges a %1$s?</string>
     <string name="title_ask_delete_local">Voleu eliminar els missatges locals? Els missatges continuaran al servidor remot.</string>
     <string name="title_ask_help">Ajuda a millorar FairEmail</string>

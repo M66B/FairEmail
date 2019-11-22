@@ -538,7 +538,6 @@
     <string name="title_ask_show_html_remark">Приказивање оригиналне поруке са тамном позадином није могуће јер може да изазове да се не види тамни текст и слике</string>
     <string name="title_ask_show_image">Приватне осетљиве информације могу да исцуре приказивањем слика</string>
     <string name="title_ask_show_image_hint">Слике које се препознају да служе да вас прате неће бити приказане</string>
-    <string name="title_ask_delete_ref">Избрисати одговорен/прослеђен текст поруке? Ово је неповратна радња.</string>
     <string name="title_ask_sync_all">Синхронизује све поруке у %1$s?</string>
     <string name="title_ask_delete_local">Избриши локалне поруке? Поруке ће остати на удаљеном серверу.</string>
     <string name="title_ask_help">Помозите да се FairEmail побољша</string>

@@ -533,7 +533,6 @@
     <string name="title_ask_show_html_images">在显示原始消息时总是显示图像</string>
     <string name="title_ask_show_image">显示图像可能会泄露隐私敏感信息</string>
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
-    <string name="title_ask_delete_ref">删除回复/转发的消息文本？此操作无法撤销</string>
     <string name="title_ask_sync_all">同步所有在%1$s里的消息 ？</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进FairEmail</string>
@@ -602,6 +601,7 @@
     <string name="title_reset_sign_key">重置签名密钥</string>
     <string name="title_signature_none">消息未签名</string>
     <string name="title_signature_valid">消息签名有效</string>
+    <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
     <string name="title_signature_invalid">消息签名无效</string>
     <string name="title_search">搜索</string>
     <string name="title_search_server">在服务器上搜索</string>

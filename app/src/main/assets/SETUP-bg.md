@@ -1,41 +1,41 @@
-# Setup help
+# Помощ при инсталиране
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Настройването на FairEmail е сравнително лесно. Трябва да добавите поне един акаунт за получаване на поща и поне една идентичност за изпращане на поща. С бързите настройки ще добавите поща и идентичност на известни доставчици.
 
-## Requirements
+## Изисквания
 
-An internet connection is required to set up accounts and identities.
+Изисква се интернет връзка за настройка на акаунти и идентичности.
 
-## Quick setup
+## Бързи настройки
 
-Just enter your name, email address and password and tap *Go*.
+Въведете име, имейл адрес и парола и таниснете *Напред*.
 
-This will work for most major email providers.
+Работи с повечето известни имейл доставчици.
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+Ако бързата настройка не работи, ще трябва да настроите акаунта и самоличността по друг начин, вижте по-долу за инструкции.
 
-## Set up account - to receive email
+## Настройка на акаунт - за получаване на имейл
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+За добавяне на акаунт, натиснете *Управление на акаунти*, оранжевия бутон *+* отдолу. Изберете доставчик от списъка, въведете потребител, който обикновено е вашият имейл адрес и въведете парола. Натиснете *Проверка*, за да може FairEmail да се свърже с имейл сървъра и да извлече списъка със системни папки. След като прегледате системните папки можете да добавите акаунта, като натиснете * Запази*.
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+Ако вашият доставчик не е в списъка с доставчици, изберете *Персонализиран*. Въведете име на домейн, например *gmail.com* и натиснете *Получи настройки*. Ако вашият доставчик поддържа [автоматично откриване](https://tools.ietf.org/html/rfc6186), FairEmail ще попълни името на хоста и номера на порта, в противен случай проверете инструкциите за настройка на вашия доставчик за правилното име на IMAP хост, номер на порт и протокол (SSL / TLS или STARTTLS). За повече информация, моля вижте [тук](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Set up identity - to send email
+## Настройка на идентичност - за изпращане на имейл
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+По същия начин, за да добавите идентичност, натиснете *Управление на идентичност* и натиснете оранжевия бутон *добавяне* в долната част. Въведете името, което искате да се покаже в адреса на имейлите, които изпращате, и изберете свързан акаунт. Натисни *Запази* за добавяне на идентичност.
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+Ако акаунтът е бил конфигуриран ръчно, вероятно ще трябва да конфигурирате и самоличността ръчно. Въведете име на домейн, например *gmail.com* и натиснете *Получи настройки*. Ако вашият доставчик поддържа [автоматично откриване](https://tools.ietf.org/html/rfc6186), FairEmail ще попълни името на хоста и номера на порта, в противен случай проверете инструкциите за настройка на вашия доставчик за правилното име на SMTP хост, номер на порт и протокол (SSL / TLS или STARTTLS).
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+Виж [ЧЗВ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) относно използването на псевдоним.
 
-## Grant permissions - to access contact information
+## Предоставяне на разрешения - за достъп до контакти
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+Ако искате да търсите имейл адреси, да се показват снимки за контактите и т. н., ще трябва да предоставите разрешение за четене на контакти на FairEmail. Натиснете *Даване на разрешение* и изберете *Разреши*.
 
-## Setup battery optimizations - to continuously receive emails
+## Настройте оптимизацията на батерията - за непрекъснато получаване на имейли
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+В последните версии Android поставя приложенията в спящ режим когато екранът е изключен за известно време за да намали разхода на батерията. Ако искате да получавате нови имейли без закъснения, трябва да деактивирате оптимизациите на батерията за FairEmail. Натиснете * Деактивиране на оптимизациията на батерията * и следвайте инструкциите.
 
-## Questions or problems
+## Въпроси и проблеми
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+Ако имате въпроси или проблеми, моля [вижте тук](https://github.com/M66B/FairEmail/blob/master/FAQ.md) или [използвайте формата за контакти](https://contact.faircode.eu/?product=fairemailsupport) за помощ (използвайте описание на заявка "*setup help*").

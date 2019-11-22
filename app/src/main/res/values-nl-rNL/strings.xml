@@ -545,7 +545,6 @@
     <string name="title_ask_show_html_images">Altijd afbeeldingen tonen bij het weergeven van originele berichten</string>
     <string name="title_ask_show_image">Afbeeldingen tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_image_hint">Afbeeldingen die als tracking-afbeeldingen zijn herkend, worden niet getoond</string>
-    <string name="title_ask_delete_ref">Verwijder beantwoorde/doorgestuurde berichttekst? Dit kan niet ongedaan worden gemaakt.</string>
     <string name="title_ask_sync_all">Alle berichten in %1$s synchroniseren?</string>
     <string name="title_ask_delete_local">Lokale berichten verwijderen? Berichten blijven op de externe server.</string>
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
@@ -614,6 +613,7 @@
     <string name="title_reset_sign_key">Reset tekensleutel</string>
     <string name="title_signature_none">Bericht niet ondertekend</string>
     <string name="title_signature_valid">Handtekening bericht geldig</string>
+    <string name="title_signature_unconfirmed">Handtekening bericht geldig maar niet bevestigd</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_server">Zoek op server</string>
