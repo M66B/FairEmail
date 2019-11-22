@@ -2532,14 +2532,26 @@ public class FragmentCompose extends FragmentBase {
                     } else if (ref != null &&
                             ("reply".equals(action) || "reply_all".equals(action) ||
                                     "forward".equals(action) || "editasnew".equals(action))) {
+
+                        List<String> cid = new ArrayList<>();
+                        for (Element img : document.select("img")) {
+                            String src = img.attr("src");
+                            if (src.startsWith("cid:"))
+                                cid.add("<" + src.substring(4) + ">");
+                        }
+
                         int sequence = 0;
                         List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
                         for (EntityAttachment attachment : attachments)
                             if (attachment.encryption == null &&
                                     ("forward".equals(action) || "editasnew".equals(action) ||
-                                            (attachment.isInline() && attachment.isImage()))) {
+                                            (cid.contains(attachment.cid) ||
+                                                    (attachment.isInline() && attachment.isImage())))) {
                                 if (attachment.available) {
                                     File source = attachment.getFile(context);
+
+                                    if (cid.contains(attachment.cid))
+                                        attachment.disposition = Part.INLINE;
 
                                     attachment.id = null;
                                     attachment.message = data.draft.id;
