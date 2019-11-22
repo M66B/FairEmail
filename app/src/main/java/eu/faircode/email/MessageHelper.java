@@ -20,19 +20,14 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.MailTo;
 import android.net.Uri;
 import android.text.TextUtils;
-
-import androidx.preference.PreferenceManager;
 
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
 
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -322,28 +317,10 @@ public class MessageHelper {
 
         // Build html body
         Document document = JsoupEx.parse(Helper.readText(message.getFile(context)));
-        Elements ref = document.select("div[fairemail=reference]");
-        ref.remove();
-        ref.removeAttr("fairemail");
 
-        if (document.body() != null) {
-            // When sending message
-            if (identity != null && !TextUtils.isEmpty(identity.signature) && message.signature) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean usenet = prefs.getBoolean("usenet_signature", false);
-                if (usenet) {
-                    // https://www.ietf.org/rfc/rfc3676.txt
-                    Element span = document.createElement("span");
-                    span.text("-- ");
-                    span.appendElement("br");
-                    document.body().appendChild(span);
-                }
-                document.body().append(identity.signature);
-            }
-
-            if (ref.size() > 0)
-                document.body().appendChild(ref.first());
-        }
+        // When sending message
+        if (identity != null)
+            document.select("div[fairemail=signature],div[fairemail=reference]").removeAttr("fairemail");
 
         // multipart/mixed
         //   multipart/related

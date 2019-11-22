@@ -4637,63 +4637,60 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Document document = JsoupEx.parse(html);
                 HtmlHelper.embedInlineImages(context, id, document);
 
-                Element body = document.body();
-                if (body != null) {
-                    Element p = document.createElement("p");
+                Element p = document.createElement("p");
 
-                    if (message.from != null && message.from.length > 0) {
-                        Element span = document.createElement("span");
-                        Element strong = document.createElement("strong");
-                        strong.text(getString(R.string.title_from));
-                        span.appendChild(strong);
-                        span.appendText(" " + MessageHelper.formatAddresses(message.from));
-                        span.appendElement("br");
-                        p.appendChild(span);
-                    }
-
-                    if (message.to != null && message.to.length > 0) {
-                        Element span = document.createElement("span");
-                        Element strong = document.createElement("strong");
-                        strong.text(getString(R.string.title_to));
-                        span.appendChild(strong);
-                        span.appendText(" " + MessageHelper.formatAddresses(message.to));
-                        span.appendElement("br");
-                        p.appendChild(span);
-                    }
-
-                    if (message.cc != null && message.cc.length > 0) {
-                        Element span = document.createElement("span");
-                        Element strong = document.createElement("strong");
-                        strong.text(getString(R.string.title_cc));
-                        span.appendChild(strong);
-                        span.appendText(" " + MessageHelper.formatAddresses(message.cc));
-                        span.appendElement("br");
-                        p.appendChild(span);
-                    }
-
-                    {
-                        DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
-
-                        Element span = document.createElement("span");
-                        Element strong = document.createElement("strong");
-                        strong.text(getString(R.string.title_received));
-                        span.appendChild(strong);
-                        span.appendText(" " + DTF.format(message.received));
-                        span.appendElement("br");
-                        p.appendChild(span);
-                    }
-
-                    if (!TextUtils.isEmpty(message.subject)) {
-                        Element span = document.createElement("span");
-                        span.appendText(message.subject);
-                        span.appendElement("br");
-                        p.appendChild(span);
-                    }
-
-                    p.appendElement("hr").appendElement("br");
-
-                    body.prependChild(p);
+                if (message.from != null && message.from.length > 0) {
+                    Element span = document.createElement("span");
+                    Element strong = document.createElement("strong");
+                    strong.text(getString(R.string.title_from));
+                    span.appendChild(strong);
+                    span.appendText(" " + MessageHelper.formatAddresses(message.from));
+                    span.appendElement("br");
+                    p.appendChild(span);
                 }
+
+                if (message.to != null && message.to.length > 0) {
+                    Element span = document.createElement("span");
+                    Element strong = document.createElement("strong");
+                    strong.text(getString(R.string.title_to));
+                    span.appendChild(strong);
+                    span.appendText(" " + MessageHelper.formatAddresses(message.to));
+                    span.appendElement("br");
+                    p.appendChild(span);
+                }
+
+                if (message.cc != null && message.cc.length > 0) {
+                    Element span = document.createElement("span");
+                    Element strong = document.createElement("strong");
+                    strong.text(getString(R.string.title_cc));
+                    span.appendChild(strong);
+                    span.appendText(" " + MessageHelper.formatAddresses(message.cc));
+                    span.appendElement("br");
+                    p.appendChild(span);
+                }
+
+                {
+                    DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+
+                    Element span = document.createElement("span");
+                    Element strong = document.createElement("strong");
+                    strong.text(getString(R.string.title_received));
+                    span.appendChild(strong);
+                    span.appendText(" " + DTF.format(message.received));
+                    span.appendElement("br");
+                    p.appendChild(span);
+                }
+
+                if (!TextUtils.isEmpty(message.subject)) {
+                    Element span = document.createElement("span");
+                    span.appendText(message.subject);
+                    span.appendElement("br");
+                    p.appendChild(span);
+                }
+
+                p.appendElement("hr").appendElement("br");
+
+                document.prependChild(p);
 
                 return new String[]{message.subject, document.html()};
             }

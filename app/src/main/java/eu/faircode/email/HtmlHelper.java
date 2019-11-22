@@ -86,10 +86,10 @@ public class HtmlHelper {
         } catch (Throwable ex) {
             // OutOfMemoryError
             Log.e(ex);
-            Document document = new Document("");
+            Document document = Document.createShell("");
             Element strong = document.createElement("strong");
             strong.text(Helper.formatThrowable(ex));
-            document.appendChild(strong);
+            document.body().appendChild(strong);
             return document;
         }
     }
@@ -475,6 +475,11 @@ public class HtmlHelper {
             for (Element span : document.select("span"))
                 if (!TextUtils.isEmpty(span.attr("color")))
                     span.tagName("font");
+
+        if (document.body() == null) {
+            Log.e("Sanitize without body");
+            document.normalise();
+        }
 
         return document;
     }

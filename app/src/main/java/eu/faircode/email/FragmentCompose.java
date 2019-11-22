@@ -412,33 +412,7 @@ public class FragmentCompose extends FragmentBase {
         cbSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                Bundle args = new Bundle();
-                args.putLong("id", working);
-                args.putBoolean("signature", checked);
-
-                new SimpleTask<Integer>() {
-                    @Override
-                    protected Integer onExecute(Context context, Bundle args) {
-                        long id = args.getLong("id");
-                        boolean signature = args.getBoolean("signature");
-
-                        DB db = DB.getInstance(context);
-                        return db.message().setMessageSignature(id, signature);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, Integer count) {
-                        if (count > 0) {
-                            boolean signature = args.getBoolean("signature");
-                            tvSignature.setAlpha(signature ? 1.0f : Helper.LOW_LIGHT);
-                        }
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getParentFragmentManager(), ex);
-                    }
-                }.execute(FragmentCompose.this, args, "draft:signature");
+                onAction(R.id.action_save);
             }
         });
 
@@ -723,15 +697,12 @@ public class FragmentCompose extends FragmentBase {
                             String text = HtmlHelper.getText(ref.outerHtml());
                             Element p = document.createElement("p");
                             p.html(text.replaceAll("\\r?\\n", "<br>"));
-                            if (document.body() != null)
-                                document.body().appendChild(p);
+                            document.body().appendChild(p);
                         } else {
                             Document d = HtmlHelper.sanitize(context, ref.outerHtml(), true, false);
                             Element b = d.body();
-                            if (document.body() != null && b != null) {
-                                b.tagName("div");
-                                document.body().appendChild(b);
-                            }
+                            b.tagName("div");
+                            document.body().appendChild(b);
                         }
 
                         return document.html();
@@ -1908,6 +1879,7 @@ public class FragmentCompose extends FragmentBase {
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("subject", etSubject.getText().toString().trim());
         args.putString("body", HtmlHelper.toHtml(etBody.getText()));
+        args.putBoolean("signature", cbSignature.isChecked());
         args.putBoolean("empty", isEmpty());
         args.putBundle("extras", extras);
 
@@ -2144,8 +2116,6 @@ public class FragmentCompose extends FragmentBase {
 
                     EntityMessage ref = db.message().getMessage(reference);
 
-                    Document document = JsoupEx.parse("");
-
                     data.draft = new EntityMessage();
                     data.draft.msgid = EntityMessage.generateMessageId();
 
@@ -2155,243 +2125,6 @@ public class FragmentCompose extends FragmentBase {
                         data.draft.encrypt = true;
                     if (receipt_default)
                         data.draft.receipt_request = true;
-
-                    if (ref == null) {
-                        data.draft.thread = data.draft.msgid;
-
-                        try {
-                            String to = args.getString("to");
-                            data.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
-
-                        try {
-                            String cc = args.getString("cc");
-                            data.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
-
-                        try {
-                            String bcc = args.getString("bcc");
-                            data.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
-                        } catch (AddressException ex) {
-                            Log.w(ex);
-                        }
-
-                        data.draft.subject = args.getString("subject", "");
-                        String b = args.getString("body", "");
-                        if (!TextUtils.isEmpty(b)) {
-                            Document d = HtmlHelper.sanitize(context, b, false, false);
-                            Element e = d.body();
-                            if (e != null) {
-                                e.tagName("div");
-                                document.body().appendChild(e);
-                            }
-                        }
-
-                        if (answer > 0) {
-                            EntityAnswer a = db.answer().getAnswer(answer);
-                            if (a != null) {
-                                data.draft.subject = a.name;
-                                Document d = JsoupEx.parse(a.getText(null));
-                                Element e = d.body();
-                                if (e != null) {
-                                    e.tagName("div");
-                                    document.body().appendChild(e);
-                                }
-                            }
-                        }
-                    } else {
-                        // Actions:
-                        // - reply
-                        // - reply_all
-                        // - forward
-                        // - editasnew
-                        // - list
-                        // - receipt
-                        // - participation
-                        if ("reply".equals(action) || "reply_all".equals(action) ||
-                                "list".equals(action) ||
-                                "receipt".equals(action) ||
-                                "participation".equals(action)) {
-                            data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
-                            data.draft.inreplyto = ref.msgid;
-                            data.draft.thread = ref.thread;
-
-                            if ("list".equals(action) && ref.list_post != null)
-                                data.draft.to = ref.list_post;
-                            else if ("receipt".equals(action) && ref.receipt_to != null)
-                                data.draft.to = ref.receipt_to;
-                            else {
-                                // Prevent replying to self
-                                if (ref.replySelf(data.identities, ref.account)) {
-                                    data.draft.from = ref.from;
-                                    data.draft.to = ref.to;
-                                } else {
-                                    data.draft.from = ref.to;
-                                    data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
-                                }
-
-                                if (data.draft.from != null && data.draft.from.length > 0) {
-                                    String from = ((InternetAddress) data.draft.from[0]).getAddress();
-                                    if (from != null && from.contains("@"))
-                                        data.draft.extra = from.substring(0, from.indexOf("@"));
-                                }
-                            }
-
-                            if ("reply_all".equals(action))
-                                data.draft.cc = ref.getAllRecipients(data.identities, ref.account);
-                            else if ("receipt".equals(action)) {
-                                data.draft.receipt = true;
-                                data.draft.receipt_request = false;
-                            }
-
-                        } else if ("forward".equals(action) || "editasnew".equals(action))
-                            data.draft.thread = data.draft.msgid; // new thread
-
-                        String subject = (ref.subject == null ? "" : ref.subject);
-                        if ("reply".equals(action) || "reply_all".equals(action)) {
-                            if (prefix_once) {
-                                String re = context.getString(R.string.title_subject_reply, "");
-                                subject = unprefix(subject, re);
-                            }
-                            data.draft.subject = context.getString(R.string.title_subject_reply, subject);
-                        } else if ("forward".equals(action)) {
-                            if (prefix_once) {
-                                String fwd = context.getString(R.string.title_subject_forward, "");
-                                subject = unprefix(subject, fwd);
-                            }
-                            data.draft.subject = context.getString(R.string.title_subject_forward, subject);
-                        } else if ("editasnew".equals(action)) {
-                            data.draft.subject = ref.subject;
-                            if (ref.content) {
-                                String html = Helper.readText(ref.getFile(context));
-                                Document d = HtmlHelper.sanitize(context, html, true, false);
-                                Element e = d.body();
-                                if (e != null) {
-                                    e.tagName("div");
-                                    document.body().appendChild(e);
-                                }
-                            }
-                        } else if ("list".equals(action)) {
-                            data.draft.subject = ref.subject;
-                        } else if ("receipt".equals(action)) {
-                            data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
-
-                            Element p = document.createElement("p");
-                            p.text(context.getString(R.string.title_receipt_text));
-                            document.body().appendChild(p);
-
-                            if (!Locale.getDefault().getLanguage().equals("en")) {
-                                Configuration configuration = new Configuration(context.getResources().getConfiguration());
-                                configuration.setLocale(new Locale("en"));
-                                Resources res = context.createConfigurationContext(configuration).getResources();
-
-                                p = document.createElement("p");
-                                p.text(res.getString(R.string.title_receipt_text));
-                                document.body().appendChild(p);
-                            }
-                        } else if ("participation".equals(action))
-                            data.draft.subject = status + ": " + ref.subject;
-
-                        if (ref.plain_only != null && ref.plain_only)
-                            data.draft.plain_only = true;
-                        if (ref.encrypt != null && ref.encrypt)
-                            data.draft.encrypt = true;
-
-                        if (answer > 0) {
-                            EntityAnswer a = db.answer().getAnswer(answer);
-                            if (a != null) {
-                                Document d = JsoupEx.parse(a.getText(data.draft.to));
-                                Element e = d.body();
-                                if (e != null) {
-                                    e.tagName("div");
-                                    document.body().appendChild(e);
-                                }
-                            }
-                        }
-
-                        if (ref.content &&
-                                !"editasnew".equals(action) &&
-                                !"list".equals(action) &&
-                                !"receipt".equals(action)) {
-                            // Reply/forward
-                            Element div = document.createElement("div");
-                            div.attr("fairemail", "reference");
-
-                            // Build reply header
-                            Element p = document.createElement("p");
-                            DateFormat DF = Helper.getDateTimeInstance(context);
-                            boolean extended_reply = prefs.getBoolean("extended_reply", false);
-                            if (extended_reply) {
-                                if (ref.from != null && ref.from.length > 0) {
-                                    Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_from) + " ");
-                                    p.appendChild(strong);
-                                    p.appendText(MessageHelper.formatAddresses(ref.from));
-                                    p.appendElement("br");
-                                }
-                                if (ref.to != null && ref.to.length > 0) {
-                                    Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_to) + " ");
-                                    p.appendChild(strong);
-                                    p.appendText(MessageHelper.formatAddresses(ref.to));
-                                    p.appendElement("br");
-                                }
-                                if (ref.cc != null && ref.cc.length > 0) {
-                                    Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_cc) + " ");
-                                    p.appendChild(strong);
-                                    p.appendText(MessageHelper.formatAddresses(ref.cc));
-                                    p.appendElement("br");
-                                }
-                                {
-                                    Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_received) + " ");
-                                    p.appendChild(strong);
-                                    p.appendText(DF.format(ref.received));
-                                    p.appendElement("br");
-                                }
-                                {
-                                    Element strong = document.createElement("strong");
-                                    strong.text(context.getString(R.string.title_subject) + " ");
-                                    p.appendChild(strong);
-                                    p.appendText(ref.subject == null ? "" : ref.subject);
-                                    p.appendElement("br");
-                                }
-                            } else
-                                p.text(DF.format(new Date(ref.received)) + " " + MessageHelper.formatAddresses(ref.from) + ":");
-
-                            div.appendChild(p);
-
-                            // Get referenced message body
-                            Document d = JsoupEx.parse(Helper.readText(ref.getFile(context)));
-
-                            // Remove signature separators
-                            boolean usenet = prefs.getBoolean("usenet_signature", false);
-                            if (usenet)
-                                for (Element span : d.select("span"))
-                                    if (span.childNodeSize() == 2 &&
-                                            span.childNode(0) instanceof TextNode &&
-                                            "-- ".equals(span.wholeText()) &&
-                                            "br".equals(span.childNode(1).nodeName()))
-                                        span.remove();
-
-                            // Quote referenced message body
-                            Element e = d.body();
-                            if (e != null) {
-                                boolean quote_reply = prefs.getBoolean("quote_reply", true);
-                                boolean quote = (quote_reply && ("reply".equals(action) || "reply_all".equals(action)));
-
-                                e.tagName(quote ? "blockquote" : "div");
-                                div.appendChild(e);
-                            }
-
-                            document.body().appendChild(div);
-                        }
-                    }
 
                     // Select identity matching from address
                     EntityIdentity selected = null;
@@ -2484,6 +2217,239 @@ public class FragmentCompose extends FragmentBase {
 
                     if (selected == null)
                         throw new IllegalArgumentException(context.getString(R.string.title_no_identities));
+
+                    Document document = Document.createShell("");
+
+                    if (ref == null) {
+                        data.draft.thread = data.draft.msgid;
+
+                        try {
+                            String to = args.getString("to");
+                            data.draft.to = (TextUtils.isEmpty(to) ? null : InternetAddress.parse(to));
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+
+                        try {
+                            String cc = args.getString("cc");
+                            data.draft.cc = (TextUtils.isEmpty(cc) ? null : InternetAddress.parse(cc));
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+
+                        try {
+                            String bcc = args.getString("bcc");
+                            data.draft.bcc = (TextUtils.isEmpty(bcc) ? null : InternetAddress.parse(bcc));
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+
+                        data.draft.subject = args.getString("subject", "");
+                        String b = args.getString("body", "");
+                        if (!TextUtils.isEmpty(b)) {
+                            Document d = HtmlHelper.sanitize(context, b, false, false);
+                            Element e = d.body();
+                            e.tagName("div");
+                            document.body().appendChild(e);
+                        }
+
+                        if (answer > 0) {
+                            EntityAnswer a = db.answer().getAnswer(answer);
+                            if (a != null) {
+                                data.draft.subject = a.name;
+                                Document d = JsoupEx.parse(a.getText(null));
+                                Element e = d.body();
+                                e.tagName("div");
+                                document.body().appendChild(e);
+                            }
+                        }
+
+                        addSignature(document, data.draft, selected);
+                    } else {
+                        // Actions:
+                        // - reply
+                        // - reply_all
+                        // - forward
+                        // - editasnew
+                        // - list
+                        // - receipt
+                        // - participation
+                        if ("reply".equals(action) || "reply_all".equals(action) ||
+                                "list".equals(action) ||
+                                "receipt".equals(action) ||
+                                "participation".equals(action)) {
+                            data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
+                            data.draft.inreplyto = ref.msgid;
+                            data.draft.thread = ref.thread;
+
+                            if ("list".equals(action) && ref.list_post != null)
+                                data.draft.to = ref.list_post;
+                            else if ("receipt".equals(action) && ref.receipt_to != null)
+                                data.draft.to = ref.receipt_to;
+                            else {
+                                // Prevent replying to self
+                                if (ref.replySelf(data.identities, ref.account)) {
+                                    data.draft.from = ref.from;
+                                    data.draft.to = ref.to;
+                                } else {
+                                    data.draft.from = ref.to;
+                                    data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                }
+
+                                if (data.draft.from != null && data.draft.from.length > 0) {
+                                    String from = ((InternetAddress) data.draft.from[0]).getAddress();
+                                    if (from != null && from.contains("@"))
+                                        data.draft.extra = from.substring(0, from.indexOf("@"));
+                                }
+                            }
+
+                            if ("reply_all".equals(action))
+                                data.draft.cc = ref.getAllRecipients(data.identities, ref.account);
+                            else if ("receipt".equals(action)) {
+                                data.draft.receipt = true;
+                                data.draft.receipt_request = false;
+                            }
+
+                        } else if ("forward".equals(action) || "editasnew".equals(action))
+                            data.draft.thread = data.draft.msgid; // new thread
+
+                        String subject = (ref.subject == null ? "" : ref.subject);
+                        if ("reply".equals(action) || "reply_all".equals(action)) {
+                            if (prefix_once) {
+                                String re = context.getString(R.string.title_subject_reply, "");
+                                subject = unprefix(subject, re);
+                            }
+                            data.draft.subject = context.getString(R.string.title_subject_reply, subject);
+                        } else if ("forward".equals(action)) {
+                            if (prefix_once) {
+                                String fwd = context.getString(R.string.title_subject_forward, "");
+                                subject = unprefix(subject, fwd);
+                            }
+                            data.draft.subject = context.getString(R.string.title_subject_forward, subject);
+                        } else if ("editasnew".equals(action)) {
+                            data.draft.subject = ref.subject;
+                            if (ref.content) {
+                                String html = Helper.readText(ref.getFile(context));
+                                Document d = HtmlHelper.sanitize(context, html, true, false);
+                                Element e = d.body();
+                                e.tagName("div");
+                                document.body().appendChild(e);
+                            }
+                        } else if ("list".equals(action)) {
+                            data.draft.subject = ref.subject;
+                        } else if ("receipt".equals(action)) {
+                            data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
+
+                            Element p = document.createElement("p");
+                            p.text(context.getString(R.string.title_receipt_text));
+                            document.body().appendChild(p);
+
+                            if (!Locale.getDefault().getLanguage().equals("en")) {
+                                Configuration configuration = new Configuration(context.getResources().getConfiguration());
+                                configuration.setLocale(new Locale("en"));
+                                Resources res = context.createConfigurationContext(configuration).getResources();
+
+                                p = document.createElement("p");
+                                p.text(res.getString(R.string.title_receipt_text));
+                                document.body().appendChild(p);
+                            }
+                        } else if ("participation".equals(action))
+                            data.draft.subject = status + ": " + ref.subject;
+
+                        if (ref.plain_only != null && ref.plain_only)
+                            data.draft.plain_only = true;
+                        if (ref.encrypt != null && ref.encrypt)
+                            data.draft.encrypt = true;
+
+                        if (answer > 0) {
+                            EntityAnswer a = db.answer().getAnswer(answer);
+                            if (a != null) {
+                                Document d = JsoupEx.parse(a.getText(data.draft.to));
+                                Element e = d.body();
+                                e.tagName("div");
+                                document.body().appendChild(e);
+                            }
+                        }
+
+                        if (ref.content &&
+                                !"editasnew".equals(action) &&
+                                !"list".equals(action) &&
+                                !"receipt".equals(action)) {
+                            // Reply/forward
+                            Element div = document.createElement("div");
+                            div.attr("fairemail", "reference");
+
+                            // Build reply header
+                            Element p = document.createElement("p");
+                            DateFormat DF = Helper.getDateTimeInstance(context);
+                            boolean extended_reply = prefs.getBoolean("extended_reply", false);
+                            if (extended_reply) {
+                                if (ref.from != null && ref.from.length > 0) {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_from) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(MessageHelper.formatAddresses(ref.from));
+                                    p.appendElement("br");
+                                }
+                                if (ref.to != null && ref.to.length > 0) {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_to) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(MessageHelper.formatAddresses(ref.to));
+                                    p.appendElement("br");
+                                }
+                                if (ref.cc != null && ref.cc.length > 0) {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_cc) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(MessageHelper.formatAddresses(ref.cc));
+                                    p.appendElement("br");
+                                }
+                                {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_received) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(DF.format(ref.received));
+                                    p.appendElement("br");
+                                }
+                                {
+                                    Element strong = document.createElement("strong");
+                                    strong.text(context.getString(R.string.title_subject) + " ");
+                                    p.appendChild(strong);
+                                    p.appendText(ref.subject == null ? "" : ref.subject);
+                                    p.appendElement("br");
+                                }
+                            } else
+                                p.text(DF.format(new Date(ref.received)) + " " + MessageHelper.formatAddresses(ref.from) + ":");
+
+                            div.appendChild(p);
+
+                            // Get referenced message body
+                            Document d = JsoupEx.parse(Helper.readText(ref.getFile(context)));
+
+                            // Remove signature separators
+                            boolean usenet = prefs.getBoolean("usenet_signature", false);
+                            if (usenet)
+                                for (Element span : d.select("span"))
+                                    if (span.childNodeSize() == 2 &&
+                                            span.childNode(0) instanceof TextNode &&
+                                            "-- ".equals(span.wholeText()) &&
+                                            "br".equals(span.childNode(1).nodeName()))
+                                        span.remove();
+
+                            // Quote referenced message body
+                            Element e = d.body();
+                            boolean quote_reply = prefs.getBoolean("quote_reply", true);
+                            boolean quote = (quote_reply && ("reply".equals(action) || "reply_all".equals(action)));
+
+                            e.tagName(quote ? "blockquote" : "div");
+                            div.appendChild(e);
+
+                            document.body().appendChild(div);
+
+                            addSignature(document, data.draft, selected);
+                        }
+                    }
 
                     EntityFolder drafts = db.folder().getFolderByType(selected.account, EntityFolder.DRAFTS);
                     if (drafts == null)
@@ -2594,6 +2560,7 @@ public class FragmentCompose extends FragmentBase {
                         File file = data.draft.getFile(context);
 
                         Document doc = JsoupEx.parse(Helper.readText(file));
+                        doc.select("div[fairemail=signature]").remove();
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
 
@@ -2604,8 +2571,14 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         Document document = HtmlHelper.sanitize(context, doc.html(), true, false);
+
+                        if (data.draft.identity != null) {
+                            EntityIdentity identity = db.identity().getIdentity(data.draft.identity);
+                            addSignature(document, data.draft, identity);
+                        }
+
                         for (Element e : ref)
-                            document.appendChild(e);
+                            document.body().appendChild(e);
 
                         String html = JsoupEx.parse(document.html()).html();
                         Helper.writeText(file, html);
@@ -2808,6 +2781,7 @@ public class FragmentCompose extends FragmentBase {
             String bcc = args.getString("bcc");
             String subject = args.getString("subject");
             String body = args.getString("body");
+            boolean signature = args.getBoolean("signature");
             boolean empty = args.getBoolean("empty");
             Bundle extras = args.getBundle("extras");
 
@@ -2956,6 +2930,7 @@ public class FragmentCompose extends FragmentBase {
                             !MessageHelper.equal(draft.cc, acc) ||
                             !MessageHelper.equal(draft.bcc, abcc) ||
                             !Objects.equals(draft.subject, subject) ||
+                            !draft.signature.equals(signature) ||
                             last_available != available);
 
                     last_available = available;
@@ -2969,6 +2944,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.cc = acc;
                         draft.bcc = abcc;
                         draft.subject = subject;
+                        draft.signature = signature;
                         draft.sender = MessageHelper.getSortKey(draft.from);
                         Uri lookupUri = ContactInfo.getLookupUri(context, draft.from);
                         draft.avatar = (lookupUri == null ? null : lookupUri.toString());
@@ -2981,6 +2957,7 @@ public class FragmentCompose extends FragmentBase {
                             (extras != null && extras.containsKey("html"))) {
                         dirty = true;
 
+                        doc.select("div[fairemail=signature]").remove();
                         Elements ref = doc.select("div[fairemail=reference]");
                         ref.remove();
 
@@ -2989,15 +2966,17 @@ public class FragmentCompose extends FragmentBase {
                         if (extras != null && extras.containsKey("html")) {
                             // Save current revision
                             Document c = JsoupEx.parse(body);
-                            if (c.body() != null && ref.size() > 0)
-                                c.body().appendChild(ref.first());
+                            addSignature(c, draft, identity);
+                            for (Element e : ref)
+                                c.body().appendChild(e);
                             Helper.writeText(draft.getFile(context, draft.revision), c.html());
 
                             d = JsoupEx.parse(extras.getString("html"));
                         } else {
                             d = JsoupEx.parse(body);
-                            if (d.body() != null && ref.size() > 0)
-                                d.body().appendChild(ref.first());
+                            addSignature(d, draft, identity);
+                            for (Element e : ref)
+                                d.body().appendChild(e);
                         }
 
                         body = d.html();
@@ -3273,6 +3252,28 @@ public class FragmentCompose extends FragmentBase {
         return subject;
     }
 
+    private void addSignature(Document document, EntityMessage message, EntityIdentity identity) {
+        if (!message.signature ||
+                identity == null || TextUtils.isEmpty(identity.signature))
+            return;
+
+        Element div = document.createElement("div");
+        div.attr("fairemail", "signature");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean usenet = prefs.getBoolean("usenet_signature", false);
+        if (usenet) {
+            // https://www.ietf.org/rfc/rfc3676.txt
+            Element span = document.createElement("span");
+            span.text("-- ");
+            span.appendElement("br");
+            div.appendChild(span);
+        }
+
+        div.append(identity.signature);
+        document.body().appendChild(div);
+    }
+
     private void showDraft(final EntityMessage draft) {
         Bundle args = new Bundle();
         args.putLong("id", draft.id);
@@ -3314,6 +3315,7 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_no_body));
 
                 Document doc = JsoupEx.parse(Helper.readText(draft.getFile(context)));
+                doc.select("div[fairemail=signature]").remove();
                 Elements ref = doc.select("div[fairemail=reference]");
                 ref.remove();
 

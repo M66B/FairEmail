@@ -456,9 +456,6 @@ public interface DaoMessage {
     @Query("UPDATE message SET error = :error WHERE id = :id")
     int setMessageError(long id, String error);
 
-    @Query("UPDATE message SET signature = :signature WHERE id = :id")
-    int setMessageSignature(long id, boolean signature);
-
     @Query("UPDATE message SET revision = :revision WHERE id = :id")
     int setMessageRevision(long id, Integer revision);
 
