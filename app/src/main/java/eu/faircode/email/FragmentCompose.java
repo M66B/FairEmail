@@ -412,7 +412,11 @@ public class FragmentCompose extends FragmentBase {
         cbSignature.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                onAction(R.id.action_save);
+                Object tag = cbSignature.getTag();
+                if (tag == null || !tag.equals(checked)) {
+                    cbSignature.setTag(checked);
+                    onAction(R.id.action_save);
+                }
             }
         });
 
@@ -2639,6 +2643,7 @@ public class FragmentCompose extends FragmentBase {
             long reference = args.getLong("reference", -1);
             etTo.setTag(reference < 0 ? "" : etTo.getText().toString());
             etSubject.setTag(reference < 0 ? "" : etSubject.getText().toString());
+            cbSignature.setTag(data.draft.signature);
 
             grpHeader.setVisibility(View.VISIBLE);
             grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
