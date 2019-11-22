@@ -2405,7 +2405,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             if (rvMessage != null) {
-                Parcelable rv = savedInstanceState.getBundle("fair:rv");
+                Parcelable rv = savedInstanceState.getParcelable("fair:rv");
                 rvMessage.getLayoutManager().onRestoreInstanceState(rv);
             }
 
