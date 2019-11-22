@@ -691,13 +691,14 @@ public class HtmlHelper {
             private int qlevel = 0;
             private int tlevel = 0;
             private int plevel = 0;
+            private int lindex = 0;
 
             public void head(Node node, int depth) {
                 if (node instanceof TextNode)
                     if (plevel > 0) {
                         String[] lines = ((TextNode) node).getWholeText().split("\\r?\\n");
                         for (String line : lines) {
-                            append(line);
+                            append(line, true);
                             newline();
                         }
                     } else
@@ -738,19 +739,31 @@ public class HtmlHelper {
             }
 
             private void append(String text) {
+                append(text, false);
+            }
+
+            private void append(String text, boolean raw) {
                 if (tlevel != qlevel) {
                     newline();
                     tlevel = qlevel;
                 }
+
+                if (!raw && !"-- ".equals(text)) {
+                    text = text.trim();
+                    if (lindex > 0)
+                        text = " " + text;
+                }
+
                 sb.append(text);
+                lindex += text.length();
             }
 
             private void newline() {
+                lindex = 0;
                 sb.append("\n");
+
                 for (int i = 0; i < qlevel; i++)
-                    sb.append('>');
-                if (qlevel > 0)
-                    sb.append(' ');
+                    sb.append("> ");
             }
         }, JsoupEx.parse(html));
 
