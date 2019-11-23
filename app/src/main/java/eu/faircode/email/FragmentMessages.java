@@ -1070,6 +1070,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         IntentFilter iff = new IntentFilter();
         iff.addAction(SimpleTask.ACTION_TASK_COUNT);
+        iff.addAction(ACTION_NEW_MESSAGE);
         lbm.registerReceiver(creceiver, iff);
 
         return view;
@@ -1085,21 +1086,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
         super.onDestroyView();
     }
-
-    private BroadcastReceiver creceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.i("Received " + intent);
-            Log.logExtras(intent);
-
-            int count = intent.getIntExtra("count", 0);
-            if (count == 0) {
-                if (initialized && !loading)
-                    pbWait.setVisibility(View.GONE);
-            } else
-                pbWait.setVisibility(View.VISIBLE);
-        }
-    };
 
     @Override
     public void onDestroy() {
@@ -3842,21 +3828,54 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         return super.onCreateAnimation(transit, enter, nextAnim);
     }
 
+    private BroadcastReceiver creceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i("Received " + intent);
+            Log.logExtras(intent);
+
+            String action = intent.getAction();
+            if (SimpleTask.ACTION_TASK_COUNT.equals(action))
+                onTaskCount(intent);
+            else if (ACTION_NEW_MESSAGE.equals(action))
+                onNewMessage(intent);
+        }
+    };
+
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                 String action = intent.getAction();
-
                 if (ACTION_STORE_RAW.equals(action))
                     onStoreRaw(intent);
                 else if (ACTION_DECRYPT.equals(action))
                     onDecrypt(intent);
-                else if (ACTION_NEW_MESSAGE.equals(action))
-                    onNewMessage(intent);
             }
         }
     };
+
+    private void onTaskCount(Intent intent) {
+        int count = intent.getIntExtra("count", 0);
+        if (count == 0) {
+            if (initialized && !loading)
+                pbWait.setVisibility(View.GONE);
+        } else
+            pbWait.setVisibility(View.VISIBLE);
+    }
+
+    private void onNewMessage(Intent intent) {
+        long fid = intent.getLongExtra("folder", -1);
+        boolean unified = intent.getBooleanExtra("unified", false);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean autoscroll = prefs.getBoolean("autoscroll", true);
+
+        if (autoscroll &&
+                ((viewType == AdapterMessage.ViewType.UNIFIED && unified) ||
+                        (viewType == AdapterMessage.ViewType.FOLDER && folder == fid)))
+            adapter.gotoTop();
+    }
 
     private void onStoreRaw(Intent intent) {
         message = intent.getLongExtra("id", -1);
@@ -3882,19 +3901,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             onDecrypt(data, auto);
         } else
             Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG).show();
-    }
-
-    private void onNewMessage(Intent intent) {
-        long fid = intent.getLongExtra("folder", -1);
-        boolean unified = intent.getBooleanExtra("unified", false);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean autoscroll = prefs.getBoolean("autoscroll", true);
-
-        if (autoscroll &&
-                ((viewType == AdapterMessage.ViewType.UNIFIED && unified) ||
-                        (viewType == AdapterMessage.ViewType.FOLDER && folder == fid)))
-            adapter.gotoTop();
     }
 
     @Override
