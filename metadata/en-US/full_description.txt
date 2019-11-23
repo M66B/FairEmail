@@ -2,6 +2,8 @@ FairEmail is easy to setup and works with virtually all email providers, includi
 
 FairEmail might be for you if you value your privacy.
 
+<i>FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.</i>
+
 <b>Main features</b>
 
 * Fully featured
@@ -42,6 +44,7 @@ This app starts a foreground service with a low priority status bar notification
 <b>Secure</b>
 
 * No data storage on third party servers
+* Using open standards (IMAP, SMTP, OpenPGP, etc)
 * Safe message view (styling, scripting and unsafe HTML removed)
 * Confirm opening links, images and attachments
 * No special permissions required
