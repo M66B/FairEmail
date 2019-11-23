@@ -1496,7 +1496,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         for (QuoteSpan quoteSpan : quoteSpans) {
                             int s = builder.getSpanStart(quoteSpan);
                             int e = builder.getSpanEnd(quoteSpan);
-                            Log.i("Quote start=" + s + " end=" + e);
 
                             builder.removeSpan(quoteSpan);
 
