@@ -118,6 +118,12 @@ public class EntityOperation {
             for (Object value : values)
                 jargs.put(value);
 
+            if (MOVE.equals(name) && message.encrypt != null && message.encrypt) {
+                EntityFolder folder = db.folder().getFolder(message.folder);
+                if (folder != null && EntityFolder.DRAFTS.equals(folder.type))
+                    name = DELETE;
+            }
+
             if (SEEN.equals(name)) {
                 boolean seen = jargs.getBoolean(0);
                 boolean ignore = jargs.optBoolean(1, true);
