@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
@@ -29,6 +32,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,10 +44,13 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Date;
+
 public class FragmentPro extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private TextView tvPending;
     private TextView tvActivated;
     private TextView tvInfo;
+    private CheckBox cbHide;
     private TextView tvList;
     private Button btnPurchase;
     private TextView tvPrice;
@@ -55,7 +63,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setSubtitle(R.string.menu_pro);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean debug = prefs.getBoolean("debug", false);
 
         View view = inflater.inflate(R.layout.fragment_pro, container, false);
@@ -63,6 +71,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPending = view.findViewById(R.id.tvPending);
         tvActivated = view.findViewById(R.id.tvActivated);
         tvInfo = view.findViewById(R.id.tvInfo);
+        cbHide = view.findViewById(R.id.cbHide);
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
         tvPrice = view.findViewById(R.id.tvPrice);
@@ -73,6 +82,33 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         tvInfo.setText(getString(R.string.title_pro_info)
                 .replaceAll("^\\s+", "").replaceAll("\\s+", " "));
+
+        boolean banner = prefs.getBoolean("banner", true);
+        cbHide.setChecked(!banner);
+
+        cbHide.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("banner", !isChecked).apply();
+
+                Intent daily = new Intent(getContext(), ServiceUI.class);
+                daily.setAction("daily");
+                PendingIntent pi = PendingIntent.getService(getContext(), ServiceUI.PI_DAILY, daily, PendingIntent.FLAG_UPDATE_CURRENT);
+
+                AlarmManager am = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+                if (isChecked) {
+                    long now = new Date().getTime();
+                    long interval = AlarmManager.INTERVAL_DAY;
+                    long due = interval - (now % interval);
+                    long trigger = now + due;
+                    Log.i("Set banner alarm at " + new Date(trigger) + " due=" + due);
+                    am.set(AlarmManager.RTC, trigger, pi);
+                } else {
+                    Log.i("Cancel banner alarm");
+                    am.cancel(pi);
+                }
+            }
+        });
 
         tvList.setPaintFlags(tvList.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvList.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +140,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
 
         tvPending.setVisibility(View.GONE);
         tvActivated.setVisibility(View.GONE);
+        cbHide.setVisibility(View.GONE);
         btnPurchase.setEnabled(false);
         tvPrice.setText(null);
         btnCheck.setEnabled(false);
@@ -187,9 +224,11 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         if ("pro".equals(key)) {
             boolean pro = ActivityBilling.isPro(getContext());
             tvActivated.setVisibility(pro ? View.VISIBLE : View.GONE);
+            cbHide.setVisibility(pro ? View.GONE : View.VISIBLE);
 
             if (!Helper.isPlayStoreInstall())
                 btnPurchase.setEnabled(!pro || BuildConfig.DEBUG);
-        }
+        } else if ("banner".equals(key))
+            cbHide.setChecked(!prefs.getBoolean(key, true));
     }
 }

@@ -34,7 +34,7 @@ public class ReceiverAutoStart extends BroadcastReceiver {
             Log.i("Received " + intent);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().remove("last_vacuum").apply();
+            prefs.edit().remove("banner").apply();
 
             ServiceSynchronize.boot(context);
             ServiceSend.boot(context);

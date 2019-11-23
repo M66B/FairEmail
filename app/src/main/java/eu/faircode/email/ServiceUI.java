@@ -52,6 +52,7 @@ public class ServiceUI extends IntentService {
     static final int PI_IGNORED = 10;
     static final int PI_THREAD = 11;
     static final int PI_WAKEUP = 12;
+    static final int PI_DAILY = 13;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -150,6 +151,10 @@ public class ServiceUI extends IntentService {
                     // for approximately 10 seconds to allow that application to acquire further wake locks in which to complete its work.
                     // https://developer.android.com/reference/android/app/AlarmManager
                     onWakeup(id);
+                    break;
+
+                case "daily":
+                    onDaily();
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown UI action: " + parts[0]);
@@ -402,5 +407,10 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
+    }
+
+    private void onDaily() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().remove("banner").apply();
     }
 }
