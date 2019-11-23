@@ -205,14 +205,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             }
         }));
 
-        NavMenuItem order = new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_folders, new Runnable() {
+        menus.add(new NavMenuItem(R.drawable.baseline_reorder_24, R.string.title_setup_reorder_folders, new Runnable() {
             @Override
             public void run() {
                 drawerLayout.closeDrawer(drawerContainer);
                 onMenuOrder(R.string.title_setup_reorder_folders, TupleFolderSort.class);
             }
-        }).setSeparated();
-        menus.add(order);
+        }).setSeparated());
 
         menus.add(new NavMenuItem(R.drawable.baseline_help_24, R.string.menu_legend, new Runnable() {
             @Override
