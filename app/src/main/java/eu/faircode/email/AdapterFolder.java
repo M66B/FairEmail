@@ -393,7 +393,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 popupMenu.getMenu().add(Menu.NONE, 0, 0, folder.getDisplayName(context)).setEnabled(false);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_now, 1, R.string.title_synchronize_now);
 
-                if (folder.account != null && !folder.accountPop) {
+                if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_synchronize_all, 2, R.string.title_synchronize_all);
 
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_local, 3, R.string.title_delete_local);
@@ -418,7 +418,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             .setCheckable(true).setChecked(folder.notify);
                 }
 
-                if (folder.account != null && !folder.accountPop) {
+                if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP) {
                     boolean subscriptions = prefs.getBoolean("subscriptions", false);
                     if (folder.subscribed != null && subscriptions)
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_subscribe, 9, R.string.title_subscribe)
@@ -445,7 +445,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 }
             }
 
-            if (folder.account != null && !folder.accountPop)
+            if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_create_sub_folder, 16, R.string.title_create_sub_folder);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {

@@ -46,7 +46,7 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message == null) // happens when restoring state
             return true;
 
-        if (message.accountPop)
+        if (message.accountProtocol != EntityAccount.TYPE_IMAP)
             return true;
 
         if (message.uid != null && !message.folderReadOnly)
@@ -65,7 +65,7 @@ public class SelectionPredicateMessage extends SelectionTracker.SelectionPredica
         if (message == null) // happens when restoring state
             return true;
 
-        if (message.accountPop)
+        if (message.accountProtocol != EntityAccount.TYPE_IMAP)
             return true;
 
         if (message.uid != null && !message.folderReadOnly)

@@ -277,7 +277,8 @@ public class ViewModelMessages extends ViewModel {
                 int count = ds.countItems();
                 for (int i = 0; i < count; i += 100)
                     for (TupleMessageEx message : ds.loadRange(i, Math.min(100, count - i)))
-                        if ((message.uid != null && !message.folderReadOnly) || message.accountPop)
+                        if ((message.uid != null && !message.folderReadOnly) ||
+                                message.accountProtocol != EntityAccount.TYPE_IMAP)
                             ids.add(message.id);
 
                 Log.i("Loaded messages #" + ids.size());

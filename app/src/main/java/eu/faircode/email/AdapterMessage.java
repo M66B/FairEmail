@@ -707,7 +707,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             view.setAlpha(
                     (EntityFolder.OUTBOX.equals(message.folderType)
                             ? message.identitySynchronize == null || !message.identitySynchronize
-                            : message.uid == null && !message.accountPop)
+                            : message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP)
                             ? Helper.LOW_LIGHT : 1.0f);
 
             // Duplicate
@@ -1011,7 +1011,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibFlagged.setImageResource(flagged > 0 ? R.drawable.baseline_star_24 : R.drawable.baseline_star_border_24);
             ibFlagged.setImageTintList(ColorStateList.valueOf(flagged > 0 ? color : textColorSecondary));
-            ibFlagged.setEnabled(message.uid != null || message.accountPop);
+            ibFlagged.setEnabled(message.uid != null || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             card.setCardBackgroundColor(
                     flags_background && flagged > 0 && !expanded
@@ -2051,13 +2051,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                         Bundle args = new Bundle();
                         args.putLong("id", message.id);
-                        args.putBoolean("pop", message.accountPop);
+                        args.putInt("protocol", message.accountProtocol);
 
                         new SimpleTask<Void>() {
                             @Override
                             protected Void onExecute(Context context, Bundle args) {
                                 long id = args.getLong("id");
-                                boolean pop = args.getBoolean("pop");
+                                int protocol = args.getInt("protocol");
 
                                 DB db = DB.getInstance(context);
                                 try {
@@ -2067,7 +2067,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     if (message == null)
                                         return null;
 
-                                    if (pop)
+                                    if (protocol != EntityAccount.TYPE_IMAP)
                                         EntityOperation.queue(context, message, EntityOperation.SEEN, !message.ui_seen);
                                     else {
                                         List<EntityMessage> messages = db.message().getMessagesByThread(
@@ -2230,7 +2230,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (account == null)
                             return null;
 
-                        if (account.pop)
+                        if (account.protocol != EntityAccount.TYPE_IMAP)
                             EntityOperation.queue(context, message, EntityOperation.FLAG, flagged);
                         else {
                             List<EntityMessage> messages = db.message().getMessagesByThread(
@@ -2949,25 +2949,25 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_unseen).setTitle(message.ui_seen ? R.string.title_unseen : R.string.title_seen);
             popupMenu.getMenu().findItem(R.id.menu_unseen).setEnabled(
-                    (message.uid != null && !message.folderReadOnly) || message.accountPop);
+                    (message.uid != null && !message.folderReadOnly) || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_hide).setTitle(message.ui_snoozed == null ? R.string.title_hide : R.string.title_unhide);
 
             popupMenu.getMenu().findItem(R.id.menu_flag_color).setEnabled(
-                    (message.uid != null && !message.folderReadOnly) || message.accountPop);
+                    (message.uid != null && !message.folderReadOnly) || message.accountProtocol != EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_copy).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_copy).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_copy).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_delete).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_resync).setEnabled(message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_resync).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_resync).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
-            popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_create_rule).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setEnabled(message.uid != null && !message.folderReadOnly);
-            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_manage_keywords).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_junk).setEnabled(message.uid != null && !message.folderReadOnly);
             popupMenu.getMenu().findItem(R.id.menu_junk).setVisible(hasJunk && !EntityFolder.JUNK.equals(message.folderType));
@@ -2978,7 +2978,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setChecked(show_headers);
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null);
-            popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_show_headers).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.getMenu().findItem(R.id.menu_raw_download).setEnabled(
                     message.uid != null && (message.raw == null || !message.raw));
@@ -2987,9 +2987,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_raw_send).setEnabled(
                     message.uid != null && (message.raw != null && message.raw));
 
-            popupMenu.getMenu().findItem(R.id.menu_raw_download).setVisible(!message.accountPop);
-            popupMenu.getMenu().findItem(R.id.menu_raw_save).setVisible(!message.accountPop);
-            popupMenu.getMenu().findItem(R.id.menu_raw_send).setVisible(!message.accountPop);
+            popupMenu.getMenu().findItem(R.id.menu_raw_download).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_raw_save).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+            popupMenu.getMenu().findItem(R.id.menu_raw_send).setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override

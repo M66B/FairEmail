@@ -195,7 +195,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 lbm.sendBroadcast(
                         new Intent(settings ? ActivitySetup.ACTION_EDIT_ACCOUNT : ActivityView.ACTION_VIEW_FOLDERS)
                                 .putExtra("id", account.id)
-                                .putExtra("pop", account.pop));
+                                .putExtra("protocol", account.protocol));
             }
         }
 
@@ -216,7 +216,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, 1, R.string.title_enabled)
                     .setCheckable(true).setChecked(account.synchronize);
 
-            if (!account.pop && account.notify && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (account.protocol == EntityAccount.TYPE_IMAP && account.notify &&
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 String channelId = EntityAccount.getNotificationChannelId(account.id);
                 NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 NotificationChannel channel = nm.getNotificationChannel(channelId);
@@ -224,7 +225,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_channel, 2, R.string.title_edit_channel);
             }
 
-            if (!account.pop && settings)
+            if (account.protocol == EntityAccount.TYPE_IMAP && settings)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 3, R.string.title_copy);
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -294,6 +295,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     lbm.sendBroadcast(
                             new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
                                     .putExtra("id", account.id)
+                                    .putExtra("protocol", account.protocol)
                                     .putExtra("copy", true));
                 }
             });

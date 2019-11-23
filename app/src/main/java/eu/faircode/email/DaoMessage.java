@@ -42,7 +42,7 @@ public interface DaoMessage {
     String is_outbox = "folder.type = '" + EntityFolder.OUTBOX + "'";
 
     @Query("SELECT message.*" +
-            ", account.pop AS accountPop, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
+            ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
@@ -92,7 +92,7 @@ public interface DaoMessage {
             boolean debug);
 
     @Query("SELECT message.*" +
-            ", account.pop AS accountPop, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
+            ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
@@ -136,7 +136,7 @@ public interface DaoMessage {
             boolean debug);
 
     @Query("SELECT message.*" +
-            ", account.pop AS accountPop, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
+            ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
@@ -255,7 +255,7 @@ public interface DaoMessage {
             " AND thread = :thread" +
             " AND (:id IS NULL OR message.id = :id)" +
             " AND (:folder IS NULL OR message.folder = :folder)" +
-            " AND (NOT uid IS NULL OR account.pop)" +
+            " AND (NOT uid IS NULL OR account.pop <> " + EntityAccount.TYPE_IMAP + ")" +
             " AND NOT ui_hide")
     List<EntityMessage> getMessagesByThread(long account, String thread, Long id, Long folder);
 
@@ -275,7 +275,7 @@ public interface DaoMessage {
     int countMessageByMsgId(long folder, String msgid);
 
     @Query("SELECT message.*" +
-            ", account.pop AS accountPop, account.name AS accountName, identity.color AS accountColor" +
+            ", account.pop AS accountProtocol, account.name AS accountName, identity.color AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +
@@ -309,7 +309,7 @@ public interface DaoMessage {
     TupleMessageStats getUnseenWidget();
 
     @Query("SELECT message.*" +
-            ", account.pop AS accountPop, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
+            ", account.pop AS accountProtocol, account.name AS accountName, COALESCE(identity.color, folder.color, account.color) AS accountColor" +
             ", account.notify AS accountNotify, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.display AS folderDisplay, folder.type AS folderType, folder.read_only AS folderReadOnly" +
             ", identity.name AS identityName, identity.email AS identityEmail, identity.synchronize AS identitySynchronize" +

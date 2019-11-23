@@ -28,7 +28,7 @@ import java.util.Objects;
 import javax.mail.Address;
 
 public class TupleMessageEx extends EntityMessage {
-    public boolean accountPop;
+    public Integer accountProtocol;
     public String accountName;
     public Integer accountColor;
     public boolean accountNotify;
@@ -63,7 +63,7 @@ public class TupleMessageEx extends EntityMessage {
         if (obj instanceof TupleMessageEx) {
             TupleMessageEx other = (TupleMessageEx) obj;
             return (super.equals(obj) &&
-                    this.accountPop == other.accountPop &&
+                    this.accountProtocol.equals(other.accountProtocol) &&
                     Objects.equals(this.accountName, other.accountName) &&
                     Objects.equals(this.accountColor, other.accountColor) &&
                     this.accountNotify == other.accountNotify &&

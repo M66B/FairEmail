@@ -41,7 +41,7 @@ public class FragmentReview extends FragmentDialogBase {
                 lbm.sendBroadcast(
                         new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
                                 .putExtra("id", account)
-                                .putExtra("pop", false));
+                                .putExtra("protocol", EntityAccount.TYPE_IMAP));
                 dismiss();
             }
         });

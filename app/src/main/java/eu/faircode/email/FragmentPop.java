@@ -290,7 +290,7 @@ public class FragmentPop extends FragmentBase {
                     if (account == null)
                         account = new EntityAccount();
 
-                    account.pop = true;
+                    account.protocol = EntityAccount.TYPE_POP;
                     account.host = host;
                     account.starttls = starttls;
                     account.insecure = insecure;

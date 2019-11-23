@@ -831,11 +831,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         if (aid < 0) {
                             List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
                             for (EntityAccount account : accounts)
-                                if (!account.pop)
+                                if (account.protocol == EntityAccount.TYPE_IMAP)
                                     result.add(account);
                         } else {
                             EntityAccount account = db.account().getAccount(aid);
-                            if (account != null && !account.pop)
+                            if (account != null && account.protocol == EntityAccount.TYPE_IMAP)
                                 result.add(account);
                         }
 
@@ -1381,7 +1381,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (EntityFolder.OUTBOX.equals(message.folderType))
                 return 0;
 
-            if (message.accountPop)
+            if (message.accountProtocol != EntityAccount.TYPE_IMAP)
                 return makeMovementFlags(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
 
             TupleAccountSwipes swipes = accountSwipes.get(message.account);
@@ -1434,7 +1434,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
 
             TupleAccountSwipes swipes;
-            if (message.accountPop) {
+            if (message.accountProtocol != EntityAccount.TYPE_IMAP) {
                 swipes = new TupleAccountSwipes();
                 swipes.swipe_right = FragmentAccount.SWIPE_ACTION_SEEN;
                 swipes.swipe_left = 0L;
@@ -1517,7 +1517,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return;
             }
 
-            if (message.accountPop)
+            if (message.accountProtocol != EntityAccount.TYPE_IMAP)
                 if (direction == ItemTouchHelper.LEFT) {
                     adapter.notifyItemChanged(pos);
                     onSwipeDelete(message);
@@ -1568,7 +1568,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 return null;
 
             TupleMessageEx message = list.get(pos);
-            if (message == null || (message.uid == null && !message.accountPop))
+            if (message == null ||
+                    (message.uid == null && message.accountProtocol == EntityAccount.TYPE_IMAP))
                 return null;
 
             if (iProperties.getValue("expanded", message.id))
@@ -1791,7 +1792,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     EntityAccount account = db.account().getAccount(message.account);
                     if (account == null)
                         continue;
-                    if (account.pop)
+                    if (account.protocol != EntityAccount.TYPE_IMAP)
                         pop = true;
 
                     if (!result.folders.contains(message.folder))
@@ -1820,7 +1821,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     EntityFolder folder = db.folder().getFolder(message.folder);
                     boolean isArchive = EntityFolder.ARCHIVE.equals(folder.type);
-                    boolean isTrash = (EntityFolder.TRASH.equals(folder.type) || account.pop);
+                    boolean isTrash = (EntityFolder.TRASH.equals(folder.type) || account.protocol != EntityAccount.TYPE_IMAP);
                     boolean isJunk = EntityFolder.JUNK.equals(folder.type);
                     boolean isDrafts = EntityFolder.DRAFTS.equals(folder.type);
 
@@ -1850,7 +1851,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 result.accounts = new ArrayList<>();
                 if (!pop)
                     for (EntityAccount account : db.account().getSynchronizingAccounts())
-                        if (!account.pop)
+                        if (account.protocol == EntityAccount.TYPE_IMAP)
                             result.accounts.add(account);
 
                 return result;
@@ -2186,7 +2187,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, message.folder);
                         for (EntityMessage threaded : messages)
-                            if (message.uid != null || account.pop)
+                            if (message.uid != null || account.protocol != EntityAccount.TYPE_IMAP)
                                 ids.add(threaded.id);
                     }
 
@@ -3306,7 +3307,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (expand != null &&
                         (expand.content || unmetered || (expand.size != null && expand.size < download))) {
                     // Prevent flicker
-                    if (expand.accountPop ||
+                    if (expand.accountProtocol != EntityAccount.TYPE_IMAP ||
                             (expand.accountAutoSeen && !expand.ui_seen && !expand.folderReadOnly)) {
                         expand.unseen = 0;
                         expand.ui_seen = true;
@@ -3461,7 +3462,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (account == null)
                         return null;
 
-                    if (account.pop) {
+                    if (account.protocol != EntityAccount.TYPE_IMAP) {
                         if (!message.ui_seen)
                             EntityOperation.queue(context, message, EntityOperation.SEEN, true);
                     } else {
@@ -4315,7 +4316,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.cancel("send:" + message.identity, 1);
                         }
-                    } else if (message.uid == null && !account.pop) {
+                    } else if (message.uid == null && account.protocol == EntityAccount.TYPE_IMAP) {
                         db.message().deleteMessage(id);
                         db.folder().setFolderError(message.folder, null);
                     } else

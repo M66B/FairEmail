@@ -28,6 +28,7 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -52,11 +53,15 @@ public class EntityAccount extends EntityOrder implements Serializable {
     static final int DEFAULT_KEEP_ALIVE_INTERVAL = 24; // minutes
     static final int DEFAULT_POLL_INTERVAL = 12; // minutes
 
+    static final int TYPE_IMAP = 0;
+    static final int TYPE_POP = 1;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
 
     @NonNull
-    public Boolean pop = false;
+    @ColumnInfo(name = "pop")
+    public Integer protocol = TYPE_IMAP;
     @NonNull
     public String host; // POP3/IMAP
     @NonNull
@@ -109,7 +114,14 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Long last_connected;
 
     String getProtocol() {
-        return (pop ? "pop3" : "imap") + (starttls ? "" : "s");
+        switch (protocol) {
+            case TYPE_IMAP:
+                return "imap" + (starttls ? "" : "s");
+            case TYPE_POP:
+                return "pop3" + (starttls ? "" : "s");
+            default:
+                throw new IllegalArgumentException("Unknown protocol=" + protocol);
+        }
     }
 
     static String getNotificationChannelId(long id) {
@@ -157,7 +169,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         JSONObject json = new JSONObject();
         json.put("id", id);
         json.put("order", order);
-        json.put("pop", pop);
+        json.put("protocol", protocol);
         json.put("host", host);
         json.put("starttls", starttls);
         json.put("insecure", insecure);
@@ -203,8 +215,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
         if (json.has("order"))
             account.order = json.getInt("order");
 
-        if (json.has("pop"))
-            account.pop = json.getBoolean("pop");
+        if (json.has("protocol"))
+            account.protocol = json.getInt("protocol");
+        else if (json.has("pop"))
+            account.protocol = (json.getBoolean("pop") ? TYPE_POP : TYPE_IMAP);
 
         account.host = json.getString("host");
         account.starttls = (json.has("starttls") && json.getBoolean("starttls"));
@@ -251,7 +265,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         if (obj instanceof EntityAccount) {
             EntityAccount other = (EntityAccount) obj;
             return (Objects.equals(this.order, other.order) &&
-                    this.pop == other.pop &&
+                    this.protocol.equals(other.protocol) &&
                     this.host.equals(other.host) &&
                     this.starttls == other.starttls &&
                     this.insecure == other.insecure &&

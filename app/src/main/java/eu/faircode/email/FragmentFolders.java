@@ -279,7 +279,7 @@ public class FragmentFolders extends FragmentBase {
                     else
                         fabError.hide();
 
-                    if (account == null || account.pop)
+                    if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
                         fab.hide();
                     else
                         fab.show();

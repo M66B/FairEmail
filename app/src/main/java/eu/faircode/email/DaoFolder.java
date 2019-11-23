@@ -35,7 +35,7 @@ public interface DaoFolder {
     List<EntityFolder> getFolders(long account, boolean writable, boolean selectable);
 
     @Query("SELECT folder.*" +
-            ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
+            ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
             ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
@@ -61,7 +61,7 @@ public interface DaoFolder {
     @Query("SELECT folder.* FROM folder" +
             " JOIN account ON account.id = folder.account" +
             " WHERE folder.id = :folder" +
-            " AND (:search OR (account.synchronize AND account.browse AND NOT account.pop))")
+            " AND (:search OR (account.synchronize AND account.browse AND account.pop = " + EntityAccount.TYPE_IMAP + "))")
     EntityFolder getBrowsableFolder(long folder, boolean search);
 
     @Query("SELECT folder.*" +
@@ -72,7 +72,7 @@ public interface DaoFolder {
     List<TupleFolderSort> getSortedFolders();
 
     @Query("SELECT folder.*" +
-            ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
+            ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
             ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
@@ -92,7 +92,7 @@ public interface DaoFolder {
     LiveData<List<TupleFolderEx>> liveFolders(Long account);
 
     @Query("SELECT folder.*" +
-            ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
+            ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
             ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +
@@ -130,7 +130,7 @@ public interface DaoFolder {
     LiveData<Integer> liveSynchronizing();
 
     @Query("SELECT folder.*" +
-            ", account.id AS accountId, account.pop AS accountPop, account.`order` AS accountOrder" +
+            ", account.id AS accountId, account.pop AS accountProtocol, account.`order` AS accountOrder" +
             ", account.name AS accountName, account.state AS accountState" +
             ", COUNT(DISTINCT CASE WHEN rule.enabled THEN rule.id ELSE NULL END) rules" +
             ", COUNT(DISTINCT CASE WHEN message.ui_hide THEN NULL ELSE message.id END) AS messages" +

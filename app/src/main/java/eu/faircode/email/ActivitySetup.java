@@ -1269,8 +1269,18 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onEditAccount(Intent intent) {
-        boolean pop = intent.getBooleanExtra("pop", false);
-        FragmentBase fragment = pop ? new FragmentPop() : new FragmentAccount();
+        int protocol = intent.getIntExtra("protocol", EntityAccount.TYPE_IMAP);
+        FragmentBase fragment;
+        switch (protocol) {
+            case EntityAccount.TYPE_IMAP:
+                fragment = new FragmentAccount();
+                break;
+            case EntityAccount.TYPE_POP:
+                fragment = new FragmentPop();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown protocol=" + protocol);
+        }
         fragment.setArguments(intent.getExtras());
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
