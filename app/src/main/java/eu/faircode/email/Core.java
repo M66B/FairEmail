@@ -408,6 +408,8 @@ class Core {
                                 ex instanceof FolderNotFoundException ||
                                 ex instanceof IllegalArgumentException ||
                                 ex instanceof SQLiteConstraintException ||
+                                ex.getCause() instanceof MessageRemovedException ||
+                                ex.getCause() instanceof MessageRemovedIOException ||
                                 ex.getCause() instanceof BadCommandException ||
                                 ex.getCause() instanceof CommandFailedException) {
                             // com.sun.mail.iap.BadCommandException: B13 BAD [TOOBIG] Message too large
@@ -428,7 +430,11 @@ class Core {
                                     db.folder().setFolderSyncState(folder.id, null);
 
                                 // Cleanup messages
-                                if (message != null && ex instanceof MessageRemovedException) {
+                                if (message != null &&
+                                        (ex instanceof MessageRemovedException ||
+                                                ex instanceof MessageRemovedIOException ||
+                                                ex.getCause() instanceof MessageRemovedException ||
+                                                ex.getCause() instanceof MessageRemovedIOException)) {
                                     db.message().deleteMessage(message.id);
                                     for (EntityMessage m : similar.values())
                                         db.message().deleteMessage(m.id);
