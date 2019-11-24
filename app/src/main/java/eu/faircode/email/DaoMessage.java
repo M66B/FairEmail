@@ -332,13 +332,15 @@ public interface DaoMessage {
             " ORDER BY message.received")
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
-    @Query("SELECT COUNT(*) AS total" +
+    @Query("SELECT folder, COUNT(*) AS total" +
             ", SUM(ui_seen) AS seen" +
             ", SUM(ui_flagged) AS flagged" +
             " FROM message" +
             " WHERE NOT ui_hide" +
-            " AND message.ui_snoozed IS NULL")
-    LiveData<TupleMessageWidgetCount> liveWidgetUnified();
+            " AND message.ui_snoozed IS NULL" +
+            " GROUP BY folder" +
+            " ORDER BY folder")
+    LiveData<List<TupleMessageWidgetCount>> liveWidgetUnified();
 
     @Query("SELECT message.*" +
             ", account.name AS accountName" +

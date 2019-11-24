@@ -247,13 +247,25 @@ public class ServiceSynchronize extends ServiceBase {
             }
         });
 
-        db.message().liveWidgetUnified().observe(this, new Observer<TupleMessageWidgetCount>() {
-            private TupleMessageWidgetCount last = null;
+        db.message().liveWidgetUnified().observe(this, new Observer<List<TupleMessageWidgetCount>>() {
+            private List<TupleMessageWidgetCount> last = null;
 
             @Override
-            public void onChanged(TupleMessageWidgetCount current) {
-                Log.i("Widget total=" + current.total + " seen=" + current.seen + " flagged=" + current.flagged);
-                if (last == null || !last.equals(current))
+            public void onChanged(List<TupleMessageWidgetCount> current) {
+                if (current == null)
+                    current = new ArrayList<>();
+
+                boolean changed = false;
+                if (last == null || last.size() != current.size())
+                    changed = true;
+                else
+                    for (int i = 0; i < current.size(); i++)
+                        if (!current.get(i).equals(last.get(i))) {
+                            changed = true;
+                            break;
+                        }
+
+                if (changed)
                     WidgetUnified.update(ServiceSynchronize.this);
 
                 last = current;
