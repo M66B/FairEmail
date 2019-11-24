@@ -93,6 +93,9 @@ public class EntityOperation {
     static final String EXISTS = "exists";
 
     void cleanup(Context context) {
+        DB db = DB.getInstance(context);
+        db.message().setMessageUiHide(message, false);
+
         if (EntityOperation.MOVE.equals(name) ||
                 EntityOperation.ADD.equals(name) ||
                 EntityOperation.RAW.equals(name))
@@ -102,9 +105,7 @@ public class EntityOperation {
                 if (tmpid < 0)
                     return;
 
-                DB db = DB.getInstance(context);
                 db.message().deleteMessage(tmpid);
-                db.message().setMessageUiHide(message, false);
             } catch (JSONException ex) {
                 Log.e(ex);
             }
