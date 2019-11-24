@@ -160,6 +160,9 @@ public class EntityAttachment {
         if (extension == null)
             return type;
 
+        if ("ovpn".equals(extension))
+            return "application/x-openvpn-profile";
+
         String gtype = MimeTypeMap.getSingleton()
                 .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
 
