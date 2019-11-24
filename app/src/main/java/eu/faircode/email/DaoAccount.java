@@ -50,6 +50,7 @@ public interface DaoAccount {
             "    WHERE message.account = account.id" +
             "    AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
             "    AND folder.type <> '" + EntityFolder.TRASH + "'" +
+            "    AND folder.type <> '" + EntityFolder.JUNK + "'" +
             "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
             "    AND NOT ui_seen" +
