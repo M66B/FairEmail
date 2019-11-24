@@ -435,9 +435,11 @@ class Core {
                                                 ex instanceof MessageRemovedIOException ||
                                                 ex.getCause() instanceof MessageRemovedException ||
                                                 ex.getCause() instanceof MessageRemovedIOException)) {
+                                    // Failsafe: retry batch
+                                    if (similar.size() > 0)
+                                        throw ex;
+
                                     db.message().deleteMessage(message.id);
-                                    for (EntityMessage m : similar.values())
-                                        db.message().deleteMessage(m.id);
                                 }
 
                                 // Cleanup operations
@@ -788,14 +790,15 @@ class Core {
         // Get source messages
         Map<Message, EntityMessage> map = new HashMap<>();
         for (EntityMessage message : messages)
-            if (message.uid != null)
-                try {
-                    Message imessage = ifolder.getMessageByUID(message.uid);
-                    if (imessage != null)
-                        map.put(imessage, message);
-                } catch (MessagingException ex) {
-                    Log.w(ex);
-                }
+            try {
+                Message imessage = ifolder.getMessageByUID(message.uid);
+                if (imessage == null)
+                    throw new MessageRemovedException();
+                map.put(imessage, message);
+            } catch (MessageRemovedException ex) {
+                Log.w(ex);
+                db.message().deleteMessage(message.id);
+            }
 
         // Some providers do not support the COPY operation for drafts
         boolean draft = (EntityFolder.DRAFTS.equals(folder.type) || EntityFolder.DRAFTS.equals(target.type));
