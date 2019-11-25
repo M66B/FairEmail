@@ -3213,10 +3213,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             if (!loading && SimpleTask.getCount() == 0)
                 pbWait.setVisibility(View.GONE);
 
-            boolean none = (messages.size() == 0 && !loading);
-            tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
+            tvNoEmail.setVisibility(messages.size() == 0 ? View.VISIBLE : View.GONE);
             tvNoEmailHint.setVisibility(
-                    none && filterActive() && viewType != AdapterMessage.ViewType.SEARCH
+                    messages.size() == 0 && filterActive() && viewType != AdapterMessage.ViewType.SEARCH
                             ? View.VISIBLE : View.GONE);
 
             grpReady.setVisibility(View.VISIBLE);
