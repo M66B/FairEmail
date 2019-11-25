@@ -1877,8 +1877,6 @@ public class FragmentCompose extends FragmentBase {
 
     private void onAction(int action, @NonNull Bundle extras) {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
-        if (identity == null)
-            throw new IllegalArgumentException(getString(R.string.title_from_missing));
 
         // Workaround underlines left by Android
         etBody.clearComposingText();
@@ -1886,8 +1884,8 @@ public class FragmentCompose extends FragmentBase {
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putInt("action", action);
-        args.putLong("account", identity.account);
-        args.putLong("identity", identity.id);
+        args.putLong("account", identity == null ? -1 : identity.account);
+        args.putLong("identity", identity == null ? -1 : identity.id);
         args.putString("extra", etExtra.getText().toString().trim());
         args.putString("to", etTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
