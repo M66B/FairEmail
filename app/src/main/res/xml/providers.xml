@@ -401,7 +401,8 @@
     <provider
         name="Mailfence"
         link="https://mailfence.com/en/faq.jsp"
-        useip="false">
+        useip="false"
+        user="local">
         <imap
             host="imap.mailfence.com"
             port="993"

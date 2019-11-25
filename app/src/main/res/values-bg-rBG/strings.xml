@@ -33,6 +33,10 @@
         <item quantity="one">Синхронизация %1$d акаунт</item>
         <item quantity="other">Синхронизация %1$d акаунти</item>
     </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="one">%1$d остава от операцията</item>
+        <item quantity="other">%1$d остават от операциите</item>
+    </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d ново съобщение</item>
         <item quantity="other">%1$d нови съобщения</item>
@@ -62,6 +66,7 @@
         <item quantity="other">Третирай %1$d съобщения като спам?</item>
     </plurals>
     <string name="title_ask_spam_who">Третирай съобщението от %1$s като спам?</string>
+    <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
     <string name="title_notification_sending">Изпрати съобщение</string>
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_name_count">%1$s (%2$s)</string>
@@ -115,7 +120,10 @@
     <string name="title_setup_manage">Управление</string>
     <string name="title_setup_grant">Разреши</string>
     <string name="title_setup_account">Настройка акаунт</string>
+    <string name="title_setup_account_remark">За получаване на имейл</string>
     <string name="title_setup_account_hint">За промяна на цвета, прекарайте пръст наляво/надясно на избраната папка и т. н.</string>
+    <string name="title_setup_identity">Настройка на идентичност</string>
+    <string name="title_setup_identity_remark">За изпращане на имейл</string>
     <string name="title_setup_identity_hint">Промяна на име, цвят, подпис, т. н.</string>
     <string name="title_setup_permissions">Даване на разрешение</string>
     <string name="title_setup_permissions_remark">Достъп до информацията за контакт (незадължително)</string>
@@ -125,6 +133,7 @@
     <string name="title_setup_doze_battery">Висока консумация на батерия?</string>
     <string name="title_setup_doze_stopped">Спиране на синхр?</string>
     <string name="title_setup_data">Ниска консумация на данни е активирано</string>
+    <string name="title_setup_inbox">Към съобщенията</string>
     <string name="title_setup_go">Напред</string>
     <string name="title_setup_to_do">Да се направи</string>
     <string name="title_setup_done">Готово</string>
@@ -140,7 +149,9 @@
     <string name="title_setup_exported">Настройки изнесени</string>
     <string name="title_setup_imported">Настройки внесени</string>
     <string name="title_setup_import_invalid">Невалиден конфигурационен файл</string>
-    <string name="title_reset_order">Отказване на поръчката</string>
+    <string name="title_setup_reorder_accounts">Подреждане на акаунти</string>
+    <string name="title_setup_reorder_folders">Подреждане на папки</string>
+    <string name="title_reset_order">Отказване на подреждането</string>
     <string name="title_setup_authentication">Удостоверяване</string>
     <string name="title_setup_biometrics">Биометрично удостоверяване</string>
     <string name="title_setup_biometrics_enable">Разреши</string>
@@ -159,6 +170,7 @@
     <string name="title_setup_options">Настройки</string>
     <string name="title_setup_defaults">Възстановяване по подразбиране</string>
     <string name="title_setup_reset_questions">Отказване на запитването</string>
+    <string name="title_advanced_section_main">Основен</string>
     <string name="title_advanced_section_synchronize">Получаване</string>
     <string name="title_advanced_section_send">Изпращане</string>
     <string name="title_advanced_section_connection">Свързване</string>
@@ -167,25 +179,40 @@
     <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_privacy">Поверителност</string>
     <string name="title_advanced_section_misc">Разни</string>
+    <string name="title_advanced_enabled">Включено</string>
+    <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_schedule">График</string>
     <string name="title_advanced_unseen">Всички непрочетени съобщения</string>
     <string name="title_advanced_flagged">Всички съобщения със звезда</string>
     <string name="title_advanced_delete_unseen">Изтрий старите непрочетени съобщения</string>
     <string name="title_advanced_kept_removed">Проверете дали старите съобщения са премахнати от сървъра</string>
     <string name="title_advanced_sync_folders">Синхронизиране на списъка с папки</string>
+    <string name="title_advanced_subscriptions">Управление на абонирани папки</string>
     <string name="title_advanced_sync_subscribed">Синхронизиране само на абонирани папки</string>
     <string name="title_advanced_keyboard">Клавиатура по подразбиране</string>
+    <string name="title_advanced_suggest_local">Предложи локални контакти</string>
+    <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
+    <string name="title_advanced_suggest_received">Предложи адреси, намерени в получени съобщения</string>
+    <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
+    <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
+    <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
+    <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
+    <string name="title_advanced_usenet_signature">Конвенция за подпис на Usenet</string>
+    <string name="title_advanced_autoresize">Автоматично оразмеряване на прикачени и вградени изображения</string>
     <string name="title_advanced_resize_pixels">&lt;%1$d пиксела</string>
     <string name="title_advanced_lookup_mx">Проверка адреса на получателя преди изпращане</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
+    <string name="title_advanced_metered">Използвай измервана връзка</string>
     <string name="title_advanced_download">Автоматично изтегляне на съобщения и прикачени файлове с големина до</string>
     <string name="title_advanced_roaming">Изтегляне на съобщения и прикачени файлове в роуминг</string>
     <string name="title_advanced_rlah">Роуминг в ЕС</string>
     <string name="title_advanced_socks">Използване на SOCKS прокси</string>
+    <string name="title_advanced_manage_connectivity">Управление на свързаност</string>
     <string name="title_advanced_landscape">Две колони в легнал режим</string>
     <string name="title_advanced_startup">Показване при стартиране</string>
     <string name="title_advanced_date_header">Групиране по дата</string>
     <string name="title_advanced_threading">Групиране на разговори</string>
+    <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
     <string name="title_advanced_highlight_unread">Маркирай непрочетените съобщения</string>
     <string name="title_advanced_distinguish_contacts">Разграничи съобщенията от познати и непознати контакти</string>
     <string name="title_advanced_avatars">Покажи снимка на контакт</string>
@@ -218,6 +245,22 @@
     <string name="title_advanced_actionbar">Показжи панела за действив в разговори</string>
     <string name="title_advanced_double_back">Двойно назад за изход</string>
     <string name="title_advanced_pull_refresh">Плъзни надолу за опресняване</string>
+    <string name="title_advanced_autoscroll">Превърти в началото при нови съобщения</string>
+    <string name="title_advanced_double_tap">Двойно натискане за маркиране на съобщението прочетено/непрочетено</string>
+    <string name="title_advanced_swipenav">Плъзни наляво/надясно за следващ/предишен разговор</string>
+    <string name="title_advanced_reversed">Смени посоката на навигация</string>
+    <string name="title_advanced_onclose">При затваряне на разговор</string>
+    <string name="title_advanced_autoread">Автоматично маркиране на съобщения като прочетени при преместване им</string>
+    <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
+    <string name="title_advanced_automove">Потвърдете преместването на съобщенията</string>
+    <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
+    <string name="title_advanced_default_snooze">Време за отлагане по подразбиране</string>
+    <string name="title_advanced_notifications">Управление на известията</string>
+    <string name="title_advanced_notifications_default">Канал по подразбиране</string>
+    <string name="title_advanced_notifications_service">Служебен канал</string>
+    <string name="title_advanced_unseen_ignored">Нека броят на новите съобщения съответства на броя на известията</string>
+    <string name="title_advanced_notify_summary">Показване на обобщено известие</string>
+    <string name="title_advanced_notify_preview">Визуализация на съобщението в известията</string>
     <string name="title_advanced_notify_actions">Действия при уведомление</string>
     <string name="title_advanced_notify_action_trash">Кошче</string>
     <string name="title_advanced_notify_action_junk">Спам</string>
@@ -228,6 +271,8 @@
     <string name="title_advanced_notify_action_flag">Звезда</string>
     <string name="title_advanced_notify_action_seen">Прочетено</string>
     <string name="title_advanced_notify_action_snooze">Отложи</string>
+    <string name="title_advanced_notify_remove">Премахване на известие за ново съобщение при натискане на известието</string>
+    <string name="title_advanced_notify_clear">Премахване на известия за нови съобщения в списъка за преглед на съобщения</string>
     <string name="title_advanced_biometrics_notify">Показване на съдържание в известията при използване на биометрична проверка</string>
     <string name="title_advanced_light">Светлинна индикация на известия</string>
     <string name="title_advanced_sound">Избери звук за известяване</string>
@@ -235,6 +280,7 @@
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>
     <string name="title_advanced_openpgp">OpenPGP доставчик</string>
     <string name="title_advanced_auto_decrypt">Автоматично декриптиране на съобщение</string>
+    <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_english">Принудително на английски език</string>
@@ -254,8 +300,9 @@
     <string name="title_advanced_sync_kept_hint">Това ще прехвърли допълнителни данни и ще консумира допълнително батерията, особено ако на устройството се съхраняват много съобщения</string>
     <string name="title_advanced_sync_folders_hint">Деактивирането на това ще намали донякъде използването на данни и батерията, но ще деактивира и актуализирането на списъка с папки</string>
     <string name="title_advanced_sync_delay_hint">Това ще забави синхронизирането на съобщенията</string>
+    <string name="title_advanced_suggest_local_hint">В допълнение към контактите, осигурени от Android. Данните за контакт ще бъдат съхранявани за нови изпратени или получени съобщения, само когато са разрешени.</string>
     <string name="title_advanced_lookup_mx_hint">Провери дали DNS MX записи съществуват</string>
-    <string name="title_advanced_metered_hint">Измерваните връзки обикновено са мобилна връзка или платени Wi-Fi hotspots</string>
+    <string name="title_advanced_metered_hint">Измерваните връзки обикновено са мобилен интернет или платени Wi-Fi точки</string>
     <string name="title_advanced_metered_warning">Деактивирането на тази опция ще деактивира получаването и изпращането на съобщения през мобилния интернет</string>
     <string name="title_advanced_rlah_hint">Без роуминг в ЕС</string>
     <string name="title_advanced_socks_hint">Използването на отдалечен прокси сървър е несигурно, тъй като прокси връзките не са криптирани</string>
@@ -273,18 +320,21 @@
     <string name="title_advanced_sender_hint">Повечето доставчици не разрешават модифициране адреса на подателя</string>
     <string name="title_advanced_display_pin_hint">ПИН има предимство пред удостоверяването с биометрични данни</string>
     <string name="title_advanced_badge_hint">Предлага се само на поддържани начални екрани</string>
-    <string name="title_advanced_notify_action_hint">Три действия</string>
+    <string name="title_advanced_notify_action_hint">Ще бъдат показни три действия</string>
     <string name="title_advanced_notify_remove_hint">Новите известия за съобщенията ще бъдат премахнати при изтриване и маркиране на прочетените съобщения</string>
     <string name="title_advanced_notify_manage_hint">Натиснете името на канала, за да зададете свойства на канала</string>
     <string name="title_advanced_notify_manage_default_hint">Задаване звука по подразбиране и т.н.</string>
     <string name="title_advanced_notify_manage_service_hint">За деактивиране на постоянното известяване</string>
+    <string name="title_advanced_wearable_hint">Известията се показват само след като текстът на съобщението бъде изтеглен</string>
     <string name="title_advanced_move_hint">Целевата папка може да бъде конфигурирана в настройките на акаунта</string>
     <string name="title_advanced_notify_no_grouping">Версията на Android не поддържа групиране на известия</string>
     <string name="title_advanced_notify_no_channels">Версията на Android не поддържа канали за уведомяване</string>
     <string name="title_advanced_subscribed_only_hint">Активирането ще изтрие всички локални папки без абонамент</string>
     <string name="title_advanced_english_hint">Това ще рестартира програмата</string>
     <string name="title_advanced_experiments_hint">Списък на експерименталните функции</string>
+    <string name="title_advanced_debug_hint">Активиране на допълнителна регистрация и показване на информация за отстраняване на грешки на различни места</string>
     <string name="title_advanced_cleanup_hint">Това ще изтрие всички временни файлове</string>
+    <string name="title_advanced_never_favorite">Никога в любими</string>
     <string name="title_select">Избери &#8230;</string>
     <string name="title_identity_name">Вашето име</string>
     <string name="title_identity_email">Вашият имейл адрес</string>
@@ -324,15 +374,30 @@
     <string name="title_primary_identity">Основна (по подразбиране идентичност)</string>
     <string name="title_leave_on_server">Запази съобщенията на сървъра</string>
     <string name="title_keep_alive_interval">Активен/poll интервал (минути)</string>
+    <string name="title_related_identity">Добавяне на свързана идентичност</string>
     <string name="title_check">Проверка</string>
     <string name="title_no_name">Липсва име</string>
     <string name="title_no_email">Липсва имейл адрес</string>
+    <string name="title_email_invalid">Невалиден имейл адрес: \'%1$s</string>
+    <string name="title_address_parse_error">Адреса \'%1$s\' е невалиден: %2$s</string>
+    <string name="title_no_account">Липсва акаунт</string>
+    <string name="title_no_host">Липсва име на host</string>
     <string name="title_no_user">Липсва потребител</string>
     <string name="title_no_password">Липсва парола</string>
+    <string name="title_no_inbox">Не е намерена входяща кутия</string>
+    <string name="title_no_primary_drafts">Няма първичен акаунт или няма папка чернови</string>
+    <string name="title_no_identities">Изпращането на имейли изисква поне една самоличност</string>
+    <string name="title_drafts_required">За изпращане на съобщения е необходима папка за чернови</string>
+    <string name="title_account_delete">Искате ли да изтриете този акаунт за постоянно?</string>
+    <string name="title_identity_delete">Да се изтрие ли идентичността за постоянно?</string>
     <string name="title_edit_html">Редактиране като HTML</string>
+    <string name="title_sign_key">Ключ за подписване:%1$s</string>
     <string name="title_last_connected">Последна проверка: %1$s</string>
     <string name="title_pop_support">POP3 протокола поддържа изтегляне и изтриване на съобщенията само във входяща поща. POP3 не може да маркира съобщенията като прочетени, не може да премества съобщения, т. н. POP3 използва повече батерия и данни от IMAP. Моля използвайте IMAP протокола когато е възможно.</string>
     <string name="title_oauth_support">OAuth не се поддържа</string>
+    <string name="title_review">Преглед</string>
+    <string name="title_hint_alias">Дълго натискане за опции, като копиране, за да се създаде псевдоним за идентичност</string>
+    <string name="title_advanced_browse">Търсене на съобщения на сървъра</string>
     <string name="title_synchronize_now">Синхронизиране сега</string>
     <string name="title_synchronize_all">Синхронизиране всичко</string>
     <string name="title_synchronize_enabled">Синхронизиране</string>
@@ -354,6 +419,9 @@
     <string name="title_show_folders">Показвана не скрити папки</string>
     <string name="title_apply_to_all">Приложи на всички &#8230;</string>
     <string name="title_hide_folder">Скрий папка</string>
+    <string name="title_navigation_folder">Покажи в менюто за навигация</string>
+    <string name="title_notify_folder">Уведомяване при нови съобщения</string>
+    <string name="title_sync_days">Синхронизиране съобщения (дни)</string>
     <string name="title_keep_days">Запази съобщенията (дни)</string>
     <string name="title_keep_days_remark">Старите съобщения ще бъдат изтъркани от устройството, но ще останат на сървъра</string>
     <string name="title_keep_all">Запази съобщенията</string>
@@ -371,6 +439,8 @@
     <string name="title_no_folders">Няма папка</string>
     <string name="title_no_messages">Няма съобщения</string>
     <string name="title_filters_active">Един или повече филтри са активирани</string>
+    <string name="title_subject_reply">Re: %1$s</string>
+    <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Маркирай прочетено</string>
     <string name="title_unseen">Маркирай непрочетено</string>
     <string name="title_hide">Скрий</string>
@@ -378,9 +448,16 @@
     <string name="title_flag">Добави звезда</string>
     <string name="title_flag_color">Цветна звезда &#8230;</string>
     <string name="title_unflag">Премахни звезда</string>
+    <string name="title_forward">Препрати</string>
     <string name="title_new_message">Ново съобщение</string>
+    <string name="title_editasnew">Редактирай като нов</string>
+    <string name="title_create_rule">Създай правило &#8230;</string>
     <string name="title_share">Споделяне</string>
     <string name="title_print">Отпечатване</string>
+    <string name="title_show_headers">Покажи заглавки</string>
+    <string name="title_raw_download">Изтегляне на необработено съобщение</string>
+    <string name="title_raw_save">Запиши необработено съобщение</string>
+    <string name="title_raw_send">Изпращане като прикачен файл</string>
     <string name="title_save_all">Запиши всичко</string>
     <string name="title_trash">Кошче</string>
     <string name="title_copy">Копие &#8230;</string>
@@ -402,14 +479,42 @@
     <string name="title_no_folder">Папката не съществува</string>
     <string name="title_no_format">Оригиналното съобщение ще бъде добавено</string>
     <string name="title_no_search">Търсенето в сървъра не е налично за този акаунт</string>
+    <string name="title_raw_saved">Необработеното съобщение е запазео</string>
+    <string name="title_attachment_saved">Прикачения файл е запазен</string>
+    <string name="title_attachments_saved">Прикачените файлове са запазени</string>
+    <string name="title_attachments_incomplete">Някои прикачени файлове или изображения не са изтеглени и не могат да бъдат добавени</string>
+    <string name="title_ask_save">Запази промените?</string>
+    <string name="title_ask_delete">Изтрий съобщението завинаги?</string>
+    <string name="title_ask_delete_answer">Изтриване на шаблонът за отговор трайно?</string>
+    <string name="title_ask_delete_rule">Изтриване на правилото за постоянно?</string>
     <string name="title_ask_discard">Отхвърляне на черновата?</string>
+    <string name="title_ask_show_html">При показването на оригиналното съобщение може да изтече чувствителна поверителна информация</string>
+    <string name="title_ask_show_html_remark">Показване на оригиналното съобщение с тъмен фон не е възможно, защото може да причини невидими тъмни текстове и изображения</string>
+    <string name="title_ask_show_html_images">Винаги показвайте изображенията при показване на оригиналните съобщения</string>
+    <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>
+    <string name="title_ask_show_image_hint">Изображенията които са разпознати като проследяващи няма да се показват</string>
+    <string name="title_ask_sync_all">Синхронизирайте всички съобщения в %1$s?</string>
+    <string name="title_ask_delete_local">Да се изтрият ли локалните съобщения? Съобщенията ще останат на отдалечения сървър.</string>
+    <string name="title_ask_help">Помогнете за подобряване на FairEmail</string>
     <string name="title_ask_reporting">Изпратете репорт с грешки?</string>
+    <string name="title_reporting_why">Докладе с грешки ще помогне да се подобри FairEmail</string>
+    <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
+    <string name="title_download_message">Изтегляне &#8230;</string>
+    <string name="title_compose">Ново съобщение</string>
     <string name="title_from">От:</string>
     <string name="title_to">До:</string>
+    <string name="title_reply_to">Отговори на:</string>
+    <string name="title_cc">CC:</string>
+    <string name="title_bcc">BCC:</string>
+    <string name="title_via_identity">През:</string>
+    <string name="title_received">Получаване:</string>
     <string name="title_size">Размер:</string>
     <string name="title_subject">Тема:</string>
+    <string name="title_body_hint">Вашето съобщение</string>
+    <string name="title_discard">Откажи</string>
     <string name="title_save">Запази</string>
     <string name="title_send">Изпрати</string>
+    <string name="title_send_via">Изпрати чрез</string>
     <string name="title_send_with_options">Изпращане &#8230;</string>
     <string name="title_send_at">Изпращане като &#8230;</string>
     <string name="title_send_priority">Приоритет</string>
@@ -427,6 +532,7 @@
     <string name="title_attachment_photo">Снимай</string>
     <string name="title_attachment_audio">Аудиозапис</string>
     <string name="title_show_addresses">Покажи Cc/Bcc</string>
+    <string name="title_media_toolbar">Медийна лента</string>
     <string name="title_insert_contact_group">Вмъкни група контакти</string>
     <string name="title_insert_template">Вмъкни шаблон</string>
     <string name="title_edit_plain_text">Редактирай като обикновен текст</string>
@@ -451,6 +557,7 @@
     <string name="title_resync">Повторно синхронизиране</string>
     <string name="title_no_openpgp">OpenKeychain не е намерена</string>
     <string name="title_not_encrypted">Съобщението не е криптирано</string>
+    <string name="title_reset_sign_key">Нулиране на ключ за подписване</string>
     <string name="title_signature_none">Съобщението не е подписано</string>
     <string name="title_signature_valid">Подписът на съобщението е валиден</string>
     <string name="title_signature_unconfirmed">Подписът на съобщението е валиден, но не е потвърден</string>
@@ -495,10 +602,48 @@
     <string name="title_rule_flag">Добави звезда</string>
     <string name="title_rule_keyword">Добави ключова дума</string>
     <string name="title_rule_move">Премести</string>
+    <string name="title_rule_copy">Копирай (етикет)</string>
+    <string name="title_rule_answer">Отговори</string>
+    <string name="title_rule_automation">Автоматично</string>
     <string name="title_rule_caption">Редакция правило</string>
+    <string name="title_rule_title">Правилото важи за</string>
     <string name="title_rule_name">Име</string>
+    <string name="title_rule_order">Подреждане</string>
+    <string name="title_rule_enabled">Включено</string>
+    <string name="title_rule_stop">Спри правилото след изпълнението му</string>
+    <string name="title_rule_sender">Подателя съдържа</string>
+    <string name="title_rule_sender_known">Подателя е контакт</string>
+    <string name="title_rule_recipient">Получателя съдържа</string>
+    <string name="title_rule_subject">Темата съдържа</string>
+    <string name="title_rule_attachments">Има прикачени файлове</string>
+    <string name="title_rule_header">Заглавката съдържа</string>
+    <string name="title_rule_time">Времето между</string>
+    <string name="title_rule_regex">Регулярен</string>
+    <string name="title_rule_and">И</string>
+    <string name="title_rule_action">Действие</string>
+    <string name="title_rule_action_remark">Това действие ще бъде приложено към нови съобщения, пристигащи в папка %1$s</string>
     <string name="title_rule_hours">Часове</string>
     <string name="title_rule_folder">Папка</string>
+    <string name="title_rule_thread">Всички съобщения в един и същи разговор и папка</string>
+    <string name="title_rule_identity">Идентичност</string>
+    <string name="title_rule_template">Отговор с шаблон</string>
+    <string name="title_rule_cc">Отговори на CC адрес</string>
+    <string name="title_rule_name_missing">Няма име на правило</string>
+    <string name="title_rule_execute">Изпълни сега</string>
+    <string name="title_rule_applied">Засегнати съобщения: %1$d</string>
+    <string name="title_rule_check">Проверка</string>
+    <string name="title_rule_matched">Съвпадащи съобщения</string>
+    <string name="title_rule_no_matches">Няма съвпадащи съобщения</string>
+    <string name="title_legend_section_synchronize">Синхронизация</string>
+    <string name="title_legend_section_folders">Папки</string>
+    <string name="title_legend_section_messages">Съобщения</string>
+    <string name="title_legend_section_compose">Напиши</string>
+    <string name="title_legend_primary_connected">Акаунта е свързан</string>
+    <string name="title_legend_primary_disconnected">Акаунта не е свързан</string>
+    <string name="title_legend_download_on">Изтеглеяне съдържанието на съобщенията автоматично</string>
+    <string name="title_legend_synchronize_on">Синхронизация включена</string>
+    <string name="title_legend_synchronize_off">Синхронизация изключена</string>
+    <string name="title_legend_disconnected">Връзката е прекъсната</string>
     <string name="title_legend_connecting">Свързване</string>
     <string name="title_legend_connected">Свързан</string>
     <string name="title_legend_executing">Изпълняване на операции</string>
@@ -556,9 +701,12 @@
     <string name="title_legend_underline">Подчертан текст</string>
     <string name="title_legend_text_size">Размер на текста</string>
     <string name="title_legend_text_color">Избери цвят на текста</string>
+    <string name="title_legend_metered">Измервана връзка</string>
+    <string name="title_legend_unmetered">Неизмервана връзка</string>
     <string name="title_legend_roaming">Роуминг</string>
     <string name="title_legend_expander">Разширен</string>
     <string name="title_legend_avatar">Аватар</string>
+    <string name="title_legend_show_quotes">Покажи цитираното</string>
     <string name="title_legend_show_unsubscribe">Отписване от абонамент</string>
     <string name="title_legend_show_images">Показване на изображения</string>
     <string name="title_legend_show_full">Покажи на цял екран</string>
@@ -608,6 +756,7 @@
     <string name="title_ask_what">Запитване за</string>
     <string name="title_no_ask_again">Без повторно питане</string>
     <string name="title_no_ask_for_again">Не искайте отново това за %1$s</string>
+    <string name="title_no_body">Няма текстови съобщения</string>
     <string name="title_no_charset">Неподдържано кодиране: %1$s</string>
     <string name="title_via">През %1$s</string>
     <string name="title_1hour">1 час</string>
@@ -618,13 +767,23 @@
     <string name="title_reset">Нулиране</string>
     <string name="title_hours">Часа</string>
     <string name="title_minutes">Минути</string>
+    <string name="title_dismiss">Отхвърли</string>
+    <string name="title_snooze_now">Отложи</string>
     <string name="title_loading">Зареждане &#8230;</string>
+    <string name="title_set">Задай</string>
     <string name="title_icalendar_accept">Приемам</string>
     <string name="title_icalendar_decline">Не приемам</string>
+    <string name="title_icalendar_maybe">Може би</string>
     <string name="title_icalendar_calendar">Календар</string>
+    <string name="title_try">Изпробвайте FairEmail, приложение с отворен код, ориентирана към поверителност електронна поща за Android</string>
+    <string name="title_pro_feature">Това е pro функция</string>
     <string name="title_pro_list">Списък на pro функции</string>
     <string name="title_pro_purchase">Купи</string>
     <string name="title_pro_once">Само веднъж</string>
+    <string name="title_pro_info">Разработването на FairEmail отне буквално хиляди часове и въпреки това повечето функции са безплатни за използване.
+        За да бъде FairEmail устойчив в дългосрочен план, някои удобства и разширени функции не са безплатни.
+        FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите pro функциите.
+    </string>
     <string name="title_pro_hint">Купуването на професионалните функции ще ви позволи да използвате всички настоящи и бъдещи професионални функции, ще поддържа това приложение поддържано.</string>
     <string name="title_pro_price">Моля вижте <a href="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq19">ЧЗВ</a> за цената на PRO функциите</string>
     <string name="title_pro_pending">Чакащо плащане</string>
@@ -638,6 +797,9 @@
     <string name="title_debug_info">Отстраняване на грешки</string>
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>
     <string name="title_crash_info_remark">Моля, опишете какво правихте, когато приложението се срина:</string>
+    <string name="title_search_special_prefix">специални</string>
+    <string name="title_search_special_unseen">непрочетени</string>
+    <string name="title_search_special_flagged">със звезда</string>
     <string name="title_search_special_snoozed">скрит</string>
     <string name="title_search_special_encrypted">шифровано</string>
     <string name="title_widget_title_count">Брой нови съобщения</string>
@@ -647,6 +809,7 @@
     <string name="title_widget_folder">Папка</string>
     <string name="title_widget_folder_unified">Обща папка входящи</string>
     <string name="title_widget_unseen">Непрочетени съобщения</string>
+    <string name="title_widget_flagged">Само съобщения със звезда</string>
     <string-array name="pollIntervalNames">
         <item>Винаги</item>
         <item>На всеки 15 минути</item>
@@ -666,8 +829,8 @@
         <item>10 минути</item>
     </string-array>
     <string-array name="startupNames">
-        <item>Unified inbox</item>
-        <item>Unified folders</item>
+        <item>Обединена входяща поща</item>
+        <item>Обединени папки</item>
         <item>Акаунти</item>
     </string-array>
     <string-array name="downloadNames">
@@ -682,7 +845,7 @@
         <item>&#8734;</item>
     </string-array>
     <string-array name="onCloseNames">
-        <item>Do nothing</item>
+        <item>Не прави нищо</item>
         <item>Предишен разговор</item>
         <item>Следващ разговор</item>
     </string-array>
