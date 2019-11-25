@@ -354,6 +354,16 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        ibCcBcc.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                onMenuAddresses();
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                prefs.edit().putBoolean("cc_bcc", grpAddresses.getVisibility() == View.VISIBLE).apply();
+                return true;
+            }
+        });
+
         View.OnClickListener onPick = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -519,7 +529,6 @@ public class FragmentCompose extends FragmentBase {
 
         grpHeader.setVisibility(View.GONE);
         grpExtra.setVisibility(View.GONE);
-        grpAddresses.setVisibility(View.GONE);
         ibCcBcc.setVisibility(View.GONE);
         grpAttachments.setVisibility(View.GONE);
         tvNoInternet.setVisibility(View.GONE);
@@ -567,6 +576,7 @@ public class FragmentCompose extends FragmentBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         boolean suggest_received = prefs.getBoolean("suggest_received", false);
+        boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
 
         cadapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence typed) {
@@ -621,6 +631,7 @@ public class FragmentCompose extends FragmentBase {
         etTo.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         etCc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         etBcc.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        grpAddresses.setVisibility(cc_bcc ? View.VISIBLE : View.GONE);
 
         rvAttachment.setHasFixedSize(false);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -2646,7 +2657,8 @@ public class FragmentCompose extends FragmentBase {
             cbSignature.setTag(data.draft.signature);
 
             grpHeader.setVisibility(View.VISIBLE);
-            grpAddresses.setVisibility("reply_all".equals(action) ? View.VISIBLE : View.GONE);
+            if ("reply_all".equals(action))
+                grpAddresses.setVisibility(View.VISIBLE);
             ibCcBcc.setVisibility(View.VISIBLE);
 
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(data.draft.revision > 1);
