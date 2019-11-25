@@ -2279,7 +2279,7 @@ public class FragmentCompose extends FragmentBase {
                             }
                         }
 
-                        addSignature(document, data.draft, selected);
+                        addSignature(context, document, data.draft, selected);
                     } else {
                         // Actions:
                         // - reply
@@ -2462,7 +2462,7 @@ public class FragmentCompose extends FragmentBase {
 
                             document.body().appendChild(div);
 
-                            addSignature(document, data.draft, selected);
+                            addSignature(context, document, data.draft, selected);
                         }
                     }
 
@@ -2588,7 +2588,7 @@ public class FragmentCompose extends FragmentBase {
 
                         if (data.draft.identity != null) {
                             EntityIdentity identity = db.identity().getIdentity(data.draft.identity);
-                            addSignature(document, data.draft, identity);
+                            addSignature(context, document, data.draft, identity);
                         }
 
                         for (Element e : ref)
@@ -2982,7 +2982,7 @@ public class FragmentCompose extends FragmentBase {
                         if (extras != null && extras.containsKey("html")) {
                             // Save current revision
                             Document c = JsoupEx.parse(body);
-                            addSignature(c, draft, identity);
+                            addSignature(context, c, draft, identity);
                             for (Element e : ref)
                                 c.body().appendChild(e);
                             Helper.writeText(draft.getFile(context, draft.revision), c.html());
@@ -2990,7 +2990,7 @@ public class FragmentCompose extends FragmentBase {
                             d = JsoupEx.parse(extras.getString("html"));
                         } else {
                             d = JsoupEx.parse(body);
-                            addSignature(d, draft, identity);
+                            addSignature(context, d, draft, identity);
                             for (Element e : ref)
                                 d.body().appendChild(e);
                         }
@@ -3260,7 +3260,7 @@ public class FragmentCompose extends FragmentBase {
         }
     };
 
-    private String unprefix(String subject, String prefix) {
+    private static String unprefix(String subject, String prefix) {
         subject = subject.trim();
         prefix = prefix.trim().toLowerCase(Locale.ROOT);
         while (subject.toLowerCase(Locale.ROOT).startsWith(prefix))
@@ -3268,7 +3268,7 @@ public class FragmentCompose extends FragmentBase {
         return subject;
     }
 
-    private void addSignature(Document document, EntityMessage message, EntityIdentity identity) {
+    private static void addSignature(Context context, Document document, EntityMessage message, EntityIdentity identity) {
         if (!message.signature ||
                 identity == null || TextUtils.isEmpty(identity.signature))
             return;
@@ -3276,7 +3276,7 @@ public class FragmentCompose extends FragmentBase {
         Element div = document.createElement("div");
         div.attr("fairemail", "signature");
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean usenet = prefs.getBoolean("usenet_signature", false);
         if (usenet) {
             // https://www.ietf.org/rfc/rfc3676.txt
