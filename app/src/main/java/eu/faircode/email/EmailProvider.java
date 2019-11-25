@@ -256,7 +256,7 @@ public class EmailProvider {
         }
 
         try {
-            URL url = new URL("https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml");
+            URL url = new URL("https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email);
             return getISPDB(domain, url);
         } catch (Throwable ex) {
             Log.w(ex);
