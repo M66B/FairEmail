@@ -58,6 +58,17 @@
                     app:layout_constraintStart_toEndOf="@id/etExtra"
                     app:layout_constraintTop_toTopOf="@+id/etExtra" />
 
+                <ImageView
+                    android:id="@+id/ivToLegend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:contentDescription="@string/title_to"
+                    app:layout_constraintBottom_toBottomOf="@+id/etTo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/etTo"
+                    app:srcCompat="@drawable/baseline_person_24" />
+
                 <MultiAutoCompleteTextView
                     android:id="@+id/etTo"
                     android:layout_width="0dp"
@@ -70,7 +81,7 @@
                     android:inputType="textEmailAddress"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     app:layout_constraintEnd_toStartOf="@+id/ivToAdd"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ivToLegend"
                     app:layout_constraintTop_toBottomOf="@id/etExtra" />
 
                 <ImageButton
