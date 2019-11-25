@@ -154,21 +154,22 @@ public class EntityAttachment {
         if (encryption != null)
             return type;
 
-        // https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/
-
         String extension = Helper.getExtension(name);
         if (extension == null)
             return type;
 
-        if ("ovpn".equals(extension))
-            return "application/x-openvpn-profile";
-
         String gtype = MimeTypeMap.getSingleton()
                 .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
 
-        // Some servers remove dots from mime types
-        if (gtype != null && gtype.replace(".", "").equals(type))
-            return gtype;
+        // Some servers erroneously remove dots from mime types
+        // https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/
+        if (gtype != null &&
+                gtype.replace(".", "").equals(type))
+            type = gtype;
+
+        if ("text/plain".equals(type) &&
+                "ovpn".equals(extension))
+            return "application/x-openvpn-profile";
 
         if ("application/zip".equals(type) ||
                 "application/octet-stream".equals(type)) {
