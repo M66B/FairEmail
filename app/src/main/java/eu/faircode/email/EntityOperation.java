@@ -94,7 +94,9 @@ public class EntityOperation {
 
     void cleanup(Context context) {
         DB db = DB.getInstance(context);
-        db.message().setMessageUiHide(message, false);
+
+        if (message != null)
+            db.message().setMessageUiHide(message, false);
 
         if (EntityOperation.MOVE.equals(name) ||
                 EntityOperation.ADD.equals(name) ||
