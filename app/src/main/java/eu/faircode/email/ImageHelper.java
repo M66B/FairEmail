@@ -113,15 +113,16 @@ class ImageHelper {
             name = email;
 
         String letter = null;
-        for (int i = 0; i < name.length(); i++) {
+        int len = name.length();
+        for (int i = 0; i < len; i++) {
             char kar = name.charAt(i);
-            if (Helper.isPrintableChar(kar)) {
+            if (Character.isLetter(kar)) {
                 letter = name.substring(i, i + 1).toUpperCase();
                 break;
             }
         }
         if (letter == null)
-            return null;
+            letter = (len > 0 ? name.substring(0, 1) : "?");
 
         float h = Math.abs(email.hashCode()) % 360f;
         return generateLetterIcon(letter, h, size, context);
