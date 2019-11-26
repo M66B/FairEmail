@@ -3899,8 +3899,17 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             data.putExtra(BuildConfig.APPLICATION_ID, id);
 
             onDecrypt(data, auto);
-        } else
-            Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG).show();
+        } else {
+            Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
+            if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
+                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(Helper.getIntentOpenKeychain());
+                    }
+                });
+            snackbar.show();
+        }
     }
 
     @Override
