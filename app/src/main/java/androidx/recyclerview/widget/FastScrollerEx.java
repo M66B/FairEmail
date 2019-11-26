@@ -359,6 +359,7 @@ public class FastScrollerEx extends RecyclerView.ItemDecoration implements Recyc
                 (int) ((verticalVisibleLength * middleScreenPos) / verticalContentLength);
             mVerticalThumbHeight = Math.min(verticalVisibleLength,
                 (verticalVisibleLength * verticalVisibleLength) / verticalContentLength);
+            mVerticalThumbHeight = Math.max(mVerticalThumbHeight, mVerticalThumbDrawable.getIntrinsicHeight());
         }
 
         if (mNeedHorizontalScrollbar) {
