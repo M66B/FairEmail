@@ -231,7 +231,7 @@ public class HtmlHelper {
                                 break;
 
                             case "display":
-                                if ("none".equals(value) && !display_hidden) {
+                                if (!display_hidden && "none".equals(value)) {
                                     Log.i("Removing element " + element.tagName());
                                     element.empty();
                                 }
@@ -239,6 +239,17 @@ public class HtmlHelper {
                                 if ("inline".equals(value) || "inline-block".equals(value))
                                     element.attr("inline", "true");
 
+                                break;
+
+                            case "height":
+                            case "width":
+                                //case "font-size":
+                                //case "line-height":
+                                if (!display_hidden &&
+                                        ("0".equals(value) || "0px".equals(value))) {
+                                    Log.i("Removing element " + element.tagName());
+                                    element.empty();
+                                }
                                 break;
                         }
                     }
