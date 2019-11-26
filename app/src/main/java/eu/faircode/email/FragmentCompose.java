@@ -3083,9 +3083,12 @@ public class FragmentCompose extends FragmentBase {
                                     }
                                 }
 
-                                String plain = HtmlHelper.getText(body);
+                                Document d = JsoupEx.parse(body);
+                                d.select("div[fairemail=signature]").remove();
+                                d.select("div[fairemail=reference]").remove();
+                                String text = d.text();
                                 for (String keyword : keywords)
-                                    if (plain.matches("(?si).*\\b" + Pattern.quote(keyword.trim()) + "\\b.*")) {
+                                    if (text.matches("(?si).*\\b" + Pattern.quote(keyword.trim()) + "\\b.*")) {
                                         args.putBoolean("remind_attachment", true);
                                         break;
                                     }
