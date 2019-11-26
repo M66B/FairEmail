@@ -20,24 +20,51 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.FastScrollerEx;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FixedRecyclerView extends RecyclerView {
     public FixedRecyclerView(@NonNull Context context) {
         super(context);
+        initFastScrollerEx(context, null, R.attr.recyclerViewStyle);
     }
 
     public FixedRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initFastScrollerEx(context, attrs, R.attr.recyclerViewStyle);
     }
 
     public FixedRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        initFastScrollerEx(context, attrs, defStyle);
+    }
+
+    private void initFastScrollerEx(Context context, AttributeSet attrs, int defStyleAttr) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RecyclerView,
+                defStyleAttr, 0);
+        StateListDrawable verticalThumbDrawable = (StateListDrawable) a
+                .getDrawable(R.styleable.RecyclerView_fastScrollVerticalThumbDrawable);
+        Drawable verticalTrackDrawable = a
+                .getDrawable(R.styleable.RecyclerView_fastScrollVerticalTrackDrawable);
+        StateListDrawable horizontalThumbDrawable = (StateListDrawable) a
+                .getDrawable(R.styleable.RecyclerView_fastScrollHorizontalThumbDrawable);
+        Drawable horizontalTrackDrawable = a
+                .getDrawable(R.styleable.RecyclerView_fastScrollHorizontalTrackDrawable);
+        Resources resources = getContext().getResources();
+        new FastScrollerEx(this, verticalThumbDrawable, verticalTrackDrawable,
+                horizontalThumbDrawable, horizontalTrackDrawable,
+                resources.getDimensionPixelSize(R.dimen.fastscroll_default_thickness),
+                resources.getDimensionPixelSize(R.dimen.fastscroll_minimum_range),
+                resources.getDimensionPixelOffset(R.dimen.fastscroll_margin));
     }
 
     @Override

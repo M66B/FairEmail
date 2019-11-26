@@ -159,7 +159,7 @@
                 android:paddingBottom="90dp"
                 android:scrollbarStyle="outsideOverlay"
                 android:scrollbars="none"
-                app:fastScrollEnabled="true"
+                app:fastScrollEnabled="false"
                 app:fastScrollHorizontalThumbDrawable="@drawable/scroll_thumb"
                 app:fastScrollHorizontalTrackDrawable="@drawable/scroll_track"
                 app:fastScrollVerticalThumbDrawable="@drawable/scroll_thumb"
