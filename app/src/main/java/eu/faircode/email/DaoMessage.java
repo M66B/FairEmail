@@ -358,8 +358,7 @@ public interface DaoMessage {
             " AND (NOT :flagged OR message.ui_flagged)" +
             " GROUP BY account.id" +
             ", CASE WHEN message.thread IS NULL OR NOT :threading THEN message.id ELSE message.thread END" +
-            " ORDER BY message.received DESC" +
-            " LIMIT 100")
+            " ORDER BY message.received DESC")
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     List<TupleMessageWidget> getWidgetUnified(Long folder, boolean threading, boolean unseen, boolean flagged);
 
