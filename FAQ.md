@@ -86,7 +86,7 @@ Related questions:
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Notification move action~~
 * Search for settings
-* S/MIME
+* S/MIME: searching for sponsoring
 
 Anything on this list is in random order and *might* be added in the near future.
 
