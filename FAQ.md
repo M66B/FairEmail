@@ -584,15 +584,11 @@ see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about w
 S/MIME is not supported because it is not used much and because key management is complex.
 There are also [security concerns](https://security.stackexchange.com/a/83752).
 
-Note that signed only or encrypted only messages are not supported, see here about why not:
+Signed only or encrypted only messages are not supported, please see here about why not:
 
 * [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
-
-If you want, you can verify a signature by opening the *signature.asc* attachment.
-
-Please see the [known problems](#known-problems) about YubiKey.
 
 Please see [this comment](https://forum.xda-developers.com/showpost.php?p=79444379&postcount=5609)
 about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-signature-spoofing.html).
