@@ -266,6 +266,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibAuth;
         private ImageView ivPriorityHigh;
         private ImageView ivPriorityLow;
+        private ImageView ivSigned;
         private ImageView ivEncrypted;
         private TextView tvFrom;
         private TextView tvSize;
@@ -333,6 +334,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibFull;
         private ImageButton ibImages;
         private ImageButton ibUnsubscribe;
+        private ImageButton ibVerify;
         private ImageButton ibDecrypt;
 
         private TextView tvBody;
@@ -385,6 +387,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAuth = itemView.findViewById(R.id.ibAuth);
             ivPriorityHigh = itemView.findViewById(R.id.ivPriorityHigh);
             ivPriorityLow = itemView.findViewById(R.id.ivPriorityLow);
+            ivSigned = itemView.findViewById(R.id.ivSigned);
             ivEncrypted = itemView.findViewById(R.id.ivEncrypted);
             tvFrom = itemView.findViewById(subject_top ? R.id.tvSubject : R.id.tvFrom);
             tvSize = itemView.findViewById(R.id.tvSize);
@@ -499,6 +502,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull = vsBody.findViewById(R.id.ibFull);
             ibImages = vsBody.findViewById(R.id.ibImages);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
+            ibVerify = vsBody.findViewById(R.id.ibVerify);
             ibDecrypt = vsBody.findViewById(R.id.ibDecrypt);
 
             tvBody = vsBody.findViewById(R.id.tvBody);
@@ -573,6 +577,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setOnClickListener(this);
                 ibImages.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
+                ibVerify.setOnClickListener(this);
                 ibDecrypt.setOnClickListener(this);
 
                 ibDownloading.setOnClickListener(this);
@@ -629,6 +634,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibFull.setOnClickListener(null);
                 ibImages.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
+                ibVerify.setOnClickListener(null);
                 ibDecrypt.setOnClickListener(null);
 
                 ibDownloading.setOnClickListener(null);
@@ -651,6 +657,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAuth.setVisibility(View.GONE);
             ivPriorityHigh.setVisibility(View.GONE);
             ivPriorityLow.setVisibility(View.GONE);
+            ivSigned.setVisibility(View.GONE);
             ivEncrypted.setVisibility(View.GONE);
             tvFrom.setText(null);
             tvSize.setText(null);
@@ -718,6 +725,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAuth.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivPriorityHigh.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivPriorityLow.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
+                ivSigned.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 ivEncrypted.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvFrom.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
                 tvSize.setAlpha(dim ? Helper.LOW_LIGHT : 1.0f);
@@ -783,6 +791,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibAuth.setVisibility(authentication && !authenticated ? View.VISIBLE : View.GONE);
             ivPriorityHigh.setVisibility(EntityMessage.PRIORITIY_HIGH.equals(message.priority) ? View.VISIBLE : View.GONE);
             ivPriorityLow.setVisibility(EntityMessage.PRIORITIY_LOW.equals(message.priority) ? View.VISIBLE : View.GONE);
+            ivSigned.setVisibility(message.signed > 0 ? View.VISIBLE : View.GONE);
             ivEncrypted.setVisibility(message.encrypted > 0 ? View.VISIBLE : View.GONE);
             tvFrom.setText(MessageHelper.formatAddresses(addresses, name_email, false));
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
@@ -995,6 +1004,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibFull.setVisibility(View.GONE);
             ibImages.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
+            ibVerify.setVisibility(View.GONE);
             ibDecrypt.setVisibility(View.GONE);
 
             tvBody.setVisibility(View.GONE);
@@ -1577,6 +1587,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             Log.i("Show inline=" + show_inline + " encrypted=" + inline_encrypted);
 
             boolean has_inline = false;
+            boolean is_signed = false;
             boolean is_encrypted = false;
             boolean download = false;
             boolean save = (attachments.size() > 1);
@@ -1590,6 +1601,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     has_inline = true;
                 if (Objects.equals(attachment.encryption, EntityAttachment.PGP_MESSAGE))
                     is_encrypted = true;
+                if (Objects.equals(attachment.encryption, EntityAttachment.PGP_CONTENT))
+                    is_signed = true;
                 if (attachment.progress == null && !attachment.available)
                     download = true;
                 if (!attachment.available)
@@ -1625,11 +1638,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             btnDownloadAttachments.setVisibility(download && suitable ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
 
+            ibVerify.setVisibility(is_signed ? View.VISIBLE : View.GONE);
             ibDecrypt.setVisibility(inline_encrypted || is_encrypted ? View.VISIBLE : View.GONE);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
-            if (auto_decrypt && is_encrypted)
+            if (auto_decrypt && (is_signed || is_encrypted))
                 onActionDecrypt(message, true);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -1977,6 +1991,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     case R.id.ibUnsubscribe:
                         onActionUnsubscribe(message);
                         break;
+                    case R.id.ibVerify:
                     case R.id.ibDecrypt:
                         onActionDecrypt(message, false);
                         break;
@@ -4038,6 +4053,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (prev.drafts != next.drafts) {
                         same = false;
                         Log.i("drafts changed id=" + next.id);
+                    }
+                    if (prev.signed != next.signed) {
+                        same = false;
+                        Log.i("signed changed id=" + next.id);
                     }
                     if (prev.encrypted != next.encrypted) {
                         same = false;

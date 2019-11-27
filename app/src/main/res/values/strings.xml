@@ -648,6 +648,7 @@
     <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Send at &#8230;</string>
+    <string name="title_send_encryption">Encryption</string>
     <string name="title_send_priority">Priority</string>
     <string name="title_no_server">No server found at \'%1$s\'</string>
 
@@ -688,6 +689,7 @@
     <string name="title_queued">Sending message</string>
     <string name="title_queued_at">Message will be sent around %1$s</string>
 
+    <string name="title_sign">Sign</string>
     <string name="title_encrypt">Encrypt</string>
     <string name="title_decrypt">Decrypt</string>
     <string name="title_resync">Resync</string>
@@ -828,6 +830,7 @@
     <string name="title_legend_draft">Has draft</string>
     <string name="title_legend_priority">Has high priority</string>
     <string name="title_legend_priority_low">Has low priority</string>
+    <string name="title_legend_signed">Is signed</string>
     <string name="title_legend_encrypted">Is encrypted</string>
     <string name="title_legend_auth">Authentication failed</string>
     <string name="title_legend_snoozed">Is snoozed</string>
@@ -1147,6 +1150,18 @@
         <item>Medium</item>
         <item>Large</item>
     </string-array>
+
+    <string-array name="encryptNames">
+        <item>None</item>
+        <item>PGP sign-only</item>
+        <item>PGP sign+encrypt</item>
+    </string-array>
+
+    <integer-array name="encryptValues" translatable="false">
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+    </integer-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
     <string name="public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtFbxEbzL8u5accPGgBw/XdyiSS5BBE6ZQ9ELpKyJ/OQN+kdYniCAOw3lsQ/GuJScy4Y2HobqbBgLL8GLHG+Yu2EHC9dLjA3v2Mc25vvnfn86BsrpQvz1poN2n+roTBdq09FWbtebJ8m0hDBVmtfRi7RhTKIL4No3kodLhksdnucKjcFheubebWKgpmvbmw7NwuELhaZmyhw8WTtnQ4rZPMhjY1JJZgzwNExXgD7zzg4pJPkuQlfkuRkkvBpHpi3C7VDnYjrBlLHngI4wv3wxQBVwJqlvAT9PmX8dOVnTsWWdJdLQBZVWphuqVY54kjBIovN+o8w03WjsV9QiOQq+XwIDAQAB</string>

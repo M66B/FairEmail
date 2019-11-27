@@ -223,7 +223,7 @@ public class MessageHelper {
 
         if (message.from != null && message.from.length > 0)
             for (EntityAttachment attachment : attachments)
-                if (attachment.available && EntityAttachment.PGP_KEY.equals(attachment.encryption)) {
+                if (EntityAttachment.PGP_KEY.equals(attachment.encryption)) {
                     InternetAddress from = (InternetAddress) message.from[0];
                     File file = attachment.getFile(context);
                     StringBuilder sb = new StringBuilder();
@@ -240,21 +240,73 @@ public class MessageHelper {
                                     " keydata=" + sb.toString());
                 }
 
+        // https://tools.ietf.org/html/rfc3156
         for (final EntityAttachment attachment : attachments)
-            if (attachment.available && EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
-                // https://tools.ietf.org/html/rfc3156
-                Multipart multipart = new MimeMultipart("encrypted; protocol=\"application/pgp-encrypted\"");
+            if (EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
+                Log.i("Sending signed message");
 
-                BodyPart pgp = new MimeBodyPart();
-                pgp.setContent("", "application/pgp-encrypted");
-                multipart.addBodyPart(pgp);
+                for (final EntityAttachment content : attachments)
+                    if (EntityAttachment.PGP_CONTENT.equals(content.encryption)) {
+                        final ContentType ct = new ContentType(content.type);
+                        final ContentType cts = new ContentType(attachment.type);
 
-                BodyPart bpAttachment = new MimeBodyPart();
-                bpAttachment.setFileName(attachment.name);
+                        // Build content
+                        FileDataSource dsContent = new FileDataSource(content.getFile(context));
+                        dsContent.setFileTypeMap(new FileTypeMap() {
+                            @Override
+                            public String getContentType(File file) {
+                                return ct.toString();
+                            }
 
-                File file = attachment.getFile(context);
-                FileDataSource dataSource = new FileDataSource(file);
-                dataSource.setFileTypeMap(new FileTypeMap() {
+                            @Override
+                            public String getContentType(String filename) {
+                                return ct.toString();
+                            }
+                        });
+                        BodyPart bpContent = new MimeBodyPart();
+                        bpContent.setDataHandler(new DataHandler(dsContent));
+
+                        // Build signature
+                        BodyPart bpSignature = new MimeBodyPart();
+                        bpSignature.setFileName(attachment.name);
+                        FileDataSource dsSignature = new FileDataSource(attachment.getFile(context));
+                        dsSignature.setFileTypeMap(new FileTypeMap() {
+                            @Override
+                            public String getContentType(File file) {
+                                return cts.getBaseType();
+                            }
+
+                            @Override
+                            public String getContentType(String filename) {
+                                return cts.getBaseType();
+                            }
+                        });
+                        bpSignature.setDataHandler(new DataHandler(dsSignature));
+                        bpSignature.setDisposition(Part.INLINE);
+
+                        // Build message
+                        Multipart multipart = new MimeMultipart("signed;" +
+                                " micalg=\"" + cts.getParameter("micalg") + "\";" +
+                                " protocol=\"application/pgp-signature\"");
+                        multipart.addBodyPart(bpContent);
+                        multipart.addBodyPart(bpSignature);
+                        imessage.setContent(multipart);
+
+                        return imessage;
+                    }
+                throw new IllegalStateException("Content not found");
+            } else if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
+                Log.i("Sending encrypted message");
+
+                // Build header
+                BodyPart bpHeader = new MimeBodyPart();
+                bpHeader.setContent("Version: 1\r\n", "application/pgp-encrypted");
+
+                // Build content
+                BodyPart bpContent = new MimeBodyPart();
+                bpContent.setFileName(attachment.name);
+                FileDataSource dsContent = new FileDataSource(attachment.getFile(context));
+                dsContent.setFileTypeMap(new FileTypeMap() {
                     @Override
                     public String getContentType(File file) {
                         return attachment.type;
@@ -265,11 +317,13 @@ public class MessageHelper {
                         return attachment.type;
                     }
                 });
-                bpAttachment.setDataHandler(new DataHandler(dataSource));
-                bpAttachment.setDisposition(Part.INLINE);
+                bpContent.setDataHandler(new DataHandler(dsContent));
+                bpContent.setDisposition(Part.INLINE);
 
-                multipart.addBodyPart(bpAttachment);
-
+                // Build message
+                Multipart multipart = new MimeMultipart("encrypted; protocol=\"application/pgp-encrypted\"");
+                multipart.addBodyPart(bpHeader);
+                multipart.addBodyPart(bpContent);
                 imessage.setContent(multipart);
 
                 return imessage;
@@ -1112,44 +1166,51 @@ public class MessageHelper {
             // Download attachment
             File file = EntityAttachment.getFile(context, local.id, local.name);
             db.attachment().setProgress(local.id, null);
-            try (InputStream is = apart.part.getInputStream()) {
-                long size = 0;
-                long total = apart.part.getSize();
-                int lastprogress = 0;
 
+            if (EntityAttachment.PGP_CONTENT.equals(apart.encrypt)) {
                 try (OutputStream os = new FileOutputStream(file)) {
-                    byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                    for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
-                        size += len;
-                        os.write(buffer, 0, len);
+                    apart.part.writeTo(os);
+                }
+                db.attachment().setDownloaded(local.id, file.length());
+            } else
+                try (InputStream is = apart.part.getInputStream()) {
+                    long size = 0;
+                    long total = apart.part.getSize();
+                    int lastprogress = 0;
 
-                        // Update progress
-                        if (total > 0) {
-                            int progress = (int) (size * 100 / total / 20 * 20);
-                            if (progress != lastprogress) {
-                                lastprogress = progress;
-                                db.attachment().setProgress(local.id, progress);
+                    try (OutputStream os = new FileOutputStream(file)) {
+                        byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                        for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                            size += len;
+                            os.write(buffer, 0, len);
+
+                            // Update progress
+                            if (total > 0) {
+                                int progress = (int) (size * 100 / total / 20 * 20);
+                                if (progress != lastprogress) {
+                                    lastprogress = progress;
+                                    db.attachment().setProgress(local.id, progress);
+                                }
                             }
                         }
                     }
+
+                    // Store attachment data
+                    db.attachment().setDownloaded(local.id, size);
+
+                    Log.i("Downloaded attachment size=" + size);
+                } catch (FolderClosedIOException ex) {
+                    db.attachment().setError(local.id, Helper.formatThrowable(ex));
+                    throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
+                } catch (MessageRemovedIOException ex) {
+                    db.attachment().setError(local.id, Helper.formatThrowable(ex));
+                    throw new MessagingException("downloadAttachment", ex);
+                } catch (Throwable ex) {
+                    // Reset progress on failure
+                    Log.e(ex);
+                    db.attachment().setError(local.id, Helper.formatThrowable(ex));
+                    throw ex;
                 }
-
-                // Store attachment data
-                db.attachment().setDownloaded(local.id, size);
-
-                Log.i("Downloaded attachment size=" + size);
-            } catch (FolderClosedIOException ex) {
-                db.attachment().setError(local.id, Helper.formatThrowable(ex));
-                throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
-            } catch (MessageRemovedIOException ex) {
-                db.attachment().setError(local.id, Helper.formatThrowable(ex));
-                throw new MessagingException("downloadAttachment", ex);
-            } catch (Throwable ex) {
-                // Reset progress on failure
-                Log.e(ex);
-                db.attachment().setError(local.id, Helper.formatThrowable(ex));
-                throw ex;
-            }
         }
 
         String getWarnings(String existing) {
@@ -1165,18 +1226,56 @@ public class MessageHelper {
     class AttachmentPart {
         String disposition;
         String filename;
-        boolean pgp;
+        Integer encrypt;
         Part part;
         EntityAttachment attachment;
     }
 
     MessageParts getMessageParts() throws IOException, MessagingException {
         MessageParts parts = new MessageParts();
-        getMessageParts(imessage, parts, false);
+
+        try {
+            if (imessage.isMimeType("multipart/signed")) {
+                Multipart multipart = (Multipart) imessage.getContent();
+                if (multipart.getCount() == 2) {
+                    getMessageParts(multipart.getBodyPart(0), parts, null);
+                    getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_SIGNATURE);
+
+                    AttachmentPart apart = new AttachmentPart();
+                    apart.disposition = Part.INLINE;
+                    apart.filename = "content.txt";
+                    apart.encrypt = EntityAttachment.PGP_CONTENT;
+                    apart.part = multipart.getBodyPart(0);
+
+                    ContentType ct = new ContentType(apart.part.getContentType());
+
+                    apart.attachment = new EntityAttachment();
+                    apart.attachment.disposition = apart.disposition;
+                    apart.attachment.name = apart.filename;
+                    apart.attachment.type = ct.getBaseType().toLowerCase(Locale.ROOT);
+                    apart.attachment.encryption = apart.encrypt;
+
+                    parts.attachments.add(apart);
+
+                    return parts;
+                }
+            } else if (imessage.isMimeType("multipart/encrypted")) {
+                Multipart multipart = (Multipart) imessage.getContent();
+                if (multipart.getCount() == 2) {
+                    // Ignore header
+                    getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
+                    return parts;
+                }
+            }
+        } catch (ParseException ex) {
+            Log.w(ex);
+        }
+
+        getMessageParts(imessage, parts, null);
         return parts;
     }
 
-    private void getMessageParts(Part part, MessageParts parts, boolean pgp) throws IOException, MessagingException {
+    private void getMessageParts(Part part, MessageParts parts, Integer encrypt) throws IOException, MessagingException {
         try {
             if (BuildConfig.DEBUG)
                 Log.i("Part class=" + part.getClass() + " type=" + part.getContentType());
@@ -1194,19 +1293,7 @@ public class MessageHelper {
 
                 for (int i = 0; i < multipart.getCount(); i++)
                     try {
-                        Part cpart = multipart.getBodyPart(i);
-
-                        try {
-                            ContentType ct = new ContentType(cpart.getContentType());
-                            if ("application/pgp-encrypted".equals(ct.getBaseType().toLowerCase(Locale.ROOT))) {
-                                pgp = true;
-                                continue;
-                            }
-                        } catch (ParseException ex) {
-                            Log.w(ex);
-                        }
-
-                        getMessageParts(cpart, parts, pgp);
+                        getMessageParts(multipart.getBodyPart(i), parts, encrypt);
                     } catch (ParseException ex) {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
@@ -1263,7 +1350,7 @@ public class MessageHelper {
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = disposition;
                     apart.filename = filename;
-                    apart.pgp = pgp;
+                    apart.encrypt = encrypt;
                     apart.part = part;
 
                     String[] cid = null;
@@ -1276,12 +1363,12 @@ public class MessageHelper {
                     }
 
                     apart.attachment = new EntityAttachment();
+                    apart.attachment.disposition = apart.disposition;
                     apart.attachment.name = apart.filename;
                     apart.attachment.type = contentType.getBaseType().toLowerCase(Locale.ROOT);
-                    apart.attachment.disposition = apart.disposition;
                     apart.attachment.size = (long) apart.part.getSize();
                     apart.attachment.cid = (cid == null || cid.length == 0 ? null : MimeUtility.unfold(cid[0]));
-                    apart.attachment.encryption = (apart.pgp ? EntityAttachment.PGP_MESSAGE : null);
+                    apart.attachment.encryption = apart.encrypt;
 
                     if ("text/calendar".equalsIgnoreCase(apart.attachment.type) &&
                             TextUtils.isEmpty(apart.attachment.name))

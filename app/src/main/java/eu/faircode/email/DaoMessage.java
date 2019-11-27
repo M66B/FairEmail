@@ -51,6 +51,7 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
+            ", SUM(message.encrypt = 2) AS signed" +
             ", SUM(message.encrypt = 1) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
@@ -101,6 +102,7 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
+            ", SUM(message.encrypt = 2) AS signed" +
             ", SUM(message.encrypt = 1) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
@@ -145,6 +147,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
+            ", (message.encrypt = 2) AS signed" +
             ", (message.encrypt = 1) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
@@ -234,7 +237,7 @@ public interface DaoMessage {
             " AND (:seen IS NULL OR ui_seen = :seen)" +
             " AND (:flagged IS NULL OR ui_flagged = :flagged)" +
             " AND (:hidden IS NULL OR (CASE WHEN ui_snoozed IS NULL THEN 0 ELSE 1 END) = :hidden)" +
-            " AND (:encrypted IS NULL OR encrypt = 1)" +
+            " AND (:encrypted IS NULL OR encrypt > 0)" +
             " ORDER BY received DESC" +
             " LIMIT :limit OFFSET :offset")
     List<TupleMatch> matchMessages(
@@ -284,6 +287,7 @@ public interface DaoMessage {
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
             ", (folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
+            ", (message.encrypt = 2) AS signed" +
             ", (message.encrypt = 1) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
@@ -318,6 +322,7 @@ public interface DaoMessage {
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
             ", 0 AS drafts" +
+            ", (message.encrypt = 2) AS signed" +
             ", (message.encrypt = 1) AS encrypted" +
             ", 1 AS visible" +
             ", message.total AS totalSize" +
@@ -485,7 +490,7 @@ public interface DaoMessage {
     int setMessagePlainOnly(long id, boolean plain_only);
 
     @Query("UPDATE message SET encrypt = :encrypt WHERE id = :id")
-    int setMessageEncrypt(long id, boolean encrypt);
+    int setMessageEncrypt(long id, Integer encrypt);
 
     @Query("UPDATE message SET last_attempt = :last_attempt WHERE id = :id")
     int setMessageLastAttempt(long id, long last_attempt);

@@ -80,6 +80,10 @@ import static androidx.room.ForeignKey.SET_NULL;
 public class EntityMessage implements Serializable {
     static final String TABLE_NAME = "message";
 
+    static final Integer ENCRYPTION_NONE = 0;
+    static final Integer ENCRYPTION_SIGNENCRYPT = 1;
+    static final Integer ENCRYPTION_SIGNONLY = 2;
+
     static final Integer PRIORITIY_LOW = 0;
     static final Integer PRIORITIY_NORMAL = 1;
     static final Integer PRIORITIY_HIGH = 2;
@@ -127,7 +131,7 @@ public class EntityMessage implements Serializable {
     @NonNull
     public Boolean content = false;
     public Boolean plain_only = null;
-    public Boolean encrypt = null;
+    public Integer encrypt = null;
     public String preview;
     @NonNull
     public Boolean signature = true;

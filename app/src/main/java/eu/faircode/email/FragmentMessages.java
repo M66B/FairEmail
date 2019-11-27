@@ -4116,7 +4116,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 // Find encrypted data
                 for (EntityAttachment attachment : attachments)
-                    if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption)) {
+                    if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption) ||
+                            EntityAttachment.PGP_CONTENT.equals(attachment.encryption)) {
                         if (!attachment.available)
                             if (auto)
                                 return null;
@@ -4126,6 +4127,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         File file = attachment.getFile(context);
                         in = new FileInputStream(file);
                         break;
+                    } else if (EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
+                        File file = attachment.getFile(context);
+                        byte[] signature = new byte[(int) file.length()];
+                        try (FileInputStream fis = new FileInputStream(file)) {
+                            fis.read(signature);
+                        }
+                        data.putExtra(OpenPgpApi.ACTION_DETACHED_SIGN, signature);
                     }
 
                 if (in == null) {

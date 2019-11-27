@@ -148,13 +148,35 @@
             app:layout_constraintTop_toTopOf="@id/ivLowPriority" />
 
         <ImageView
-            android:id="@+id/ivEncrypted"
+            android:id="@+id/ivSigned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/title_legend_priority"
             android:padding="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivLowPriority"
+            app:srcCompat="@drawable/baseline_security_24" />
+
+        <TextView
+            android:id="@+id/tvSigned"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_legend_signed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@id/ivSigned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSigned"
+            app:layout_constraintTop_toTopOf="@id/ivSigned" />
+
+        <ImageView
+            android:id="@+id/ivEncrypted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_priority"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSigned"
             app:srcCompat="@drawable/baseline_lock_24" />
 
         <TextView
