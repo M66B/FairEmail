@@ -1,108 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="24dp">
 
-    <TextView
-        android:id="@+id/tvCaption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_setup_theme"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-        android:id="@+id/scroll"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvCaption">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_setup_theme"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <RadioGroup
-                android:id="@+id/rgTheme"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
 
-                <RadioButton
-                    android:id="@+id/rbThemeLight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/title_setup_light_theme"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        <RadioGroup
+            android:id="@+id/rgTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaption">
 
-                <RadioButton
-                    android:id="@+id/rbThemeDark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/title_setup_dark_theme"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                <RadioButton
-                    android:id="@+id/rbThemeBlack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/title_setup_black_theme"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                <RadioButton
-                    android:id="@+id/rbThemeGreyLight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/title_setup_grey_light_theme"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                <RadioButton
-                    android:id="@+id/rbThemeGreyDark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/title_setup_grey_dark_theme"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                <RadioButton
-                    android:id="@+id/rbThemeSystem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/title_setup_system_theme"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                <RadioButton
-                    android:id="@+id/rbThemeGreySystem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="6dp"
-                    android:text="@string/title_setup_grey_system_theme"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/tvSystem"
+            <RadioButton
+                android:id="@+id/rbThemeLight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/title_setup_system_theme_hint"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textStyle="italic"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rgTheme" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                android:padding="6dp"
+                android:text="@string/title_setup_light_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_dark_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_black_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeGreyLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_grey_light_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeGreyDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_grey_dark_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeSystem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_system_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <RadioButton
+                android:id="@+id/rbThemeGreySystem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="@string/title_setup_grey_system_theme"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvSystem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_setup_system_theme_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgTheme" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
