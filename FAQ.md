@@ -85,8 +85,9 @@ Related questions:
 * ~~Select domains to show images for~~ (this will be too complicated to use)
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Notification move action~~
-* Search for settings
-* S/MIME: searching for sponsoring
+* Search for settings: low priority
+* Signed-only messages: waiting for sponsoring
+* S/MIME: waiting for sponsoring
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -581,14 +582,13 @@ The decrypted message text and decrypted attachments are stored. If you want to 
 Inline PGP in received messages is supported, but inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
-S/MIME is not supported because it is not used much and because key management is complex.
-There are also [security concerns](https://security.stackexchange.com/a/83752).
-
-Signed only or encrypted only messages are not supported, please see here about why not:
+Signed only or encrypted only messages are not a good idea, please see here about why not:
 
 * [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
+
+For signed-only messages and S/MIME support, please see the [planned features](#user-content-planned-features).
 
 Please see [this comment](https://forum.xda-developers.com/showpost.php?p=79444379&postcount=5609)
 about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-signature-spoofing.html).
