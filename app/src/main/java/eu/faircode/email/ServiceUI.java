@@ -398,9 +398,9 @@ public class ServiceUI extends IntentService {
                     if (message.content)
                         EntityMessage.getFile(this, id)
                                 .renameTo(message.getFile(this));
-                    db.message().setMessageSnoozed(message.id, null);
-                    EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
                 }
+                db.message().setMessageSnoozed(message.id, null);
+                EntityOperation.queue(this, message, EntityOperation.SEEN, false, false);
             }
 
             db.setTransactionSuccessful();
