@@ -359,6 +359,7 @@ public class ServiceSend extends ServiceBase {
 
             long id = message.id;
 
+            imessage.saveChanges();
             MessageHelper helper = new MessageHelper(imessage);
 
             if (message.uid != null) {
@@ -366,21 +367,50 @@ public class ServiceSend extends ServiceBase {
                 message.uid = null;
             }
 
-            message.id = null;
-            message.folder = sent.id;
-            message.identity = null;
-            message.from = helper.getFrom();
-            message.bcc = helper.getBcc();
-            message.reply = helper.getReply();
-            message.received = new Date().getTime();
-            message.seen = true;
-            message.ui_seen = true;
-            message.ui_hide = true;
-            message.error = null;
-            message.id = db.message().insertMessage(message);
+            MessageHelper.MessageParts parts = helper.getMessageParts(this);
+            String body = parts.getHtml(this);
 
-            message.getFile(this).createNewFile();
-            EntityAttachment.copy(this, id, message.id);
+            try {
+                db.beginTransaction();
+
+                message.id = null;
+                message.folder = sent.id;
+                message.identity = null;
+                message.from = helper.getFrom();
+                message.bcc = helper.getBcc();
+                message.reply = helper.getReply();
+                message.received = new Date().getTime();
+                message.seen = true;
+                message.ui_seen = true;
+                message.ui_hide = true;
+                message.error = null;
+                message.id = db.message().insertMessage(message);
+
+                Helper.writeText(EntityMessage.getFile(this, message.id), body);
+                db.message().setMessageContent(message.id,
+                        true,
+                        parts.isPlainOnly(),
+                        HtmlHelper.getPreview(body),
+                        parts.getWarnings(message.warning));
+
+                EntityAttachment.copy(this, id, message.id);
+
+                Long size = null;
+                if (body != null)
+                    size = (long) body.length();
+
+                Long total = null;
+                List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                for (EntityAttachment attachment : attachments)
+                    if (attachment.size != null)
+                        total = (total == null ? 0 : total) + attachment.size;
+
+                db.message().setMessageSize(message.id, size, total);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
 
             sid = message.id;
             message.id = id;
@@ -409,30 +439,11 @@ public class ServiceSend extends ServiceBase {
             try {
                 db.beginTransaction();
 
+                // Delete from outbox
                 db.message().deleteMessage(message.id);
 
+                // Show in sent folder
                 if (sid != null) {
-                    MessageHelper helper = new MessageHelper(imessage);
-                    MessageHelper.MessageParts parts = helper.getMessageParts(this);
-                    String body = parts.getHtml(this);
-                    Helper.writeText(EntityMessage.getFile(this, sid), body);
-                    db.message().setMessageContent(message.id,
-                            true,
-                            parts.isPlainOnly(),
-                            HtmlHelper.getPreview(body),
-                            parts.getWarnings(message.warning));
-
-                    Long size = null;
-                    if (body != null)
-                        size = (long) body.length();
-
-                    Long total = null;
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(sid);
-                    for (EntityAttachment attachment : attachments)
-                        if (attachment.size != null)
-                            total = (total == null ? 0 : total) + attachment.size;
-
-                    db.message().setMessageSize(sid, size, total);
                     db.message().setMessageSent(sid, time);
                     db.message().setMessageUiHide(sid, false);
                 }
@@ -443,6 +454,7 @@ public class ServiceSend extends ServiceBase {
                         EntityOperation.queue(this, replied, EntityOperation.ANSWERED, true);
                 }
 
+                // Check sent message
                 if (sid != null) {
                     // Check for sent orphans
                     EntityMessage orphan = db.message().getMessage(sid);
