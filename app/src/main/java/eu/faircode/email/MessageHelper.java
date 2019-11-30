@@ -395,14 +395,17 @@ public class MessageHelper {
         BodyPart plainPart = new MimeBodyPart();
         plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
 
+        if (message.plain_only != null && message.plain_only) {
+            imessage.setContent(plainContent, plainPart.getContentType());
+            return;
+        }
+
         BodyPart htmlPart = new MimeBodyPart();
         htmlPart.setContent(htmlContent, "text/html; charset=" + Charset.defaultCharset().name());
 
         Multipart altMultiPart = new MimeMultipart("alternative");
         altMultiPart.addBodyPart(plainPart);
         altMultiPart.addBodyPart(htmlPart);
-
-        boolean plain_only = (message.plain_only != null && message.plain_only);
 
         int availableAttachments = 0;
         boolean hasInline = false;
@@ -414,21 +417,15 @@ public class MessageHelper {
             }
 
         if (availableAttachments == 0)
-            if (plain_only)
-                imessage.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
-            else
-                imessage.setContent(altMultiPart);
+            imessage.setContent(altMultiPart);
         else {
             Multipart mixedMultiPart = new MimeMultipart("mixed");
             Multipart relatedMultiPart = new MimeMultipart("related");
 
             BodyPart bodyPart = new MimeBodyPart();
-            if (plain_only)
-                bodyPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
-            else
-                bodyPart.setContent(altMultiPart);
+            bodyPart.setContent(altMultiPart);
 
-            if (hasInline && !plain_only) {
+            if (hasInline) {
                 relatedMultiPart.addBodyPart(bodyPart);
                 MimeBodyPart relatedPart = new MimeBodyPart();
                 relatedPart.setContent(relatedMultiPart);
@@ -476,7 +473,7 @@ public class MessageHelper {
                     if (attachment.cid != null)
                         attachmentPart.setHeader("Content-ID", attachment.cid);
 
-                    if (attachment.isInline() && !plain_only)
+                    if (attachment.isInline())
                         relatedMultiPart.addBodyPart(attachmentPart);
                     else
                         mixedMultiPart.addBodyPart(attachmentPart);
