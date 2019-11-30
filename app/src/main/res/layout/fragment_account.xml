@@ -849,7 +849,7 @@
             android:layout_height="0dp"
             app:constraint_referenced_ids="
                 tvDomain,tvDomainHint,etDomain,btnAutoConfig,
-                tvImap,tvActiveSyncSupport,tvHost,etHost,rgEncryption,cbInsecure,tvInsecureRemark,tvPort,etPort" />
+                tvImap,tvHost,etHost,rgEncryption,cbInsecure,tvInsecureRemark,tvPort,etPort" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpAuthorize"
