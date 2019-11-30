@@ -2182,8 +2182,10 @@ class Core {
                     attachment.message = message.id;
                     attachment.sequence = sequence++;
                     attachment.id = db.attachment().insertAttachment(attachment);
-                    if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption))
-                        db.message().setMessageEncrypt(message.id, EntityMessage.ENCRYPTION_SIGNENCRYPT);
+                    if (EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption))
+                        db.message().setMessageEncrypt(message.id, EntityMessage.PGP_SIGNONLY);
+                    else if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption))
+                        db.message().setMessageEncrypt(message.id, EntityMessage.PGP_SIGNENCRYPT);
                 }
 
                 runRules(context, imessage, message, rules);

@@ -1243,7 +1243,7 @@ public class MessageHelper {
 
                     AttachmentPart apart = new AttachmentPart();
                     apart.disposition = Part.INLINE;
-                    apart.filename = "content.txt";
+                    apart.filename = "content.asc";
                     apart.encrypt = EntityAttachment.PGP_CONTENT;
                     apart.part = multipart.getBodyPart(0);
 
@@ -1253,6 +1253,7 @@ public class MessageHelper {
                     apart.attachment.disposition = apart.disposition;
                     apart.attachment.name = apart.filename;
                     apart.attachment.type = ct.getBaseType().toLowerCase(Locale.ROOT);
+                    apart.attachment.size = (long) apart.part.getSize();
                     apart.attachment.encryption = apart.encrypt;
 
                     parts.attachments.add(apart);

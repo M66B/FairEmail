@@ -936,17 +936,17 @@ public class FragmentCompose extends FragmentBase {
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
         ib.setEnabled(!busy);
-        ib.setImageResource(EntityMessage.ENCRYPTION_SIGNENCRYPT.equals(encrypt)
+        ib.setImageResource(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)
                 ? R.drawable.baseline_lock_24 : R.drawable.baseline_lock_open_24);
-        ib.setImageTintList(EntityMessage.ENCRYPTION_SIGNENCRYPT.equals(encrypt)
+        ib.setImageTintList(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)
                 ? ColorStateList.valueOf(colorEncrypt) : null);
 
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
-        if (EntityMessage.ENCRYPTION_SIGNONLY.equals(encrypt))
+        if (EntityMessage.PGP_SIGNONLY.equals(encrypt))
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_sign);
-        else if (EntityMessage.ENCRYPTION_SIGNENCRYPT.equals(encrypt))
+        else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_encrypt);
         else
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_send);
@@ -999,8 +999,8 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuEncrypt() {
-        encrypt = (EntityMessage.ENCRYPTION_SIGNENCRYPT.equals(encrypt)
-                ? EntityMessage.ENCRYPTION_NONE : EntityMessage.ENCRYPTION_SIGNENCRYPT);
+        encrypt = (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)
+                ? EntityMessage.ENCRYPT_NONE : EntityMessage.PGP_SIGNENCRYPT);
         getActivity().invalidateOptionsMenu();
 
         Bundle args = new Bundle();
@@ -1014,7 +1014,7 @@ public class FragmentCompose extends FragmentBase {
                 int encrypt = args.getInt("encrypt");
 
                 DB db = DB.getInstance(context);
-                if (EntityMessage.ENCRYPTION_NONE.equals(encrypt))
+                if (EntityMessage.ENCRYPT_NONE.equals(encrypt))
                     db.message().setMessageEncrypt(id, null);
                 else
                     db.message().setMessageEncrypt(id, encrypt);
@@ -1217,10 +1217,10 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 Intent intent;
-                if (EntityMessage.ENCRYPTION_SIGNONLY.equals(draft.encrypt)) {
+                if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt)) {
                     intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
                     intent.putExtra(BuildConfig.APPLICATION_ID, working);
-                } else if (EntityMessage.ENCRYPTION_SIGNENCRYPT.equals(draft.encrypt)) {
+                } else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.encrypt)) {
                     intent = new Intent(OpenPgpApi.ACTION_GET_KEY_IDS);
                     intent.putExtra(OpenPgpApi.EXTRA_USER_IDS, pgpUserIds);
                     intent.putExtra(BuildConfig.APPLICATION_ID, working);
@@ -1515,9 +1515,9 @@ public class FragmentCompose extends FragmentBase {
                 File output = new File(context.getCacheDir(), "output." + id);
 
                 // Serializing messages is NOT reproducible
-                if ((EntityMessage.ENCRYPTION_SIGNONLY.equals(draft.encrypt) &&
+                if ((EntityMessage.PGP_SIGNONLY.equals(draft.encrypt) &&
                         OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) ||
-                        (EntityMessage.ENCRYPTION_SIGNENCRYPT.equals(draft.encrypt) &&
+                        (EntityMessage.PGP_SIGNENCRYPT.equals(draft.encrypt) &&
                                 OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction()))) {
                     // Get attachments
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
@@ -1654,7 +1654,7 @@ public class FragmentCompose extends FragmentBase {
 
                             if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
                                     (OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction()) && pgpKeyIds.length > 1)) {
-                                if (EntityMessage.ENCRYPTION_SIGNONLY.equals(draft.encrypt)) {
+                                if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt)) {
                                     // Sign message
                                     Intent intent = new Intent(OpenPgpApi.ACTION_DETACHED_SIGN);
                                     intent.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, pgpSignKeyId);
@@ -1682,14 +1682,14 @@ public class FragmentCompose extends FragmentBase {
                                 pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
                                 db.identity().setIdentitySignKey(identity.id, pgpSignKeyId);
 
-                                if (EntityMessage.ENCRYPTION_SIGNONLY.equals(draft.encrypt)) {
+                                if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt)) {
                                     // Get sign key
                                     Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
                                     intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpSignKeyId);
                                     intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                                     intent.putExtra(BuildConfig.APPLICATION_ID, id);
                                     return intent;
-                                } else if (EntityMessage.ENCRYPTION_SIGNENCRYPT.equals(draft.encrypt)) {
+                                } else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.encrypt)) {
                                     // Encrypt message
                                     Intent intent = new Intent(OpenPgpApi.ACTION_SIGN_AND_ENCRYPT);
                                     intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
@@ -2232,7 +2232,7 @@ public class FragmentCompose extends FragmentBase {
                     if (plain_only)
                         data.draft.plain_only = true;
                     if (encrypt_default)
-                        data.draft.encrypt = EntityMessage.ENCRYPTION_SIGNENCRYPT;
+                        data.draft.encrypt = EntityMessage.PGP_SIGNENCRYPT;
                     if (receipt_default)
                         data.draft.receipt_request = true;
 
@@ -3916,7 +3916,7 @@ public class FragmentCompose extends FragmentBase {
                     cbPlainOnly.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
                     cbReceipt.setVisibility(draft.receipt != null && draft.receipt ? View.GONE : View.VISIBLE);
 
-                    int encrypt = (draft.encrypt == null ? EntityMessage.ENCRYPTION_NONE : draft.encrypt);
+                    int encrypt = (draft.encrypt == null ? EntityMessage.ENCRYPT_NONE : draft.encrypt);
                     for (int i = 0; i < encryptValues.length; i++)
                         if (encryptValues[i] == encrypt) {
                             spEncrypt.setTag(i);

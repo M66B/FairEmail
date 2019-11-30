@@ -345,7 +345,8 @@ public class Log {
                                 elements[i] = (element == null ? null : element.toString());
                         }
                         value = TextUtils.join(",", elements);
-                    }
+                    } else
+                        value = "[" + length + "]";
                 } else if (v instanceof Long)
                     value = "0x" + Long.toHexString((Long) v);
 
