@@ -134,7 +134,7 @@ public class ActivityEML extends ActivityBase {
                     result.from = MessageHelper.formatAddresses(helper.getFrom());
                     result.to = MessageHelper.formatAddresses(helper.getTo());
                     result.subject = helper.getSubject();
-                    result.parts = helper.getMessageParts();
+                    result.parts = helper.getMessageParts(context);
 
                     String html = result.parts.getHtml(context);
                     if (html != null) {

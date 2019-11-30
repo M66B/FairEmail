@@ -1100,7 +1100,7 @@ class Core {
             throw new MessageRemovedException();
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        MessageHelper.MessageParts parts = helper.getMessageParts();
+        MessageHelper.MessageParts parts = helper.getMessageParts(context);
         String body = parts.getHtml(context);
         Helper.writeText(message.getFile(context), body);
         db.message().setMessageContent(message.id,
@@ -1132,7 +1132,7 @@ class Core {
 
         // Get message parts
         MessageHelper helper = new MessageHelper((MimeMessage) imessage);
-        MessageHelper.MessageParts parts = helper.getMessageParts();
+        MessageHelper.MessageParts parts = helper.getMessageParts(context);
 
         // Download attachment
         parts.downloadAttachment(context, attachment);
@@ -1467,7 +1467,7 @@ class Core {
                     Log.i(folder.name + " POP sync=" + msgid);
 
                     String authentication = helper.getAuthentication();
-                    MessageHelper.MessageParts parts = helper.getMessageParts();
+                    MessageHelper.MessageParts parts = helper.getMessageParts(context);
 
                     EntityMessage message = new EntityMessage();
                     message.account = folder.account;
@@ -1980,49 +1980,6 @@ class Core {
 
         long uid = ifolder.getUID(imessage);
 
-        try {
-            return _synchronizeMessage(context, account, folder, uid, istore, imessage, browsed, download, rules, state);
-        } catch (MessagingException ex) {
-            // https://javaee.github.io/javamail/FAQ#imapserverbug
-            if (MessageHelper.retryRaw(ex))
-                try {
-                    Log.w(folder.name + " " + ex.getMessage());
-
-                    Log.i(folder.name + " fetching raw message uid=" + uid);
-                    File file = File.createTempFile("serverbug." + folder.id, "." + uid, context.getCacheDir());
-                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                        imessage.writeTo(os);
-                    }
-
-                    Properties props = MessageHelper.getSessionProperties();
-                    Session isession = Session.getInstance(props, null);
-
-                    Log.i(folder.name + " decoding again uid=" + uid);
-                    try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
-                        imessage = new MimeMessageEx(isession, is, imessage);
-                    }
-
-                    file.delete();
-
-                    Log.i(folder.name + " synchronizing again uid=" + uid);
-                    return _synchronizeMessage(context, account, folder, uid, istore, imessage, browsed, download, rules, state);
-                } catch (MessagingException ex1) {
-                    if (MessageHelper.retryRaw(ex1))
-                        Log.e(ex1);
-                    throw ex1;
-                }
-
-            throw ex;
-        }
-    }
-
-    private static EntityMessage _synchronizeMessage(
-            Context context,
-            EntityAccount account, EntityFolder folder, long uid,
-            IMAPStore istore, MimeMessage imessage,
-            boolean browsed, boolean download,
-            List<EntityRule> rules, State state) throws MessagingException, IOException {
-
         if (imessage.isExpunged()) {
             Log.i(folder.name + " expunged uid=" + uid);
             throw new MessageRemovedException("Expunged");
@@ -2086,7 +2043,7 @@ class Core {
 
         if (message == null) {
             String authentication = helper.getAuthentication();
-            MessageHelper.MessageParts parts = helper.getMessageParts();
+            MessageHelper.MessageParts parts = helper.getMessageParts(context);
 
             message = new EntityMessage();
             message.account = folder.account;
@@ -2553,7 +2510,7 @@ class Core {
             //ifolder.fetch(new Message[]{imessage}, fp);
 
             MessageHelper helper = new MessageHelper(imessage);
-            MessageHelper.MessageParts parts = helper.getMessageParts();
+            MessageHelper.MessageParts parts = helper.getMessageParts(context);
 
             if (!message.content) {
                 if (state.getNetworkState().isUnmetered() ||

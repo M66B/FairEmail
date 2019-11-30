@@ -4206,7 +4206,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     try (InputStream fis = new FileInputStream(plain)) {
                                         MimeMessage imessage = new MimeMessage(isession, fis);
                                         MessageHelper helper = new MessageHelper(imessage);
-                                        parts = helper.getMessageParts();
+                                        parts = helper.getMessageParts(context);
                                     }
 
                                     try {

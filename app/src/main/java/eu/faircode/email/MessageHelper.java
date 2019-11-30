@@ -29,8 +29,11 @@ import com.sun.mail.util.MessageRemovedIOException;
 
 import org.jsoup.nodes.Document;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -1231,8 +1234,33 @@ public class MessageHelper {
         EntityAttachment attachment;
     }
 
-    MessageParts getMessageParts() throws IOException, MessagingException {
+    MessageParts getMessageParts(Context context) throws IOException, MessagingException {
         MessageParts parts = new MessageParts();
+
+        try {
+            imessage.getContentType();
+        } catch (MessagingException ex) {
+            // https://javaee.github.io/javamail/FAQ#imapserverbug
+            if ("Failed to load IMAP envelope".equals(ex.getMessage()) ||
+                    "Unable to load BODYSTRUCTURE".equals(ex.getMessage())) {
+                Log.w("Fetching raw message");
+                File file = File.createTempFile("serverbug", null, context.getCacheDir());
+                try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                    imessage.writeTo(os);
+                }
+
+                Properties props = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(props, null);
+
+                Log.w("Decoding raw message");
+                try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+                    imessage = new MimeMessageEx(isession, is, imessage);
+                }
+
+                file.delete();
+            } else
+                throw ex;
+        }
 
         try {
             if (imessage.isMimeType("multipart/signed")) {
@@ -1392,16 +1420,9 @@ public class MessageHelper {
         } catch (FolderClosedException ex) {
             throw ex;
         } catch (MessagingException ex) {
-            if (retryRaw(ex))
-                throw ex;
             Log.w(ex);
             parts.warnings.add(Helper.formatThrowable(ex, false));
         }
-    }
-
-    static boolean retryRaw(MessagingException ex) {
-        return ("Failed to load IMAP envelope".equals(ex.getMessage()) ||
-                "Unable to load BODYSTRUCTURE".equals(ex.getMessage()));
     }
 
     static String sanitizeKeyword(String keyword) {

@@ -413,7 +413,7 @@ public class ServiceSend extends ServiceBase {
 
                 if (sid != null) {
                     MessageHelper helper = new MessageHelper(imessage);
-                    MessageHelper.MessageParts parts = helper.getMessageParts();
+                    MessageHelper.MessageParts parts = helper.getMessageParts(this);
                     String body = parts.getHtml(this);
                     Helper.writeText(EntityMessage.getFile(this, sid), body);
                     db.message().setMessageContent(message.id,
