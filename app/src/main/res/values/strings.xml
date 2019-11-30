@@ -1153,13 +1153,13 @@
 
     <string-array name="encryptNames">
         <item>None</item>
-        <!--item>PGP sign-only</item-->
+        <item>PGP sign-only</item>
         <item>PGP sign+encrypt</item>
     </string-array>
 
     <integer-array name="encryptValues" translatable="false">
         <item>0</item>
-        <!--item>2</item-->
+        <item>2</item>
         <item>1</item>
     </integer-array>
 

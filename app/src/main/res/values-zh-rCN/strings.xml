@@ -557,6 +557,7 @@
     <string name="title_send_via">发送方式</string>
     <string name="title_send_with_options">发送 &#8230;</string>
     <string name="title_send_at">发送于 &#8230;</string>
+    <string name="title_send_encryption">加密</string>
     <string name="title_send_priority">优先级</string>
     <string name="title_no_server">在 \'%1$s\' 找不到服务器</string>
     <string name="title_style_bold">粗体</string>
@@ -593,11 +594,14 @@
     <string name="title_ask_send_via">要通过%2$s把消息发送给 %1$s 吗？</string>
     <string name="title_queued">正在发送邮件</string>
     <string name="title_queued_at">消息将在 %1$s 左右发送</string>
+    <string name="title_sign">签名</string>
     <string name="title_encrypt">加密</string>
     <string name="title_decrypt">解密</string>
     <string name="title_resync">重新同步</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
+    <string name="title_not_encrypted">消息未签名或加密</string>
     <string name="title_reset_sign_key">重置签名密钥</string>
+    <string name="title_import_encrypt_key">导入加密密钥</string>
     <string name="title_signature_none">消息未签名</string>
     <string name="title_signature_valid">消息签名有效</string>
     <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
@@ -716,6 +720,7 @@
     <string name="title_legend_draft">有草稿</string>
     <string name="title_legend_priority">具备高优先级</string>
     <string name="title_legend_priority_low">低优先级</string>
+    <string name="title_legend_signed">已签名</string>
     <string name="title_legend_encrypted">已加密</string>
     <string name="title_legend_auth">认证失败</string>
     <string name="title_legend_snoozed">已打盹</string>
@@ -935,5 +940,10 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>小</item>
         <item>中</item>
         <item>大</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>无</item>
+        <item>PGP sign-only</item>
+        <item>PGP sign+encrypt</item>
     </string-array>
 </resources>

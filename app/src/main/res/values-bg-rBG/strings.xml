@@ -569,6 +569,7 @@
     <string name="title_send_via">Изпрати чрез</string>
     <string name="title_send_with_options">Изпрати &#8230;</string>
     <string name="title_send_at">Изпрати като &#8230;</string>
+    <string name="title_send_encryption">Криптиране</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Няма намерен сървър за \'%1$s\'</string>
     <string name="title_style_bold">Удебелен</string>
@@ -605,11 +606,14 @@
     <string name="title_ask_send_via">Изпрати съобщение до %1$s чрез %2$s?</string>
     <string name="title_queued">Изпращане на съобщение</string>
     <string name="title_queued_at">Съобщението ще бъде изпратено след%1$s</string>
+    <string name="title_sign">Подпис</string>
     <string name="title_encrypt">Криптиране</string>
     <string name="title_decrypt">Декриптиран</string>
     <string name="title_resync">Повторно синхронизиране</string>
     <string name="title_no_openpgp">OpenKeychain не е намерена</string>
+    <string name="title_not_encrypted">Съобщението не е подписано или криптирано</string>
     <string name="title_reset_sign_key">Нулиране на ключ за подписване</string>
+    <string name="title_import_encrypt_key">Импортиране на ключ за криптиране</string>
     <string name="title_signature_none">Съобщението не е подписано</string>
     <string name="title_signature_valid">Подписът на съобщението е валиден</string>
     <string name="title_signature_unconfirmed">Подписът на съобщението е валиден, но не е потвърден</string>
@@ -728,6 +732,7 @@
     <string name="title_legend_draft">Има чернова</string>
     <string name="title_legend_priority">Има висок приоритет</string>
     <string name="title_legend_priority_low">Има висок приоритет</string>
+    <string name="title_legend_signed">Подписан</string>
     <string name="title_legend_encrypted">Криптирано е</string>
     <string name="title_legend_auth">Неуспешно удостоверяване</string>
     <string name="title_legend_snoozed">Е отложен</string>
@@ -948,5 +953,10 @@
         <item>Малък</item>
         <item>Среден</item>
         <item>Голям</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Няма</item>
+        <item>PGP sign-only</item>
+        <item>PGP sign+encrypt</item>
     </string-array>
 </resources>
