@@ -1643,7 +1643,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
-            if (auto_decrypt && (is_signed || is_encrypted))
+            if (auto_decrypt && is_encrypted)
                 onActionDecrypt(message, true);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

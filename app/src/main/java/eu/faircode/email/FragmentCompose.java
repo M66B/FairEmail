@@ -1218,6 +1218,7 @@ public class FragmentCompose extends FragmentBase {
 
                 Intent intent;
                 if (EntityMessage.PGP_SIGNONLY.equals(draft.encrypt)) {
+                    // TODO use previously selected sign key
                     intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
                     intent.putExtra(BuildConfig.APPLICATION_ID, working);
                 } else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.encrypt)) {
