@@ -87,6 +87,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -692,12 +693,16 @@ public class Helper {
     static void copy(File src, File dst) throws IOException {
         try (InputStream in = new FileInputStream(src)) {
             try (FileOutputStream out = new FileOutputStream(dst)) {
-                byte[] buf = new byte[BUFFER_SIZE];
-                int len;
-                while ((len = in.read(buf)) > 0)
-                    out.write(buf, 0, len);
+                copy(in, out);
             }
         }
+    }
+
+    static void copy(InputStream in, OutputStream out) throws IOException {
+        byte[] buf = new byte[BUFFER_SIZE];
+        int len;
+        while ((len = in.read(buf)) > 0)
+            out.write(buf, 0, len);
     }
 
     static long getStorageSpace() {
