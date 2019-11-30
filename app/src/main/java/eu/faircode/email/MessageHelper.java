@@ -32,6 +32,7 @@ import org.jsoup.nodes.Document;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -53,6 +54,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.TimeZone;
+import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -1171,9 +1173,25 @@ public class MessageHelper {
             db.attachment().setProgress(local.id, null);
 
             if (EntityAttachment.PGP_CONTENT.equals(apart.encrypt)) {
+                ContentType ct = new ContentType(apart.part.getContentType());
+                String boundary = ct.getParameter("boundary");
+                if (TextUtils.isEmpty(boundary))
+                    throw new ParseException("Signed boundary missing");
+
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                apart.part.writeTo(bos);
+                String raw = new String(bos.toByteArray());
+                String[] parts = raw.split("\\r?\\n" + Pattern.quote("--" + boundary) + "\\r?\\n");
+                if (parts.length < 2)
+                    throw new ParseException("Signed part missing");
+
+                String c = parts[1]
+                        .replaceAll(" +$", "") // trim trailing spaces
+                        .replace("\\r?\\n", "\\r\\n"); // normalize new lines
                 try (OutputStream os = new FileOutputStream(file)) {
-                    apart.part.writeTo(os);
+                    os.write(c.getBytes());
                 }
+
                 db.attachment().setDownloaded(local.id, file.length());
             } else
                 try (InputStream is = apart.part.getInputStream()) {
@@ -1263,7 +1281,7 @@ public class MessageHelper {
         }
 
         try {
-            if (imessage.isMimeType("_multipart/signed_")) {
+            if (imessage.isMimeType("multipart/signed")) {
                 Multipart multipart = (Multipart) imessage.getContent();
                 if (multipart.getCount() == 2) {
                     getMessageParts(multipart.getBodyPart(0), parts, null);
@@ -1273,15 +1291,15 @@ public class MessageHelper {
                     apart.disposition = Part.INLINE;
                     apart.filename = "content.asc";
                     apart.encrypt = EntityAttachment.PGP_CONTENT;
-                    apart.part = multipart.getBodyPart(0);
+                    apart.part = imessage;
 
-                    ContentType ct = new ContentType(apart.part.getContentType());
+                    ContentType ct = new ContentType(multipart.getBodyPart(0).getContentType());
 
                     apart.attachment = new EntityAttachment();
                     apart.attachment.disposition = apart.disposition;
                     apart.attachment.name = apart.filename;
                     apart.attachment.type = ct.getBaseType().toLowerCase(Locale.ROOT);
-                    apart.attachment.size = (long) apart.part.getSize();
+                    apart.attachment.size = getSize();
                     apart.attachment.encryption = apart.encrypt;
 
                     parts.attachments.add(apart);
