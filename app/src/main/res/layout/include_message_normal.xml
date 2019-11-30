@@ -102,7 +102,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFrom"
         app:layout_constraintStart_toEndOf="@id/ivPriorityLow"
         app:layout_constraintTop_toTopOf="@+id/tvFrom"
-        app:srcCompat="@drawable/baseline_security_24" />
+        app:srcCompat="@drawable/baseline_gesture_24" />
 
     <ImageView
         android:id="@+id/ivEncrypted"
