@@ -631,7 +631,6 @@
     <string name="title_decrypt">Odszyfruj</string>
     <string name="title_resync">Resynchronizuj</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
-    <string name="title_not_encrypted">Wiadomość nie jest zaszyfrowana</string>
     <string name="title_reset_sign_key">Resetuj klucz podpisu</string>
     <string name="title_signature_none">Wiadomość niepodpisana</string>
     <string name="title_signature_valid">Ważny podpis wiadomości</string>

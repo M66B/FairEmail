@@ -251,7 +251,6 @@
     <string name="title_encrypt">رمزگذاری</string>
     <string name="title_decrypt">رمز گشایی</string>
     <string name="title_no_openpgp">OpenKeychain یافت نشد</string>
-    <string name="title_not_encrypted">پیام رمزگذاری نشده است</string>
     <string name="title_search">جستجو</string>
     <string name="title_sort_on">مرتب سازی در</string>
     <string name="title_sort_on_time">زمان</string>

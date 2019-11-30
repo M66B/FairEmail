@@ -597,7 +597,6 @@
     <string name="title_decrypt">解密</string>
     <string name="title_resync">重新同步</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
-    <string name="title_not_encrypted">邮件未加密</string>
     <string name="title_reset_sign_key">重置签名密钥</string>
     <string name="title_signature_none">消息未签名</string>
     <string name="title_signature_valid">消息签名有效</string>

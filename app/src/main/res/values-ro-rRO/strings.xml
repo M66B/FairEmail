@@ -619,7 +619,6 @@
     <string name="title_decrypt">Decriptare</string>
     <string name="title_resync">Resincronizare</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
-    <string name="title_not_encrypted">Mesajul nu este criptat</string>
     <string name="title_reset_sign_key">Resetare cheie de semnare</string>
     <string name="title_signature_none">Mesaj nesemnat</string>
     <string name="title_signature_valid">Semnătura mesaj validă</string>

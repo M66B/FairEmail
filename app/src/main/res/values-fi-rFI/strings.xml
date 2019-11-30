@@ -569,6 +569,7 @@
     <string name="title_send_via">Lähetä kautta</string>
     <string name="title_send_with_options">Lähetä &#8230;</string>
     <string name="title_send_at">Lähetysaika &#8230;</string>
+    <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
     <string name="title_style_bold">Lihavointi</string>
@@ -605,12 +606,14 @@
     <string name="title_ask_send_via">Lähetäänkö viesti vastaanottajalle %1$s identiteetillä %2$s?</string>
     <string name="title_queued">Lähetetään viestiä</string>
     <string name="title_queued_at">Viesti lähetetään arviolta %1$s</string>
+    <string name="title_sign">Allekirjoita</string>
     <string name="title_encrypt">Salaa</string>
     <string name="title_decrypt">Pura salaus</string>
     <string name="title_resync">Synkronoi uudelleen</string>
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
-    <string name="title_not_encrypted">Viestiä ei ole salattu</string>
+    <string name="title_not_encrypted">Viestiä ei ole allekirjoitettu tai salattu</string>
     <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
+    <string name="title_import_encrypt_key">Tuo salausavain</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>
     <string name="title_signature_valid">Viestin allekirjoitus voimassaoleva</string>
     <string name="title_signature_unconfirmed">Viestin allekirjoitus voimassaoleva muttei vahvistettu</string>
@@ -729,6 +732,7 @@
     <string name="title_legend_draft">Sisältää luonnoksen</string>
     <string name="title_legend_priority">Tärkeysjärjestyksessä korkealla</string>
     <string name="title_legend_priority_low">Alhainen prioriteetti</string>
+    <string name="title_legend_signed">Salattu</string>
     <string name="title_legend_encrypted">Salattu</string>
     <string name="title_legend_auth">Tunnistautuminen epäonnistui</string>
     <string name="title_legend_snoozed">Torkutettu</string>
@@ -949,5 +953,10 @@
         <item>Pieni</item>
         <item>Keskikokoinen</item>
         <item>Suuri</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Ei mitään</item>
+        <item>PGP ainoastaan allekirjoita</item>
+        <item>PGP allekirjoita+salaa</item>
     </string-array>
 </resources>

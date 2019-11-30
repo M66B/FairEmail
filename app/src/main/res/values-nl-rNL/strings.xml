@@ -569,6 +569,7 @@
     <string name="title_send_via">Verzenden via</string>
     <string name="title_send_with_options">Verzenden &#8230;</string>
     <string name="title_send_at">Verzenden om &#8230;</string>
+    <string name="title_send_encryption">Versleuteling</string>
     <string name="title_send_priority">Prioriteit</string>
     <string name="title_no_server">Geen server gevonden op \'%1$s\'</string>
     <string name="title_style_bold">Vet</string>
@@ -605,12 +606,14 @@
     <string name="title_ask_send_via">Verstuur bericht naar %1$s via %2$s?</string>
     <string name="title_queued">Bericht wordt verzonden</string>
     <string name="title_queued_at">Bericht zal rond %1$s worden verzonden</string>
+    <string name="title_sign">Ondertekenen</string>
     <string name="title_encrypt">Versleutelen</string>
     <string name="title_decrypt">Ontsleutelen</string>
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">OpenKeychain niet gevonden</string>
-    <string name="title_not_encrypted">Bericht is niet versleuteld</string>
+    <string name="title_not_encrypted">Bericht is niet ondertekend of versleuteld</string>
     <string name="title_reset_sign_key">Reset tekensleutel</string>
+    <string name="title_import_encrypt_key">Coderingssleutel importeren</string>
     <string name="title_signature_none">Bericht niet ondertekend</string>
     <string name="title_signature_valid">Handtekening bericht geldig</string>
     <string name="title_signature_unconfirmed">Handtekening bericht geldig maar niet bevestigd</string>
@@ -729,6 +732,7 @@
     <string name="title_legend_draft">Heeft concept</string>
     <string name="title_legend_priority">Heeft hoge prioriteit</string>
     <string name="title_legend_priority_low">Heeft lage prioriteit</string>
+    <string name="title_legend_signed">Is ondertekend</string>
     <string name="title_legend_encrypted">Is versleuteld</string>
     <string name="title_legend_auth">Authenticatie mislukt</string>
     <string name="title_legend_snoozed">Is gesluimerd</string>
@@ -946,5 +950,10 @@
         <item>Klein</item>
         <item>Gemiddeld</item>
         <item>Groot</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Geen</item>
+        <item>PGP teken-alleen</item>
+        <item>PGP teken+versleutel</item>
     </string-array>
 </resources>

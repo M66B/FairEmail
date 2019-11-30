@@ -569,6 +569,7 @@
     <string name="title_send_via">Bidali honen bidez</string>
     <string name="title_send_with_options">Bidali &#8230;</string>
     <string name="title_send_at">Bidali noiz &#8230;</string>
+    <string name="title_send_encryption">Zifratzea</string>
     <string name="title_send_priority">Lehentasuna</string>
     <string name="title_no_server">Ez da zerbitzaririk aurkitu \'%1$s\' helbidean</string>
     <string name="title_style_bold">Lodia</string>
@@ -605,12 +606,14 @@
     <string name="title_ask_send_via">Bidali mezua %1$s jasotzaileari %2$s bidez?</string>
     <string name="title_queued">Mezua bidaltzen</string>
     <string name="title_queued_at">Mezua %1$s(r)ak inguru bidaliko da</string>
+    <string name="title_sign">Sinadura</string>
     <string name="title_encrypt">Zifratu</string>
     <string name="title_decrypt">Deszifratu</string>
     <string name="title_resync">Birsinkronizatu</string>
     <string name="title_no_openpgp">Ez da OpenKeychain aurkitu</string>
-    <string name="title_not_encrypted">Mezua ez dago zifratuta</string>
+    <string name="title_not_encrypted">Mezua ez dago ez zifratuta ez sinatuta</string>
     <string name="title_reset_sign_key">Berrezarri sinadura gakoa</string>
+    <string name="title_import_encrypt_key">Inportatu zifratze-gakoa</string>
     <string name="title_signature_none">Mezua ez dago sinatuta</string>
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
     <string name="title_signature_unconfirmed">Mezuaren sinadura baliozkoa da baina ez da baieztatu</string>
@@ -729,6 +732,7 @@
     <string name="title_legend_draft">Zirriborroa du</string>
     <string name="title_legend_priority">Lehentasun altua du</string>
     <string name="title_legend_priority_low">Lehentasun baxua du</string>
+    <string name="title_legend_signed">Sinatuta dago</string>
     <string name="title_legend_encrypted">Zifratuta dago</string>
     <string name="title_legend_auth">Autentifikazioak huts egin du</string>
     <string name="title_legend_snoozed">Atzeratu da</string>
@@ -949,5 +953,10 @@
         <item>Txikia</item>
         <item>Ertaina</item>
         <item>Handia</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Bat ere ez</item>
+        <item>PGP sinadura soilik</item>
+        <item>PGP sinadura eta zifratzea</item>
     </string-array>
 </resources>

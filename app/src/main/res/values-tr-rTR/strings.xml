@@ -569,6 +569,7 @@
     <string name="title_send_via">Üzerinden gönder</string>
     <string name="title_send_with_options">Gönder &#8230;</string>
     <string name="title_send_at">&#8230;\'te gönder</string>
+    <string name="title_send_encryption">Şifreleme</string>
     <string name="title_send_priority">Öncelik</string>
     <string name="title_no_server">%1$s\'de sunucu bulunamadı</string>
     <string name="title_style_bold">Kalın yazı</string>
@@ -605,12 +606,14 @@
     <string name="title_ask_send_via">%1$s\'e %2$s üzerinden ileti gönderilsin mi?</string>
     <string name="title_queued">İleti gönderiliyor</string>
     <string name="title_queued_at">Mesaj %1$s civarında gönderilecek</string>
+    <string name="title_sign">İmzala</string>
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
     <string name="title_resync">Yeniden eşzamanla</string>
     <string name="title_no_openpgp">OpenKeychain bulunamadı</string>
-    <string name="title_not_encrypted">İleti şifreli değil</string>
+    <string name="title_not_encrypted">Mesaj imzalı veya şifreli değil</string>
     <string name="title_reset_sign_key">İmzalama anahtarını sıfırla</string>
+    <string name="title_import_encrypt_key">Şifreleme anahtarını içe aktar</string>
     <string name="title_signature_none">İleti imzalı değil</string>
     <string name="title_signature_valid">İleti imzası geçerli</string>
     <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak onaylanmamış</string>
@@ -729,6 +732,7 @@
     <string name="title_legend_draft">Taslak var</string>
     <string name="title_legend_priority">Yüksek önceliğe sahip</string>
     <string name="title_legend_priority_low">Düşük önceliğe sahip</string>
+    <string name="title_legend_signed">İmzalı</string>
     <string name="title_legend_encrypted">Şifrelenmiş</string>
     <string name="title_legend_auth">Kimlik doğrulama başarısız</string>
     <string name="title_legend_snoozed">Ertelendi</string>
@@ -949,5 +953,10 @@
         <item>Küçük</item>
         <item>Orta</item>
         <item>Büyük</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Hiçbiri</item>
+        <item>PGP sadece imzala</item>
+        <item>PGP imzala ve şifrele</item>
     </string-array>
 </resources>

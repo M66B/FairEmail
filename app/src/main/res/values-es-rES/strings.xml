@@ -609,7 +609,6 @@
     <string name="title_decrypt">Descifrar</string>
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
-    <string name="title_not_encrypted">El mensaje no está cifrado</string>
     <string name="title_reset_sign_key">Restablecer clave de firma</string>
     <string name="title_signature_none">Mensaje no firmado</string>
     <string name="title_signature_valid">Firma de mensaje válida</string>

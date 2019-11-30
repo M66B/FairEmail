@@ -307,7 +307,6 @@
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
     <string name="title_no_openpgp">OpenKeychain tapılmadı</string>
-    <string name="title_not_encrypted">Mesaj şifrəli deyil</string>
     <string name="title_search">Axtar</string>
     <string name="title_sort_on">Sırala</string>
     <string name="title_sort_on_time">Vaxt</string>

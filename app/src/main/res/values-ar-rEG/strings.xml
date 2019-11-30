@@ -261,7 +261,6 @@
     <string name="title_encrypt">تعمية</string>
     <string name="title_decrypt">فك التعمية</string>
     <string name="title_no_openpgp">لم يتم العثور على OpenKeychain</string>
-    <string name="title_not_encrypted">الرسالة غير مُعمّاة</string>
     <string name="title_search">بحث</string>
     <string name="title_sort_on">الفرز حسب</string>
     <string name="title_sort_on_time">التاريخ</string>

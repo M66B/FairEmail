@@ -568,6 +568,7 @@
     <string name="title_send_via">Invia tramite</string>
     <string name="title_send_with_options">Invia &#8230;</string>
     <string name="title_send_at">Invia alle &#8230;</string>
+    <string name="title_send_encryption">Crittografia</string>
     <string name="title_send_priority">Priorità</string>
     <string name="title_no_server">Nessun server trovato in \'%1$s\'</string>
     <string name="title_style_bold">Grassetto</string>
@@ -604,12 +605,14 @@
     <string name="title_ask_send_via">Inviare messaggio a %1$s tramite %2$s?</string>
     <string name="title_queued">Invio messaggio in corso</string>
     <string name="title_queued_at">Il messaggio verrà inviato intorno a %1$s</string>
+    <string name="title_sign">Firma</string>
     <string name="title_encrypt">Crittografare</string>
     <string name="title_decrypt">Decifra</string>
     <string name="title_resync">Risincronizza</string>
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
-    <string name="title_not_encrypted">Il messaggio non è cifrato</string>
+    <string name="title_not_encrypted">Il messaggio non è firmato o cifrato</string>
     <string name="title_reset_sign_key">Reimposta il tasto del segno</string>
+    <string name="title_import_encrypt_key">Importa chiave di crittografia</string>
     <string name="title_signature_none">Messaggio non firmato</string>
     <string name="title_signature_valid">Firma messaggio valida</string>
     <string name="title_signature_unconfirmed">Firma del messaggio valida ma non confermata</string>
@@ -728,6 +731,7 @@
     <string name="title_legend_draft">Ha bozza</string>
     <string name="title_legend_priority">Ha priorità alta</string>
     <string name="title_legend_priority_low">Ha priorità bassa</string>
+    <string name="title_legend_signed">È firmato</string>
     <string name="title_legend_encrypted">È criptato</string>
     <string name="title_legend_auth">Autenticazione fallita</string>
     <string name="title_legend_snoozed">È posticipato</string>
@@ -948,5 +952,10 @@
         <item>Piccolo</item>
         <item>Medio</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Nulla</item>
+        <item>PGP solo firma</item>
+        <item>PGP firma e crittografia</item>
     </string-array>
 </resources>

@@ -591,6 +591,7 @@
     <string name="title_send_via">Отправить через</string>
     <string name="title_send_with_options">Отправить&#8230;</string>
     <string name="title_send_at">Отправить в&#8230;</string>
+    <string name="title_send_encryption">Шифрование</string>
     <string name="title_send_priority">Приоритет</string>
     <string name="title_no_server">Сервер не найден на \'%1$s\'</string>
     <string name="title_style_bold">Жирный</string>
@@ -627,12 +628,14 @@
     <string name="title_ask_send_via">Отправить сообщение для %1$s через %2$s?</string>
     <string name="title_queued">Отправка сообщения</string>
     <string name="title_queued_at">Сообщение будет отправлено около %1$s</string>
+    <string name="title_sign">Подпись</string>
     <string name="title_encrypt">Шифрование</string>
     <string name="title_decrypt">Расшифрование</string>
     <string name="title_resync">Синхронизировать заново</string>
     <string name="title_no_openpgp">OpenKeychain не найдено</string>
-    <string name="title_not_encrypted">Сообщение не зашифровано</string>
+    <string name="title_not_encrypted">Сообщение не подписано и не зашифровано</string>
     <string name="title_reset_sign_key">Сброс ключа подписи</string>
+    <string name="title_import_encrypt_key">Импорт ключа шифрования</string>
     <string name="title_signature_none">Сообщение не подписано</string>
     <string name="title_signature_valid">Подпись сообщения действительна</string>
     <string name="title_signature_unconfirmed">Подпись сообщения действительна, но не подтверждена</string>
@@ -751,6 +754,7 @@
     <string name="title_legend_draft">Имеет черновик</string>
     <string name="title_legend_priority">Имеет высокий приоритет</string>
     <string name="title_legend_priority_low">Имеет низкий приоритет</string>
+    <string name="title_legend_signed">Подписано</string>
     <string name="title_legend_encrypted">Зашифровано</string>
     <string name="title_legend_auth">Ошибка аутентификации</string>
     <string name="title_legend_snoozed">Отложено</string>
@@ -971,5 +975,10 @@
         <item>Мелкий</item>
         <item>Средний</item>
         <item>Крупный</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Ничего</item>
+        <item>Только подпись PGP</item>
+        <item>Подпись+шифрование PGP</item>
     </string-array>
 </resources>

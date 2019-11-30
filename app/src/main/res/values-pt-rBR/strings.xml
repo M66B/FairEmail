@@ -597,7 +597,6 @@
     <string name="title_decrypt">Descriptografar</string>
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain não encontrado</string>
-    <string name="title_not_encrypted">Mensagem não criptografada</string>
     <string name="title_signature_none">Mensagem não assinada</string>
     <string name="title_signature_valid">Assinatura de mensagem válida</string>
     <string name="title_signature_invalid">Assinatura de mensagem inválida</string>

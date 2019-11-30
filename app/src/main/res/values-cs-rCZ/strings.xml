@@ -591,6 +591,7 @@
     <string name="title_send_via">Odeslat přes</string>
     <string name="title_send_with_options">Odeslat &#8230;</string>
     <string name="title_send_at">Odeslat později &#8230;</string>
+    <string name="title_send_encryption">Šifrování</string>
     <string name="title_send_priority">Důležitost</string>
     <string name="title_no_server">Nenalezen žádný server na \'%1$s\'</string>
     <string name="title_style_bold">Tučně</string>
@@ -627,12 +628,14 @@
     <string name="title_ask_send_via">Odeslat zprávu na %1$s přes %2$s?</string>
     <string name="title_queued">Odesílám zprávu</string>
     <string name="title_queued_at">Zpráva bude odeslána přibližně %1$s</string>
+    <string name="title_sign">Podepsat</string>
     <string name="title_encrypt">Šifrovat</string>
     <string name="title_decrypt">Dešifrovat</string>
     <string name="title_resync">Znovu synchronizovat</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
-    <string name="title_not_encrypted">Zpráva není šifrována</string>
+    <string name="title_not_encrypted">Zpráva není podepsána ani šifrována</string>
     <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>
+    <string name="title_import_encrypt_key">Importovat šifrovací klíč</string>
     <string name="title_signature_none">Zpráva není podepsána</string>
     <string name="title_signature_valid">Podpis zprávy je platný</string>
     <string name="title_signature_unconfirmed">Podpis zprávy je platný, ale nepotvrzený</string>
@@ -751,6 +754,7 @@
     <string name="title_legend_draft">Má koncept</string>
     <string name="title_legend_priority">Má vysokou prioritu</string>
     <string name="title_legend_priority_low">Má nízkou prioritu</string>
+    <string name="title_legend_signed">Je podepsáno</string>
     <string name="title_legend_encrypted">Je šifrováno</string>
     <string name="title_legend_auth">Ověřování selhalo</string>
     <string name="title_legend_snoozed">Je odloženo</string>
@@ -863,6 +867,7 @@
     <string name="title_pro_info">  Vývoj FairEmail trval doslova tisíce hodin a přesto lze většinu funkcí volně použít.
   Abychom učinili FairEmail dlouhodobě udržitelným, některé pokročilé funkce a usnadnění nejsou volně k dispozici.
   K připomenutí téhož zobrazí FairEmail  stručnou zprávu, jež bude odstaněna, zakoupíte-li si funkce Pro.    </string>
+    <string name="title_pro_hide">Skrýt stručnou zprávu do zítřka</string>
     <string name="title_pro_hint">Zakoupením Pro funkcí získáte přístup ke všem současným i budoucím Pro funkcím a pomůžete zachovat tuto aplikaci udržovanou a podporovanou</string>
     <string name="title_pro_price">Pro odůvodnění ceny Pro funkcí si prosím přečtěte <a href="https://github.com/M66B/open-source-email/blob/master/FAQ.md#user-content-faq19">časté dotazy</a></string>
     <string name="title_pro_pending">Probíhá nákup</string>
@@ -969,5 +974,10 @@
         <item>Malé</item>
         <item>Střední</item>
         <item>Velké</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Žádný</item>
+        <item>Pouze PGP podpis</item>
+        <item>PGP podpis+šifrovat</item>
     </string-array>
 </resources>

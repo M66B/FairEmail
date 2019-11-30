@@ -569,6 +569,7 @@
     <string name="title_send_via">Send via</string>
     <string name="title_send_with_options">Send &#8230;</string>
     <string name="title_send_at">Sender &#8230;</string>
+    <string name="title_send_encryption">Kryptering</string>
     <string name="title_send_priority">Prioritet</string>
     <string name="title_no_server">Ingen server funnet på \'%1$s\'</string>
     <string name="title_style_bold">Fet</string>
@@ -605,12 +606,14 @@
     <string name="title_ask_send_via">Send meldingen til %1$s via %2$s?</string>
     <string name="title_queued">Sender melding</string>
     <string name="title_queued_at">Melding vil bli sendt rundt %1$s</string>
+    <string name="title_sign">Signér</string>
     <string name="title_encrypt">Krypter</string>
     <string name="title_decrypt">Dekrypter</string>
     <string name="title_resync">Resync</string>
     <string name="title_no_openpgp">Finner ikke OpenKeychain</string>
-    <string name="title_not_encrypted">Meldingen er ikke kryptert</string>
+    <string name="title_not_encrypted">Meldingen er ikke signert eller kryptert</string>
     <string name="title_reset_sign_key">Tilbakestill signert nøkkel</string>
+    <string name="title_import_encrypt_key">Importer krypteringsnøkkel</string>
     <string name="title_signature_none">Melding ikke signert</string>
     <string name="title_signature_valid">Meldings signatur gyldig</string>
     <string name="title_signature_unconfirmed">Meldingssignatur er gyldig, men ikke bekreftet</string>
@@ -729,6 +732,7 @@
     <string name="title_legend_draft">Kladd finnes</string>
     <string name="title_legend_priority">Har høy prioritet</string>
     <string name="title_legend_priority_low">Har lav prioritet</string>
+    <string name="title_legend_signed">Er signert</string>
     <string name="title_legend_encrypted">Er kryptert</string>
     <string name="title_legend_auth">Godkjenning mislyktes</string>
     <string name="title_legend_snoozed">Er utsatt</string>
@@ -949,5 +953,10 @@
         <item>Liten</item>
         <item>Medium</item>
         <item>Stor</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Ingen</item>
+        <item>Bare PGP-signering</item>
+        <item>PGP signer+krypter</item>
     </string-array>
 </resources>

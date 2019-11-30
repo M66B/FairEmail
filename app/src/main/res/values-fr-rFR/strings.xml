@@ -470,7 +470,7 @@
     <string name="title_no_messages">Aucun message</string>
     <string name="title_filters_active">Un ou plusieurs filtres actifs</string>
     <string name="title_duplicate_in">Doublon dans %1$s</string>
-    <string name="title_subject_reply">Re : %1$s</string>
+    <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr : %1$s</string>
     <string name="title_seen">Marquer comme lu</string>
     <string name="title_unseen">Marquer comme non lu</string>
@@ -569,6 +569,7 @@
     <string name="title_send_via">Envoyer avec</string>
     <string name="title_send_with_options">Envoyer&#8230;</string>
     <string name="title_send_at">Envoyer à&#8230;</string>
+    <string name="title_send_encryption">Chiffrement</string>
     <string name="title_send_priority">Priorité</string>
     <string name="title_no_server">Aucun serveur trouvé à \'%1$s\'</string>
     <string name="title_style_bold">Gras</string>
@@ -605,12 +606,14 @@
     <string name="title_ask_send_via">Envoyer le message à %1$s via %2$s ?</string>
     <string name="title_queued">Envoi du message</string>
     <string name="title_queued_at">Le message sera envoyé vers %1$s</string>
+    <string name="title_sign">Signer</string>
     <string name="title_encrypt">Chiffrer</string>
     <string name="title_decrypt">Déchiffrer</string>
     <string name="title_resync">Resynchroniser</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
-    <string name="title_not_encrypted">Le message n\'est pas chiffré</string>
+    <string name="title_not_encrypted">Le message n\'est pas signé ou chiffré</string>
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
+    <string name="title_import_encrypt_key">Importer la clé de chiffrement</string>
     <string name="title_signature_none">Message non signé</string>
     <string name="title_signature_valid">Signature de message valide</string>
     <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
@@ -729,6 +732,7 @@
     <string name="title_legend_draft">A un brouillon</string>
     <string name="title_legend_priority">A une priorité élevée</string>
     <string name="title_legend_priority_low">A une priorité basse</string>
+    <string name="title_legend_signed">Est signé</string>
     <string name="title_legend_encrypted">Est chiffré</string>
     <string name="title_legend_auth">Échec de l\'authentification</string>
     <string name="title_legend_snoozed">Est reporté</string>
@@ -949,5 +953,10 @@
         <item>Petite</item>
         <item>Moyenne</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Aucune</item>
+        <item>Signer PGP uniquement</item>
+        <item>Signer &amp; chiffrer PGP</item>
     </string-array>
 </resources>
