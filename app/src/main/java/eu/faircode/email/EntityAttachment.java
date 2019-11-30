@@ -200,7 +200,8 @@ public class EntityAttachment {
                     Objects.equals(this.encryption, other.encryption) &&
                     Objects.equals(this.size, other.size) &&
                     Objects.equals(this.progress, other.progress) &&
-                    this.available.equals(other.available));
+                    this.available.equals(other.available) &&
+                    Objects.equals(this.error, other.error));
         } else
             return false;
     }
