@@ -1263,7 +1263,7 @@ public class MessageHelper {
         }
 
         try {
-            if (imessage.isMimeType("multipart/signed")) {
+            if (imessage.isMimeType("_multipart/signed_")) {
                 Multipart multipart = (Multipart) imessage.getContent();
                 if (multipart.getCount() == 2) {
                     getMessageParts(multipart.getBodyPart(0), parts, null);
