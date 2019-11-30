@@ -588,7 +588,9 @@ Signed only or encrypted only messages are not a good idea, please see here abou
 * [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-For signed-only messages and S/MIME support, please see the [planned features](#user-content-planned-features).
+For signed-only messages, please see [here](https://forum.xda-developers.com/showpost.php?p=81061837&postcount=10771) about the practical problems.
+
+For S/MIME support, please see the [planned features](#user-content-planned-features).
 
 Please see [this comment](https://forum.xda-developers.com/showpost.php?p=79444379&postcount=5609)
 about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-signature-spoofing.html).
