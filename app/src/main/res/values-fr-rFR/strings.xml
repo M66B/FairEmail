@@ -956,7 +956,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Aucune</item>
-        <item>Signer PGP uniquement</item>
-        <item>Signer &amp; chiffrer PGP</item>
+        <!--item>PGP sign-only</item-->
+        <item>PGP sign+encrypt</item>
     </string-array>
 </resources>

@@ -953,7 +953,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Geen</item>
-        <item>PGP teken-alleen</item>
-        <item>PGP teken+versleutel</item>
+        <!--item>PGP sign-only</item-->
+        <item>PGP sign+encrypt</item>
     </string-array>
 </resources>

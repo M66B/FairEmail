@@ -978,7 +978,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Ничего</item>
-        <item>Только подпись PGP</item>
-        <item>Подпись+шифрование PGP</item>
+        <!--item>PGP sign-only</item-->
+        <item>PGP sign+encrypt</item>
     </string-array>
 </resources>
