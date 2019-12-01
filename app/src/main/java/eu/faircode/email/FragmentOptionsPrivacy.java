@@ -61,6 +61,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisableTracking;
     private SwitchCompat swDisplayHidden;
     private Spinner spOpenPgp;
+    private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swSecure;
@@ -72,7 +73,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "disable_tracking", "display_hidden",
-            "openpgp_provider", "encrypt_default", "auto_decrypt",
+            "openpgp_provider", "sign_default", "encrypt_default", "auto_decrypt",
             "secure",
             "biometrics", "pin", "biometrics_timeout"
     };
@@ -90,6 +91,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
+        swSign = view.findViewById(R.id.swSign);
         swEncrypt = view.findViewById(R.id.swEncrypt);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swSecure = view.findViewById(R.id.swSecure);
@@ -140,10 +142,18 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        swSign.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("sign_default", checked).apply();
+            }
+        });
+
         swEncrypt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("encrypt_default", checked).apply();
+                swSign.setEnabled(!checked);
             }
         });
 
@@ -265,7 +275,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 break;
             }
 
+        swSign.setChecked(prefs.getBoolean("sign_default", false));
         swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
+        swSign.setEnabled(!swEncrypt.isChecked());
         swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
         swSecure.setChecked(prefs.getBoolean("secure", false));
 

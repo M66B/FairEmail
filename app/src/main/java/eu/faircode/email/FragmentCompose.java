@@ -2197,6 +2197,7 @@ public class FragmentCompose extends FragmentBase {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean plain_only = prefs.getBoolean("plain_only", false);
+            boolean sign_default = prefs.getBoolean("sign_default", false);
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
 
@@ -2233,6 +2234,8 @@ public class FragmentCompose extends FragmentBase {
                         data.draft.plain_only = true;
                     if (encrypt_default)
                         data.draft.encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                    else if (sign_default)
+                        data.draft.encrypt = EntityMessage.PGP_SIGNONLY;
                     if (receipt_default)
                         data.draft.receipt_request = true;
 

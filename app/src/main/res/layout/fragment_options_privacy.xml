@@ -81,14 +81,25 @@
             app:layout_constraintTop_toBottomOf="@id/tvOpenPgp" />
 
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/swSign"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_sign_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spOpenPgp"
+            app:switchPadding="12dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swEncrypt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_identity_encrypt"
+            android:text="@string/title_advanced_encrypt_default"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spOpenPgp"
+            app:layout_constraintTop_toBottomOf="@id/swSign"
             app:switchPadding="12dp" />
 
         <androidx.appcompat.widget.SwitchCompat

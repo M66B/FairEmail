@@ -331,6 +331,8 @@
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
+    <string name="title_advanced_sign_default">Sign by default</string>
+    <string name="title_advanced_encrypt_default">Encrypt by default</string>
     <string name="title_advanced_auto_decrypt">Automatically decrypt messages</string>
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
     <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
@@ -412,7 +414,6 @@
     <string name="title_advanced_sender">Allow editing sender address</string>
     <string name="title_advanced_sender_regex">Regex to match edited addresses</string>
     <string name="title_identity_reply_to">Reply to address</string>
-    <string name="title_identity_encrypt">Encrypt by default</string>
     <string name="title_identity_receipt">Request delivery/read receipt by default</string>
     <string name="title_identity_use_ip_hint">In case of \'invalid greeting\', \'requires valid address\' or a similar error, try to change this setting</string>
     <string name="title_optional">Optional</string>
