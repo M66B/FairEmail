@@ -1511,15 +1511,15 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException(getString(R.string.title_from_missing));
 
                 // Create files
-                File input = new File(context.getCacheDir(), "input." + id);
-                File output = new File(context.getCacheDir(), "output." + id);
+                File input = new File(context.getCacheDir(), "pgp_input." + id);
+                File output = new File(context.getCacheDir(), "pgp_output." + id);
 
                 // Serializing messages is NOT reproducible
                 if ((EntityMessage.PGP_SIGNONLY.equals(draft.encrypt) &&
                         OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) ||
                         (EntityMessage.PGP_SIGNENCRYPT.equals(draft.encrypt) &&
                                 OpenPgpApi.ACTION_GET_KEY_IDS.equals(data.getAction()))) {
-                    // Get attachments
+                    // Get/clean attachments
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : new ArrayList<>(attachments))
                         if (attachment.encryption != null) {
@@ -1558,6 +1558,7 @@ public class FragmentCompose extends FragmentBase {
                         ByteArrayOutputStream bos = new ByteArrayOutputStream();
                         bpContent.writeTo(bos);
 
+                        // Just to be sure
                         String raw = new String(bos.toByteArray());
                         raw.replaceAll(" +$", "") // trim trailing spaces
                                 .replace("\\r?\\n", "\\r\\n"); // normalize new lines
@@ -1573,13 +1574,14 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
 
-                // Call OpenPGP
                 Intent result;
                 if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction()) && identity.sign_key != null) {
+                    // Short circuit
                     result = data;
                     result.putExtra(OpenPgpApi.RESULT_CODE, OpenPgpApi.RESULT_CODE_SUCCESS);
                     result.putExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, identity.sign_key);
                 } else {
+                    // Call OpenPGP
                     Log.i("Executing " + data.getAction());
                     Log.logExtras(data);
                     OpenPgpApi api = new OpenPgpApi(context, pgpService.getService());
@@ -1593,10 +1595,10 @@ public class FragmentCompose extends FragmentBase {
                     Log.logExtras(data);
                     switch (resultCode) {
                         case OpenPgpApi.RESULT_CODE_SUCCESS:
-                            // Attach encrypted data / signature
+                            // Attach key, signed/encrypted data
                             if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
-                                    OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction()) ||
-                                    OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction()))
+                                    OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction()) ||
+                                    OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction()))
                                 try {
                                     db.beginTransaction();
 
@@ -1606,14 +1608,14 @@ public class FragmentCompose extends FragmentBase {
                                     if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction())) {
                                         name = "keydata.asc";
                                         encryption = EntityAttachment.PGP_KEY;
-                                    } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
-                                        name = "encrypted.asc";
-                                        encryption = EntityAttachment.PGP_MESSAGE;
                                     } else if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
                                         name = "signature.asc";
                                         encryption = EntityAttachment.PGP_SIGNATURE;
                                         type = "application/pgp-signature; micalg=\"" +
                                                 result.getStringExtra(OpenPgpApi.RESULT_SIGNATURE_MICALG) + "\"";
+                                    } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
+                                        name = "encrypted.asc";
+                                        encryption = EntityAttachment.PGP_MESSAGE;
                                     } else
                                         throw new IllegalStateException(data.getAction());
 
@@ -1709,13 +1711,7 @@ public class FragmentCompose extends FragmentBase {
                                     return intent;
                                 } else
                                     throw new IllegalArgumentException("Invalid encrypt=" + draft.encrypt);
-                            } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
-                                input.delete();
-
-                                // send message
-                                return null;
                             } else if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
-
                                 EntityAttachment attachment = new EntityAttachment();
                                 attachment.message = id;
                                 attachment.sequence = db.attachment().getAttachmentSequence(id) + 1;
@@ -1729,6 +1725,11 @@ public class FragmentCompose extends FragmentBase {
                                 input.renameTo(file);
 
                                 db.attachment().setDownloaded(attachment.id, file.length());
+
+                                // send message
+                                return null;
+                            } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
+                                input.delete();
 
                                 // send message
                                 return null;
