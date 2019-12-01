@@ -2046,6 +2046,7 @@ class Core {
         }
 
         if (message == null) {
+            Long sent = helper.getSent();
             String authentication = helper.getAuthentication();
             MessageHelper.MessageParts parts = helper.getMessageParts(context);
 
@@ -2080,8 +2081,8 @@ class Core {
             message.size = parts.getBodySize();
             message.total = helper.getSize();
             message.content = false;
-            message.received = helper.getReceived();
-            message.sent = helper.getSent();
+            message.received = (account.use_date ? (sent == null ? 0 : sent) : helper.getReceived());
+            message.sent = sent;
             message.seen = seen;
             message.answered = answered;
             message.flagged = flagged;

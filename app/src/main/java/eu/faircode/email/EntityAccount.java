@@ -104,6 +104,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Boolean partial_fetch = true;
     @NonNull
     public Boolean ignore_size = false;
+    @NonNull
+    public Boolean use_date = false;
     public String prefix; // namespace, obsolete
 
     public Long created;
