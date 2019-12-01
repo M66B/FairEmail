@@ -1144,6 +1144,9 @@ class Core {
         if (message.uid != null)
             return;
 
+        if (message.msgid == null)
+            throw new IllegalArgumentException("exists without msgid");
+
         if (EntityFolder.SENT.equals(folder.type)) {
             long ago = new Date().getTime() - op.created;
             long delay = AFTER_SEND_DELAY - ago;
