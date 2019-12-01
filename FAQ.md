@@ -1560,6 +1560,8 @@ Matching all messages is still possible by using a regex for the sender or recip
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
 
 Matching is not case sensitive, unless you use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
+Please see [here](https://developer.android.com/reference/java/util/regex/Pattern) for the documentation of Java regular expressions.
+Note that *dot all mode* is enabled to be able to match unfolded headers.
 
 You can select one of these actions to apply to matching messages:
 
