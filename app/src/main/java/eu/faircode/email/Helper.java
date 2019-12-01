@@ -29,6 +29,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.Uri;
@@ -36,6 +38,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.LocaleList;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
@@ -635,6 +638,29 @@ public class Helper {
                 }
             });
         }
+    }
+
+    static String[] getStrings(Context context, int resid, Object... formatArgs) {
+        List<String> result = new ArrayList<>();
+
+        Configuration configuration = new Configuration(context.getResources().getConfiguration());
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            result.add(context.getString(resid, formatArgs));
+            if (!Locale.getDefault().getLanguage().equals("en")) {
+                configuration.setLocale(new Locale("en"));
+                Resources res = context.createConfigurationContext(configuration).getResources();
+                result.add(res.getString(resid, formatArgs));
+            }
+        } else {
+            LocaleList ll = context.getResources().getConfiguration().getLocales();
+            for (int i = 0; i < ll.size(); i++) {
+                configuration.setLocale(ll.get(i));
+                Resources res = context.createConfigurationContext(configuration).getResources();
+                result.add(res.getString(resid, formatArgs));
+            }
+        }
+
+        return result.toArray(new String[0]);
     }
 
     // Files

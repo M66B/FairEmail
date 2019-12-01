@@ -33,8 +33,6 @@ import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.MergeCursor;
@@ -49,10 +47,8 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.LocaleList;
 import android.os.OperationCanceledException;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
@@ -2429,16 +2425,14 @@ public class FragmentCompose extends FragmentBase {
 
                         String subject = (ref.subject == null ? "" : ref.subject);
                         if ("reply".equals(action) || "reply_all".equals(action)) {
-                            if (prefix_once) {
-                                String re = context.getString(R.string.title_subject_reply, "");
-                                subject = unprefix(subject, re);
-                            }
+                            if (prefix_once)
+                                for (String re : Helper.getStrings(context, R.string.title_subject_reply, ""))
+                                    subject = unprefix(subject, re);
                             data.draft.subject = context.getString(R.string.title_subject_reply, subject);
                         } else if ("forward".equals(action)) {
-                            if (prefix_once) {
-                                String fwd = context.getString(R.string.title_subject_forward, "");
-                                subject = unprefix(subject, fwd);
-                            }
+                            if (prefix_once)
+                                for (String fwd : Helper.getStrings(context, R.string.title_subject_forward, ""))
+                                    subject = unprefix(subject, fwd);
                             data.draft.subject = context.getString(R.string.title_subject_forward, subject);
                         } else if ("editasnew".equals(action)) {
                             data.draft.subject = ref.subject;
@@ -2454,17 +2448,9 @@ public class FragmentCompose extends FragmentBase {
                         } else if ("receipt".equals(action)) {
                             data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
 
-                            Element p = document.createElement("p");
-                            p.text(context.getString(R.string.title_receipt_text));
-                            document.body().appendChild(p);
-
-                            if (!Locale.getDefault().getLanguage().equals("en")) {
-                                Configuration configuration = new Configuration(context.getResources().getConfiguration());
-                                configuration.setLocale(new Locale("en"));
-                                Resources res = context.createConfigurationContext(configuration).getResources();
-
-                                p = document.createElement("p");
-                                p.text(res.getString(R.string.title_receipt_text));
+                            for (String text : Helper.getStrings(context, R.string.title_receipt_text)) {
+                                Element p = document.createElement("p");
+                                p.text(text);
                                 document.body().appendChild(p);
                             }
                         } else if ("participation".equals(action))
@@ -3168,21 +3154,8 @@ public class FragmentCompose extends FragmentBase {
                             // Check for missing attachments
                             if (attached == 0) {
                                 List<String> keywords = new ArrayList<>();
-
-                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-                                    String[] k = context.getString(R.string.title_attachment_keywords).split(",");
-                                    keywords.addAll(Arrays.asList(k));
-                                } else {
-                                    Configuration config = context.getResources().getConfiguration();
-                                    LocaleList ll = context.getResources().getConfiguration().getLocales();
-                                    for (int i = 0; i < ll.size(); i++) {
-                                        Configuration lconf = new Configuration(config);
-                                        lconf.setLocale(ll.get(i));
-                                        Context lcontext = context.createConfigurationContext(lconf);
-                                        String[] k = lcontext.getString(R.string.title_attachment_keywords).split(",");
-                                        keywords.addAll(Arrays.asList(k));
-                                    }
-                                }
+                                for (String text : Helper.getStrings(context, R.string.title_attachment_keywords))
+                                    keywords.addAll(Arrays.asList(text.split(",")));
 
                                 Document d = JsoupEx.parse(body);
                                 d.select("div[fairemail=signature]").remove();
