@@ -1683,6 +1683,8 @@ class Core {
                 // Fallback to date only search
                 imessages = ifolder.search(new ReceivedDateTerm(ComparisonTerm.GE, new Date(sync_time)));
             }
+            if (imessages == null)
+                imessages = new Message[0];
             Log.i(folder.name + " remote count=" + imessages.length +
                     " search=" + (SystemClock.elapsedRealtime() - search) + " ms");
 
