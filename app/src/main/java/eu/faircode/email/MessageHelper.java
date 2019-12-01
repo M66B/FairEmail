@@ -593,7 +593,8 @@ public class MessageHelper {
                 "marketing".equalsIgnoreCase(header) ||
                 "bulk".equalsIgnoreCase(header) ||
                 "batch".equalsIgnoreCase(header) ||
-                "b".equalsIgnoreCase(header))
+                "b".equalsIgnoreCase(header) ||
+                "mass".equalsIgnoreCase(header))
             priority = EntityMessage.PRIORITIY_LOW;
         else if (!TextUtils.isEmpty(header))
             try {
