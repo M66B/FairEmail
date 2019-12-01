@@ -1251,7 +1251,7 @@ public class FragmentAccount extends FragmentBase {
                     cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
                     cbPartialFetch.setChecked(account == null ? true : account.partial_fetch);
-                    cbIgnoreSize.setChecked(account == null ? true : account.ignore_size);
+                    cbIgnoreSize.setChecked(account == null ? false : account.ignore_size);
                     cbUseDate.setChecked(account == null ? false : account.use_date);
 
                     auth = (account == null ? MailService.AUTH_TYPE_PASSWORD : account.auth_type);
