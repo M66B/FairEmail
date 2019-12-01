@@ -931,10 +931,16 @@ public class FragmentCompose extends FragmentBase {
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
         ib.setEnabled(!busy);
-        ib.setImageResource(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)
-                ? R.drawable.baseline_lock_24 : R.drawable.baseline_lock_open_24);
-        ib.setImageTintList(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)
-                ? ColorStateList.valueOf(colorEncrypt) : null);
+        if (EntityMessage.PGP_SIGNONLY.equals(encrypt)) {
+            ib.setImageResource(R.drawable.baseline_gesture_24);
+            ib.setImageTintList(null);
+        } else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)) {
+            ib.setImageResource(R.drawable.baseline_lock_24);
+            ib.setImageTintList(ColorStateList.valueOf(colorEncrypt));
+        } else {
+            ib.setImageResource(R.drawable.baseline_lock_open_24);
+            ib.setImageTintList(null);
+        }
 
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
