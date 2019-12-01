@@ -1000,8 +1000,12 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuEncrypt() {
-        encrypt = (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)
-                ? EntityMessage.ENCRYPT_NONE : EntityMessage.PGP_SIGNENCRYPT);
+        if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
+            encrypt = EntityMessage.PGP_SIGNONLY;
+        else if (EntityMessage.PGP_SIGNONLY.equals(encrypt))
+            encrypt = EntityMessage.ENCRYPT_NONE;
+        else
+            encrypt = EntityMessage.PGP_SIGNENCRYPT;
         getActivity().invalidateOptionsMenu();
 
         Bundle args = new Bundle();
