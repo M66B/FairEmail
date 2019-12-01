@@ -1369,6 +1369,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
                                     return false;
 
+                                if (parentFragment == null)
+                                    return false;
+
                                 Bundle args = new Bundle();
                                 args.putParcelable("uri", uri);
                                 args.putString("title", null);
