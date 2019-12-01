@@ -791,12 +791,14 @@ class Core {
         Map<Message, EntityMessage> map = new HashMap<>();
         for (EntityMessage message : messages)
             try {
+                if (message.uid == null)
+                    throw new MessageRemovedException("move without uid");
                 Message imessage = ifolder.getMessageByUID(message.uid);
                 if (imessage == null)
-                    throw new MessageRemovedException();
+                    throw new MessageRemovedException("move without message");
                 map.put(imessage, message);
             } catch (MessageRemovedException ex) {
-                Log.w(ex);
+                Log.e(ex);
                 db.message().deleteMessage(message.id);
             }
 
