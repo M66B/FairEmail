@@ -1306,6 +1306,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
                 new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".backup");
+        Helper.openAdvanced(intent);
         return intent;
     }
 
@@ -1313,6 +1314,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
+        Helper.openAdvanced(intent);
         return intent;
     }
 

@@ -167,6 +167,7 @@ public class ActivityEML extends ActivityBase {
                                 create.setType(apart.attachment.getMimeType());
                                 if (!TextUtils.isEmpty(apart.attachment.name))
                                     create.putExtra(Intent.EXTRA_TITLE, apart.attachment.name);
+                                Helper.openAdvanced(create);
                                 if (create.resolveActivity(getPackageManager()) == null)
                                     ToastEx.makeText(ActivityEML.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
                                 else

@@ -293,6 +293,7 @@ public class FragmentBase extends Fragment {
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.setType(intent.getStringExtra("type"));
         create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
+        Helper.openAdvanced(create);
         if (create.resolveActivity(getContext().getPackageManager()) == null)
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else
@@ -302,7 +303,7 @@ public class FragmentBase extends Fragment {
     private void onStoreAttachments(Intent intent) {
         message = intent.getLongExtra("id", -1);
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        //tree.putExtra("android.content.extra.SHOW_ADVANCED", true);
+        Helper.openAdvanced(tree);
         if (tree.resolveActivity(getContext().getPackageManager()) == null)
             ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
         else

@@ -3883,6 +3883,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.setType("*/*");
         create.putExtra(Intent.EXTRA_TITLE, "email.eml");
+        Helper.openAdvanced(create);
         if (create.resolveActivity(getContext().getPackageManager()) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
         else

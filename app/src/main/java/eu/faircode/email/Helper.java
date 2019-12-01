@@ -736,6 +736,14 @@ public class Helper {
         return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();
     }
 
+    static void openAdvanced(Intent intent) {
+        // https://issuetracker.google.com/issues/72053350
+        intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
+        intent.putExtra("android.content.extra.FANCY", true);
+        intent.putExtra("android.content.extra.SHOW_FILESIZE", true);
+        intent.putExtra("android.provider.extra.SHOW_ADVANCED", true);
+    }
+
     // Cryptography
 
     static String sha256(String data) throws NoSuchAlgorithmException {

@@ -1129,6 +1129,7 @@ public class FragmentCompose extends FragmentBase {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
+        Helper.openAdvanced(intent);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
@@ -1141,6 +1142,7 @@ public class FragmentCompose extends FragmentBase {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        Helper.openAdvanced(intent);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null)
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
