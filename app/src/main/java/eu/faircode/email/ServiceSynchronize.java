@@ -247,7 +247,7 @@ public class ServiceSynchronize extends ServiceBase {
             }
         });
 
-        db.message().liveWidgetUnified().observe(this, new Observer<List<TupleMessageWidgetCount>>() {
+        db.message().liveWidgetUnified().observe(cowner, new Observer<List<TupleMessageWidgetCount>>() {
             private List<TupleMessageWidgetCount> last = null;
 
             @Override
