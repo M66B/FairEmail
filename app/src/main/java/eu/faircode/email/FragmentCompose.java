@@ -110,6 +110,7 @@ import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -133,6 +134,7 @@ import java.util.regex.Pattern;
 import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.MessageRemovedException;
+import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
 import javax.mail.Session;
@@ -141,7 +143,6 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.ParseException;
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -209,8 +210,6 @@ public class FragmentCompose extends FragmentBase {
     private String[] pgpUserIds;
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
-    private String pgpContent;
-    private String pgpContentType;
 
     static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     static final int REDUCED_IMAGE_QUALITY = 90; // percent
@@ -1537,32 +1536,35 @@ public class FragmentCompose extends FragmentBase {
                     if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
                         // Serialize content
                         imessage.saveChanges();
-                        Object content = imessage.getContent();
-                        if (content instanceof String) {
-                            pgpContent = (String) content;
-                            pgpContentType = imessage.getContentType();
+                        BodyPart bpContent = new MimeBodyPart() {
+                            @Override
+                            public void setContent(Object content, String type) throws MessagingException {
+                                super.setContent(content, type);
 
-                            // Build plain text part with headers
-                            BodyPart plainPart = new MimeBodyPart();
-                            plainPart.setContent(pgpContent, pgpContentType);
-                            Multipart plainMultiPart = new MimeMultipart();
-                            plainMultiPart.addBodyPart(plainPart);
-                            MimeMessage m = new MimeMessage(isession);
-                            m.setContent(plainMultiPart);
-                            m.saveChanges();
-
-                            try (OutputStream out = new FileOutputStream(input)) {
-                                plainPart.writeTo(out);
+                                // https://javaee.github.io/javamail/FAQ#howencode
+                                updateHeaders();
+                                if (content instanceof Multipart) {
+                                    try {
+                                        MessageHelper.overrideContentTransferEncoding((Multipart) content);
+                                    } catch (IOException ex) {
+                                        Log.e(ex);
+                                    }
+                                } else
+                                    setHeader("Content-Transfer-Encoding", "base64");
                             }
-                        } else if (content instanceof Multipart) {
-                            pgpContent = null;
-                            pgpContentType = ((MimeMultipart) content).getContentType();
+                        };
+                        bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
-                            try (OutputStream out = new FileOutputStream(input)) {
-                                ((MimeMultipart) content).writeTo(out);
-                            }
-                        } else
-                            throw new ParseException(content.getClass().getName());
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bpContent.writeTo(bos);
+
+                        String raw = new String(bos.toByteArray());
+                        raw.replaceAll(" +$", "") // trim trailing spaces
+                                .replace("\\r?\\n", "\\r\\n"); // normalize new lines
+
+                        try (OutputStream out = new FileOutputStream(input)) {
+                            out.write(raw.getBytes());
+                        }
                     } else {
                         // Serialize message
                         try (OutputStream out = new FileOutputStream(input)) {
@@ -1710,18 +1712,11 @@ public class FragmentCompose extends FragmentBase {
                                 EntityAttachment attachment = new EntityAttachment();
                                 attachment.message = id;
                                 attachment.sequence = db.attachment().getAttachmentSequence(id) + 1;
-                                attachment.name = "content.txt";
-                                attachment.type = pgpContentType;
+                                attachment.name = "content.asc";
+                                attachment.type = "text/plain";
                                 attachment.disposition = Part.INLINE;
                                 attachment.encryption = EntityAttachment.PGP_CONTENT;
                                 attachment.id = db.attachment().insertAttachment(attachment);
-
-                                // Restore plain text without headers
-                                ContentType ct = new ContentType(pgpContentType);
-                                if (!"multipart".equals(ct.getPrimaryType()))
-                                    try (OutputStream out = new FileOutputStream(input)) {
-                                        out.write(pgpContent.getBytes());
-                                    }
 
                                 File file = attachment.getFile(context);
                                 input.renameTo(file);

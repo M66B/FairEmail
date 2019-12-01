@@ -252,26 +252,10 @@ public class MessageHelper {
 
                 for (final EntityAttachment content : attachments)
                     if (EntityAttachment.PGP_CONTENT.equals(content.encryption)) {
-                        final ContentType ct = new ContentType(content.type);
-                        final ContentType cts = new ContentType(attachment.type);
-
-                        // Build content
-                        FileDataSource dsContent = new FileDataSource(content.getFile(context));
-                        dsContent.setFileTypeMap(new FileTypeMap() {
-                            @Override
-                            public String getContentType(File file) {
-                                return ct.toString();
-                            }
-
-                            @Override
-                            public String getContentType(String filename) {
-                                return ct.toString();
-                            }
-                        });
-                        BodyPart bpContent = new MimeBodyPart();
-                        bpContent.setDataHandler(new DataHandler(dsContent));
+                        BodyPart bpContent = new MimeBodyPart(new FileInputStream(content.getFile(context)));
 
                         // Build signature
+                        final ContentType cts = new ContentType(attachment.type);
                         BodyPart bpSignature = new MimeBodyPart();
                         bpSignature.setFileName(attachment.name);
                         FileDataSource dsSignature = new FileDataSource(attachment.getFile(context));
@@ -480,6 +464,18 @@ public class MessageHelper {
                 }
 
             imessage.setContent(mixedMultiPart);
+        }
+    }
+
+    static void overrideContentTransferEncoding(Multipart mp) throws MessagingException, IOException {
+        for (int i = 0; i < mp.getCount(); i++) {
+            Part part = mp.getBodyPart(i);
+            Object content = part.getContent();
+            if (content instanceof Multipart) {
+                part.setHeader("Content-Transfer-Encoding", "7bit");
+                overrideContentTransferEncoding((Multipart) content);
+            } else
+                part.setHeader("Content-Transfer-Encoding", "base64");
         }
     }
 
@@ -1295,7 +1291,7 @@ public class MessageHelper {
                     apart.attachment = new EntityAttachment();
                     apart.attachment.disposition = apart.disposition;
                     apart.attachment.name = apart.filename;
-                    apart.attachment.type = ct.getBaseType().toLowerCase(Locale.ROOT);
+                    apart.attachment.type = "text/plain";
                     apart.attachment.size = getSize();
                     apart.attachment.encryption = apart.encrypt;
 
