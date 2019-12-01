@@ -384,6 +384,7 @@
     <string name="title_primary_identity">Principal (identité par défaut)</string>
     <string name="title_leave_on_server">Laisser les messages sur le serveur</string>
     <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
+    <string name="title_use_date">Utiliser l\'heure d\'envoi dans l\'entête au lieu de l\'heure de réception sur le serveur</string>
     <string name="title_related_identity">Ajouter une identité liée</string>
     <string name="title_check">Vérifier</string>
     <string name="title_no_name">Nom manquant</string>
@@ -955,8 +956,8 @@
         <item>Grande</item>
     </string-array>
     <string-array name="encryptNames">
-        <item>Aucune</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>Aucun</item>
+        <item>Signer PGP uniquement</item>
+        <item>Signer &amp; chiffrer PGP</item>
     </string-array>
 </resources>

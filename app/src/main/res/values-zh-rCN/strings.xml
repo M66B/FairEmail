@@ -372,6 +372,7 @@
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_leave_on_server">把消息留在服务器上</string>
     <string name="title_keep_alive_interval">保持激活/轮询时间间隔(分钟)</string>
+    <string name="title_use_date">使用日期头发送时间而非服务器接收时间</string>
     <string name="title_related_identity">添加相关身份</string>
     <string name="title_check">检查</string>
     <string name="title_no_name">缺少名称</string>
@@ -943,7 +944,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
     </string-array>
     <string-array name="encryptNames">
         <item>无</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>仅PGP签名</item>
+        <item>PGP 签名+加密</item>
     </string-array>
 </resources>

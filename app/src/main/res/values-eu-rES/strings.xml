@@ -956,7 +956,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Bat ere ez</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>PGP sinadura soilik</item>
+        <item>PGP sinadura eta enkriptatzea</item>
     </string-array>
 </resources>

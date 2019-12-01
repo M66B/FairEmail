@@ -579,6 +579,7 @@
     <string name="title_send_via">Trimite prin</string>
     <string name="title_send_with_options">Trimite &#8230;</string>
     <string name="title_send_at">Trimite la &#8230;</string>
+    <string name="title_send_encryption">Criptare</string>
     <string name="title_send_priority">Prioritate</string>
     <string name="title_no_server">Nu există un server la \'%1$s\'</string>
     <string name="title_style_bold">Îngroșat</string>
@@ -615,11 +616,14 @@
     <string name="title_ask_send_via">Trimite mesajul către %1$s via %2$s?</string>
     <string name="title_queued">Expediere mesaj</string>
     <string name="title_queued_at">Mesajul va fi trimis în aproximativ %1$s</string>
+    <string name="title_sign">Semnează</string>
     <string name="title_encrypt">Criptare</string>
     <string name="title_decrypt">Decriptare</string>
     <string name="title_resync">Resincronizare</string>
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
+    <string name="title_not_encrypted">Mesajul nu este semnat sau criptat</string>
     <string name="title_reset_sign_key">Resetare cheie de semnare</string>
+    <string name="title_import_encrypt_key">Importă cheie de criptare</string>
     <string name="title_signature_none">Mesaj nesemnat</string>
     <string name="title_signature_valid">Semnătura mesaj validă</string>
     <string name="title_signature_unconfirmed">Semnătura mesajului este validă dar nu este confirmată</string>
@@ -738,6 +742,7 @@
     <string name="title_legend_draft">Are ciornă</string>
     <string name="title_legend_priority">Prioritate ridicată</string>
     <string name="title_legend_priority_low">Are prioritate redusă</string>
+    <string name="title_legend_signed">Este semnat</string>
     <string name="title_legend_encrypted">Este criptat</string>
     <string name="title_legend_auth">Autentificare eșuată</string>
     <string name="title_legend_snoozed">Este amânat</string>
@@ -958,5 +963,10 @@
         <item>Mică</item>
         <item>Medie</item>
         <item>Mare</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Fără</item>
+        <item>Doar semnare PGP</item>
+        <item>Semnare+criptare PGP</item>
     </string-array>
 </resources>

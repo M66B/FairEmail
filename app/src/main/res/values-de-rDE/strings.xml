@@ -954,7 +954,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     </string-array>
     <string-array name="encryptNames">
         <item>Keine Verschlüsselung</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>PGP nur unterschreiben</item>
+        <item>PGP unterschreiben + verschlüsseln</item>
     </string-array>
 </resources>

@@ -384,6 +384,7 @@
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
     <string name="title_leave_on_server">Berichten op server laten</string>
     <string name="title_keep_alive_interval">Keep-alive/periodieke controle interval (minuten)</string>
+    <string name="title_use_date">Gebruik datum header verzendtijd in plaats van server ontvangen tijd</string>
     <string name="title_related_identity">Voeg gerelateerde identiteit toe</string>
     <string name="title_check">Controleer</string>
     <string name="title_no_name">Naam ontbreekt</string>
@@ -597,7 +598,7 @@
     <string name="title_to_missing">Ontvanger ontbreekt</string>
     <string name="title_subject_reminder">Onderwerp is leeg</string>
     <string name="title_text_reminder">Bericht is leeg</string>
-    <string name="title_attachment_keywords">bijlage, bijlagen</string>
+    <string name="title_attachment_keywords">bijlage,bijlagen</string>
     <string name="title_attachment_reminder">Was u van plan een bijlage toe te voegen?</string>
     <string name="title_attachments_missing">Niet alle bijlagen zijn gedownload</string>
     <string name="title_send_dialog_hint">Dit dialoogvenster is nog steeds beschikbaar via het driepuntsoverloopmenu in de actiebalk</string>

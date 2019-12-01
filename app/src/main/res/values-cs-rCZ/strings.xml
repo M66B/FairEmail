@@ -977,7 +977,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Žádný</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>Pouze PGP podpis</item>
+        <item>PGP podpis+šifrovat</item>
     </string-array>
 </resources>

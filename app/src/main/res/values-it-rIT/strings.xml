@@ -383,6 +383,7 @@
     <string name="title_primary_identity">Principale (identità predefinita)</string>
     <string name="title_leave_on_server">Lascia i messaggi sul server</string>
     <string name="title_keep_alive_interval">Intervallo resta-attivo/sondaggio (minuti)</string>
+    <string name="title_use_date">Usa la data nell\'intestazione di invio al posto di quella del server di ricezione</string>
     <string name="title_related_identity">Aggiungi identità correlata</string>
     <string name="title_check">Controlla</string>
     <string name="title_no_name">Nome mancante</string>
@@ -955,7 +956,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Nulla</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>PGP solo firma</item>
+        <item>PGP firma e crittografia</item>
     </string-array>
 </resources>

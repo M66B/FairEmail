@@ -569,6 +569,7 @@
     <string name="title_send_via">Enviar vía</string>
     <string name="title_send_with_options">Enviar &#8230;</string>
     <string name="title_send_at">Enviar a &#8230;</string>
+    <string name="title_send_encryption">Cifrado</string>
     <string name="title_send_priority">Prioridad</string>
     <string name="title_no_server">No se encontró ningún servidor en \'%1$s\'</string>
     <string name="title_style_bold">Negrita</string>
@@ -605,11 +606,14 @@
     <string name="title_ask_send_via">¿Enviar mensaje a %1$s vía %2$s?</string>
     <string name="title_queued">Enviando mensaje</string>
     <string name="title_queued_at">El mensaje será enviado alrededor de %1$s</string>
+    <string name="title_sign">Firmar</string>
     <string name="title_encrypt">Cifrar</string>
     <string name="title_decrypt">Descifrar</string>
     <string name="title_resync">Resincronizar</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
+    <string name="title_not_encrypted">El mensaje no está firmado ni cifrado</string>
     <string name="title_reset_sign_key">Restablecer clave de firma</string>
+    <string name="title_import_encrypt_key">Importar clave de cifrado</string>
     <string name="title_signature_none">Mensaje no firmado</string>
     <string name="title_signature_valid">Firma de mensaje válida</string>
     <string name="title_signature_unconfirmed">Firma del mensaje válida pero no confirmada</string>
@@ -728,6 +732,7 @@
     <string name="title_legend_draft">Tiene borrador</string>
     <string name="title_legend_priority">Tiene prioridad alta</string>
     <string name="title_legend_priority_low">Tiene prioridad baja</string>
+    <string name="title_legend_signed">Está firmado</string>
     <string name="title_legend_encrypted">Está cifrado</string>
     <string name="title_legend_auth">Error de autenticación</string>
     <string name="title_legend_snoozed">Está postergado</string>
@@ -948,5 +953,10 @@
         <item>Pequeño</item>
         <item>Mediano</item>
         <item>Grande</item>
+    </string-array>
+    <string-array name="encryptNames">
+        <item>Ninguno</item>
+        <item>Sólo firmar con PGP</item>
+        <item>Firmar y cifrar con PGP</item>
     </string-array>
 </resources>

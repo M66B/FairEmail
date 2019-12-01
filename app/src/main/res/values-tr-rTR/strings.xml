@@ -384,6 +384,7 @@
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
     <string name="title_leave_on_server">Mesajları sunucuda bırak</string>
     <string name="title_keep_alive_interval">Canlı tutma/yoklama aralığı (dakika)</string>
+    <string name="title_use_date">Sunucu alma zamanı yerine tarih başlığındaki gönderme zamanını kullan</string>
     <string name="title_related_identity">İlgili kimliği ekle</string>
     <string name="title_check">Kontrol et</string>
     <string name="title_no_name">İsim eksik</string>
@@ -956,7 +957,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Hiçbiri</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>PGP sadece imzala</item>
+        <item>PGP imzala ve şifrele</item>
     </string-array>
 </resources>
