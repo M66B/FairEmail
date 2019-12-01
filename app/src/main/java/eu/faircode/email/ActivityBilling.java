@@ -384,7 +384,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                                     editor.putBoolean("pro", true);
                                     editor.putLong(getSkuPro() + ".cached", new Date().getTime());
                                 } else
-                                    acknowledgePurchase(purchase);
+                                    acknowledgePurchase(purchase, 0);
                             }
 
                         } else {
@@ -442,7 +442,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
         });
     }
 
-    private void acknowledgePurchase(final Purchase purchase) {
+    private void acknowledgePurchase(final Purchase purchase, int retry) {
         Log.i("IAB acknowledging purchase SKU=" + purchase.getSku());
         AcknowledgePurchaseParams params =
                 AcknowledgePurchaseParams.newBuilder()
@@ -462,8 +462,17 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                         listener.onPurchased(purchase.getSku());
 
                     WidgetUnified.update(ActivityBilling.this);
-                } else
-                    reportError(result, "IAB acknowledged SKU=" + purchase.getSku());
+                } else {
+                    if (retry < 3) {
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                acknowledgePurchase(purchase, retry + 1);
+                            }
+                        }, (retry + 1) * 10 * 1000L);
+                    } else
+                        reportError(result, "IAB acknowledged SKU=" + purchase.getSku());
+                }
             }
         });
     }
