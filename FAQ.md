@@ -581,13 +581,13 @@ The decrypted message text and decrypted attachments are stored. If you want to 
 Inline PGP in received messages is supported, but inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
-Signed only or encrypted only messages are not a good idea, please see here about why not:
+Signed-only or encrypted-only messages are not a good idea, please see here about why not:
 
 * [OpenPGP Considerations Part I](https://k9mail.github.io/2016/11/24/OpenPGP-Considerations-Part-I.html)
 * [OpenPGP Considerations Part II](https://k9mail.github.io/2017/01/30/OpenPGP-Considerations-Part-II.html)
 * [OpenPGP Considerations Part III Autocrypt](https://k9mail.github.io/2018/02/26/OpenPGP-Considerations-Part-III-Autocrypt.html)
 
-For signed-only messages, please see [here](https://forum.xda-developers.com/showpost.php?p=81061837&postcount=10771) about the practical problems.
+Signed-only messages are supported, encrypted-only messages are not supported.
 
 For S/MIME support, please see the [planned features](#user-content-planned-features).
 
