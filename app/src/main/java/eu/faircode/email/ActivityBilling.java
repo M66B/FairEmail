@@ -30,7 +30,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.Base64;
-import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -482,7 +481,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                 retry(60);
         }
 
-        Log.e(message);
+        EntityLog.log(this, message);
 
         for (IBillingListener listener : listeners)
             listener.onError(message);
