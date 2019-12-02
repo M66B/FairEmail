@@ -48,6 +48,8 @@ import android.os.Parcelable;
 import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
+import android.security.KeyChain;
+import android.security.KeyChainAliasCallback;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.LongSparseArray;
@@ -107,6 +109,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.util.FolderClosedIOException;
 
+import org.bouncycastle.cms.CMSEnvelopedData;
+import org.bouncycastle.cms.KeyTransRecipientInformation;
+import org.bouncycastle.cms.RecipientInformation;
+import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
+import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
@@ -123,6 +130,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.security.PrivateKey;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -130,6 +138,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -242,7 +251,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
 
     private static final int REQUEST_RAW = 1;
-    private static final int REQUEST_DECRYPT = 4;
+    private static final int REQUEST_OPENPGP = 4;
     static final int REQUEST_MESSAGE_DELETE = 5;
     private static final int REQUEST_MESSAGES_DELETE = 6;
     static final int REQUEST_MESSAGE_JUNK = 7;
@@ -3891,25 +3900,52 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onDecrypt(Intent intent) {
-        if (pgpService.isBound()) {
-            long id = intent.getLongExtra("id", -1);
-            boolean auto = intent.getBooleanExtra("auto", false);
+        long id = intent.getLongExtra("id", -1);
+        boolean auto = intent.getBooleanExtra("auto", false);
+        int type = intent.getIntExtra("type", EntityMessage.ENCRYPT_NONE);
 
-            Intent data = new Intent();
-            data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
-            data.putExtra(BuildConfig.APPLICATION_ID, id);
+        if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
+            final Bundle args = new Bundle();
+            args.putLong("id", id);
+            args.putInt("type", type);
 
-            onDecrypt(data, auto);
+            Handler handler = new Handler();
+            KeyChain.choosePrivateKeyAlias(getActivity(), new KeyChainAliasCallback() {
+                        @Override
+                        public void alias(@Nullable String alias) {
+                            Log.i("Selected key alias=" + alias);
+
+                            args.putString("alias", alias);
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        onSmime(args);
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    null, null, null, -1, null);
         } else {
-            Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
-            if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
-                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(Helper.getIntentOpenKeychain());
-                    }
-                });
-            snackbar.show();
+            if (pgpService.isBound()) {
+                Intent data = new Intent();
+                data.setAction(OpenPgpApi.ACTION_DECRYPT_VERIFY);
+                data.putExtra(BuildConfig.APPLICATION_ID, id);
+                onPgp(data, auto);
+            } else {
+                Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_LONG);
+                if (Helper.getIntentOpenKeychain().resolveActivity(getContext().getPackageManager()) != null)
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(Helper.getIntentOpenKeychain());
+                        }
+                    });
+                snackbar.show();
+            }
         }
     }
 
@@ -3923,9 +3959,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (resultCode == RESULT_OK && data != null)
                         onSaveRaw(data);
                     break;
-                case REQUEST_DECRYPT:
+                case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
-                        onDecrypt(data, false);
+                        onPgp(data, false);
                     break;
                 case REQUEST_MESSAGE_DELETE:
                     if (resultCode == RESULT_OK && data != null)
@@ -4091,7 +4127,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         }.execute(this, args, "raw:save");
     }
 
-    private void onDecrypt(Intent data, boolean auto) {
+    private void onPgp(Intent data, boolean auto) {
         Bundle args = new Bundle();
         args.putParcelable("data", data);
         args.putBoolean("auto", auto);
@@ -4285,7 +4321,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         Log.i("Executing pi=" + pi);
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
-                                REQUEST_DECRYPT,
+                                REQUEST_OPENPGP,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
                         Helper.unexpectedError(getParentFragmentManager(), ex);
@@ -4300,7 +4336,69 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 } else
                     Helper.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "decrypt");
+        }.execute(this, args, "decrypt:pgp");
+    }
+
+    private void onSmime(Bundle args) {
+        new SimpleTask() {
+            @Override
+            protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                int type = args.getInt("type");
+                String alias = args.getString("alias");
+
+                if (alias == null)
+                    throw new IllegalArgumentException("Key alias missing");
+
+                PrivateKey pk = KeyChain.getPrivateKey(context, alias);
+                if (pk == null)
+                    throw new IllegalArgumentException("Private key missing");
+
+                DB db = DB.getInstance(context);
+
+                File input = null;
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : attachments)
+                    if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption)) {
+                        input = attachment.getFile(context);
+                        break;
+                    }
+                if (input == null)
+                    throw new IllegalArgumentException("Encrypted message missing");
+
+                FileInputStream fis = new FileInputStream(input);
+                CMSEnvelopedData envelopedData = new CMSEnvelopedData(fis);
+
+                Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients();
+                KeyTransRecipientInformation recipientInfo = (KeyTransRecipientInformation) recipients.iterator().next();
+                JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(pk);
+
+                byte[] result = recipientInfo.getContent(recipient);
+                File output = EntityMessage.getFile(context, id);
+                try (OutputStream os = new FileOutputStream(output)) {
+                    os.write("<pre>\r\n".getBytes());
+                    os.write(result);
+                    os.write("</pre>\r\n".getBytes());
+                }
+
+                db.message().setMessageStored(id, new Date().getTime());
+
+                return true;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Object data) {
+                int type = args.getInt("type");
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException)
+                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                else
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "decrypt:s/mime");
     }
 
     private void onDelete(long id) {

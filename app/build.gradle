@@ -332,6 +332,6 @@ dependencies {
     // https://github.com/AzureAD/microsoft-authentication-library-for-android
     implementation "com.microsoft.identity.client:msal:$msal_version"
 
-    // https://mvnrepository.com/artifact/org.bouncycastle/bcmail-jdk15on
-    //implementation "org.bouncycastle:bcmail-jdk15on:1.64"
+    // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
+    implementation "org.bouncycastle:bcpkix-jdk15on:1.64"
 }
