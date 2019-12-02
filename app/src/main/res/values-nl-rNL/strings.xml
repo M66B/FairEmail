@@ -620,6 +620,7 @@
     <string name="title_signature_valid">Handtekening bericht geldig</string>
     <string name="title_signature_unconfirmed">Handtekening bericht geldig maar niet bevestigd</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
+    <string name="title_signature_signed_by">Handtekening bericht geldig, ondertekend door: %1$s</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_server">Zoek op server</string>
     <string name="title_search_in">Zoeken in</string>
