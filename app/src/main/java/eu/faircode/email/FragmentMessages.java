@@ -4895,15 +4895,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onPrint(Bundle args) {
-        Bundle pargs = new Bundle();
-        pargs.putLong("id", args.getLong("id"));
-
         new SimpleTask<String[]>() {
             private WebView printWebView = null;
 
             @Override
             protected String[] onExecute(Context context, Bundle args) throws IOException {
                 long id = args.getLong("id");
+                boolean headers = args.getBoolean("headers");
 
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
@@ -4969,6 +4967,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     p.appendChild(span);
                 }
 
+                if (headers && message.headers != null) {
+                    p.appendElement("hr");
+                    Element pre = document.createElement("pre");
+                    pre.text(message.headers);
+                    p.appendChild(pre);
+                }
+
                 p.appendElement("hr").appendElement("br");
 
                 document.prependChild(p);
@@ -5024,7 +5029,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             protected void onException(Bundle args, Throwable ex) {
                 Helper.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, pargs, "message:print");
+        }.execute(this, args, "message:print");
     }
 
     private void onEmptyFolder(Bundle args) {

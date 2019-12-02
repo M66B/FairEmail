@@ -3476,23 +3476,23 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuPrint(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putBoolean("headers", properties.getValue("headers", message.id));
+
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             if (prefs.getBoolean("print_html_confirmed", false)) {
-                Bundle args = new Bundle();
-                args.putLong("id", message.id);
                 Intent data = new Intent();
                 data.putExtra("args", args);
                 parentFragment.onActivityResult(FragmentMessages.REQUEST_PRINT, RESULT_OK, data);
                 return;
             }
 
-            Bundle aargs = new Bundle();
-            aargs.putString("question", context.getString(R.string.title_ask_show_html));
-            aargs.putString("notagain", "print_html_confirmed");
-            aargs.putLong("id", message.id);
+            args.putString("question", context.getString(R.string.title_ask_show_html));
+            args.putString("notagain", "print_html_confirmed");
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
-            ask.setArguments(aargs);
+            ask.setArguments(args);
             ask.setTargetFragment(parentFragment, FragmentMessages.REQUEST_PRINT);
             ask.show(parentFragment.getParentFragmentManager(), "message:print");
         }
