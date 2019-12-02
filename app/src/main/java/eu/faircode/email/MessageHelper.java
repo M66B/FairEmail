@@ -379,11 +379,6 @@ public class MessageHelper {
         BodyPart plainPart = new MimeBodyPart();
         plainPart.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
 
-        if (message.plain_only != null && message.plain_only) {
-            imessage.setContent(plainContent, plainPart.getContentType());
-            return;
-        }
-
         BodyPart htmlPart = new MimeBodyPart();
         htmlPart.setContent(htmlContent, "text/html; charset=" + Charset.defaultCharset().name());
 
@@ -401,13 +396,21 @@ public class MessageHelper {
             }
 
         if (availableAttachments == 0)
-            imessage.setContent(altMultiPart);
+            if (message.plain_only != null && message.plain_only)
+                imessage.setContent(plainContent, plainPart.getContentType());
+            else
+                imessage.setContent(altMultiPart);
         else {
             Multipart mixedMultiPart = new MimeMultipart("mixed");
             Multipart relatedMultiPart = new MimeMultipart("related");
 
-            BodyPart bodyPart = new MimeBodyPart();
-            bodyPart.setContent(altMultiPart);
+            BodyPart bodyPart;
+            if (message.plain_only != null && message.plain_only)
+                bodyPart = plainPart;
+            else {
+                bodyPart = new MimeBodyPart();
+                bodyPart.setContent(altMultiPart);
+            }
 
             if (hasInline) {
                 relatedMultiPart.addBodyPart(bodyPart);
