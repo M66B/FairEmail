@@ -218,5 +218,15 @@
             android:text="@string/title_import_encrypt_key"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout" />
+
+        <TextView
+            android:id="@+id/tvKeySize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_aes_key_size"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

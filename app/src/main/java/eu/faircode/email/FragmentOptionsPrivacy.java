@@ -55,6 +55,7 @@ import androidx.preference.PreferenceManager;
 
 import org.openintents.openpgp.util.OpenPgpApi;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +71,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnPin;
     private Spinner spBiometricsTimeout;
     private Button btnImportKey;
+    private TextView tvKeySize;
 
     private List<String> openPgpProvider = new ArrayList<>();
 
@@ -101,6 +103,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnPin = view.findViewById(R.id.btnPin);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         btnImportKey = view.findViewById(R.id.btnImportKey);
+        tvKeySize = view.findViewById(R.id.tvKeySize);
 
         Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
         List<ResolveInfo> ris = getContext().getPackageManager().queryIntentServices(intent, 0);
@@ -231,6 +234,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 startActivity(importKey);
             }
         });
+
+        try {
+            int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
+            tvKeySize.setText(getString(R.string.title_aes_key_size, maxKeySize));
+        } catch (NoSuchAlgorithmException ex) {
+            tvKeySize.setText(Helper.formatThrowable(ex));
+        }
+        tvKeySize.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
