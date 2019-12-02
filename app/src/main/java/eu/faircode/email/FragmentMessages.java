@@ -24,15 +24,12 @@ import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.AssetFileDescriptor;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -113,10 +110,12 @@ import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.util.FolderClosedIOException;
 
 import org.bouncycastle.cert.X509CertificateHolder;
+import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cms.CMSEnvelopedData;
 import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
+import org.bouncycastle.cms.CMSVerifierCertificateNotValidException;
 import org.bouncycastle.cms.KeyTransRecipientInformation;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.SignerInformation;
@@ -124,9 +123,8 @@ import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.io.pem.PemObject;
-import org.bouncycastle.util.io.pem.PemReader;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
@@ -134,7 +132,6 @@ import org.openintents.openpgp.OpenPgpSignatureResult;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
-import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -142,12 +139,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -286,7 +280,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private static final int REQUEST_SEARCH = 18;
     private static final int REQUEST_ACCOUNT = 19;
     private static final int REQUEST_EMPTY_FOLDER = 20;
-    private static final int REQUEST_CERTIFICATE = 21;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -3923,39 +3916,31 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean auto = intent.getBooleanExtra("auto", false);
         int type = intent.getIntExtra("type", EntityMessage.ENCRYPT_NONE);
 
-        if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-            this.message = id;
+        final Bundle args = new Bundle();
+        args.putLong("id", id);
+        args.putInt("type", type);
 
-            Intent open = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            open.addCategory(Intent.CATEGORY_OPENABLE);
-            open.setType("*/*");
-            Helper.openAdvanced(open);
-            PackageManager pm = getContext().getPackageManager();
-            if (open.resolveActivity(pm) == null)
-                Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG).show();
-            else
-                startActivityForResult(Helper.getChooser(getContext(), open), REQUEST_CERTIFICATE);
-        } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
-            final Bundle args = new Bundle();
-            args.putLong("id", id);
-            args.putInt("type", type);
-
+        if (EntityMessage.SMIME_SIGNONLY.equals(type))
+            onSmime(args);
+        else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
             Handler handler = new Handler();
             KeyChain.choosePrivateKeyAlias(getActivity(), new KeyChainAliasCallback() {
                         @Override
                         public void alias(@Nullable String alias) {
                             Log.i("Selected key alias=" + alias);
-                            args.putString("alias", alias);
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        onSmime(args);
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
+                            if (alias != null) {
+                                args.putString("alias", alias);
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            onSmime(args);
+                                        } catch (Throwable ex) {
+                                            Log.e(ex);
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
                         }
                     },
                     null, null, null, -1, null);
@@ -4076,14 +4061,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 case REQUEST_EMPTY_FOLDER:
                     if (resultCode == RESULT_OK)
                         onEmptyFolder(data.getBundleExtra("args"));
-                    break;
-                case REQUEST_CERTIFICATE:
-                    Bundle args = new Bundle();
-                    args.putLong("id", message);
-                    args.putInt("type", EntityMessage.SMIME_SIGNONLY);
-                    if (resultCode == RESULT_OK && data != null)
-                        args.putParcelable("uri", data.getData());
-                    onSmime(args);
                     break;
             }
         } catch (Throwable ex) {
@@ -4382,36 +4359,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSmime(Bundle args) {
-        new SimpleTask<Boolean>() {
+        new SimpleTask<String>() {
             @Override
-            protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+            protected String onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 int type = args.getInt("type");
 
                 DB db = DB.getInstance(context);
 
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-                    PublicKey pubkey = null;
-                    if (args.containsKey("uri")) {
-                        Uri uri = args.getParcelable("uri");
-
-                        // Read certificate
-                        PemObject pem;
-                        ContentResolver resolver = context.getContentResolver();
-                        AssetFileDescriptor descriptor = resolver.openTypedAssetFileDescriptor(uri, "*/*", null);
-                        try (InputStream is = new BufferedInputStream(descriptor.createInputStream())) {
-                            pem = new PemReader(new InputStreamReader(is)).readPemObject();
-                        }
-                        if (pem == null)
-                            throw new IllegalArgumentException("Invalid certificate");
-
-                        // Get public key
-                        CertificateFactory factory = CertificateFactory.getInstance("X.509");
-                        ByteArrayInputStream in = new ByteArrayInputStream(pem.getContent());
-                        X509Certificate result = (X509Certificate) factory.generateCertificate(in);
-                        pubkey = result.getPublicKey();
-                    }
-
                     // Get content/signature
                     File content = null;
                     File signature = null;
@@ -4441,20 +4397,20 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     Store store = signedData.getCertificates();
                     SignerInformationStore signerInfos = signedData.getSignerInfos();
                     for (SignerInformation signer : signerInfos.getSigners())
-                        for (Object cert : store.getMatches(signer.getSID())) {
-                            X509CertificateHolder certHolder = (X509CertificateHolder) cert;
-                            if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(certHolder))) {
-                                // Check public key
-                                if (certHolder.isValidOn(new Date()) &&
-                                        pubkey != null &&
-                                        signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(pubkey)))
-                                    return true;
-                                else
-                                    return null;
+                        for (Object match : store.getMatches(signer.getSID())) {
+                            X509CertificateHolder certHolder = (X509CertificateHolder) match;
+                            X509Certificate cert = new JcaX509CertificateConverter()
+                                    .setProvider(new BouncyCastleProvider())
+                                    .getCertificate(certHolder);
+                            try {
+                                if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert)))
+                                    return cert.getSubjectDN().getName();
+                            } catch (CMSVerifierCertificateNotValidException ex) {
+                                Log.w(ex);
                             }
                         }
 
-                    return false;
+                    return null;
                 } else {
                     String alias = args.getString("alias");
                     if (alias == null)
@@ -4533,15 +4489,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             @Override
-            protected void onExecuted(Bundle args, Boolean result) {
+            protected void onExecuted(Bundle args, String result) {
                 int type = args.getInt("type");
                 if (EntityMessage.SMIME_SIGNONLY.equals(type))
                     if (result == null)
-                        Snackbar.make(view, R.string.title_signature_unconfirmed, Snackbar.LENGTH_LONG).show();
-                    else if (result)
-                        Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
-                    else
                         Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
+                    else
+                        Snackbar.make(view, getString(R.string.title_signature_signed_by, result), Snackbar.LENGTH_LONG).show();
             }
 
             @Override

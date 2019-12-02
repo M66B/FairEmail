@@ -705,6 +705,7 @@
     <string name="title_signature_valid">Message signature valid</string>
     <string name="title_signature_unconfirmed">Message signature valid but not confirmed</string>
     <string name="title_signature_invalid">Message signature invalid</string>
+    <string name="title_signature_signed_by">Message signature valid, signed by: %1$s</string>
 
     <string name="title_search">Search</string>
     <string name="title_search_server">Search on server</string>
