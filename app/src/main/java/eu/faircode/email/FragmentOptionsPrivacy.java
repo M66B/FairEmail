@@ -227,7 +227,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         final Intent importKey = KeyChain.createInstallIntent();
         btnImportKey.setEnabled(importKey.resolveActivity(getContext().getPackageManager()) != null);
-        btnImportKey.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         btnImportKey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,7 +240,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         } catch (NoSuchAlgorithmException ex) {
             tvKeySize.setText(Helper.formatThrowable(ex));
         }
-        tvKeySize.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
