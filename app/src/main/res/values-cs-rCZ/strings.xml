@@ -309,6 +309,8 @@
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
+    <string name="title_advanced_sign_default">Podepsat jako výchozí</string>
+    <string name="title_advanced_encrypt_default">Šifrovat jako výchozí</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
@@ -373,7 +375,6 @@
     <string name="title_advanced_sender">Umožnit úpravu adresy odesílatele</string>
     <string name="title_advanced_sender_regex">Regulární výraz, který bude odpovídat upraveným adresám</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
-    <string name="title_identity_encrypt">Šifrovat jako výchozí</string>
     <string name="title_identity_receipt">Požadovat potvrzení doručení/přečtení jako výchozí</string>
     <string name="title_identity_use_ip_hint">V případech \"neplatný pozdrav\", \"nutná platná adresa\" či podobné chyby zkuste změnit toto nastavení</string>
     <string name="title_optional">Nepovinné</string>
@@ -406,6 +407,7 @@
     <string name="title_primary_identity">Hlavní (výchozí identita)</string>
     <string name="title_leave_on_server">Ponechat zprávy na serveru</string>
     <string name="title_keep_alive_interval">Interval udržování spojení/dotazování (minuty)</string>
+    <string name="title_use_date">Použít datum hlavičky čas odeslání namísto čas přijetí serverem</string>
     <string name="title_related_identity">Přidat související identitu</string>
     <string name="title_check">Ověřit</string>
     <string name="title_no_name">Chybí jméno</string>

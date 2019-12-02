@@ -309,6 +309,8 @@
     <string name="title_advanced_tracking">Автоматически распознавать и отключать отслеживающие изображения</string>
     <string name="title_advanced_display_hidden">Показывать текст скрытых сообщений</string>
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
+    <string name="title_advanced_sign_default">Подписать по умолчанию</string>
+    <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
     <string name="title_advanced_secure">Скрыть с экрана недавних приложений и запретить создание снимков экрана</string>
     <string name="title_advanced_biometrics_timeout">Таймаут биометрической аутентификации</string>
@@ -373,7 +375,6 @@
     <string name="title_advanced_sender">Разрешить редактирование адреса отправителя</string>
     <string name="title_advanced_sender_regex">Регулярное выражение для сопоставления отредактированных адресов</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
-    <string name="title_identity_encrypt">Шифровать по умолчанию</string>
     <string name="title_identity_receipt">Запрашивать уведомление о доставке/прочтении по умолчанию</string>
     <string name="title_identity_use_ip_hint">В случае ошибки \'invalid greeting\', \'requires valid address\' или аналогичной, попробуйте изменить этот параметр</string>
     <string name="title_optional">Необязательно</string>
@@ -406,6 +407,7 @@
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
     <string name="title_leave_on_server">Оставлять сообщения на сервере</string>
     <string name="title_keep_alive_interval">Интервал поддержания активности/опроса (минуты)</string>
+    <string name="title_use_date">Использовать время отправки вместо времени получения сервером</string>
     <string name="title_related_identity">Добавить связанный идентификатор</string>
     <string name="title_check">Проверить</string>
     <string name="title_no_name">Отсутствует имя</string>
@@ -978,7 +980,7 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Ничего</item>
-        <item>PGP sign-only</item>
-        <item>PGP sign+encrypt</item>
+        <item>Только подпись PGP</item>
+        <item>Подпись+шифрование PGP</item>
     </string-array>
 </resources>

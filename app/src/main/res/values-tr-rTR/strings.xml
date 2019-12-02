@@ -287,6 +287,8 @@
     <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_display_hidden">Gizli mesaj metinlerini göster</string>
     <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
+    <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
+    <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
     <string name="title_advanced_secure">Son kullanılan uygulamalar ekranından gizle ve ekran görüntüsü alınmasını engelle</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
@@ -351,7 +353,6 @@
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_sender_regex">Düzenlenen adreslerle eşleşecek düzenli ifade (regex)</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
-    <string name="title_identity_encrypt">Öntanımlı olarak şifrele</string>
     <string name="title_identity_receipt">Varsayılan olarak iletildi/okundu bilgisi iste</string>
     <string name="title_identity_use_ip_hint">\'Geçersiz selamlaşma\', \'geçerli adres gerekir\' veya benzer bir hata olması durumunda, bu ayarı değiştirmeyi deneyin</string>
     <string name="title_optional">İsteğe bağlı</string>

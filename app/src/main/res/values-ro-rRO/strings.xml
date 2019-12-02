@@ -297,6 +297,8 @@
     <string name="title_advanced_tracking">Detectează și dezactivează în mod automat imaginile folosite la urmărire</string>
     <string name="title_advanced_display_hidden">Arată textul ascuns din mesaj</string>
     <string name="title_advanced_openpgp">Furnizor OpenPGP</string>
+    <string name="title_advanced_sign_default">Semnare în mod implicit</string>
+    <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
@@ -361,7 +363,6 @@
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_regex">Regex pentru găsirea adresei editate</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
-    <string name="title_identity_encrypt">Criptare în mod implicit</string>
     <string name="title_identity_receipt">Solicită implicit confirmare la livrare/citire</string>
     <string name="title_identity_use_ip_hint">În cazul în care apare erori de tipul \'invalid greeting\', \'requires valid address\' sau similare, încercați să schimbați această setare</string>
     <string name="title_optional">Opțional</string>
@@ -394,6 +395,7 @@
     <string name="title_primary_identity">Primară (identitatea implicită)</string>
     <string name="title_leave_on_server">Păstrează mesajele pe server</string>
     <string name="title_keep_alive_interval">Interval menținere conexiune/verificare periodică (minute)</string>
+    <string name="title_use_date">Folosește data de trimitere din antet în loc de data de recepție pe server</string>
     <string name="title_related_identity">Adaugă identitate conexă</string>
     <string name="title_check">Verificare</string>
     <string name="title_no_name">Lipsește numele</string>

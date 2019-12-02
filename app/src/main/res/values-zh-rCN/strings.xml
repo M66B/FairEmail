@@ -275,6 +275,8 @@
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
+    <string name="title_advanced_sign_default">默认签名</string>
+    <string name="title_advanced_encrypt_default">默认加密</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
@@ -339,7 +341,6 @@
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_regex">正则匹配编辑的地址</string>
     <string name="title_identity_reply_to">回复给该地址</string>
-    <string name="title_identity_encrypt">默认加密</string>
     <string name="title_identity_receipt">默认请求送达／已读回执</string>
     <string name="title_identity_use_ip_hint">如果遇到“无效问候”，“需要有效的地址”或类似错误，请尝试更改此设置</string>
     <string name="title_optional">可选</string>

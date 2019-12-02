@@ -313,7 +313,6 @@
     <string name="title_identity_email">Din e-postadress</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_identity_reply_to">Svara till adress</string>
-    <string name="title_identity_encrypt">Kryptera som standard</string>
     <string name="title_identity_use_ip_hint">Vid \"invalid greeting\", \"requires valid address\" eller ett liknande fel, försök ändra den här inställningen</string>
     <string name="title_optional">Valfritt</string>
     <string name="title_recommended">Rekommenderat</string>

@@ -287,6 +287,8 @@
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
     <string name="title_advanced_openpgp">Proveedor OpenPGP</string>
+    <string name="title_advanced_sign_default">Firmar por defecto</string>
+    <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
     <string name="title_advanced_auto_decrypt">Descifrar automáticamente los mensajes</string>
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
@@ -351,7 +353,6 @@
     <string name="title_advanced_sender">Permitir editar dirección del remitente</string>
     <string name="title_advanced_sender_regex">Expresión regular que coincida con las direcciones editadas</string>
     <string name="title_identity_reply_to">Responder a la dirección</string>
-    <string name="title_identity_encrypt">Encriptar por defecto</string>
     <string name="title_identity_receipt">Solicitar recibo de entrega/lectura por defecto</string>
     <string name="title_identity_use_ip_hint">En caso de \'saludo inválido\', \'requiere dirección válida\' o un error similar, intente cambiar esta configuración</string>
     <string name="title_optional">Opcional</string>
@@ -384,6 +385,7 @@
     <string name="title_primary_identity">Primaria (identidad predeterminada)</string>
     <string name="title_leave_on_server">Dejar mensajes en el servidor</string>
     <string name="title_keep_alive_interval">Intervalo de comprobación (minutos)</string>
+    <string name="title_use_date">Usar fecha y hora de envío del encabezado en lugar de la hora de recibido del servidor</string>
     <string name="title_related_identity">Añadir identidad relacionada</string>
     <string name="title_check">Verificar</string>
     <string name="title_no_name">Falta nombre</string>

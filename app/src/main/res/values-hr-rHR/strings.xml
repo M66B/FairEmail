@@ -361,7 +361,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljatelja</string>
     <string name="title_advanced_sender_regex">Regex za svrstavanje uređenih adresa</string>
     <string name="title_identity_reply_to">Odgovor na adresu</string>
-    <string name="title_identity_encrypt">Zadano šifriranje</string>
     <string name="title_identity_receipt">Zatražite potvrdu isporuke/čitanja standardno</string>
     <string name="title_identity_use_ip_hint">U slučaju \'nevažećeg pozdravljanja\', \'zahtjeva valjanu adresu\' ili slične pogreške pokušajte promijeniti ovu postavku</string>
     <string name="title_optional">Opcijonalno</string>

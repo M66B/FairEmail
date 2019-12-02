@@ -287,9 +287,11 @@
     <string name="title_advanced_tracking">Automatisch herkennen en uitschakelen van tracking-afbeeldingen</string>
     <string name="title_advanced_display_hidden">Verborgen berichtteksten weergeven</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
+    <string name="title_advanced_sign_default">Standaard ondertekenen</string>
+    <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
     <string name="title_advanced_auto_decrypt">Berichten automatisch ontsleutelen</string>
     <string name="title_advanced_secure">Verbergen van recente apps scherm en voorkomen dat screenshots worden gemaakt</string>
-    <string name="title_advanced_biometrics_timeout">Biometrische verificatie verlopen na</string>
+    <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
@@ -351,7 +353,6 @@
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_sender_regex">Regex om bewerkte adressen te matchen</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
-    <string name="title_identity_encrypt">Standaard versleutelen</string>
     <string name="title_identity_receipt">Standaard ontvangst/leesbevestiging vragen</string>
     <string name="title_identity_use_ip_hint">In geval van \'invalid greeting\', \'requires valid address\' of een soortgelijke fout, probeer deze instelling te wijzigen</string>
     <string name="title_optional">Optioneel</string>

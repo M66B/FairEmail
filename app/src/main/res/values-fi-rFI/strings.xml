@@ -287,6 +287,8 @@
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
+    <string name="title_advanced_sign_default">Allekirjoita oletusarvoisesti</string>
+    <string name="title_advanced_encrypt_default">Salaa oletusarvoisesti</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
@@ -351,7 +353,6 @@
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_advanced_sender_regex">Regex muokattavien osoitteiden täsmäämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
-    <string name="title_identity_encrypt">Salaa oletusarvoisesti</string>
     <string name="title_identity_receipt">Pyydä toimitus-/lukukuittaus oletuksena</string>
     <string name="title_identity_use_ip_hint">Virheilmoituksen ollessa \'invalid greeting\', \'requires valid address\' tai muu samankaltainen yritä muuttaa tätä asetusta</string>
     <string name="title_optional">Valinnainen</string>
@@ -384,6 +385,7 @@
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
     <string name="title_leave_on_server">Jätä viestit palvelimelle</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
+    <string name="title_use_date">Käytä päivämäärätunnisteen lähetysaikaa palvelimen vastaanottoajan sijaan</string>
     <string name="title_related_identity">Lisää liittyvä identiteetti</string>
     <string name="title_check">Tarkista</string>
     <string name="title_no_name">Nimi puuttuu</string>
@@ -957,6 +959,6 @@
     <string-array name="encryptNames">
         <item>Ei mitään</item>
         <item>PGP vain allekirjoita</item>
-        <item>PGP sign+encrypt</item>
+        <item>PGP allekirjoita+salaa</item>
     </string-array>
 </resources>

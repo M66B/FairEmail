@@ -287,6 +287,8 @@
     <string name="title_advanced_tracking">Автоматично разпознаване и деактивиране на проследяващи изображения</string>
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>
     <string name="title_advanced_openpgp">OpenPGP доставчик</string>
+    <string name="title_advanced_sign_default">Подписване по подразбиране</string>
+    <string name="title_advanced_encrypt_default">Криптиране по подразбиране</string>
     <string name="title_advanced_auto_decrypt">Автоматично декриптиране на съобщение</string>
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
@@ -351,7 +353,6 @@
     <string name="title_advanced_sender">Разрешаване редактиране на адреса на подателя</string>
     <string name="title_advanced_sender_regex">Стринга да съответства на редактираните адреси</string>
     <string name="title_identity_reply_to">Отговори на адрес</string>
-    <string name="title_identity_encrypt">Криптиране по подразбиране</string>
     <string name="title_identity_receipt">Заявка за доставка/четене по подразбиране</string>
     <string name="title_identity_use_ip_hint">В случай на „невалиден поздрав“, „заявка за валиден адрес“ или подобна грешка, променете тази настройка</string>
     <string name="title_optional">По избор</string>
@@ -384,6 +385,7 @@
     <string name="title_primary_identity">Основна (по подразбиране идентичност)</string>
     <string name="title_leave_on_server">Запази съобщенията на сървъра</string>
     <string name="title_keep_alive_interval">Активен/poll интервал (минути)</string>
+    <string name="title_use_date">Използвай времето на изпращане в заглавката вместо полученото от сървъра време</string>
     <string name="title_related_identity">Добавяне на свързана идентичност</string>
     <string name="title_check">Проверка</string>
     <string name="title_no_name">Липсва име</string>

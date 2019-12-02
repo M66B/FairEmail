@@ -286,6 +286,8 @@
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
+    <string name="title_advanced_sign_default">Signér som standard</string>
+    <string name="title_advanced_encrypt_default">Kryptér som standard</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
     <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
@@ -350,7 +352,6 @@
     <string name="title_advanced_sender">Tillad redigering af afsenderadresse</string>
     <string name="title_advanced_sender_regex">Regex, der matcher redigerede adresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
-    <string name="title_identity_encrypt">Kryptér som standard</string>
     <string name="title_identity_receipt">Bed automatisk om leverings/læstkvittering som standard</string>
     <string name="title_identity_use_ip_hint">I tilfælde af \'ugyldig hilsen\', \'kræver gyldig adresse\' eller lignende fejl, prøv da at ændre denne indstilling</string>
     <string name="title_optional">Valgfrit</string>
@@ -383,6 +384,7 @@
     <string name="title_primary_identity">Primær (standardidentitet)</string>
     <string name="title_leave_on_server">Lad beskeder forblive på server</string>
     <string name="title_keep_alive_interval">Hold i live/hentningsinterval (minutter)</string>
+    <string name="title_use_date">Benyt datooverskriftadsendelsestid i stedet for servermodtagelsestid</string>
     <string name="title_related_identity">Tilføj relateret identitet</string>
     <string name="title_check">Tjek</string>
     <string name="title_no_name">Navn mangler</string>

@@ -287,6 +287,8 @@
     <string name="title_advanced_tracking">Reconnaissance automatique et désactivation des images de suivi</string>
     <string name="title_advanced_display_hidden">Afficher les textes de message cachés</string>
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
+    <string name="title_advanced_sign_default">Signer par défaut</string>
+    <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
     <string name="title_advanced_secure">Cacher dans la liste des applications récentes et empêcher la prise de captures d\'écran</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
@@ -351,7 +353,6 @@
     <string name="title_advanced_sender">Autoriser la modification de l\'adresse de l\'expéditeur</string>
     <string name="title_advanced_sender_regex">Regex pour correspondre aux adresses modifiées</string>
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
-    <string name="title_identity_encrypt">Chiffrer par défaut</string>
     <string name="title_identity_receipt">Demander un accusé de réception/lecture par défaut</string>
     <string name="title_identity_use_ip_hint">En cas de \"connexion invalide\", \"nécessite une adresse valide\" ou une erreur similaire, essayez de modifier ce paramètre</string>
     <string name="title_optional">Facultatif</string>

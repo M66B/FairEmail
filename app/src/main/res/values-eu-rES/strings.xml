@@ -287,6 +287,8 @@
     <string name="title_advanced_tracking">Antzeman eta desgaitu jarraipen irudiak automatikoki</string>
     <string name="title_advanced_display_hidden">Erakutsi ezkutatutako mezuen testuak</string>
     <string name="title_advanced_openpgp">OpenPGP hornitzailea</string>
+    <string name="title_advanced_sign_default">Besterik ezean sinatu</string>
+    <string name="title_advanced_encrypt_default">Besterik ezean zifratu</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
     <string name="title_advanced_secure">Ezkutatu erabilitako azken aplikazioen pantailatik eta saihestu pantaila-argazkia egitea</string>
     <string name="title_advanced_biometrics_timeout">Autentifikazio biometrikoaren iraupena</string>
@@ -313,7 +315,7 @@
     <string name="title_advanced_metered_hint">Neurtutako konexioak orokorrean konexio mugikorrak eta ordainpeko wifi guneak dira</string>
     <string name="title_advanced_metered_warning">Aukera hau desgaitzeak internet konexio mugikorrekin mezuak bidaltzea eta jasotzea eragotziko du</string>
     <string name="title_advanced_rlah_hint">EBn ez da datuen ibiltaritza onartzen</string>
-    <string name="title_advanced_socks_hint">Urruneko proxy zerbitzari bat erabiltzea ez da segurua proxy-konexioak enkriptatuta ez daudelako</string>
+    <string name="title_advanced_socks_hint">Urruneko proxy zerbitzari bat erabiltzea ez da segurua proxy-konexioak zifratuta ez daudelako</string>
     <string name="title_advanced_roaming_hint">Mezuen goiburuak beti jasoko dira datuen ibiltaritza dagoenean. Telefonoaren datuen ibiltaritza ezarpena erabil dezakezu internet desgaitzeko.</string>
     <string name="title_advanced_browse_hint">Bilatu mezu gehiago korritzerakoan</string>
     <string name="title_advanced_layout_hint">Diseinua trinkotzea eta mezuaren testuaren tamaina alda daiteke mezuen ikuspegiko goiko ekintza-barran</string>
@@ -351,7 +353,6 @@
     <string name="title_advanced_sender">Baimendu bidaltzailearen helbidea editatzea</string>
     <string name="title_advanced_sender_regex">Adierazpen erregularrak erabili bat datozen editatutako helbideak topatzeko</string>
     <string name="title_identity_reply_to">Erantzun-helbidea</string>
-    <string name="title_identity_encrypt">Zifratu lehenetsita</string>
     <string name="title_identity_receipt">Eskatu defektuz bidalketa/irakurri izanaren egiaztagiria</string>
     <string name="title_identity_use_ip_hint">\'Baliogabeko agurra\', \'baliozko helbidea behar da\' edo antzeko mezurik jasotzen baduzu, saiatu ezarpen hau aldatzen</string>
     <string name="title_optional">Aukerakoa</string>
@@ -384,6 +385,7 @@
     <string name="title_primary_identity">Nagusia (identitate lehenetsia)</string>
     <string name="title_leave_on_server">Utzi mezuak zerbitzarian</string>
     <string name="title_keep_alive_interval">Mantendu-bizirik/eskaera tartea (minutuak)</string>
+    <string name="title_use_date">Erabili goiburuko datuetan bidalketa unea eta ez jasoketarena</string>
     <string name="title_related_identity">Gehitu lotutako identitatea</string>
     <string name="title_check">Egiaztatu</string>
     <string name="title_no_name">Izena falta da</string>

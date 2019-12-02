@@ -286,6 +286,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_tracking">Tracking-Bilder automatisch erkennen und deaktivieren</string>
     <string name="title_advanced_display_hidden">Versteckte Nachrichtentexte anzeigen</string>
     <string name="title_advanced_openpgp">OpenPGP Anbieter</string>
+    <string name="title_advanced_sign_default">Standardmäßig signieren</string>
+    <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
     <string name="title_advanced_secure">Von den kürzlich genutzten Apps ausblenden und Screenshots verhindern</string>
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
@@ -350,7 +352,6 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_regex">Regex um bearbeitete Adressen zu finden</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
-    <string name="title_identity_encrypt">Standardmäßig verschlüsseln</string>
     <string name="title_identity_receipt">Lieferung/Lesebestätigung standardmäßig anfordern</string>
     <string name="title_identity_use_ip_hint">Bei \'invalid greeting\', \'requires valid address\' oder einem ähnlichen Fehler, versuchen Sie, diese Einstellung zu ändern</string>
     <string name="title_optional">Optional</string>
@@ -383,6 +384,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_primary_identity">Primäre Identität</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
     <string name="title_keep_alive_interval">Verbindung halten/Pollintervall (Minuten)</string>
+    <string name="title_use_date">Datums-Header-Sendezeit anstelle der empfangenen Zeit des Servers verwenden</string>
     <string name="title_related_identity">Ähnliche Identität hinzufügen</string>
     <string name="title_check">Prüfen</string>
     <string name="title_no_name">Name fehlt</string>
