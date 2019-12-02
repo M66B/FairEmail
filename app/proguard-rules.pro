@@ -79,6 +79,11 @@
 -dontwarn com.nimbusds.jose.**
 -keepclassmembers enum * {*;} #GSON
 
+#Bouncy castle
+-dontwarn org.bouncycastle.cert.dane.**
+-dontwarn org.bouncycastle.jce.provider.**
+-dontwarn org.bouncycastle.x509.util.**
+
 #Notes
 -dontnote com.google.android.material.**
 -dontnote com.sun.mail.**
