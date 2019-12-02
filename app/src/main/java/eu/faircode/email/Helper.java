@@ -78,6 +78,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sun.mail.iap.BadCommandException;
@@ -365,7 +366,9 @@ public class Helper {
             else if (child instanceof BottomNavigationView) {
                 Menu menu = ((BottomNavigationView) child).getMenu();
                 menu.setGroupEnabled(0, enabled);
-            } else if (child instanceof ViewGroup)
+            } else if (child instanceof RecyclerView)
+                ; // do nothing
+            else if (child instanceof ViewGroup)
                 setViewsEnabled((ViewGroup) child, enabled);
         }
     }
