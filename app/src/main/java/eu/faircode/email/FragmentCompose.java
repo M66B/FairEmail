@@ -219,7 +219,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_ATTACHMENT = 5;
     private static final int REQUEST_TAKE_PHOTO = 6;
     private static final int REQUEST_RECORD_AUDIO = 7;
-    private static final int REQUEST_ENCRYPT = 8;
+    private static final int REQUEST_OPENPGP = 8;
     private static final int REQUEST_COLOR = 9;
     private static final int REQUEST_CONTACT_GROUP = 10;
     private static final int REQUEST_ANSWER = 11;
@@ -1284,7 +1284,7 @@ public class FragmentCompose extends FragmentBase {
                         else if (data != null)
                             onAddMedia(data);
                     break;
-                case REQUEST_ENCRYPT:
+                case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
                         onPgp(data);
                     break;
@@ -1776,7 +1776,7 @@ public class FragmentCompose extends FragmentBase {
                         PendingIntent pi = (PendingIntent) result;
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
-                                REQUEST_ENCRYPT,
+                                REQUEST_OPENPGP,
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
                         Log.e(ex);
