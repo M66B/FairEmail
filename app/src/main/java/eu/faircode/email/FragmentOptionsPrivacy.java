@@ -26,6 +26,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.security.KeyChain;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -66,8 +67,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swSecure;
     private Button btnBiometrics;
-    private Spinner spBiometricsTimeout;
     private Button btnPin;
+    private Spinner spBiometricsTimeout;
+    private Button btnImportKey;
 
     private List<String> openPgpProvider = new ArrayList<>();
 
@@ -96,8 +98,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swSecure = view.findViewById(R.id.swSecure);
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
-        spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         btnPin = view.findViewById(R.id.btnPin);
+        spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
+        btnImportKey = view.findViewById(R.id.btnImportKey);
 
         Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
         List<ResolveInfo> ris = getContext().getPackageManager().queryIntentServices(intent, 0);
@@ -216,6 +219,16 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("biometrics_timeout").apply();
+            }
+        });
+
+        final Intent importKey = KeyChain.createInstallIntent();
+        btnImportKey.setEnabled(importKey.resolveActivity(getContext().getPackageManager()) != null);
+        btnImportKey.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        btnImportKey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(importKey);
             }
         });
 
