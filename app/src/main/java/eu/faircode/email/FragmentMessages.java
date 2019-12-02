@@ -4363,16 +4363,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 int type = args.getInt("type");
                 String alias = args.getString("alias");
 
-                if (alias == null)
-                    throw new IllegalArgumentException("Key alias missing");
-
                 DB db = DB.getInstance(context);
 
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-                    // Check public key
-                    X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
-                    if (chain == null || chain.length == 0)
-                        throw new IllegalArgumentException("Public key missing");
+                    // Get public key
+                    PublicKey pubkey = null;
+                    X509Certificate[] chain = null;
+                    if (alias != null)
+                        chain = KeyChain.getCertificateChain(context, alias);
+                    if (chain != null && chain.length > 0)
+                        pubkey = chain[0].getPublicKey();
 
                     // Get content/signature
                     File content = null;
@@ -4410,15 +4410,16 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 Date now = new Date();
                                 boolean valid;
                                 try {
-                                    chain[0].checkValidity(now);
+                                    if (chain != null && chain.length > 0)
+                                        chain[0].checkValidity(now);
                                     valid = certHolder.isValidOn(now);
                                 } catch (CertificateException ignored) {
                                     valid = false;
                                 }
 
                                 // Check public key
-                                PublicKey pubkey = chain[0].getPublicKey();
                                 if (valid &&
+                                        pubkey != null &&
                                         signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(pubkey)))
                                     return true;
                                 else
@@ -4428,6 +4429,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     return false;
                 } else {
+                    if (alias == null)
+                        throw new IllegalArgumentException("Key alias missing");
+
                     // Check private key
                     PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
                     if (privkey == null)
