@@ -373,31 +373,33 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onMenuExport() {
-        if (ActivityBilling.isPro(this)) {
-            try {
-                askPassword(true);
-            } catch (Throwable ex) {
-                Helper.unexpectedError(getSupportFragmentManager(), ex);
-            }
-        } else
+        if (ActivityBilling.isPro(this))
+            askPassword(true);
+        else
             startActivity(new Intent(this, ActivityBilling.class));
     }
 
     private void onMenuImport() {
-        try {
-            askPassword(false);
-        } catch (Throwable ex) {
-            Helper.unexpectedError(getSupportFragmentManager(), ex);
-        }
+        askPassword(false);
     }
 
     private void askPassword(final boolean export) {
-        Bundle args = new Bundle();
-        args.putBoolean("export", export);
+        Intent intent = (export ? getIntentExport() : getIntentImport());
+        if (intent.resolveActivity(getPackageManager()) == null) {
+            ToastEx.makeText(this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        FragmentDialogPassword fragment = new FragmentDialogPassword();
-        fragment.setArguments(args);
-        fragment.show(getSupportFragmentManager(), "password");
+        try {
+            Bundle args = new Bundle();
+            args.putBoolean("export", export);
+
+            FragmentDialogPassword fragment = new FragmentDialogPassword();
+            fragment.setArguments(args);
+            fragment.show(getSupportFragmentManager(), "password");
+        } catch (Throwable ex) {
+            Helper.unexpectedError(getSupportFragmentManager(), ex);
+        }
     }
 
     private void onMenuOrder(int title, Class clazz) {
