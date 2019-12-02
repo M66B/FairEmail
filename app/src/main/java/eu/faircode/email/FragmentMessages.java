@@ -4379,10 +4379,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     File signature = null;
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
-                        if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption))
+                        if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption)) {
+                            if (!attachment.available)
+                                throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                             signature = attachment.getFile(context);
-                        else if (EntityAttachment.SMIME_CONTENT.equals(attachment.encryption))
+                        } else if (EntityAttachment.SMIME_CONTENT.equals(attachment.encryption)) {
+                            if (!attachment.available)
+                                throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                             content = attachment.getFile(context);
+                        }
 
                     if (content == null)
                         throw new IllegalArgumentException("Signed content missing");
@@ -4433,9 +4438,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
                         if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption)) {
+                            if (!attachment.available)
+                                throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
                             input = attachment.getFile(context);
                             break;
                         }
+
                     if (input == null)
                         throw new IllegalArgumentException("Encrypted message missing");
 
