@@ -1604,7 +1604,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     has_inline = true;
                 if (Objects.equals(attachment.encryption, EntityAttachment.PGP_MESSAGE))
                     is_encrypted = true;
-                if (Objects.equals(attachment.encryption, EntityAttachment.PGP_CONTENT))
+                if (Objects.equals(attachment.encryption, EntityAttachment.PGP_SIGNATURE))
                     is_signed = true;
                 if (attachment.progress == null && !attachment.available)
                     download = true;

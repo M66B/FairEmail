@@ -121,7 +121,9 @@ public class EntityOperation {
             for (Object value : values)
                 jargs.put(value);
 
-            if (MOVE.equals(name) && EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt)) {
+            if (MOVE.equals(name) &&
+                    (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
+                            EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))) {
                 EntityFolder folder = db.folder().getFolder(message.folder);
                 if (folder != null && EntityFolder.DRAFTS.equals(folder.type))
                     name = DELETE;

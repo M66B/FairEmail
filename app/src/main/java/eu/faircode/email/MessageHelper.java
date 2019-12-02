@@ -1276,35 +1276,54 @@ public class MessageHelper {
 
         try {
             if (imessage.isMimeType("multipart/signed")) {
-                Multipart multipart = (Multipart) imessage.getContent();
-                if (multipart.getCount() == 2) {
-                    getMessageParts(multipart.getBodyPart(0), parts, null);
-                    getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_SIGNATURE);
+                ContentType ct = new ContentType(imessage.getContentType());
+                String protocol = ct.getParameter("protocol");
+                if ("application/pgp-signature".equals(protocol) ||
+                        "application/pkcs7-signature".equals(protocol)) {
+                    Multipart multipart = (Multipart) imessage.getContent();
+                    if (multipart.getCount() == 2) {
+                        getMessageParts(multipart.getBodyPart(0), parts, null);
+                        getMessageParts(multipart.getBodyPart(1), parts,
+                                "application/pgp-signature".equals(protocol)
+                                        ? EntityAttachment.PGP_SIGNATURE
+                                        : EntityAttachment.SMIME_SIGNATURE);
 
-                    AttachmentPart apart = new AttachmentPart();
-                    apart.disposition = Part.INLINE;
-                    apart.filename = "content.asc";
-                    apart.encrypt = EntityAttachment.PGP_CONTENT;
-                    apart.part = imessage;
+                        AttachmentPart apart = new AttachmentPart();
+                        apart.disposition = Part.INLINE;
+                        apart.filename = "content.asc";
+                        apart.encrypt = "application/pgp-signature".equals(protocol)
+                                ? EntityAttachment.PGP_CONTENT
+                                : EntityAttachment.SMIME_CONTENT;
+                        apart.part = imessage;
 
-                    ContentType ct = new ContentType(multipart.getBodyPart(0).getContentType());
+                        apart.attachment = new EntityAttachment();
+                        apart.attachment.disposition = apart.disposition;
+                        apart.attachment.name = apart.filename;
+                        apart.attachment.type = "text/plain";
+                        apart.attachment.size = getSize();
+                        apart.attachment.encryption = apart.encrypt;
 
-                    apart.attachment = new EntityAttachment();
-                    apart.attachment.disposition = apart.disposition;
-                    apart.attachment.name = apart.filename;
-                    apart.attachment.type = "text/plain";
-                    apart.attachment.size = getSize();
-                    apart.attachment.encryption = apart.encrypt;
+                        parts.attachments.add(apart);
 
-                    parts.attachments.add(apart);
-
-                    return parts;
+                        return parts;
+                    }
                 }
             } else if (imessage.isMimeType("multipart/encrypted")) {
-                Multipart multipart = (Multipart) imessage.getContent();
-                if (multipart.getCount() == 2) {
-                    // Ignore header
-                    getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
+                ContentType ct = new ContentType(imessage.getContentType());
+                String protocol = ct.getParameter("protocol");
+                if ("application/pgp-encrypted".equals(protocol)) {
+                    Multipart multipart = (Multipart) imessage.getContent();
+                    if (multipart.getCount() == 2) {
+                        // Ignore header
+                        getMessageParts(multipart.getBodyPart(1), parts, EntityAttachment.PGP_MESSAGE);
+                        return parts;
+                    }
+                }
+            } else if (imessage.isMimeType("application/pkcs7-mime")) {
+                ContentType ct = new ContentType(imessage.getContentType());
+                String smimeType = ct.getParameter("smime-type");
+                if ("enveloped-data".equals(smimeType)) {
+                    getMessageParts(imessage, parts, EntityAttachment.SMIME_MESSAGE);
                     return parts;
                 }
             }

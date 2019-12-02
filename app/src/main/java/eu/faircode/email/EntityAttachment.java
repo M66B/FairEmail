@@ -60,6 +60,9 @@ public class EntityAttachment {
     static final Integer PGP_SIGNATURE = 2;
     static final Integer PGP_KEY = 3;
     static final Integer PGP_CONTENT = 4;
+    static final Integer SMIME_MESSAGE = 5;
+    static final Integer SMIME_SIGNATURE = 6;
+    static final Integer SMIME_CONTENT = 8;
 
     // https://developer.android.com/guide/topics/media/media-formats#image-formats
     private static final List<String> IMAGE_TYPES = Collections.unmodifiableList(Arrays.asList(
