@@ -1179,7 +1179,8 @@ public class MessageHelper {
             File file = EntityAttachment.getFile(context, local.id, local.name);
             db.attachment().setProgress(local.id, null);
 
-            if (EntityAttachment.PGP_CONTENT.equals(apart.encrypt)) {
+            if (EntityAttachment.PGP_CONTENT.equals(apart.encrypt) ||
+                    EntityAttachment.SMIME_CONTENT.equals(apart.encrypt)) {
                 ContentType ct = new ContentType(apart.part.getContentType());
                 String boundary = ct.getParameter("boundary");
                 if (TextUtils.isEmpty(boundary))

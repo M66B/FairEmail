@@ -109,11 +109,19 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.sun.mail.util.FolderClosedIOException;
 
+import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cms.CMSEnvelopedData;
+import org.bouncycastle.cms.CMSProcessable;
+import org.bouncycastle.cms.CMSProcessableFile;
+import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.KeyTransRecipientInformation;
 import org.bouncycastle.cms.RecipientInformation;
+import org.bouncycastle.cms.SignerInformation;
+import org.bouncycastle.cms.SignerInformationStore;
+import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
+import org.bouncycastle.util.Store;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.openintents.openpgp.OpenPgpError;
@@ -131,6 +139,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
@@ -3904,7 +3915,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         boolean auto = intent.getBooleanExtra("auto", false);
         int type = intent.getIntExtra("type", EntityMessage.ENCRYPT_NONE);
 
-        if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
+        if (EntityMessage.SMIME_SIGNONLY.equals(type) ||
+                EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
             final Bundle args = new Bundle();
             args.putLong("id", id);
             args.putInt("type", type);
@@ -4170,6 +4182,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             out = new FileOutputStream(plain);
 
                     } else if (EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
+                        if (!attachment.available)
+                            throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
+
                         File file = attachment.getFile(context);
                         byte[] signature = new byte[(int) file.length()];
                         try (FileInputStream fis = new FileInputStream(file)) {
@@ -4341,7 +4356,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSmime(Bundle args) {
-        new SimpleTask() {
+        new SimpleTask<Boolean>() {
             @Override
             protected Boolean onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
@@ -4351,75 +4366,142 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 if (alias == null)
                     throw new IllegalArgumentException("Key alias missing");
 
-                PrivateKey pk = KeyChain.getPrivateKey(context, alias);
-                if (pk == null)
-                    throw new IllegalArgumentException("Private key missing");
-
                 DB db = DB.getInstance(context);
 
-                File input = null;
-                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
-                for (EntityAttachment attachment : attachments)
-                    if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption)) {
-                        input = attachment.getFile(context);
-                        break;
-                    }
-                if (input == null)
-                    throw new IllegalArgumentException("Encrypted message missing");
+                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                    // Check public key
+                    X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
+                    if (chain == null || chain.length == 0)
+                        throw new IllegalArgumentException("Public key missing");
 
-                FileInputStream fis = new FileInputStream(input);
-                CMSEnvelopedData envelopedData = new CMSEnvelopedData(fis);
+                    // Get content/signature
+                    File content = null;
+                    File signature = null;
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    for (EntityAttachment attachment : attachments)
+                        if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption))
+                            signature = attachment.getFile(context);
+                        else if (EntityAttachment.SMIME_CONTENT.equals(attachment.encryption))
+                            content = attachment.getFile(context);
 
-                Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients();
-                KeyTransRecipientInformation recipientInfo = (KeyTransRecipientInformation) recipients.iterator().next();
-                JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(pk);
-                InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
+                    if (content == null)
+                        throw new IllegalArgumentException("Signed content missing");
+                    if (signature == null)
+                        throw new IllegalArgumentException("Signature missing");
 
-                // Decode message
-                Properties props = MessageHelper.getSessionProperties();
-                Session isession = Session.getInstance(props, null);
-                MimeMessage imessage = new MimeMessage(isession, is);
-                MessageHelper helper = new MessageHelper(imessage);
-                MessageHelper.MessageParts parts = helper.getMessageParts(context);
+                    // Build signed data
+                    CMSProcessable signedContent = new CMSProcessableFile(content);
+                    FileInputStream fis = new FileInputStream(signature);
+                    CMSSignedData signedData = new CMSSignedData(signedContent, fis);
 
-                try {
-                    db.beginTransaction();
+                    // Check signature
+                    Store store = signedData.getCertificates();
+                    SignerInformationStore signerInfos = signedData.getSignerInfos();
+                    for (SignerInformation signer : signerInfos.getSigners())
+                        for (Object cert : store.getMatches(signer.getSID())) {
+                            X509CertificateHolder certHolder = (X509CertificateHolder) cert;
+                            if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(certHolder))) {
+                                // Check validity
+                                Date now = new Date();
+                                boolean valid;
+                                try {
+                                    chain[0].checkValidity(now);
+                                    valid = certHolder.isValidOn(now);
+                                } catch (CertificateException ignored) {
+                                    valid = false;
+                                }
 
-                    // Write decrypted body
-                    String html = parts.getHtml(context);
-                    Helper.writeText(EntityMessage.getFile(context, id), html);
-
-                    // Remove existing attachments
-                    db.attachment().deleteAttachments(id);
-
-                    // Add decrypted attachments
-                    List<EntityAttachment> remotes = parts.getAttachments();
-                    for (int index = 0; index < remotes.size(); index++) {
-                        EntityAttachment remote = remotes.get(index);
-                        remote.message = id;
-                        remote.sequence = index + 1;
-                        remote.id = db.attachment().insertAttachment(remote);
-                        try {
-                            parts.downloadAttachment(context, index, remote);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
+                                // Check public key
+                                PublicKey pubkey = chain[0].getPublicKey();
+                                if (valid &&
+                                        signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(pubkey)))
+                                    return true;
+                                else
+                                    return null;
+                            }
                         }
+
+                    return false;
+                } else {
+                    // Check private key
+                    PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
+                    if (privkey == null)
+                        throw new IllegalArgumentException("Private key missing");
+
+                    // Get encrypted message
+                    File input = null;
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    for (EntityAttachment attachment : attachments)
+                        if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption)) {
+                            input = attachment.getFile(context);
+                            break;
+                        }
+                    if (input == null)
+                        throw new IllegalArgumentException("Encrypted message missing");
+
+                    // Build enveloped data
+                    FileInputStream fis = new FileInputStream(input);
+                    CMSEnvelopedData envelopedData = new CMSEnvelopedData(fis);
+
+                    // Decrypt message
+                    Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients();
+                    KeyTransRecipientInformation recipientInfo = (KeyTransRecipientInformation) recipients.iterator().next();
+                    JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(privkey);
+                    InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
+
+                    // Decode message
+                    Properties props = MessageHelper.getSessionProperties();
+                    Session isession = Session.getInstance(props, null);
+                    MimeMessage imessage = new MimeMessage(isession, is);
+                    MessageHelper helper = new MessageHelper(imessage);
+                    MessageHelper.MessageParts parts = helper.getMessageParts(context);
+
+                    try {
+                        db.beginTransaction();
+
+                        // Write decrypted body
+                        String html = parts.getHtml(context);
+                        Helper.writeText(EntityMessage.getFile(context, id), html);
+
+                        // Remove existing attachments
+                        db.attachment().deleteAttachments(id);
+
+                        // Add decrypted attachments
+                        List<EntityAttachment> remotes = parts.getAttachments();
+                        for (int index = 0; index < remotes.size(); index++) {
+                            EntityAttachment remote = remotes.get(index);
+                            remote.message = id;
+                            remote.sequence = index + 1;
+                            remote.id = db.attachment().insertAttachment(remote);
+                            try {
+                                parts.downloadAttachment(context, index, remote);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                        }
+
+                        db.message().setMessageEncrypt(id, parts.getEncryption());
+                        db.message().setMessageStored(id, new Date().getTime());
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
                     }
 
-                    db.message().setMessageEncrypt(id, parts.getEncryption());
-                    db.message().setMessageStored(id, new Date().getTime());
-
-                    db.setTransactionSuccessful();
-                } finally {
-                    db.endTransaction();
+                    return null;
                 }
-
-                return true;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Object data) {
+            protected void onExecuted(Bundle args, Boolean result) {
                 int type = args.getInt("type");
+                if (EntityMessage.SMIME_SIGNONLY.equals(type))
+                    if (result == null)
+                        Snackbar.make(view, R.string.title_signature_unconfirmed, Snackbar.LENGTH_LONG).show();
+                    else if (result)
+                        Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
+                    else
+                        Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
             }
 
             @Override

@@ -18,3 +18,4 @@ FairEmail uses:
 * [ReLinker](https://github.com/KeepSafe/ReLinker). Copyright 2015 - 2016 KeepSafe Software, Inc. [Apache License 2.0](https://github.com/KeepSafe/ReLinker/blob/master/LICENSE).
 * [Markwon](https://github.com/noties/Markwon). Copyright 2019 Dimitry Ivanov. [Apache License 2.0](https://github.com/noties/Markwon/blob/master/LICENSE).
 * [Color Picker](https://github.com/QuadFlask/colorpicker). Copyright 2014-2017 QuadFlask. [Apache License 2.0](https://github.com/QuadFlask/colorpicker#user-content-license).
+* [Bouncy Castle](https://www.bouncycastle.org/). Copyright (c) 2000 - 2019 The Legion of the Bouncy Castle Inc. [MIT License](https://www.bouncycastle.org/licence.html).

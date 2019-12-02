@@ -1569,7 +1569,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     cowner.start();
 
                     // Show encrypt actions
-                    ibVerify.setVisibility(EntityMessage.PGP_SIGNONLY.equals(message.encrypt)
+                    ibVerify.setVisibility(false ||
+                            EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
+                            EntityMessage.SMIME_SIGNONLY.equals(message.encrypt)
                             ? View.VISIBLE : View.GONE);
                     ibDecrypt.setVisibility(args.getBoolean("inline_encrypted") ||
                             EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
