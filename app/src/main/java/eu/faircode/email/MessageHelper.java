@@ -1089,6 +1089,19 @@ public class MessageHelper {
             return result;
         }
 
+        Integer getEncryption() {
+            for (AttachmentPart apart : attachments)
+                if (EntityAttachment.PGP_SIGNATURE.equals(apart.attachment.encryption))
+                    return EntityMessage.PGP_SIGNONLY;
+                else if (EntityAttachment.PGP_MESSAGE.equals(apart.attachment.encryption))
+                    return EntityMessage.PGP_SIGNENCRYPT;
+                else if (EntityAttachment.SMIME_SIGNATURE.equals(apart.attachment.encryption))
+                    return EntityMessage.SMIME_SIGNONLY;
+                else if (EntityAttachment.SMIME_MESSAGE.equals(apart.attachment.encryption))
+                    return EntityMessage.SMIME_SIGNENCRYPT;
+            return null;
+        }
+
         void downloadAttachment(Context context, EntityAttachment local) throws IOException, MessagingException {
             List<EntityAttachment> remotes = getAttachments();
 

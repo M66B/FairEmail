@@ -1501,6 +1501,7 @@ class Core {
                     message.size = parts.getBodySize();
                     message.total = helper.getSize();
                     message.content = false;
+                    message.encrypt = parts.getEncryption();
                     message.received = helper.getReceived();
                     message.sent = helper.getSent();
                     message.seen = false;
@@ -2084,6 +2085,7 @@ class Core {
             message.size = parts.getBodySize();
             message.total = helper.getSize();
             message.content = false;
+            message.encrypt = parts.getEncryption();
             message.received = (account.use_date ? (sent == null ? 0 : sent) : helper.getReceived());
             message.sent = sent;
             message.seen = seen;
@@ -2147,15 +2149,6 @@ class Core {
                     attachment.message = message.id;
                     attachment.sequence = sequence++;
                     attachment.id = db.attachment().insertAttachment(attachment);
-
-                    if (EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption))
-                        db.message().setMessageEncrypt(message.id, EntityMessage.PGP_SIGNONLY);
-                    else if (EntityAttachment.PGP_MESSAGE.equals(attachment.encryption))
-                        db.message().setMessageEncrypt(message.id, EntityMessage.PGP_SIGNENCRYPT);
-                    else if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption))
-                        db.message().setMessageEncrypt(message.id, EntityMessage.SMIME_SIGNONLY);
-                    else if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption))
-                        db.message().setMessageEncrypt(message.id, EntityMessage.SMIME_SIGNENCRYPT);
                 }
 
                 runRules(context, imessage, message, rules);

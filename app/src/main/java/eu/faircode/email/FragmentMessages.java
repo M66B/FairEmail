@@ -4270,6 +4270,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             }
                                         }
 
+                                        db.message().setMessageEncrypt(message.id, parts.getEncryption());
                                         db.message().setMessageStored(message.id, new Date().getTime());
 
                                         db.setTransactionSuccessful();
@@ -4372,16 +4373,46 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients();
                 KeyTransRecipientInformation recipientInfo = (KeyTransRecipientInformation) recipients.iterator().next();
                 JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(pk);
+                InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
 
-                byte[] result = recipientInfo.getContent(recipient);
-                File output = EntityMessage.getFile(context, id);
-                try (OutputStream os = new FileOutputStream(output)) {
-                    os.write("<pre>\r\n".getBytes());
-                    os.write(result);
-                    os.write("</pre>\r\n".getBytes());
+                // Decode message
+                Properties props = MessageHelper.getSessionProperties();
+                Session isession = Session.getInstance(props, null);
+                MimeMessage imessage = new MimeMessage(isession, is);
+                MessageHelper helper = new MessageHelper(imessage);
+                MessageHelper.MessageParts parts = helper.getMessageParts(context);
+
+                try {
+                    db.beginTransaction();
+
+                    // Write decrypted body
+                    String html = parts.getHtml(context);
+                    Helper.writeText(EntityMessage.getFile(context, id), html);
+
+                    // Remove existing attachments
+                    db.attachment().deleteAttachments(id);
+
+                    // Add decrypted attachments
+                    List<EntityAttachment> remotes = parts.getAttachments();
+                    for (int index = 0; index < remotes.size(); index++) {
+                        EntityAttachment remote = remotes.get(index);
+                        remote.message = id;
+                        remote.sequence = index + 1;
+                        remote.id = db.attachment().insertAttachment(remote);
+                        try {
+                            parts.downloadAttachment(context, index, remote);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+
+                    db.message().setMessageEncrypt(id, parts.getEncryption());
+                    db.message().setMessageStored(id, new Date().getTime());
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
                 }
-
-                db.message().setMessageStored(id, new Date().getTime());
 
                 return true;
             }
