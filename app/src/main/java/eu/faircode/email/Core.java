@@ -3094,10 +3094,10 @@ class Core {
                 // Device
                 StringBuilder sbm = new StringBuilder();
                 if (!TextUtils.isEmpty(message.subject))
-                    sbm.append(message.subject).append("<br>");
+                    sbm.append("<em>").append(message.subject).append("</em>").append("<br>");
 
                 if (!TextUtils.isEmpty(message.preview))
-                    sbm.append("<em>").append(message.preview).append("</em>");
+                    sbm.append(message.preview);
 
                 NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
                         .bigText(HtmlHelper.fromHtml(sbm.toString()));
