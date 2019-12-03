@@ -983,5 +983,7 @@
         <item>Ничего</item>
         <item>Только подпись PGP</item>
         <item>Подпись+шифрование PGP</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

@@ -959,5 +959,7 @@
         <item>Ingen</item>
         <item>Kun PGP-signering</item>
         <item>PGP-signering + kryptering</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

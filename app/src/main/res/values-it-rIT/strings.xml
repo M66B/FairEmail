@@ -960,5 +960,7 @@
         <item>Nulla</item>
         <item>PGP solo firma</item>
         <item>PGP firma e crittografia</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

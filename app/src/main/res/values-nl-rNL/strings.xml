@@ -958,5 +958,7 @@
         <item>Geen</item>
         <item>PGP teken-alleen</item>
         <item>PGP teken+versleutel</item>
+        <item>S/MIME teken-alleen</item>
+        <item>S/MIME teken+versleutel</item>
     </string-array>
 </resources>

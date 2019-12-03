@@ -961,5 +961,7 @@
         <item>Ingen</item>
         <item>Bare PGP-signering</item>
         <item>PGP signer+krypter</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

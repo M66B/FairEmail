@@ -981,5 +981,7 @@
         <item>Žádný</item>
         <item>Pouze PGP podpis</item>
         <item>PGP podpis+šifrovat</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

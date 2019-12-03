@@ -4392,11 +4392,12 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                     return null;
                 } else {
+                    // Get alias
                     String alias = args.getString("alias");
                     if (alias == null)
                         throw new IllegalArgumentException("Key alias missing");
 
-                    // Check private key
+                    // Get private key
                     PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
                     if (privkey == null)
                         throw new IllegalArgumentException("Private key missing");

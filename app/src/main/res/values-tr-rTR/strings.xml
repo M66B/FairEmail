@@ -961,5 +961,7 @@
         <item>Hiçbiri</item>
         <item>PGP sadece imzala</item>
         <item>PGP imzala ve şifrele</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

@@ -961,5 +961,7 @@
         <item>Ei mitään</item>
         <item>PGP vain allekirjoita</item>
         <item>PGP allekirjoita+salaa</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

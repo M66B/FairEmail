@@ -961,5 +961,7 @@
         <item>Bat ere ez</item>
         <item>PGP sinadura soilik</item>
         <item>PGP sinadura eta enkriptatzea</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 </resources>

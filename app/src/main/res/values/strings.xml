@@ -1159,12 +1159,16 @@
         <item>None</item>
         <item>PGP sign-only</item>
         <item>PGP sign+encrypt</item>
+        <item>S/MIME sign-only</item>
+        <item>S/MIME sign+encrypt</item>
     </string-array>
 
     <integer-array name="encryptValues" translatable="false">
         <item>0</item>
         <item>2</item>
         <item>1</item>
+        <item>4</item>
+        <item>3</item>
     </integer-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>
