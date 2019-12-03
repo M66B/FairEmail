@@ -959,9 +959,9 @@
     </string-array>
     <string-array name="encryptNames">
         <item>Ei mitään</item>
-        <item>PGP vain allekirjoita</item>
+        <item>PGP allekirjoita ainoastaan</item>
         <item>PGP allekirjoita+salaa</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>S/MIME allekirjoita ainoastaan</item>
+        <item>S/MIME allekirjoita+salaa</item>
     </string-array>
 </resources>

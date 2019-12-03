@@ -961,7 +961,7 @@
         <item>Aucun</item>
         <item>Signer PGP uniquement</item>
         <item>Signer &amp; chiffrer PGP</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>Signer S/MIME uniquement</item>
+        <item>Signer &amp; chiffrer S/MIME</item>
     </string-array>
 </resources>

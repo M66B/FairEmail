@@ -948,7 +948,7 @@ FairEmail会显示一条消息来提醒您这一点，这条消息在您购买�
         <item>无</item>
         <item>仅PGP签名</item>
         <item>PGP 签名+加密</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>仅S/MIME签名</item>
+        <item>S/MIME 签名+加密</item>
     </string-array>
 </resources>
