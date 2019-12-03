@@ -52,6 +52,7 @@ import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
+import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -163,6 +164,7 @@ import java.util.Properties;
 
 import javax.mail.FolderClosedException;
 import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import static android.app.Activity.RESULT_OK;
@@ -4348,10 +4350,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 DB db = DB.getInstance(context);
 
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
                     // Get content/signature
                     File content = null;
                     File signature = null;
-                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                     for (EntityAttachment attachment : attachments)
                         if (EntityAttachment.SMIME_SIGNATURE.equals(attachment.encryption)) {
                             if (!attachment.available)
@@ -4383,8 +4389,22 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     .setProvider(new BouncyCastleProvider())
                                     .getCertificate(certHolder);
                             try {
-                                if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert)))
-                                    return cert.getSubjectDN().getName();
+                                if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert))) {
+                                    String subject = cert.getSubjectDN().getName();
+                                    if (!TextUtils.isEmpty(subject) &&
+                                            message.from != null && message.from.length == 1) {
+                                        EntityCertificate c = db.certificate().getCertificateBySubject(subject);
+                                        if (c == null) {
+                                            c = new EntityCertificate();
+                                            c.subject = subject;
+                                            c.email = ((InternetAddress) message.from[0]).getAddress();
+                                            c.data = Base64.encodeToString(cert.getEncoded(), Base64.NO_WRAP);
+                                            c.id = db.certificate().insertCertificate(c);
+                                        }
+                                    }
+
+                                    return subject;
+                                }
                             } catch (CMSVerifierCertificateNotValidException ex) {
                                 Log.w(ex);
                             }

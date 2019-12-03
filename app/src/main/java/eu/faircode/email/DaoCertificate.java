@@ -34,7 +34,11 @@ public interface DaoCertificate {
 
     @Query("SELECT * FROM certificate" +
             " WHERE subject = :subject")
-    EntityCertificate getCertificate(String subject);
+    EntityCertificate getCertificateBySubject(String subject);
+
+    @Query("SELECT * FROM certificate" +
+            " WHERE email = :email")
+    List<EntityCertificate> getCertificateByEmail(String email);
 
     @Insert
     long insertCertificate(EntityCertificate certificate);
