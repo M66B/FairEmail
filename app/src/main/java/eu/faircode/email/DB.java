@@ -56,7 +56,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 116,
+        version = 117,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -65,6 +65,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
                 EntityAttachment.class,
                 EntityOperation.class,
                 EntityContact.class,
+                EntityCertificate.class,
                 EntityAnswer.class,
                 EntityRule.class,
                 EntityLog.class
@@ -88,6 +89,8 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoOperation operation();
 
     public abstract DaoContact contact();
+
+    public abstract DaoCertificate certificate();
 
     public abstract DaoAnswer answer();
 
@@ -1095,7 +1098,7 @@ public abstract class DB extends RoomDatabase {
                                 ", `message` INTEGER NOT NULL" +
                                 ", `sequence` INTEGER NOT NULL" +
                                 ", `reference` INTEGER NOT NULL" +
-                                ", FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+                                ", FOREIGN KEY(`message`) REFERENCES `message`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE)");
                         db.execSQL("CREATE INDEX IF NOT EXISTS `index_revision_message` ON `revision` (`message`)");
                         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_revision_message_sequence` ON `revision` (`message`, `sequence`)");
                     }
@@ -1122,6 +1125,19 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         Log.i("DB migration from version " + startVersion + " to " + endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `use_date` INTEGER NOT NULL DEFAULT 0");
+                    }
+                })
+                .addMigrations(new Migration(116, 117) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("CREATE TABLE IF NOT EXISTS `certificate`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                                ", `subject` TEXT NOT NULL" +
+                                ", `email` TEXT" +
+                                ", `data` TEXT NOT NULL)");
+                        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_certificate_subject` ON `certificate` (`subject`)");
+                        db.execSQL("CREATE INDEX IF NOT EXISTS `index_certificate_email` ON `certificate` (`email`)");
                     }
                 })
                 .build();
