@@ -60,6 +60,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
+import android.util.Base64;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -100,15 +101,22 @@ import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.bouncycastle.cert.jcajce.JcaCertStore;
+import org.bouncycastle.cms.CMSAlgorithm;
+import org.bouncycastle.cms.CMSEnvelopedData;
+import org.bouncycastle.cms.CMSEnvelopedDataGenerator;
+import org.bouncycastle.cms.CMSProcessableByteArray;
 import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSSignedDataGenerator;
 import org.bouncycastle.cms.CMSTypedData;
+import org.bouncycastle.cms.RecipientInfoGenerator;
 import org.bouncycastle.cms.SignerInfoGenerator;
 import org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder;
+import org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculatorProvider;
+import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
@@ -121,6 +129,7 @@ import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -130,6 +139,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.UnknownHostException;
 import java.security.PrivateKey;
+import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -1243,7 +1253,6 @@ public class FragmentCompose extends FragmentBase {
                         }
                     },
                     null, null, null, -1, null);
-
         } else {
             if (pgpService.isBound())
                 try {
@@ -1852,20 +1861,6 @@ public class FragmentCompose extends FragmentBase {
                 int type = args.getInt("type");
                 String alias = args.getString("alias");
 
-                if (!EntityMessage.SMIME_SIGNONLY.equals(type))
-                    throw new UnsupportedOperationException("Not yet supported");
-
-                if (alias == null)
-                    throw new IllegalArgumentException("Key alias missing");
-
-                // Get key
-                PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
-                if (privkey == null)
-                    throw new IllegalArgumentException("Private key missing");
-                X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
-                if (chain == null || chain.length == 0)
-                    throw new IllegalArgumentException("Certificate missing");
-
                 DB db = DB.getInstance(context);
 
                 // Get data
@@ -1909,57 +1904,117 @@ public class FragmentCompose extends FragmentBase {
                 };
                 bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
-                // Build content
-                EntityAttachment cattachment = new EntityAttachment();
-                cattachment.message = draft.id;
-                cattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-                cattachment.name = "content.asc";
-                cattachment.type = "text/plain";
-                cattachment.disposition = Part.INLINE;
-                cattachment.encryption = EntityAttachment.SMIME_CONTENT;
-                cattachment.id = db.attachment().insertAttachment(cattachment);
+                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                    if (alias == null)
+                        throw new IllegalArgumentException("Key alias missing");
 
-                File content = cattachment.getFile(context);
-                try (OutputStream os = new FileOutputStream(content)) {
-                    bpContent.writeTo(os);
+                    // Get key
+                    PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
+                    if (privkey == null)
+                        throw new IllegalArgumentException("Private key missing");
+                    X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
+                    if (chain == null || chain.length == 0)
+                        throw new IllegalArgumentException("Certificate missing");
+
+                    // Build content
+                    EntityAttachment cattachment = new EntityAttachment();
+                    cattachment.message = draft.id;
+                    cattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                    cattachment.name = "content.asc";
+                    cattachment.type = "text/plain";
+                    cattachment.disposition = Part.INLINE;
+                    cattachment.encryption = EntityAttachment.SMIME_CONTENT;
+                    cattachment.id = db.attachment().insertAttachment(cattachment);
+
+                    File content = cattachment.getFile(context);
+                    try (OutputStream os = new FileOutputStream(content)) {
+                        bpContent.writeTo(os);
+                    }
+
+                    db.attachment().setDownloaded(cattachment.id, content.length());
+
+                    // Build signature
+                    Store store = new JcaCertStore(Arrays.asList(chain[0]));
+                    CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
+                    cmsGenerator.addCertificates(store);
+
+                    ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA")
+                            .build(privkey);
+                    DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
+                            .build();
+                    SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
+                            .build(contentSigner, chain[0]);
+                    cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
+
+                    CMSTypedData cmsData = new CMSProcessableFile(content);
+                    CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData, true);
+                    byte[] signedMessage = cmsSignedData.getEncoded();
+
+                    ContentType ct = new ContentType("application/pkcs7-signature");
+                    ct.setParameter("micalg", "sha-256");
+
+                    EntityAttachment sattachment = new EntityAttachment();
+                    sattachment.message = draft.id;
+                    sattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                    sattachment.name = "smime.p7s";
+                    sattachment.type = ct.toString();
+                    sattachment.disposition = Part.INLINE;
+                    sattachment.encryption = EntityAttachment.SMIME_SIGNATURE;
+                    sattachment.id = db.attachment().insertAttachment(sattachment);
+
+                    File file = sattachment.getFile(context);
+                    try (OutputStream os = new FileOutputStream(file)) {
+                        os.write(signedMessage);
+                    }
+
+                    db.attachment().setDownloaded(sattachment.id, file.length());
+                } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
+                    if (true)
+                        throw new UnsupportedOperationException("Not implemented yet");
+                    // TODO: sign
+                    if (draft.to == null || draft.to.length != 1)
+                        throw new IllegalArgumentException(getString(R.string.title_to_missing));
+
+                    String to = ((InternetAddress) draft.to[0]).getAddress();
+                    List<EntityCertificate> c = db.certificate().getCertificateByEmail(to);
+                    if (c == null || c.size() == 0)
+                        throw new IllegalArgumentException("Certificate not found");
+
+                    byte[] encoded = Base64.decode(c.get(0).data, Base64.NO_WRAP);
+                    X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
+                            .generateCertificate(new ByteArrayInputStream(encoded));
+
+                    CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
+                    RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
+                    cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
+
+                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                    bpContent.writeTo(bos);
+                    CMSTypedData msg = new CMSProcessableByteArray(bos.toByteArray());
+
+                    OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(CMSAlgorithm.AES256_CBC)
+                            .build();
+                    CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
+                            .generate(msg, encryptor);
+
+                    byte[] encryptedData = cmsEnvelopedData.toASN1Structure().getEncoded();
+
+                    EntityAttachment attachment = new EntityAttachment();
+                    attachment.message = draft.id;
+                    attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                    attachment.name = "smime.p7m";
+                    attachment.type = "application/pkcs7-mime";
+                    attachment.disposition = Part.INLINE;
+                    attachment.encryption = EntityAttachment.SMIME_MESSAGE;
+                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                    File file = attachment.getFile(context);
+                    try (OutputStream os = new FileOutputStream(file)) {
+                        os.write(encryptedData);
+                    }
+
+                    db.attachment().setDownloaded(attachment.id, file.length());
                 }
-
-                db.attachment().setDownloaded(cattachment.id, content.length());
-
-                // Build signature
-                Store store = new JcaCertStore(Arrays.asList(chain[0]));
-                CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
-                ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA")
-                        .build(privkey);
-                DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
-                        .setProvider(new BouncyCastleProvider()).build();
-                SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
-                        .build(contentSigner, chain[0]);
-                cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
-                cmsGenerator.addCertificates(store);
-
-                CMSTypedData cmsData = new CMSProcessableFile(content);
-                CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData, true);
-                byte[] signedMessage = cmsSignedData.getEncoded();
-
-                ContentType ct = new ContentType("application/pkcs7-signature");
-                ct.setParameter("micalg", "sha-256");
-
-                EntityAttachment sattachment = new EntityAttachment();
-                sattachment.message = draft.id;
-                sattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-                sattachment.name = "smime.p7s";
-                sattachment.type = ct.toString();
-                sattachment.disposition = Part.INLINE;
-                sattachment.encryption = EntityAttachment.SMIME_SIGNATURE;
-                sattachment.id = db.attachment().insertAttachment(sattachment);
-
-                File file = sattachment.getFile(context);
-                try (OutputStream os = new FileOutputStream(file)) {
-                    os.write(signedMessage);
-                }
-
-                db.attachment().setDownloaded(sattachment.id, file.length());
 
                 return null;
             }

@@ -23,6 +23,7 @@ import android.content.Context;
 import android.net.MailTo;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Base64;
 
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
@@ -246,7 +247,8 @@ public class MessageHelper {
                                     " keydata=" + sb.toString());
                 }
 
-        // https://tools.ietf.org/html/rfc3156
+        // PGP: https://tools.ietf.org/html/rfc3156
+        // S/MIME: https://tools.ietf.org/html/rfc8551
         for (final EntityAttachment attachment : attachments)
             if (EntityAttachment.PGP_SIGNATURE.equals(attachment.encryption)) {
                 Log.i("Sending PGP signed message");
@@ -375,8 +377,25 @@ public class MessageHelper {
                         return imessage;
                     }
                 throw new IllegalStateException("S/MIME content not found");
-            } else if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption))
-                throw new UnsupportedOperationException();
+            } else if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption)) {
+                Log.i("Sending S/MIME encrypted message");
+
+                File file = attachment.getFile(context);
+                byte[] encryptedData = new byte[(int) file.length()];
+                try (InputStream is = new FileInputStream(file)) {
+                    is.read(encryptedData);
+                }
+
+                // Build message
+                ContentType ct = new ContentType("application/pkcs7-mime");
+                ct.setParameter("name", attachment.name);
+                ct.setParameter("smime-type", "enveloped-data");
+                imessage.setDisposition(Part.ATTACHMENT);
+                imessage.setFileName(attachment.name);
+                imessage.setContent(Base64.encodeToString(encryptedData, Base64.DEFAULT), ct.toString());
+
+                return imessage;
+            }
 
         build(context, message, attachments, identity, imessage);
 
@@ -1356,7 +1375,8 @@ public class MessageHelper {
                 ContentType ct = new ContentType(imessage.getContentType());
                 String protocol = ct.getParameter("protocol");
                 if ("application/pgp-signature".equals(protocol) ||
-                        "application/pkcs7-signature".equals(protocol)) {
+                        "application/pkcs7-signature".equals(protocol) ||
+                        "application/x-pkcs7-signature".equals(protocol)) {
                     Multipart multipart = (Multipart) imessage.getContent();
                     if (multipart.getCount() == 2) {
                         getMessageParts(multipart.getBodyPart(0), parts, null);

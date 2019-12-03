@@ -4386,7 +4386,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         for (Object match : store.getMatches(signer.getSID())) {
                             X509CertificateHolder certHolder = (X509CertificateHolder) match;
                             X509Certificate cert = new JcaX509CertificateConverter()
-                                    .setProvider(new BouncyCastleProvider())
                                     .getCertificate(certHolder);
                             try {
                                 if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert))) {
