@@ -3,7 +3,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityView">
+    tools:context="eu.faircode.email.ActivityView">
 
     <FrameLayout
         android:id="@+id/content_frame"

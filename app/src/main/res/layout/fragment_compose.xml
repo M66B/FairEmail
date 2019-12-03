@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityCompose">
+    tools:context="eu.faircode.email.ActivityCompose">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior=".BehaviorBottomPadding">
+        app:layout_behavior="eu.faircode.email.BehaviorBottomPadding">
 
         <ScrollView
             android:layout_width="match_parent"
