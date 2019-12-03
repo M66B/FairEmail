@@ -104,9 +104,11 @@ import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSSignedDataGenerator;
 import org.bouncycastle.cms.CMSTypedData;
+import org.bouncycastle.cms.SignerInfoGenerator;
 import org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.operator.ContentSigner;
+import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
@@ -1925,22 +1927,20 @@ public class FragmentCompose extends FragmentBase {
                 db.attachment().setDownloaded(cattachment.id, content.length());
 
                 // Build signature
-                CMSTypedData cmsData = new CMSProcessableFile(content);
-                List<X509Certificate> certList = new ArrayList<>();
-                certList.add(chain[0]);
-                Store certs = new JcaCertStore(certList);
-
+                Store store = new JcaCertStore(Arrays.asList(chain[0]));
                 CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
-                ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA").build(privkey);
-                cmsGenerator.addSignerInfoGenerator(
-                        new JcaSignerInfoGeneratorBuilder(
-                                new JcaDigestCalculatorProviderBuilder()
-                                        .setProvider(new BouncyCastleProvider()).build())
-                                .build(contentSigner, chain[0]));
-                cmsGenerator.addCertificates(certs);
+                ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA")
+                        .build(privkey);
+                DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
+                        .setProvider(new BouncyCastleProvider()).build();
+                SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
+                        .build(contentSigner, chain[0]);
+                cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
+                cmsGenerator.addCertificates(store);
 
-                CMSSignedData cms = cmsGenerator.generate(cmsData, true);
-                byte[] signedMessage = cms.getEncoded();
+                CMSTypedData cmsData = new CMSProcessableFile(content);
+                CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData, true);
+                byte[] signedMessage = cmsSignedData.getEncoded();
 
                 ContentType ct = new ContentType("application/pkcs7-signature");
                 ct.setParameter("micalg", "sha-256");
