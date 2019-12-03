@@ -290,7 +290,7 @@
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
-    <string name="title_advanced_secure">Cacher dans la liste des applications récentes et empêcher la prise de captures d\'écran</string>
+    <string name="title_advanced_secure">Masquer FairEmail dans la liste des applications récentes et empêcher la prise de captures d\'écran</string>
     <string name="title_advanced_biometrics_timeout">Délai d\'authentification biométrique</string>
     <string name="title_advanced_pin">Code PIN</string>
     <string name="title_advanced_english">Forcer la langue anglaise</string>
@@ -620,6 +620,7 @@
     <string name="title_signature_valid">Signature de message valide</string>
     <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
+    <string name="title_signature_signed_by">Signature du message valide, signé par : %1$s</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_in">Rechercher dans</string>

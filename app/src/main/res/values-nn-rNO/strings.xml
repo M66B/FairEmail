@@ -620,6 +620,7 @@
     <string name="title_signature_valid">Meldings signatur gyldig</string>
     <string name="title_signature_unconfirmed">Meldingssignatur er gyldig, men ikke bekreftet</string>
     <string name="title_signature_invalid">Meldings signatur ugyldig</string>
+    <string name="title_signature_signed_by">Meldingssignatur gyldig, signert av: %1$s</string>
     <string name="title_search">Søk</string>
     <string name="title_search_server">Søk på server</string>
     <string name="title_search_in">Søk i</string>

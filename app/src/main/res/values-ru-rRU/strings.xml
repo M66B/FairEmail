@@ -642,6 +642,7 @@
     <string name="title_signature_valid">Подпись сообщения действительна</string>
     <string name="title_signature_unconfirmed">Подпись сообщения действительна, но не подтверждена</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
+    <string name="title_signature_signed_by">Подпись сообщения действительна, подписано: %1$s</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_in">Поиск в</string>

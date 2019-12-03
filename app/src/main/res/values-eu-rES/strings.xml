@@ -620,6 +620,7 @@
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
     <string name="title_signature_unconfirmed">Mezuaren sinadura baliozkoa da baina ez da baieztatu</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
+    <string name="title_signature_signed_by">Mezuaren sinadura baliozkoa da. Sinatzailea: %1$s</string>
     <string name="title_search">Bilatu</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>
     <string name="title_search_in">Bilatu hemen</string>

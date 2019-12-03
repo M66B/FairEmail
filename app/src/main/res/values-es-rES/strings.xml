@@ -620,6 +620,7 @@
     <string name="title_signature_valid">Firma de mensaje válida</string>
     <string name="title_signature_unconfirmed">Firma del mensaje válida pero no confirmada</string>
     <string name="title_signature_invalid">Firma de mensaje no válida</string>
+    <string name="title_signature_signed_by">Firma de mensaje válida, firmada por: %1$s</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_server">Buscar en el servidor</string>
     <string name="title_search_in">Buscar en</string>

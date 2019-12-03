@@ -608,6 +608,7 @@
     <string name="title_signature_valid">消息签名有效</string>
     <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
     <string name="title_signature_invalid">消息签名无效</string>
+    <string name="title_signature_signed_by">消息签名有效，签名者为 %1$s</string>
     <string name="title_search">搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
     <string name="title_search_in">搜索范围</string>
