@@ -42,10 +42,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle">
-
-            <requestFocus />
-        </EditText>
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"></EditText>
 
         <TextView
             android:id="@+id/tvDifferent"
