@@ -191,12 +191,13 @@ class Core {
                                     break;
 
                                 case EntityOperation.MOVE:
-                                    if (EntityOperation.MOVE.equals(next.name)) {
+                                    if (message.uid != null &&
+                                            EntityOperation.MOVE.equals(next.name)) {
                                         JSONArray jnext = new JSONArray(next.args);
                                         // Same target
                                         if (jargs.getLong(0) == jnext.getLong(0)) {
                                             EntityMessage m = db.message().getMessage(next.message);
-                                            if (m != null) {
+                                            if (m != null && m.uid != null) {
                                                 processed.add(next.id);
                                                 similar.put(next, m);
                                             }
@@ -792,7 +793,7 @@ class Core {
         for (EntityMessage message : messages)
             try {
                 if (message.uid == null)
-                    throw new MessageRemovedException("move without uid");
+                    throw new IllegalArgumentException("move without uid");
                 Message imessage = ifolder.getMessageByUID(message.uid);
                 if (imessage == null)
                     throw new MessageRemovedException("move without message");
