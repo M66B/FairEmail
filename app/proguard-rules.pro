@@ -80,6 +80,8 @@
 -keepclassmembers enum * {*;} #GSON
 
 #Bouncy castle
+-keep class org.bouncycastle.** {*;}
+-keepnames class org.bouncycastle.* {*;}
 -dontwarn org.bouncycastle.cert.dane.**
 -dontwarn org.bouncycastle.jce.provider.**
 -dontwarn org.bouncycastle.x509.util.**
