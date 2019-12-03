@@ -1969,8 +1969,6 @@ public class FragmentCompose extends FragmentBase {
 
                     db.attachment().setDownloaded(sattachment.id, file.length());
                 } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
-                    if (true)
-                        throw new UnsupportedOperationException("Not implemented yet");
                     // TODO: sign
                     if (draft.to == null || draft.to.length != 1)
                         throw new IllegalArgumentException(getString(R.string.title_to_missing));
@@ -1992,12 +1990,12 @@ public class FragmentCompose extends FragmentBase {
                     bpContent.writeTo(bos);
                     CMSTypedData msg = new CMSProcessableByteArray(bos.toByteArray());
 
-                    OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(CMSAlgorithm.AES256_CBC)
+                    OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(CMSAlgorithm.AES128_CBC)
                             .build();
                     CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
                             .generate(msg, encryptor);
 
-                    byte[] encryptedData = cmsEnvelopedData.toASN1Structure().getEncoded();
+                    byte[] encryptedData = cmsEnvelopedData/*.toASN1Structure()*/.getEncoded();
 
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = draft.id;

@@ -124,7 +124,6 @@ import org.bouncycastle.cms.SignerInformationStore;
 import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
 import org.bouncycastle.cms.jcajce.JceKeyTransEnvelopedRecipient;
 import org.bouncycastle.cms.jcajce.JceKeyTransRecipient;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.util.Store;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -4436,8 +4435,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         throw new IllegalArgumentException("Encrypted message missing");
 
                     // Build enveloped data
-                    FileInputStream fis = new FileInputStream(input);
-                    CMSEnvelopedData envelopedData = new CMSEnvelopedData(fis);
+                    CMSEnvelopedData envelopedData;
+                    try (FileInputStream fis = new FileInputStream(input)) {
+                        envelopedData = new CMSEnvelopedData(fis);
+                    }
 
                     // Decrypt message
                     Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients();
