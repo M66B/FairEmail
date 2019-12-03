@@ -3188,34 +3188,14 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     };
 
     private Observer<PagedList<TupleMessageEx>> observer = new Observer<PagedList<TupleMessageEx>>() {
-        private List<Long> ids = new ArrayList<>();
-
         @Override
         public void onChanged(@Nullable PagedList<TupleMessageEx> messages) {
             if (messages == null)
                 return;
 
-            if (viewType == AdapterMessage.ViewType.THREAD) {
+            if (viewType == AdapterMessage.ViewType.THREAD)
                 if (handleThreadActions(messages))
                     return;
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                boolean autoscroll = prefs.getBoolean("autoscroll", true);
-                if (autoscroll) {
-                    boolean gotoTop = false;
-                    for (int i = 0; i < messages.size(); i++) {
-                        TupleMessageEx message = messages.get(i);
-                        if (message != null && !ids.contains(message.id)) {
-                            ids.add(message.id);
-                            if (!message.ui_seen && !message.duplicate)
-                                gotoTop = true;
-                        }
-                    }
-
-                    if (gotoTop)
-                        adapter.gotoTop();
-                }
-            }
 
             Log.i("Submit messages=" + messages.size());
             adapter.submitList(messages);
