@@ -56,7 +56,7 @@ import io.requery.android.database.sqlite.RequerySQLiteOpenHelperFactory;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 117,
+        version = 118,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -1137,6 +1137,21 @@ public abstract class DB extends RoomDatabase {
                                 ", `email` TEXT" +
                                 ", `data` TEXT NOT NULL)");
                         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_certificate_subject` ON `certificate` (`subject`)");
+                        db.execSQL("CREATE INDEX IF NOT EXISTS `index_certificate_email` ON `certificate` (`email`)");
+                    }
+                })
+                .addMigrations(new Migration(117, 118) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        Log.i("DB migration from version " + startVersion + " to " + endVersion);
+                        db.execSQL("DROP TABLE IF EXISTS `certificate`");
+                        db.execSQL("CREATE TABLE IF NOT EXISTS `certificate`" +
+                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
+                                ", `fingerprint` TEXT NOT NULL" +
+                                ", `email` TEXT NOT NULL" +
+                                ", `subject` TEXT" +
+                                ", `data` TEXT NOT NULL)");
+                        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_certificate_fingerprint_email` ON `certificate` (`fingerprint`, `email`)");
                         db.execSQL("CREATE INDEX IF NOT EXISTS `index_certificate_email` ON `certificate` (`email`)");
                     }
                 })

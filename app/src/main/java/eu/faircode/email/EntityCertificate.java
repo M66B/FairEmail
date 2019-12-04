@@ -31,7 +31,7 @@ import java.util.Objects;
         foreignKeys = {
         },
         indices = {
-                @Index(value = {"subject"}, unique = true),
+                @Index(value = {"fingerprint", "email"}, unique = true),
                 @Index(value = {"email"}),
         }
 )
@@ -41,8 +41,10 @@ public class EntityCertificate {
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
-    public String subject;
+    public String fingerprint;
+    @NonNull
     public String email;
+    public String subject;
     @NonNull
     public String data;
 
@@ -50,8 +52,9 @@ public class EntityCertificate {
     public boolean equals(Object obj) {
         if (obj instanceof EntityCertificate) {
             EntityCertificate other = (EntityCertificate) obj;
-            return (this.subject.equals(other.subject) &&
+            return (this.fingerprint.equals(other.fingerprint) &&
                     Objects.equals(this.email, other.email) &&
+                    Objects.equals(this.subject, other.subject) &&
                     this.data.equals(other.data));
         } else
             return false;

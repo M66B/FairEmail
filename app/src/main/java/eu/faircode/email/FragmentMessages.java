@@ -165,6 +165,7 @@ import javax.mail.FolderClosedException;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.security.auth.x500.X500Principal;
 
 import static android.app.Activity.RESULT_OK;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
@@ -4388,20 +4389,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     .getCertificate(certHolder);
                             try {
                                 if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert))) {
-                                    String subject = cert.getSubjectDN().getName();
-                                    if (!TextUtils.isEmpty(subject) &&
-                                            message.from != null && message.from.length == 1) {
-                                        EntityCertificate c = db.certificate().getCertificateBySubject(subject);
-                                        if (c == null) {
-                                            c = new EntityCertificate();
-                                            c.subject = subject;
-                                            c.email = ((InternetAddress) message.from[0]).getAddress();
-                                            c.data = Base64.encodeToString(cert.getEncoded(), Base64.NO_WRAP);
-                                            c.id = db.certificate().insertCertificate(c);
+                                    if (message.from != null && message.from.length == 1) {
+                                        String fingerprint = Helper.sha256(cert.getEncoded());
+                                        String email = ((InternetAddress) message.from[0]).getAddress();
+                                        EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                                        if (record == null) {
+                                            record = new EntityCertificate();
+                                            record.fingerprint = fingerprint;
+                                            record.email = email;
+                                            record.subject = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
+                                            record.data = Base64.encodeToString(cert.getEncoded(), Base64.NO_WRAP);
+                                            record.id = db.certificate().insertCertificate(record);
                                         }
                                     }
 
-                                    return subject;
+                                    return cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
                                 }
                             } catch (CMSVerifierCertificateNotValidException ex) {
                                 Log.w(ex);

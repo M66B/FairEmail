@@ -29,12 +29,13 @@ import java.util.List;
 @Dao
 public interface DaoCertificate {
     @Query("SELECT * FROM certificate" +
-            " ORDER BY subject DESC")
+            " ORDER BY email DESC")
     LiveData<List<EntityCertificate>> liveCertificates();
 
     @Query("SELECT * FROM certificate" +
-            " WHERE subject = :subject")
-    EntityCertificate getCertificateBySubject(String subject);
+            " WHERE fingerprint = :fingerprint" +
+            " AND email = :email")
+    EntityCertificate getCertificate(String fingerprint, String email);
 
     @Query("SELECT * FROM certificate" +
             " WHERE email = :email")
