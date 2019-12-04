@@ -60,7 +60,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
-import android.util.Base64;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -78,6 +77,7 @@ import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -255,6 +255,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_LINK = 12;
     private static final int REQUEST_DISCARD = 13;
     private static final int REQUEST_SEND = 14;
+    private static final int REQUEST_SELECT_CERTIFICATE = 15;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1247,7 +1248,18 @@ public class FragmentCompose extends FragmentBase {
                                     @Override
                                     public void run() {
                                         try {
-                                            onSmime(draft, alias);
+                                            Bundle args = new Bundle();
+                                            args.putLong("id", draft.id);
+                                            args.putInt("type", draft.encrypt);
+                                            args.putString("alias", alias);
+
+                                            if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
+                                                FragmentDialogCertificate fragment = new FragmentDialogCertificate();
+                                                fragment.setArguments(args);
+                                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_SELECT_CERTIFICATE);
+                                                fragment.show(getParentFragmentManager(), "compose:certificate");
+                                            } else
+                                                onSmime(args);
                                         } catch (Throwable ex) {
                                             Log.e(ex);
                                         }
@@ -1366,6 +1378,10 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_SEND:
                     if (resultCode == RESULT_OK)
                         onActionSend();
+                    break;
+                case REQUEST_SELECT_CERTIFICATE:
+                    if (resultCode == RESULT_OK && data != null)
+                        onSmime(data.getBundleExtra("args"));
                     break;
             }
         } catch (Throwable ex) {
@@ -1844,18 +1860,14 @@ public class FragmentCompose extends FragmentBase {
         }.execute(this, args, "compose:pgp");
     }
 
-    private void onSmime(EntityMessage draft, String alias) {
-        Bundle args = new Bundle();
-        args.putLong("id", draft.id);
-        args.putInt("type", draft.encrypt);
-        args.putString("alias", alias);
-
+    private void onSmime(Bundle args) {
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 int type = args.getInt("type");
                 String alias = args.getString("alias");
+                long cid = args.getLong("certificate", -1);
 
                 DB db = DB.getInstance(context);
 
@@ -1866,6 +1878,9 @@ public class FragmentCompose extends FragmentBase {
                 EntityIdentity identity = db.identity().getIdentity(draft.identity);
                 if (identity == null)
                     throw new IllegalArgumentException(getString(R.string.title_from_missing));
+                EntityCertificate certificate = db.certificate().getCertificate(cid);
+                if (certificate == null && EntityMessage.SMIME_SIGNENCRYPT.equals(type))
+                    throw new IllegalArgumentException("Certificate missing");
 
                 // Get/clean attachments
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
@@ -1974,19 +1989,8 @@ public class FragmentCompose extends FragmentBase {
                     return null;
                 }
 
-                // Get recipient
-                if (draft.to == null || draft.to.length != 1)
-                    throw new IllegalArgumentException(getString(R.string.title_to_missing));
-                String to = ((InternetAddress) draft.to[0]).getAddress();
-
-                // Get public key
-                List<EntityCertificate> c = db.certificate().getCertificateByEmail(to);
-                if (c == null || c.size() == 0)
-                    throw new IllegalArgumentException("Certificate not found");
-
-                byte[] encoded = Base64.decode(c.get(0).data, Base64.NO_WRAP);
                 X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
-                        .generateCertificate(new ByteArrayInputStream(encoded));
+                        .generateCertificate(new ByteArrayInputStream(certificate.getEncoded()));
 
                 // Build signature
                 BodyPart bpSignature = new MimeBodyPart();
@@ -3930,6 +3934,50 @@ public class FragmentCompose extends FragmentBase {
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
+        }
+    }
+
+    public static class FragmentDialogCertificate extends FragmentDialogBase {
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_certificate, null);
+            final RecyclerView rvCertificate = dview.findViewById(R.id.rvCertificate);
+            final ProgressBar pbWait = dview.findViewById(R.id.pbWait);
+
+            final Dialog dialog = new AlertDialog.Builder(getContext())
+                    .setTitle(R.string.title_select_certificate)
+                    .setView(dview)
+                    .setNegativeButton(android.R.string.cancel, null).create();
+
+            rvCertificate.setHasFixedSize(false);
+            LinearLayoutManager llm = new LinearLayoutManager(getContext());
+            rvCertificate.setLayoutManager(llm);
+
+            final AdapterCertificate adapter = new AdapterCertificate(this, new AdapterCertificate.ICertificate() {
+                @Override
+                public void onSelected(EntityCertificate certificate) {
+                    dialog.dismiss();
+                    getArguments().putLong("certificate", certificate.id);
+                    sendResult(RESULT_OK);
+                }
+            });
+            rvCertificate.setAdapter(adapter);
+
+            rvCertificate.setVisibility(View.GONE);
+            pbWait.setVisibility(View.VISIBLE);
+
+            DB db = DB.getInstance(getContext());
+            db.certificate().liveCertificates().observe(getViewLifecycleOwner(), new Observer<List<EntityCertificate>>() {
+                @Override
+                public void onChanged(List<EntityCertificate> certificates) {
+                    pbWait.setVisibility(View.GONE);
+                    rvCertificate.setVisibility(View.VISIBLE);
+                    adapter.set(certificates);
+                }
+            });
+
+            return dialog;
         }
     }
 

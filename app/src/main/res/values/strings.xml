@@ -673,6 +673,7 @@
     <string name="title_insert_template">Insert template</string>
     <string name="title_edit_plain_text">Edit as plain text</string>
     <string name="title_edit_formatted_text">Edit as reformatted text</string>
+    <string name="title_select_certificate">Select certificate</string>
     <string name="title_send_plain_text">Plain text only</string>
     <string name="title_send_receipt">Request delivery/read receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>

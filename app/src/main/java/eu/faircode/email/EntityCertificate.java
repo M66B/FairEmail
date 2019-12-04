@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.util.Base64;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Index;
@@ -47,6 +49,14 @@ public class EntityCertificate {
     public String subject;
     @NonNull
     public String data;
+
+    void setEncoded(byte[] encoded) {
+        this.data = Base64.encodeToString(encoded, Base64.NO_WRAP);
+    }
+
+    byte[] getEncoded() {
+        return Base64.decode(this.data, Base64.NO_WRAP);
+    }
 
     @Override
     public boolean equals(Object obj) {

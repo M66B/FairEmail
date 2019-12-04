@@ -52,7 +52,6 @@ import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
-import android.util.Base64;
 import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -4398,7 +4397,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                             record.fingerprint = fingerprint;
                                             record.email = email;
                                             record.subject = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
-                                            record.data = Base64.encodeToString(cert.getEncoded(), Base64.NO_WRAP);
+                                            record.setEncoded(cert.getEncoded());
                                             record.id = db.certificate().insertCertificate(record);
                                         }
                                     }
