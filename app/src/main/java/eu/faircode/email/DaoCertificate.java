@@ -29,8 +29,8 @@ import java.util.List;
 @Dao
 public interface DaoCertificate {
     @Query("SELECT * FROM certificate" +
-            " ORDER BY email")
-    LiveData<List<EntityCertificate>> liveCertificates();
+            " ORDER BY (email = :email) DESC, email, subject")
+    LiveData<List<EntityCertificate>> liveCertificates(String email);
 
     @Query("SELECT * FROM certificate" +
             " WHERE id = :id")

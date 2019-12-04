@@ -3999,12 +3999,12 @@ public class FragmentCompose extends FragmentBase {
             pbWait.setVisibility(View.VISIBLE);
 
             DB db = DB.getInstance(getContext());
-            db.certificate().liveCertificates().observe(getViewLifecycleOwner(), new Observer<List<EntityCertificate>>() {
+            db.certificate().liveCertificates(email).observe(getViewLifecycleOwner(), new Observer<List<EntityCertificate>>() {
                 @Override
                 public void onChanged(List<EntityCertificate> certificates) {
                     pbWait.setVisibility(View.GONE);
                     rvCertificate.setVisibility(View.VISIBLE);
-                    adapter.set(certificates);
+                    adapter.set(email, certificates);
                 }
             });
 

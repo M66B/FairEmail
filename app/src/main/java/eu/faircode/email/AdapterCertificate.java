@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.ViewHolder> {
     private ICertificate intf;
@@ -42,6 +44,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private String email;
     private List<EntityCertificate> items = new ArrayList<>();
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
@@ -110,6 +113,10 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         private void bindTo(EntityCertificate certificate) {
             tvEmail.setText(certificate.email);
             tvSubject.setText(certificate.subject);
+
+            boolean preferred = Objects.equals(email, certificate.email);
+            tvEmail.setTypeface(preferred ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            tvSubject.setTypeface(preferred ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
         }
     }
 
@@ -122,12 +129,13 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         setHasStableIds(true);
     }
 
-    public void set(@NonNull List<EntityCertificate> certificates) {
-        Log.i("Set certificates=" + certificates.size());
+    public void set(String email, @NonNull List<EntityCertificate> certificates) {
+        Log.i("Set email=" + email + " certificates=" + certificates.size());
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, certificates), false);
 
-        items = certificates;
+        this.email = email;
+        this.items = certificates;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {
             @Override
