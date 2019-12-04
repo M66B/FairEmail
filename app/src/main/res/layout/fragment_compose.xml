@@ -419,7 +419,7 @@
                     android:id="@+id/grpHeader"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="spIdentity,etTo,ivToAdd,etSubject,vSeparator" />
+                    app:constraint_referenced_ids="spIdentity,ivToLegend,etTo,ivToAdd,etSubject,vSeparator" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpExtra"
