@@ -46,6 +46,7 @@ public class BehaviorBottomMargin extends CoordinatorLayout.Behavior<View> {
     public boolean onDependentViewChanged(@NonNull CoordinatorLayout parent, @NonNull View child, @NonNull View dependency) {
         CoordinatorLayout.LayoutParams lparam = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
         lparam.setMargins(0, 0, 0, dependency.getHeight());
+        child.setLayoutParams(lparam);
         return true;
     }
 
@@ -53,5 +54,6 @@ public class BehaviorBottomMargin extends CoordinatorLayout.Behavior<View> {
     public void onDependentViewRemoved(CoordinatorLayout parent, View child, View dependency) {
         CoordinatorLayout.LayoutParams lparam = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
         lparam.setMargins(0, 0, 0, 0);
+        child.setLayoutParams(lparam);
     }
 }
