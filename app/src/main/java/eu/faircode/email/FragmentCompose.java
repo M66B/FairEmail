@@ -105,7 +105,6 @@ import org.bouncycastle.cms.CMSAlgorithm;
 import org.bouncycastle.cms.CMSEnvelopedData;
 import org.bouncycastle.cms.CMSEnvelopedDataGenerator;
 import org.bouncycastle.cms.CMSProcessableByteArray;
-import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSSignedDataGenerator;
 import org.bouncycastle.cms.CMSTypedData;
@@ -154,6 +153,7 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.regex.Pattern;
 
+import javax.activation.DataHandler;
 import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.MessageRemovedException;
@@ -166,7 +166,9 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.ParseException;
+import javax.mail.util.ByteArrayDataSource;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -1881,7 +1883,7 @@ public class FragmentCompose extends FragmentBase {
                         attachments.remove(attachment);
                     }
 
-                // Build message
+                // Build message to sign
                 Properties props = MessageHelper.getSessionProperties();
                 Session isession = Session.getInstance(props, null);
                 MimeMessage imessage = new MimeMessage(isession);
@@ -1906,19 +1908,19 @@ public class FragmentCompose extends FragmentBase {
                 };
                 bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
+                if (alias == null)
+                    throw new IllegalArgumentException("Key alias missing");
+
+                // Get private key
+                PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
+                if (privkey == null)
+                    throw new IllegalArgumentException("Private key missing");
+                X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
+                if (chain == null || chain.length == 0)
+                    throw new IllegalArgumentException("Certificate missing");
+
+                // Build content
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
-                    if (alias == null)
-                        throw new IllegalArgumentException("Key alias missing");
-
-                    // Get private key
-                    PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
-                    if (privkey == null)
-                        throw new IllegalArgumentException("Private key missing");
-                    X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
-                    if (chain == null || chain.length == 0)
-                        throw new IllegalArgumentException("Certificate missing");
-
-                    // Build content
                     EntityAttachment cattachment = new EntityAttachment();
                     cattachment.message = draft.id;
                     cattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
@@ -1934,24 +1936,30 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     db.attachment().setDownloaded(cattachment.id, content.length());
+                }
 
-                    // Sign
-                    Store store = new JcaCertStore(Arrays.asList(chain[0]));
-                    CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
-                    cmsGenerator.addCertificates(store);
+                // Sign
+                Store store = new JcaCertStore(Arrays.asList(chain[0]));
+                CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
+                cmsGenerator.addCertificates(store);
 
-                    ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA")
-                            .build(privkey);
-                    DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
-                            .build();
-                    SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
-                            .build(contentSigner, chain[0]);
-                    cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
+                ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256withRSA")
+                        .build(privkey);
+                DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
+                        .build();
+                SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
+                        .build(contentSigner, chain[0]);
+                cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
 
-                    CMSTypedData cmsData = new CMSProcessableFile(content);
-                    CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData, true);
-                    byte[] signedMessage = cmsSignedData.getEncoded();
+                ByteArrayOutputStream osContent = new ByteArrayOutputStream();
+                bpContent.writeTo(osContent);
 
+                CMSTypedData cmsData = new CMSProcessableByteArray(osContent.toByteArray());
+                CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData, true);
+                byte[] signedMessage = cmsSignedData.getEncoded();
+
+                // Build signature
+                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     ContentType ct = new ContentType("application/pkcs7-signature");
                     ct.setParameter("micalg", "sha-256");
 
@@ -1970,51 +1978,72 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     db.attachment().setDownloaded(sattachment.id, file.length());
-                } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
-                    // Get recipient
-                    if (draft.to == null || draft.to.length != 1)
-                        throw new IllegalArgumentException(getString(R.string.title_to_missing));
-                    String to = ((InternetAddress) draft.to[0]).getAddress();
 
-                    // Get public key
-                    List<EntityCertificate> c = db.certificate().getCertificateByEmail(to);
-                    if (c == null || c.size() == 0)
-                        throw new IllegalArgumentException("Certificate not found");
-
-                    byte[] encoded = Base64.decode(c.get(0).data, Base64.NO_WRAP);
-                    X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
-                            .generateCertificate(new ByteArrayInputStream(encoded));
-
-                    // Encrypt
-                    CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
-                    RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
-                    cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
-
-                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    bpContent.writeTo(bos);
-                    CMSTypedData msg = new CMSProcessableByteArray(bos.toByteArray());
-
-                    OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(CMSAlgorithm.AES128_CBC)
-                            .build();
-                    CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
-                            .generate(msg, encryptor);
-
-                    EntityAttachment attachment = new EntityAttachment();
-                    attachment.message = draft.id;
-                    attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
-                    attachment.name = "smime.p7m";
-                    attachment.type = "application/pkcs7-mime";
-                    attachment.disposition = Part.INLINE;
-                    attachment.encryption = EntityAttachment.SMIME_MESSAGE;
-                    attachment.id = db.attachment().insertAttachment(attachment);
-
-                    File file = attachment.getFile(context);
-                    try (OutputStream os = new FileOutputStream(file)) {
-                        cmsEnvelopedData.toASN1Structure().encodeTo(os);
-                    }
-
-                    db.attachment().setDownloaded(attachment.id, file.length());
+                    return null;
                 }
+
+                // Get recipient
+                if (draft.to == null || draft.to.length != 1)
+                    throw new IllegalArgumentException(getString(R.string.title_to_missing));
+                String to = ((InternetAddress) draft.to[0]).getAddress();
+
+                // Get public key
+                List<EntityCertificate> c = db.certificate().getCertificateByEmail(to);
+                if (c == null || c.size() == 0)
+                    throw new IllegalArgumentException("Certificate not found");
+
+                byte[] encoded = Base64.decode(c.get(0).data, Base64.NO_WRAP);
+                X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
+                        .generateCertificate(new ByteArrayInputStream(encoded));
+
+                // Build signature
+                BodyPart bpSignature = new MimeBodyPart();
+                bpSignature.setFileName("smime.p7s");
+                bpSignature.setDataHandler(new DataHandler(new ByteArrayDataSource(signedMessage, "application/pkcs7-signature")));
+                bpSignature.setDisposition(Part.INLINE);
+
+                // Build message
+                ContentType ct = new ContentType("multipart/signed");
+                ct.setParameter("micalg", "sha-256");
+                ct.setParameter("protocol", "application/pkcs7-signature");
+                ct.setParameter("smime-type", "signed-data");
+                String ctx = ct.toString();
+                int slash = ctx.indexOf("/");
+                Multipart multipart = new MimeMultipart(ctx.substring(slash + 1));
+                multipart.addBodyPart(bpContent);
+                multipart.addBodyPart(bpSignature);
+                imessage.setContent(multipart);
+                imessage.saveChanges();
+
+                // Encrypt
+                CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
+                RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
+                cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
+
+                ByteArrayOutputStream osMessage = new ByteArrayOutputStream();
+                imessage.writeTo(osMessage);
+                CMSTypedData msg = new CMSProcessableByteArray(osMessage.toByteArray());
+
+                OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(CMSAlgorithm.AES128_CBC)
+                        .build();
+                CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
+                        .generate(msg, encryptor);
+
+                EntityAttachment attachment = new EntityAttachment();
+                attachment.message = draft.id;
+                attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                attachment.name = "smime.p7m";
+                attachment.type = "application/pkcs7-mime";
+                attachment.disposition = Part.INLINE;
+                attachment.encryption = EntityAttachment.SMIME_MESSAGE;
+                attachment.id = db.attachment().insertAttachment(attachment);
+
+                File encrypted = attachment.getFile(context);
+                try (OutputStream os = new FileOutputStream(encrypted)) {
+                    cmsEnvelopedData.toASN1Structure().encodeTo(os);
+                }
+
+                db.attachment().setDownloaded(attachment.id, encrypted.length());
 
                 return null;
             }
