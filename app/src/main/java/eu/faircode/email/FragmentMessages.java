@@ -141,6 +141,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -4340,9 +4341,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSmime(Bundle args) {
-        new SimpleTask<String>() {
+        new SimpleTask<X509Certificate>() {
             @Override
-            protected String onExecute(Context context, Bundle args) throws Throwable {
+            protected X509Certificate onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 int type = args.getInt("type");
 
@@ -4387,23 +4388,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             X509Certificate cert = new JcaX509CertificateConverter()
                                     .getCertificate(certHolder);
                             try {
-                                if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert))) {
-                                    if (message.from != null && message.from.length == 1) {
-                                        String fingerprint = Helper.sha256(cert.getEncoded());
-                                        String email = ((InternetAddress) message.from[0]).getAddress();
-                                        EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
-                                        if (record == null) {
-                                            record = new EntityCertificate();
-                                            record.fingerprint = fingerprint;
-                                            record.email = email;
-                                            record.subject = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
-                                            record.setEncoded(cert.getEncoded());
-                                            record.id = db.certificate().insertCertificate(record);
-                                        }
-                                    }
-
-                                    return cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
-                                }
+                                if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert)))
+                                    return cert;
                             } catch (CMSVerifierCertificateNotValidException ex) {
                                 Log.w(ex);
                             }
@@ -4491,13 +4477,66 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             @Override
-            protected void onExecuted(Bundle args, String result) {
+            protected void onExecuted(Bundle args, X509Certificate cert) {
                 int type = args.getInt("type");
                 if (EntityMessage.SMIME_SIGNONLY.equals(type))
-                    if (result == null)
+                    if (cert == null)
                         Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
-                    else
-                        Snackbar.make(view, getString(R.string.title_signature_signed_by, result), Snackbar.LENGTH_LONG).show();
+                    else {
+                        String name = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
+                        new AlertDialog.Builder(getContext())
+                                .setTitle(R.string.title_signature_valid)
+                                .setMessage(name)
+                                .setPositiveButton(R.string.title_signature_store, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        try {
+                                            args.putByteArray("encoded", cert.getEncoded());
+                                        } catch (CertificateEncodingException ex) {
+                                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                                            return;
+                                        }
+
+                                        new SimpleTask<Void>() {
+                                            @Override
+                                            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                                long id = args.getLong("id");
+                                                byte[] encoded = args.getByteArray("encoded");
+
+                                                DB db = DB.getInstance(context);
+
+                                                EntityMessage message = db.message().getMessage(id);
+                                                if (message == null)
+                                                    return null;
+
+                                                if (message.from != null && message.from.length == 1) {
+                                                    String fingerprint = Helper.sha256(encoded);
+                                                    String email = ((InternetAddress) message.from[0]).getAddress();
+                                                    EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                                                    if (record == null) {
+                                                        record = new EntityCertificate();
+                                                        record.fingerprint = fingerprint;
+                                                        record.email = email;
+                                                        record.subject = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
+                                                        record.setEncoded(encoded);
+                                                        record.id = db.certificate().insertCertificate(record);
+                                                    } else
+                                                        Log.i("Certificate already stored");
+                                                }
+
+                                                return null;
+                                            }
+
+                                            @Override
+                                            protected void onException(Bundle args, Throwable ex) {
+                                                Helper.unexpectedError(getParentFragmentManager(), ex);
+                                            }
+                                        }.execute(FragmentMessages.this, args, "certificate:store");
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+                    }
             }
 
             @Override
