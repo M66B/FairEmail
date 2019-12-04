@@ -291,8 +291,8 @@
     <string name="title_advanced_encrypt_default">Salaa oletusarvoisesti</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
-    <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_pin">PIN-koodi</string>
+    <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -615,7 +615,6 @@
     <string name="title_no_openpgp">OpenKeychain ei löytynyt</string>
     <string name="title_not_encrypted">Viestiä ei ole allekirjoitettu tai salattu</string>
     <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
-    <string name="title_import_encrypt_key">Tuo salausavain</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>
     <string name="title_signature_valid">Viestin allekirjoitus pätevä</string>
     <string name="title_signature_unconfirmed">Viestin allekirjoitus pätevä muttei vahvistettu</string>

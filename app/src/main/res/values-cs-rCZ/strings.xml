@@ -313,8 +313,8 @@
     <string name="title_advanced_encrypt_default">Šifrovat jako výchozí</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
-    <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
@@ -637,7 +637,6 @@
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
     <string name="title_not_encrypted">Zpráva není podepsána ani šifrována</string>
     <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>
-    <string name="title_import_encrypt_key">Importovat šifrovací klíč</string>
     <string name="title_signature_none">Zpráva není podepsána</string>
     <string name="title_signature_valid">Podpis zprávy je platný</string>
     <string name="title_signature_unconfirmed">Podpis zprávy je platný, ale nepotvrzený</string>

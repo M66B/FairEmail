@@ -301,8 +301,8 @@
     <string name="title_advanced_encrypt_default">Criptare în mod implicit</string>
     <string name="title_advanced_auto_decrypt">Decriptează automat mesajele</string>
     <string name="title_advanced_secure">Ascunde din lista de aplicații recente și previne capturarea ecranului</string>
-    <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
@@ -625,7 +625,6 @@
     <string name="title_no_openpgp">OpenKeychain nu a fost găsit</string>
     <string name="title_not_encrypted">Mesajul nu este semnat sau criptat</string>
     <string name="title_reset_sign_key">Resetare cheie de semnare</string>
-    <string name="title_import_encrypt_key">Importă cheie de criptare</string>
     <string name="title_signature_none">Mesaj nesemnat</string>
     <string name="title_signature_valid">Semnătura mesaj validă</string>
     <string name="title_signature_unconfirmed">Semnătura mesajului este validă dar nu este confirmată</string>

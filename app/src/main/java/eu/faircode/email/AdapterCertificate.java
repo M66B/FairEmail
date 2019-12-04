@@ -23,11 +23,14 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.DiffUtil;
@@ -51,6 +54,8 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         private View view;
         private TextView tvEmail;
         private TextView tvSubject;
+
+        private TwoStateOwner powner = new TwoStateOwner(owner, "CertificatePopup");
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -76,38 +81,65 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             if (pos == RecyclerView.NO_POSITION)
                 return false;
 
-            EntityCertificate certificate = items.get(pos);
+            final EntityCertificate certificate = items.get(pos);
 
-            Bundle args = new Bundle();
-            args.putLong("id", certificate.id);
+            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, view);
 
-            new SimpleTask<Void>() {
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, certificate.email).setEnabled(false);
+
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_delete, 1, R.string.title_delete);
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
-                protected Void onExecute(Context context, Bundle args) throws Throwable {
-                    long id = args.getLong("id");
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.string.title_delete:
+                            onActionDelete();
+                            return true;
 
-                    DB db = DB.getInstance(context);
-                    db.certificate().deleteCertificate(id);
-
-                    return null;
+                        default:
+                            return false;
+                    }
                 }
 
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    // TODO: report error
+                private void onActionDelete() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", certificate.id);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+
+                            DB db = DB.getInstance(context);
+                            db.certificate().deleteCertificate(id);
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            // TODO: report error
+                        }
+                    }.execute(context, owner, args, "certificate:delete");
                 }
-            }.execute(context, owner, args, "certificate:delete");
+            });
+
+            popupMenu.show();
 
             return true;
         }
 
         private void wire() {
-            view.setOnClickListener(this);
+            if (intf != null)
+                view.setOnClickListener(this);
             view.setOnLongClickListener(this);
         }
 
         private void unwire() {
-            view.setOnClickListener(null);
+            if (intf != null)
+                view.setOnClickListener(null);
+            view.setOnLongClickListener(null);
         }
 
         private void bindTo(EntityCertificate certificate) {
@@ -219,6 +251,11 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         holder.bindTo(certificate);
 
         holder.wire();
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
+        holder.powner.recreate();
     }
 
     interface ICertificate {

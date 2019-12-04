@@ -289,8 +289,8 @@
     <string name="title_advanced_tracking">Аутоматски препознај и искључи слике које Вас прате</string>
     <string name="title_advanced_display_hidden">Прикажи сакривене текстове порука</string>
     <string name="title_advanced_auto_decrypt">Аутоматски дешифруј поруке</string>
-    <string name="title_advanced_biometrics_timeout">Време истека на биометријску проверу идентитета</string>
     <string name="title_advanced_pin">ПИН</string>
+    <string name="title_advanced_biometrics_timeout">Време истека на биометријску проверу идентитета</string>
     <string name="title_advanced_english">Форсирај енглески језик</string>
     <string name="title_advanced_watchdog">Периодично проверавај да ли је FairEmail и даље активан</string>
     <string name="title_advanced_updates">Провери за ажурирања</string>

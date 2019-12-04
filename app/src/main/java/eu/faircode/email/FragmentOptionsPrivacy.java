@@ -51,6 +51,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.Lifecycle;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -62,6 +63,7 @@ import java.util.List;
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private SwitchCompat swDisableTracking;
     private SwitchCompat swDisplayHidden;
+    private Spinner spEncryptMethod;
     private Spinner spOpenPgp;
     private SwitchCompat swSign;
     private SwitchCompat swEncrypt;
@@ -70,6 +72,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Button btnBiometrics;
     private Button btnPin;
     private Spinner spBiometricsTimeout;
+    private Button btnManageCertificates;
     private Button btnImportKey;
     private TextView tvKeySize;
 
@@ -77,7 +80,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     private final static String[] RESET_OPTIONS = new String[]{
             "disable_tracking", "display_hidden",
-            "openpgp_provider", "sign_default", "encrypt_default", "auto_decrypt",
+            "default_encrypt_method", "openpgp_provider", "sign_default", "encrypt_default", "auto_decrypt",
             "secure",
             "biometrics", "pin", "biometrics_timeout"
     };
@@ -94,6 +97,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swDisableTracking = view.findViewById(R.id.swDisableTracking);
         swDisplayHidden = view.findViewById(R.id.swDisplayHidden);
+        spEncryptMethod = view.findViewById(R.id.spEncryptMethod);
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
         swSign = view.findViewById(R.id.swSign);
         swEncrypt = view.findViewById(R.id.swEncrypt);
@@ -102,6 +106,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnBiometrics = view.findViewById(R.id.btnBiometrics);
         btnPin = view.findViewById(R.id.btnPin);
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
+        btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
         btnImportKey = view.findViewById(R.id.btnImportKey);
         tvKeySize = view.findViewById(R.id.tvKeySize);
 
@@ -133,6 +138,21 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("display_hidden", checked).apply();
+            }
+        });
+
+        spEncryptMethod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 1)
+                    prefs.edit().putString("default_encrypt_method", "s/mime").apply();
+                else
+                    onNothingSelected(parent);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("default_encrypt_method").apply();
             }
         });
 
@@ -225,6 +245,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             }
         });
 
+        btnManageCertificates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_CERTIFICATES));
+            }
+        });
+
         final Intent importKey = KeyChain.createInstallIntent();
         btnImportKey.setEnabled(importKey.resolveActivity(getContext().getPackageManager()) != null);
         btnImportKey.setOnClickListener(new View.OnClickListener() {
@@ -236,7 +264,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         try {
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
-            tvKeySize.setText(getString(R.string.title_aes_key_size, maxKeySize));
+            tvKeySize.setText(getString(R.string.title_advanced_aes_key_size, maxKeySize));
         } catch (NoSuchAlgorithmException ex) {
             tvKeySize.setText(Helper.formatThrowable(ex));
         }
@@ -289,6 +317,10 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
         swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
         swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
+
+        String encrypt_method = prefs.getString("default_encrypt_method", "pgp");
+        if ("s/mime".equals(encrypt_method))
+            spEncryptMethod.setSelection(1);
 
         String provider = prefs.getString("openpgp_provider", "org.sufficientlysecure.keychain");
         for (int pos = 0; pos < openPgpProvider.size(); pos++)

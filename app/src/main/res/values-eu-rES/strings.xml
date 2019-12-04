@@ -291,8 +291,8 @@
     <string name="title_advanced_encrypt_default">Besterik ezean zifratu</string>
     <string name="title_advanced_auto_decrypt">Desenkriptatu mezuak automatikoki</string>
     <string name="title_advanced_secure">Ezkutatu erabilitako azken aplikazioen pantailatik eta saihestu pantaila-argazkia egitea</string>
-    <string name="title_advanced_biometrics_timeout">Autentifikazio biometrikoaren iraupena</string>
     <string name="title_advanced_pin">PINa</string>
+    <string name="title_advanced_biometrics_timeout">Autentifikazio biometrikoaren iraupena</string>
     <string name="title_advanced_english">Behartu hizkuntza ingelesa</string>
     <string name="title_advanced_watchdog">Aldiro egiaztatu FairEmail aktibo dagoen</string>
     <string name="title_advanced_updates">Egiaztatu eguneraketarik dagoen</string>
@@ -615,7 +615,6 @@
     <string name="title_no_openpgp">Ez da OpenKeychain aurkitu</string>
     <string name="title_not_encrypted">Mezua ez dago ez zifratuta ez sinatuta</string>
     <string name="title_reset_sign_key">Berrezarri sinadura gakoa</string>
-    <string name="title_import_encrypt_key">Inportatu zifratze-gakoa</string>
     <string name="title_signature_none">Mezua ez dago sinatuta</string>
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
     <string name="title_signature_unconfirmed">Mezuaren sinadura baliozkoa da baina ez da baieztatu</string>

@@ -74,12 +74,16 @@ import com.microsoft.identity.client.IPublicClientApplication;
 import com.microsoft.identity.client.PublicClientApplication;
 import com.microsoft.identity.client.exception.MsalException;
 
+import org.bouncycastle.asn1.x509.GeneralName;
+import org.bouncycastle.util.io.pem.PemObject;
+import org.bouncycastle.util.io.pem.PemReader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -88,9 +92,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
+import java.security.cert.CertificateFactory;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
 import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -106,6 +114,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
+import javax.security.auth.x500.X500Principal;
 
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     private View view;
@@ -127,6 +136,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_IMPORT_OAUTH = 5;
     static final int REQUEST_CHOOSE_ACCOUNT = 6;
     static final int REQUEST_DONE = 7;
+    static final int REQUEST_IMPORT_CERTIFICATE = 7;
 
     static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
     static final String ACTION_QUICK_OUTLOOK = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_OUTLOOK";
@@ -135,7 +145,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final String ACTION_VIEW_IDENTITIES = BuildConfig.APPLICATION_ID + ".ACTION_VIEW_IDENTITIES";
     static final String ACTION_EDIT_ACCOUNT = BuildConfig.APPLICATION_ID + ".EDIT_ACCOUNT";
     static final String ACTION_EDIT_IDENTITY = BuildConfig.APPLICATION_ID + ".EDIT_IDENTITY";
-    static final String ACTION_MANAGE_LOCAL_CONTACTS = BuildConfig.APPLICATION_ID + ".LOCAL_CONTACTS";
+    static final String ACTION_MANAGE_LOCAL_CONTACTS = BuildConfig.APPLICATION_ID + ".MANAGE_LOCAL_CONTACTS";
+    static final String ACTION_MANAGE_CERTIFICATES = BuildConfig.APPLICATION_ID + ".MANAGE_CERTIFICATES";
+    static final String ACTION_IMPORT_CERTIFICATE = BuildConfig.APPLICATION_ID + ".IMPORT_CERTIFICATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -303,6 +315,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         iff.addAction(ACTION_EDIT_ACCOUNT);
         iff.addAction(ACTION_EDIT_IDENTITY);
         iff.addAction(ACTION_MANAGE_LOCAL_CONTACTS);
+        iff.addAction(ACTION_MANAGE_CERTIFICATES);
+        iff.addAction(ACTION_IMPORT_CERTIFICATE);
         lbm.registerReceiver(receiver, iff);
     }
 
@@ -365,6 +379,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     break;
                 case REQUEST_IMPORT_OAUTH:
                     ServiceSynchronize.reload(this, "oauth");
+                    break;
+                case REQUEST_IMPORT_CERTIFICATE:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleImportCertificate(data);
                     break;
             }
         } catch (Throwable ex) {
@@ -989,6 +1007,63 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         }.execute(this, args, "setup:import");
     }
 
+    private void handleImportCertificate(Intent data) {
+        Uri uri = data.getData();
+        if (uri != null) {
+            Bundle args = new Bundle();
+            args.putParcelable("uri", uri);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    Uri uri = args.getParcelable("uri");
+
+                    PemObject pem;
+                    try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        pem = new PemReader(new InputStreamReader(is)).readPemObject();
+                    }
+
+                    ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
+                    CertificateFactory fact = CertificateFactory.getInstance("X.509");
+                    X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
+
+                    String email = "?";
+                    try {
+                        Collection<List<?>> altNames = cert.getSubjectAlternativeNames();
+                        if (altNames != null)
+                            for (List altName : altNames)
+                                if (altName.get(0).equals(GeneralName.rfc822Name))
+                                    email = (String) altName.get(1);
+                                else
+                                    Log.i("Alt type=" + altName.get(0) + " data=" + altName.get(1));
+                    } catch (CertificateParsingException ex) {
+                        Log.w(ex);
+                    }
+
+                    String fingerprint = Helper.sha256(cert.getEncoded());
+
+                    DB db = DB.getInstance(context);
+                    EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                    if (record == null) {
+                        record = new EntityCertificate();
+                        record.fingerprint = Helper.sha256(cert.getEncoded());
+                        record.email = email;
+                        record.subject = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
+                        record.setEncoded(cert.getEncoded());
+                        record.id = db.certificate().insertCertificate(record);
+                    }
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                }
+            }.execute(this, args, "setup:cert");
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private JSONObject channelToJSON(NotificationChannel channel) throws JSONException {
         JSONObject jchannel = new JSONObject();
@@ -1302,6 +1377,23 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         fragmentTransaction.commit();
     }
 
+    private void onManageCertificates(Intent intent) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame, new FragmentCertificates()).addToBackStack("certificates");
+        fragmentTransaction.commit();
+    }
+
+    private void onImportCertificate(Intent intent) {
+        Intent open = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        open.addCategory(Intent.CATEGORY_OPENABLE);
+        open.setType("*/*");
+        Helper.openAdvanced(open);
+        if (open.resolveActivity(getPackageManager()) == null)
+            ToastEx.makeText(this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+        else
+            startActivityForResult(Helper.getChooser(this, open), REQUEST_IMPORT_CERTIFICATE);
+    }
+
     private static Intent getIntentExport() {
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -1397,6 +1489,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     onEditIdentity(intent);
                 else if (ACTION_MANAGE_LOCAL_CONTACTS.equals(action))
                     onManageLocalContacts(intent);
+                else if (ACTION_MANAGE_CERTIFICATES.equals(action))
+                    onManageCertificates(intent);
+                else if (ACTION_IMPORT_CERTIFICATE.equals(action))
+                    onImportCertificate(intent);
             }
         }
     };

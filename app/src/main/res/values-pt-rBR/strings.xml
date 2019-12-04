@@ -282,8 +282,8 @@
     <string name="title_advanced_display_hidden">Exibir textos de mensagens ocultas</string>
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Descriptografar mensagens automaticamente</string>
-    <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_biometrics_timeout">Tempo esgotado para a Autenticação Biométrica</string>
     <string name="title_advanced_english">Forçar em inglês</string>
     <string name="title_advanced_watchdog">Verifique periodicamente se o FairEmail ainda está ativo</string>
     <string name="title_advanced_updates">Procurar por atualizações</string>

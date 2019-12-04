@@ -330,13 +330,17 @@
 
     <string name="title_advanced_tracking">Automatically recognize and disable tracking images</string>
     <string name="title_advanced_display_hidden">Display hidden message texts</string>
+    <string name="title_advanced_encrypt_method">Default encryption method</string>
     <string name="title_advanced_openpgp">OpenPGP provider</string>
     <string name="title_advanced_sign_default">Sign by default</string>
     <string name="title_advanced_encrypt_default">Encrypt by default</string>
     <string name="title_advanced_auto_decrypt">Automatically decrypt messages</string>
     <string name="title_advanced_secure">Hide from recent apps screen and prevent taking screenshots</string>
-    <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_biometrics_timeout">Biometric authentication timeout</string>
+    <string name="title_advanced_manage_certificates">Manage public keys</string>
+    <string name="title_advanced_import_key">Import private key</string>
+    <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$d</string>
 
     <string name="title_advanced_english">Force English language</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
@@ -674,7 +678,7 @@
     <string name="title_edit_plain_text">Edit as plain text</string>
     <string name="title_edit_formatted_text">Edit as reformatted text</string>
     <string name="title_select_certificate">Select public key</string>
-    <string name="title_import_certificate">Import</string>
+    <string name="title_import_certificate">Import public key</string>
     <string name="title_send_plain_text">Plain text only</string>
     <string name="title_send_receipt">Request delivery/read receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
@@ -700,8 +704,6 @@
     <string name="title_no_openpgp">OpenKeychain not found</string>
     <string name="title_not_encrypted">Message is not signed or encrypted</string>
     <string name="title_reset_sign_key">Reset sign key</string>
-    <string name="title_import_encrypt_key">Import encryption key</string>
-    <string name="title_aes_key_size" translatable="false">Max AES key size: %1$d</string>
 
     <string name="title_signature_none">Message not signed</string>
     <string name="title_signature_valid">Message signature valid</string>
@@ -1155,6 +1157,11 @@
         <item>Small</item>
         <item>Medium</item>
         <item>Large</item>
+    </string-array>
+
+    <string-array name="encryptMethod" translatable="false">
+        <item>PGP</item>
+        <item>S/MIME</item>
     </string-array>
 
     <string-array name="encryptNames">

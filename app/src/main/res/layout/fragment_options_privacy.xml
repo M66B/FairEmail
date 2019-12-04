@@ -60,6 +60,28 @@
             app:layout_constraintTop_toBottomOf="@id/swDisplayHidden" />
 
         <TextView
+            android:id="@+id/tvEncryptMethod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_encrypt_method"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDisplayHiddenHint" />
+
+        <Spinner
+            android:id="@+id/spEncryptMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/encryptMethod"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvEncryptMethod" />
+
+        <TextView
             android:id="@+id/tvOpenPgp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -70,7 +92,7 @@
             android:textColor="?android:attr/textColorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDisplayHiddenHint" />
+            app:layout_constraintTop_toBottomOf="@id/spEncryptMethod" />
 
         <Spinner
             android:id="@+id/spOpenPgp"
@@ -208,6 +230,18 @@
             app:layout_constraintTop_toBottomOf="@id/tvBiometricsTimeout" />
 
         <Button
+            android:id="@+id/btnManageCertificates"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_manage_certificates"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout" />
+
+        <Button
             android:id="@+id/btnImportKey"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
@@ -215,15 +249,15 @@
             android:layout_marginTop="12dp"
             android:minWidth="0dp"
             android:minHeight="0dp"
-            android:text="@string/title_import_encrypt_key"
+            android:text="@string/title_advanced_import_key"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spBiometricsTimeout" />
+            app:layout_constraintTop_toBottomOf="@id/btnManageCertificates" />
 
         <TextView
             android:id="@+id/tvKeySize"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/title_aes_key_size"
+            android:text="@string/title_advanced_aes_key_size"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

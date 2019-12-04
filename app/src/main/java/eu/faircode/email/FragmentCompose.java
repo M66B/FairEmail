@@ -71,7 +71,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -94,6 +93,7 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -120,8 +120,6 @@ import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
-import org.bouncycastle.util.io.pem.PemObject;
-import org.bouncycastle.util.io.pem.PemReader;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.TextNode;
@@ -138,7 +136,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.UnknownHostException;
 import java.security.PrivateKey;
@@ -173,7 +170,6 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.ParseException;
 import javax.mail.util.ByteArrayDataSource;
-import javax.security.auth.x500.X500Principal;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -966,10 +962,10 @@ public class FragmentCompose extends FragmentBase {
         int colorEncrypt = Helper.resolveColor(getContext(), R.attr.colorEncrypt);
         ImageButton ib = (ImageButton) menu.findItem(R.id.menu_encrypt).getActionView();
         ib.setEnabled(!busy);
-        if (EntityMessage.PGP_SIGNONLY.equals(encrypt)) {
+        if (EntityMessage.PGP_SIGNONLY.equals(encrypt) || EntityMessage.SMIME_SIGNONLY.equals(encrypt)) {
             ib.setImageResource(R.drawable.baseline_gesture_24);
             ib.setImageTintList(null);
-        } else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt)) {
+        } else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) || EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt)) {
             ib.setImageResource(R.drawable.baseline_lock_24);
             ib.setImageTintList(ColorStateList.valueOf(colorEncrypt));
         } else {
@@ -1037,12 +1033,25 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuEncrypt() {
-        if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
-            encrypt = EntityMessage.PGP_SIGNONLY;
-        else if (EntityMessage.PGP_SIGNONLY.equals(encrypt))
-            encrypt = EntityMessage.ENCRYPT_NONE;
-        else
-            encrypt = EntityMessage.PGP_SIGNENCRYPT;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String encrypt_method = prefs.getString("default_encrypt_method", "pgp");
+
+        if ("pgp".equals(encrypt_method)) {
+            if (EntityMessage.ENCRYPT_NONE.equals(encrypt) || encrypt == null)
+                encrypt = EntityMessage.PGP_SIGNENCRYPT;
+            else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
+                encrypt = EntityMessage.PGP_SIGNONLY;
+            else
+                encrypt = EntityMessage.ENCRYPT_NONE;
+        } else {
+            if (EntityMessage.ENCRYPT_NONE.equals(encrypt) || encrypt == null)
+                encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+            else if (EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt))
+                encrypt = EntityMessage.SMIME_SIGNONLY;
+            else
+                encrypt = EntityMessage.ENCRYPT_NONE;
+        }
+
         getActivity().invalidateOptionsMenu();
 
         Bundle args = new Bundle();
@@ -2481,6 +2490,7 @@ public class FragmentCompose extends FragmentBase {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean plain_only = prefs.getBoolean("plain_only", false);
+            String encrypt_method = prefs.getString("default_encrypt_method", "pgp");
             boolean sign_default = prefs.getBoolean("sign_default", false);
             boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
             boolean receipt_default = prefs.getBoolean("receipt_default", false);
@@ -2517,9 +2527,15 @@ public class FragmentCompose extends FragmentBase {
                     if (plain_only)
                         data.draft.plain_only = true;
                     if (encrypt_default)
-                        data.draft.encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                        if ("s/mime".equals(encrypt_method))
+                            data.draft.encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                        else
+                            data.draft.encrypt = EntityMessage.PGP_SIGNENCRYPT;
                     else if (sign_default)
-                        data.draft.encrypt = EntityMessage.PGP_SIGNONLY;
+                        if ("s/mime".equals(encrypt_method))
+                            data.draft.encrypt = EntityMessage.SMIME_SIGNONLY;
+                        else
+                            data.draft.encrypt = EntityMessage.PGP_SIGNONLY;
                     if (receipt_default)
                         data.draft.receipt_request = true;
 
@@ -3957,7 +3973,6 @@ public class FragmentCompose extends FragmentBase {
 
             View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_certificate, null);
             final RecyclerView rvCertificate = dview.findViewById(R.id.rvCertificate);
-            final Button btnImport = dview.findViewById(R.id.btnImport);
             final ProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
             final Dialog dialog = new AlertDialog.Builder(getContext())
@@ -3969,6 +3984,12 @@ public class FragmentCompose extends FragmentBase {
             LinearLayoutManager llm = new LinearLayoutManager(getContext());
             rvCertificate.setLayoutManager(llm);
 
+            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
+            Drawable divider = getContext().getDrawable(R.drawable.divider);
+            divider.mutate().setTint(getContext().getResources().getColor(R.color.lightColorSeparator));
+            itemDecorator.setDrawable(divider);
+            rvCertificate.addItemDecoration(itemDecorator);
+
             final AdapterCertificate adapter = new AdapterCertificate(this, new AdapterCertificate.ICertificate() {
                 @Override
                 public void onSelected(EntityCertificate certificate) {
@@ -3978,22 +3999,6 @@ public class FragmentCompose extends FragmentBase {
                 }
             });
             rvCertificate.setAdapter(adapter);
-
-            btnImport.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                    intent.addCategory(Intent.CATEGORY_OPENABLE);
-                    intent.setType("*/*");
-                    Helper.openAdvanced(intent);
-                    PackageManager pm = getContext().getPackageManager();
-                    if (intent.resolveActivity(pm) == null)
-                        ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
-                    else
-                        startActivityForResult(Helper.getChooser(getContext(), intent), 1);
-                }
-            });
-            btnImport.setEnabled(email != null);
 
             rvCertificate.setVisibility(View.GONE);
             pbWait.setVisibility(View.VISIBLE);
@@ -4009,54 +4014,6 @@ public class FragmentCompose extends FragmentBase {
             });
 
             return dialog;
-        }
-
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-            if (resultCode == RESULT_OK && data != null) {
-                Uri uri = data.getData();
-                if (uri != null) {
-                    Bundle args = new Bundle();
-                    args.putParcelable("uri", uri);
-
-                    new SimpleTask<Void>() {
-                        @Override
-                        protected Void onExecute(Context context, Bundle args) throws Throwable {
-                            Uri uri = args.getParcelable("uri");
-
-                            PemObject pem;
-                            try (InputStream is = context.getContentResolver().openInputStream(uri)) {
-                                pem = new PemReader(new InputStreamReader(is)).readPemObject();
-                            }
-
-                            ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
-                            CertificateFactory fact = CertificateFactory.getInstance("X.509");
-                            X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
-
-                            String fingerprint = Helper.sha256(cert.getEncoded());
-
-                            DB db = DB.getInstance(context);
-                            EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
-                            if (record == null) {
-                                record = new EntityCertificate();
-                                record.fingerprint = Helper.sha256(cert.getEncoded());
-                                record.email = email;
-                                record.subject = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
-                                record.setEncoded(cert.getEncoded());
-                                record.id = db.certificate().insertCertificate(record);
-                            }
-                            // TODO: report exists
-
-                            return null;
-                        }
-
-                        @Override
-                        protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
-                        }
-                    }.execute(this, args, "compose:cert");
-                }
-            }
         }
     }
 

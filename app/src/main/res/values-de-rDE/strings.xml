@@ -290,8 +290,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
     <string name="title_advanced_secure">Von den kürzlich genutzten Apps ausblenden und Screenshots verhindern</string>
-    <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -591,6 +591,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_insert_template">Vorlage einfügen</string>
     <string name="title_edit_plain_text">Als Plain Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als reformierten Text bearbeiten</string>
+    <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
     <string name="title_send_plain_text">Nur Text</string>
     <string name="title_send_receipt">Lieferung/Lesebestätigung anfordern</string>
     <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Clients ignorieren Quittungsanfragen</string>
@@ -614,11 +615,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
     <string name="title_not_encrypted">Nachricht ist nicht signiert oder verschlüsselt</string>
     <string name="title_reset_sign_key">Sign-Schlüssel zurücksetzen</string>
-    <string name="title_import_encrypt_key">Verschlüsselungsschlüssel importieren</string>
     <string name="title_signature_none">Unsignierte Nachricht</string>
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
     <string name="title_signature_unconfirmed">Die Signatur der Nachricht ist zwar gültig, aber nicht bestätigt</string>
     <string name="title_signature_invalid">Ungültige Nachrichtensignatur</string>
+    <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
     <string name="title_search_server">Auf dem Server suchen</string>
     <string name="title_search_in">Suchen in</string>

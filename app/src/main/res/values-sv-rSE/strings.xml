@@ -270,8 +270,8 @@
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
     <string name="title_advanced_secure">Dölj dig från senaste appar-skärmen och förhindra tagning av skärmdumpar</string>
-    <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
     <string name="title_advanced_pin">PIN-kod</string>
+    <string name="title_advanced_biometrics_timeout">Tidsgräns för biometrisk autentisering</string>
     <string name="title_advanced_english">Tvinga användning av engelska</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter uppdateringar</string>

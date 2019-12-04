@@ -289,8 +289,8 @@
     <string name="title_advanced_openpgp">Proveïdor d’OpenPGP</string>
     <string name="title_advanced_auto_decrypt">Xifra automàticament els missatges</string>
     <string name="title_advanced_secure">Amaga de la pantalla d\'aplicacions recents i evita que es pugui fer captures de pantalla</string>
-    <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_biometrics_timeout">Retard de l’autenticació biomètrica</string>
     <string name="title_advanced_english">Forçar idioma anglès</string>
     <string name="title_advanced_watchdog">Comproveu periòdicament si FairEmail està actiu</string>
     <string name="title_advanced_updates">Comprova si hi ha actualitzacions</string>

@@ -290,8 +290,8 @@
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_auto_decrypt">Decodifica automaticamente i messaggi</string>
     <string name="title_advanced_secure">Nascondi dalla schermata delle app recenti e impedisci di catturare screenshot</string>
-    <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
     <string name="title_advanced_pin">PIN</string>
+    <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -592,7 +592,6 @@
     <string name="title_edit_plain_text">Modifica come testo semplice</string>
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_select_certificate">Seleziona chiave pubblica</string>
-    <string name="title_import_certificate">Importa</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_send_receipt">Richiedi ricevuta di consegna/lettura</string>
     <string name="title_send_receipt_remark">La maggior parte dei provider e dei client di posta elettronica ignora le richieste di ricevuta</string>
@@ -616,11 +615,11 @@
     <string name="title_no_openpgp">OpenKeychain non trovato</string>
     <string name="title_not_encrypted">Il messaggio non è firmato o cifrato</string>
     <string name="title_reset_sign_key">Reimposta il tasto del segno</string>
-    <string name="title_import_encrypt_key">Importa chiave di crittografia</string>
     <string name="title_signature_none">Messaggio non firmato</string>
     <string name="title_signature_valid">Firma messaggio valida</string>
     <string name="title_signature_unconfirmed">Firma del messaggio valida ma non confermata</string>
     <string name="title_signature_invalid">Firma messaggio non valida</string>
+    <string name="title_signature_store">Registra</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>
