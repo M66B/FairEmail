@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
 
     private List<EntityCertificate> items = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private TextView tvEmail;
         private TextView tvSubject;
@@ -66,8 +67,40 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             intf.onSelected(certificate);
         }
 
+        @Override
+        public boolean onLongClick(View v) {
+            int pos = getAdapterPosition();
+            if (pos == RecyclerView.NO_POSITION)
+                return false;
+
+            EntityCertificate certificate = items.get(pos);
+
+            Bundle args = new Bundle();
+            args.putLong("id", certificate.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    db.certificate().deleteCertificate(id);
+
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    // TODO: report error
+                }
+            }.execute(context, owner, args, "certificate:delete");
+
+            return true;
+        }
+
         private void wire() {
             view.setOnClickListener(this);
+            view.setOnLongClickListener(this);
         }
 
         private void unwire() {

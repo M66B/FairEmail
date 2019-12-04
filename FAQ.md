@@ -86,7 +86,7 @@ Related questions:
 * ~~Unified starred messages view~~ (there is already a special search for this)
 * ~~Notification move action~~
 * Search for settings: low priority
-* S/MIME: waiting for sponsoring
+* S/MIME support
 
 Anything on this list is in random order and *might* be added in the near future.
 
@@ -590,6 +590,12 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 Signed-only messages are supported, encrypted-only messages are not supported.
 
 For S/MIME support, please see the [planned features](#user-content-planned-features).
+
+Extract a public key from a S/MIME certificate:
+
+```
+openssl pkcs12 -in filename.pfx -clcerts -nokeys -out cert.pem
+```
 
 Please see [this comment](https://forum.xda-developers.com/showpost.php?p=79444379&postcount=5609)
 about [these vulnerabilities](https://amp.thehackernews.com/thn/2019/04/email-signature-spoofing.html).

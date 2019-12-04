@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:text="CN=marcel@faircode.eu"
             android:textAppearance="@android:style/TextAppearance.Small"
-            android:textIsSelectable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvEmail" />

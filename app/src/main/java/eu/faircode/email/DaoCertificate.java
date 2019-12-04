@@ -47,4 +47,7 @@ public interface DaoCertificate {
 
     @Insert
     long insertCertificate(EntityCertificate certificate);
+
+    @Query("DELETE FROM certificate WHERE id = :id")
+    void deleteCertificate(long id);
 }
