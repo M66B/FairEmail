@@ -1264,39 +1264,10 @@ public class FragmentCompose extends FragmentBase {
                                             args.putString("alias", alias);
 
                                             if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
-                                                new SimpleTask<Long>() {
-                                                    @Override
-                                                    protected Long onExecute(Context context, Bundle args) throws Throwable {
-                                                        String email = args.getString("email");
-                                                        if (email == null)
-                                                            return null;
-
-                                                        DB db = DB.getInstance(context);
-                                                        List<EntityCertificate> certs = db.certificate().getCertificateByEmail(email);
-                                                        if (certs == null || certs.size() != 1)
-                                                            return null;
-
-                                                        return certs.get(0).id;
-                                                    }
-
-                                                    @Override
-                                                    protected void onExecuted(Bundle args, Long id) {
-                                                        if (id == null) {
-                                                            FragmentDialogCertificate fragment = new FragmentDialogCertificate();
-                                                            fragment.setArguments(args);
-                                                            fragment.setTargetFragment(FragmentCompose.this, REQUEST_CERTIFICATE);
-                                                            fragment.show(getParentFragmentManager(), "certificate:select");
-                                                        } else {
-                                                            args.putLong("certificate", id);
-                                                            onSmime(args);
-                                                        }
-                                                    }
-
-                                                    @Override
-                                                    protected void onException(Bundle args, Throwable ex) {
-                                                        Helper.unexpectedError(getParentFragmentManager(), ex);
-                                                    }
-                                                }.execute(FragmentCompose.this, args, "certificate:find");
+                                                FragmentDialogCertificate fragment = new FragmentDialogCertificate();
+                                                fragment.setArguments(args);
+                                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_CERTIFICATE);
+                                                fragment.show(getParentFragmentManager(), "compose:certificate");
                                             } else
                                                 onSmime(args);
                                         } catch (Throwable ex) {
