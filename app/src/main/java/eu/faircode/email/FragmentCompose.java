@@ -1617,16 +1617,8 @@ public class FragmentCompose extends FragmentBase {
                         };
                         bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
-                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                        bpContent.writeTo(bos);
-
-                        // Just to be sure
-                        String raw = new String(bos.toByteArray());
-                        raw.replaceAll(" +$", "") // trim trailing spaces
-                                .replace("\\r?\\n", "\\r\\n"); // normalize new lines
-
                         try (OutputStream out = new FileOutputStream(input)) {
-                            out.write(raw.getBytes());
+                            bpContent.writeTo(out);
                         }
                     } else {
                         // Serialize message
