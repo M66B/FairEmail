@@ -972,9 +972,11 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_media).setChecked(media);
         menu.findItem(R.id.menu_compact).setChecked(compact);
 
-        if (EntityMessage.PGP_SIGNONLY.equals(encrypt))
+        if (EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
+                EntityMessage.SMIME_SIGNONLY.equals(encrypt))
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_sign);
-        else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
+        else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) ||
+                EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt))
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_encrypt);
         else
             bottom_navigation.getMenu().findItem(R.id.action_send).setTitle(R.string.title_send);
@@ -1908,7 +1910,7 @@ public class FragmentCompose extends FragmentBase {
                     if (alias == null)
                         throw new IllegalArgumentException("Key alias missing");
 
-                    // Get key
+                    // Get private key
                     PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
                     if (privkey == null)
                         throw new IllegalArgumentException("Private key missing");
@@ -1933,7 +1935,7 @@ public class FragmentCompose extends FragmentBase {
 
                     db.attachment().setDownloaded(cattachment.id, content.length());
 
-                    // Build signature
+                    // Sign
                     Store store = new JcaCertStore(Arrays.asList(chain[0]));
                     CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
                     cmsGenerator.addCertificates(store);
@@ -1969,11 +1971,12 @@ public class FragmentCompose extends FragmentBase {
 
                     db.attachment().setDownloaded(sattachment.id, file.length());
                 } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
-                    // TODO: sign
+                    // Get recipient
                     if (draft.to == null || draft.to.length != 1)
                         throw new IllegalArgumentException(getString(R.string.title_to_missing));
-
                     String to = ((InternetAddress) draft.to[0]).getAddress();
+
+                    // Get public key
                     List<EntityCertificate> c = db.certificate().getCertificateByEmail(to);
                     if (c == null || c.size() == 0)
                         throw new IllegalArgumentException("Certificate not found");
@@ -1982,6 +1985,7 @@ public class FragmentCompose extends FragmentBase {
                     X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
                             .generateCertificate(new ByteArrayInputStream(encoded));
 
+                    // Encrypt
                     CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
                     RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
                     cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
@@ -1995,8 +1999,6 @@ public class FragmentCompose extends FragmentBase {
                     CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
                             .generate(msg, encryptor);
 
-                    byte[] encryptedData = cmsEnvelopedData/*.toASN1Structure()*/.getEncoded();
-
                     EntityAttachment attachment = new EntityAttachment();
                     attachment.message = draft.id;
                     attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
@@ -2008,7 +2010,7 @@ public class FragmentCompose extends FragmentBase {
 
                     File file = attachment.getFile(context);
                     try (OutputStream os = new FileOutputStream(file)) {
-                        os.write(encryptedData);
+                        cmsEnvelopedData.toASN1Structure().encodeTo(os);
                     }
 
                     db.attachment().setDownloaded(attachment.id, file.length());

@@ -382,6 +382,7 @@ public class MessageHelper {
                 // Build message
                 imessage.setDisposition(Part.ATTACHMENT);
                 imessage.setFileName(attachment.name);
+                imessage.setDescription("S/MIME Encrypted Message");
 
                 ContentType ct = new ContentType("application/pkcs7-mime");
                 ct.setParameter("name", attachment.name);
