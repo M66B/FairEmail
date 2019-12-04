@@ -970,7 +970,7 @@
         <item>Fără</item>
         <item>Doar semnare PGP</item>
         <item>Semnare+criptare PGP</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>Doar semnare S/MIME</item>
+        <item>Semnare+criptare S/MIME</item>
     </string-array>
 </resources>

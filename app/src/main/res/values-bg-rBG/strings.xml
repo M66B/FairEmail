@@ -960,7 +960,7 @@
         <item>Няма</item>
         <item>PGP само подписване</item>
         <item>PGP подписване+криптиране</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>S/MIME само подписване</item>
+        <item>S/MIME подписване+криптиране</item>
     </string-array>
 </resources>

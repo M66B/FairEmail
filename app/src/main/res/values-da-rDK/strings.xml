@@ -619,7 +619,6 @@
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_unconfirmed">Beskedsignatur gyldig, men ubekræftet</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
-    <string name="title_signature_signed_by">Beskedsignatur gyldig, signeret af: %1$s</string>
     <string name="title_search">Søg</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>
@@ -959,7 +958,7 @@
         <item>Ingen</item>
         <item>Kun PGP-signering</item>
         <item>PGP-signering + kryptering</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>Kun S/MIME-signering</item>
+        <item>S/MIME-signering + kryptering</item>
     </string-array>
 </resources>

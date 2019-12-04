@@ -591,6 +591,8 @@
     <string name="title_insert_template">Inserisci modello</string>
     <string name="title_edit_plain_text">Modifica come testo semplice</string>
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
+    <string name="title_select_certificate">Seleziona chiave pubblica</string>
+    <string name="title_import_certificate">Importa</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
     <string name="title_send_receipt">Richiedi ricevuta di consegna/lettura</string>
     <string name="title_send_receipt_remark">La maggior parte dei provider e dei client di posta elettronica ignora le richieste di ricevuta</string>
@@ -619,7 +621,6 @@
     <string name="title_signature_valid">Firma messaggio valida</string>
     <string name="title_signature_unconfirmed">Firma del messaggio valida ma non confermata</string>
     <string name="title_signature_invalid">Firma messaggio non valida</string>
-    <string name="title_signature_signed_by">Firma del messaggio valida, firmato da: %1$s</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca sul server</string>
     <string name="title_search_in">Cerca in</string>

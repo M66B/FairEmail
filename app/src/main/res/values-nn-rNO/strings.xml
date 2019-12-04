@@ -592,6 +592,8 @@
     <string name="title_insert_template">Sett inn mal</string>
     <string name="title_edit_plain_text">Rediger som ren tekst</string>
     <string name="title_edit_formatted_text">Rediger som omformatert tekst</string>
+    <string name="title_select_certificate">Velg offentlig nøkkel</string>
+    <string name="title_import_certificate">Importer</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
     <string name="title_send_receipt">Be om levert/lest kvittering</string>
     <string name="title_send_receipt_remark">De fleste tilbydere og e-post klienter ignorerer kvitterings forespørsler</string>
@@ -620,7 +622,6 @@
     <string name="title_signature_valid">Meldings signatur gyldig</string>
     <string name="title_signature_unconfirmed">Meldingssignatur er gyldig, men ikke bekreftet</string>
     <string name="title_signature_invalid">Meldings signatur ugyldig</string>
-    <string name="title_signature_signed_by">Meldingssignatur gyldig, signert av: %1$s</string>
     <string name="title_search">Søk</string>
     <string name="title_search_server">Søk på server</string>
     <string name="title_search_in">Søk i</string>

@@ -592,6 +592,8 @@
     <string name="title_insert_template">Insérer un modèle</string>
     <string name="title_edit_plain_text">Modifier comme texte brut</string>
     <string name="title_edit_formatted_text">Modifier comme texte reformaté</string>
+    <string name="title_select_certificate">Sélectionner la clé publique</string>
+    <string name="title_import_certificate">Importer</string>
     <string name="title_send_plain_text">Texte brut seulement</string>
     <string name="title_send_receipt">Demander un accusé de réception/lecture</string>
     <string name="title_send_receipt_remark">La plupart des fournisseurs et des clients de messagerie ignorent les demandes d\'accusé de réception</string>
@@ -620,7 +622,6 @@
     <string name="title_signature_valid">Signature de message valide</string>
     <string name="title_signature_unconfirmed">Signature du message valide mais non confirmée</string>
     <string name="title_signature_invalid">Signature de message invalide</string>
-    <string name="title_signature_signed_by">Signature du message valide, signé par : %1$s</string>
     <string name="title_search">Rechercher</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
     <string name="title_search_in">Rechercher dans</string>

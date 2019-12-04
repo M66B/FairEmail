@@ -614,6 +614,8 @@
     <string name="title_insert_template">Вставить шаблон</string>
     <string name="title_edit_plain_text">Редактировать как простой текст</string>
     <string name="title_edit_formatted_text">Редактировать как исходный текст</string>
+    <string name="title_select_certificate">Выбор открытого ключа</string>
+    <string name="title_import_certificate">Импорт</string>
     <string name="title_send_plain_text">Только простой текст</string>
     <string name="title_send_receipt">Запросить уведомление о доставке/прочтении</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>
@@ -642,7 +644,6 @@
     <string name="title_signature_valid">Подпись сообщения действительна</string>
     <string name="title_signature_unconfirmed">Подпись сообщения действительна, но не подтверждена</string>
     <string name="title_signature_invalid">Подпись сообщения недействительна</string>
-    <string name="title_signature_signed_by">Подпись сообщения действительна, подписано: %1$s</string>
     <string name="title_search">Поиск</string>
     <string name="title_search_server">Поиск на сервере</string>
     <string name="title_search_in">Поиск в</string>

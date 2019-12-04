@@ -620,7 +620,6 @@
     <string name="title_signature_valid">İleti imzası geçerli</string>
     <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak onaylanmamış</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
-    <string name="title_signature_signed_by">Mesaj imzası geçerli, imzalayan: %1$s</string>
     <string name="title_search">Ara</string>
     <string name="title_search_server">Sunucuda ara</string>
     <string name="title_search_in">İçinde ara</string>
@@ -961,7 +960,7 @@
         <item>Hiçbiri</item>
         <item>PGP sadece imzala</item>
         <item>PGP imzala ve şifrele</item>
-        <item>S/MIME sign-only</item>
-        <item>S/MIME sign+encrypt</item>
+        <item>S/MIME yalnızca imza</item>
+        <item>S/MIME imza+şifre</item>
     </string-array>
 </resources>
