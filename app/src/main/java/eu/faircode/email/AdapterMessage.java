@@ -2699,12 +2699,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionDecrypt(TupleMessageEx message, boolean auto) {
+            int encrypt = (message.encrypt == null ? EntityMessage.PGP_SIGNENCRYPT /* Inline */ : message.encrypt);
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(FragmentMessages.ACTION_DECRYPT)
                             .putExtra("id", message.id)
                             .putExtra("auto", auto)
-                            .putExtra("type", (int) message.encrypt));
+                            .putExtra("type", encrypt));
         }
 
         private void onActionReplyMenu(TupleMessageEx message) {
