@@ -32,7 +32,6 @@ import org.jsoup.nodes.Document;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,7 +57,6 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
-import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.activation.FileTypeMap;
 import javax.mail.Address;
@@ -381,39 +379,29 @@ public class MessageHelper {
             } else if (EntityAttachment.SMIME_MESSAGE.equals(attachment.encryption)) {
                 Log.i("Sending S/MIME encrypted message");
 
-                File file = attachment.getFile(context);
-                byte[] encryptedData = new byte[(int) file.length()];
-                try (InputStream is = new FileInputStream(file)) {
-                    is.read(encryptedData);
-                }
-
                 // Build message
+                imessage.setDisposition(Part.ATTACHMENT);
+                imessage.setFileName(attachment.name);
+
                 ContentType ct = new ContentType("application/pkcs7-mime");
                 ct.setParameter("name", attachment.name);
                 ct.setParameter("smime-type", "enveloped-data");
-                imessage.setDisposition(Part.ATTACHMENT);
-                imessage.setFileName(attachment.name);
-                imessage.setDataHandler(new DataHandler(new DataSource() {
-                    @Override
-                    public InputStream getInputStream() throws IOException {
-                        return new ByteArrayInputStream(encryptedData);
-                    }
 
+                File file = attachment.getFile(context);
+                FileDataSource dataSource = new FileDataSource(file);
+                dataSource.setFileTypeMap(new FileTypeMap() {
                     @Override
-                    public OutputStream getOutputStream() throws IOException {
-                        return null;
-                    }
-
-                    @Override
-                    public String getContentType() {
+                    public String getContentType(File file) {
                         return ct.toString();
                     }
 
                     @Override
-                    public String getName() {
-                        return null;
+                    public String getContentType(String filename) {
+                        return ct.toString();
                     }
-                }));
+                });
+
+                imessage.setDataHandler(new DataHandler(dataSource));
 
                 return imessage;
             }
