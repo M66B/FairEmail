@@ -51,8 +51,8 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", SUM(message.encrypt IN (2, 4)) AS signed" +
-            ", SUM(message.encrypt IN (1, 3)) AS encrypted" +
+            ", (message.encrypt IN (2, 4)) AS signed" +
+            ", (message.encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
             ", MAX(CASE WHEN" +
@@ -102,8 +102,8 @@ public interface DaoMessage {
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
             ", SUM(folder.type = '" + EntityFolder.DRAFTS + "') AS drafts" +
-            ", SUM(message.encrypt IN (2, 4)) AS signed" +
-            ", SUM(message.encrypt IN (1, 3)) AS encrypted" +
+            ", (message.encrypt IN (2, 4)) AS signed" +
+            ", (message.encrypt IN (1, 3)) AS encrypted" +
             ", COUNT(DISTINCT CASE WHEN message.msgid IS NULL THEN message.id ELSE message.msgid END) AS visible" +
             ", SUM(message.total) AS totalSize" +
             ", MAX(CASE WHEN folder.id = :folder THEN message.received ELSE 0 END) AS dummy" +
