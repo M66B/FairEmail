@@ -141,6 +141,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
+import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.text.DateFormat;
@@ -4340,9 +4341,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onSmime(Bundle args) {
-        new SimpleTask<Boolean>() {
+        new SimpleTask<X509Certificate>() {
             @Override
-            protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+            protected X509Certificate onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 int type = args.getInt("type");
 
@@ -4388,22 +4389,23 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     .getCertificate(certHolder);
                             try {
                                 if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert))) {
-                                    String fingerprint = Helper.sha256(cert.getEncoded());
-                                    String email = Helper.getAltSubjectName(cert);
-                                    EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                                    boolean known = true;
+                                    String fingerprint = Helper.getFingerprint(cert);
+                                    List<String> emails = Helper.getAltSubjectName(cert);
+                                    for (String email : emails) {
+                                        EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                                        if (record == null)
+                                            known = false;
+                                    }
 
                                     String sender = null;
                                     if (message.from != null && message.from.length == 1)
                                         sender = ((InternetAddress) message.from[0]).getAddress();
 
                                     args.putString("sender", sender);
-                                    args.putString("fingerprint", fingerprint);
-                                    args.putString("email", email);
-                                    args.putString("subject", Helper.getSubject(cert));
-                                    args.putByteArray("encoded", cert.getEncoded());
-                                    args.putBoolean("known", record != null);
+                                    args.putBoolean("known", known);
 
-                                    return true;
+                                    return cert;
                                 }
                             } catch (CMSVerifierCertificateNotValidException ex) {
                                 Log.w(ex);
@@ -4519,18 +4521,21 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             }
 
             @Override
-            protected void onExecuted(final Bundle args, Boolean valid) {
+            protected void onExecuted(final Bundle args, X509Certificate cert) {
                 int type = args.getInt("type");
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     String sender = args.getString("sender");
-                    String fingerprint = args.getString("fingerprint");
-                    String email = args.getString("email");
-                    String subject = args.getString("subject");
-                    byte[] encoded = args.getByteArray("encoded");
                     boolean known = args.getBoolean("known");
-                    boolean match = Objects.equals(sender, email);
 
-                    if (valid == null || !valid)
+                    boolean match = false;
+                    List<String> emails = (cert == null ? Collections.emptyList() : Helper.getAltSubjectName(cert));
+                    for (String email : emails)
+                        if (Objects.equals(sender, email)) {
+                            match = true;
+                            break;
+                        }
+
+                    if (cert == null)
                         Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
                     else if (known && match)
                         Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
@@ -4543,44 +4548,58 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         TextView tvSubject = dview.findViewById(R.id.tvSubject);
 
                         tvSender.setText(sender);
-                        tvEmail.setText(email);
+                        tvEmail.setText(TextUtils.join(",", emails));
                         tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
-                        tvSubject.setText(subject);
+                        tvSubject.setText(Helper.getSubject(cert));
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                                 .setView(dview)
                                 .setNegativeButton(android.R.string.cancel, null);
 
-                        if (!TextUtils.isEmpty(sender) && !known)
+                        if (!TextUtils.isEmpty(sender) && !known && emails.size() > 0)
                             builder.setPositiveButton(R.string.title_signature_store, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                            long id = args.getLong("id");
+                                    try {
+                                        args.putByteArray("encoded", cert.getEncoded());
 
-                                            DB db = DB.getInstance(context);
+                                        new SimpleTask<Void>() {
+                                            @Override
+                                            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                                long id = args.getLong("id");
+                                                byte[] encoded = args.getByteArray("encoded");
 
-                                            EntityMessage message = db.message().getMessage(id);
-                                            if (message == null)
+                                                X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
+                                                        .generateCertificate(new ByteArrayInputStream(encoded));
+
+                                                DB db = DB.getInstance(context);
+                                                EntityMessage message = db.message().getMessage(id);
+                                                if (message == null)
+                                                    return null;
+
+                                                String fingerprint = Helper.getFingerprint(cert);
+                                                List<String> emails = Helper.getAltSubjectName(cert);
+                                                String subject = Helper.getSubject(cert);
+                                                for (String email : emails) {
+                                                    EntityCertificate record = new EntityCertificate();
+                                                    record.fingerprint = fingerprint;
+                                                    record.email = email;
+                                                    record.subject = subject;
+                                                    record.setEncoded(encoded);
+                                                    record.id = db.certificate().insertCertificate(record);
+                                                }
+
                                                 return null;
+                                            }
 
-                                            EntityCertificate record = new EntityCertificate();
-                                            record.fingerprint = fingerprint;
-                                            record.email = email;
-                                            record.subject = subject;
-                                            record.setEncoded(encoded);
-                                            record.id = db.certificate().insertCertificate(record);
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Helper.unexpectedError(getParentFragmentManager(), ex);
-                                        }
-                                    }.execute(FragmentMessages.this, args, "certificate:store");
+                                            @Override
+                                            protected void onException(Bundle args, Throwable ex) {
+                                                Helper.unexpectedError(getParentFragmentManager(), ex);
+                                            }
+                                        }.execute(FragmentMessages.this, args, "certificate:store");
+                                    } catch (Throwable ex) {
+                                        Helper.unexpectedError(getParentFragmentManager(), ex);
+                                    }
                                 }
                             });
 

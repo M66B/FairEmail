@@ -1023,18 +1023,21 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     CertificateFactory fact = CertificateFactory.getInstance("X.509");
                     X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
 
-                    String fingerprint = Helper.sha256(cert.getEncoded());
-                    String email = Helper.getAltSubjectName(cert);
+                    String fingerprint = Helper.getFingerprint(cert);
+                    List<String> emails = Helper.getAltSubjectName(cert);
+                    String subject = Helper.getSubject(cert);
 
                     DB db = DB.getInstance(context);
-                    EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
-                    if (record == null) {
-                        record = new EntityCertificate();
-                        record.fingerprint = fingerprint;
-                        record.email = email;
-                        record.subject = Helper.getSubject(cert);
-                        record.setEncoded(cert.getEncoded());
-                        record.id = db.certificate().insertCertificate(record);
+                    for (String email : emails) {
+                        EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                        if (record == null) {
+                            record = new EntityCertificate();
+                            record.fingerprint = fingerprint;
+                            record.email = email;
+                            record.subject = subject;
+                            record.setEncoded(cert.getEncoded());
+                            record.id = db.certificate().insertCertificate(record);
+                        }
                     }
 
                     return null;

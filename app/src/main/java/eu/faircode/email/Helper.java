@@ -102,6 +102,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
@@ -958,24 +959,29 @@ public class Helper {
         prefs.edit().remove("last_authentication").apply();
     }
 
+    static String getFingerprint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
+        return sha256(certificate.getEncoded());
+    }
+
     static String getSubject(X509Certificate certificate) {
         return certificate.getSubjectX500Principal().getName(X500Principal.RFC2253);
     }
 
-    static String getAltSubjectName(X509Certificate certificate) {
+    static List<String> getAltSubjectName(X509Certificate certificate) {
+        List<String> result = new ArrayList<>();
         try {
             Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
             if (altNames != null)
                 for (List altName : altNames)
                     if (altName.get(0).equals(GeneralName.rfc822Name))
-                        return (String) altName.get(1);
+                        result.add((String) altName.get(1));
                     else
                         Log.i("Alt type=" + altName.get(0) + " data=" + altName.get(1));
         } catch (CertificateParsingException ex) {
             Log.w(ex);
         }
 
-        return "?";
+        return result;
     }
 
     static void selectKeyAlias(final Activity activity, final String email, final IKeyAlias intf) {
