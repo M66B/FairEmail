@@ -89,6 +89,7 @@ public class MessageHelper {
 
     static final int SMALL_MESSAGE_SIZE = 32 * 1024; // bytes
     static final int DEFAULT_ATTACHMENT_DOWNLOAD_SIZE = 256 * 1024; // bytes
+    static final long ATTACHMENT_PROGRESS_UPDATE = 1500L; // milliseconds
 
     static void setSystemProperties(Context context) {
         System.setProperty("mail.mime.decodetext.strict", "false");
@@ -1297,7 +1298,7 @@ public class MessageHelper {
                 try (InputStream is = apart.part.getInputStream()) {
                     long size = 0;
                     long total = apart.part.getSize();
-                    int lastprogress = 0;
+                    long lastprogress = System.currentTimeMillis();
 
                     try (OutputStream os = new FileOutputStream(file)) {
                         byte[] buffer = new byte[Helper.BUFFER_SIZE];
@@ -1307,10 +1308,10 @@ public class MessageHelper {
 
                             // Update progress
                             if (total > 0) {
-                                int progress = (int) (size * 100 / total / 20 * 20);
-                                if (progress != lastprogress) {
-                                    lastprogress = progress;
-                                    db.attachment().setProgress(local.id, progress);
+                                long now = System.currentTimeMillis();
+                                if (now - lastprogress > ATTACHMENT_PROGRESS_UPDATE) {
+                                    lastprogress = now;
+                                    db.attachment().setProgress(local.id, (int) (size * 100 / total));
                                 }
                             }
                         }
