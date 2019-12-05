@@ -2023,6 +2023,7 @@ public class FragmentCompose extends FragmentBase {
                     addresses.addAll(Arrays.asList(draft.bcc));
 
                 List<X509Certificate> certs = new ArrayList<>();
+                certs.add(chain[0]); // Allow sender to decrypt own message
                 for (Address address : addresses) {
                     String email = ((InternetAddress) address).getAddress();
                     List<EntityCertificate> e = db.certificate().getCertificateByEmail(email);
