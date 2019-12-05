@@ -49,7 +49,6 @@ import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.security.KeyChain;
-import android.security.KeyChainAliasCallback;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.util.LongSparseArray;
@@ -3896,6 +3895,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         long id = intent.getLongExtra("id", -1);
         boolean auto = intent.getBooleanExtra("auto", false);
         int type = intent.getIntExtra("type", EntityMessage.ENCRYPT_NONE);
+        String recipient = intent.getStringExtra("recipient");
 
         final Bundle args = new Bundle();
         args.putLong("id", id);
@@ -3904,27 +3904,27 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (EntityMessage.SMIME_SIGNONLY.equals(type))
             onSmime(args);
         else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
-            Handler handler = new Handler();
-            KeyChain.choosePrivateKeyAlias(getActivity(), new KeyChainAliasCallback() {
-                        @Override
-                        public void alias(@Nullable String alias) {
-                            Log.i("Selected key alias=" + alias);
-                            if (alias != null) {
-                                args.putString("alias", alias);
-                                handler.post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            onSmime(args);
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                        }
-                                    }
-                                });
+            Helper.selectKeyAlias(getActivity(), recipient, new Helper.IKeyAlias() {
+                @Override
+                public void onSelected(String alias) {
+                    args.putString("alias", alias);
+                    onSmime(args);
+                }
+
+                @Override
+                public void onNothingSelected() {
+                    Snackbar snackbar = Snackbar.make(view, R.string.title_invalid_key, Snackbar.LENGTH_LONG);
+                    final Intent intent = KeyChain.createInstallIntent();
+                    if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(intent);
                             }
-                        }
-                    },
-                    null, null, null, -1, null);
+                        });
+                    snackbar.show();
+                }
+            });
         } else {
             if (pgpService.isBound()) {
                 Intent data = new Intent();

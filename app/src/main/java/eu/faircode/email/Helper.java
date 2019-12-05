@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
@@ -42,6 +43,9 @@ import android.os.LocaleList;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
+import android.security.KeyChain;
+import android.security.KeyChainAliasCallback;
+import android.security.KeyChainException;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -972,6 +976,62 @@ public class Helper {
         }
 
         return "?";
+    }
+
+    static void selectKeyAlias(final Activity activity, final String email, final IKeyAlias intf) {
+        final Context context = activity.getApplicationContext();
+        final Handler handler = new Handler();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (email != null)
+                    try {
+                        if (KeyChain.getPrivateKey(context, email) != null) {
+                            Log.i("Private key available alias=" + email);
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    intf.onSelected(email);
+                                }
+                            });
+                            return;
+                        }
+                    } catch (KeyChainException ex) {
+                        Log.w(ex);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        KeyChain.choosePrivateKeyAlias(activity, new KeyChainAliasCallback() {
+                                    @Override
+                                    public void alias(@Nullable final String alias) {
+                                        Log.i("Selected key alias=" + alias);
+                                        handler.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                if (alias == null)
+                                                    intf.onNothingSelected();
+                                                else
+                                                    intf.onSelected(alias);
+                                            }
+                                        });
+                                    }
+                                },
+                                null, null, null, -1, email);
+                    }
+                });
+            }
+        }).start();
+    }
+
+    interface IKeyAlias {
+        void onSelected(String alias);
+
+        void onNothingSelected();
     }
 
     // Miscellaneous

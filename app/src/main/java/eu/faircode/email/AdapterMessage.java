@@ -2700,12 +2700,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void onActionDecrypt(TupleMessageEx message, boolean auto) {
             int encrypt = (message.encrypt == null ? EntityMessage.PGP_SIGNENCRYPT /* Inline */ : message.encrypt);
+            String recipient = null;
+            if (message.to != null && message.to.length == 1)
+                recipient = ((InternetAddress) message.to[0]).getAddress();
+
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
                     new Intent(FragmentMessages.ACTION_DECRYPT)
                             .putExtra("id", message.id)
                             .putExtra("auto", auto)
-                            .putExtra("type", encrypt));
+                            .putExtra("type", encrypt)
+                            .putExtra("recipient", recipient));
         }
 
         private void onActionReplyMenu(TupleMessageEx message) {

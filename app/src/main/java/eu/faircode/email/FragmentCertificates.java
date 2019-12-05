@@ -71,7 +71,7 @@ public class FragmentCertificates extends FragmentBase {
         itemDecorator.setDrawable(getContext().getDrawable(R.drawable.divider));
         rvCertificate.addItemDecoration(itemDecorator);
 
-        adapter = new AdapterCertificate(this, null);
+        adapter = new AdapterCertificate(this);
         rvCertificate.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {

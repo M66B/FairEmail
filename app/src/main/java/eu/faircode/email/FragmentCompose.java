@@ -53,7 +53,6 @@ import android.os.OperationCanceledException;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.security.KeyChain;
-import android.security.KeyChainAliasCallback;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -77,7 +76,6 @@ import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ImageButton;
 import android.widget.MultiAutoCompleteTextView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -93,7 +91,6 @@ import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -1252,42 +1249,38 @@ public class FragmentCompose extends FragmentBase {
     private void onEncrypt(final EntityMessage draft) {
         if (EntityMessage.SMIME_SIGNONLY.equals(draft.encrypt) ||
                 EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
-            Handler handler = new Handler();
-            KeyChain.choosePrivateKeyAlias(getActivity(), new KeyChainAliasCallback() {
-                        @Override
-                        public void alias(@Nullable String alias) {
-                            Log.i("Selected key alias=" + alias);
-                            if (alias != null) {
-                                handler.post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            String email = null;
-                                            if (draft.to != null && draft.to.length == 1)
-                                                email = ((InternetAddress) draft.to[0]).getAddress();
 
-                                            Bundle args = new Bundle();
-                                            args.putLong("id", draft.id);
-                                            args.putInt("type", draft.encrypt);
-                                            args.putString("email", email);
-                                            args.putString("alias", alias);
+            String sender = null;
+            if (draft.from != null && draft.from.length > 0)
+                sender = ((InternetAddress) draft.from[0]).getAddress();
+            Log.i("Alias sender=" + sender);
 
-                                            if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
-                                                FragmentDialogCertificate fragment = new FragmentDialogCertificate();
-                                                fragment.setArguments(args);
-                                                fragment.setTargetFragment(FragmentCompose.this, REQUEST_CERTIFICATE);
-                                                fragment.show(getParentFragmentManager(), "compose:certificate");
-                                            } else
-                                                onSmime(args);
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
-                                        }
-                                    }
-                                });
+            Bundle args = new Bundle();
+            args.putLong("id", draft.id);
+            args.putInt("type", draft.encrypt);
+            args.putString("sender", sender);
+
+            Helper.selectKeyAlias(getActivity(), sender, new Helper.IKeyAlias() {
+                @Override
+                public void onSelected(String alias) {
+                    args.putString("alias", alias);
+                    onSmime(args);
+                }
+
+                @Override
+                public void onNothingSelected() {
+                    Snackbar snackbar = Snackbar.make(view, R.string.title_invalid_key, Snackbar.LENGTH_LONG);
+                    final Intent intent = KeyChain.createInstallIntent();
+                    if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(intent);
                             }
-                        }
-                    },
-                    null, null, null, -1, null);
+                        });
+                    snackbar.show();
+                }
+            });
         } else {
             if (pgpService.isBound())
                 try {
@@ -1886,7 +1879,6 @@ public class FragmentCompose extends FragmentBase {
                 long id = args.getLong("id");
                 int type = args.getInt("type");
                 String alias = args.getString("alias");
-                long cid = args.getLong("certificate", -1);
 
                 DB db = DB.getInstance(context);
 
@@ -1897,9 +1889,6 @@ public class FragmentCompose extends FragmentBase {
                 EntityIdentity identity = db.identity().getIdentity(draft.identity);
                 if (identity == null)
                     throw new IllegalArgumentException(getString(R.string.title_from_missing));
-                EntityCertificate certificate = db.certificate().getCertificate(cid);
-                if (certificate == null && EntityMessage.SMIME_SIGNENCRYPT.equals(type))
-                    throw new IllegalArgumentException("Certificate missing");
 
                 // Get/clean attachments
                 List<EntityAttachment> attachments = db.attachment().getAttachments(id);
@@ -2008,8 +1997,24 @@ public class FragmentCompose extends FragmentBase {
                     return null;
                 }
 
-                X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
-                        .generateCertificate(new ByteArrayInputStream(certificate.getEncoded()));
+                List<Address> addresses = new ArrayList<>();
+                if (draft.to != null)
+                    addresses.addAll(Arrays.asList(draft.to));
+                if (draft.cc != null)
+                    addresses.addAll(Arrays.asList(draft.cc));
+                if (draft.bcc != null)
+                    addresses.addAll(Arrays.asList(draft.bcc));
+
+                List<X509Certificate> certs = new ArrayList<>();
+                for (Address address : addresses) {
+                    String email = ((InternetAddress) address).getAddress();
+                    List<EntityCertificate> e = db.certificate().getCertificateByEmail(email);
+                    if (e == null || e.size() < 1)
+                        throw new IllegalArgumentException(context.getString(R.string.title_certificate_missing, email));
+                    X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
+                            .generateCertificate(new ByteArrayInputStream(e.get(0).getEncoded()));
+                    certs.add(cert);
+                }
 
                 // Build signature
                 BodyPart bpSignature = new MimeBodyPart();
@@ -2032,8 +2037,10 @@ public class FragmentCompose extends FragmentBase {
 
                 // Encrypt
                 CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
-                RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
-                cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
+                for (X509Certificate cert : certs) {
+                    RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
+                    cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
+                }
 
                 ByteArrayOutputStream osMessage = new ByteArrayOutputStream();
                 imessage.writeTo(osMessage);
@@ -3960,60 +3967,6 @@ public class FragmentCompose extends FragmentBase {
                     })
                     .setNegativeButton(android.R.string.cancel, null)
                     .create();
-        }
-    }
-
-    public static class FragmentDialogCertificate extends FragmentDialogBase {
-        private String email;
-
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            email = getArguments().getString("email");
-
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_select_certificate, null);
-            final RecyclerView rvCertificate = dview.findViewById(R.id.rvCertificate);
-            final ProgressBar pbWait = dview.findViewById(R.id.pbWait);
-
-            final Dialog dialog = new AlertDialog.Builder(getContext())
-                    .setTitle(R.string.title_select_certificate)
-                    .setView(dview)
-                    .setNegativeButton(android.R.string.cancel, null).create();
-
-            rvCertificate.setHasFixedSize(false);
-            LinearLayoutManager llm = new LinearLayoutManager(getContext());
-            rvCertificate.setLayoutManager(llm);
-
-            DividerItemDecoration itemDecorator = new DividerItemDecoration(getContext(), llm.getOrientation());
-            Drawable divider = getContext().getDrawable(R.drawable.divider);
-            divider.mutate().setTint(getContext().getResources().getColor(R.color.lightColorSeparator));
-            itemDecorator.setDrawable(divider);
-            rvCertificate.addItemDecoration(itemDecorator);
-
-            final AdapterCertificate adapter = new AdapterCertificate(this, new AdapterCertificate.ICertificate() {
-                @Override
-                public void onSelected(EntityCertificate certificate) {
-                    dialog.dismiss();
-                    getArguments().putLong("certificate", certificate.id);
-                    sendResult(RESULT_OK);
-                }
-            });
-            rvCertificate.setAdapter(adapter);
-
-            rvCertificate.setVisibility(View.GONE);
-            pbWait.setVisibility(View.VISIBLE);
-
-            DB db = DB.getInstance(getContext());
-            db.certificate().liveCertificates(email).observe(getViewLifecycleOwner(), new Observer<List<EntityCertificate>>() {
-                @Override
-                public void onChanged(List<EntityCertificate> certificates) {
-                    pbWait.setVisibility(View.GONE);
-                    rvCertificate.setVisibility(View.VISIBLE);
-                    adapter.set(email, certificates);
-                }
-            });
-
-            return dialog;
         }
     }
 

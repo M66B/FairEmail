@@ -42,7 +42,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.ViewHolder> {
-    private ICertificate intf;
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
@@ -50,7 +49,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
     private String email;
     private List<EntityCertificate> items = new ArrayList<>();
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         private View view;
         private TextView tvEmail;
         private TextView tvSubject;
@@ -63,16 +62,6 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             view = itemView.findViewById(R.id.clItem);
             tvEmail = itemView.findViewById(R.id.tvEmail);
             tvSubject = itemView.findViewById(R.id.tvSubject);
-        }
-
-        @Override
-        public void onClick(View v) {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return;
-
-            EntityCertificate certificate = items.get(pos);
-            intf.onSelected(certificate);
         }
 
         @Override
@@ -108,7 +97,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
 
                     new SimpleTask<Void>() {
                         @Override
-                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        protected Void onExecute(Context context, Bundle args) {
                             long id = args.getLong("id");
 
                             DB db = DB.getInstance(context);
@@ -131,14 +120,10 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         }
 
         private void wire() {
-            if (intf != null)
-                view.setOnClickListener(this);
             view.setOnLongClickListener(this);
         }
 
         private void unwire() {
-            if (intf != null)
-                view.setOnClickListener(null);
             view.setOnLongClickListener(null);
         }
 
@@ -152,8 +137,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         }
     }
 
-    AdapterCertificate(Fragment parentFragment, ICertificate intf) {
-        this.intf = intf;
+    AdapterCertificate(Fragment parentFragment) {
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(parentFragment.getContext());
@@ -256,9 +240,5 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
     @Override
     public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
         holder.powner.recreate();
-    }
-
-    interface ICertificate {
-        void onSelected(EntityCertificate certificate);
     }
 }
