@@ -286,6 +286,7 @@
     <string name="title_advanced_sound">Valitse ilmoituksen ääni</string>
     <string name="title_advanced_tracking">Tunnista automaattisesti ja poista käytöstä seurantakuvat</string>
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
+    <string name="title_advanced_encrypt_method">Oletussalausmenetelmä</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
     <string name="title_advanced_sign_default">Allekirjoita oletusarvoisesti</string>
     <string name="title_advanced_encrypt_default">Salaa oletusarvoisesti</string>
@@ -293,6 +294,8 @@
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
+    <string name="title_advanced_manage_certificates">Hallinnoi julkisia avaimia</string>
+    <string name="title_advanced_import_key">Tuo yksityinen avain</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -592,6 +595,7 @@
     <string name="title_insert_template">Lisää viestipohja</string>
     <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
+    <string name="title_select_certificate">Valitse julkinen avain</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_send_receipt">Pyydä toimitus-/lukukuittaus</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
@@ -619,6 +623,7 @@
     <string name="title_signature_valid">Viestin allekirjoitus pätevä</string>
     <string name="title_signature_unconfirmed">Viestin allekirjoitus pätevä muttei vahvistettu</string>
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
+    <string name="title_signature_store">Tallenna</string>
     <string name="title_search">Hae</string>
     <string name="title_search_server">Hae palvelimella</string>
     <string name="title_search_in">Hae kohteesta</string>

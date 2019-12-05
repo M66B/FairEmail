@@ -286,6 +286,7 @@
     <string name="title_advanced_sound">Velg varslingslyd</string>
     <string name="title_advanced_tracking">Automatisk gjenkjenning og deaktivering av sporingsbilder</string>
     <string name="title_advanced_display_hidden">Vis skjulte meldingstekster</string>
+    <string name="title_advanced_encrypt_method">Standard krypterings metode</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_sign_default">Signer som standard</string>
     <string name="title_advanced_encrypt_default">Krypter som standard</string>
@@ -293,6 +294,8 @@
     <string name="title_advanced_secure">Skjul fra nylige app-skjermbilde og forhindre å ta skjermbilder</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
+    <string name="title_advanced_manage_certificates">Administrer offentlige nøkler</string>
+    <string name="title_advanced_import_key">Importer privat nøkkel</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
@@ -593,6 +596,9 @@
     <string name="title_edit_plain_text">Rediger som ren tekst</string>
     <string name="title_edit_formatted_text">Rediger som omformatert tekst</string>
     <string name="title_select_certificate">Velg offentlig nøkkel</string>
+    <string name="title_certificate_missing">Ingen offentlig nøkkel for %1$s</string>
+    <string name="title_no_key">Ingen privat nøkkel</string>
+    <string name="title_invalid_key">Ugyldig privat nøkkel</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
     <string name="title_send_receipt">Be om levert/lest kvittering</string>
     <string name="title_send_receipt_remark">De fleste tilbydere og e-post klienter ignorerer kvitterings forespørsler</string>
@@ -620,6 +626,10 @@
     <string name="title_signature_valid">Meldings signatur gyldig</string>
     <string name="title_signature_unconfirmed">Meldingssignatur er gyldig, men ikke bekreftet</string>
     <string name="title_signature_invalid">Meldings signatur ugyldig</string>
+    <string name="title_signature_sender">Avsenders adresse</string>
+    <string name="title_signature_email">Signaturens adresse</string>
+    <string name="title_signature_mismatch">E-postadressen til avsenderen og signaturen stemmer ikke overens</string>
+    <string name="title_signature_subject">Emne</string>
     <string name="title_signature_store">Lagre</string>
     <string name="title_search">Søk</string>
     <string name="title_search_server">Søk på server</string>

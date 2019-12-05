@@ -308,6 +308,7 @@
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_tracking">Automaticky rozpoznat a zakázat sledovací obrázky</string>
     <string name="title_advanced_display_hidden">Zobrazit skryté texty zpráv</string>
+    <string name="title_advanced_encrypt_method">Výchozí metoda šifrování</string>
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
     <string name="title_advanced_sign_default">Podepsat jako výchozí</string>
     <string name="title_advanced_encrypt_default">Šifrovat jako výchozí</string>
@@ -315,6 +316,8 @@
     <string name="title_advanced_secure">Skrýt z obrazovky nedávných aplikací a zabránit pořizování snímků obrazovky</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
+    <string name="title_advanced_manage_certificates">Spravovat veřejné klíče</string>
+    <string name="title_advanced_import_key">Importovat privátní klíč</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
@@ -614,6 +617,7 @@
     <string name="title_insert_template">Vložit šablonu</string>
     <string name="title_edit_plain_text">Upravit jako prostý text</string>
     <string name="title_edit_formatted_text">Upravit jako přeformátovaný text</string>
+    <string name="title_select_certificate">Vybrat veřejný klíč</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
     <string name="title_send_receipt">Požadovat potvrzení doručení/přečtení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
@@ -641,6 +645,7 @@
     <string name="title_signature_valid">Podpis zprávy je platný</string>
     <string name="title_signature_unconfirmed">Podpis zprávy je platný, ale nepotvrzený</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
+    <string name="title_signature_store">Uložit</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_server">Hledat na serveru</string>
     <string name="title_search_in">Hledat v</string>

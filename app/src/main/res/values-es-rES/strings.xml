@@ -286,6 +286,7 @@
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_tracking">Reconocer y desactivar automáticamente imágenes de rastreo</string>
     <string name="title_advanced_display_hidden">Mostrar textos de mensajes ocultos</string>
+    <string name="title_advanced_encrypt_method">Método de cifrado por defecto</string>
     <string name="title_advanced_openpgp">Proveedor OpenPGP</string>
     <string name="title_advanced_sign_default">Firmar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
@@ -293,6 +294,8 @@
     <string name="title_advanced_secure">Ocultar de la pantalla de aplicaciones recientes e impedir capturas de pantallas</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
+    <string name="title_advanced_manage_certificates">Administrar claves públicas</string>
+    <string name="title_advanced_import_key">Importar clave privada</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
@@ -593,6 +596,9 @@
     <string name="title_edit_plain_text">Editar como texto plano</string>
     <string name="title_edit_formatted_text">Editar como texto con formato</string>
     <string name="title_select_certificate">Seleccionar clave pública</string>
+    <string name="title_certificate_missing">No hay clave pública para %1$s</string>
+    <string name="title_no_key">Ninguna clave privada</string>
+    <string name="title_invalid_key">Clave privada inválida</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
     <string name="title_send_receipt">Solicitar recibo de entrega/lectura</string>
     <string name="title_send_receipt_remark">La mayoría de los clientes y proveedores de email ignoran los pedidos de recibos</string>
@@ -620,6 +626,10 @@
     <string name="title_signature_valid">Firma de mensaje válida</string>
     <string name="title_signature_unconfirmed">Firma del mensaje válida pero no confirmada</string>
     <string name="title_signature_invalid">Firma de mensaje no válida</string>
+    <string name="title_signature_sender">Dirección del remitente</string>
+    <string name="title_signature_email">Dirección de la firma</string>
+    <string name="title_signature_mismatch">La dirección de correo electrónico del remitente y la firma no coinciden</string>
+    <string name="title_signature_subject">Asunto</string>
     <string name="title_signature_store">Almacenar</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_server">Buscar en el servidor</string>

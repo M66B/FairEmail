@@ -295,7 +295,7 @@
     <string name="title_advanced_pin">Pincode</string>
     <string name="title_advanced_biometrics_timeout">Biometrische verificatie verloopt na</string>
     <string name="title_advanced_manage_certificates">Publieke sleutels beheren</string>
-    <string name="title_advanced_import_key">Importeer privésleutel</string>
+    <string name="title_advanced_import_key">Importeer privé sleutel</string>
     <string name="title_advanced_english">Forceer Engelse taal</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op updates</string>
@@ -596,7 +596,9 @@
     <string name="title_edit_plain_text">Bewerk als platte tekst</string>
     <string name="title_edit_formatted_text">Bewerk als geformatteerde tekst</string>
     <string name="title_select_certificate">Selecteer publieke sleutel</string>
-    <string name="title_import_certificate">Importeer publieke sleutel</string>
+    <string name="title_certificate_missing">Geen publieke sleutel voor %1$s</string>
+    <string name="title_no_key">Geen privé sleutel</string>
+    <string name="title_invalid_key">Ongeldige privé sleutel</string>
     <string name="title_send_plain_text">Alleen platte tekst</string>
     <string name="title_send_receipt">Vraag ontvangst/leesbevestiging</string>
     <string name="title_send_receipt_remark">De meeste aanbieders en e-mail clients negeren bevestigingsverzoeken</string>
@@ -624,6 +626,10 @@
     <string name="title_signature_valid">Handtekening bericht geldig</string>
     <string name="title_signature_unconfirmed">Handtekening bericht geldig maar niet bevestigd</string>
     <string name="title_signature_invalid">Handtekening bericht ongeldig</string>
+    <string name="title_signature_sender">Adres van de afzender</string>
+    <string name="title_signature_email">Adres van de handtekening</string>
+    <string name="title_signature_mismatch">Het e-mailadres van de afzender en de handtekening komen niet overeen</string>
+    <string name="title_signature_subject">Onderwerp</string>
     <string name="title_signature_store">Opslaan</string>
     <string name="title_search">Zoek</string>
     <string name="title_search_server">Zoek op server</string>

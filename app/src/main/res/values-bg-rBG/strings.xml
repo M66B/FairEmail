@@ -286,6 +286,7 @@
     <string name="title_advanced_sound">Избери звук за известяване</string>
     <string name="title_advanced_tracking">Автоматично разпознаване и деактивиране на проследяващи изображения</string>
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>
+    <string name="title_advanced_encrypt_method">Метод на криптиране по подразбиране</string>
     <string name="title_advanced_openpgp">OpenPGP доставчик</string>
     <string name="title_advanced_sign_default">Подписване по подразбиране</string>
     <string name="title_advanced_encrypt_default">Криптиране по подразбиране</string>
@@ -293,6 +294,8 @@
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
+    <string name="title_advanced_manage_certificates">Управление на публични ключове</string>
+    <string name="title_advanced_import_key">Импортиране на частен ключ</string>
     <string name="title_advanced_english">Принудително на английски език</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
     <string name="title_advanced_updates">Проверка за актуализация</string>
@@ -593,6 +596,8 @@
     <string name="title_edit_plain_text">Редактирай като обикновен текст</string>
     <string name="title_edit_formatted_text">Редактиране като преформатиран текст</string>
     <string name="title_select_certificate">Изберете публичен ключ</string>
+    <string name="title_certificate_missing">Няма публичен ключ за %1$s</string>
+    <string name="title_invalid_key">Невалиден частен ключ</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
     <string name="title_send_receipt">Заявка за доставка/четене на полученото</string>
     <string name="title_send_receipt_remark">Повечето доставчици и имейл клиенти игнорират заявките за получаване</string>
@@ -620,6 +625,10 @@
     <string name="title_signature_valid">Подписът на съобщението е валиден</string>
     <string name="title_signature_unconfirmed">Подписът на съобщението е валиден, но не е потвърден</string>
     <string name="title_signature_invalid">Подписът на съобщението е невалиден</string>
+    <string name="title_signature_sender">Адрес на подател</string>
+    <string name="title_signature_email">Подписът е адрес</string>
+    <string name="title_signature_mismatch">Имейл адресът на изпращача и подписа не съвпадат</string>
+    <string name="title_signature_subject">Тема</string>
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търси</string>
     <string name="title_search_server">Търси на сървъра</string>

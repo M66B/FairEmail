@@ -1,41 +1,41 @@
-# Setup help
+# セットアップヘルプ
 
-Setting up FairEmail is fairly simple. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+FairEmailのセットアップは非常に簡単です。 メールを受信するためにはIDを、送信する場合はアカウントをそれぞれ少なくとも1つ設定する必要があります。 クイックセットアップでは、ほとんどの主要プロバイダーでアカウントとIDが一度に追加できます。
 
-## Requirements
+## 必要な条件
 
-An internet connection is required to set up accounts and identities.
+アカウントとIDを設定するには、インターネット接続が必要です。
 
-## Quick setup
+## クイックセットアップ
 
-Just enter your name, email address and password and tap *Go*.
+名前、メールアドレス、パスワードを入力して、*Go*をタップするだけです。
 
-This will work for most major email providers.
+ほとんどの主要なメールプロバイダーで機能します。
 
-If the quick setup doesn't work, you'll need to setup an account and an identity in another way, see below for instructions.
+クイックセットアップが機能しない場合は、別の方法でアカウントとIDをセットアップする必要があります。手順については以下をご覧ください。
 
-## Set up account - to receive email
+## アカウントの設定 - メールを受信するために
 
-To add an account, tap *Manage accounts* and tap the orange *add* button at the bottom. Select a provider from the list, enter the username, which is mostly your email address and enter your password. Tap *Check* to let FairEmail connect to the email server and fetch a list of system folders. After reviewing the system folder selection you can add the account by tapping *Save*.
+アカウントを追加するには*アカウントの管理*をタップし、下部にあるオレンジ色の*追加*をタップします。 リストからプロバイダーを選択し、ユーザー名(ほとんどはメールアドレス)、パスワードを入力します。 *確認*をタップしてFairEmailがメールサーバーに接続し、システムフォルダーのリストを取得できるようにします。 システムフォルダーの選択を確認後、*保存*をタップしてアカウントを追加できます。
 
-If your provider is not in the list of providers, select *Custom*. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right IMAP hostname, port number and protocol (SSL/TLS or STARTTLS). For more about this, please see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
+プロバイダーがリストにない場合は、*カスタム*を選択します。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 プロバイダーが[自動検出](https://tools.ietf.org/html/rfc6186)をサポートしている場合、FairEmailはホスト名とポート番号を入力し、 それ以外の場合は、プロバイダーのセットアップ手順で正しいIMAPホスト名、ポート番号、プロトコル(SSL/TLS or STARTTLS)を確認してください。 より詳しく [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts)
 
-## Set up identity - to send email
+## IDの設定 - メールを送信するために
 
-Similarly, to add an identity, tap *Manage identity* and tap the orange *add* button at the bottom. Enter the name you want to appear in de from address of the emails you send and select a linked account. Tap *Save* to add the identity.
+同様に、Idを追加するには*IDの管理*をタップし、下部のオレンジ色の*追加*をタップします。 Enter the name you want to appear in de from address of the emails you send and select a linked account. *保存*をタップしてIDを追加します。
 
-If the account was configured manually, you likely need to configure the identity manually too. Enter the domain name, for example *gmail.com* and tap *Get settings*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the hostname and port number, else check the setup instructions of your provider for the right SMTP hostname, port number and protocol (SSL/TLS or STARTTLS).
+アカウントがマニュアルで設定した場合、おそらくIDもマニュアルで設定する必要があります。 *gmail.com*などのドメイン名を入力し、*設定を取得*をタップします。 プロバイダーが[自動検出](https://tools.ietf.org/html/rfc6186)をサポートしている場合、FairEmailはホスト名とポート番号を入力し、 それ以外の場合は、プロバイダーのセットアップ手順で正しいSMTPホスト名、ポート番号、プロトコル(SSL/TLS or STARTTLS)を確認してください。
 
-See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) about using aliases.
+エイリアスの使用について [FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9)
 
-## Grant permissions - to access contact information
+## 権限の許可 - 連絡先情報にアクセスするために
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant read contacts permission to FairEmail. Just tap *Grant permissions* and select *Allow*.
+メールアドレスを検索したり、連絡先の写真を表示したりする場合はFairEmailに連絡先の読み取り許可をする必要があります。 *権限の許可*をタップして、*許可*を選択します。
 
-## Setup battery optimizations - to continuously receive emails
+## 電池の最適化の設定 - 継続的にメールを受信するために
 
-On recent Android versions, Android will put apps to sleep when the screen is off for some time to reduce battery usage. If you want to receive new emails without delays, you should disable battery optimizations for FairEmail. Tap *Disable battery optimizations* and follow the instructions.
+最近のAndroidバージョンでは、電池の消費を抑えるために画面オフ後しばらくするとアプリをスリープ状態にします。 新着メールを遅延なく受信するには、FairEmailの電池の最適化を無効にする必要があります。 *電池の最適化を無効にする*をタップし、指示に従います。
 
 ## Questions or problems
 
-If you have a question or problem, please [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) or use [this contact form](https://contact.faircode.eu/?product=fairemailsupport) to ask for help (you can use the transaction number "*setup help*").
+質問や問題がある場合 [see here](https://github.com/M66B/FairEmail/blob/master/FAQ.md) または、[お問い合わせフォーム](https://contact.faircode.eu/?product=fairemailsupport)から困っていることを質問してください(トランザクション番号"*セットアップヘルプ*"を使用できます)。

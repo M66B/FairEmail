@@ -285,6 +285,7 @@
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
     <string name="title_advanced_tracking">Genkend og deaktivér automatisk sporingsbilleder</string>
     <string name="title_advanced_display_hidden">Vis skjulte beskedtekster</string>
+    <string name="title_advanced_encrypt_method">Standardkrypteringsmetode</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
     <string name="title_advanced_sign_default">Signér som standard</string>
     <string name="title_advanced_encrypt_default">Kryptér som standard</string>
@@ -292,6 +293,8 @@
     <string name="title_advanced_secure">Skjul fra seneste apps-skærm og forhindr skærmfotofunktion</string>
     <string name="title_advanced_pin">PIN-kode</string>
     <string name="title_advanced_biometrics_timeout">Biometrisk godkendelse fik timeout</string>
+    <string name="title_advanced_manage_certificates">Håndtér offentlige nøgler</string>
+    <string name="title_advanced_import_key">Importér privat nøgle</string>
     <string name="title_advanced_english">Gennemtving engelsk sprog</string>
     <string name="title_advanced_watchdog">Tjek periodisk om FairEmail stadig er aktiv</string>
     <string name="title_advanced_updates">Søg efter opdateringer</string>
@@ -591,6 +594,7 @@
     <string name="title_insert_template">Indsæt skabelon</string>
     <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
     <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
+    <string name="title_select_certificate">Vælg offentlig nøgle</string>
     <string name="title_send_plain_text">Kun klartekst</string>
     <string name="title_send_receipt">Bed om leverings-/læstkvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
@@ -618,6 +622,7 @@
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_unconfirmed">Beskedsignatur gyldig, men ubekræftet</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
+    <string name="title_signature_store">Gem</string>
     <string name="title_search">Søg</string>
     <string name="title_search_server">Søg på server</string>
     <string name="title_search_in">Søg i</string>

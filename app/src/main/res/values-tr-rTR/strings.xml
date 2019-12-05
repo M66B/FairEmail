@@ -286,6 +286,7 @@
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_tracking">İzleme görsellerini otomatik olarak tanı ve devre dışı bırak</string>
     <string name="title_advanced_display_hidden">Gizli mesaj metinlerini göster</string>
+    <string name="title_advanced_encrypt_method">Varsayılan şifreleme metodu</string>
     <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
@@ -293,6 +294,8 @@
     <string name="title_advanced_secure">Son kullanılan uygulamalar ekranından gizle ve ekran görüntüsü alınmasını engelle</string>
     <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
+    <string name="title_advanced_manage_certificates">Genel anahtarları yönet</string>
+    <string name="title_advanced_import_key">Özel anahtarı içe aktar</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -592,6 +595,9 @@
     <string name="title_insert_template">Kalıp ekle</string>
     <string name="title_edit_plain_text">Düz metin olarak düzenle</string>
     <string name="title_edit_formatted_text">Yeniden biçimlendirilmiş metin olarak düzenle</string>
+    <string name="title_select_certificate">Genel anahtar seç</string>
+    <string name="title_certificate_missing">%1$s için genel anahtar yok</string>
+    <string name="title_invalid_key">Geçersiz özel anahtar</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
     <string name="title_send_receipt">İletildi/okundu bilgisi iste</string>
     <string name="title_send_receipt_remark">Çoğu sağlayıcı ve e-posta istemcisi alındı isteklerini yok saymaktadır</string>
@@ -619,6 +625,11 @@
     <string name="title_signature_valid">İleti imzası geçerli</string>
     <string name="title_signature_unconfirmed">Mesaj imzası geçerli ancak onaylanmamış</string>
     <string name="title_signature_invalid">İleti imzası geçersiz</string>
+    <string name="title_signature_sender">Gönderenin adresi</string>
+    <string name="title_signature_email">İmzanın adresi</string>
+    <string name="title_signature_mismatch">Gönderenin ve imzanın e-posta adresi eşleşmiyor</string>
+    <string name="title_signature_subject">Konu</string>
+    <string name="title_signature_store">Sakla</string>
     <string name="title_search">Ara</string>
     <string name="title_search_server">Sunucuda ara</string>
     <string name="title_search_in">İçinde ara</string>

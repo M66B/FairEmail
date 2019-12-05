@@ -274,6 +274,7 @@
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_tracking">自动识别并禁用跟踪图像</string>
     <string name="title_advanced_display_hidden">显示隐藏消息文本</string>
+    <string name="title_advanced_encrypt_method">默认加密方法</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
     <string name="title_advanced_sign_default">默认签名</string>
     <string name="title_advanced_encrypt_default">默认加密</string>
@@ -281,6 +282,8 @@
     <string name="title_advanced_secure">从\"最近应用\"列表中隐藏并阻止截屏</string>
     <string name="title_advanced_pin">PIN 码</string>
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
+    <string name="title_advanced_manage_certificates">管理公钥</string>
+    <string name="title_advanced_import_key">导入私钥</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -581,6 +584,8 @@
     <string name="title_edit_plain_text">以纯文本形式编辑</string>
     <string name="title_edit_formatted_text">以格式化文本形式编辑</string>
     <string name="title_select_certificate">选择公钥</string>
+    <string name="title_certificate_missing">%1$s 没有公钥</string>
+    <string name="title_invalid_key">无效私钥</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求送达／已读回执</string>
     <string name="title_send_receipt_remark">大多数供应商和电子邮件客户都忽略回执请求</string>
@@ -608,6 +613,10 @@
     <string name="title_signature_valid">消息签名有效</string>
     <string name="title_signature_unconfirmed">消息签名有效但未确认</string>
     <string name="title_signature_invalid">消息签名无效</string>
+    <string name="title_signature_sender">发件人地址：</string>
+    <string name="title_signature_email">签名地址</string>
+    <string name="title_signature_mismatch">发件人和签名的电子邮件地址不匹配</string>
+    <string name="title_signature_subject">主题</string>
     <string name="title_signature_store">存储</string>
     <string name="title_search">搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
