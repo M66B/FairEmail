@@ -861,12 +861,23 @@ You can disable this feature in the advanced account settings.
 <a name="faq25"></a>
 **(25) Why can't I select/open/save an image, attachment or a file?**
 
-If a menu item to select/open/save a file is disabled (dimmed) or not available,
-the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider),
-a standard Android component, is probably not present,
-for example because your custom ROM does not include it or because it was removed.
+When a menu item to select/open/save a file is disabled (dimmed) or when you get the message *Storage access framework not available*,
+the [storage access framework](https://developer.android.com/guide/topics/providers/document-provider), a standard Android component, is probably not present.
+This might be because your custom ROM does not include it or because it was actively removed (debloated).
+
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+
+The storage access framework is provided by the package *com.android.documentsui*,
+which is visible as *Files* app on some Android versions (notable OxygenOS).
+
+You can enable the storage access framework (again) with this adb command:
+
+```
+pm install -k --user 0 com.android.documentsui
+```
+
+Alternatively, you might be able to enable the *Files* app again using the Android app settings.
 
 <br />
 
