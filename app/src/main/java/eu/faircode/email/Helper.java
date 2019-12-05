@@ -85,6 +85,8 @@ import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
 
+import org.bouncycastle.asn1.x509.GeneralName;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -96,10 +98,13 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -116,6 +121,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
+import javax.security.auth.x500.X500Principal;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
@@ -946,6 +952,26 @@ public class Helper {
     static void clearAuthentication(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().remove("last_authentication").apply();
+    }
+
+    static String getSubject(X509Certificate certificate) {
+        return certificate.getSubjectX500Principal().getName(X500Principal.RFC2253);
+    }
+
+    static String getAltSubjectName(X509Certificate certificate) {
+        try {
+            Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
+            if (altNames != null)
+                for (List altName : altNames)
+                    if (altName.get(0).equals(GeneralName.rfc822Name))
+                        return (String) altName.get(1);
+                    else
+                        Log.i("Alt type=" + altName.get(0) + " data=" + altName.get(1));
+        } catch (CertificateParsingException ex) {
+            Log.w(ex);
+        }
+
+        return "?";
     }
 
     // Miscellaneous

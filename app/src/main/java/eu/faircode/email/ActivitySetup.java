@@ -74,7 +74,6 @@ import com.microsoft.identity.client.IPublicClientApplication;
 import com.microsoft.identity.client.PublicClientApplication;
 import com.microsoft.identity.client.exception.MsalException;
 
-import org.bouncycastle.asn1.x509.GeneralName;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.json.JSONArray;
@@ -93,12 +92,10 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.security.cert.CertificateFactory;
-import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -114,7 +111,6 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
-import javax.security.auth.x500.X500Principal;
 
 public class ActivitySetup extends ActivityBase implements FragmentManager.OnBackStackChangedListener {
     private View view;
@@ -1027,28 +1023,16 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     CertificateFactory fact = CertificateFactory.getInstance("X.509");
                     X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
 
-                    String email = "?";
-                    try {
-                        Collection<List<?>> altNames = cert.getSubjectAlternativeNames();
-                        if (altNames != null)
-                            for (List altName : altNames)
-                                if (altName.get(0).equals(GeneralName.rfc822Name))
-                                    email = (String) altName.get(1);
-                                else
-                                    Log.i("Alt type=" + altName.get(0) + " data=" + altName.get(1));
-                    } catch (CertificateParsingException ex) {
-                        Log.w(ex);
-                    }
-
                     String fingerprint = Helper.sha256(cert.getEncoded());
+                    String email = Helper.getAltSubjectName(cert);
 
                     DB db = DB.getInstance(context);
                     EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                     if (record == null) {
                         record = new EntityCertificate();
-                        record.fingerprint = Helper.sha256(cert.getEncoded());
+                        record.fingerprint = fingerprint;
                         record.email = email;
-                        record.subject = cert.getSubjectX500Principal().getName(X500Principal.RFC2253);
+                        record.subject = Helper.getSubject(cert);
                         record.setEncoded(cert.getEncoded());
                         record.id = db.certificate().insertCertificate(record);
                     }
