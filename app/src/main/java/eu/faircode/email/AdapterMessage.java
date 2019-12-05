@@ -4038,7 +4038,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         same = false;
                         Log.i("folderType changed id=" + next.id);
                     }
-                    // folderReadOnly
+                    if (prev.folderReadOnly != next.folderReadOnly) {
+                        same = false;
+                        Log.i("folderReadOnly changed id=" + next.id);
+                    }
                     if (!Objects.equals(prev.identityName, next.identityName)) {
                         same = false;
                         Log.i("identityName changed id=" + next.id);

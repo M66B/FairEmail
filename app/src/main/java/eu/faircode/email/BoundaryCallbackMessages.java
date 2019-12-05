@@ -53,6 +53,7 @@ import javax.mail.FolderClosedException;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
+import javax.mail.ReadOnlyFolderException;
 import javax.mail.UIDFolder;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.AndTerm;
@@ -286,7 +287,13 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
 
                 Log.i("Boundary server opening folder=" + browsable.name);
                 state.ifolder = (IMAPFolder) state.iservice.getStore().getFolder(browsable.name);
-                state.ifolder.open(Folder.READ_WRITE);
+                try {
+                    state.ifolder.open(Folder.READ_WRITE);
+                    db.folder().setFolderReadOnly(browsable.id, state.ifolder.getUIDNotSticky());
+                } catch (ReadOnlyFolderException ex) {
+                    state.ifolder.open(Folder.READ_ONLY);
+                    db.folder().setFolderReadOnly(browsable.id, true);
+                }
 
                 int count = state.ifolder.getMessageCount();
                 db.folder().setFolderTotal(browsable.id, count < 0 ? null : count);
