@@ -3913,7 +3913,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 public void onNothingSelected() {
-                    Snackbar snackbar = Snackbar.make(view, R.string.title_invalid_key, Snackbar.LENGTH_LONG);
+                    Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
                     final Intent intent = KeyChain.createInstallIntent();
                     if (intent.resolveActivity(getContext().getPackageManager()) != null)
                         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
