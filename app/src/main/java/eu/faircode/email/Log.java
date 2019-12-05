@@ -422,6 +422,22 @@ public class Log {
             */
             return false;
 
+        if (ex instanceof RuntimeException &&
+                ex.getMessage() != null &&
+                ex.getMessage().startsWith("Could not get application info"))
+            return false;
+        /*
+                java.lang.RuntimeException: Could not get application info.
+                 java.lang.RuntimeException: Could not get application info.
+                   at CH0.a(PG:11)
+                   at org.chromium.content.browser.ChildProcessLauncherHelperImpl.a(PG:34)
+                   at Fn2.run(PG:5)
+                   at android.os.Handler.handleCallback(Handler.java:874)
+                   at android.os.Handler.dispatchMessage(Handler.java:100)
+                   at android.os.Looper.loop(Looper.java:198)
+                   at android.os.HandlerThread.run(HandlerThread.java:65)
+         */
+
         if (ex.getMessage() != null &&
                 (ex.getMessage().startsWith("Bad notification posted") ||
                         ex.getMessage().contains("ActivityRecord not found") ||
