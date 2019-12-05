@@ -2027,7 +2027,7 @@ public class FragmentCompose extends FragmentBase {
                     String email = ((InternetAddress) address).getAddress();
                     List<EntityCertificate> e = db.certificate().getCertificateByEmail(email);
                     if (e == null || e.size() < 1)
-                        throw new IllegalArgumentException(context.getString(R.string.title_certificate_missing, email));
+                        throw new IllegalArgumentException(context.getString(R.string.title_certificate_missing, email), new IllegalStateException());
                     X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
                             .generateCertificate(new ByteArrayInputStream(e.get(0).getEncoded()));
                     certs.add(cert);
@@ -2096,7 +2096,17 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
+                    if (ex.getCause() instanceof IllegalStateException)
+                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(
+                                        new Intent(getContext(), ActivitySetup.class)
+                                                .putExtra("tab", "privacy"));
+                            }
+                        });
+                    snackbar.show();
                 } else
                     Helper.unexpectedError(getParentFragmentManager(), ex);
             }
