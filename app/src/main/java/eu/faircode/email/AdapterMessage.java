@@ -4254,18 +4254,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sanitized = (changed ? builder.build() : uri);
             }
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
-            TextView tvTitle = view.findViewById(R.id.tvTitle);
-            final EditText etLink = view.findViewById(R.id.etLink);
-            TextView tvDifferent = view.findViewById(R.id.tvDifferent);
-            final CheckBox cbSecure = view.findViewById(R.id.cbSecure);
-            CheckBox cbSanitize = view.findViewById(R.id.cbSanitize);
-            final Button btnOwner = view.findViewById(R.id.btnOwner);
-            TextView tvOwnerRemark = view.findViewById(R.id.tvOwnerRemark);
-            final ContentLoadingProgressBar pbWait = view.findViewById(R.id.pbWait);
-            final TextView tvOwner = view.findViewById(R.id.tvOwner);
-            final TextView tvHost = view.findViewById(R.id.tvHost);
-            final Group grpOwner = view.findViewById(R.id.grpOwner);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_open_link, null);
+            TextView tvTitle = dview.findViewById(R.id.tvTitle);
+            final EditText etLink = dview.findViewById(R.id.etLink);
+            TextView tvDifferent = dview.findViewById(R.id.tvDifferent);
+            final CheckBox cbSecure = dview.findViewById(R.id.cbSecure);
+            CheckBox cbSanitize = dview.findViewById(R.id.cbSanitize);
+            final Button btnOwner = dview.findViewById(R.id.btnOwner);
+            TextView tvOwnerRemark = dview.findViewById(R.id.tvOwnerRemark);
+            final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
+            final TextView tvHost = dview.findViewById(R.id.tvHost);
+            final TextView tvOwner = dview.findViewById(R.id.tvOwner);
+            final Group grpOwner = dview.findViewById(R.id.grpOwner);
 
             etLink.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -4370,6 +4370,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             String organization = data[1];
                             tvHost.setText(host);
                             tvOwner.setText(organization == null ? "?" : organization);
+                            new Handler().post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    dview.scrollTo(0, tvOwner.getBottom());
+                                }
+                            });
                         }
 
                         @Override
@@ -4390,7 +4396,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ? View.GONE : View.VISIBLE);
 
             return new AlertDialog.Builder(getContext())
-                    .setView(view)
+                    .setView(dview)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
