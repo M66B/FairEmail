@@ -100,6 +100,7 @@ public class EntityIdentity {
     public Boolean store_sent = false; // obsolete
     public Long sent_folder = null; // obsolete
     public Long sign_key = null; // OpenPGP
+    public String sign_key_alias = null; // S/MIME
     public Boolean tbd;
     public String state;
     public String error;

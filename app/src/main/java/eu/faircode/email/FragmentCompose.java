@@ -1249,38 +1249,53 @@ public class FragmentCompose extends FragmentBase {
     private void onEncrypt(final EntityMessage draft) {
         if (EntityMessage.SMIME_SIGNONLY.equals(draft.encrypt) ||
                 EntityMessage.SMIME_SIGNENCRYPT.equals(draft.encrypt)) {
-
-            String sender = null;
-            if (draft.from != null && draft.from.length > 0)
-                sender = ((InternetAddress) draft.from[0]).getAddress();
-            Log.i("Alias sender=" + sender);
-
             Bundle args = new Bundle();
             args.putLong("id", draft.id);
             args.putInt("type", draft.encrypt);
-            args.putString("sender", sender);
 
-            Helper.selectKeyAlias(getActivity(), sender, new Helper.IKeyAlias() {
+            new SimpleTask<EntityIdentity>() {
                 @Override
-                public void onSelected(String alias) {
-                    args.putString("alias", alias);
-                    onSmime(args);
+                protected EntityIdentity onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage draft = db.message().getMessage(id);
+                    if (draft == null || draft.identity == null)
+                        return null;
+
+                    return db.identity().getIdentity(draft.identity);
                 }
 
                 @Override
-                public void onNothingSelected() {
-                    Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
-                    final Intent intent = KeyChain.createInstallIntent();
-                    if (intent.resolveActivity(getContext().getPackageManager()) != null)
-                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                startActivity(intent);
-                            }
-                        });
-                    snackbar.show();
+                protected void onExecuted(final Bundle args, EntityIdentity identity) {
+                    Helper.selectKeyAlias(getActivity(), identity.sign_key_alias, new Helper.IKeyAlias() {
+                        @Override
+                        public void onSelected(String alias) {
+                            args.putString("alias", alias);
+                            onSmime(args);
+                        }
+
+                        @Override
+                        public void onNothingSelected() {
+                            Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
+                            final Intent intent = KeyChain.createInstallIntent();
+                            if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity(intent);
+                                    }
+                                });
+                            snackbar.show();
+                        }
+                    });
                 }
-            });
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, args, "compose:alias");
         } else {
             if (pgpService.isBound())
                 try {
@@ -1923,8 +1938,10 @@ public class FragmentCompose extends FragmentBase {
                 };
                 bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
+                // Store selected alias
                 if (alias == null)
                     throw new IllegalArgumentException("Key alias missing");
+                db.identity().setIdentitySignKeyAlias(identity.id, alias);
 
                 // Get private key
                 PrivateKey privkey = KeyChain.getPrivateKey(context, alias);

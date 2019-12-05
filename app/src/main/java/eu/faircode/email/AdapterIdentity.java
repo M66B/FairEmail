@@ -125,9 +125,19 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
 
             tvHost.setText(String.format("%s:%d", identity.host, identity.port));
             tvAccount.setText(identity.accountName);
-            tvSignKeyId.setText(identity.sign_key == null ? null
-                    : context.getString(R.string.title_sign_key, Long.toHexString(identity.sign_key)));
-            tvSignKeyId.setVisibility(identity.sign_key == null ? View.GONE : View.VISIBLE);
+
+            StringBuilder sb = new StringBuilder();
+            if (identity.sign_key != null)
+                sb.append(Long.toHexString(identity.sign_key));
+            if (identity.sign_key_alias != null) {
+                if (sb.length() != 0)
+                    sb.append(", ");
+                sb.append(identity.sign_key_alias);
+            }
+
+            tvSignKeyId.setText(context.getString(R.string.title_sign_key, sb.toString()));
+            tvSignKeyId.setVisibility(sb.length() > 0 ? View.VISIBLE : View.GONE);
+
             tvLast.setText(context.getString(R.string.title_last_connected,
                     identity.last_connected == null ? "-" : DTF.format(identity.last_connected)));
 
@@ -230,7 +240,16 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                             long id = args.getLong("id");
 
                             DB db = DB.getInstance(context);
-                            db.identity().setIdentitySignKey(id, null);
+                            try {
+                                db.beginTransaction();
+
+                                db.identity().setIdentitySignKey(id, null);
+                                db.identity().setIdentitySignKeyAlias(id, null);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
 
                             return null;
                         }
