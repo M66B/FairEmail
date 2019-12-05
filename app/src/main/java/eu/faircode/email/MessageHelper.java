@@ -1427,7 +1427,8 @@ public class MessageHelper {
                         return parts;
                     }
                 }
-            } else if (imessage.isMimeType("application/pkcs7-mime")) {
+            } else if (imessage.isMimeType("application/pkcs7-mime") ||
+                    imessage.isMimeType("application/x-pkcs7-mime")) {
                 ContentType ct = new ContentType(imessage.getContentType());
                 String smimeType = ct.getParameter("smime-type");
                 if ("enveloped-data".equals(smimeType)) {
