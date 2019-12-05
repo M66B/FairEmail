@@ -23,7 +23,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
@@ -44,7 +43,6 @@ public class MailService implements AutoCloseable {
     private Properties properties;
     private Session isession;
     private Service iservice;
-    private boolean empty;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
 
@@ -282,19 +280,6 @@ public class MailService implements AutoCloseable {
                         for (String key : sid.keySet()) {
                             crumb.put(key, sid.get(key));
                             EntityLog.log(context, "Server " + key + "=" + sid.get(key));
-
-                            if ("name".equals(key)) {
-                                String name = sid.get(key);
-                                if (!TextUtils.isEmpty(name)) {
-                                    name = name.toLowerCase(Locale.ROOT);
-
-                                    // name=Amazon WorkMail IMAP version=1.0
-                                    // name=Microsoft.Exchange.Imap4.Imap4Server version=15
-                                    if ((name.contains("amazon") && name.contains("workmail")) ||
-                                            (name.contains("microsoft") && name.contains("exchange")))
-                                        empty = true;
-                                }
-                            }
                         }
                         Log.breadcrumb("server", crumb);
                     }
@@ -399,10 +384,6 @@ public class MailService implements AutoCloseable {
             return ((IMAPStore) getStore()).hasCapability(capability);
         else
             return false;
-    }
-
-    boolean emptyMessages() {
-        return this.empty;
     }
 
     public void close() throws MessagingException {

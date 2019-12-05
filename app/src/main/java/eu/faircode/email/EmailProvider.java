@@ -62,6 +62,7 @@ public class EmailProvider {
     public int order;
     public String type;
     public int keepalive;
+    public boolean partial;
     public boolean useip;
     public String link;
     public Server imap = new Server();
@@ -111,6 +112,7 @@ public class EmailProvider {
                             provider.domain = Arrays.asList(domain.split(","));
                         provider.order = xml.getAttributeIntValue(null, "order", Integer.MAX_VALUE);
                         provider.keepalive = xml.getAttributeIntValue(null, "keepalive", 0);
+                        provider.partial = xml.getAttributeBooleanValue(null, "partial", true);
                         provider.useip = xml.getAttributeBooleanValue(null, "useip", true);
                         provider.link = xml.getAttributeValue(null, "link");
                         provider.type = xml.getAttributeValue(null, "type");
@@ -190,6 +192,10 @@ public class EmailProvider {
                 Log.i("Replacing auto config by profile=" + provider.name);
                 return provider;
             }
+
+        // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
+        if (autoconfig.imap.host.endsWith(".awsapps.com"))
+            autoconfig.partial = false;
 
         return autoconfig;
     }

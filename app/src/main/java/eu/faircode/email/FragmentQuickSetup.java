@@ -245,7 +245,6 @@ public class FragmentQuickSetup extends FragmentBase {
                 String user = (provider.user == EmailProvider.UserType.EMAIL ? email : username);
                 Log.i("User type=" + provider.user + " name=" + user);
 
-                boolean empty;
                 List<EntityFolder> folders;
 
                 String aprotocol = provider.imap.starttls ? "imap" : "imaps";
@@ -262,7 +261,6 @@ public class FragmentQuickSetup extends FragmentBase {
                             throw ex;
                     }
 
-                    empty = iservice.emptyMessages();
                     folders = iservice.getFolders();
 
                     if (folders == null)
@@ -299,8 +297,10 @@ public class FragmentQuickSetup extends FragmentBase {
                     account.synchronize = true;
                     account.primary = (primary == null);
 
-                    if (empty)
-                        account.partial_fetch = false;
+                    if (provider.keepalive > 0)
+                        account.poll_interval = provider.keepalive;
+
+                    account.partial_fetch = provider.partial;
 
                     account.created = new Date().getTime();
                     account.last_connected = account.created;

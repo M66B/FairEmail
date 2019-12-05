@@ -272,6 +272,7 @@ public class FragmentAccount extends FragmentBase {
 
                 etName.setText(position > 1 ? provider.name : null);
                 etInterval.setText(provider.keepalive > 0 ? Integer.toString(provider.keepalive) : null);
+                cbPartialFetch.setChecked(provider.partial);
 
                 grpFolders.setVisibility(View.GONE);
                 btnSave.setVisibility(View.GONE);
@@ -559,7 +560,6 @@ public class FragmentAccount extends FragmentBase {
                     iservice.connect(host, Integer.parseInt(port), auth, user, password);
 
                     result.idle = iservice.hasCapability("IDLE");
-                    result.empty = iservice.emptyMessages();
 
                     boolean inbox = false;
 
@@ -631,8 +631,6 @@ public class FragmentAccount extends FragmentBase {
                 tvUtf8.setVisibility(result.utf8 == null || result.utf8 ? View.GONE : View.VISIBLE);
                 if (!result.idle)
                     etInterval.setText(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
-                if (result.empty)
-                    cbPartialFetch.setChecked(false);
 
                 setFolders(result.folders, result.account);
 
@@ -1552,6 +1550,5 @@ public class FragmentAccount extends FragmentBase {
         List<EntityFolder> folders;
         boolean idle;
         Boolean utf8;
-        boolean empty;
     }
 }
