@@ -709,6 +709,10 @@
     <string name="title_signature_valid">Message signature valid</string>
     <string name="title_signature_unconfirmed">Message signature valid but not confirmed</string>
     <string name="title_signature_invalid">Message signature invalid</string>
+    <string name="title_signature_sender">Sender\'s address</string>
+    <string name="title_signature_email">Signature\'s address</string>
+    <string name="title_signature_mismatch">The email address of the sender and signature do not match</string>
+    <string name="title_signature_subject">Subject</string>
     <string name="title_signature_store">Store</string>
 
     <string name="title_search">Search</string>

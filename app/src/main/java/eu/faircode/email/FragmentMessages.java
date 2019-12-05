@@ -163,6 +163,7 @@ import java.util.Properties;
 
 import javax.mail.FolderClosedException;
 import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import static android.app.Activity.RESULT_OK;
@@ -4391,6 +4392,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     String email = Helper.getAltSubjectName(cert);
                                     EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
 
+                                    String sender = null;
+                                    if (message.from != null && message.from.length == 1)
+                                        sender = ((InternetAddress) message.from[0]).getAddress();
+
+                                    args.putString("sender", sender);
                                     args.putString("fingerprint", fingerprint);
                                     args.putString("email", email);
                                     args.putString("subject", Helper.getSubject(cert));
@@ -4515,49 +4521,72 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
             @Override
             protected void onExecuted(final Bundle args, Boolean valid) {
                 int type = args.getInt("type");
-                if (EntityMessage.SMIME_SIGNONLY.equals(type))
+                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                    String sender = args.getString("sender");
+                    String fingerprint = args.getString("fingerprint");
+                    String email = args.getString("email");
+                    String subject = args.getString("subject");
+                    byte[] encoded = args.getByteArray("encoded");
+                    boolean known = args.getBoolean("known");
+                    boolean match = Objects.equals(sender, email);
+
                     if (valid == null || !valid)
                         Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
-                    else if (args.getBoolean("known"))
+                    else if (known && match)
                         Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
                     else {
-                        new AlertDialog.Builder(getContext())
-                                .setTitle(R.string.title_signature_valid)
-                                .setMessage(args.getString("email") + ": " + args.getString("subject"))
-                                .setPositiveButton(R.string.title_signature_store, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        new SimpleTask<Void>() {
-                                            @Override
-                                            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                                long id = args.getLong("id");
+                        LayoutInflater inflator = LayoutInflater.from(getContext());
+                        View dview = inflator.inflate(R.layout.dialog_certificate, null);
+                        TextView tvSender = dview.findViewById(R.id.tvSender);
+                        TextView tvEmail = dview.findViewById(R.id.tvEmail);
+                        TextView tvEmailInvalid = dview.findViewById(R.id.tvEmailInvalid);
+                        TextView tvSubject = dview.findViewById(R.id.tvSubject);
 
-                                                DB db = DB.getInstance(context);
+                        tvSender.setText(sender);
+                        tvEmail.setText(email);
+                        tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
+                        tvSubject.setText(subject);
 
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message == null)
-                                                    return null;
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                                .setView(dview)
+                                .setNegativeButton(android.R.string.cancel, null);
 
-                                                EntityCertificate record = new EntityCertificate();
-                                                record.fingerprint = args.getString("fingerprint");
-                                                record.email = args.getString("email");
-                                                record.subject = args.getString("subject");
-                                                record.setEncoded(args.getByteArray("encoded"));
-                                                record.id = db.certificate().insertCertificate(record);
+                        if (!TextUtils.isEmpty(sender) && !known)
+                            builder.setPositiveButton(R.string.title_signature_store, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                            long id = args.getLong("id");
 
+                                            DB db = DB.getInstance(context);
+
+                                            EntityMessage message = db.message().getMessage(id);
+                                            if (message == null)
                                                 return null;
-                                            }
 
-                                            @Override
-                                            protected void onException(Bundle args, Throwable ex) {
-                                                Helper.unexpectedError(getParentFragmentManager(), ex);
-                                            }
-                                        }.execute(FragmentMessages.this, args, "certificate:store");
-                                    }
-                                })
-                                .setNegativeButton(android.R.string.cancel, null)
-                                .show();
+                                            EntityCertificate record = new EntityCertificate();
+                                            record.fingerprint = fingerprint;
+                                            record.email = email;
+                                            record.subject = subject;
+                                            record.setEncoded(encoded);
+                                            record.id = db.certificate().insertCertificate(record);
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                                        }
+                                    }.execute(FragmentMessages.this, args, "certificate:store");
+                                }
+                            });
+
+                        builder.show();
                     }
+                }
             }
 
             @Override

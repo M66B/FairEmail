@@ -3971,7 +3971,7 @@ public class FragmentCompose extends FragmentBase {
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
             email = getArguments().getString("email");
 
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_certificate, null);
+            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_select_certificate, null);
             final RecyclerView rvCertificate = dview.findViewById(R.id.rvCertificate);
             final ProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
