@@ -112,11 +112,12 @@ import com.sun.mail.util.FolderClosedIOException;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cms.CMSEnvelopedData;
+import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSProcessable;
 import org.bouncycastle.cms.CMSProcessableFile;
 import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.cms.CMSVerifierCertificateNotValidException;
-import org.bouncycastle.cms.KeyTransRecipientInformation;
+import org.bouncycastle.cms.KeyTransRecipientId;
 import org.bouncycastle.cms.RecipientInformation;
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationStore;
@@ -4407,6 +4408,11 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (privkey == null)
                         throw new IllegalArgumentException("Private key missing");
 
+                    // Get public key
+                    X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
+                    if (chain == null || chain.length == 0)
+                        throw new IllegalArgumentException("Public key missing");
+
                     // Get encrypted message
                     File input = null;
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
@@ -4427,11 +4433,33 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         envelopedData = new CMSEnvelopedData(fis);
                     }
 
-                    // Decrypt message
-                    Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients();
-                    KeyTransRecipientInformation recipientInfo = (KeyTransRecipientInformation) recipients.iterator().next();
+                    // Get recipient info
                     JceKeyTransRecipient recipient = new JceKeyTransEnvelopedRecipient(privkey);
-                    InputStream is = recipientInfo.getContentStream(recipient).getContentStream();
+                    Collection<RecipientInformation> recipients = envelopedData.getRecipientInfos().getRecipients(); // KeyTransRecipientInformation
+
+                    // Find recipient
+                    InputStream is = null;
+                    for (RecipientInformation recipientInfo : recipients) {
+                        KeyTransRecipientId recipientId = (KeyTransRecipientId) recipientInfo.getRID();
+                        if (recipientId.getSerialNumber().equals(chain[0].getSerialNumber()))
+                            try {
+                                is = recipientInfo.getContentStream(recipient).getContentStream();
+                            } catch (CMSException ex) {
+                                Log.w(ex);
+                            }
+                    }
+
+                    // Fallback: try all recipients
+                    if (is == null)
+                        for (RecipientInformation recipientInfo : recipients)
+                            try {
+                                is = recipientInfo.getContentStream(recipient).getContentStream();
+                            } catch (CMSException ex) {
+                                Log.w(ex);
+                            }
+
+                    if (is == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_invalid_key));
 
                     // Decode message
                     Properties props = MessageHelper.getSessionProperties();

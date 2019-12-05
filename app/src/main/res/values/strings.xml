@@ -678,7 +678,7 @@
     <string name="title_edit_plain_text">Edit as plain text</string>
     <string name="title_edit_formatted_text">Edit as reformatted text</string>
     <string name="title_select_certificate">Select public key</string>
-    <string name="title_import_certificate">Import public key</string>
+    <string name="title_invalid_key">Invalid private key</string>
     <string name="title_send_plain_text">Plain text only</string>
     <string name="title_send_receipt">Request delivery/read receipt</string>
     <string name="title_send_receipt_remark">Most providers and email clients ignore receipt requests</string>
