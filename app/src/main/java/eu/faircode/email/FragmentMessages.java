@@ -3896,7 +3896,6 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         long id = intent.getLongExtra("id", -1);
         boolean auto = intent.getBooleanExtra("auto", false);
         int type = intent.getIntExtra("type", EntityMessage.ENCRYPT_NONE);
-        String recipient = intent.getStringExtra("recipient");
 
         final Bundle args = new Bundle();
         args.putLong("id", id);
@@ -3905,27 +3904,50 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
         if (EntityMessage.SMIME_SIGNONLY.equals(type))
             onSmime(args);
         else if (EntityMessage.SMIME_SIGNENCRYPT.equals(type)) {
-            Helper.selectKeyAlias(getActivity(), recipient, new Helper.IKeyAlias() {
+            new SimpleTask<EntityIdentity>() {
                 @Override
-                public void onSelected(String alias) {
-                    args.putString("alias", alias);
-                    onSmime(args);
+                protected EntityIdentity onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || message.identity == null)
+                        return null;
+
+                    return db.identity().getIdentity(message.identity);
                 }
 
                 @Override
-                public void onNothingSelected() {
-                    Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
-                    final Intent intent = KeyChain.createInstallIntent();
-                    if (intent.resolveActivity(getContext().getPackageManager()) != null)
-                        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                startActivity(intent);
-                            }
-                        });
-                    snackbar.show();
+                protected void onExecuted(Bundle args, EntityIdentity identity) {
+                    Helper.selectKeyAlias(getActivity(), identity == null ? null : identity.sign_key_alias, new Helper.IKeyAlias() {
+                        @Override
+                        public void onSelected(String alias) {
+                            args.putString("alias", alias);
+                            onSmime(args);
+                        }
+
+                        @Override
+                        public void onNothingSelected() {
+                            Snackbar snackbar = Snackbar.make(view, R.string.title_no_key, Snackbar.LENGTH_LONG);
+                            final Intent intent = KeyChain.createInstallIntent();
+                            if (intent.resolveActivity(getContext().getPackageManager()) != null)
+                                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        startActivity(intent);
+                                    }
+                                });
+                            snackbar.show();
+                        }
+                    });
                 }
-            });
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, args, "messages:alias");
         } else {
             if (pgpService.isBound()) {
                 Intent data = new Intent();
