@@ -196,36 +196,42 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             @Override
             public void onChanged(List<TupleAccountNetworkState> accountNetworkStates) {
-                boolean running = false;
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
+                boolean enabled = prefs.getBoolean("enabled", true);
 
+                boolean runService = false;
                 for (TupleAccountNetworkState current : accountNetworkStates) {
-                    if (current.accountState.shouldRun())
-                        running = true;
+                    if (enabled && current.accountState.shouldRun())
+                        runService = true;
 
                     int index = accountStates.indexOf(current);
                     if (index < 0) {
-                        if (current.shouldRun())
+                        if (enabled && current.shouldRun())
                             start(current);
                     } else {
                         TupleAccountNetworkState prev = accountStates.get(index);
                         accountStates.remove(index);
-
-                        if (current.reload ||
-                                !prev.accountState.equals(current.accountState) ||
-                                prev.shouldRun() != current.shouldRun()) {
-                            Log.i("XXX account=" + current +
-                                    " reload=" + current.reload + " change=" + !prev.accountState.equals(current.accountState));
+                        if (enabled) {
+                            if (current.reload ||
+                                    !prev.accountState.equals(current.accountState) ||
+                                    prev.shouldRun() != current.shouldRun()) {
+                                Log.i("XXX account=" + current +
+                                        " reload=" + current.reload + " change=" + !prev.accountState.equals(current.accountState));
+                                if (prev.shouldRun())
+                                    stop(prev);
+                                if (current.shouldRun())
+                                    start(prev);
+                            }
+                        } else {
                             if (prev.shouldRun())
                                 stop(prev);
-                            if (current.shouldRun())
-                                start(prev);
                         }
                     }
 
                     accountStates.add(current);
                 }
 
-                if (!running)
+                if (!runService)
                     stopSelf();
             }
 
@@ -428,14 +434,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private static final List<String> POST_EVAL =
-            Collections.unmodifiableList(Arrays.asList("metered", "roaming", "rlah"));
+            Collections.unmodifiableList(Arrays.asList("enabled"));
     private static final List<String> POST_RELOAD =
-            Collections.unmodifiableList(Arrays.asList("socks_enabled", "socks_proxy", "subscribed_only", "debug"));
+            Collections.unmodifiableList(Arrays.asList(
+                    "metered", "roaming", "rlah",
+                    "socks_enabled", "socks_proxy", "subscribed_only", "debug"));
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (POST_EVAL.contains(key))
-            liveAccountNetworkState.post(true);
+            liveAccountNetworkState.post(false);
         else if (POST_RELOAD.contains(key))
             liveAccountNetworkState.post(true);
     }
