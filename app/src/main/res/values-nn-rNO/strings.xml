@@ -296,6 +296,7 @@
     <string name="title_advanced_biometrics_timeout">Biometrisk autentisering timeout</string>
     <string name="title_advanced_manage_certificates">Administrer offentlige nøkler</string>
     <string name="title_advanced_import_key">Importer privat nøkkel</string>
+    <string name="title_advanced_manage_keys">Administrer private nøkler</string>
     <string name="title_advanced_english">Tving bruk av engelsk</string>
     <string name="title_advanced_watchdog">Kontroller regelmessig om FairEmail fortsatt er aktiv</string>
     <string name="title_advanced_updates">Se etter oppdateringer</string>
@@ -597,6 +598,7 @@
     <string name="title_edit_formatted_text">Rediger som omformatert tekst</string>
     <string name="title_select_certificate">Velg offentlig nøkkel</string>
     <string name="title_certificate_missing">Ingen offentlig nøkkel for %1$s</string>
+    <string name="title_certificate_invalid">Offentlig nøkkel på %1$s er ugyldig</string>
     <string name="title_no_key">Ingen privat nøkkel</string>
     <string name="title_invalid_key">Ugyldig privat nøkkel</string>
     <string name="title_send_plain_text">Bare vanlig tekst</string>
@@ -630,6 +632,8 @@
     <string name="title_signature_email">Signaturens adresse</string>
     <string name="title_signature_mismatch">E-postadressen til avsenderen og signaturen stemmer ikke overens</string>
     <string name="title_signature_subject">Emne</string>
+    <string name="title_signature_validity">Gyldighet</string>
+    <string name="title_signature_outdated">Denne offentlige nøkkelen er for øyeblikket ikke gyldig</string>
     <string name="title_signature_store">Lagre</string>
     <string name="title_search">Søk</string>
     <string name="title_search_server">Søk på server</string>

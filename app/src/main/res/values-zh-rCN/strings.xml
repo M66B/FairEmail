@@ -284,6 +284,7 @@
     <string name="title_advanced_biometrics_timeout">生物认证超时时间</string>
     <string name="title_advanced_manage_certificates">管理公钥</string>
     <string name="title_advanced_import_key">导入私钥</string>
+    <string name="title_advanced_manage_keys">管理私钥</string>
     <string name="title_advanced_english">强制使用英语</string>
     <string name="title_advanced_watchdog">定期检查FairEmail是否仍在运行</string>
     <string name="title_advanced_updates">检查更新</string>
@@ -585,6 +586,7 @@
     <string name="title_edit_formatted_text">以格式化文本形式编辑</string>
     <string name="title_select_certificate">选择公钥</string>
     <string name="title_certificate_missing">%1$s 没有公钥</string>
+    <string name="title_certificate_invalid">%1$s 的公钥无效</string>
     <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效私钥</string>
     <string name="title_send_plain_text">仅纯文本</string>
@@ -618,6 +620,8 @@
     <string name="title_signature_email">签名地址</string>
     <string name="title_signature_mismatch">发件人和签名的电子邮件地址不匹配</string>
     <string name="title_signature_subject">主题</string>
+    <string name="title_signature_validity">有效性</string>
+    <string name="title_signature_outdated">此公钥当前无效</string>
     <string name="title_signature_store">存储</string>
     <string name="title_search">搜索</string>
     <string name="title_search_server">在服务器上搜索</string>

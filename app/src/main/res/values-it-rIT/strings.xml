@@ -295,6 +295,7 @@
     <string name="title_advanced_biometrics_timeout">Timeout autenticazione biometrica</string>
     <string name="title_advanced_manage_certificates">Gestisci chiavi pubbliche</string>
     <string name="title_advanced_import_key">Importa chiave privata</string>
+    <string name="title_advanced_manage_keys">Gestisci le chiavi private</string>
     <string name="title_advanced_english">Forza la lingua inglese</string>
     <string name="title_advanced_watchdog">Controlla periodicamente se FairEmail è ancora attiva</string>
     <string name="title_advanced_updates">Controlla aggiornamenti</string>
@@ -596,6 +597,7 @@
     <string name="title_edit_formatted_text">Modifica come testo riformattato</string>
     <string name="title_select_certificate">Seleziona chiave pubblica</string>
     <string name="title_certificate_missing">Nessuna chiave pubblica per %1$s</string>
+    <string name="title_certificate_invalid">Chiave pubblica di %1$s non valida</string>
     <string name="title_no_key">Nessuna chiave privata</string>
     <string name="title_invalid_key">Chiave privata non valida</string>
     <string name="title_send_plain_text">Solo testo semplice</string>
@@ -629,6 +631,8 @@
     <string name="title_signature_email">Indirizzo della firma</string>
     <string name="title_signature_mismatch">L\'indirizzo email del mittente e la firma non corrispondono</string>
     <string name="title_signature_subject">Oggetto</string>
+    <string name="title_signature_validity">Validità</string>
+    <string name="title_signature_outdated">Questa chiave pubblica non è attualmente valida</string>
     <string name="title_signature_store">Registra</string>
     <string name="title_search">Cerca</string>
     <string name="title_search_server">Cerca sul server</string>

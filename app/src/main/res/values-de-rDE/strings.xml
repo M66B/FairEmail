@@ -295,6 +295,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_biometrics_timeout">Gültigkeitsdauer der biometrischen Authentifizierung</string>
     <string name="title_advanced_manage_certificates">Öffentliche Schlüssel verwalten</string>
     <string name="title_advanced_import_key">Privaten Schlüssel importieren</string>
+    <string name="title_advanced_manage_keys">Private Schlüssel verwalten</string>
     <string name="title_advanced_english">Englische Sprache erzwingen</string>
     <string name="title_advanced_watchdog">Regelmäßig überprüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Nach Aktualisierungen suchen</string>
@@ -596,6 +597,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_edit_formatted_text">Als reformierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
     <string name="title_certificate_missing">Kein öffentlicher Schlüssel für %1$s</string>
+    <string name="title_certificate_invalid">Öffentlicher Schlüssel von %1$s ist ungültig</string>
     <string name="title_no_key">Kein privater Schlüssel</string>
     <string name="title_invalid_key">Ungültiger privater Schlüssel</string>
     <string name="title_send_plain_text">Nur Text</string>
@@ -629,6 +631,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_signature_email">E-Mail-Adresse der Unterschrift</string>
     <string name="title_signature_mismatch">Die E-Mail-Adresse des Absenders und der Signatur stimmen nicht überein</string>
     <string name="title_signature_subject">Betreff</string>
+    <string name="title_signature_validity">Gültigkeit</string>
+    <string name="title_signature_outdated">Dieser öffentliche Schlüssel ist derzeit nicht gültig</string>
     <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
     <string name="title_search_server">Auf dem Server suchen</string>
