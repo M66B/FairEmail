@@ -892,7 +892,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean check = (synchronize && (account == null ||
                         !account.synchronize || account.error != null ||
                         !account.insecure.equals(insecure) ||
-                        !host.equals(account.host) || Integer.parseInt(port) != account.port ||
+                        !host.equals(account.host) || starttls != account.starttls || Integer.parseInt(port) != account.port ||
                         !user.equals(account.user) || !password.equals(account.password) ||
                         !Objects.equals(realm, accountRealm)));
                 boolean reload = (check || account == null ||
