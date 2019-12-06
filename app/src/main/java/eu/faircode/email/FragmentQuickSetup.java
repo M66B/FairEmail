@@ -387,7 +387,7 @@ public class FragmentQuickSetup extends FragmentBase {
                         }
                     });
                 } else {
-                    tvError.setText(Helper.formatThrowable(ex, false));
+                    tvError.setText(Log.formatThrowable(ex, false));
                     grpError.setVisibility(View.VISIBLE);
 
                     if (args.containsKey("link")) {

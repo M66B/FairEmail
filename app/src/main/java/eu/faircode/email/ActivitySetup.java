@@ -412,7 +412,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             fragment.setArguments(args);
             fragment.show(getSupportFragmentManager(), "password");
         } catch (Throwable ex) {
-            Helper.unexpectedError(getSupportFragmentManager(), ex);
+            Log.unexpectedError(getSupportFragmentManager(), ex);
         }
     }
 
@@ -636,7 +636,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 if (ex instanceof IllegalArgumentException)
                     ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "setup:export");
     }
@@ -998,7 +998,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 else if (ex instanceof IllegalArgumentException)
                     ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "setup:import");
     }
@@ -1069,7 +1069,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     if (ex instanceof IllegalArgumentException)
                         ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                     else
-                        Helper.unexpectedError(getSupportFragmentManager(), ex);
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
                 }
             }.execute(this, args, "setup:cert");
         }
@@ -1313,7 +1313,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                                             @Override
                                             protected void onException(Bundle args, Throwable ex) {
-                                                Helper.unexpectedError(getSupportFragmentManager(), ex);
+                                                Log.unexpectedError(getSupportFragmentManager(), ex);
                                             }
                                         }.execute(ActivitySetup.this, args, "graph:profile");
                                     }

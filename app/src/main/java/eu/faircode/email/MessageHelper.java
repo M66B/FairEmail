@@ -1134,7 +1134,7 @@ public class MessageHelper {
                 throw ex;
             } catch (Throwable ex) {
                 Log.w(ex);
-                warnings.add(Helper.formatThrowable(ex, false));
+                warnings.add(Log.formatThrowable(ex, false));
                 return null;
             }
 
@@ -1162,7 +1162,7 @@ public class MessageHelper {
                 }
             } catch (ParseException ex) {
                 Log.w(ex);
-                warnings.add(Helper.formatThrowable(ex, false));
+                warnings.add(Log.formatThrowable(ex, false));
             }
 
             if (part == plain)
@@ -1322,15 +1322,15 @@ public class MessageHelper {
 
                     Log.i("Downloaded attachment size=" + size);
                 } catch (FolderClosedIOException ex) {
-                    db.attachment().setError(local.id, Helper.formatThrowable(ex));
+                    db.attachment().setError(local.id, Log.formatThrowable(ex));
                     throw new FolderClosedException(ex.getFolder(), "downloadAttachment", ex);
                 } catch (MessageRemovedIOException ex) {
-                    db.attachment().setError(local.id, Helper.formatThrowable(ex));
+                    db.attachment().setError(local.id, Log.formatThrowable(ex));
                     throw new MessagingException("downloadAttachment", ex);
                 } catch (Throwable ex) {
                     // Reset progress on failure
                     Log.e(ex);
-                    db.attachment().setError(local.id, Helper.formatThrowable(ex));
+                    db.attachment().setError(local.id, Log.formatThrowable(ex));
                     throw ex;
                 }
         }
@@ -1467,7 +1467,7 @@ public class MessageHelper {
                         // Nested body: try to continue
                         // ParseException: In parameter list boundary="...">, expected parameter name, got ";"
                         Log.w(ex);
-                        parts.warnings.add(Helper.formatThrowable(ex, false));
+                        parts.warnings.add(Log.formatThrowable(ex, false));
                     }
             } else {
                 // https://www.iana.org/assignments/cont-disp/cont-disp.xhtml
@@ -1478,7 +1478,7 @@ public class MessageHelper {
                         disposition = disposition.toLowerCase(Locale.ROOT);
                 } catch (MessagingException ex) {
                     Log.w(ex);
-                    parts.warnings.add(Helper.formatThrowable(ex, false));
+                    parts.warnings.add(Log.formatThrowable(ex, false));
                     disposition = null;
                 }
 
@@ -1489,7 +1489,7 @@ public class MessageHelper {
                         filename = decodeMime(filename);
                 } catch (MessagingException ex) {
                     Log.w(ex);
-                    parts.warnings.add(Helper.formatThrowable(ex, false));
+                    parts.warnings.add(Log.formatThrowable(ex, false));
                     filename = null;
                 }
 
@@ -1499,7 +1499,7 @@ public class MessageHelper {
                     contentType = new ContentType(c == null ? "" : c);
                 } catch (ParseException ex) {
                     Log.w(ex);
-                    parts.warnings.add(Helper.formatThrowable(ex, false));
+                    parts.warnings.add(Log.formatThrowable(ex, false));
 
                     if (part instanceof MimeMessage)
                         contentType = new ContentType("text/html");
@@ -1528,7 +1528,7 @@ public class MessageHelper {
                     } catch (MessagingException ex) {
                         Log.w(ex);
                         if (!"Failed to fetch headers".equals(ex.getMessage()))
-                            parts.warnings.add(Helper.formatThrowable(ex, false));
+                            parts.warnings.add(Log.formatThrowable(ex, false));
                     }
 
                     apart.attachment = new EntityAttachment();
@@ -1561,7 +1561,7 @@ public class MessageHelper {
             throw ex;
         } catch (MessagingException ex) {
             Log.w(ex);
-            parts.warnings.add(Helper.formatThrowable(ex, false));
+            parts.warnings.add(Log.formatThrowable(ex, false));
         }
     }
 

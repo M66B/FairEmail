@@ -285,11 +285,11 @@ public class ServiceSend extends ServiceBase {
                         db.operation().deleteOperation(op.id);
                     } catch (Throwable ex) {
                         Log.e(outbox.name, ex);
-                        EntityLog.log(this, outbox.name + " " + Helper.formatThrowable(ex, false));
+                        EntityLog.log(this, outbox.name + " " + Log.formatThrowable(ex, false));
 
-                        db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+                        db.operation().setOperationError(op.id, Log.formatThrowable(ex));
                         if (message != null)
-                            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+                            db.message().setMessageError(message.id, Log.formatThrowable(ex));
 
                         if (ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
@@ -314,7 +314,7 @@ public class ServiceSend extends ServiceBase {
 
             } catch (Throwable ex) {
                 Log.e(outbox.name, ex);
-                db.folder().setFolderError(outbox.id, Helper.formatThrowable(ex));
+                db.folder().setFolderError(outbox.id, Log.formatThrowable(ex));
             } finally {
                 db.folder().setFolderState(outbox.id, null);
                 db.folder().setFolderSyncState(outbox.id, null);
@@ -478,7 +478,7 @@ public class ServiceSend extends ServiceBase {
             if (sid != null)
                 db.message().deleteMessage(sid);
 
-            db.identity().setIdentityError(ident.id, Helper.formatThrowable(ex));
+            db.identity().setIdentityError(ident.id, Log.formatThrowable(ex));
 
             if (ex instanceof AuthenticationFailedException ||
                     ex instanceof SendFailedException) {

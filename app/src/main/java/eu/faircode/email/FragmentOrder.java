@@ -116,7 +116,7 @@ public class FragmentOrder extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, new Bundle(), "order:accounts");
         else if (TupleFolderSort.class.getName().equals(clazz))
@@ -142,7 +142,7 @@ public class FragmentOrder extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, new Bundle(), "order:folders");
         else
@@ -218,7 +218,7 @@ public class FragmentOrder extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "order:set");
     }

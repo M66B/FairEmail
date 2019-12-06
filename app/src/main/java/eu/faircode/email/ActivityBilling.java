@@ -222,7 +222,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                 view.setData(Uri.parse(BuildConfig.PRO_FEATURES_URI + "?challenge=" + getChallenge(this)));
                 Helper.view(this, view);
             } catch (NoSuchAlgorithmException ex) {
-                Helper.unexpectedError(getSupportFragmentManager(), ex);
+                Log.unexpectedError(getSupportFragmentManager(), ex);
             }
     }
 
@@ -394,7 +394,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
                         }
                     }
                 } catch (Throwable ex) {
-                    reportError(null, Helper.formatThrowable(ex, false));
+                    reportError(null, Log.formatThrowable(ex, false));
                 }
 
             editor.apply();

@@ -637,7 +637,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 ToastEx.makeText(ActivityView.this,
-                        Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+                        Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         }.execute(this, new Bundle(), "crash:log");
     }
@@ -762,7 +762,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     if (ex instanceof IllegalArgumentException || ex instanceof IOException)
                         ToastEx.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                     else
-                        Helper.unexpectedError(getSupportFragmentManager(), ex);
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "update:check");
     }
@@ -889,7 +889,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getSupportFragmentManager(), ex);
+                Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "menu:outbox");
     }

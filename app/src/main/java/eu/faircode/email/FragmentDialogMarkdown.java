@@ -107,7 +107,7 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, getArguments(), "markdown:read");
 

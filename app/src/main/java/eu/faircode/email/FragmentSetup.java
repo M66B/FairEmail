@@ -323,7 +323,7 @@ public class FragmentSetup extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "outbox:create");
 
@@ -372,7 +372,7 @@ public class FragmentSetup extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentSetup.this, new Bundle(), "setup:drafts");
             }

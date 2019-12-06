@@ -145,8 +145,8 @@ public class EntityAttachment {
                     Helper.copy(source, target);
                 } catch (IOException ex) {
                     Log.e(ex);
-                    db.attachment().setError(aid, Helper.formatThrowable(ex, false));
-                    db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
+                    db.attachment().setError(aid, Log.formatThrowable(ex, false));
+                    db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
                 }
             }
         }

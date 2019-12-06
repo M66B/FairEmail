@@ -110,7 +110,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
                 }
             };
 

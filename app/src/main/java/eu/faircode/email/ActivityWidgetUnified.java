@@ -160,7 +160,7 @@ public class ActivityWidgetUnified extends ActivityBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getSupportFragmentManager(), ex);
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
                     }
                 }.execute(ActivityWidgetUnified.this, args, "widget:folders");
             }
@@ -195,7 +195,7 @@ public class ActivityWidgetUnified extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getSupportFragmentManager(), ex);
+                Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "widget:accounts");
     }

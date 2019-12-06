@@ -102,7 +102,7 @@ public class SearchViewEx extends SearchView {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            ToastEx.makeText(getContext(), Helper.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                            ToastEx.makeText(getContext(), Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
                         }
                     }.execute(getContext(), owner, args, "messages:suggestions");
                 }

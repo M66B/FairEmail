@@ -631,7 +631,7 @@ public class EmailProvider {
                                 Log.i("Reachable " + address);
                                 return true;
                             } catch (Throwable ex) {
-                                Log.i("Unreachable " + address + ": " + Helper.formatThrowable(ex));
+                                Log.i("Unreachable " + address + ": " + Log.formatThrowable(ex));
                             }
                         }
                         return false;

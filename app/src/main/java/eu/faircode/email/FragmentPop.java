@@ -396,7 +396,7 @@ public class FragmentPop extends FragmentBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else {
-                    tvError.setText(Helper.formatThrowable(ex, false));
+                    tvError.setText(Log.formatThrowable(ex, false));
                     grpError.setVisibility(View.VISIBLE);
 
                     new Handler().post(new Runnable() {
@@ -466,7 +466,7 @@ public class FragmentPop extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentPop.this, new Bundle(), "account:primary");
                 } else {
@@ -482,7 +482,7 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:get");
     }
@@ -576,7 +576,7 @@ public class FragmentPop extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:delete");
     }

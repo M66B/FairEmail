@@ -379,23 +379,23 @@ class Core {
                         }
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex, false));
+                        EntityLog.log(context, folder.name + " " + Log.formatThrowable(ex, false));
 
                         try {
                             db.beginTransaction();
 
-                            db.operation().setOperationError(op.id, Helper.formatThrowable(ex));
+                            db.operation().setOperationError(op.id, Log.formatThrowable(ex));
                             for (EntityOperation s : similar.keySet())
-                                db.operation().setOperationError(s.id, Helper.formatThrowable(ex));
+                                db.operation().setOperationError(s.id, Log.formatThrowable(ex));
 
                             if (message != null && !(ex instanceof IllegalArgumentException)) {
-                                db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+                                db.message().setMessageError(message.id, Log.formatThrowable(ex));
                                 for (EntityMessage m : similar.values())
-                                    db.message().setMessageError(m.id, Helper.formatThrowable(ex));
+                                    db.message().setMessageError(m.id, Log.formatThrowable(ex));
                             }
 
                             if (similar.size() > 0 && !(ex instanceof IllegalArgumentException))
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
 
                             db.setTransactionSuccessful();
                         } finally {
@@ -1566,7 +1566,7 @@ class Core {
                         updateContactInfo(context, folder, message);
 
                 } catch (Throwable ex) {
-                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                    db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                 } finally {
                     ((POP3Message) imessage).invalidate(true);
                 }
@@ -1723,8 +1723,8 @@ class Core {
                     Log.w(folder.name, ex);
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
-                    EntityLog.log(context, folder.name + " " + Helper.formatThrowable(ex, false));
-                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                    EntityLog.log(context, folder.name + " " + Log.formatThrowable(ex, false));
+                    db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                 }
 
             if (uids.size() > 0) {
@@ -1884,12 +1884,12 @@ class Core {
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
                             Log.w(folder.name, ex);
-                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                            db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
                         Log.e(folder.name, ex);
-                        db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                        db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                     } finally {
                         // Free memory
                         ((IMAPMessage) isub[j]).invalidateHeaders();
@@ -2131,7 +2131,7 @@ class Core {
                     message.warning = ex.getMessage();
                 } catch (Throwable ex) {
                     Log.e(folder.name, ex);
-                    message.warning = Helper.formatThrowable(ex, false);
+                    message.warning = Log.formatThrowable(ex, false);
                 }
 
             if (message.total != null && message.total == 0)
@@ -2372,7 +2372,7 @@ class Core {
                 }
         } catch (Throwable ex) {
             Log.e(ex);
-            db.message().setMessageError(message.id, Helper.formatThrowable(ex));
+            db.message().setMessageError(message.id, Log.formatThrowable(ex));
         }
     }
 
@@ -2546,7 +2546,7 @@ class Core {
                             parts.downloadAttachment(context, attachment);
                         } catch (Throwable ex) {
                             Log.e(folder.name, ex);
-                            db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
+                            db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
                         }
         }
     }
@@ -3180,7 +3180,7 @@ class Core {
                 new NotificationCompat.Builder(context, channel)
                         .setSmallIcon(R.drawable.baseline_warning_white_24)
                         .setContentTitle(context.getString(R.string.title_notification_failed, title))
-                        .setContentText(Helper.formatThrowable(ex, false))
+                        .setContentText(Log.formatThrowable(ex, false))
                         .setContentIntent(pi)
                         .setAutoCancel(false)
                         .setShowWhen(true)
@@ -3190,7 +3190,7 @@ class Core {
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET);
 
         builder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText(Helper.formatThrowable(ex, "\n", false)));
+                .bigText(Log.formatThrowable(ex, "\n", false)));
 
         return builder;
     }

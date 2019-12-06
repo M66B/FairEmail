@@ -108,7 +108,7 @@ public class ActivityDSN extends ActivityBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "disposition:decode");
     }

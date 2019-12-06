@@ -100,7 +100,7 @@ public class Shortcuts {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                ToastEx.makeText(context, Helper.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
+                ToastEx.makeText(context, Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         }.execute(context, owner, new Bundle(), "shortcuts:update");
     }

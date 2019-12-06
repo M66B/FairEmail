@@ -783,7 +783,7 @@ public class ServiceSynchronize extends ServiceBase {
                                     Log.w(account.name + " alert: " + message);
                                     EntityLog.log(
                                             ServiceSynchronize.this, account.name + " " +
-                                                    Helper.formatThrowable(new Core.AlertException(message), false));
+                                                    Log.formatThrowable(new Core.AlertException(message), false));
                                     db.account().setAccountError(account.id, message);
 
                                     if (message != null && !message.startsWith("Too many simultaneous connections")) {
@@ -893,7 +893,7 @@ public class ServiceSynchronize extends ServiceBase {
                                 } catch (MessagingException ex1) {
                                     Log.w(folder.name, ex1);
                                     db.folder().setFolderState(folder.id, null);
-                                    db.folder().setFolderError(folder.id, Helper.formatThrowable(ex1));
+                                    db.folder().setFolderError(folder.id, Log.formatThrowable(ex1));
                                     continue;
                                 }
                             } catch (FolderNotFoundException ex) {
@@ -907,10 +907,10 @@ public class ServiceSynchronize extends ServiceBase {
                                 if (ex.getCause() instanceof BadCommandException)
                                     throw ex;
 
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                 continue;
                             } catch (Throwable ex) {
-                                db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                 throw ex;
                             }
                             mapFolders.put(folder, ifolder);
@@ -939,7 +939,7 @@ public class ServiceSynchronize extends ServiceBase {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex, false));
+                                                folder.name + " " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -960,7 +960,7 @@ public class ServiceSynchronize extends ServiceBase {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex, false));
+                                                folder.name + " " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -984,7 +984,7 @@ public class ServiceSynchronize extends ServiceBase {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex, false));
+                                                folder.name + " " + Log.formatThrowable(ex, false));
                                         state.error(ex);
                                     } finally {
                                         wlMessage.release();
@@ -1006,7 +1006,7 @@ public class ServiceSynchronize extends ServiceBase {
                                         Log.e(folder.name, ex);
                                         EntityLog.log(
                                                 ServiceSynchronize.this,
-                                                folder.name + " " + Helper.formatThrowable(ex, false));
+                                                folder.name + " " + Log.formatThrowable(ex, false));
                                         state.error(new FolderClosedException(ifolder, "IDLE"));
                                     } finally {
                                         Log.i(folder.name + " end idle");
@@ -1092,8 +1092,8 @@ public class ServiceSynchronize extends ServiceBase {
                                                             Log.e(folder.name, ex);
                                                             EntityLog.log(
                                                                     ServiceSynchronize.this,
-                                                                    folder.name + " " + Helper.formatThrowable(ex, false));
-                                                            db.folder().setFolderError(folder.id, Helper.formatThrowable(ex));
+                                                                    folder.name + " " + Log.formatThrowable(ex, false));
+                                                            db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                                             state.error(ex);
                                                         } finally {
                                                             if (shouldClose) {
@@ -1204,8 +1204,8 @@ public class ServiceSynchronize extends ServiceBase {
                     Log.e(account.name, ex);
                     EntityLog.log(
                             ServiceSynchronize.this,
-                            account.name + " " + Helper.formatThrowable(ex, false));
-                    db.account().setAccountError(account.id, Helper.formatThrowable(ex));
+                            account.name + " " + Log.formatThrowable(ex, false));
+                    db.account().setAccountError(account.id, Log.formatThrowable(ex));
                 } finally {
                     // Stop watching for operations
                     handler.post(new Runnable() {

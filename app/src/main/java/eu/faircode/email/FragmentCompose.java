@@ -762,7 +762,7 @@ public class FragmentCompose extends FragmentBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getParentFragmentManager(), ex);
+                        Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(FragmentCompose.this, args, "compose:convert");
             }
@@ -1072,7 +1072,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:encrypt");
     }
@@ -1293,7 +1293,7 @@ public class FragmentCompose extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, args, "compose:alias");
         } else {
@@ -1333,7 +1333,7 @@ public class FragmentCompose extends FragmentBase {
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else {
                         Log.e(ex);
-                        Helper.unexpectedError(getParentFragmentManager(), ex);
+                        Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }
             else {
@@ -1500,7 +1500,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:picked");
     }
@@ -1570,7 +1570,7 @@ public class FragmentCompose extends FragmentBase {
                 else if (ex instanceof IllegalArgumentException)
                     Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:attachment:add");
     }
@@ -1870,7 +1870,7 @@ public class FragmentCompose extends FragmentBase {
                                 null, 0, 0, 0, null);
                     } catch (IntentSender.SendIntentException ex) {
                         Log.e(ex);
-                        Helper.unexpectedError(getParentFragmentManager(), ex);
+                        Log.unexpectedError(getParentFragmentManager(), ex);
                     }
             }
 
@@ -1882,7 +1882,7 @@ public class FragmentCompose extends FragmentBase {
                     Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 } else
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:pgp");
     }
@@ -2111,7 +2111,7 @@ public class FragmentCompose extends FragmentBase {
                         });
                     snackbar.show();
                 } else
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:s/mimem");
     }
@@ -2207,7 +2207,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:picked");
     }
@@ -2265,7 +2265,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "draft:get");
 
@@ -2452,7 +2452,7 @@ public class FragmentCompose extends FragmentBase {
         } catch (Throwable ex) {
             // Reset progress on failure
             Log.e(ex);
-            db.attachment().setError(attachment.id, Helper.formatThrowable(ex, false));
+            db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
             throw ex;
         }
 
@@ -3178,7 +3178,7 @@ public class FragmentCompose extends FragmentBase {
                 });
                 snackbar.show();
             } else
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
         }
     };
 
@@ -3643,7 +3643,7 @@ public class FragmentCompose extends FragmentBase {
                     ex instanceof AddressException || ex instanceof UnknownHostException)
                 Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
             else
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
         }
 
         private String getActionName(int id) {
@@ -3849,7 +3849,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "compose:show");
     }
@@ -3978,7 +3978,7 @@ public class FragmentCompose extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, new Bundle(), "compose:answer");
 
@@ -4080,7 +4080,7 @@ public class FragmentCompose extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogSend.this, args, "compose:plain_only");
                 }
@@ -4109,7 +4109,7 @@ public class FragmentCompose extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogSend.this, args, "compose:receipt");
                 }
@@ -4150,7 +4150,7 @@ public class FragmentCompose extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogSend.this, args, "compose:encrypt");
                 }
@@ -4191,7 +4191,7 @@ public class FragmentCompose extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogSend.this, args, "compose:priority");
                 }
@@ -4303,7 +4303,7 @@ public class FragmentCompose extends FragmentBase {
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
-                        Helper.unexpectedError(getParentFragmentManager(), ex);
+                        Log.unexpectedError(getParentFragmentManager(), ex);
                     }
                 }.execute(this, args, "compose:snooze");
             }

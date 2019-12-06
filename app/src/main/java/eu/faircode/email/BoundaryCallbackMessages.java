@@ -502,12 +502,12 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     } catch (IOException ex) {
                         if (ex.getCause() instanceof MessagingException) {
                             Log.w(browsable.name + " boundary server", ex);
-                            db.folder().setFolderError(browsable.id, Helper.formatThrowable(ex));
+                            db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                         } else
                             throw ex;
                     } catch (Throwable ex) {
                         Log.e(browsable.name + " boundary server", ex);
-                        db.folder().setFolderError(browsable.id, Helper.formatThrowable(ex));
+                        db.folder().setFolderError(browsable.id, Log.formatThrowable(ex));
                     } finally {
                         ((IMAPMessage) isub[j]).invalidateHeaders();
                     }

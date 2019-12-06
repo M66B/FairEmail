@@ -266,7 +266,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
             tvKeySize.setText(getString(R.string.title_advanced_aes_key_size, maxKeySize));
         } catch (NoSuchAlgorithmException ex) {
-            tvKeySize.setText(Helper.formatThrowable(ex));
+            tvKeySize.setText(Log.formatThrowable(ex));
         }
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);

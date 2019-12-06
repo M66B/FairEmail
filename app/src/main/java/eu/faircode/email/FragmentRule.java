@@ -490,7 +490,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:accounts");
     }
@@ -553,7 +553,7 @@ public class FragmentRule extends FragmentBase {
                     etRecipient.setText(cursor.getString(0));
         } catch (Throwable ex) {
             Log.e(ex);
-            Helper.unexpectedError(getParentFragmentManager(), ex);
+            Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }
 
@@ -586,7 +586,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:delete");
     }
@@ -745,7 +745,7 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, rargs, "rule:get");
     }
@@ -893,7 +893,7 @@ public class FragmentRule extends FragmentBase {
                     if (ex instanceof IllegalArgumentException)
                         Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                     else
-                        Helper.unexpectedError(getParentFragmentManager(), ex);
+                        Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, args, "rule:save");
         } catch (JSONException ex) {
@@ -1143,7 +1143,7 @@ public class FragmentRule extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentDialogCheck.this, args, "rule:execute");
                 }
@@ -1191,7 +1191,7 @@ public class FragmentRule extends FragmentBase {
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(this, args, "rule:check");
 

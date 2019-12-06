@@ -88,7 +88,7 @@ public class HtmlHelper {
             Log.e(ex);
             Document document = Document.createShell("");
             Element strong = document.createElement("strong");
-            strong.text(Helper.formatThrowable(ex));
+            strong.text(Log.formatThrowable(ex));
             document.body().appendChild(strong);
             return document;
         }

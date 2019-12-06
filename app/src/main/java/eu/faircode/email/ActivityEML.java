@@ -186,7 +186,7 @@ public class ActivityEML extends ActivityBase {
                 if (ex instanceof IllegalArgumentException)
                     Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "eml:decode");
     }
@@ -261,7 +261,7 @@ public class ActivityEML extends ActivityBase {
                 if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
                     ToastEx.makeText(ActivityEML.this, ex.getMessage(), Toast.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, args, "eml:attachment");
     }
@@ -367,7 +367,7 @@ public class ActivityEML extends ActivityBase {
                                         if (ex instanceof IllegalArgumentException)
                                             Snackbar.make(findViewById(android.R.id.content), ex.getMessage(), Snackbar.LENGTH_LONG).show();
                                         else
-                                            Helper.unexpectedError(getSupportFragmentManager(), ex);
+                                            Log.unexpectedError(getSupportFragmentManager(), ex);
                                     }
                                 }.execute(ActivityEML.this, args, "eml:store");
                             }
@@ -378,7 +378,7 @@ public class ActivityEML extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
-                Helper.unexpectedError(getSupportFragmentManager(), ex);
+                Log.unexpectedError(getSupportFragmentManager(), ex);
             }
         }.execute(this, new Bundle(), "messages:accounts");
     }

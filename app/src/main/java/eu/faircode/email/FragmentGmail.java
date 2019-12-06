@@ -242,7 +242,7 @@ public class FragmentGmail extends FragmentBase {
                                     onAuthorized(name, token);
                                 } catch (Throwable ex) {
                                     Log.e(ex);
-                                    tvError.setText(Helper.formatThrowable(ex));
+                                    tvError.setText(Log.formatThrowable(ex));
                                     grpError.setVisibility(View.VISIBLE);
 
                                     new Handler().post(new Runnable() {
@@ -403,7 +403,7 @@ public class FragmentGmail extends FragmentBase {
                 if (ex instanceof IllegalArgumentException)
                     tvError.setText(ex.getMessage());
                 else
-                    tvError.setText(Helper.formatThrowable(ex));
+                    tvError.setText(Log.formatThrowable(ex));
                 grpError.setVisibility(View.VISIBLE);
 
                 new Handler().post(new Runnable() {

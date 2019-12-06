@@ -478,7 +478,7 @@ public class FragmentAccount extends FragmentBase {
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG).show();
                 else
-                    Helper.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:config");
     }
@@ -1142,7 +1142,7 @@ public class FragmentAccount extends FragmentBase {
     }
 
     private void showError(Throwable ex) {
-        tvError.setText(Helper.formatThrowable(ex, false));
+        tvError.setText(Log.formatThrowable(ex, false));
         grpError.setVisibility(View.VISIBLE);
 
         final EmailProvider provider = (EmailProvider) spProvider.getSelectedItem();
@@ -1268,7 +1268,7 @@ public class FragmentAccount extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentAccount.this, new Bundle(), "account:primary");
                 } else {
@@ -1319,7 +1319,7 @@ public class FragmentAccount extends FragmentBase {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            Helper.unexpectedError(getParentFragmentManager(), ex);
+                            Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     }.execute(FragmentAccount.this, args, "account:folders");
                 }
@@ -1327,7 +1327,7 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:get");
     }
@@ -1433,7 +1433,7 @@ public class FragmentAccount extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Helper.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "account:delete");
     }
