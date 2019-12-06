@@ -450,4 +450,16 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="GWDG"
+        link="https://info.gwdg.de/dokuwiki/doku.php?id=en:services:email_collaboration:email_service:pop3_und_imap">
+        <imap
+            host="email.gwdg.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="email.gwdg.de"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
