@@ -503,7 +503,8 @@ public class Log {
                     ex.getCause() instanceof ConnectionException &&
                     ex.getCause().getMessage() != null &&
                     (ex.getCause().getMessage().contains("Read error") ||
-                            ex.getCause().getMessage().contains("Write error")))
+                            ex.getCause().getMessage().contains("Write error") ||
+                            ex.getCause().getMessage().contains("Socket is closed")))
                 return null;
 
             // javax.mail.MessagingException: AU3 BAD User is authenticated but not connected.;
