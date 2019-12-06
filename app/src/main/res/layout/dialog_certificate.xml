@@ -60,7 +60,7 @@
             android:id="@+id/tvEmailInvalid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_signature_mismatch"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
@@ -85,5 +85,47 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSubjectTitle" />
+
+        <TextView
+            android:id="@+id/tvValidityTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_signature_validity"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubject" />
+
+        <TextView
+            android:id="@+id/tvAfter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="after"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintEnd_toStartOf="@+id/tvBefore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvValidityTitle" />
+
+        <TextView
+            android:id="@+id/tvBefore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="before"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvAfter"
+            app:layout_constraintTop_toBottomOf="@+id/tvValidityTitle" />
+
+        <TextView
+            android:id="@+id/tvOutdated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_signature_outdated"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAfter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

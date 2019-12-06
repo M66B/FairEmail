@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -37,22 +36,27 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.ViewHolder> {
     private Context context;
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
-    private String email;
     private List<EntityCertificate> items = new ArrayList<>();
+
+    private DateFormat TF;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener {
         private View view;
         private TextView tvEmail;
         private TextView tvSubject;
+        private TextView tvAfter;
+        private TextView tvBefore;
+        private TextView tvOutdated;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "CertificatePopup");
 
@@ -62,6 +66,9 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             view = itemView.findViewById(R.id.clItem);
             tvEmail = itemView.findViewById(R.id.tvEmail);
             tvSubject = itemView.findViewById(R.id.tvSubject);
+            tvAfter = itemView.findViewById(R.id.tvAfter);
+            tvBefore = itemView.findViewById(R.id.tvBefore);
+            tvOutdated = itemView.findViewById(R.id.tvOutdated);
         }
 
         @Override
@@ -130,10 +137,9 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         private void bindTo(EntityCertificate certificate) {
             tvEmail.setText(certificate.email);
             tvSubject.setText(certificate.subject);
-
-            boolean preferred = Objects.equals(email, certificate.email);
-            tvEmail.setTypeface(preferred ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            tvSubject.setTypeface(preferred ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            tvAfter.setText(certificate.after == null ? null : TF.format(certificate.after));
+            tvBefore.setText(certificate.before == null ? null : TF.format(certificate.before));
+            tvOutdated.setVisibility(certificate.isOutdated() ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -142,15 +148,16 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(parentFragment.getContext());
 
+        this.TF = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+
         setHasStableIds(true);
     }
 
-    public void set(String email, @NonNull List<EntityCertificate> certificates) {
-        Log.i("Set email=" + email + " certificates=" + certificates.size());
+    public void set(@NonNull List<EntityCertificate> certificates) {
+        Log.i("Set certificates=" + certificates.size());
 
         DiffUtil.DiffResult diff = DiffUtil.calculateDiff(new DiffCallback(items, certificates), false);
 
-        this.email = email;
         this.items = certificates;
 
         diff.dispatchUpdatesTo(new ListUpdateCallback() {

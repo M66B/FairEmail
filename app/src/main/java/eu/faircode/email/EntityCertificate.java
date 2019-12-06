@@ -39,6 +39,7 @@ import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,24 +64,37 @@ public class EntityCertificate {
     @NonNull
     public String email;
     public String subject;
+    public Long after;
+    public Long before;
     @NonNull
     public String data;
 
-    private void setEncoded(byte[] encoded) {
-        this.data = Base64.encodeToString(encoded, Base64.NO_WRAP);
-    }
+    static EntityCertificate from(X509Certificate certificate, String email) throws CertificateEncodingException, NoSuchAlgorithmException {
+        EntityCertificate record = new EntityCertificate();
+        record.fingerprint = getFingerprint(certificate);
+        record.email = email;
+        record.subject = getSubject(certificate);
 
-    private byte[] getEncoded() {
-        return Base64.decode(this.data, Base64.NO_WRAP);
-    }
+        Date after = certificate.getNotBefore();
+        Date before = certificate.getNotAfter();
 
-    void setCertificate(X509Certificate certificate) throws CertificateEncodingException {
-        setEncoded(certificate.getEncoded());
+        record.after = (after == null ? null : after.getTime());
+        record.before = (before == null ? null : before.getTime());
+
+        record.data = Base64.encodeToString(certificate.getEncoded(), Base64.NO_WRAP);
+
+        return record;
     }
 
     X509Certificate getCertificate() throws CertificateException {
+        byte[] encoded = Base64.decode(this.data, Base64.NO_WRAP);
         return (X509Certificate) CertificateFactory.getInstance("X.509")
-                .generateCertificate(new ByteArrayInputStream(getEncoded()));
+                .generateCertificate(new ByteArrayInputStream(encoded));
+    }
+
+    boolean isOutdated() {
+        long now = new Date().getTime();
+        return ((this.after != null && now <= this.after) || (this.before != null && now > this.before));
     }
 
     static String getFingerprint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
@@ -125,6 +139,12 @@ public class EntityCertificate {
         X509Certificate cert = certificate.getCertificate();
         certificate.fingerprint = getFingerprint(cert);
         certificate.subject = getSubject(cert);
+
+        Date after = cert.getNotBefore();
+        Date before = cert.getNotAfter();
+
+        certificate.after = (after == null ? null : after.getTime());
+        certificate.before = (before == null ? null : before.getTime());
 
         return certificate;
     }

@@ -1069,11 +1069,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     for (String email : emails) {
                         EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                         if (record == null) {
-                            record = new EntityCertificate();
-                            record.fingerprint = fingerprint;
-                            record.email = email;
-                            record.subject = subject;
-                            record.setCertificate(cert);
+                            record = EntityCertificate.from(cert, email);
                             record.id = db.certificate().insertCertificate(record);
                         }
                     }

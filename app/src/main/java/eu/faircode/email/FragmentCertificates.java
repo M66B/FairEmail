@@ -100,7 +100,7 @@ public class FragmentCertificates extends FragmentBase {
                 if (certificates == null)
                     certificates = new ArrayList<>();
 
-                adapter.set(null, certificates);
+                adapter.set(certificates);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);

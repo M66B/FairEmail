@@ -4557,87 +4557,98 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     String sender = args.getString("sender");
                     boolean known = args.getBoolean("known");
 
-                    boolean match = false;
-                    List<String> emails = (cert == null ? Collections.emptyList() : EntityCertificate.getAltSubjectName(cert));
-                    for (String email : emails)
-                        if (Objects.equals(sender, email)) {
-                            match = true;
-                            break;
-                        }
-
                     if (cert == null)
                         Snackbar.make(view, R.string.title_signature_invalid, Snackbar.LENGTH_LONG).show();
-                    else if (known && match)
-                        Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
-                    else {
-                        LayoutInflater inflator = LayoutInflater.from(getContext());
-                        View dview = inflator.inflate(R.layout.dialog_certificate, null);
-                        TextView tvSender = dview.findViewById(R.id.tvSender);
-                        TextView tvEmail = dview.findViewById(R.id.tvEmail);
-                        TextView tvEmailInvalid = dview.findViewById(R.id.tvEmailInvalid);
-                        TextView tvSubject = dview.findViewById(R.id.tvSubject);
+                    else
+                        try {
+                            EntityCertificate record = EntityCertificate.from(cert, null);
 
-                        tvSender.setText(sender);
-                        tvEmail.setText(TextUtils.join(",", emails));
-                        tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
-                        tvSubject.setText(EntityCertificate.getSubject(cert));
+                            boolean match = false;
+                            List<String> emails = EntityCertificate.getAltSubjectName(cert);
+                            for (String email : emails)
+                                if (Objects.equals(sender, email)) {
+                                    match = true;
+                                    break;
+                                }
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
-                                .setView(dview)
-                                .setNegativeButton(android.R.string.cancel, null);
+                            if (known && !record.isOutdated() && match)
+                                Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
+                            else {
+                                LayoutInflater inflator = LayoutInflater.from(getContext());
+                                View dview = inflator.inflate(R.layout.dialog_certificate, null);
+                                TextView tvSender = dview.findViewById(R.id.tvSender);
+                                TextView tvEmail = dview.findViewById(R.id.tvEmail);
+                                TextView tvEmailInvalid = dview.findViewById(R.id.tvEmailInvalid);
+                                TextView tvSubject = dview.findViewById(R.id.tvSubject);
+                                TextView tvAfter = dview.findViewById(R.id.tvAfter);
+                                TextView tvBefore = dview.findViewById(R.id.tvBefore);
+                                TextView tvOutdated = dview.findViewById(R.id.tvOutdated);
 
-                        if (!TextUtils.isEmpty(sender) && !known && emails.size() > 0)
-                            builder.setPositiveButton(R.string.title_signature_store, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    try {
-                                        args.putByteArray("encoded", cert.getEncoded());
+                                tvSender.setText(sender);
+                                tvEmail.setText(TextUtils.join(",", emails));
+                                tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
+                                tvSubject.setText(record.subject);
 
-                                        new SimpleTask<Void>() {
-                                            @Override
-                                            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                                long id = args.getLong("id");
-                                                byte[] encoded = args.getByteArray("encoded");
+                                DateFormat TF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
+                                tvAfter.setText(record.after == null ? null : TF.format(record.after));
+                                tvBefore.setText(record.before == null ? null : TF.format(record.before));
+                                tvOutdated.setVisibility(record.isOutdated() ? View.VISIBLE : View.GONE);
 
-                                                X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
-                                                        .generateCertificate(new ByteArrayInputStream(encoded));
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                                        .setView(dview)
+                                        .setNegativeButton(android.R.string.cancel, null);
 
-                                                DB db = DB.getInstance(context);
-                                                EntityMessage message = db.message().getMessage(id);
-                                                if (message == null)
-                                                    return null;
+                                if (!TextUtils.isEmpty(sender) && !known && emails.size() > 0)
+                                    builder.setPositiveButton(R.string.title_signature_store, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            try {
+                                                args.putByteArray("encoded", cert.getEncoded());
 
-                                                String fingerprint = EntityCertificate.getFingerprint(cert);
-                                                List<String> emails = EntityCertificate.getAltSubjectName(cert);
-                                                String subject = EntityCertificate.getSubject(cert);
-                                                for (String email : emails) {
-                                                    EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
-                                                    if (record == null) {
-                                                        record = new EntityCertificate();
-                                                        record.fingerprint = fingerprint;
-                                                        record.email = email;
-                                                        record.subject = subject;
-                                                        record.setCertificate(cert);
-                                                        record.id = db.certificate().insertCertificate(record);
+                                                new SimpleTask<Void>() {
+                                                    @Override
+                                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                                        long id = args.getLong("id");
+                                                        byte[] encoded = args.getByteArray("encoded");
+
+                                                        X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
+                                                                .generateCertificate(new ByteArrayInputStream(encoded));
+
+                                                        DB db = DB.getInstance(context);
+                                                        EntityMessage message = db.message().getMessage(id);
+                                                        if (message == null)
+                                                            return null;
+
+                                                        String fingerprint = EntityCertificate.getFingerprint(cert);
+                                                        List<String> emails = EntityCertificate.getAltSubjectName(cert);
+                                                        String subject = EntityCertificate.getSubject(cert);
+                                                        for (String email : emails) {
+                                                            EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                                                            if (record == null) {
+                                                                record = EntityCertificate.from(cert, email);
+                                                                record.id = db.certificate().insertCertificate(record);
+                                                            }
+                                                        }
+
+                                                        return null;
                                                     }
-                                                }
 
-                                                return null;
-                                            }
-
-                                            @Override
-                                            protected void onException(Bundle args, Throwable ex) {
+                                                    @Override
+                                                    protected void onException(Bundle args, Throwable ex) {
+                                                        Log.unexpectedError(getParentFragmentManager(), ex);
+                                                    }
+                                                }.execute(FragmentMessages.this, args, "certificate:store");
+                                            } catch (Throwable ex) {
                                                 Log.unexpectedError(getParentFragmentManager(), ex);
                                             }
-                                        }.execute(FragmentMessages.this, args, "certificate:store");
-                                    } catch (Throwable ex) {
-                                        Log.unexpectedError(getParentFragmentManager(), ex);
-                                    }
-                                }
-                            });
+                                        }
+                                    });
 
-                        builder.show();
-                    }
+                                builder.show();
+                            }
+                        } catch (Throwable ex) {
+                            Snackbar.make(view, Log.formatThrowable(ex), Snackbar.LENGTH_LONG).show();
+                        }
                 }
             }
 

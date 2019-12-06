@@ -135,6 +135,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.UnknownHostException;
 import java.security.PrivateKey;
+import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -1948,6 +1949,11 @@ public class FragmentCompose extends FragmentBase {
                 X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
                 if (chain == null || chain.length == 0)
                     throw new IllegalArgumentException("Certificate missing");
+                try {
+                    chain[0].checkValidity();
+                } catch (CertificateException ex) {
+                    throw new IllegalArgumentException(context.getString(R.string.title_invalid_key), ex);
+                }
 
                 // Build content
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
@@ -2022,13 +2028,25 @@ public class FragmentCompose extends FragmentBase {
 
                 List<X509Certificate> certs = new ArrayList<>();
                 certs.add(chain[0]); // Allow sender to decrypt own message
+
                 for (Address address : addresses) {
                     String email = ((InternetAddress) address).getAddress();
+
                     List<EntityCertificate> acertificates = db.certificate().getCertificateByEmail(email);
                     if (acertificates == null || acertificates.size() == 0)
-                        throw new IllegalArgumentException(context.getString(R.string.title_certificate_missing, email), new IllegalStateException());
-                    for (EntityCertificate acertificate : acertificates)
-                        certs.add(acertificate.getCertificate());
+                        throw new IllegalArgumentException(
+                                context.getString(R.string.title_certificate_missing, email), new CertificateException());
+
+                    for (EntityCertificate acertificate : acertificates) {
+                        X509Certificate cert = acertificate.getCertificate();
+                        try {
+                            cert.checkValidity();
+                        } catch (CertificateException ex) {
+                            throw new IllegalArgumentException(
+                                    context.getString(R.string.title_certificate_invalid, email), ex);
+                        }
+                        certs.add(cert);
+                    }
                 }
 
                 // Build signature
@@ -2095,7 +2113,7 @@ public class FragmentCompose extends FragmentBase {
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
                     Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG);
-                    if (ex.getCause() instanceof IllegalStateException)
+                    if (ex.getCause() instanceof CertificateException)
                         snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
