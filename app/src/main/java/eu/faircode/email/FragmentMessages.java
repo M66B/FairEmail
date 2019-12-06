@@ -4420,8 +4420,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                             try {
                                 if (signer.verify(new JcaSimpleSignerInfoVerifierBuilder().build(cert))) {
                                     boolean known = true;
-                                    String fingerprint = Helper.getFingerprint(cert);
-                                    List<String> emails = Helper.getAltSubjectName(cert);
+                                    String fingerprint = EntityCertificate.getFingerprint(cert);
+                                    List<String> emails = EntityCertificate.getAltSubjectName(cert);
                                     for (String email : emails) {
                                         EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
                                         if (record == null)
@@ -4558,7 +4558,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     boolean known = args.getBoolean("known");
 
                     boolean match = false;
-                    List<String> emails = (cert == null ? Collections.emptyList() : Helper.getAltSubjectName(cert));
+                    List<String> emails = (cert == null ? Collections.emptyList() : EntityCertificate.getAltSubjectName(cert));
                     for (String email : emails)
                         if (Objects.equals(sender, email)) {
                             match = true;
@@ -4580,7 +4580,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         tvSender.setText(sender);
                         tvEmail.setText(TextUtils.join(",", emails));
                         tvEmailInvalid.setVisibility(match ? View.GONE : View.VISIBLE);
-                        tvSubject.setText(Helper.getSubject(cert));
+                        tvSubject.setText(EntityCertificate.getSubject(cert));
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                                 .setView(dview)
@@ -4607,16 +4607,19 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                                 if (message == null)
                                                     return null;
 
-                                                String fingerprint = Helper.getFingerprint(cert);
-                                                List<String> emails = Helper.getAltSubjectName(cert);
-                                                String subject = Helper.getSubject(cert);
+                                                String fingerprint = EntityCertificate.getFingerprint(cert);
+                                                List<String> emails = EntityCertificate.getAltSubjectName(cert);
+                                                String subject = EntityCertificate.getSubject(cert);
                                                 for (String email : emails) {
-                                                    EntityCertificate record = new EntityCertificate();
-                                                    record.fingerprint = fingerprint;
-                                                    record.email = email;
-                                                    record.subject = subject;
-                                                    record.setEncoded(encoded);
-                                                    record.id = db.certificate().insertCertificate(record);
+                                                    EntityCertificate record = db.certificate().getCertificate(fingerprint, email);
+                                                    if (record == null) {
+                                                        record = new EntityCertificate();
+                                                        record.fingerprint = fingerprint;
+                                                        record.email = email;
+                                                        record.subject = subject;
+                                                        record.setCertificate(cert);
+                                                        record.id = db.certificate().insertCertificate(record);
+                                                    }
                                                 }
 
                                                 return null;

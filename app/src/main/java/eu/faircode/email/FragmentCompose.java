@@ -126,7 +126,6 @@ import org.openintents.openpgp.util.OpenPgpApi;
 import org.openintents.openpgp.util.OpenPgpServiceConnection;
 
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -136,7 +135,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.UnknownHostException;
 import java.security.PrivateKey;
-import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -2029,11 +2027,8 @@ public class FragmentCompose extends FragmentBase {
                     List<EntityCertificate> acertificates = db.certificate().getCertificateByEmail(email);
                     if (acertificates == null || acertificates.size() == 0)
                         throw new IllegalArgumentException(context.getString(R.string.title_certificate_missing, email), new IllegalStateException());
-                    for (EntityCertificate acertificate : acertificates) {
-                        X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
-                                .generateCertificate(new ByteArrayInputStream(acertificate.getEncoded()));
-                        certs.add(cert);
-                    }
+                    for (EntityCertificate acertificate : acertificates)
+                        certs.add(acertificate.getCertificate());
                 }
 
                 // Build signature

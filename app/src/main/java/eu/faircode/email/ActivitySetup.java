@@ -549,6 +549,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 for (EntityAnswer answer : db.answer().getAnswers(true))
                     janswers.put(answer.toJSON());
 
+                // Certificates
+                JSONArray jcertificates = new JSONArray();
+                for (EntityCertificate certificate : db.certificate().getCertificates())
+                    jcertificates.put(certificate.toJSON());
+
                 // Settings
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 JSONArray jsettings = new JSONArray();
@@ -576,6 +581,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 JSONObject jexport = new JSONObject();
                 jexport.put("accounts", jaccounts);
                 jexport.put("answers", janswers);
+                jexport.put("certificates", jcertificates);
                 jexport.put("settings", jsettings);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -880,6 +886,17 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         db.account().updateAccount(account);
                     }
 
+                    JSONArray jcertificates = jimport.getJSONArray("certificates");
+                    for (int c = 0; c < jcertificates.length(); c++) {
+                        JSONObject jcertificate = (JSONObject) jcertificates.get(c);
+                        EntityCertificate certificate = EntityCertificate.fromJSON(jcertificate);
+                        EntityCertificate record = db.certificate().getCertificate(certificate.fingerprint, certificate.email);
+                        if (record == null) {
+                            db.certificate().insertCertificate(certificate);
+                            Log.i("Imported certificate=" + certificate.email);
+                        }
+                    }
+
                     // Settings
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     SharedPreferences.Editor editor = prefs.edit();
@@ -1044,9 +1061,9 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         }
                     }
 
-                    String fingerprint = Helper.getFingerprint(cert);
-                    List<String> emails = Helper.getAltSubjectName(cert);
-                    String subject = Helper.getSubject(cert);
+                    String fingerprint = EntityCertificate.getFingerprint(cert);
+                    List<String> emails = EntityCertificate.getAltSubjectName(cert);
+                    String subject = EntityCertificate.getSubject(cert);
 
                     DB db = DB.getInstance(context);
                     for (String email : emails) {
@@ -1056,7 +1073,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             record.fingerprint = fingerprint;
                             record.email = email;
                             record.subject = subject;
-                            record.setEncoded(cert.getEncoded());
+                            record.setCertificate(cert);
                             record.id = db.certificate().insertCertificate(record);
                         }
                     }

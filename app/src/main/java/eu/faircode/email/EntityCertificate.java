@@ -26,7 +26,23 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import org.bouncycastle.asn1.x509.GeneralName;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayInputStream;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
+
+import javax.security.auth.x500.X500Principal;
 
 @Entity(
         tableName = EntityCertificate.TABLE_NAME,
@@ -50,12 +66,67 @@ public class EntityCertificate {
     @NonNull
     public String data;
 
-    void setEncoded(byte[] encoded) {
+    private void setEncoded(byte[] encoded) {
         this.data = Base64.encodeToString(encoded, Base64.NO_WRAP);
     }
 
-    byte[] getEncoded() {
+    private byte[] getEncoded() {
         return Base64.decode(this.data, Base64.NO_WRAP);
+    }
+
+    void setCertificate(X509Certificate certificate) throws CertificateEncodingException {
+        setEncoded(certificate.getEncoded());
+    }
+
+    X509Certificate getCertificate() throws CertificateException {
+        return (X509Certificate) CertificateFactory.getInstance("X.509")
+                .generateCertificate(new ByteArrayInputStream(getEncoded()));
+    }
+
+    static String getFingerprint(X509Certificate certificate) throws CertificateEncodingException, NoSuchAlgorithmException {
+        return Helper.sha256(certificate.getEncoded());
+    }
+
+    static String getSubject(X509Certificate certificate) {
+        return certificate.getSubjectX500Principal().getName(X500Principal.RFC2253);
+    }
+
+    static List<String> getAltSubjectName(X509Certificate certificate) {
+        List<String> result = new ArrayList<>();
+        try {
+            Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
+            if (altNames != null)
+                for (List altName : altNames)
+                    if (altName.get(0).equals(GeneralName.rfc822Name))
+                        result.add((String) altName.get(1));
+                    else
+                        Log.i("Alt type=" + altName.get(0) + " data=" + altName.get(1));
+        } catch (CertificateParsingException ex) {
+            Log.w(ex);
+        }
+
+        return result;
+    }
+
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("email", email);
+        json.put("data", data);
+        return json;
+    }
+
+    public static EntityCertificate fromJSON(JSONObject json) throws JSONException, CertificateException, NoSuchAlgorithmException {
+        EntityCertificate certificate = new EntityCertificate();
+        certificate.id = json.getLong("id");
+        certificate.email = json.getString("email");
+        certificate.data = json.getString("data");
+
+        X509Certificate cert = certificate.getCertificate();
+        certificate.fingerprint = getFingerprint(cert);
+        certificate.subject = getSubject(cert);
+
+        return certificate;
     }
 
     @Override
