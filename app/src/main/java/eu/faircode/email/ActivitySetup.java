@@ -1013,15 +1013,36 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 @Override
                 protected Void onExecute(Context context, Bundle args) throws Throwable {
                     Uri uri = args.getParcelable("uri");
+                    Log.i("Import certificate uri=" + uri);
 
-                    PemObject pem;
-                    try (InputStream is = context.getContentResolver().openInputStream(uri)) {
-                        pem = new PemReader(new InputStreamReader(is)).readPemObject();
-                    }
+                    boolean der = false;
+                    String extension = Helper.getExtension(uri.getLastPathSegment());
+                    Log.i("Extension=" + extension);
+                    if (!"pem".equalsIgnoreCase(extension))
+                        try {
+                            DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+                            String type = dfile.getType();
+                            Log.i("Type=" + type);
+                            if ("application/octet-stream".equals(type))
+                                der = true;
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                    Log.i("DER=" + der);
 
-                    ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
+                    X509Certificate cert;
                     CertificateFactory fact = CertificateFactory.getInstance("X.509");
-                    X509Certificate cert = (X509Certificate) fact.generateCertificate(bis);
+                    try (InputStream is = context.getContentResolver().openInputStream(uri)) {
+                        if (der)
+                            cert = (X509Certificate) fact.generateCertificate(is);
+                        else {
+                            PemObject pem = new PemReader(new InputStreamReader(is)).readPemObject();
+                            if (pem == null)
+                                throw new IllegalArgumentException(context.getString(R.string.title_invalid_key));
+                            ByteArrayInputStream bis = new ByteArrayInputStream(pem.getContent());
+                            cert = (X509Certificate) fact.generateCertificate(bis);
+                        }
+                    }
 
                     String fingerprint = Helper.getFingerprint(cert);
                     List<String> emails = Helper.getAltSubjectName(cert);
@@ -1045,7 +1066,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    Helper.unexpectedError(getSupportFragmentManager(), ex);
+                    if (ex instanceof IllegalArgumentException)
+                        ToastEx.makeText(ActivitySetup.this, ex.getMessage(), Toast.LENGTH_LONG).show();
+                    else
+                        Helper.unexpectedError(getSupportFragmentManager(), ex);
                 }
             }.execute(this, args, "setup:cert");
         }
