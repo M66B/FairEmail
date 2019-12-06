@@ -92,7 +92,7 @@ public class EntityCertificate {
                 .generateCertificate(new ByteArrayInputStream(encoded));
     }
 
-    boolean isOutdated() {
+    boolean isExpired() {
         long now = new Date().getTime();
         return ((this.after != null && now <= this.after) || (this.before != null && now > this.before));
     }

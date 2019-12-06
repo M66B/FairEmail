@@ -56,7 +56,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
         private TextView tvSubject;
         private TextView tvAfter;
         private TextView tvBefore;
-        private TextView tvOutdated;
+        private TextView tvExpired;
 
         private TwoStateOwner powner = new TwoStateOwner(owner, "CertificatePopup");
 
@@ -68,7 +68,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             tvSubject = itemView.findViewById(R.id.tvSubject);
             tvAfter = itemView.findViewById(R.id.tvAfter);
             tvBefore = itemView.findViewById(R.id.tvBefore);
-            tvOutdated = itemView.findViewById(R.id.tvOutdated);
+            tvExpired = itemView.findViewById(R.id.tvExpired);
         }
 
         @Override
@@ -139,7 +139,7 @@ public class AdapterCertificate extends RecyclerView.Adapter<AdapterCertificate.
             tvSubject.setText(certificate.subject);
             tvAfter.setText(certificate.after == null ? null : TF.format(certificate.after));
             tvBefore.setText(certificate.before == null ? null : TF.format(certificate.before));
-            tvOutdated.setVisibility(certificate.isOutdated() ? View.VISIBLE : View.GONE);
+            tvExpired.setVisibility(certificate.isExpired() ? View.VISIBLE : View.GONE);
         }
     }
 

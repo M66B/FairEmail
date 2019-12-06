@@ -4571,7 +4571,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     break;
                                 }
 
-                            if (known && !record.isOutdated() && match)
+                            if (known && !record.isExpired() && match)
                                 Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG).show();
                             else {
                                 LayoutInflater inflator = LayoutInflater.from(getContext());
@@ -4582,7 +4582,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 TextView tvSubject = dview.findViewById(R.id.tvSubject);
                                 TextView tvAfter = dview.findViewById(R.id.tvAfter);
                                 TextView tvBefore = dview.findViewById(R.id.tvBefore);
-                                TextView tvOutdated = dview.findViewById(R.id.tvOutdated);
+                                TextView tvExpired = dview.findViewById(R.id.tvExpired);
 
                                 tvSender.setText(sender);
                                 tvEmail.setText(TextUtils.join(",", emails));
@@ -4592,7 +4592,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 DateFormat TF = Helper.getDateTimeInstance(getContext(), SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
                                 tvAfter.setText(record.after == null ? null : TF.format(record.after));
                                 tvBefore.setText(record.before == null ? null : TF.format(record.before));
-                                tvOutdated.setVisibility(record.isOutdated() ? View.VISIBLE : View.GONE);
+                                tvExpired.setVisibility(record.isExpired() ? View.VISIBLE : View.GONE);
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                                         .setView(dview)
