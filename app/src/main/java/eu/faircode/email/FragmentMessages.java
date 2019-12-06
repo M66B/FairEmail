@@ -3915,7 +3915,15 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     if (message == null || message.identity == null)
                         return null;
 
-                    return db.identity().getIdentity(message.identity);
+                    EntityIdentity identity = db.identity().getIdentity(message.identity);
+                    if (identity == null)
+                        return null;
+
+                    List<EntityIdentity> duplicates = db.identity().getIdentities(identity.account, identity.email);
+                    if (duplicates == null || duplicates.size() > 1)
+                        return null;
+
+                    return identity;
                 }
 
                 @Override
