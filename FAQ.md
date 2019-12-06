@@ -1069,7 +1069,7 @@ so all data, including usernames, passwords, messages, etc, is stored encrypted.
 
 Recent Android versions by default report *app usage* as a percentage in the Android battery settings screen.
 Confusingly, *app usage* is not the same as *battery usage*.
-The app usage will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android.
+The app usage (while in use) will be very high because FairEmail is using a foreground service which is considered as constant app usage by Android.
 However, this doesn't mean that FairEmail is constantly using battery power.
 The real battery usage can be seen by using the three dot overflow menu *Show full device usage*.
 As a rule of thumb the battery usage should be below or in any case not be much higher than *Mobile network standby*.
