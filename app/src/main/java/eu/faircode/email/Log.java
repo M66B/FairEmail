@@ -80,6 +80,7 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.net.SocketException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -91,6 +92,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
 import javax.mail.Address;
+import javax.mail.AuthenticationFailedException;
 import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
@@ -491,6 +493,10 @@ public class Log {
     static String formatThrowable(Throwable ex, String separator, boolean sanitize) {
         if (sanitize) {
             if (ex instanceof MessageRemovedException)
+                return null;
+
+            if (ex instanceof AuthenticationFailedException &&
+                    ex.getCause() instanceof SocketException)
                 return null;
 
             if (ex instanceof MessagingException &&
