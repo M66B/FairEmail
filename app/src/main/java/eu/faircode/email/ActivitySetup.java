@@ -886,14 +886,16 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         db.account().updateAccount(account);
                     }
 
-                    JSONArray jcertificates = jimport.getJSONArray("certificates");
-                    for (int c = 0; c < jcertificates.length(); c++) {
-                        JSONObject jcertificate = (JSONObject) jcertificates.get(c);
-                        EntityCertificate certificate = EntityCertificate.fromJSON(jcertificate);
-                        EntityCertificate record = db.certificate().getCertificate(certificate.fingerprint, certificate.email);
-                        if (record == null) {
-                            db.certificate().insertCertificate(certificate);
-                            Log.i("Imported certificate=" + certificate.email);
+                    if (jimport.has("certificates")) {
+                        JSONArray jcertificates = jimport.getJSONArray("certificates");
+                        for (int c = 0; c < jcertificates.length(); c++) {
+                            JSONObject jcertificate = (JSONObject) jcertificates.get(c);
+                            EntityCertificate certificate = EntityCertificate.fromJSON(jcertificate);
+                            EntityCertificate record = db.certificate().getCertificate(certificate.fingerprint, certificate.email);
+                            if (record == null) {
+                                db.certificate().insertCertificate(certificate);
+                                Log.i("Imported certificate=" + certificate.email);
+                            }
                         }
                     }
 
