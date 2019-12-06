@@ -500,6 +500,11 @@ public class Log {
                 return null;
 
             if (ex instanceof MessagingException &&
+                    ("connection failure".equals(ex.getMessage()) ||
+                            "failed to create new store connection".equals(ex.getMessage())))
+                return null;
+
+            if (ex instanceof MessagingException &&
                     ex.getCause() instanceof ConnectionException &&
                     ex.getCause().getMessage() != null &&
                     (ex.getCause().getMessage().contains("Read error") ||
