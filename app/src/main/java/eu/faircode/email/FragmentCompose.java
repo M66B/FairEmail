@@ -2026,12 +2026,14 @@ public class FragmentCompose extends FragmentBase {
                 certs.add(chain[0]); // Allow sender to decrypt own message
                 for (Address address : addresses) {
                     String email = ((InternetAddress) address).getAddress();
-                    List<EntityCertificate> e = db.certificate().getCertificateByEmail(email);
-                    if (e == null || e.size() < 1)
+                    List<EntityCertificate> acertificates = db.certificate().getCertificateByEmail(email);
+                    if (acertificates == null || acertificates.size() == 0)
                         throw new IllegalArgumentException(context.getString(R.string.title_certificate_missing, email), new IllegalStateException());
-                    X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
-                            .generateCertificate(new ByteArrayInputStream(e.get(0).getEncoded()));
-                    certs.add(cert);
+                    for (EntityCertificate acertificate : acertificates) {
+                        X509Certificate cert = (X509Certificate) CertificateFactory.getInstance("X.509")
+                                .generateCertificate(new ByteArrayInputStream(acertificate.getEncoded()));
+                        certs.add(cert);
+                    }
                 }
 
                 // Build signature
