@@ -57,7 +57,8 @@ public interface DaoIdentity {
     @Query("SELECT identity.* FROM identity" +
             " JOIN account ON account.id = identity.account" +
             " WHERE identity.account = :account" +
-            " AND identity.synchronize AND account.synchronize")
+            " AND identity.synchronize AND account.synchronize" +
+            " ORDER BY identity.`primary` DESC, IFNULL(identity.display, identity.name)")
     List<EntityIdentity> getSynchronizingIdentities(long account);
 
     @Query("SELECT COUNT(*) FROM identity WHERE synchronize")
