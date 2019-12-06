@@ -71,10 +71,10 @@ public interface DaoAccount {
 
     @Query("SELECT account.*" +
             ", SUM(folder.synchronize) AS folders" +
-            ", COUNT(operation.id) AS operations" +
+            ", (SELECT COUNT(id) FROM operation" +
+            "  WHERE operation.account = account.id AND operation.name <> '" + EntityOperation.SEND + "') AS operations" +
             " FROM account" +
             " LEFT JOIN folder ON folder.account = account.id" +
-            " LEFT JOIN operation ON operation.folder = folder.id" +
             " GROUP BY account.id" +
             " ORDER BY account.id")
     LiveData<List<TupleAccountState>> liveAccountState();

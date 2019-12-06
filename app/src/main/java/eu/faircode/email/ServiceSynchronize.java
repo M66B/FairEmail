@@ -51,11 +51,13 @@ import com.sun.mail.imap.IMAPFolder;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -84,7 +86,7 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
-public class ServiceSynchronize extends ServiceBase {
+public class ServiceSynchronize extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private ConnectionHelper.NetworkState networkState = new ConnectionHelper.NetworkState();
     private Core.State state = null;
     private int lastStartId = -1;
@@ -120,21 +122,25 @@ public class ServiceSynchronize extends ServiceBase {
         private ConnectionHelper.NetworkState lastNetworkState = null;
         private List<TupleAccountState> lastAccountStates = null;
 
+        private void post(boolean reload) {
+            post(reload, lastNetworkState, lastAccountStates);
+        }
+
         private void post(ConnectionHelper.NetworkState networkState) {
             lastNetworkState = networkState;
-            post(lastNetworkState, lastAccountStates);
+            post(false, lastNetworkState, lastAccountStates);
         }
 
         private void post(List<TupleAccountState> accountStates) {
             lastAccountStates = accountStates;
-            post(lastNetworkState, lastAccountStates);
+            post(false, lastNetworkState, lastAccountStates);
         }
 
-        private void post(ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
+        private void post(boolean reload, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
             if (networkState != null && accountStates != null) {
                 List<TupleAccountNetworkState> result = new ArrayList<>();
                 for (TupleAccountState accountState : accountStates)
-                    result.add(new TupleAccountNetworkState(networkState, accountState));
+                    result.add(new TupleAccountNetworkState(reload, networkState, accountState));
                 postValue(result);
             }
         }
@@ -162,12 +168,13 @@ public class ServiceSynchronize extends ServiceBase {
 
         DB db = DB.getInstance(this);
 
-        db.account().liveAccountState().observe(this, new Observer<List<TupleAccountState>>() {
-            @Override
-            public void onChanged(List<TupleAccountState> accountStates) {
-                liveAccountState.postValue(accountStates);
-            }
-        });
+        if (BuildConfig.DEBUG)
+            db.account().liveAccountState().observe(this, new Observer<List<TupleAccountState>>() {
+                @Override
+                public void onChanged(List<TupleAccountState> accountStates) {
+                    liveAccountState.postValue(accountStates);
+                }
+            });
 
         liveAccountNetworkState.addSource(liveNetworkState, new Observer<ConnectionHelper.NetworkState>() {
             @Override
@@ -184,9 +191,96 @@ public class ServiceSynchronize extends ServiceBase {
         });
 
         liveAccountNetworkState.observe(this, new Observer<List<TupleAccountNetworkState>>() {
+            private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
+            private Map<TupleAccountNetworkState, Core.State> serviceStates = new Hashtable<>();
+
             @Override
             public void onChanged(List<TupleAccountNetworkState> accountNetworkStates) {
-                Log.i("Account network states=" + accountNetworkStates.size());
+                boolean running = false;
+
+                for (TupleAccountNetworkState current : accountNetworkStates) {
+                    if (current.accountState.shouldRun())
+                        running = true;
+
+                    int index = accountStates.indexOf(current);
+                    if (index < 0) {
+                        if (current.shouldRun())
+                            start(current);
+                    } else {
+                        TupleAccountNetworkState prev = accountStates.get(index);
+                        accountStates.remove(index);
+
+                        if (current.reload ||
+                                !prev.accountState.equals(current.accountState) ||
+                                prev.shouldRun() != current.shouldRun()) {
+                            Log.i("XXX account=" + current +
+                                    " reload=" + current.reload + " change=" + !prev.accountState.equals(current.accountState));
+                            if (prev.shouldRun())
+                                stop(prev);
+                            if (current.shouldRun())
+                                start(prev);
+                        }
+                    }
+
+                    accountStates.add(current);
+                }
+
+                if (!running)
+                    stopSelf();
+            }
+
+            private void start(final TupleAccountNetworkState accountNetworkState) {
+                queue.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        long ago = new Date().getTime() - lastLost;
+                        if (ago < RECONNECT_BACKOFF)
+                            try {
+                                long backoff = RECONNECT_BACKOFF - ago;
+                                EntityLog.log(ServiceSynchronize.this, accountNetworkState + " backoff=" + (backoff / 1000));
+                                Thread.sleep(backoff);
+                            } catch (InterruptedException ex) {
+                                Log.w(accountNetworkState + " backoff " + ex.toString());
+                            }
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            if (accountNetworkState.accountState.notify)
+                                accountNetworkState.accountState.createNotificationChannel(ServiceSynchronize.this);
+                            else
+                                accountNetworkState.accountState.deleteNotificationChannel(ServiceSynchronize.this);
+                        }
+
+                        Log.i(accountNetworkState.accountState.host + "/" + accountNetworkState.accountState.user + " run");
+                        final Core.State astate = new Core.State(state);
+                        astate.runnable(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    monitorAccount(accountNetworkState.accountState, astate, sync);
+                                } catch (Throwable ex) {
+                                    Log.e(accountNetworkState.accountState.name, ex);
+                                }
+                            }
+                        }, "sync.account." + accountNetworkState.accountState.id);
+                        astate.start();
+                        Log.i("XXX started=" + accountNetworkState);
+                        serviceStates.put(accountNetworkState, astate);
+                    }
+                });
+            }
+
+            private void stop(final TupleAccountNetworkState accountNetworkState) {
+                final Core.State state = serviceStates.get(accountNetworkState);
+                serviceStates.remove(accountNetworkState);
+                queue.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.i("XXX stop=" + accountNetworkState);
+                        state.stop();
+                        state.join();
+                        Log.i("XXX stopped=" + accountNetworkState);
+                    }
+                });
             }
         });
 
@@ -329,11 +423,29 @@ public class ServiceSynchronize extends ServiceBase {
                 last = current;
             }
         });
+
+        prefs.registerOnSharedPreferenceChangeListener(this);
+    }
+
+    private static final List<String> POST_EVAL =
+            Collections.unmodifiableList(Arrays.asList("metered", "roaming", "rlah"));
+    private static final List<String> POST_RELOAD =
+            Collections.unmodifiableList(Arrays.asList("socks_enabled", "socks_proxy", "subscribed_only", "debug"));
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (POST_EVAL.contains(key))
+            liveAccountNetworkState.post(true);
+        else if (POST_RELOAD.contains(key))
+            liveAccountNetworkState.post(true);
     }
 
     @Override
     public void onDestroy() {
         EntityLog.log(this, "Service destroy");
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.unregisterOnSharedPreferenceChangeListener(this);
 
         unregisterReceiver(onScreenOff);
         unregisterReceiver(connectionChangedReceiver);
@@ -661,29 +773,31 @@ public class ServiceSynchronize extends ServiceBase {
                         }
 
                     // Start monitoring accounts
-                    List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
-                    for (final EntityAccount account : accounts) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            if (account.notify)
-                                account.createNotificationChannel(ServiceSynchronize.this);
-                            else
-                                account.deleteNotificationChannel(ServiceSynchronize.this);
-                        }
-
-                        Log.i(account.host + "/" + account.user + " run");
-                        final Core.State astate = new Core.State(state);
-                        astate.runnable(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    monitorAccount(account, astate, sync);
-                                } catch (Throwable ex) {
-                                    Log.e(account.name, ex);
-                                }
+                    if (!BuildConfig.DEBUG) {
+                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+                        for (final EntityAccount account : accounts) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                if (account.notify)
+                                    account.createNotificationChannel(ServiceSynchronize.this);
+                                else
+                                    account.deleteNotificationChannel(ServiceSynchronize.this);
                             }
-                        }, "sync.account." + account.id);
-                        astate.start();
-                        state.childs.add(astate);
+
+                            Log.i(account.host + "/" + account.user + " run");
+                            final Core.State astate = new Core.State(state);
+                            astate.runnable(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        monitorAccount(account, astate, sync);
+                                    } catch (Throwable ex) {
+                                        Log.e(account.name, ex);
+                                    }
+                                }
+                            }, "sync.account." + account.id);
+                            astate.start();
+                            state.childs.add(astate);
+                        }
                     }
 
                     EntityLog.log(ServiceSynchronize.this, "Main started");
@@ -963,6 +1077,8 @@ public class ServiceSynchronize extends ServiceBase {
                                 db.folder().setFolderState(folder.id, null);
 
                                 if (ex.getCause() instanceof BadCommandException)
+                                    throw ex;
+                                if ("connection failure".equals(ex.getMessage()))
                                     throw ex;
 
                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
@@ -1475,7 +1591,8 @@ public class ServiceSynchronize extends ServiceBase {
 
         private void updateState() {
             ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
-            liveNetworkState.postValue(ns);
+            if (BuildConfig.DEBUG)
+                liveNetworkState.postValue(ns);
             networkState.update(ns);
 
             if (lastSuitable == null || lastSuitable != networkState.isSuitable()) {

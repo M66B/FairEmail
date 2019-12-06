@@ -19,13 +19,43 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public class TupleAccountNetworkState {
+    public boolean reload;
     public ConnectionHelper.NetworkState networkState;
     public TupleAccountState accountState;
 
-    public TupleAccountNetworkState(ConnectionHelper.NetworkState networkState, TupleAccountState accountState) {
+    public TupleAccountNetworkState(boolean reload, ConnectionHelper.NetworkState networkState, TupleAccountState accountState) {
+        this.reload = reload;
         this.networkState = networkState;
         this.accountState = accountState;
+    }
+
+    public boolean shouldRun() {
+        return (this.networkState.isSuitable() &&
+                this.accountState.shouldRun());
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj instanceof TupleAccountNetworkState) {
+            TupleAccountNetworkState other = (TupleAccountNetworkState) obj;
+            return this.accountState.id.equals(other.accountState.id);
+        } else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return accountState.id.hashCode();
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return accountState.name;
     }
 }
 
