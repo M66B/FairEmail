@@ -211,14 +211,18 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                 Helper.authenticate(getActivity(), biometrics, new Runnable() {
                     @Override
                     public void run() {
-                        boolean pro = ActivityBilling.isPro(getContext());
-                        if (pro) {
-                            prefs.edit().putBoolean("biometrics", !biometrics).apply();
-                            btnBiometrics.setText(biometrics
-                                    ? R.string.title_setup_biometrics_disable
-                                    : R.string.title_setup_biometrics_enable);
-                        } else
-                            startActivity(new Intent(getContext(), ActivityBilling.class));
+                        try {
+                            boolean pro = ActivityBilling.isPro(getContext());
+                            if (pro) {
+                                prefs.edit().putBoolean("biometrics", !biometrics).apply();
+                                btnBiometrics.setText(biometrics
+                                        ? R.string.title_setup_biometrics_disable
+                                        : R.string.title_setup_biometrics_enable);
+                            } else
+                                startActivity(new Intent(getContext(), ActivityBilling.class));
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
                     }
                 }, new Runnable() {
                     @Override
