@@ -94,7 +94,7 @@ public class FragmentCertificates extends FragmentBase {
         super.onActivityCreated(savedInstanceState);
 
         DB db = DB.getInstance(getContext());
-        db.certificate().liveCertificates(null).observe(getViewLifecycleOwner(), new Observer<List<EntityCertificate>>() {
+        db.certificate().liveCertificates().observe(getViewLifecycleOwner(), new Observer<List<EntityCertificate>>() {
             @Override
             public void onChanged(List<EntityCertificate> certificates) {
                 if (certificates == null)
