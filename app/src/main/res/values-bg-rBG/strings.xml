@@ -597,6 +597,7 @@
     <string name="title_edit_formatted_text">Редактиране като преформатиран текст</string>
     <string name="title_select_certificate">Изберете публичен ключ</string>
     <string name="title_certificate_missing">Няма публичен ключ за %1$s</string>
+    <string name="title_no_key">Няма частен ключ</string>
     <string name="title_invalid_key">Невалиден частен ключ</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
     <string name="title_send_receipt">Заявка за доставка/четене на полученото</string>

@@ -410,6 +410,7 @@
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
     <string name="title_keep_alive_interval">Interwał utrzymywania aktywności/odpytywania (minuty)</string>
+    <string name="title_use_date">Użyj czasu wysłania nagłówka daty zamiast czasu odebranego przez serwer</string>
     <string name="title_related_identity">Dodaj powiązaną tożsamość</string>
     <string name="title_check">Sprawdź</string>
     <string name="title_no_name">Brak nazwy</string>
@@ -618,6 +619,7 @@
     <string name="title_edit_formatted_text">Edytuj jako sformatowany tekst</string>
     <string name="title_select_certificate">Wybierz klucz publiczny</string>
     <string name="title_certificate_missing">Brak klucza publicznego dla %1$s</string>
+    <string name="title_no_key">Brak klucza prywatnego</string>
     <string name="title_invalid_key">Nieprawidłowy klucz prywatny</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
     <string name="title_send_receipt">Poproś o potwierdzenie odbioru/odczytu</string>

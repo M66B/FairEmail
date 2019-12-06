@@ -597,6 +597,7 @@
     <string name="title_edit_formatted_text">Yeniden biçimlendirilmiş metin olarak düzenle</string>
     <string name="title_select_certificate">Genel anahtar seç</string>
     <string name="title_certificate_missing">%1$s için genel anahtar yok</string>
+    <string name="title_no_key">Özel anahtar yok</string>
     <string name="title_invalid_key">Geçersiz özel anahtar</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
     <string name="title_send_receipt">İletildi/okundu bilgisi iste</string>

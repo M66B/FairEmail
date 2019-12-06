@@ -585,6 +585,7 @@
     <string name="title_edit_formatted_text">以格式化文本形式编辑</string>
     <string name="title_select_certificate">选择公钥</string>
     <string name="title_certificate_missing">%1$s 没有公钥</string>
+    <string name="title_no_key">没有私钥</string>
     <string name="title_invalid_key">无效私钥</string>
     <string name="title_send_plain_text">仅纯文本</string>
     <string name="title_send_receipt">请求送达／已读回执</string>

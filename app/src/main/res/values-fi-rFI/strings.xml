@@ -596,6 +596,9 @@
     <string name="title_edit_plain_text">Muokkaa pelkkänä tekstinä</string>
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>
+    <string name="title_certificate_missing">Ei julkista avainta %1$s</string>
+    <string name="title_no_key">Ei yksityistä avainta</string>
+    <string name="title_invalid_key">Virheellinen yksityinen avain</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
     <string name="title_send_receipt">Pyydä toimitus-/lukukuittaus</string>
     <string name="title_send_receipt_remark">Useimmat palveluntarjoajat ja sähköpostisovellukset jättävät kuittauspyynnöt huomioimatta</string>
@@ -623,6 +626,10 @@
     <string name="title_signature_valid">Viestin allekirjoitus pätevä</string>
     <string name="title_signature_unconfirmed">Viestin allekirjoitus pätevä muttei vahvistettu</string>
     <string name="title_signature_invalid">Viestin allekirjoitus virheellinen</string>
+    <string name="title_signature_sender">Lähettäjän sähköpostiosoite</string>
+    <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>
+    <string name="title_signature_mismatch">Lähettäjän ja allekirjoituksen sähköpostiosoitteet eivät täsmää</string>
+    <string name="title_signature_subject">Aihe</string>
     <string name="title_signature_store">Tallenna</string>
     <string name="title_search">Hae</string>
     <string name="title_search_server">Hae palvelimella</string>

@@ -595,6 +595,9 @@
     <string name="title_edit_plain_text">Redigér som almindelig tekst</string>
     <string name="title_edit_formatted_text">Redigér som omformateret tekst</string>
     <string name="title_select_certificate">Vælg offentlig nøgle</string>
+    <string name="title_certificate_missing">Ingen offentlig nøgle til %1$s</string>
+    <string name="title_no_key">Ingen privat nøgle</string>
+    <string name="title_invalid_key">Ugyldig privat nøgle</string>
     <string name="title_send_plain_text">Kun klartekst</string>
     <string name="title_send_receipt">Bed om leverings-/læstkvittering</string>
     <string name="title_send_receipt_remark">De fleste udbydere og e-mailklienter ignorerer kvitteringsanmodninger</string>
@@ -622,6 +625,10 @@
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_unconfirmed">Beskedsignatur gyldig, men ubekræftet</string>
     <string name="title_signature_invalid">Beskedsignatur ugyldig</string>
+    <string name="title_signature_sender">Afsenderadresse</string>
+    <string name="title_signature_email">Signaturadresse</string>
+    <string name="title_signature_mismatch">Afsenders e-mailadresse og signatur matcher ikke</string>
+    <string name="title_signature_subject">Emne</string>
     <string name="title_signature_store">Gem</string>
     <string name="title_search">Søg</string>
     <string name="title_search_server">Søg på server</string>

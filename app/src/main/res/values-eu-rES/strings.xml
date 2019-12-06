@@ -596,6 +596,9 @@
     <string name="title_edit_plain_text">Editatu testu soil gisa</string>
     <string name="title_edit_formatted_text">Editatu birformateatutako testu gisa</string>
     <string name="title_select_certificate">Aukeratu gako publikoa</string>
+    <string name="title_certificate_missing">Ez dago gako publikorik %1$s-(r)entzat</string>
+    <string name="title_no_key">Ez dago gako pribaturik</string>
+    <string name="title_invalid_key">Baliorik gabeko gako pribatua</string>
     <string name="title_send_plain_text">Testu soila besterik ez</string>
     <string name="title_send_receipt">Eskatu bidaltze agiriak / irakurragiriak</string>
     <string name="title_send_receipt_remark">Hornitzaile eta bezero gehienek ez dituzte jasotze agiri eskariak aintzat hartzen</string>
@@ -623,6 +626,10 @@
     <string name="title_signature_valid">Mezuaren sinadura baliozkoa</string>
     <string name="title_signature_unconfirmed">Mezuaren sinadura baliozkoa da baina ez da baieztatu</string>
     <string name="title_signature_invalid">Mezuaren sinadura baliogabea</string>
+    <string name="title_signature_sender">Igorlearen helbidea</string>
+    <string name="title_signature_email">Sinaduraren helbidea</string>
+    <string name="title_signature_mismatch">Igorlearen helbide elektronikoa eta sinadura ez datoz bat</string>
+    <string name="title_signature_subject">Gaia</string>
     <string name="title_signature_store">Biltegiratu</string>
     <string name="title_search">Bilatu</string>
     <string name="title_search_server">Bilatu zerbitzarian</string>
