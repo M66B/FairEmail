@@ -23,9 +23,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.security.KeyChain;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -74,6 +76,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private Spinner spBiometricsTimeout;
     private Button btnManageCertificates;
     private Button btnImportKey;
+    private Button btnManageKeys;
     private TextView tvKeySize;
 
     private List<String> openPgpProvider = new ArrayList<>();
@@ -91,6 +94,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         setSubtitle(R.string.title_setup);
         setHasOptionsMenu(true);
 
+        PackageManager pm = getContext().getPackageManager();
         View view = inflater.inflate(R.layout.fragment_options_privacy, container, false);
 
         // Get controls
@@ -108,10 +112,11 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         spBiometricsTimeout = view.findViewById(R.id.spBiometricsTimeout);
         btnManageCertificates = view.findViewById(R.id.btnManageCertificates);
         btnImportKey = view.findViewById(R.id.btnImportKey);
+        btnManageKeys = view.findViewById(R.id.btnManageKeys);
         tvKeySize = view.findViewById(R.id.tvKeySize);
 
         Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
-        List<ResolveInfo> ris = getContext().getPackageManager().queryIntentServices(intent, 0);
+        List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
         for (ResolveInfo ri : ris)
             if (ri.serviceInfo != null)
                 openPgpProvider.add(ri.serviceInfo.packageName);
@@ -254,11 +259,20 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         });
 
         final Intent importKey = KeyChain.createInstallIntent();
-        btnImportKey.setEnabled(importKey.resolveActivity(getContext().getPackageManager()) != null);
+        btnImportKey.setEnabled(importKey.resolveActivity(pm) != null);
         btnImportKey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(importKey);
+            }
+        });
+
+        final Intent security = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+        btnImportKey.setEnabled(security.resolveActivity(pm) != null);
+        btnManageKeys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(security);
             }
         });
 

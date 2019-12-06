@@ -253,6 +253,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnManageCertificates" />
 
+        <Button
+            android:id="@+id/btnManageKeys"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/title_advanced_manage_keys"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
+
         <TextView
             android:id="@+id/tvKeySize"
             android:layout_width="0dp"
@@ -261,6 +273,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnImportKey" />
+            app:layout_constraintTop_toBottomOf="@id/btnManageKeys" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
