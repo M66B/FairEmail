@@ -749,6 +749,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.bcc = bcc;
                     identity.sent_folder = null;
                     identity.sign_key = null;
+                    identity.sign_key_alias = null;
                     identity.error = null;
                     identity.last_connected = last_connected;
 
