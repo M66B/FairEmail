@@ -17,7 +17,7 @@ FairEmail might be for you if you value your privacy.
 * Offline storage and operations
 * Battery friendly
 * Low data usage
-* Small (< 10 MB)
+* Small (~ 12 MB)
 * Material design (including dark/black theme)
 * Maintained and supported
 
@@ -44,7 +44,7 @@ This app starts a foreground service with a low priority status bar notification
 <b>Secure</b>
 
 * No data storage on third party servers
-* Using open standards (IMAP, SMTP, OpenPGP, etc)
+* Using open standards (IMAP, SMTP, OpenPGP, S/MIME, etc)
 * Safe message view (styling, scripting and unsafe HTML removed)
 * Confirm opening links, images and attachments
 * No special permissions required
@@ -75,7 +75,7 @@ All pro features are convenience or advanced features.
 * Filter rules
 * Search on server
 * Keyword management
-* S/MIME signing/encryption
+* S/MIME sign/encrypt
 * Biometric authentication
 * Unified inbox widget
 * Export settings
