@@ -69,6 +69,16 @@ public interface DaoAccount {
             ", account.name COLLATE NOCASE")
     LiveData<List<TupleAccountEx>> liveAccountsEx(boolean all);
 
+    @Query("SELECT account.*" +
+            ", SUM(folder.synchronize) AS folders" +
+            ", COUNT(operation.id) AS operations" +
+            " FROM account" +
+            " LEFT JOIN folder ON folder.account = account.id" +
+            " LEFT JOIN operation ON operation.folder = folder.id" +
+            " GROUP BY account.id" +
+            " ORDER BY account.id")
+    LiveData<List<TupleAccountState>> liveAccountState();
+
     @Query("SELECT * FROM account WHERE id = :id")
     EntityAccount getAccount(long id);
 

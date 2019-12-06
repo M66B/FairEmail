@@ -11,6 +11,7 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
+import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 
 import org.xbill.DNS.Lookup;
@@ -24,6 +25,7 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import javax.mail.Address;
 import javax.mail.internet.InternetAddress;
@@ -94,6 +96,19 @@ public class ConnectionHelper {
             connected = newState.connected;
             unmetered = newState.unmetered;
             suitable = newState.suitable;
+            roaming = newState.roaming;
+        }
+
+        @Override
+        public boolean equals(@Nullable Object obj) {
+            if (obj instanceof NetworkState) {
+                NetworkState other = (NetworkState) obj;
+                return (Objects.equals(this.connected, other.connected) &&
+                        Objects.equals(this.suitable, other.suitable) &&
+                        Objects.equals(this.unmetered, other.unmetered) &&
+                        Objects.equals(this.roaming, other.roaming));
+            } else
+                return false;
         }
     }
 

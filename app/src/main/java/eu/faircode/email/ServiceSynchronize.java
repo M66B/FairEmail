@@ -41,6 +41,8 @@ import androidx.annotation.Nullable;
 import androidx.core.app.AlarmManagerCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
@@ -110,6 +112,34 @@ public class ServiceSynchronize extends ServiceBase {
     static final int PI_ALARM = 1;
     static final int PI_ONESHOT = 2;
 
+    private MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
+    private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
+    private MediatorState liveAccountNetworkState = new MediatorState();
+
+    private class MediatorState extends MediatorLiveData<List<TupleAccountNetworkState>> {
+        private ConnectionHelper.NetworkState lastNetworkState = null;
+        private List<TupleAccountState> lastAccountStates = null;
+
+        private void post(ConnectionHelper.NetworkState networkState) {
+            lastNetworkState = networkState;
+            post(lastNetworkState, lastAccountStates);
+        }
+
+        private void post(List<TupleAccountState> accountStates) {
+            lastAccountStates = accountStates;
+            post(lastNetworkState, lastAccountStates);
+        }
+
+        private void post(ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
+            if (networkState != null && accountStates != null) {
+                List<TupleAccountNetworkState> result = new ArrayList<>();
+                for (TupleAccountState accountState : accountStates)
+                    result.add(new TupleAccountNetworkState(networkState, accountState));
+                postValue(result);
+            }
+        }
+    }
+
     @Override
     public void onCreate() {
         EntityLog.log(this, "Service create version=" + BuildConfig.VERSION_NAME);
@@ -131,6 +161,34 @@ public class ServiceSynchronize extends ServiceBase {
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
         DB db = DB.getInstance(this);
+
+        db.account().liveAccountState().observe(this, new Observer<List<TupleAccountState>>() {
+            @Override
+            public void onChanged(List<TupleAccountState> accountStates) {
+                liveAccountState.postValue(accountStates);
+            }
+        });
+
+        liveAccountNetworkState.addSource(liveNetworkState, new Observer<ConnectionHelper.NetworkState>() {
+            @Override
+            public void onChanged(ConnectionHelper.NetworkState networkState) {
+                liveAccountNetworkState.post(networkState);
+            }
+        });
+
+        liveAccountNetworkState.addSource(liveAccountState, new Observer<List<TupleAccountState>>() {
+            @Override
+            public void onChanged(List<TupleAccountState> accountStates) {
+                liveAccountNetworkState.post(accountStates);
+            }
+        });
+
+        liveAccountNetworkState.observe(this, new Observer<List<TupleAccountNetworkState>>() {
+            @Override
+            public void onChanged(List<TupleAccountNetworkState> accountNetworkStates) {
+                Log.i("Account network states=" + accountNetworkStates.size());
+            }
+        });
 
         db.account().liveStats().observe(this, new Observer<TupleAccountStats>() {
             private TupleAccountStats lastStats = null;
@@ -1416,7 +1474,9 @@ public class ServiceSynchronize extends ServiceBase {
         }
 
         private void updateState() {
-            networkState.update(ConnectionHelper.getNetworkState(ServiceSynchronize.this));
+            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
+            liveNetworkState.postValue(ns);
+            networkState.update(ns);
 
             if (lastSuitable == null || lastSuitable != networkState.isSuitable()) {
                 lastSuitable = networkState.isSuitable();
