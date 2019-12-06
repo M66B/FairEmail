@@ -1580,7 +1580,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
-                    if (auto_decrypt && EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt))
+                    if (auto_decrypt &&
+                            (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
+                                    EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt)))
                         onActionDecrypt(message, true);
 
                     // Show images

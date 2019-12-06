@@ -3928,6 +3928,10 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
 
                 @Override
                 protected void onExecuted(Bundle args, EntityIdentity identity) {
+                    Boolean auto = args.getBoolean("auto");
+                    if (auto && identity == null)
+                        return;
+
                     Helper.selectKeyAlias(getActivity(), identity == null ? null : identity.sign_key_alias, new Helper.IKeyAlias() {
                         @Override
                         public void onSelected(String alias) {
