@@ -2985,8 +2985,7 @@ public class FragmentCompose extends FragmentBase {
                             }
                     }
 
-                    if (data.draft.encrypt == null || data.draft.encrypt == 0)
-                        EntityOperation.queue(context, data.draft, EntityOperation.ADD);
+                    EntityOperation.queue(context, data.draft, EntityOperation.ADD);
                 } else {
                     if (data.draft.revision == null) {
                         data.draft.revision = 1;
@@ -3291,7 +3290,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.ui_hide = ui_hide;
                         db.message().updateMessage(draft);
 
-                        if (draft.content && (draft.encrypt == null || draft.encrypt == 0))
+                        if (draft.content)
                             EntityOperation.queue(context, draft, EntityOperation.ADD);
                     }
 
@@ -3467,8 +3466,7 @@ public class FragmentCompose extends FragmentBase {
                             action == R.id.action_redo ||
                             action == R.id.action_check) {
                         if (BuildConfig.DEBUG || dirty)
-                            if (draft.encrypt == null || draft.encrypt == 0)
-                                EntityOperation.queue(context, draft, EntityOperation.ADD);
+                            EntityOperation.queue(context, draft, EntityOperation.ADD);
 
                         if (action == R.id.action_check) {
                             // Check data
