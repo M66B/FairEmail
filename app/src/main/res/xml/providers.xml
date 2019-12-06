@@ -353,7 +353,7 @@
         name="Runbox"
         link="https://help.runbox.com/email-program-settings/">
         <imap
-            host="imap.runbox.com"
+            host="mail.runbox.com"
             port="993"
             starttls="false" />
         <smtp
