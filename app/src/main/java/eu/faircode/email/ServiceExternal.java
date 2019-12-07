@@ -76,7 +76,13 @@ public class ServiceExternal extends Service {
             String action = intent.getAction();
 
             if (ACTION_POLL.equals(action)) {
-                // TODO: sync all
+                final Context context = getApplicationContext();
+                executor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        WorkerPoll.sync(context);
+                    }
+                });
                 return START_NOT_STICKY;
             }
 
