@@ -436,10 +436,9 @@ public class HtmlHelper {
                                 }
 
                                 boolean email = matcher.group().contains("@") && !matcher.group().contains(":");
-                                if (BuildConfig.DEBUG)
-                                    Log.i("Web url=" + matcher.group() +
-                                            " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
-                                            " linked=" + linked + " email=" + email + " count=" + links);
+                                Log.d("Web url=" + matcher.group() +
+                                        " " + matcher.start() + "..." + matcher.end() + "/" + text.length() +
+                                        " linked=" + linked + " email=" + email + " count=" + links);
 
                                 if (linked)
                                     span.appendText(text.substring(pos, matcher.end()));

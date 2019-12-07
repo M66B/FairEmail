@@ -42,7 +42,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
     @Override
     public void setVisibility(int visibility) {
         this.visibility = visibility;
-        if (false && BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG && false) {
             super.setVisibility(visibility);
             return;
         }

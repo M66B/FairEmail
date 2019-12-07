@@ -2302,8 +2302,8 @@ class Core {
             if (process)
                 updateContactInfo(context, folder, message);
 
-            else if (BuildConfig.DEBUG)
-                Log.i(folder.name + " unchanged uid=" + uid);
+            else
+                Log.d(folder.name + " unchanged uid=" + uid);
         }
 
         List<String> fkeywords = new ArrayList<>(Arrays.asList(folder.keywords));

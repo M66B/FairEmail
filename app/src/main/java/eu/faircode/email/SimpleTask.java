@@ -134,7 +134,7 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
                             cleanup(context);
                         } else if (state.isAtLeast(Lifecycle.State.RESUMED)) {
                             // Inline delivery
-                            Log.i("Deliver task " + name);
+                            Log.i("Deliver task " + name + " state=" + state);
                             deliver();
                             cleanup(context);
                         } else

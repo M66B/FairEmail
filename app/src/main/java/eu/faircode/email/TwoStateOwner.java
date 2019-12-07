@@ -46,8 +46,7 @@ public class TwoStateOwner implements LifecycleOwner {
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                if (BuildConfig.DEBUG)
-                    Log.i("LifeCycle " + name + " parent destroyed");
+                Log.d("LifeCycle " + name + " parent destroyed");
                 destroy();
             }
         });

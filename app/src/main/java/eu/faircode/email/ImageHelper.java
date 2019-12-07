@@ -218,9 +218,8 @@ class ImageHelper {
             boolean embedded = a.source.startsWith("cid:");
             boolean data = a.source.startsWith("data:");
 
-            if (BuildConfig.DEBUG)
-                Log.i("Image show=" + show + " inline=" + inline +
-                        " embedded=" + embedded + " data=" + data + " source=" + a.source);
+            Log.d("Image show=" + show + " inline=" + inline +
+                    " embedded=" + embedded + " data=" + data + " source=" + a.source);
 
             // Embedded images
             if (embedded && (show || inline)) {

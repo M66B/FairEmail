@@ -116,7 +116,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         int before = Helper.getSize(outState);
         super.onSaveInstanceState(outState);
         int after = Helper.getSize(outState);
-        Log.i("Saved instance " + this + " size=" + before + "/" + after);
+        Log.d("Saved instance " + this + " size=" + before + "/" + after);
 
         Map<String, String> crumb = new HashMap<>();
         crumb.put("name", this.getClass().getName());
@@ -125,12 +125,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         Log.breadcrumb("onSaveInstanceState", crumb);
 
         for (String key : outState.keySet())
-            Log.i("Saved " + this + " " + key + "=" + outState.get(key));
+            Log.d("Saved " + this + " " + key + "=" + outState.get(key));
     }
 
     @Override
     protected void onResume() {
-        Log.i("Resume " + this.getClass().getName());
+        Log.d("Resume " + this.getClass().getName());
 
         boolean contacts = hasPermission(Manifest.permission.READ_CONTACTS);
         if (!this.getClass().equals(ActivitySetup.class) && this.contacts != contacts) {
@@ -145,7 +145,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     protected void onPause() {
-        Log.i("Pause " + this.getClass().getName());
+        Log.d("Pause " + this.getClass().getName());
         super.onPause();
 
         if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this))
@@ -154,13 +154,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        Log.i("Config " + this.getClass().getName());
+        Log.d("Config " + this.getClass().getName());
         super.onConfigurationChanged(newConfig);
     }
 
     @Override
     public void onUserInteraction() {
-        Log.i("User interaction");
+        Log.d("User interaction");
 
         if (!this.getClass().equals(ActivityMain.class) && Helper.shouldAuthenticate(this)) {
             finishAndRemoveTask();
@@ -172,7 +172,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     @Override
     protected void onUserLeaveHint() {
-        Log.i("User leaving");
+        Log.d("User leaving");
     }
 
     @Override
@@ -255,13 +255,13 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     void addBackPressedListener(final IBackPressedListener listener, LifecycleOwner owner) {
-        Log.i("Adding back listener=" + listener);
+        Log.d("Adding back listener=" + listener);
         backPressedListeners.add(listener);
 
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                Log.i("Removing back listener=" + listener);
+                Log.d("Removing back listener=" + listener);
                 backPressedListeners.remove(listener);
             }
         });

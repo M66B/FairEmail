@@ -3728,7 +3728,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         owner.getLifecycle().addObserver(new LifecycleObserver() {
             @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
             public void onDestroyed() {
-                Log.i(AdapterMessage.this + " parent destroyed");
+                Log.d(AdapterMessage.this + " parent destroyed");
                 AdapterMessage.this.parentFragment = null;
             }
         });

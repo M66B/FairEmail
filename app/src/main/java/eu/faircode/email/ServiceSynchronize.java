@@ -207,7 +207,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             @Override
             public void onChanged(List<TupleAccountNetworkState> accountNetworkStates) {
                 if (!running) {
-                    Log.i("XXX not running");
+                    Log.i("### not running");
                     return;
                 }
 
@@ -225,7 +225,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     int index = accountStates.indexOf(current);
                     if (index < 0) {
                         if (current.canRun()) {
-                            Log.i("XXX new " + current);
+                            Log.i("### new " + current);
                             start(current, current.accountState.isEnabled(current.enabled));
                         }
                     } else {
@@ -242,7 +242,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (current.reload ||
                                 prev.canRun() != current.canRun() ||
                                 !prev.accountState.equals(current.accountState)) {
-                            Log.i("XXX changed " + current +
+                            Log.i("### changed " + current +
                                     " reload=" + current.reload +
                                     " run prev=" + prev.canRun() +
                                     " run cur=" + current.canRun() +
@@ -309,9 +309,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         crumb.put("lastLost", new Date(lastLost).toString());
                         Log.breadcrumb("start", crumb);
 
-                        Log.i("XXX start=" + accountNetworkState);
+                        Log.i("### start=" + accountNetworkState);
                         astate.start();
-                        Log.i("XXX started=" + accountNetworkState);
+                        Log.i("### started=" + accountNetworkState);
                     }
                 });
             }
@@ -334,10 +334,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         crumb.put("lastLost", new Date(lastLost).toString());
                         Log.breadcrumb("stop", crumb);
 
-                        Log.i("XXX stop=" + accountNetworkState);
+                        Log.i("### stop=" + accountNetworkState);
                         state.stop();
                         state.join();
-                        Log.i("XXX stopped=" + accountNetworkState);
+                        Log.i("### stopped=" + accountNetworkState);
                     }
                 });
             }
@@ -366,7 +366,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        Log.i("XXX exit");
+                        Log.i("### exit");
 
                         DB db = DB.getInstance(ServiceSynchronize.this);
                         List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
@@ -374,7 +374,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             db.folder().setFolderSyncState(op.folder, null);
 
                         stopSelf();
-                        Log.i("XXX exited");
+                        Log.i("### exited");
                     }
                 });
             }
@@ -563,7 +563,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         String action = (intent == null ? null : intent.getAction());
-        Log.i("Service command intent=" + intent + " action=" + action);
+        String reason = (intent == null ? null : intent.getStringExtra("reason"));
+        Log.i("### Service command intent=" + intent + " action=" + action + " reason=" + reason);
         Log.logExtras(intent);
 
         super.onStartCommand(intent, flags, startId);

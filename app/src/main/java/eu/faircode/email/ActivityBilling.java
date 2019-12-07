@@ -188,7 +188,7 @@ public class ActivityBilling extends ActivityBase implements PurchasesUpdatedLis
     }
 
     static boolean isPro(Context context) {
-        if (false && BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG && false)
             return true;
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("pro", false);
     }

@@ -40,7 +40,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -124,12 +123,12 @@ public class FragmentBase extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        Log.i("Save instance " + this);
+        Log.d("Save instance " + this);
         int before = Helper.getSize(outState);
         outState.putString("fair:subtitle", subtitle);
         super.onSaveInstanceState(outState);
         int after = Helper.getSize(outState);
-        Log.i("Saved instance " + this + " size=" + before + "/" + after);
+        Log.d("Saved instance " + this + " size=" + before + "/" + after);
 
         Map<String, String> crumb = new HashMap<>();
         crumb.put("name", this.getClass().getName());
@@ -142,7 +141,7 @@ public class FragmentBase extends Fragment {
         Log.breadcrumb("onSaveInstanceState", crumb);
 
         for (String key : outState.keySet())
-            Log.i("Saved " + this + " " + key + "=" + outState.get(key));
+            Log.d("Saved " + this + " " + key + "=" + outState.get(key));
     }
 
     @Override
@@ -155,19 +154,19 @@ public class FragmentBase extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.i("Create view " + this);
+        Log.d("Create view " + this);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        Log.i("Activity " + this + " saved=" + (savedInstanceState != null));
+        Log.d("Activity " + this + " saved=" + (savedInstanceState != null));
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void onResume() {
-        Log.i("Resume " + this);
+        Log.d("Resume " + this);
         super.onResume();
         updateSubtitle();
         if (finish) {
@@ -184,7 +183,7 @@ public class FragmentBase extends Fragment {
 
     @Override
     public void onPause() {
-        Log.i("Pause " + this);
+        Log.d("Pause " + this);
         super.onPause();
 
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
@@ -217,6 +216,7 @@ public class FragmentBase extends Fragment {
 
     @Override
     public void onDetach() {
+        Log.d("Detach " + this);
         super.onDetach();
 
         InputMethodManager im = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -227,7 +227,7 @@ public class FragmentBase extends Fragment {
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        Log.i("Config " + this);
+        Log.d("Config " + this);
         super.onConfigurationChanged(newConfig);
     }
 

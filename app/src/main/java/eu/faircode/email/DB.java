@@ -135,8 +135,7 @@ public abstract class DB extends RoomDatabase {
                     EntityLog.TABLE_NAME) {
                 @Override
                 public void onInvalidated(@NonNull Set<String> tables) {
-                    if (BuildConfig.DEBUG)
-                        Log.i("ROOM invalidated=" + TextUtils.join(",", tables));
+                    Log.d("ROOM invalidated=" + TextUtils.join(",", tables));
                 }
             });
         }

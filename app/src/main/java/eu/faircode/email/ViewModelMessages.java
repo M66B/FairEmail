@@ -64,12 +64,12 @@ public class ViewModelMessages extends ViewModel {
             String query, boolean server) {
 
         Args args = new Args(context, viewType, type, account, folder, thread, id, query, server);
-        Log.i("Get model=" + viewType + " " + args);
+        Log.d("Get model=" + viewType + " " + args);
         dump();
 
         Model model = models.get(viewType);
         if (model == null || !model.args.equals(args)) {
-            Log.i("Creating model=" + viewType + " replace=" + (model != null));
+            Log.d("Creating model=" + viewType + " replace=" + (model != null));
 
             if (model != null)
                 model.list.removeObservers(owner);
@@ -165,17 +165,17 @@ public class ViewModelMessages extends ViewModel {
                 int free_mb = Log.getFreeMemMb();
                 boolean lowmem = (free_mb < LOW_MEM_MB);
 
-                Log.i("Destroy model=" + viewType +
+                Log.d("Destroy model=" + viewType +
                         " lowmem=" + lowmem + " free=" + free_mb + " MB");
 
                 Model model = models.get(viewType);
                 if (model != null) {
-                    Log.i("Remove observer model=" + viewType);
+                    Log.d("Remove observer model=" + viewType);
                     model.list.removeObservers(owner);
                 }
 
                 if (viewType == AdapterMessage.ViewType.THREAD || lowmem) {
-                    Log.i("Remove model=" + viewType);
+                    Log.d("Remove model=" + viewType);
                     models.remove(viewType);
                 }
 
@@ -191,10 +191,10 @@ public class ViewModelMessages extends ViewModel {
 
         if (viewType != AdapterMessage.ViewType.THREAD) {
             last = viewType;
-            Log.i("Last model=" + last);
+            Log.d("Last model=" + last);
         }
 
-        Log.i("Returning model=" + viewType);
+        Log.d("Returning model=" + viewType);
         dump();
 
         return model;
@@ -207,7 +207,7 @@ public class ViewModelMessages extends ViewModel {
     }
 
     void observePrevNext(LifecycleOwner owner, final long id, final IPrevNext intf) {
-        Log.i("Observe prev/next model=" + last);
+        Log.d("Observe prev/next model=" + last);
 
         Model model = models.get(last);
         if (model == null) {
@@ -215,11 +215,11 @@ public class ViewModelMessages extends ViewModel {
             return;
         }
 
-        Log.i("Observe previous/next id=" + id);
+        Log.d("Observe previous/next id=" + id);
         model.list.observe(owner, new Observer<PagedList<TupleMessageEx>>() {
             @Override
             public void onChanged(PagedList<TupleMessageEx> messages) {
-                Log.i("Observe previous/next id=" + id + " messages=" + messages.size());
+                Log.d("Observe previous/next id=" + id + " messages=" + messages.size());
 
                 for (int pos = 0; pos < messages.size(); pos++) {
                     TupleMessageEx item = messages.get(pos);
@@ -376,7 +376,7 @@ public class ViewModelMessages extends ViewModel {
     }
 
     private void dump() {
-        Log.i("Current models=" + TextUtils.join(", ", models.keySet()));
+        Log.d("Current models=" + TextUtils.join(", ", models.keySet()));
     }
 
     class Model {

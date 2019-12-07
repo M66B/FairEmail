@@ -3833,10 +3833,13 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     private BroadcastReceiver creceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("Received " + intent);
-            Log.logExtras(intent);
-
             String action = intent.getAction();
+
+            if (!SimpleTask.ACTION_TASK_COUNT.equals(action)) {
+                Log.i("Received " + intent);
+                Log.logExtras(intent);
+            }
+
             if (SimpleTask.ACTION_TASK_COUNT.equals(action))
                 onTaskCount(intent);
             else if (ACTION_NEW_MESSAGE.equals(action))

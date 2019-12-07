@@ -104,7 +104,7 @@ public class Log {
     private static final String TAG = "fairemail";
 
     public static int d(String msg) {
-        if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG && false)
             return android.util.Log.d(TAG, msg);
         else
             return 0;

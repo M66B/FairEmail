@@ -32,7 +32,7 @@ public class ItemDetailsMessage extends ItemDetailsLookup.ItemDetails<Long> {
     @Override
     public int getPosition() {
         int pos = viewHolder.getAdapterPosition();
-        Log.i("ItemDetails pos=" + pos);
+        Log.d("ItemDetails pos=" + pos);
         return pos;
     }
 
@@ -41,7 +41,7 @@ public class ItemDetailsMessage extends ItemDetailsLookup.ItemDetails<Long> {
     public Long getSelectionKey() {
         int pos = viewHolder.getAdapterPosition();
         Long key = viewHolder.getKey();
-        Log.i("ItemDetails pos=" + pos + " key=" + key);
+        Log.d("ItemDetails pos=" + pos + " key=" + key);
         return key;
     }
 }
