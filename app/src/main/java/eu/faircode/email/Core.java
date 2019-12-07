@@ -1503,7 +1503,7 @@ class Core {
                     message.total = helper.getSize();
                     message.content = false;
                     message.encrypt = parts.getEncryption();
-                    message.received = helper.getReceived();
+                    message.received = helper.getSent();
                     message.sent = helper.getSent();
                     message.seen = false;
                     message.answered = false;
