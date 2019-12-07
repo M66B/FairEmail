@@ -991,9 +991,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             protected void onExecuted(Bundle args, Boolean oauth) {
                 ToastEx.makeText(ActivitySetup.this, R.string.title_setup_imported, Toast.LENGTH_LONG).show();
 
-                if (oauth &&
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                        getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                if (oauth && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     List<String> permissions = new ArrayList<>();
                     permissions.add(Manifest.permission.READ_CONTACTS); // profile
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -1001,11 +999,13 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                     for (String permission : permissions)
                         if (!hasPermission(permission)) {
+                            // TODO: fix permissions request
                             requestPermissions(permissions.toArray(new String[0]), REQUEST_IMPORT_OAUTH);
-                            break;
+                            //return;
                         }
-                } else
-                    ServiceSynchronize.eval(ActivitySetup.this, false, "import");
+                }
+
+                ServiceSynchronize.eval(ActivitySetup.this, false, "import");
             }
 
             @Override
