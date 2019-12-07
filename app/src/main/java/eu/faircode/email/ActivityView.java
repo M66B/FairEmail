@@ -774,7 +774,19 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (intent.getBooleanExtra("refresh", false)) {
             intent.removeExtra("refresh");
             setIntent(intent);
-            // TODO: sync all
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) {
+                    WorkerPoll.sync(context);
+                    return null;
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                }
+            }.execute(this, new Bundle(), "view:refresh");
         }
 
         String action = intent.getAction();
