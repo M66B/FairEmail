@@ -486,7 +486,6 @@ public class FragmentFolder extends FragmentBase {
                         }
 
                         reload = (!folder.name.equals(name) ||
-                                !folder.synchronize.equals(synchronize) ||
                                 !folder.poll.equals(poll));
 
                         Log.i("Updating folder=" + folder.name);
@@ -506,8 +505,7 @@ public class FragmentFolder extends FragmentBase {
                     db.endTransaction();
                 }
 
-                if (reload)
-                    ServiceSynchronize.reload(context, "save folder");
+                ServiceSynchronize.eval(context, reload, "save folder");
 
                 return false;
             }
@@ -556,7 +554,7 @@ public class FragmentFolder extends FragmentBase {
                                     R.plurals.title_notification_operations, count, count));
                 db.folder().setFolderTbd(id);
 
-                ServiceSynchronize.reload(context, "delete folder");
+                ServiceSynchronize.eval(context, true, "delete folder");
 
                 return null;
             }

@@ -94,6 +94,6 @@ public class ServiceTileUnseen extends TileService {
 
     public void onClick() {
         Log.i("Click tile unseen");
-        ServiceSynchronize.process(this, true);
+        // TODO: sync all
     }
 }

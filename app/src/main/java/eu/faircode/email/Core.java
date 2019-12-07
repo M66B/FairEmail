@@ -3214,14 +3214,13 @@ class Core {
         private Semaphore semaphore = new Semaphore(0);
         private boolean running = true;
         private boolean recoverable = true;
-        List<State> childs = Collections.synchronizedList(new ArrayList<>());
 
         State(ConnectionHelper.NetworkState networkState) {
             this.networkState = networkState;
         }
 
-        State(State parent) {
-            this(parent.networkState);
+        void setNetworkState(ConnectionHelper.NetworkState networkState) {
+            this.networkState = networkState;
         }
 
         ConnectionHelper.NetworkState getNetworkState() {

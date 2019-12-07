@@ -57,6 +57,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Collections;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -343,9 +344,14 @@ public class FragmentFolders extends FragmentBase {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean enabled = prefs.getBoolean("enabled", true);
                         if (enabled)
-                            ServiceSynchronize.reload(context, "refresh folders");
-                        else
-                            ServiceSynchronize.process(context, true);
+                            ServiceSynchronize.eval(context, true, "refresh folders");
+                        else {
+                            List<EntityFolder> folders = db.folder().getSynchronizingFolders(aid);
+                            if (folders.size() > 0)
+                                Collections.sort(folders, folders.get(0).getComparator(context));
+                            for (EntityFolder folder : folders)
+                                EntityOperation.sync(context, folder.id, false);
+                        }
                     }
 
                     db.setTransactionSuccessful();

@@ -890,19 +890,16 @@ public class FragmentAccount extends FragmentBase {
                 String accountRealm = (account == null ? null : account.realm);
 
                 boolean check = (synchronize && (account == null ||
-                        !account.synchronize || account.error != null ||
+                        !account.synchronize ||
+                        account.error != null ||
+                        !account.host.equals(host) ||
+                        !account.starttls.equals(starttls) ||
                         !account.insecure.equals(insecure) ||
-                        !host.equals(account.host) || starttls != account.starttls || Integer.parseInt(port) != account.port ||
-                        !user.equals(account.user) || !password.equals(account.password) ||
+                        !account.port.equals(Integer.parseInt(port)) ||
+                        !account.user.equals(user) ||
+                        !account.password.equals(password) ||
                         !Objects.equals(realm, accountRealm)));
-                boolean reload = (check || account == null ||
-                        account.synchronize != synchronize ||
-                        account.notify != notify ||
-                        !account.poll_interval.equals(Integer.parseInt(interval)) ||
-                        account.partial_fetch != partial_fetch ||
-                        account.ignore_size != ignore_size ||
-                        account.use_date != use_date);
-                Log.i("Account check=" + check + " reload=" + reload);
+                Log.i("Account check=" + check);
 
                 Long last_connected = null;
                 if (account != null && synchronize == account.synchronize)
@@ -1093,8 +1090,7 @@ public class FragmentAccount extends FragmentBase {
                     db.endTransaction();
                 }
 
-                if (reload)
-                    ServiceSynchronize.reload(context, "save account");
+                ServiceSynchronize.eval(context, false, "save account");
 
                 if (!synchronize) {
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1420,7 +1416,7 @@ public class FragmentAccount extends FragmentBase {
                 DB db = DB.getInstance(context);
                 db.account().setAccountTbd(id);
 
-                ServiceSynchronize.reload(context, "delete account");
+                ServiceSynchronize.eval(context, false, "delete account");
 
                 return null;
             }

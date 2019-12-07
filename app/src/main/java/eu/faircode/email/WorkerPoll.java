@@ -30,6 +30,8 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class WorkerPoll extends Worker {
@@ -42,7 +44,25 @@ public class WorkerPoll extends Worker {
     @Override
     public Result doWork() {
         Log.i("Running " + getName());
-        ServiceSynchronize.process(getApplicationContext(), true);
+
+        DB db = DB.getInstance(getApplicationContext());
+        try {
+            db.beginTransaction();
+
+            List<EntityAccount> accounts = db.account().getSynchronizingAccounts();
+            for (EntityAccount account : accounts) {
+                List<EntityFolder> folders = db.folder().getSynchronizingFolders(account.id);
+                if (folders.size() > 0)
+                    Collections.sort(folders, folders.get(0).getComparator(getApplicationContext()));
+                for (EntityFolder folder : folders)
+                    EntityOperation.sync(getApplicationContext(), folder.id, false);
+            }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
         return Result.success();
     }
 

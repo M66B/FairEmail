@@ -350,7 +350,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.reload(context, "quick setup");
+                ServiceSynchronize.eval(context, false, "quick setup");
 
                 return null;
             }

@@ -23,19 +23,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class TupleAccountNetworkState {
+    public boolean enabled;
     public boolean reload;
     public ConnectionHelper.NetworkState networkState;
     public TupleAccountState accountState;
 
-    public TupleAccountNetworkState(boolean reload, ConnectionHelper.NetworkState networkState, TupleAccountState accountState) {
+    public TupleAccountNetworkState(boolean enabled, boolean reload, ConnectionHelper.NetworkState networkState, TupleAccountState accountState) {
+        this.enabled = enabled;
         this.reload = reload;
         this.networkState = networkState;
         this.accountState = accountState;
     }
 
-    public boolean shouldRun() {
-        return (this.networkState.isSuitable() &&
-                this.accountState.shouldRun());
+    public boolean canRun() {
+        return (this.networkState.isSuitable() && this.accountState.shouldRun(enabled));
     }
 
     @Override

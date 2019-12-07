@@ -76,7 +76,7 @@ public class ServiceExternal extends Service {
             String action = intent.getAction();
 
             if (ACTION_POLL.equals(action)) {
-                ServiceSynchronize.process(this, true);
+                // TODO: sync all
                 return START_NOT_STICKY;
             }
 
@@ -97,7 +97,7 @@ public class ServiceExternal extends Service {
                     boolean previous = prefs.getBoolean("enabled", true);
                     if (!enabled.equals(previous)) {
                         prefs.edit().putBoolean("enabled", enabled).apply();
-                        ServiceSynchronize.reload(this, "external");
+                        ServiceSynchronize.eval(this, false, "external");
                     }
                 } else {
                     final Context context = getApplicationContext();
@@ -108,7 +108,7 @@ public class ServiceExternal extends Service {
                             EntityAccount account = db.account().getAccount(accountName);
                             if (account != null) {
                                 db.account().setAccountSynchronize(account.id, enabled);
-                                ServiceSynchronize.reload(context, "account enabled=" + enabled);
+                                ServiceSynchronize.eval(context, false, "account enabled=" + enabled);
                             }
                         }
                     });

@@ -770,10 +770,11 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private void checkIntent() {
         Intent intent = getIntent();
 
+        // Refresh from widget
         if (intent.getBooleanExtra("refresh", false)) {
             intent.removeExtra("refresh");
             setIntent(intent);
-            ServiceSynchronize.process(this, true);
+            // TODO: sync all
         }
 
         String action = intent.getAction();

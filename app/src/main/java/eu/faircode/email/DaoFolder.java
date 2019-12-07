@@ -154,6 +154,11 @@ public interface DaoFolder {
             " AND type <> '" + EntityFolder.USER + "'")
     List<EntityFolder> getSystemFolders(long account);
 
+    @Query("SELECT * FROM folder" +
+            " WHERE folder.account = :account" +
+            " AND folder.synchronize")
+    List<EntityFolder> getSynchronizingFolders(long account);
+
     @Query("SELECT folder.type" +
             ", COUNT(message.id) AS messages" +
             ", SUM(CASE WHEN NOT message.ui_seen THEN 1 ELSE 0 END) AS unseen" +

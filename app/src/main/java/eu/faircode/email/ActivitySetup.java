@@ -374,7 +374,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                         handleImport(data, this.password);
                     break;
                 case REQUEST_IMPORT_OAUTH:
-                    ServiceSynchronize.reload(this, "oauth");
+                    ServiceSynchronize.eval(this, false, "import/oauth");
                     break;
                 case REQUEST_IMPORT_CERTIFICATE:
                     if (resultCode == RESULT_OK && data != null)
@@ -983,7 +983,6 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 }
 
                 Log.i("Imported data");
-                ServiceSynchronize.reload(context, "import");
 
                 return oauth;
             }
@@ -1005,7 +1004,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                             requestPermissions(permissions.toArray(new String[0]), REQUEST_IMPORT_OAUTH);
                             break;
                         }
-                }
+                } else
+                    ServiceSynchronize.eval(ActivitySetup.this, false, "import");
             }
 
             @Override

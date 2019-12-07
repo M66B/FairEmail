@@ -33,8 +33,6 @@ import androidx.preference.PreferenceManager;
 import java.util.List;
 
 public class ActivityMain extends ActivityBase implements FragmentManager.OnBackStackChangedListener, SharedPreferences.OnSharedPreferenceChangeListener {
-    private static final String ACTION_REFRESH = BuildConfig.APPLICATION_ID + ".REFRESH";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportFragmentManager().addOnBackStackChangedListener(this);
@@ -87,8 +85,6 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
                         Intent view = new Intent(ActivityMain.this, ActivityView.class);
                         view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        if (ACTION_REFRESH.equals(getIntent().getAction()))
-                            view.putExtra("refresh", true);
 
                         Intent saved = args.getParcelable("intent");
                         if (saved == null)
@@ -101,7 +97,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 startActivity(view);
                             }
 
-                        ServiceSynchronize.watchdog(ActivityMain.this);
+                        ServiceSynchronize.eval(ActivityMain.this, false, "main");
                         ServiceSend.watchdog(ActivityMain.this);
                     } else
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));

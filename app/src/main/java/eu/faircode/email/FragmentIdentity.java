@@ -1092,9 +1092,7 @@ public class FragmentIdentity extends FragmentBase {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
-                db.identity().setIdentityTbd(id);
-
-                ServiceSynchronize.reload(context, "delete identity");
+                db.identity().deleteIdentity(id);
 
                 return null;
             }

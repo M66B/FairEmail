@@ -99,7 +99,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("metered", checked).apply();
-                ServiceSynchronize.reload(getContext(), "metered=" + checked);
             }
         });
 
@@ -120,7 +119,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("roaming", checked).apply();
-                ServiceSynchronize.reload(getContext(), "roaming=" + checked);
             }
         });
 
@@ -128,7 +126,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("rlah", checked).apply();
-                ServiceSynchronize.reload(getContext(), "rlah=" + checked);
             }
         });
 
@@ -138,7 +135,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 prefs.edit().putBoolean("socks_enabled", checked).apply();
                 etSocks.setEnabled(checked);
                 btnSocks.setEnabled(checked);
-                ServiceSynchronize.reload(getContext(), "socks=" + checked);
             }
         });
 
@@ -150,7 +146,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                     prefs.edit().remove("socks_proxy").apply();
                 else
                     prefs.edit().putString("socks_proxy", proxy).apply();
-                ServiceSynchronize.reload(getContext(), "socks=" + proxy);
             }
         });
 

@@ -22,7 +22,7 @@ package eu.faircode.email;
 import java.util.Objects;
 
 public class TupleAccountState extends EntityAccount {
-    // TODO: folder property changes (name, synchronize, poll)
+    // TODO: folder property changes (name, poll)
     public int folders;
     public int operations;
 
@@ -31,24 +31,28 @@ public class TupleAccountState extends EntityAccount {
         if (obj instanceof TupleAccountState) {
             TupleAccountState other = (TupleAccountState) obj;
             return (this.host.equals(other.host) &&
-                    this.starttls == other.starttls &&
-                    this.insecure == other.insecure &&
+                    this.starttls.equals(other.starttls) &&
+                    this.insecure.equals(other.insecure) &&
                     this.port.equals(other.port) &&
-                    // auth_type
                     this.user.equals(other.user) &&
                     this.password.equals(other.password) &&
                     Objects.equals(this.realm, other.realm) &&
-                    this.notify == other.notify &&
+                    this.notify.equals(other.notify) &&
                     this.poll_interval.equals(other.poll_interval) &&
-                    this.partial_fetch == other.partial_fetch &&
-                    this.ignore_size == other.ignore_size &&
-                    this.use_date == other.use_date &&
-                    this.folders == other.folders);
+                    this.partial_fetch.equals(other.partial_fetch) &&
+                    this.ignore_size.equals(other.ignore_size) &&
+                    this.use_date.equals(other.use_date) &&
+                    this.folders == other.folders &&
+                    Objects.equals(this.tbd, other.tbd));
         } else
             return false;
     }
 
-    boolean shouldRun() {
-        return (synchronize && (folders > 0 || operations > 0));
+    boolean isEnabled(boolean enabled) {
+        return (enabled && synchronize && folders > 0 && tbd == null);
+    }
+
+    boolean shouldRun(boolean enabled) {
+        return (isEnabled(enabled) || operations > 0);
     }
 }

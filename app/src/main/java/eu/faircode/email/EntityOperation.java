@@ -320,7 +320,7 @@ public class EntityOperation {
         if (SEND.equals(name))
             ServiceSend.start(context);
         else
-            ServiceSynchronize.process(context, false);
+            ServiceSynchronize.eval(context, false, "operation=" + name);
     }
 
     static void queue(Context context, EntityFolder folder, String name, Object... values) {
@@ -360,6 +360,7 @@ public class EntityOperation {
         if (folder == null)
             return;
 
+        // TODO: replace sync parameters?
         if (db.operation().getOperationCount(fid, EntityOperation.SYNC) == 0) {
             EntityOperation operation = new EntityOperation();
             operation.account = folder.account;
@@ -379,7 +380,7 @@ public class EntityOperation {
         if (folder.account == null) // Outbox
             ServiceSend.start(context);
         else if (foreground)
-            ServiceSynchronize.process(context, true);
+            ServiceSynchronize.eval(context, false, "sync folder=" + fid);
     }
 
     static void subscribe(Context context, long fid, boolean subscribe) {

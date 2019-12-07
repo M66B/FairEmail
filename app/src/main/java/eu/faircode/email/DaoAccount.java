@@ -94,16 +94,6 @@ public interface DaoAccount {
     @Query("SELECT * FROM account WHERE id = :id")
     LiveData<EntityAccount> liveAccount(long id);
 
-    @Query("SELECT" +
-            " (SELECT COUNT(account.id) FROM account" +
-            "    WHERE synchronize" +
-            "    AND state = 'connected') AS accounts" +
-            ", (SELECT COUNT(operation.id) FROM operation" +
-            "    JOIN folder ON folder.id = operation.folder" +
-            "    JOIN account ON account.id = folder.account" + // not outbox
-            "    WHERE account.synchronize) AS operations")
-    LiveData<TupleAccountStats> liveStats();
-
     @Query("SELECT account.id" +
             ", account.swipe_left, l.type AS left_type, l.name AS left_name" +
             ", account.swipe_right, r.type AS right_type, r.name AS right_name" +
@@ -152,7 +142,7 @@ public interface DaoAccount {
     @Query("UPDATE account SET last_connected = NULL")
     int clearAccountConnected();
 
-    @Query("DELETE FROM account WHERE tbd = 1")
-    int deleteAccountsTbd();
+    @Query("DELETE FROM account WHERE id = :id")
+    int deleteAccount(long id);
 }
 

@@ -547,9 +547,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     args.putInt("property", property);
                     args.putBoolean("enabled", enabled);
 
-                    new SimpleTask<Boolean>() {
+                    new SimpleTask<Void>() {
                         @Override
-                        protected Boolean onExecute(Context context, Bundle args) {
+                        protected Void onExecute(Context context, Bundle args) {
                             long id = args.getLong("id");
                             int property = args.getInt("property");
                             boolean enabled = args.getBoolean("enabled");
@@ -558,25 +558,22 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             switch (property) {
                                 case R.string.title_unified_folder:
                                     db.folder().setFolderUnified(id, enabled);
-                                    return false;
+                                    break;
                                 case R.string.title_navigation_folder:
                                     db.folder().setFolderNavigation(id, enabled);
-                                    return false;
+                                    break;
                                 case R.string.title_notify_folder:
                                     db.folder().setFolderNotify(id, enabled);
-                                    return false;
+                                    break;
                                 case R.string.title_synchronize_enabled:
                                     db.folder().setFolderSynchronize(id, enabled);
-                                    return true;
+                                    ServiceSynchronize.eval(context, true, "folder sync=" + enabled);
+                                    break;
                                 default:
-                                    return false;
+                                    throw new IllegalArgumentException("Unknown folder property=" + property);
                             }
-                        }
 
-                        @Override
-                        protected void onExecuted(Bundle args, Boolean reload) {
-                            if (reload)
-                                ServiceSynchronize.reload(context, "folder property changed");
+                            return null;
                         }
 
                         @Override

@@ -101,7 +101,7 @@ public class EntityIdentity {
     public Long sent_folder = null; // obsolete
     public Long sign_key = null; // OpenPGP
     public String sign_key_alias = null; // S/MIME
-    public Boolean tbd;
+    public Boolean tbd; // obsolete
     public String state;
     public String error;
     public Long last_connected;
@@ -258,7 +258,6 @@ public class EntityIdentity {
                     Objects.equals(this.replyto, other.replyto) &&
                     Objects.equals(this.bcc, other.bcc) &&
                     Objects.equals(this.sign_key, other.sign_key) &&
-                    Objects.equals(this.tbd, other.tbd) &&
                     Objects.equals(this.state, other.state) &&
                     Objects.equals(this.error, other.error) &&
                     Objects.equals(this.last_connected, other.last_connected));

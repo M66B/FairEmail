@@ -71,7 +71,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Integer port;
     @NonNull
-    public Integer auth_type;
+    public Integer auth_type; // immutable
     @NonNull
     public String user;
     @NonNull

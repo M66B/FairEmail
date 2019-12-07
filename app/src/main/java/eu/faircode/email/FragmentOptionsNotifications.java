@@ -177,7 +177,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("badge", checked).apply();
-                ServiceSynchronize.reload(getContext(), "badge");
+                ServiceSynchronize.restart(getContext(), "badge");
             }
         });
 
@@ -185,7 +185,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("unseen_ignored", checked).apply();
-                ServiceSynchronize.reload(getContext(), "unseen_ignored");
+                ServiceSynchronize.restart(getContext(), "unseen_ignored");
             }
         });
 
