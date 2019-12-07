@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Build;
@@ -40,7 +41,9 @@ public class ServiceTileUnseen extends TileService {
     public void onCreate() {
         super.onCreate();
 
-        DB.getInstance(this).message().liveUnseenNotify().observe(owner, new Observer<List<TupleMessageEx>>() {
+        DB db = DB.getInstance(this);
+
+        db.message().liveUnseenNotify().observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
                 if (messages == null)
@@ -94,6 +97,12 @@ public class ServiceTileUnseen extends TileService {
 
     public void onClick() {
         Log.i("Click tile unseen");
-        // TODO: sync all
+        final Context context = getApplicationContext();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                WorkerPoll.sync(context);
+            }
+        }).start();
     }
 }
