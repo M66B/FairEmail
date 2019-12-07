@@ -62,14 +62,14 @@ public class FragmentDialogBase extends DialogFragment {
     public void onResume() {
         registry.setCurrentState(Lifecycle.State.RESUMED);
         super.onResume();
-        Log.i("Resume " + this);
+        Log.d("Resume " + this);
     }
 
     @Override
     public void onPause() {
         registry.setCurrentState(Lifecycle.State.STARTED);
         super.onPause();
-        Log.i("Pause " + this);
+        Log.d("Pause " + this);
     }
 
     @Override
@@ -87,14 +87,14 @@ public class FragmentDialogBase extends DialogFragment {
         } catch (Throwable ex) {
             Log.e(ex);
         }
-        Log.i("Start " + this);
+        Log.d("Start " + this);
     }
 
     @Override
     public void onStop() {
         registry.setCurrentState(Lifecycle.State.CREATED);
         super.onStop();
-        Log.i("Stop " + this);
+        Log.d("Stop " + this);
     }
 
     @Override
