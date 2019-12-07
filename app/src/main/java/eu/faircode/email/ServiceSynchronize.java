@@ -87,10 +87,10 @@ import me.leolin.shortcutbadger.ShortcutBadger;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private ConnectionHelper.NetworkState lastNetworkState = new ConnectionHelper.NetworkState();
+    private Boolean lastSuitable = null;
     private long lastLost = 0;
-    private int accounts = 0;
-    private int operations = 0;
+    private int lastAccounts = 0;
+    private int lastOperations = 0;
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
@@ -228,15 +228,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         return;
                     }
 
-                    int connected = 0;
-                    int pending = 0;
+                    int accounts = 0;
+                    int operations = 0;
                     boolean runService = false;
                     for (TupleAccountNetworkState current : accountNetworkStates) {
                         if (current.accountState.shouldRun(current.enabled))
                             runService = true;
                         if ("connected".equals(current.accountState.state))
-                            connected++;
-                        pending += current.accountState.operations;
+                            accounts++;
+                        operations += current.accountState.operations;
 
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
@@ -277,15 +277,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     if (runService) {
-                        if (accounts != connected || operations != pending) {
-                            accounts = connected;
-                            operations = pending;
+                        if (lastAccounts != accounts || lastOperations != operations) {
+                            lastAccounts = accounts;
+                            lastOperations = operations;
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                            nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(accounts, operations).build());
+                            nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
                         }
                     } else {
                         running = false;
-                        stopSelf();
+                        stopSelf(); // will result in quit
                     }
                 }
             }
@@ -293,7 +293,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             private void start(final TupleAccountNetworkState accountNetworkState, boolean sync) {
                 EntityLog.log(ServiceSynchronize.this, "Service start=" + accountNetworkState);
 
-                final Core.State astate = new Core.State(lastNetworkState);
+                final Core.State astate = new Core.State(accountNetworkState.networkState);
                 astate.runnable(new Runnable() {
                     @Override
                     public void run() {
@@ -321,10 +321,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         Map<String, String> crumb = new HashMap<>();
                         crumb.put("account", accountNetworkState.toString());
-                        crumb.put("connected", Boolean.toString(lastNetworkState.isConnected()));
-                        crumb.put("suitable", Boolean.toString(lastNetworkState.isSuitable()));
-                        crumb.put("unmetered", Boolean.toString(lastNetworkState.isUnmetered()));
-                        crumb.put("roaming", Boolean.toString(lastNetworkState.isRoaming()));
+                        crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
+                        crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
+                        crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
+                        crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
                         crumb.put("lastLost", new Date(lastLost).toString());
                         Log.breadcrumb("start", crumb);
 
@@ -346,10 +346,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     public void run() {
                         Map<String, String> crumb = new HashMap<>();
                         crumb.put("account", accountNetworkState.toString());
-                        crumb.put("connected", Boolean.toString(lastNetworkState.isConnected()));
-                        crumb.put("suitable", Boolean.toString(lastNetworkState.isSuitable()));
-                        crumb.put("unmetered", Boolean.toString(lastNetworkState.isUnmetered()));
-                        crumb.put("roaming", Boolean.toString(lastNetworkState.isRoaming()));
+                        crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
+                        crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
+                        crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
+                        crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
                         crumb.put("lastLost", new Date(lastLost).toString());
                         Log.breadcrumb("stop", crumb);
 
@@ -616,11 +616,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return START_STICKY;
     }
 
-    private NotificationCompat.Builder getNotificationService(Integer connected, Integer pending) {
-        if (connected != null)
-            this.accounts = connected;
-        if (pending != null)
-            this.operations = pending;
+    private NotificationCompat.Builder getNotificationService(Integer accounts, Integer operations) {
+        if (accounts != null)
+            this.lastAccounts = accounts;
+        if (operations != null)
+            this.lastOperations = operations;
 
         // Build pending intent
         Intent why = new Intent(this, ActivityView.class);
@@ -632,7 +632,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 new NotificationCompat.Builder(this, "service")
                         .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
                         .setContentTitle(getResources().getQuantityString(
-                                R.plurals.title_notification_synchronizing, accounts, accounts))
+                                R.plurals.title_notification_synchronizing, lastAccounts, lastAccounts))
                         .setContentIntent(piWhy)
                         .setAutoCancel(false)
                         .setShowWhen(false)
@@ -641,11 +641,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                         .setLocalOnly(true);
 
-        if (operations > 0)
+        if (lastOperations > 0)
             builder.setContentText(getResources().getQuantityString(
-                    R.plurals.title_notification_operations, operations, operations));
+                    R.plurals.title_notification_operations, lastOperations, lastOperations));
 
-        if (!lastNetworkState.isSuitable())
+        if (lastSuitable == null || !lastSuitable)
             builder.setSubText(getString(R.string.title_notification_waiting));
 
         return builder;
@@ -1299,30 +1299,20 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
-        private Boolean lastSuitable = null;
-
         @Override
         public void onAvailable(@NonNull Network network) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             EntityLog.log(ServiceSynchronize.this, "Available network=" + network +
-                    " capabilities " + cm.getNetworkCapabilities(network) +
-                    " connected=" + lastNetworkState.isConnected() +
-                    " suitable=" + lastNetworkState.isSuitable() +
-                    " unmetered=" + lastNetworkState.isUnmetered() +
-                    " roaming=" + lastNetworkState.isRoaming());
-            updateState();
+                    " capabilities " + cm.getNetworkCapabilities(network));
+            updateState(ConnectionHelper.NetworkState.actionType.AVAILABLE);
         }
 
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities capabilities) {
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             EntityLog.log(ServiceSynchronize.this, "Changed network=" + network +
-                    " capabilities " + cm.getNetworkCapabilities(network) +
-                    " connected=" + lastNetworkState.isConnected() +
-                    " suitable=" + lastNetworkState.isSuitable() +
-                    " unmetered=" + lastNetworkState.isUnmetered() +
-                    " roaming=" + lastNetworkState.isRoaming());
-            updateState();
+                    " capabilities " + cm.getNetworkCapabilities(network));
+            updateState(ConnectionHelper.NetworkState.actionType.CHANGED);
         }
 
         @Override
@@ -1332,18 +1322,17 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             EntityLog.log(ServiceSynchronize.this, "Lost network=" + network + " active=" + active);
             if (active == null)
                 lastLost = new Date().getTime();
-            updateState();
+            updateState(ConnectionHelper.NetworkState.actionType.LOST);
         }
 
-        private void updateState() {
-            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
-            lastNetworkState.update(ns);
+        private void updateState(ConnectionHelper.NetworkState.actionType action) {
+            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this, action);
             liveNetworkState.postValue(ns);
 
-            if (lastSuitable == null || lastSuitable != lastNetworkState.isSuitable()) {
-                lastSuitable = lastNetworkState.isSuitable();
+            if (lastSuitable == null || lastSuitable != ns.isSuitable()) {
+                lastSuitable = ns.isSuitable();
                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(accounts, operations).build());
+                nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(lastAccounts, lastOperations).build());
             }
         }
     };

@@ -75,6 +75,9 @@ public class ConnectionHelper {
         private Boolean suitable = null;
         private Boolean unmetered = null;
         private Boolean roaming = null;
+        private actionType action = actionType.NONE;
+
+        public enum actionType {NONE, AVAILABLE, CHANGED, LOST}
 
         boolean isConnected() {
             return (connected != null && connected);
@@ -160,6 +163,12 @@ public class ConnectionHelper {
             Log.e(ex);
         }
 
+        return state;
+    }
+
+    static NetworkState getNetworkState(Context context, NetworkState.actionType action) {
+        NetworkState state = getNetworkState(context);
+        state.action = action;
         return state;
     }
 
