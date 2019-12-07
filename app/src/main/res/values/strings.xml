@@ -38,8 +38,8 @@
     <string name="shortcut_setup">Settings</string>
 
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synchronizing %1$d account</item>
-        <item quantity="other">Synchronizing %1$d accounts</item>
+        <item quantity="one">Monitoring %1$d account</item>
+        <item quantity="other">Monitoring %1$d accounts</item>
     </plurals>
 
     <plurals name="title_notification_operations">
