@@ -282,6 +282,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         db.endTransaction();
                     }
 
+                    ServiceSynchronize.eval(context, false, "attachment");
+
                     return null;
                 }
 

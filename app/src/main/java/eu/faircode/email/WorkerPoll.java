@@ -63,6 +63,8 @@ public class WorkerPoll extends Worker {
             db.endTransaction();
         }
 
+        ServiceSynchronize.eval(getApplicationContext(), false, "refresh/poll");
+
         return Result.success();
     }
 

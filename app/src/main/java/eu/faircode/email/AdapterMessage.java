@@ -2103,6 +2103,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     db.endTransaction();
                                 }
 
+                                ServiceSynchronize.eval(context, false, "doubletap");
+
                                 return null;
                             }
 
@@ -2264,6 +2266,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } finally {
                         db.endTransaction();
                     }
+
+                    ServiceSynchronize.eval(context, false, "flag");
 
                     return null;
                 }
@@ -2516,6 +2520,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
+                    ServiceSynchronize.eval(context, false, "attachment");
+
                     return null;
                 }
 
@@ -2684,6 +2690,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } finally {
                         db.endTransaction();
                     }
+
+                    ServiceSynchronize.eval(context, false, "attachment");
 
                     return null;
                 }
@@ -2927,6 +2935,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } finally {
                         db.endTransaction();
                     }
+
+                    ServiceSynchronize.eval(context, false, "outbox/drafts");
 
                     if (message.identity != null) {
                         // Identity can be deleted
@@ -3225,6 +3235,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
+                    ServiceSynchronize.eval(context, false, "seen");
+
                     return null;
                 }
 
@@ -3360,6 +3372,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } finally {
                         db.endTransaction();
                     }
+
+                    ServiceSynchronize.eval(context, false, "resync");
 
                     return null;
                 }
@@ -3536,6 +3550,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         } finally {
                             db.endTransaction();
                         }
+
+                        ServiceSynchronize.eval(context, false, "headers");
+
                         return null;
                     }
 
@@ -3573,6 +3590,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } finally {
                         db.endTransaction();
                     }
+
+                    ServiceSynchronize.eval(context, false, "raw");
+
                     return null;
                 }
 
@@ -4524,6 +4544,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         db.endTransaction();
                                     }
 
+                                    ServiceSynchronize.eval(context, false, "keywords");
+
                                     return null;
                                 }
 
@@ -4583,11 +4605,22 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         String keyword = args.getString("keyword");
 
                                         DB db = DB.getInstance(context);
-                                        EntityMessage message = db.message().getMessage(id);
-                                        if (message == null)
-                                            return null;
+                                        try {
+                                            db.beginTransaction();
 
-                                        EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
+                                            EntityMessage message = db.message().getMessage(id);
+                                            if (message == null)
+                                                return null;
+
+                                            EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
+
+                                            db.setTransactionSuccessful();
+                                        } finally {
+                                            db.endTransaction();
+                                        }
+
+                                        ServiceSynchronize.eval(context, false, "keyword=" + keyword);
+
                                         return null;
                                     }
 

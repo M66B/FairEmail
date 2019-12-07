@@ -92,27 +92,6 @@ public class EntityOperation {
     static final String SEND = "send";
     static final String EXISTS = "exists";
 
-    void cleanup(Context context) {
-        DB db = DB.getInstance(context);
-
-        if (message != null)
-            db.message().setMessageUiHide(message, false);
-
-        if (EntityOperation.MOVE.equals(name) ||
-                EntityOperation.ADD.equals(name) ||
-                EntityOperation.RAW.equals(name))
-            try {
-                JSONArray jargs = new JSONArray(args);
-                long tmpid = jargs.optLong(2, -1);
-                if (tmpid < 0)
-                    return;
-
-                db.message().deleteMessage(tmpid);
-            } catch (JSONException ex) {
-                Log.e(ex);
-            }
-    }
-
     static void queue(Context context, EntityMessage message, String name, Object... values) {
         DB db = DB.getInstance(context);
 
@@ -316,11 +295,6 @@ public class EntityOperation {
             crumb.put("message", Long.toString(op.message));
         crumb.put("free", Integer.toString(Log.getFreeMemMb()));
         Log.breadcrumb("queued", crumb);
-
-        if (SEND.equals(name))
-            ServiceSend.start(context);
-        else
-            ServiceSynchronize.eval(context, false, "operation=" + name);
     }
 
     static void queue(Context context, EntityFolder folder, String name, Object... values) {
@@ -379,8 +353,6 @@ public class EntityOperation {
 
         if (folder.account == null) // Outbox
             ServiceSend.start(context);
-        else if (foreground)
-            ServiceSynchronize.eval(context, false, "sync folder=" + fid);
     }
 
     static void subscribe(Context context, long fid, boolean subscribe) {
@@ -401,6 +373,27 @@ public class EntityOperation {
         operation.id = db.operation().insertOperation(operation);
 
         Log.i("Queued subscribe=" + subscribe + " folder=" + folder);
+    }
+
+    void cleanup(Context context) {
+        DB db = DB.getInstance(context);
+
+        if (message != null)
+            db.message().setMessageUiHide(message, false);
+
+        if (EntityOperation.MOVE.equals(name) ||
+                EntityOperation.ADD.equals(name) ||
+                EntityOperation.RAW.equals(name))
+            try {
+                JSONArray jargs = new JSONArray(args);
+                long tmpid = jargs.optLong(2, -1);
+                if (tmpid < 0)
+                    return;
+
+                db.message().deleteMessage(tmpid);
+            } catch (JSONException ex) {
+                Log.e(ex);
+            }
     }
 
     @Override

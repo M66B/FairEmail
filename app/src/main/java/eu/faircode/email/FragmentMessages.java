@@ -1192,6 +1192,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, false, "refresh");
+
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
@@ -2029,6 +2031,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, false, "seen");
+
                 return null;
             }
 
@@ -2161,6 +2165,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, false, "flag");
 
                 return null;
             }
@@ -3479,6 +3485,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, false, "expand");
+
                 return null;
             }
 
@@ -3617,6 +3625,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, false, "move");
+
                 return null;
             }
 
@@ -3738,6 +3749,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                 } finally {
                                     db.endTransaction();
                                 }
+
+                                ServiceSynchronize.eval(context, false, "move");
                             }
                         }, "messages:movetimeout");
                         thread.setPriority(THREAD_PRIORITY_BACKGROUND);
@@ -4715,6 +4728,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, false, "delete");
+
                 return null;
             }
 
@@ -4750,6 +4765,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, false, "delete");
+
                 return null;
             }
 
@@ -4784,6 +4801,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, false, "move");
 
                 return null;
             }
@@ -4843,6 +4862,9 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                         EntityOperation.queue(context, message, EntityOperation.FLAG, true, color);
                     }
                 });
+
+                ServiceSynchronize.eval(context, false, "flag");
+
                 return null;
             }
 
@@ -4993,6 +5015,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, false, "copy");
 
                 return result;
             }
@@ -5176,6 +5200,8 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, false, "delete");
 
                 return null;
             }

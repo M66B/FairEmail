@@ -171,6 +171,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                 db.endTransaction();
                             }
 
+                            ServiceSynchronize.eval(context, false, "attachment");
+
                             return null;
                         }
 

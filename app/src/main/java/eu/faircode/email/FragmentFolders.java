@@ -57,7 +57,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Collections;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -322,6 +321,7 @@ public class FragmentFolders extends FragmentBase {
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
+                boolean outbox = false;
 
                 DB db = DB.getInstance(context);
                 try {
@@ -333,24 +333,13 @@ public class FragmentFolders extends FragmentBase {
                         for (EntityFolder folder : folders) {
                             EntityOperation.sync(context, folder.id, true);
 
-                            if (folder.account != null) {
+                            if (folder.account == null)
+                                outbox = true;
+                            else {
                                 EntityAccount account = db.account().getAccount(folder.account);
                                 if (account != null && !"connected".equals(account.state))
                                     now = false;
                             }
-                        }
-                    } else {
-                        // Folder list
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean enabled = prefs.getBoolean("enabled", true);
-                        if (enabled)
-                            ServiceSynchronize.eval(context, true, "refresh folders");
-                        else {
-                            List<EntityFolder> folders = db.folder().getSynchronizingFolders(aid);
-                            if (folders.size() > 0)
-                                Collections.sort(folders, folders.get(0).getComparator(context));
-                            for (EntityFolder folder : folders)
-                                EntityOperation.sync(context, folder.id, false);
                         }
                     }
 
@@ -358,6 +347,10 @@ public class FragmentFolders extends FragmentBase {
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, aid > 0, "refresh/folders");
+                if (outbox)
+                    ServiceSend.start(context);
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
@@ -523,6 +516,8 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
+                ServiceSynchronize.eval(context, false, "refresh/folder");
+
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
 
@@ -612,6 +607,8 @@ public class FragmentFolders extends FragmentBase {
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, false, "delete");
 
                 return null;
             }

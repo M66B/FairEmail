@@ -104,9 +104,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     ));
 
     private static final List<String> PREF_RELOAD = Collections.unmodifiableList(Arrays.asList(
-            "metered", "roaming", "rlah",
-            "socks_enabled", "socks_proxy",
-            "subscribed_only", "debug"
+            "metered", "roaming", "rlah", // force reconnect
+            "socks_enabled", "socks_proxy", // force reconnect
+            "subscribed_only", // force folder sync
+            "badge", "unseen_ignored", // force update badge/widget
+            "debug" // force reconnect
     ));
 
     static final int PI_ALARM = 1;
@@ -153,6 +155,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 postValue(result);
             }
         }
+
+        private void postDestroy() {
+            postValue(null);
+        }
     }
 
     @Override
@@ -198,7 +204,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         });
 
-        liveAccountNetworkState.observe(this, new Observer<List<TupleAccountNetworkState>>() {
+        Log.i("### observe");
+        liveAccountNetworkState.observeForever(new Observer<List<TupleAccountNetworkState>>() {
             boolean running = true;
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
             private Map<TupleAccountNetworkState, Core.State> serviceStates = new Hashtable<>();
@@ -206,69 +213,81 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
             @Override
             public void onChanged(List<TupleAccountNetworkState> accountNetworkStates) {
-                if (!running) {
-                    Log.i("### not running");
-                    return;
-                }
+                if (accountNetworkStates == null) {
+                    for (TupleAccountNetworkState prev : serviceStates.keySet())
+                        stop(prev);
 
-                boolean runService = false;
+                    quit();
 
-                int connected = 0;
-                int pending = 0;
-                for (TupleAccountNetworkState current : accountNetworkStates) {
-                    if (current.accountState.shouldRun(current.enabled))
-                        runService = true;
-                    if ("connected".equals(current.accountState.state))
-                        connected++;
-                    pending += current.accountState.operations;
-
-                    int index = accountStates.indexOf(current);
-                    if (index < 0) {
-                        if (current.canRun()) {
-                            Log.i("### new " + current);
-                            start(current, current.accountState.isEnabled(current.enabled));
-                        }
-                    } else {
-                        TupleAccountNetworkState prev = accountStates.get(index);
-                        accountStates.remove(index);
-
-                        Core.State state = serviceStates.get(current);
-                        if (state != null)
-                            state.setNetworkState(current.networkState);
-
-                        // TODO: reload disconnected account on new network available
-                        // !"connected".equals(current.accountState.state))
-
-                        if (current.reload ||
-                                prev.canRun() != current.canRun() ||
-                                !prev.accountState.equals(current.accountState)) {
-                            Log.i("### changed " + current +
-                                    " reload=" + current.reload +
-                                    " run prev=" + prev.canRun() +
-                                    " run cur=" + current.canRun() +
-                                    " changed=" + !prev.accountState.equals(current.accountState));
-                            if (prev.canRun())
-                                stop(prev);
-                            if (current.canRun())
-                                start(current, current.accountState.isEnabled(current.enabled));
-                            if (current.accountState.tbd != null)
-                                delete(current);
-                        }
+                    accountStates.clear();
+                    serviceStates.clear();
+                    liveAccountNetworkState.removeObserver(this);
+                } else {
+                    if (!running) {
+                        Log.i("### not running");
+                        return;
                     }
 
-                    if (current.accountState.tbd == null)
-                        accountStates.add(current);
-                }
+                    int connected = 0;
+                    int pending = 0;
+                    boolean runService = false;
+                    for (TupleAccountNetworkState current : accountNetworkStates) {
+                        if (current.accountState.shouldRun(current.enabled))
+                            runService = true;
+                        if ("connected".equals(current.accountState.state))
+                            connected++;
+                        pending += current.accountState.operations;
 
-                if (accounts != connected || operations != pending) {
-                    accounts = connected;
-                    operations = pending;
-                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                    nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(accounts, operations).build());
-                }
+                        int index = accountStates.indexOf(current);
+                        if (index < 0) {
+                            if (current.canRun()) {
+                                Log.i("### new " + current);
+                                start(current, current.accountState.isEnabled(current.enabled));
+                            }
+                        } else {
+                            TupleAccountNetworkState prev = accountStates.get(index);
+                            accountStates.remove(index);
 
-                if (!runService)
-                    exit();
+                            Core.State state = serviceStates.get(current);
+                            if (state != null)
+                                state.setNetworkState(current.networkState);
+
+                            // TODO: reload disconnected account on new network available
+                            // !"connected".equals(current.accountState.state))
+
+                            if (current.reload ||
+                                    prev.canRun() != current.canRun() ||
+                                    !prev.accountState.equals(current.accountState)) {
+                                Log.i("### changed " + current +
+                                        " reload=" + current.reload +
+                                        " run prev=" + prev.canRun() +
+                                        " run cur=" + current.canRun() +
+                                        " changed=" + !prev.accountState.equals(current.accountState));
+                                if (prev.canRun())
+                                    stop(prev);
+                                if (current.canRun())
+                                    start(current, current.accountState.isEnabled(current.enabled));
+                                if (current.accountState.tbd != null)
+                                    delete(current);
+                            }
+                        }
+
+                        if (current.accountState.tbd == null)
+                            accountStates.add(current);
+                    }
+
+                    if (runService) {
+                        if (accounts != connected || operations != pending) {
+                            accounts = connected;
+                            operations = pending;
+                            NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                            nm.notify(Helper.NOTIFICATION_SYNCHRONIZE, getNotificationService(accounts, operations).build());
+                        }
+                    } else {
+                        running = false;
+                        stopSelf();
+                    }
+                }
             }
 
             private void start(final TupleAccountNetworkState accountNetworkState, boolean sync) {
@@ -359,14 +378,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 });
             }
 
-            private void exit() {
-                EntityLog.log(ServiceSynchronize.this, "Service exit");
+            private void quit() {
+                EntityLog.log(ServiceSynchronize.this, "Service quit");
 
-                running = false;
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        Log.i("### exit");
+                        Log.i("### quit");
 
                         DB db = DB.getInstance(ServiceSynchronize.this);
                         List<EntityOperation> ops = db.operation().getOperations(EntityOperation.SYNC);
@@ -374,7 +392,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             db.folder().setFolderSyncState(op.folder, null);
 
                         stopSelf();
-                        Log.i("### exited");
+                        Log.i("### quited");
                     }
                 });
             }
@@ -523,7 +541,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         cm.unregisterNetworkCallback(networkCallback);
 
-        liveAccountNetworkState.post(new ConnectionHelper.NetworkState());
+        liveAccountNetworkState.postDestroy();
 
         setUnseen(null);
 
@@ -1485,10 +1503,5 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("reset"));
-    }
-
-    static void restart(Context context, String reason) {
-        context.stopService(new Intent(context, ServiceSynchronize.class));
-        eval(context, false, reason);
     }
 }

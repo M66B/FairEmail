@@ -194,6 +194,8 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
+
+        ServiceSynchronize.eval(ServiceUI.this, false, "move");
     }
 
     private void onMove(long id) {
@@ -215,6 +217,8 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
+
+        ServiceSynchronize.eval(ServiceUI.this, false, "move");
     }
 
     private void onReplyDirect(long id, Intent intent) throws IOException {
@@ -273,11 +277,12 @@ public class ServiceUI extends IntentService {
             EntityOperation.queue(this, reply, EntityOperation.SEND);
 
             db.setTransactionSuccessful();
-
-            ToastEx.makeText(this, R.string.title_queued, Toast.LENGTH_LONG).show();
         } finally {
             db.endTransaction();
         }
+
+        ServiceSend.start(ServiceUI.this);
+        ToastEx.makeText(this, R.string.title_queued, Toast.LENGTH_LONG).show();
     }
 
     private void onFlag(long id) {
@@ -303,6 +308,8 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
+
+        ServiceSynchronize.eval(ServiceUI.this, false, "flag");
     }
 
     private void onSeen(long id) {
@@ -320,6 +327,8 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
+
+        ServiceSynchronize.eval(ServiceUI.this, false, "seen");
     }
 
     private void onSnooze(long id) {
@@ -376,6 +385,8 @@ public class ServiceUI extends IntentService {
     }
 
     private void onWakeup(long id) {
+        EntityFolder folder;
+
         DB db = DB.getInstance(this);
         try {
             db.beginTransaction();
@@ -384,7 +395,10 @@ public class ServiceUI extends IntentService {
             if (message == null)
                 return;
 
-            EntityFolder folder = db.folder().getFolder(message.folder);
+            folder = db.folder().getFolder(message.folder);
+            if (folder == null)
+                return;
+
             if (EntityFolder.OUTBOX.equals(folder.type)) {
                 Log.i("Delayed send id=" + message.id);
                 db.message().setMessageSnoozed(message.id, null);
@@ -407,6 +421,11 @@ public class ServiceUI extends IntentService {
         } finally {
             db.endTransaction();
         }
+
+        if (EntityFolder.OUTBOX.equals(folder.type))
+            ServiceSend.start(ServiceUI.this);
+        else
+            ServiceSynchronize.eval(ServiceUI.this, false, "wakeup");
     }
 
     private void onDaily() {

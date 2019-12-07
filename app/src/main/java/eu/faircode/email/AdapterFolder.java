@@ -595,6 +595,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             boolean subscribed = args.getBoolean("subscribed");
 
                             EntityOperation.subscribe(context, id, subscribed);
+                            ServiceSynchronize.eval(context, false, "subscribed=" + subscribed);
 
                             return null;
                         }

@@ -461,14 +461,16 @@ public class ServiceSend extends ServiceBase {
                     EntityOperation.queue(this, orphan, EntityOperation.EXISTS);
                 }
 
+                // Reset identity
+                db.identity().setIdentityConnected(ident.id, new Date().getTime());
+                db.identity().setIdentityError(ident.id, null);
+
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();
             }
 
-            // Reset identity
-            db.identity().setIdentityConnected(ident.id, new Date().getTime());
-            db.identity().setIdentityError(ident.id, null);
+            ServiceSynchronize.eval(ServiceSend.this, false, "sent");
 
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.cancel("send:" + message.identity, 1);

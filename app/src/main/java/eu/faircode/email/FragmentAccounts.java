@@ -313,6 +313,7 @@ public class FragmentAccounts extends FragmentBase {
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 boolean now = true;
+                boolean outbox = false;
 
                 DB db = DB.getInstance(context);
                 try {
@@ -323,7 +324,9 @@ public class FragmentAccounts extends FragmentBase {
                     for (EntityFolder folder : folders) {
                         EntityOperation.sync(context, folder.id, true);
 
-                        if (folder.account != null) {
+                        if (folder.account == null)
+                            outbox = true;
+                        else {
                             EntityAccount account = db.account().getAccount(folder.account);
                             if (account != null && !"connected".equals(account.state))
                                 now = false;
@@ -334,6 +337,10 @@ public class FragmentAccounts extends FragmentBase {
                 } finally {
                     db.endTransaction();
                 }
+
+                ServiceSynchronize.eval(context, false, "refresh/accounts");
+                if (outbox)
+                    ServiceSend.start(context);
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
