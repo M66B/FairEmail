@@ -46,17 +46,17 @@ import java.util.Set;
  * {@link SelectionPredicate#canSelectMultiple()}.
  *
  * @param <K> Selection key type. @see {@link StorageStrategy} for supported types.
- *
  * @hide
  */
 @RestrictTo(LIBRARY)
-public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
+@SuppressWarnings("unchecked")
+public class DefaultSelectionTracker<K> extends SelectionTracker<K> implements Resettable {
 
     private static final String TAG = "DefaultSelectionTracker";
     private static final String EXTRA_SELECTION_PREFIX = "androidx.recyclerview.selection";
 
     private final Selection<K> mSelection = new Selection<>();
-    private final List<SelectionObserver> mObservers = new ArrayList<>(1);
+    private final List<SelectionObserver<K>> mObservers = new ArrayList<>(1);
     private final ItemKeyProvider<K> mKeyProvider;
     private final SelectionPredicate<K> mSelectionPredicate;
     private final StorageStrategy<K> mStorage;
@@ -70,16 +70,16 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
     /**
      * Creates a new instance.
      *
-     * @param selectionId A unique string identifying this selection in the context
-     *        of the activity or fragment.
-     * @param keyProvider client supplied class providing access to stable ids.
+     * @param selectionId        A unique string identifying this selection in the context
+     *                           of the activity or fragment.
+     * @param keyProvider        client supplied class providing access to stable ids.
      * @param selectionPredicate A predicate allowing the client to disallow selection
-     * @param storage Strategy for storing typed selection in bundle.
+     * @param storage            Strategy for storing typed selection in bundle.
      */
     public DefaultSelectionTracker(
             @NonNull String selectionId,
-            @NonNull ItemKeyProvider keyProvider,
-            @NonNull SelectionPredicate selectionPredicate,
+            @NonNull ItemKeyProvider<K> keyProvider,
+            @NonNull SelectionPredicate<K> selectionPredicate,
             @NonNull StorageStrategy<K> storage) {
 
         checkArgument(selectionId != null);
@@ -101,23 +101,26 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
     }
 
     @Override
-    public void addObserver(@NonNull SelectionObserver callback) {
+    public void addObserver(@NonNull SelectionObserver<K> callback) {
         checkArgument(callback != null);
         mObservers.add(callback);
     }
 
+    /**
+     * @return true if there is a primary or previsional selection.
+     */
     @Override
     public boolean hasSelection() {
         return !mSelection.isEmpty();
     }
 
     @Override
-    public Selection getSelection() {
+    public @NonNull Selection<K> getSelection() {
         return mSelection;
     }
 
     @Override
-    public void copySelection(@NonNull MutableSelection dest) {
+    public void copySelection(@NonNull MutableSelection<K> dest) {
         dest.copyFrom(mSelection);
     }
 
@@ -127,7 +130,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
     }
 
     @Override
-    protected void restoreSelection(@NonNull Selection other) {
+    protected void restoreSelection(@NonNull Selection<K> other) {
         checkArgument(other != null);
         setItemsSelectedQuietly(other.mSelection, true);
         // NOTE: We intentionally don't restore provisional selection. It's provisional.
@@ -143,7 +146,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
 
     private boolean setItemsSelectedQuietly(@NonNull Iterable<K> keys, boolean selected) {
         boolean changed = false;
-        for (K key: keys) {
+        for (K key : keys) {
             boolean itemChanged = selected
                     ? canSetState(key, true) && mSelection.add(key)
                     : canSetState(key, false) && mSelection.remove(key);
@@ -158,11 +161,15 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
     @Override
     public boolean clearSelection() {
         if (!hasSelection()) {
+            if (DEBUG) Log.d(TAG, "Ignoring clearSelection request. No selection.");
             return false;
         }
+        if (DEBUG) Log.d(TAG, "Handling clearSelection request.");
 
         clearProvisionalSelection();
         clearPrimarySelection();
+        notifySelectionCleared();
+
         return true;
     }
 
@@ -171,7 +178,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
             return;
         }
 
-        Selection prev = clearSelectionQuietly();
+        Selection<K> prev = clearSelectionQuietly();
         notifySelectionCleared(prev);
         notifySelectionChanged();
     }
@@ -181,16 +188,28 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
      * Returns items in previous selection. Callers are responsible for notifying
      * listeners about changes.
      */
-    private Selection clearSelectionQuietly() {
+    private Selection<K> clearSelectionQuietly() {
         mRange = null;
 
-        MutableSelection prevSelection = new MutableSelection();
+        MutableSelection<K> prevSelection = new MutableSelection();
         if (hasSelection()) {
             copySelection(prevSelection);
             mSelection.clear();
         }
 
         return prevSelection;
+    }
+
+    @Override
+    public void reset() {
+        if (DEBUG) Log.d(TAG, "Received reset request.");
+        clearSelection();
+        mRange = null;
+    }
+
+    @Override
+    public boolean isResetRequired() {
+        return hasSelection() || isRangeActive();
     }
 
     @Override
@@ -208,7 +227,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
 
         // Enforce single selection policy.
         if (mSingleSelect && hasSelection()) {
-            Selection prev = clearSelectionQuietly();
+            Selection<K> prev = clearSelectionQuietly();
             notifySelectionCleared(prev);
         }
 
@@ -277,8 +296,10 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
             return;
         }
 
-        if (DEBUG) Log.i(TAG, "Extending provision range to position: " + position);
-        checkState(isRangeActive(), "Range start point not set.");
+        if (DEBUG) {
+            Log.i(TAG, "Extending provision range to position: " + position);
+            checkState(isRangeActive(), "Range start point not set.");
+        }
         extendRange(position, Range.TYPE_PROVISIONAL);
     }
 
@@ -291,13 +312,23 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
      * point before calling on {@link #endRange()}.
      *
      * @param position The new end position for the selection range.
-     * @param type The type of selection the range should utilize.
+     * @param type     The type of selection the range should utilize.
      */
     private void extendRange(int position, @RangeType int type) {
-        checkState(isRangeActive(), "Range start point not set.");
+        if (!isRangeActive()) {
+            Log.e(TAG, "Ignoring attempt to extend unestablished range. Ignoring.");
+            if (DEBUG) {
+                throw new IllegalStateException("Attempted to extend unestablished range.");
+            }
+            return;
+        }
 
         if (position == RecyclerView.NO_POSITION) {
-            Log.w(TAG, "Invalid position: Cannot extend selection to: " + position);
+            Log.w(TAG, "Ignoring attempt to extend range to invalid position: " + position);
+            if (DEBUG) {
+                throw new IllegalStateException(
+                        "Attempting to extend range to invalid position: " + position);
+            }
             return;
         }
 
@@ -316,7 +347,7 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
         }
 
         Map<K, Boolean> delta = mSelection.setProvisionalSelection(newSelection);
-        for (Map.Entry<K, Boolean> entry: delta.entrySet()) {
+        for (Map.Entry<K, Boolean> entry : delta.entrySet()) {
             notifyItemStateChanged(entry.getKey(), entry.getValue());
         }
 
@@ -348,20 +379,16 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
         return mRange != null;
     }
 
-    boolean isOverlapping(int position, int count) {
-        return (mRange != null && mRange.isOverlapping(position, count));
-    }
-
     private boolean canSetState(@NonNull K key, boolean nextState) {
         return mSelectionPredicate.canSetStateForKey(key, nextState);
     }
 
     @Override
-    protected AdapterDataObserver getAdapterDataObserver() {
+    protected @NonNull AdapterDataObserver getAdapterDataObserver() {
         return mAdapterObserver;
     }
 
-    @SuppressWarnings("WeakerAccess") /* synthetic access */
+    @SuppressWarnings({"WeakerAccess", "unchecked"}) /* synthetic access */
     void onDataSetChanged() {
         mSelection.clearProvisionalSelection();
 
@@ -409,11 +436,17 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
         }
     }
 
+    private void notifySelectionCleared() {
+        for (SelectionObserver<K> observer : mObservers) {
+            observer.onSelectionCleared();
+        }
+    }
+
     private void notifySelectionCleared(@NonNull Selection<K> selection) {
-        for (K key: selection.mSelection) {
+        for (K key : selection.mSelection) {
             notifyItemStateChanged(key, false);
         }
-        for (K key: selection.mProvisionalSelection) {
+        for (K key : selection.mProvisionalSelection) {
             notifyItemStateChanged(key, false);
         }
     }
@@ -442,19 +475,6 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
         int lastListenerIndex = mObservers.size() - 1;
         for (int i = lastListenerIndex; i >= 0; i--) {
             mObservers.get(i).onSelectionRefresh();
-        }
-    }
-
-    private void updateForRange(int begin, int end, boolean selected, @RangeType int type) {
-        switch (type) {
-            case Range.TYPE_PRIMARY:
-                updateForRegularRange(begin, end, selected);
-                break;
-            case Range.TYPE_PROVISIONAL:
-                updateForProvisionalRange(begin, end, selected);
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid range type: " + type);
         }
     }
 
@@ -514,7 +534,6 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public final void onSaveInstanceState(@NonNull Bundle state) {
         if (mSelection.isEmpty()) {
             return;
@@ -582,21 +601,17 @@ public class DefaultSelectionTracker<K> extends SelectionTracker<K> {
 
         @Override
         public void onItemRangeInserted(int startPosition, int itemCount) {
-            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
-                mSelectionTracker.endRange();
+            mSelectionTracker.endRange();
         }
 
         @Override
         public void onItemRangeRemoved(int startPosition, int itemCount) {
-            if (mSelectionTracker.isOverlapping(startPosition, itemCount))
-                mSelectionTracker.endRange();
+            mSelectionTracker.endRange();
         }
 
         @Override
         public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-            if (mSelectionTracker.isOverlapping(fromPosition, itemCount) ||
-                    mSelectionTracker.isOverlapping(toPosition, itemCount))
-                mSelectionTracker.endRange();
+            mSelectionTracker.endRange();
         }
     }
 }

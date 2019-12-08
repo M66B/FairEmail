@@ -44,10 +44,10 @@ import androidx.recyclerview.widget.RecyclerView;
  *       mRecyclerView = recyclerView;
  *   }
  *
- *   public ItemDetails<Uri> getItemDetails(MotionEvent e) {
- *       View view = mRecView.findChildViewUnder(e.getX(), e.getY());
+ *   public @Nullable ItemDetails<Uri> getItemDetails(@NonNull MotionEvent e) {
+ *       View view = mRecyclerView.findChildViewUnder(e.getX(), e.getY());
  *       if (view != null) {
- *           ViewHolder holder = mRecView.getChildViewHolder(view);
+ *           ViewHolder holder = mRecyclerView.getChildViewHolder(view);
  *           if (holder instanceof MyHolder) {
  *               return ((MyHolder) holder).getItemDetails();
  *           }
@@ -108,10 +108,6 @@ public abstract class ItemDetailsLookup<K> {
 
     private static boolean hasSelectionKey(@Nullable ItemDetails<?> item) {
         return item != null && item.getSelectionKey() != null;
-    }
-
-    private static boolean hasPosition(@Nullable ItemDetails<?> item) {
-        return item != null && item.getPosition() != RecyclerView.NO_POSITION;
     }
 
     /**
@@ -241,10 +237,10 @@ public abstract class ItemDetailsLookup<K> {
         @Override
         public boolean equals(@Nullable Object obj) {
             return (obj instanceof ItemDetails)
-                    && isEqualTo((ItemDetails) obj);
+                    && isEqualTo((ItemDetails<?>) obj);
         }
 
-        private boolean isEqualTo(@NonNull ItemDetails other) {
+        private boolean isEqualTo(@NonNull ItemDetails<?> other) {
             K key = getSelectionKey();
             boolean sameKeys = false;
             if (key == null) {

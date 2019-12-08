@@ -1,34 +1,34 @@
 diff --git a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
-index 76087ea4..121fbd14 100644
+index 50cc4ceb7..910935a0a 100644
 --- a/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
 +++ b/app/src/main/java/androidx/recyclerview/selection/SelectionTracker.java
-@@ -488,7 +488,7 @@ public abstract class SelectionTracker<K> {
+@@ -503,7 +503,7 @@ public abstract class SelectionTracker<K> {
          private OnContextClickListener mOnContextClickListener;
  
          private BandPredicate mBandPredicate;
 -        private int mBandOverlayId = R.drawable.selection_band_overlay;
 +        private int mBandOverlayId = eu.faircode.email.R.drawable.selection_band_overlay;
  
-         private int[] mGestureToolTypes = new int[] {
-                 MotionEvent.TOOL_TYPE_FINGER,
-@@ -766,7 +766,11 @@ public abstract class SelectionTracker<K> {
+         // TODO(b/144500333): Remove support for overriding gesture and pointer tooltypes.
+         private int[] mGestureToolTypes = new int[]{
+@@ -815,7 +815,11 @@ public abstract class SelectionTracker<K> {
                          @Override
                          public void run() {
                              if (mSelectionPredicate.canSelectMultiple()) {
 -                                gestureHelper.start();
 +                                try {
 +                                    gestureHelper.start();
-+                                } catch (IllegalStateException ex) {
-+                                    ex.printStackTrace();
++                                } catch (Throwable ex) {
++                                    eu.faircode.email.Log.e(ex);
 +                                }
                              }
                          }
                      },
 diff --git a/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java b/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
-index d82812cc..48db78ec 100644
+index be4c3fa0b..c434ced07 100644
 --- a/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
 +++ b/app/src/main/java/androidx/recyclerview/selection/TouchInputHandler.java
-@@ -107,6 +107,11 @@ final class TouchInputHandler<K> extends MotionInputHandler<K> {
+@@ -112,6 +112,11 @@ final class TouchInputHandler<K> extends MotionInputHandler<K> {
      }
  
      @Override
@@ -38,5 +38,5 @@ index d82812cc..48db78ec 100644
 +
 +    @Override
      public void onLongPress(@NonNull MotionEvent e) {
-         if (!mDetailsLookup.overItemWithSelectionKey(e)) {
-             if (DEBUG) Log.d(TAG, "Ignoring LongPress on non-model-backed item.");
+         if (DEBUG) {
+             checkArgument(MotionEvents.isFingerEvent(e));

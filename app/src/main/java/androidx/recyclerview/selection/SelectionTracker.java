@@ -22,6 +22,7 @@ import static androidx.core.util.Preconditions.checkArgument;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
@@ -89,12 +90,14 @@ import java.util.Set;
  */
 public abstract class SelectionTracker<K> {
 
+    private static final String TAG = "SelectionTracker";
+
     /**
      * This value is included in the payload when SelectionTracker notifies RecyclerView
      * of changes to selection. Look for this value in the {@code payload}
      * Object argument supplied to
      * {@link RecyclerView.Adapter#onBindViewHolder
-     *     Adapter#onBindViewHolder}.
+     * Adapter#onBindViewHolder}.
      * If present the call is occurring in response to a selection state change.
      * This would be a good opportunity to animate changes between unselected and selected state.
      * When state is being restored, this argument will not be present.
@@ -110,7 +113,7 @@ public abstract class SelectionTracker<K> {
      * may use an observer to control the enabled status of menu items,
      * or to initiate {@link android.view.ActionMode}.
      */
-    public abstract void addObserver(SelectionObserver observer);
+    public abstract void addObserver(@NonNull SelectionObserver<K> observer);
 
     /** @return true if has a selection */
     public abstract boolean hasSelection();
@@ -123,7 +126,7 @@ public abstract class SelectionTracker<K> {
      * of the selection that will not reflect future changes
      * to selection.
      */
-    public abstract Selection<K> getSelection();
+    public abstract @NonNull Selection<K> getSelection();
 
     /**
      * Updates {@code dest} to reflect the current selection.
@@ -144,9 +147,8 @@ public abstract class SelectionTracker<K> {
      * This affords clients the ability to restore selection from selection saved
      * in Activity state.
      *
-     * @see StorageStrategy details on selection state support.
-     *
      * @param selection selection being restored.
+     * @see StorageStrategy details on selection state support.
      */
     protected abstract void restoreSelection(@NonNull Selection<K> selection);
 
@@ -181,7 +183,7 @@ public abstract class SelectionTracker<K> {
 
     /** @hide */
     @RestrictTo(LIBRARY)
-    protected abstract AdapterDataObserver getAdapterDataObserver();
+    protected abstract @NonNull AdapterDataObserver getAdapterDataObserver();
 
     /**
      * Attempts to establish a range selection at {@code position}, selecting the item
@@ -203,9 +205,9 @@ public abstract class SelectionTracker<K> {
      * (see {@link #isRangeActive()}. Items in the range [anchor, end] will be
      * selected after consulting SelectionPredicate.
      *
-     * @param position  The new end position for the selection range.
+     * @param position The new end position for the selection range.
      * @throws IllegalStateException if a range selection is not active. Range selection
-     *         must have been started by a call to {@link #startRange(int)}.
+     *                               must have been started by a call to {@link #startRange(int)}.
      * @hide
      */
     @RestrictTo(LIBRARY)
@@ -215,6 +217,7 @@ public abstract class SelectionTracker<K> {
      * Clears an in-progress range selection. Provisional range selection established
      * using {@link #extendProvisionalRange(int)} will be cleared (unless
      * {@link #mergeProvisionalSelection()} is called first.)
+     *
      * @hide
      */
     @RestrictTo(LIBRARY)
@@ -251,7 +254,7 @@ public abstract class SelectionTracker<K> {
 
     /**
      * Sets the provisional selection, replacing any existing selection.
-     * @param newSelection
+     *
      * @hide
      */
     @RestrictTo(LIBRARY)
@@ -259,6 +262,7 @@ public abstract class SelectionTracker<K> {
 
     /**
      * Clears any existing provisional selection
+     *
      * @hide
      */
     @RestrictTo(LIBRARY)
@@ -267,6 +271,7 @@ public abstract class SelectionTracker<K> {
     /**
      * Converts the provisional selection into primary selection, then clears
      * provisional selection.
+     *
      * @hide
      */
     @RestrictTo(LIBRARY)
@@ -298,6 +303,16 @@ public abstract class SelectionTracker<K> {
          * Called when the state of an item has been changed.
          */
         public void onItemStateChanged(@NonNull K key, boolean selected) {
+        }
+
+        /**
+         * Called when Selection is cleared.
+         * TODO(smckay): Make public in a future public API.
+         *
+         * @hide
+         */
+        @RestrictTo(LIBRARY)
+        protected void onSelectionCleared() {
         }
 
         /**
@@ -338,7 +353,7 @@ public abstract class SelectionTracker<K> {
         /**
          * Validates a change to selection for a specific key.
          *
-         * @param key the item key
+         * @param key       the item key
          * @param nextState the next potential selected/unselected state
          * @return true if the item at {@code id} can be set to {@code nextState}.
          */
@@ -348,7 +363,7 @@ public abstract class SelectionTracker<K> {
          * Validates a change to selection for a specific position. If necessary
          * use {@link ItemKeyProvider} to identy associated key.
          *
-         * @param position the item position
+         * @param position  the item position
          * @param nextState the next potential selected/unselected state
          * @return true if the item at {@code id} can be set to {@code nextState}.
          */
@@ -384,7 +399,7 @@ public abstract class SelectionTracker<K> {
      *        new MyDetailsLookup(recyclerView),
      *        StorageStrategy.createParcelableStorage(Uri.class))
      *        .build();
-     *</pre>
+     * </pre>
      *
      * <p>
      * <b>Restricting which items can be selected and limiting selection size</b>
@@ -399,14 +414,14 @@ public abstract class SelectionTracker<K> {
      * by supplying {@link SelectionPredicates#createSelectSingleAnything()}.
      *
      * SelectionTracker<String> tracker = new SelectionTracker.Builder<>(
-     *        "my-string-selection",
-     *        recyclerView,
-     *        new DemoStableIdProvider(recyclerView.getAdapter()),
-     *        new MyDetailsLookup(recyclerView),
-     *        StorageStrategy.createStringStorage())
-     *        .withSelectionPredicate(SelectionPredicates#createSelectSingleAnything())
-     *        .build();
-     *</pre>
+     * "my-string-selection",
+     * recyclerView,
+     * new DemoStableIdProvider(recyclerView.getAdapter()),
+     * new MyDetailsLookup(recyclerView),
+     * StorageStrategy.createStringStorage())
+     * .withSelectionPredicate(SelectionPredicates#createSelectSingleAnything())
+     * .build();
+     * </pre>
      * <p>
      * <b>Retaining state across Android lifecycle events</b>
      *
@@ -447,25 +462,25 @@ public abstract class SelectionTracker<K> {
      * private SelectionTracker<Uri> mTracker;
      *
      * public void onCreate(Bundle savedInstanceState) {
-     *   // See above for details on constructing a SelectionTracker instance.
+     * // See above for details on constructing a SelectionTracker instance.
      *
-     *   if (savedInstanceState != null) {
-     *      mTracker.onRestoreInstanceState(savedInstanceState);
-     *   }
+     * if (savedInstanceState != null) {
+     * mTracker.onRestoreInstanceState(savedInstanceState);
+     * }
      * }
      *
      * protected void onSaveInstanceState(Bundle outState) {
-     *     super.onSaveInstanceState(outState);
-     *     mTracker.onSaveInstanceState(outState);
+     * super.onSaveInstanceState(outState);
+     * mTracker.onSaveInstanceState(outState);
      * }
      * </pre>
      *
      * @param <K> Selection key type. Built in support is provided for {@link String},
-     *           {@link Long}, and {@link Parcelable}. {@link StorageStrategy}
-     *           provides factory methods for each type:
-     *           {@link StorageStrategy#createStringStorage()},
-     *           {@link StorageStrategy#createParcelableStorage(Class)},
-     *           {@link StorageStrategy#createLongStorage()}
+     *            {@link Long}, and {@link Parcelable}. {@link StorageStrategy}
+     *            provides factory methods for each type:
+     *            {@link StorageStrategy#createStringStorage()},
+     *            {@link StorageStrategy#createParcelableStorage(Class)},
+     *            {@link StorageStrategy#createLongStorage()}
      */
     public static final class Builder<K> {
 
@@ -490,12 +505,12 @@ public abstract class SelectionTracker<K> {
         private BandPredicate mBandPredicate;
         private int mBandOverlayId = eu.faircode.email.R.drawable.selection_band_overlay;
 
-        private int[] mGestureToolTypes = new int[] {
-                MotionEvent.TOOL_TYPE_FINGER,
-                MotionEvent.TOOL_TYPE_UNKNOWN
+        // TODO(b/144500333): Remove support for overriding gesture and pointer tooltypes.
+        private int[] mGestureToolTypes = new int[]{
+                MotionEvent.TOOL_TYPE_FINGER
         };
 
-        private int[] mPointerToolTypes = new int[] {
+        private int[] mPointerToolTypes = new int[]{
                 MotionEvent.TOOL_TYPE_MOUSE
         };
 
@@ -503,13 +518,13 @@ public abstract class SelectionTracker<K> {
          * Creates a new SelectionTracker.Builder useful for configuring and creating
          * a new SelectionTracker for use with your {@link RecyclerView}.
          *
-         * @param selectionId A unique string identifying this selection in the context
-         *        of the activity or fragment.
-         * @param recyclerView the owning RecyclerView
-         * @param keyProvider the source of selection keys
+         * @param selectionId   A unique string identifying this selection in the context
+         *                      of the activity or fragment.
+         * @param recyclerView  the owning RecyclerView
+         * @param keyProvider   the source of selection keys
          * @param detailsLookup the source of information about RecyclerView items.
-         * @param storage Strategy for type-safe storage of selection state in
-         *        {@link Bundle}.
+         * @param storage       Strategy for type-safe storage of selection state in
+         *                      {@link Bundle}.
          */
         public Builder(
                 @NonNull String selectionId,
@@ -545,7 +560,7 @@ public abstract class SelectionTracker<K> {
          * @param predicate the predicate to be used.
          * @return this
          */
-        public Builder<K> withSelectionPredicate(
+        public @NonNull Builder<K> withSelectionPredicate(
                 @NonNull SelectionPredicate<K> predicate) {
 
             checkArgument(predicate != null);
@@ -560,7 +575,7 @@ public abstract class SelectionTracker<K> {
          * @param monitor the monitor to be used
          * @return this
          */
-        public Builder<K> withOperationMonitor(
+        public @NonNull Builder<K> withOperationMonitor(
                 @NonNull OperationMonitor monitor) {
 
             checkArgument(monitor != null);
@@ -574,7 +589,7 @@ public abstract class SelectionTracker<K> {
          * @param delegate the delegate to be used
          * @return this
          */
-        public Builder<K> withFocusDelegate(@NonNull FocusDelegate<K> delegate) {
+        public @NonNull Builder<K> withFocusDelegate(@NonNull FocusDelegate<K> delegate) {
             checkArgument(delegate != null);
             mFocusDelegate = delegate;
             return this;
@@ -586,7 +601,7 @@ public abstract class SelectionTracker<K> {
          * @param listener the listener to be used
          * @return this
          */
-        public Builder<K> withOnItemActivatedListener(
+        public @NonNull Builder<K> withOnItemActivatedListener(
                 @NonNull OnItemActivatedListener<K> listener) {
 
             checkArgument(listener != null);
@@ -601,7 +616,7 @@ public abstract class SelectionTracker<K> {
          * @param listener the listener to be used
          * @return this
          */
-        public Builder<K> withOnContextClickListener(
+        public @NonNull Builder<K> withOnContextClickListener(
                 @NonNull OnContextClickListener listener) {
 
             checkArgument(listener != null);
@@ -616,7 +631,7 @@ public abstract class SelectionTracker<K> {
          * @param listener the listener to be used
          * @return this
          */
-        public Builder<K> withOnDragInitiatedListener(
+        public @NonNull Builder<K> withOnDragInitiatedListener(
                 @NonNull OnDragInitiatedListener listener) {
 
             checkArgument(listener != null);
@@ -627,12 +642,17 @@ public abstract class SelectionTracker<K> {
 
         /**
          * Replaces default tap and gesture tool-types. Defaults are:
-         * {@link MotionEvent#TOOL_TYPE_FINGER} and {@link MotionEvent#TOOL_TYPE_UNKNOWN}.
+         * {@link MotionEvent#TOOL_TYPE_FINGER}.
          *
          * @param toolTypes the tool types to be used
          * @return this
+         *
+         * @deprecated GestureSelection is best bound to {@link MotionEvent#TOOL_TYPE_FINGER},
+         * and only that tool type. This method will be removed in a future release.
          */
-        public Builder<K> withGestureTooltypes(int... toolTypes) {
+        @Deprecated
+        public @NonNull Builder<K> withGestureTooltypes(@NonNull int... toolTypes) {
+            Log.w(TAG, "Setting gestureTooltypes is likely to result in unexpected behavior.");
             mGestureToolTypes = toolTypes;
             return this;
         }
@@ -640,22 +660,19 @@ public abstract class SelectionTracker<K> {
         /**
          * Replaces default band overlay.
          *
-         * @param bandOverlayId
          * @return this
          */
-        public Builder<K> withBandOverlay(@DrawableRes int bandOverlayId) {
+        public @NonNull Builder<K> withBandOverlay(@DrawableRes int bandOverlayId) {
             mBandOverlayId = bandOverlayId;
             return this;
         }
 
         /**
          * Replaces default band predicate.
-         * @param bandPredicate
+         *
          * @return this
          */
-        public Builder<K> withBandPredicate(@NonNull BandPredicate bandPredicate) {
-            checkArgument(bandPredicate != null);
-
+        public @NonNull Builder<K> withBandPredicate(@NonNull BandPredicate bandPredicate) {
             mBandPredicate = bandPredicate;
             return this;
         }
@@ -668,8 +685,13 @@ public abstract class SelectionTracker<K> {
          *
          * @param toolTypes the tool types to be used
          * @return this
+         *
+         * @deprecated PointerSelection is best bound to {@link MotionEvent#TOOL_TYPE_MOUSE},
+         * and only that tool type. This method will be removed in a future release.
          */
-        public Builder<K> withPointerTooltypes(int... toolTypes) {
+        @Deprecated
+        public @NonNull Builder<K> withPointerTooltypes(@NonNull int... toolTypes) {
+            Log.w(TAG, "Setting pointerTooltypes is likely to result in unexpected behavior.");
             mPointerToolTypes = toolTypes;
             return this;
         }
@@ -679,9 +701,9 @@ public abstract class SelectionTracker<K> {
          *
          * @return this
          */
-        public SelectionTracker<K> build() {
+        public @NonNull SelectionTracker<K> build() {
 
-            SelectionTracker<K> tracker = new DefaultSelectionTracker<>(
+            DefaultSelectionTracker<K> tracker = new DefaultSelectionTracker<>(
                     mSelectionId, mKeyProvider, mSelectionPredicate, mStorage);
 
             // Event glue between RecyclerView and SelectionTracker keeps the classes separate
@@ -689,6 +711,8 @@ public abstract class SelectionTracker<K> {
             // represent the same data in different ways.
             EventBridge.install(mAdapter, tracker, mKeyProvider);
 
+            // Scroller is stateful and can be reset, but we don't manage it directly.
+            // GestureSelectionHelper will reset scroller when it is reset.
             AutoScroller scroller =
                     new ViewAutoScroller(ViewAutoScroller.createScrollHost(mRecyclerView));
 
@@ -698,14 +722,10 @@ public abstract class SelectionTracker<K> {
 
             // GestureRouter is responsible for routing GestureDetector events
             // to tool-type specific handlers.
-            GestureRouter<MotionInputHandler> gestureRouter = new GestureRouter<>();
-            GestureDetector gestureDetector = new GestureDetector(mContext, gestureRouter);
+            GestureRouter<MotionInputHandler<K>> gestureRouter = new GestureRouter<>();
 
-            // TouchEventRouter takes its name from RecyclerView#OnItemTouchListener.
-            // Despite "Touch" being in the name, it receives events for all types of tools.
-            // This class is responsible for routing events to tool-type specific handlers,
-            // and if not handled by a handler, on to a GestureDetector for analysis.
-            TouchEventRouter eventRouter = new TouchEventRouter(gestureDetector);
+            // GestureDetector cancels itself in response to ACTION_CANCEL events.
+            GestureDetector gestureDetector = new GestureDetector(mContext, gestureRouter);
 
             // GestureSelectionHelper provides logic that interprets a combination
             // of motions and gestures in order to provide gesture driven selection support
@@ -713,8 +733,37 @@ public abstract class SelectionTracker<K> {
             final GestureSelectionHelper gestureHelper = GestureSelectionHelper.create(
                     tracker, mSelectionPredicate, mRecyclerView, scroller, mMonitor);
 
-            // Finally hook the framework up to listening to recycle view events.
+            // EventRouter receives events for RecyclerView, dispatching to handlers
+            // registered by tool-type.
+            EventRouter eventRouter = new EventRouter();
+
+            // Finally hook the framework up to listening to RecycleView events.
             mRecyclerView.addOnItemTouchListener(eventRouter);
+            mRecyclerView.addOnItemTouchListener(
+                    new GestureDetectorOnItemTouchListenerAdapter(gestureDetector));
+
+            // Reset manager listens for cancel events from RecyclerView. In response to that it
+            // advises other classes it is time to reset state.
+            ResetManager<K> resetMgr = new ResetManager<>();
+
+            // Register ResetManager to:
+            //
+            // 1. Monitor selection reset which can be invoked by clients in response
+            //    to back key press and some application lifecycle events.
+            //
+            // 2. Monitor ACTION_CANCEL events (which arrive exclusively
+            // via TOOL_TYPE_UNKNOWN).
+            tracker.addObserver(resetMgr.getSelectionObserver());
+
+            // CAUTION! Registering resetMgr directly with RecyclerView#addOnItemTouchListener
+            // will not work as expected. Once EventRouter returns true, RecyclerView will
+            // no longer dispatch any events to other listeners for the duration of the
+            // stream, not even ACTION_CANCEL events.
+            eventRouter.set(MotionEvent.TOOL_TYPE_UNKNOWN, resetMgr.getInputListener());
+
+            resetMgr.addResetHandler(tracker);
+            resetMgr.addResetHandler(mMonitor.asResettable());
+            resetMgr.addResetHandler(gestureHelper);
 
             // But before you move on, there's more work to do. Event plumbing has been
             // installed, but we haven't registered any of our helpers or callbacks.
@@ -757,7 +806,7 @@ public abstract class SelectionTracker<K> {
 
             // Provides high level glue for binding touch events
             // and gestures to selection framework.
-            TouchInputHandler<K> touchHandler = new TouchInputHandler<K>(
+            TouchInputHandler<K> touchHandler = new TouchInputHandler<>(
                     tracker,
                     mKeyProvider,
                     mDetailsLookup,
@@ -768,8 +817,8 @@ public abstract class SelectionTracker<K> {
                             if (mSelectionPredicate.canSelectMultiple()) {
                                 try {
                                     gestureHelper.start();
-                                } catch (IllegalStateException ex) {
-                                    eu.faircode.email.Log.w(ex);
+                                } catch (Throwable ex) {
+                                    eu.faircode.email.Log.e(ex);
                                 }
                             }
                         }
@@ -786,7 +835,7 @@ public abstract class SelectionTracker<K> {
 
             for (int toolType : mGestureToolTypes) {
                 gestureRouter.register(toolType, touchHandler);
-                eventRouter.register(toolType, gestureHelper);
+                eventRouter.set(toolType, gestureHelper);
             }
 
             // Provides high level glue for binding mouse events and gestures
@@ -803,7 +852,7 @@ public abstract class SelectionTracker<K> {
                 gestureRouter.register(toolType, mouseHandler);
             }
 
-            @Nullable BandSelectionHelper bandHelper = null;
+            @Nullable BandSelectionHelper<K> bandHelper = null;
 
             // Band selection not supported in single select mode, or when key access
             // is limited to anything less than the entire corpus.
@@ -824,14 +873,14 @@ public abstract class SelectionTracker<K> {
                         mBandPredicate,
                         mFocusDelegate,
                         mMonitor);
+
+                resetMgr.addResetHandler(bandHelper);
             }
 
             OnItemTouchListener pointerEventHandler = new PointerDragEventInterceptor(
                     mDetailsLookup, mOnDragInitiatedListener, bandHelper);
 
-            for (int toolType : mPointerToolTypes) {
-                eventRouter.register(toolType, pointerEventHandler);
-            }
+            eventRouter.set(MotionEvent.TOOL_TYPE_MOUSE, pointerEventHandler);
 
             return tracker;
         }

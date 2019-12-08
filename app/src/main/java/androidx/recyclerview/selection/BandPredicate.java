@@ -40,7 +40,7 @@ public abstract class BandPredicate {
     /**
      * @return true if band selection can be initiated in response to the {@link MotionEvent}.
      */
-    public abstract boolean canInitiate(MotionEvent e);
+    public abstract boolean canInitiate(@NonNull MotionEvent e);
 
     @SuppressWarnings("WeakerAccess") /* synthetic access */
     static boolean hasSupportedLayoutManager(@NonNull RecyclerView recyclerView) {
@@ -107,16 +107,16 @@ public abstract class BandPredicate {
     public static final class NonDraggableArea extends BandPredicate {
 
         private final RecyclerView mRecyclerView;
-        private final ItemDetailsLookup mDetailsLookup;
+        private final ItemDetailsLookup<?> mDetailsLookup;
 
         /**
          * Creates a new instance.
          *
-         * @param recyclerView the owner RecyclerView
+         * @param recyclerView  the owner RecyclerView
          * @param detailsLookup provides access to item details.
          */
         public NonDraggableArea(
-                @NonNull RecyclerView recyclerView, @NonNull ItemDetailsLookup detailsLookup) {
+                @NonNull RecyclerView recyclerView, @NonNull ItemDetailsLookup<?> detailsLookup) {
 
             checkArgument(recyclerView != null);
             checkArgument(detailsLookup != null);
@@ -132,7 +132,8 @@ public abstract class BandPredicate {
                 return false;
             }
 
-            @Nullable ItemDetailsLookup.ItemDetails details = mDetailsLookup.getItemDetails(e);
+            @Nullable ItemDetailsLookup.ItemDetails<?> details =
+                    mDetailsLookup.getItemDetails(e);
             return (details == null) || !details.inDragRegion(e);
         }
     }

@@ -28,7 +28,6 @@ import android.view.MotionEvent;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.recyclerview.selection.SelectionTracker.SelectionPredicate;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener;
@@ -48,17 +47,14 @@ import java.util.Set;
  * the user interacts with items using their pointer (and the band). Selectable items that intersect
  * with the band, both on and off screen, are selected on pointer up.
  *
- * @see SelectionTracker.Builder#withPointerTooltypes(int...) for details on the specific
- *     tooltypes routed to this helper.
- *
  * @param <K> Selection key type. @see {@link StorageStrategy} for supported types.
  */
-class BandSelectionHelper<K> implements OnItemTouchListener {
+class BandSelectionHelper<K> implements OnItemTouchListener, Resettable {
 
     static final String TAG = "BandSelectionHelper";
     static final boolean DEBUG = false;
 
-    private final BandHost mHost;
+    private final BandHost<K> mHost;
     private final ItemKeyProvider<K> mKeyProvider;
     @SuppressWarnings("WeakerAccess") /* synthetic access */
     final SelectionTracker<K> mSelectionTracker;
@@ -66,17 +62,17 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
     private final FocusDelegate<K> mFocusDelegate;
     private final OperationMonitor mLock;
     private final AutoScroller mScroller;
-    private final GridModel.SelectionObserver mGridObserver;
+    private final GridModel.SelectionObserver<K> mGridObserver;
 
     private @Nullable Point mCurrentPosition;
     private @Nullable Point mOrigin;
-    private @Nullable GridModel mModel;
+    private @Nullable GridModel<K> mModel;
 
     /**
      * See {@link BandSelectionHelper#create}.
      */
     BandSelectionHelper(
-            @NonNull BandHost host,
+            @NonNull BandHost<K> host,
             @NonNull AutoScroller scroller,
             @NonNull ItemKeyProvider<K> keyProvider,
             @NonNull SelectionTracker<K> selectionTracker,
@@ -122,7 +118,7 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
      *
      * @return new BandSelectionHelper instance.
      */
-    static <K> BandSelectionHelper create(
+    static <K> BandSelectionHelper<K> create(
             @NonNull RecyclerView recyclerView,
             @NonNull AutoScroller scroller,
             @DrawableRes int bandOverlayId,
@@ -143,24 +139,23 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
                 lock);
     }
 
-    @VisibleForTesting
-    boolean isActive() {
-        boolean active = mModel != null;
-        if (DEBUG && active) {
-            mLock.checkStarted();
-        }
-        return active;
+    private boolean isActive() {
+        boolean started = mModel != null;
+        if (DEBUG) mLock.checkStarted(started);
+        return started;
     }
 
     /**
      * Clients must call reset when there are any material changes to the layout of items
      * in RecyclerView.
      */
-    void reset() {
+    @Override
+    public void reset() {
         if (!isActive()) {
+            if (DEBUG) Log.d(TAG, "Ignoring reset request, not active.");
             return;
         }
-
+        if (DEBUG) Log.d(TAG, "Handling reset request.");
         mHost.hideBand();
         if (mModel != null) {
             mModel.stopCapturing();
@@ -171,11 +166,15 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
         mOrigin = null;
 
         mScroller.reset();
-        mLock.stop();
+        // mLock is reset by reset manager.
     }
 
-    @VisibleForTesting
-    boolean shouldStart(@NonNull MotionEvent e) {
+    @Override
+    public boolean isResetRequired() {
+        return isActive();
+    }
+
+    private boolean shouldStart(@NonNull MotionEvent e) {
         // b/30146357 && b/23793622. onInterceptTouchEvent does not dispatch events to onTouchEvent
         // unless the event is != ACTION_DOWN. Thus, we need to actually start band selection when
         // mouse moves.
@@ -185,12 +184,8 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
                 && !isActive();
     }
 
-    @VisibleForTesting
-    boolean shouldStop(@NonNull MotionEvent e) {
-        return isActive()
-                && (MotionEvents.isActionUp(e)
-                || MotionEvents.isActionPointerUp(e)
-                || MotionEvents.isActionCancel(e));
+    private boolean shouldStop(@NonNull MotionEvent e) {
+        return isActive() && MotionEvents.isActionUp(e);
     }
 
     @Override
@@ -242,7 +237,9 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
      * Starts band select by adding the drawable to the RecyclerView's overlay.
      */
     private void startBandSelect(@NonNull MotionEvent e) {
-        checkState(!isActive());
+        if (DEBUG) {
+            checkState(!isActive());
+        }
 
         if (!MotionEvents.isCtrlKeyPressed(e)) {
             mSelectionTracker.clearSelection();
@@ -303,7 +300,18 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
         }
 
         mSelectionTracker.mergeProvisionalSelection();
-        reset();
+        mLock.stop();
+
+        mHost.hideBand();
+        if (mModel != null) {
+            mModel.stopCapturing();
+            mModel.onDestroy();
+        }
+
+        mModel = null;
+        mOrigin = null;
+
+        mScroller.reset();
     }
 
     /**
@@ -348,8 +356,6 @@ class BandSelectionHelper<K> implements OnItemTouchListener {
 
         /**
          * Add a listener to be notified on scroll events.
-         *
-         * @param listener
          */
         abstract void addOnScrollListener(@NonNull OnScrollListener listener);
     }
