@@ -2263,7 +2263,7 @@ public class FragmentCompose extends FragmentBase {
 
         new SimpleTask<EntityMessage>() {
             @Override
-            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+            protected EntityMessage onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
@@ -2286,7 +2286,10 @@ public class FragmentCompose extends FragmentBase {
 
     private void onActionSend(EntityMessage draft) {
         if (draft.encrypt != null && draft.encrypt != 0)
-            onEncrypt(draft);
+            if (ActivityBilling.isPro(getContext()))
+                onEncrypt(draft);
+            else
+                startActivity(new Intent(getContext(), ActivityBilling.class));
         else
             onAction(R.id.action_send);
     }
