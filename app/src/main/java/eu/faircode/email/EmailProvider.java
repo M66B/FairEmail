@@ -194,7 +194,8 @@ public class EmailProvider {
             }
 
         // https://docs.aws.amazon.com/workmail/latest/userguide/using_IMAP_client.html
-        if (autoconfig.imap.host.endsWith(".awsapps.com"))
+        if (autoconfig.imap.host != null &&
+                autoconfig.imap.host.endsWith(".awsapps.com"))
             autoconfig.partial = false;
 
         return autoconfig;
