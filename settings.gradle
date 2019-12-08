@@ -1,3 +1,1 @@
-include ':app', ':qcolorpicker'
-
-project(':qcolorpicker').projectDir = new File('qcolorpicker/library')
+include ':app'
