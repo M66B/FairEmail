@@ -487,7 +487,7 @@ public class MessageHelper {
 
         if (availableAttachments == 0)
             if (message.plain_only != null && message.plain_only)
-                imessage.setContent(plainContent, plainPart.getContentType());
+                imessage.setContent(plainContent, "text/plain; charset=" + Charset.defaultCharset().name());
             else
                 imessage.setContent(altMultiPart);
         else {
