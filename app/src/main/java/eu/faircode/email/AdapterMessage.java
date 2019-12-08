@@ -302,7 +302,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvCcTitle;
         private TextView tvBccTitle;
         private TextView tvIdentityTitle;
-        private TextView tvTimeExTitle;
+        private TextView tvSentTitle;
+        private TextView tvReceivedTitle;
         private TextView tvSizeExTitle;
 
         private TextView tvFromEx;
@@ -311,7 +312,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvCc;
         private TextView tvBcc;
         private TextView tvIdentity;
-        private TextView tvTimeEx;
+        private TextView tvSent;
+        private TextView tvReceived;
         private TextView tvSizeEx;
 
         private TextView tvSubjectEx;
@@ -446,7 +448,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCcTitle = vsBody.findViewById(R.id.tvCcTitle);
             tvBccTitle = vsBody.findViewById(R.id.tvBccTitle);
             tvIdentityTitle = vsBody.findViewById(R.id.tvIdentityTitle);
-            tvTimeExTitle = vsBody.findViewById(R.id.tvTimeExTitle);
+            tvSentTitle = vsBody.findViewById(R.id.tvSentTitle);
+            tvReceivedTitle = vsBody.findViewById(R.id.tvReceivedTitle);
             tvSizeExTitle = vsBody.findViewById(R.id.tvSizeExTitle);
 
             tvFromEx = vsBody.findViewById(R.id.tvFromEx);
@@ -455,7 +458,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCc = vsBody.findViewById(R.id.tvCc);
             tvBcc = vsBody.findViewById(R.id.tvBcc);
             tvIdentity = vsBody.findViewById(R.id.tvIdentity);
-            tvTimeEx = vsBody.findViewById(R.id.tvTimeEx);
+            tvSent = vsBody.findViewById(R.id.tvSent);
+            tvReceived = vsBody.findViewById(R.id.tvReceived);
             tvSizeEx = vsBody.findViewById(R.id.tvSizeEx);
 
             tvSubjectEx = vsBody.findViewById(R.id.tvSubjectEx);
@@ -969,7 +973,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCcTitle.setVisibility(View.GONE);
             tvBccTitle.setVisibility(View.GONE);
             tvIdentityTitle.setVisibility(View.GONE);
-            tvTimeExTitle.setVisibility(View.GONE);
+            tvSentTitle.setVisibility(View.GONE);
+            tvReceivedTitle.setVisibility(View.GONE);
             tvSizeExTitle.setVisibility(View.GONE);
 
             tvFromEx.setVisibility(View.GONE);
@@ -978,7 +983,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvCc.setVisibility(View.GONE);
             tvBcc.setVisibility(View.GONE);
             tvIdentity.setVisibility(View.GONE);
-            tvTimeEx.setVisibility(View.GONE);
+            tvSent.setVisibility(View.GONE);
+            tvReceived.setVisibility(View.GONE);
             tvSizeEx.setVisibility(View.GONE);
             tvSubjectEx.setVisibility(View.GONE);
             tvFlags.setVisibility(View.GONE);
@@ -1145,9 +1151,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setText(via == null ? null : MessageHelper.formatAddresses(new Address[]{via}));
 
-            tvTimeExTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvTimeEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
-            tvTimeEx.setText(DTF.format(message.received));
+            tvSentTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvSent.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvSent.setText(message.sent == null ? null : DTF.format(message.sent));
+
+            tvReceivedTitle.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvReceived.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
+            tvReceived.setText(DTF.format(message.received));
 
             if (!message.duplicate)
                 tvSizeEx.setAlpha(message.content ? 1.0f : Helper.LOW_LIGHT);

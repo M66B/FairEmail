@@ -647,6 +647,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Via:</string>
+    <string name="title_sent">Sent:</string>
     <string name="title_received">Received:</string>
     <string name="title_size">Size:</string>
     <string name="title_subject">Subject:</string>

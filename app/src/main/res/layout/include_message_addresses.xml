@@ -243,18 +243,18 @@
         app:layout_constraintTop_toBottomOf="@id/tvBcc" />
 
     <TextView
-        android:id="@+id/tvTimeExTitle"
+        android:id="@+id/tvSentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:text="@string/title_received"
+        android:text="@string/title_sent"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
     <TextView
-        android:id="@+id/tvTimeEx"
+        android:id="@+id/tvSent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
@@ -267,6 +267,30 @@
         app:layout_constraintTop_toBottomOf="@id/tvIdentity" />
 
     <TextView
+        android:id="@+id/tvReceivedTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="@string/title_received"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSent" />
+
+    <TextView
+        android:id="@+id/tvReceived"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:text="12:34:56"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
+        app:layout_constraintTop_toBottomOf="@id/tvSent" />
+
+    <TextView
         android:id="@+id/tvSizeExTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -275,7 +299,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
+        app:layout_constraintTop_toBottomOf="@id/tvReceived" />
 
     <TextView
         android:id="@+id/tvSizeEx"
@@ -288,7 +312,7 @@
         android:textIsSelectable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/barrier_addresses"
-        app:layout_constraintTop_toBottomOf="@id/tvTimeEx" />
+        app:layout_constraintTop_toBottomOf="@id/tvReceived" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier_addresses"
@@ -299,7 +323,8 @@
             tvFromExTitle,tvToTitle,tvReplyToTitle,
             tvCcTitle,tvBccTitle,
             tvIdentityTitle,
-            tvTimeExTitle,tvSizeExTitle" />
+            tvSentTitle,tvReceivedTitle,
+            tvSizeExTitle" />
 
     <TextView
         android:id="@+id/tvSubjectEx"
