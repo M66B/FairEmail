@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Skriv</string>
     <string name="shortcut_setup">Innstillinger</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synkronisere %1$d konto</item>
-        <item quantity="other">Synkronisere %1$d kontoer</item>
+        <item quantity="one">Overvåker %1$d konto</item>
+        <item quantity="other">Overvåker %1$d kontoer</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d ventende aktivitet</item>

@@ -14,10 +14,6 @@
     <string name="tile_unseen">Új üzenetek</string>
     <string name="shortcut_compose">Levélírás</string>
     <string name="shortcut_setup">Beállítások</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">%1$d fiók szinkronizálása</item>
-        <item quantity="other">%1$d fiók szinkronizálása</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d függőben lévő művelet</item>
         <item quantity="other">%1$d függőben lévő művelet</item>

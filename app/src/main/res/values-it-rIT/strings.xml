@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Scrivi</string>
     <string name="shortcut_setup">Impostazioni</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Sincronizzazione account %1$d</item>
-        <item quantity="other">Sincronizzazione di %1$d account</item>
+        <item quantity="one">Monitoraggio account %1$d</item>
+        <item quantity="other">Monitoraggio account %1$d</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d operazione in sospeso</item>
@@ -110,6 +110,8 @@
     <string name="title_setup_other">Altro provider</string>
     <string name="title_setup_gmail_support">L\'autorizzazione degli account Google funzionerà solo nelle versioni ufficiali, perché Android controlla la firma dell\'app</string>
     <string name="title_setup_gmail_rationale">Si prega di concedere i permessi per selezionare un account e leggere il tuo nome</string>
+    <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, comporre, inviare e eliminare definitivamente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza la tua approvazione.</string>
+    <string name="title_setup_gmail_drafts">Se la cartella bozze non è accessibile da IMAP, questo può essere corretto nelle impostazioni dell\'etichetta Gmail</string>
     <string name="title_setup_select_account">Seleziona account</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
     <string name="title_setup_no_settings">Nessuna impostazione trovata per il dominio \'%1$s\'</string>
@@ -367,6 +369,7 @@
     <string name="title_account_partial_fetch_hint">Disabilita questo solo in caso di messaggi vuoti o allegati corrotti</string>
     <string name="title_account_signature">Testo della firma</string>
     <string name="title_color">Colore</string>
+    <string name="title_account_ondemand">Sincronizza manualmente</string>
     <string name="title_account_notify">Notifiche separate</string>
     <string name="title_account_left">Scorri a sinistra</string>
     <string name="title_account_right">Scorri a destra</string>
@@ -564,6 +567,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCN:</string>
     <string name="title_via_identity">Tramite:</string>
+    <string name="title_sent">Inviato:</string>
     <string name="title_received">Ricevuto:</string>
     <string name="title_size">Dimensioni:</string>
     <string name="title_subject">Oggetto:</string>

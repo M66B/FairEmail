@@ -31,11 +31,6 @@
     <string name="shortcut_refresh">Osvježi</string>
     <string name="shortcut_compose">Sastavi</string>
     <string name="shortcut_setup">Postavke</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">Sinkronizira račun %1$d</item>
-        <item quantity="few">Sinkronizira račune %1$d</item>
-        <item quantity="other">Sinkronizira račune %1$d</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d operacija na čekanju</item>
         <item quantity="few">%1$d operacija na čekanju</item>

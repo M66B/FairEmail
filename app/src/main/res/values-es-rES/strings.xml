@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Redactar</string>
     <string name="shortcut_setup">Ajustes</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Sincronizando %1$d cuenta</item>
-        <item quantity="other">Sincronizando %1$d cuentas</item>
+        <item quantity="one">Monitoreando %1$d cuenta</item>
+        <item quantity="other">Monitoreando %1$d cuentas</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d operación pendiente</item>
@@ -111,6 +111,8 @@
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_gmail_support">La autorización de cuentas de Google sólo funcionará en versiones oficiales ya que Android comprueba la firma de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
+    <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su aprobación.</string>
+    <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
     <string name="title_setup_no_settings">No se encontraron ajustes para el dominio \'%1$s\'</string>
@@ -296,6 +298,7 @@
     <string name="title_advanced_biometrics_timeout">Límite de tiempo para autenticación biométrica</string>
     <string name="title_advanced_manage_certificates">Administrar claves públicas</string>
     <string name="title_advanced_import_key">Importar clave privada</string>
+    <string name="title_advanced_manage_keys">Administrar claves privadas</string>
     <string name="title_advanced_english">Forzar idioma inglés</string>
     <string name="title_advanced_watchdog">Comprobar periódicamente si FairEmail sigue activo</string>
     <string name="title_advanced_updates">Buscar actualizaciones</string>
@@ -597,6 +600,7 @@
     <string name="title_edit_formatted_text">Editar como texto con formato</string>
     <string name="title_select_certificate">Seleccionar clave pública</string>
     <string name="title_certificate_missing">No hay clave pública para %1$s</string>
+    <string name="title_certificate_invalid">La clave pública de %1$s no es válida</string>
     <string name="title_no_key">Ninguna clave privada</string>
     <string name="title_invalid_key">Clave privada inválida</string>
     <string name="title_send_plain_text">Sólo en texto plano</string>
@@ -630,6 +634,8 @@
     <string name="title_signature_email">Dirección de la firma</string>
     <string name="title_signature_mismatch">La dirección de correo electrónico del remitente y la firma no coinciden</string>
     <string name="title_signature_subject">Asunto</string>
+    <string name="title_signature_validity">Validez</string>
+    <string name="title_signature_outdated">Esta clave pública no es válida actualmente</string>
     <string name="title_signature_store">Almacenar</string>
     <string name="title_search">Buscar</string>
     <string name="title_search_server">Buscar en el servidor</string>

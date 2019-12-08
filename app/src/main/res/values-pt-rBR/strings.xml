@@ -29,10 +29,6 @@
     <string name="shortcut_refresh">Atualizar</string>
     <string name="shortcut_compose">Escrever</string>
     <string name="shortcut_setup">Configurações</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">Sincronizando %1$d conta</item>
-        <item quantity="other">Sincronizando %1$d contas</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d operação pendente</item>
         <item quantity="other">%1$d operações pendentes</item>

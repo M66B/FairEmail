@@ -31,11 +31,6 @@
     <string name="shortcut_refresh">Actualizează</string>
     <string name="shortcut_compose">Compune</string>
     <string name="shortcut_setup">Setări</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">Sincronizare %1$d cont</item>
-        <item quantity="few">Sincronizare %1$d conturi</item>
-        <item quantity="other">Sincronizare %1$d de conturi</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">O operație în așteptare</item>
         <item quantity="few">%1$d operații în așteptare</item>
@@ -306,6 +301,7 @@
     <string name="title_advanced_biometrics_timeout">Expirare autentificarea biometrică</string>
     <string name="title_advanced_manage_certificates">Gestionare chei publice</string>
     <string name="title_advanced_import_key">Importare cheie privată</string>
+    <string name="title_advanced_manage_keys">Gestionare chei private</string>
     <string name="title_advanced_english">Forțează folosirea limbii Engleze</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificare actualizări aplicație</string>
@@ -607,6 +603,8 @@
     <string name="title_edit_formatted_text">Editați ca text reformatat</string>
     <string name="title_select_certificate">Selectare cheie publică</string>
     <string name="title_certificate_missing">Nici o cheie publică pentru %1$s</string>
+    <string name="title_certificate_invalid">Cheia publică a lui %1$s nu este validă</string>
+    <string name="title_no_key">Nici o cheie privată</string>
     <string name="title_invalid_key">Cheie privată invalidă</string>
     <string name="title_send_plain_text">Doar text simplu</string>
     <string name="title_send_receipt">Solicitare confirmare livrare/citire</string>
@@ -639,6 +637,8 @@
     <string name="title_signature_email">Adresa semnăturii</string>
     <string name="title_signature_mismatch">Adresa email a expeditorului și semnătura nu corespund</string>
     <string name="title_signature_subject">Subiect</string>
+    <string name="title_signature_validity">Valabilitate</string>
+    <string name="title_signature_outdated">Această cheie publică nu este validă în acest moment</string>
     <string name="title_signature_store">Stocare</string>
     <string name="title_search">Caută</string>
     <string name="title_search_server">Căutare pe server</string>

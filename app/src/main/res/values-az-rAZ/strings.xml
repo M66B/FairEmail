@@ -15,10 +15,6 @@
     <string name="tile_unseen">Yeni mesajlar</string>
     <string name="shortcut_compose">Yaz</string>
     <string name="shortcut_setup">Tənzimləmələr</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">%1$d hesab eyniləşdirilir</item>
-        <item quantity="other">%1$d hesab eyniləşdirilir</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d əməliyyat gözləyir</item>
         <item quantity="other">%1$d əməliyyat gözləyir</item>

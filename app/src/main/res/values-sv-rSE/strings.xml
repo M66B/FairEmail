@@ -29,10 +29,6 @@
     <string name="shortcut_refresh">Uppdatera</string>
     <string name="shortcut_compose">Skriv</string>
     <string name="shortcut_setup">Inställningar</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synkroniserar %1$d konto</item>
-        <item quantity="other">Synkroniserar %1$d konton</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d aktivitet väntar</item>
         <item quantity="other">%1$d aktiviteter väntar</item>
@@ -249,6 +245,7 @@
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_automove">Bekräfta flyttning av meddelanden</string>
     <string name="title_advanced_discard_delete">Ta bort utkastet permanent om du kastar det</string>
+    <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>

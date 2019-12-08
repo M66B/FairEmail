@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Ново съобщение</string>
     <string name="shortcut_setup">Настройки</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Синхронизация %1$d профил</item>
-        <item quantity="other">Синхронизация %1$d акаунти</item>
+        <item quantity="one">Мониторинг на %1$d профил</item>
+        <item quantity="other">Мониторинг на %1$d профили</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d остава от операцията</item>
@@ -296,6 +296,7 @@
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
     <string name="title_advanced_manage_certificates">Управление на публични ключове</string>
     <string name="title_advanced_import_key">Импортиране на частен ключ</string>
+    <string name="title_advanced_manage_keys">Управление на частни ключове</string>
     <string name="title_advanced_english">Принудително на английски език</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
     <string name="title_advanced_updates">Проверка за актуализация</string>
@@ -597,6 +598,7 @@
     <string name="title_edit_formatted_text">Редактиране като преформатиран текст</string>
     <string name="title_select_certificate">Изберете публичен ключ</string>
     <string name="title_certificate_missing">Няма публичен ключ за %1$s</string>
+    <string name="title_certificate_invalid">Публичният ключ от %1$s не е валиден</string>
     <string name="title_no_key">Няма частен ключ</string>
     <string name="title_invalid_key">Невалиден частен ключ</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
@@ -630,6 +632,8 @@
     <string name="title_signature_email">Подписът е адрес</string>
     <string name="title_signature_mismatch">Имейл адресът на изпращача и подписа не съвпадат</string>
     <string name="title_signature_subject">Тема</string>
+    <string name="title_signature_validity">Валидност</string>
+    <string name="title_signature_outdated">Към момента този публичен ключ не е валиден</string>
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търси</string>
     <string name="title_search_server">Търси на сървъра</string>

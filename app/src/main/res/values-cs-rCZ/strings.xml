@@ -33,12 +33,6 @@
     <string name="shortcut_refresh">Načíst znovu</string>
     <string name="shortcut_compose">Napsat zprávu</string>
     <string name="shortcut_setup">Nastavení</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synchronizuji %1$d účet</item>
-        <item quantity="few">Synchronizuji %1$d účty</item>
-        <item quantity="many">Synchronizuji %1$d účtů</item>
-        <item quantity="other">Synchronizuji %1$d účtů</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">Probíhá %1$d operace</item>
         <item quantity="few">Probíhají %1$d operace</item>
@@ -89,7 +83,7 @@
     </plurals>
     <string name="title_ask_spam_who">Považovat zprávy od %1$s za spam?</string>
     <string name="title_notification_waiting">Čekám na vyhovující připojení</string>
-    <string name="title_notification_sending">Odesílám zprávy</string>
+    <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Šablony</string>
@@ -133,6 +127,7 @@
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
+    <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho souhlasu.</string>
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
@@ -318,6 +313,7 @@
     <string name="title_advanced_biometrics_timeout">Vypršení biometrického ověření</string>
     <string name="title_advanced_manage_certificates">Spravovat veřejné klíče</string>
     <string name="title_advanced_import_key">Importovat privátní klíč</string>
+    <string name="title_advanced_manage_keys">Správa privátních klíčů</string>
     <string name="title_advanced_english">Vynutit anglický jazyk</string>
     <string name="title_advanced_watchdog">Pravidelně kontrolovat, zda je FairEmail stále aktivní</string>
     <string name="title_advanced_updates">Kontrolovat aktualizace</string>
@@ -389,6 +385,7 @@
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
     <string name="title_account_signature">Text podpisu</string>
     <string name="title_color">Barva</string>
+    <string name="title_account_ondemand">Synchronizovat ručně</string>
     <string name="title_account_notify">Samostatná oznámení</string>
     <string name="title_account_left">Tažení doleva</string>
     <string name="title_account_right">Tažení doprava</string>
@@ -586,6 +583,7 @@
     <string name="title_cc">Kopie:</string>
     <string name="title_bcc">Skrytá kopie:</string>
     <string name="title_via_identity">Přes:</string>
+    <string name="title_sent">Odesláno:</string>
     <string name="title_received">Přijato:</string>
     <string name="title_size">Velikost:</string>
     <string name="title_subject">Předmět:</string>
@@ -618,6 +616,10 @@
     <string name="title_edit_plain_text">Upravit jako prostý text</string>
     <string name="title_edit_formatted_text">Upravit jako přeformátovaný text</string>
     <string name="title_select_certificate">Vybrat veřejný klíč</string>
+    <string name="title_certificate_missing">Žádný veřejný klíč pro %1$s</string>
+    <string name="title_certificate_invalid">Veřejný klíč %1$s je neplatný</string>
+    <string name="title_no_key">Žádný privátní klíč</string>
+    <string name="title_invalid_key">Neplatný privátní klíč</string>
     <string name="title_send_plain_text">Pouze prostý text</string>
     <string name="title_send_receipt">Požadovat potvrzení doručení/přečtení</string>
     <string name="title_send_receipt_remark">Většina poskytovatelů a e-mailových klientů ignoruje žádosti o potvrzení</string>
@@ -645,6 +647,12 @@
     <string name="title_signature_valid">Podpis zprávy je platný</string>
     <string name="title_signature_unconfirmed">Podpis zprávy je platný, ale nepotvrzený</string>
     <string name="title_signature_invalid">Neplatný podpis zprávy</string>
+    <string name="title_signature_sender">Adresa odesílatele</string>
+    <string name="title_signature_email">Adresa podpisu</string>
+    <string name="title_signature_mismatch">E-mailová adresa odesílatele a podpis se neshodují</string>
+    <string name="title_signature_subject">Subjekt</string>
+    <string name="title_signature_validity">Platnost</string>
+    <string name="title_signature_outdated">Tento veřejný klíč není v současné době platný</string>
     <string name="title_signature_store">Uložit</string>
     <string name="title_search">Hledat</string>
     <string name="title_search_server">Hledat na serveru</string>

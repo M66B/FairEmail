@@ -31,11 +31,6 @@
     <string name="shortcut_refresh">Освежи</string>
     <string name="shortcut_compose">Састави</string>
     <string name="shortcut_setup">Поставке</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">Синхронизујем %1$d налог</item>
-        <item quantity="few">Синхронизујем %1$d налога</item>
-        <item quantity="other">Синхронизујем %1$d налога</item>
-    </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d операција на чекању</item>
         <item quantity="few">%1$d операције на чекању</item>

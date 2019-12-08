@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Verfassen</string>
     <string name="shortcut_setup">Einstellungen</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synchronisiere %1$d Konto</item>
-        <item quantity="other">Synchronisiere %1$d Konten</item>
+        <item quantity="one">Überwache %1$d Konto</item>
+        <item quantity="other">Überwache %1$d Konten</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d Vorgang ausstehend</item>
@@ -110,6 +110,8 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
+    <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre Zustimmung.</string>
+    <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner für IMAP nicht zugänglich ist, kann dies in den Google Mail-Label-Einstellungen korrigiert werden</string>
     <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
     <string name="title_setup_no_settings">Keine Einstellungen für Domain „%1$s” gefunden</string>
@@ -216,7 +218,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_highlight_unread">Ungelesene Nachrichten in heller Schrift anzeigen</string>
     <string name="title_advanced_distinguish_contacts">Unterscheide Nachrichten nach bekannten und unbekannten Kontakten</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
-    <string name="title_advanced_generated_icons">Zeige generierte Symbole (Anfangsbuchstaben)</string>
+    <string name="title_advanced_generated_icons">Generierte Symbole (Anfangsbuchstaben) anzeigen</string>
     <string name="title_advanced_identicons">Identicons als Kontaktbilder anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole benutzen</string>
     <string name="title_advanced_color_saturation">Sättigung</string>
@@ -226,7 +228,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_authentication">Warnung anzeigen, wenn der empfangende Server die Nachricht nicht authentifizieren konnte</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
     <string name="title_advanced_font_size_subject">Schriftgröße für den Betreff</string>
-    <string name="title_advanced_subject_top">Zeige Betreff oberhalb des Absenders</string>
+    <string name="title_advanced_subject_top">Betreff oberhalb des Absenders anzeigen</string>
     <string name="title_advanced_subject_italic">Betreff kursiv anzeigen</string>
     <string name="title_advanced_subject_elipsed">Wenn nötig, den Betreff kürzen</string>
     <string name="title_advanced_flags">Sterne anzeigen</string>
@@ -241,13 +243,13 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_text_color">Textfarben anzeigen</string>
     <string name="title_advanced_collapse_quotes">Zitierten Text ausblenden</string>
     <string name="title_advanced_images_inline">Eingebettete Grafiken automatisch anzeigen</string>
-    <string name="title_advanced_seekbar">Zeige relative Gesprächsposition mit einem Punkt an</string>
+    <string name="title_advanced_seekbar">Relative Gesprächsposition mit einem Punkt anzeigen</string>
     <string name="title_advanced_actionbar">Navigationsleiste in Konversationen anzeigen</string>
     <string name="title_advanced_double_back">Doppelt „Zurück” drücken zum Beenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
     <string name="title_advanced_autoscroll">Nach oben scrollen, wenn Sie neue Nachrichten erhalten</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um die Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
-    <string name="title_advanced_swipenav">Wische nach links/rechts, um zum nächsten/vorherigen Gespräch zu gehen</string>
+    <string name="title_advanced_swipenav">Nach links/rechts wischen, um zum nächsten/vorherigen Gespräch zu gehen</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
@@ -487,11 +489,11 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_forward">Weiterleiten</string>
     <string name="title_new_message">Neue Nachricht</string>
     <string name="title_editasnew">Als neu bearbeiten</string>
-    <string name="title_create_rule">Regel &#8230; erstellen</string>
+    <string name="title_create_rule">Regel erstellen &#8230;</string>
     <string name="title_share">Teilen</string>
     <string name="title_print">Drucken</string>
     <string name="title_show_headers">Kopfzeile anzeigen</string>
-    <string name="title_raw_download">Rohdaten runterladen</string>
+    <string name="title_raw_download">Rohdaten herunterladen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>
     <string name="title_manage_keywords">Labels verwalten</string>
@@ -501,7 +503,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_save_all">Alles speichern</string>
     <string name="title_save_eml">Rohdaten speichern</string>
     <string name="title_trash">Löschen</string>
-    <string name="title_copy">Kopiere &#8230;</string>
+    <string name="title_copy">Kopieren &#8230;</string>
     <string name="title_copy_to">Kopieren nach &#8230;</string>
     <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
@@ -564,6 +566,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Über:</string>
+    <string name="title_sent">Gesendet:</string>
     <string name="title_received">Empfangen:</string>
     <string name="title_size">Größe:</string>
     <string name="title_subject">Betreff:</string>

@@ -12,10 +12,6 @@
     <string name="tile_synchronize">همگام سازی</string>
     <string name="tile_unseen">پیام های جدید</string>
     <string name="shortcut_compose">ایجاد پیام</string>
-    <plurals name="title_notification_synchronizing">
-        <item quantity="one">همگام‌سازی %1$d حساب</item>
-        <item quantity="other">همگام‌سازی %1$d حساب‌ها</item>
-    </plurals>
     <string name="title_notification_failed">\'%1$s\' انجام نشد</string>
     <string name="menu_answers">الگوها</string>
     <string name="menu_operations">عملیات ها</string>

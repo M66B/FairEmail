@@ -28,7 +28,7 @@
     <string name="shortcut_compose">撰写</string>
     <string name="shortcut_setup">设置</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="other">正在同步%1$d个账户</item>
+        <item quantity="other">监控 %1$d 个账户</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="other">%1$d个待执行操作</item>
@@ -99,6 +99,8 @@
     <string name="title_setup_other">其他提供商</string>
     <string name="title_setup_gmail_support">授权谷歌帐户只能用于官方版本，因为Android检查应用签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
+    <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。未经您的批准，FairEmail永远不会删除您的邮件。</string>
+    <string name="title_setup_gmail_drafts">可以借助更改 Gmail 的标签设置来修复无法通过IMAP访问草稿文件夹的问题</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
     <string name="title_setup_no_settings">找不到域名\"%1$s\"的设置</string>
@@ -553,6 +555,7 @@
     <string name="title_cc">抄送：</string>
     <string name="title_bcc">密送：</string>
     <string name="title_via_identity">自：</string>
+    <string name="title_sent">已发送：</string>
     <string name="title_received">已接收：</string>
     <string name="title_size">大小：</string>
     <string name="title_subject">主题：</string>

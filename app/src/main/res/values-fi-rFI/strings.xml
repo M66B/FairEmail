@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Kirjoita viesti</string>
     <string name="shortcut_setup">Asetukset</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synkronoidaan %1$d tili</item>
-        <item quantity="other">Synkronoidaan %1$d tiliä</item>
+        <item quantity="one">Monitoroidaan %1$d tiliä</item>
+        <item quantity="other">Monitoroidaan %1$d tiliä</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d toimenpide odottaa</item>
@@ -111,6 +111,7 @@
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_support">Google-tilien vahvistaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet, että tili voidaan valita ja nimesi voidaan lukea</string>
+    <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAP:lla saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
     <string name="title_setup_no_settings">Asetuksia ei löytynyt verkkotunnukselle \'%1$s\'</string>
@@ -194,7 +195,7 @@
     <string name="title_advanced_suggest_sent">Ehdota lähetetyistä viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_suggest_received">Ehdota saapuneista viesteistä löytyviä osoitteita</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
-    <string name="title_advanced_extended_reply">Käytä laajennettuja vastaus-/edelleenlähetystunnistetietoja</string>
+    <string name="title_advanced_extended_reply">Käytä laajennettuja tunnistetietoja vastauksessa/edelleenlähetettäessä</string>
     <string name="title_advanced_quote_reply">Lainaa vastattu teksti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
@@ -288,14 +289,15 @@
     <string name="title_advanced_display_hidden">Näytä piilotetut viestien tekstit</string>
     <string name="title_advanced_encrypt_method">Oletussalausmenetelmä</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
-    <string name="title_advanced_sign_default">Allekirjoita oletusarvoisesti</string>
-    <string name="title_advanced_encrypt_default">Salaa oletusarvoisesti</string>
+    <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
+    <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
     <string name="title_advanced_secure">Piilota viimeisimpien sovellusten listasta ja estä kuvankaappausten ottaminen</string>
     <string name="title_advanced_pin">PIN-koodi</string>
     <string name="title_advanced_biometrics_timeout">Biometrisen tunnistautumisen aikakatkaisu</string>
     <string name="title_advanced_manage_certificates">Hallinnoi julkisia avaimia</string>
     <string name="title_advanced_import_key">Tuo yksityinen avain</string>
+    <string name="title_advanced_manage_keys">Hallinnoi yksityisiä avaimia</string>
     <string name="title_advanced_english">Pakota englannin kieli</string>
     <string name="title_advanced_watchdog">Tarkista toistuvasti, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Päivitysten tarkastus</string>
@@ -564,6 +566,7 @@
     <string name="title_cc">Kopio:</string>
     <string name="title_bcc">Piilokopio:</string>
     <string name="title_via_identity">Kautta:</string>
+    <string name="title_sent">Lähetetty:</string>
     <string name="title_received">Vastaanotettu:</string>
     <string name="title_size">Koko:</string>
     <string name="title_subject">Aihe:</string>
@@ -597,6 +600,7 @@
     <string name="title_edit_formatted_text">Muokkaa uudelleenmuotoiltuna tekstinä</string>
     <string name="title_select_certificate">Valitse julkinen avain</string>
     <string name="title_certificate_missing">Ei julkista avainta %1$s</string>
+    <string name="title_certificate_invalid">Sähköpostiosoitteen %1$s julkinen avain on virheellinen</string>
     <string name="title_no_key">Ei yksityistä avainta</string>
     <string name="title_invalid_key">Virheellinen yksityinen avain</string>
     <string name="title_send_plain_text">Lähetä muotoilemattomana tekstinä</string>
@@ -630,6 +634,8 @@
     <string name="title_signature_email">Allekirjoituksen sähköpostiosoite</string>
     <string name="title_signature_mismatch">Lähettäjän ja allekirjoituksen sähköpostiosoitteet eivät täsmää</string>
     <string name="title_signature_subject">Aihe</string>
+    <string name="title_signature_validity">Kelpoisuus</string>
+    <string name="title_signature_outdated">Tämä julkinen avain ei ole voimassa</string>
     <string name="title_signature_store">Tallenna</string>
     <string name="title_search">Hae</string>
     <string name="title_search_server">Hae palvelimella</string>

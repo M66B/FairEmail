@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Eposta Oluştur</string>
     <string name="shortcut_setup">Ayarlar</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">%1$d Hesap eşzamanlanıyor</item>
-        <item quantity="other">%1$d hesapları eşitleniyor</item>
+        <item quantity="one">%1$d hesap izleniyor</item>
+        <item quantity="other">%1$d hesap izleniyor</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d işlem beklemede</item>
@@ -111,6 +111,8 @@
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek sadece resmi versiyonlarda çalışacaktır çünkü Android uygulama imzasını kontrol etmektedir</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
+    <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
+    <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
     <string name="title_setup_no_settings">\'%1$s\' alan adı için ayar bulunamadı</string>
@@ -296,6 +298,7 @@
     <string name="title_advanced_biometrics_timeout">Biyometrik doğrulama süresi bitti</string>
     <string name="title_advanced_manage_certificates">Genel anahtarları yönet</string>
     <string name="title_advanced_import_key">Özel anahtarı içe aktar</string>
+    <string name="title_advanced_manage_keys">Özel anahtarları yönet</string>
     <string name="title_advanced_english">İngilizce Diline Zorla</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">Güncellemelere bak</string>
@@ -367,6 +370,7 @@
     <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
     <string name="title_account_signature">İmza Metni</string>
     <string name="title_color">Renk</string>
+    <string name="title_account_ondemand">Manuel olarak senkronize et</string>
     <string name="title_account_notify">Ayrı bildirimler</string>
     <string name="title_account_left">Sola kaydır</string>
     <string name="title_account_right">Sağ kaydır</string>
@@ -418,7 +422,7 @@
     <string name="title_hint_alias">Takma ad kimlikleri oluşturmak için kopyalamak gibi seçenekler için uzun basın</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
-    <string name="title_synchronize_now">Şimdi eşzamanla</string>
+    <string name="title_synchronize_now">Şimdi senkronize et</string>
     <string name="title_synchronize_all">Tüm iletileri eşzamanla</string>
     <string name="title_synchronize_enabled">Eşzamanlama</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
@@ -444,7 +448,7 @@
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
-    <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
+    <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
     <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
     <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>
     <string name="title_notify_folder">Yeni iletileri bildir</string>
@@ -564,6 +568,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Şu yol ile:</string>
+    <string name="title_sent">Gönderildi:</string>
     <string name="title_received">Gelen:</string>
     <string name="title_size">Boyut:</string>
     <string name="title_subject">Konu:</string>
@@ -597,6 +602,7 @@
     <string name="title_edit_formatted_text">Yeniden biçimlendirilmiş metin olarak düzenle</string>
     <string name="title_select_certificate">Genel anahtar seç</string>
     <string name="title_certificate_missing">%1$s için genel anahtar yok</string>
+    <string name="title_certificate_invalid">%1$s\'in genel anahtarı geçersiz</string>
     <string name="title_no_key">Özel anahtar yok</string>
     <string name="title_invalid_key">Geçersiz özel anahtar</string>
     <string name="title_send_plain_text">Yalnızca düz metin</string>
@@ -630,6 +636,8 @@
     <string name="title_signature_email">İmzanın adresi</string>
     <string name="title_signature_mismatch">Gönderenin ve imzanın e-posta adresi eşleşmiyor</string>
     <string name="title_signature_subject">Konu</string>
+    <string name="title_signature_validity">Geçerlilik</string>
+    <string name="title_signature_outdated">Bu genel anahtar şu anda geçerli değil</string>
     <string name="title_signature_store">Sakla</string>
     <string name="title_search">Ara</string>
     <string name="title_search_server">Sunucuda ara</string>
@@ -721,7 +729,7 @@
     <string name="title_legend_connecting">Bağlanıyor</string>
     <string name="title_legend_connected">Bağlandı</string>
     <string name="title_legend_executing">İşlemler uygulanıyor</string>
-    <string name="title_legend_synchronizing">Eşzamanlama yapılıyor</string>
+    <string name="title_legend_synchronizing">Senkronize ediliyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
     <string name="title_legend_closing">Kapatılıyor</string>
     <string name="title_legend_waiting">Sonraki eşzamanlama için bekleniyor</string>
@@ -737,7 +745,7 @@
     <string name="title_legend_rule">Kuralları var</string>
     <string name="title_legend_similar">Benzer iletileri ara</string>
     <string name="title_legend_notify">Yeni iletileri bildir</string>
-    <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
+    <string name="title_legend_sync_keep">Mesajların senkronize edileceği / saklanacağı gün sayısı</string>
     <string name="title_legend_download_fetch">İndirilen iletilerin / alınan başlıkların sayısı</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_thread">Söyleşi</string>

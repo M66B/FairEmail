@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Rédiger</string>
     <string name="shortcut_setup">Configuration</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synchronisation de %1$d compte</item>
-        <item quantity="other">Synchronisation de %1$d comptes</item>
+        <item quantity="one">Surveillance de %1$d compte</item>
+        <item quantity="other">Surveillance de %1$d comptes</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d opération en attente</item>
@@ -111,6 +111,8 @@
     <string name="title_setup_other">Autre fournisseur</string>
     <string name="title_setup_gmail_support">L\'autorisation des comptes Google fonctionnera uniquement dans les versions officielles parce que Android vérifie la signature de l\'application</string>
     <string name="title_setup_gmail_rationale">Veuillez accorder les autorisations pour sélectionner un compte et lire votre nom</string>
+    <string name="title_setup_gmail_permissions">Google vous demandera l\'autorisation de lire, rédiger, envoyer et supprimer définitivement tous vos e-mails. FairEmail ne supprimera jamais vos messages sans votre approbation.</string>
+    <string name="title_setup_gmail_drafts">Si le dossier brouillons n\'est pas accessible par IMAP, cela peut être corrigé dans les paramètres de préfixe Gmail</string>
     <string name="title_setup_select_account">Sélectionner un compte</string>
     <string name="title_setup_instructions">Instructions de configuration</string>
     <string name="title_setup_no_settings">Aucun paramètre trouvé pour le domaine \'%1$s\'</string>
@@ -368,6 +370,7 @@
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement dans le cas de messages vides ou de pièces jointes corrompues</string>
     <string name="title_account_signature">Texte de la signature</string>
     <string name="title_color">Couleur</string>
+    <string name="title_account_ondemand">Synchroniser manuellement</string>
     <string name="title_account_notify">Notifications séparées</string>
     <string name="title_account_left">Balayer vers la gauche</string>
     <string name="title_account_right">Balayer vers la droite</string>
@@ -565,6 +568,7 @@
     <string name="title_cc">Cc :</string>
     <string name="title_bcc">Cci :</string>
     <string name="title_via_identity">Via :</string>
+    <string name="title_sent">Envoyé :</string>
     <string name="title_received">Reçu :</string>
     <string name="title_size">Taille :</string>
     <string name="title_subject">Objet :</string>

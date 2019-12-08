@@ -30,8 +30,8 @@
     <string name="shortcut_compose">Opstellen</string>
     <string name="shortcut_setup">Instellingen</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synchroniseren: één account</item>
-        <item quantity="other">Synchroniseren: %1$d accounts</item>
+        <item quantity="one">Monitoring één account</item>
+        <item quantity="other">Monitoring %1$d accounts</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">Eén openstaande bewerking</item>
@@ -58,8 +58,8 @@
         <item quantity="other">%1$d berichten verplaatsen naar %2$s?</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">Verwijder één bericht permanent?</item>
-        <item quantity="other">Verwijder %1$d berichten permanent?</item>
+        <item quantity="one">Verwijder één bericht definitief?</item>
+        <item quantity="other">Verwijder %1$d berichten definitief?</item>
     </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Behandel één bericht als spam?</item>
@@ -111,6 +111,8 @@
     <string name="title_setup_other">Andere provider</string>
     <string name="title_setup_gmail_support">Het autoriseren van Google accounts werkt alleen in officiële versies omdat Android de app handtekening controleert</string>
     <string name="title_setup_gmail_rationale">Geef a.u.b. toestemming om een account te selecteren en uw naam te lezen</string>
+    <string name="title_setup_gmail_permissions">Google zal machtigingen vragen om uw e-mail te lezen, op te stellen, te verzenden en definitief te verwijderen. FairEmail zal uw berichten nooit verwijderen zonder uw goedkeuring.</string>
+    <string name="title_setup_gmail_drafts">Als de conceptmap niet toegankelijk is voor IMAP, dan kan dit worden opgelost in de Gmail label instellingen</string>
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
     <string name="title_setup_no_settings">Geen instellingen gevonden voor domein \'%1$s\'</string>
@@ -259,7 +261,7 @@
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_automove">Bevestig het verplaatsen van berichten</string>
-    <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept permanent verwijderen</string>
+    <string name="title_advanced_discard_delete">Bij het verwijderen van een concept het concept definitief verwijderen</string>
     <string name="title_advanced_default_snooze">Standaard sluimertijd</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
     <string name="title_advanced_notifications_default">Standaardkanaal</string>
@@ -368,6 +370,7 @@
     <string name="title_account_partial_fetch_hint">Schakel dit alleen uit in het geval van lege berichten of corrupte bijlagen</string>
     <string name="title_account_signature">Tekst handtekening</string>
     <string name="title_color">Kleur</string>
+    <string name="title_account_ondemand">Handmatig synchroniseren</string>
     <string name="title_account_notify">Afzonderlijke meldingen</string>
     <string name="title_account_left">Veeg links</string>
     <string name="title_account_right">Veeg rechts</string>
@@ -408,8 +411,8 @@
     <string name="title_no_sync">Synchronisatiefouten sinds %1$s</string>
     <string name="title_identity_required">Een identiteit is vereist om berichten te verzenden</string>
     <string name="title_drafts_required">Een concepten map is vereist om berichten te verzenden</string>
-    <string name="title_account_delete">Verwijder dit account permanent?</string>
-    <string name="title_identity_delete">Verwijder deze identiteit permanent?</string>
+    <string name="title_account_delete">Verwijder dit account definitief?</string>
+    <string name="title_identity_delete">Verwijder deze identiteit definitief?</string>
     <string name="title_edit_html">Bewerk HTML</string>
     <string name="title_sign_key">Tekensleutel: %1$s</string>
     <string name="title_last_connected">Laatst verbonden: %1$s</string>
@@ -432,8 +435,8 @@
     <string name="title_edit_channel">Meldingskanaal wijzigen</string>
     <string name="title_delete_channel">Meldingskanaal verwijderen</string>
     <string name="title_create_sub_folder">Maak submap</string>
-    <string name="title_empty_trash_ask">Alle weggegooide berichten permanent verwijderen?</string>
-    <string name="title_empty_spam_ask">Alle spam berichten permanent verwijderen?</string>
+    <string name="title_empty_trash_ask">Alle weggegooide berichten definitief verwijderen?</string>
+    <string name="title_empty_spam_ask">Alle spam berichten definitief verwijderen?</string>
     <string name="title_delete_operation">Bewerkingen met een foutmelding verwijderen?</string>
     <string name="title_delete_contacts">Verwijder alle lokale contacten?</string>
     <string name="title_no_operations">Geen openstaande bewerkingen</string>
@@ -455,10 +458,10 @@
     <string name="title_keep_days_remark">Oude berichten worden verwijderd van het apparaat, maar blijven op de server</string>
     <string name="title_keep_all">Bewaar alle berichten</string>
     <string name="title_auto_trash">Automatisch oude berichten verplaatsen naar de prullenbak</string>
-    <string name="title_auto_delete">Automatisch oude berichten permanent verwijderen</string>
+    <string name="title_auto_delete">Automatisch oude berichten definitief verwijderen</string>
     <string name="title_folder_name_missing">Mapnaam ontbreekt</string>
     <string name="title_folder_exists">Map %1$s bestaat</string>
-    <string name="title_folder_delete">Deze map en de berichten die het bevat permanent verwijderen?</string>
+    <string name="title_folder_delete">Deze map en de berichten die het bevat definitief verwijderen?</string>
     <string name="title_folder_unified">Gecombineerd postvak in</string>
     <string name="title_folder_inbox">Postvak in</string>
     <string name="title_folder_outbox">Postvak uit</string>
@@ -542,9 +545,9 @@
     <string name="title_attachments_saved">Bijlagen opgeslagen</string>
     <string name="title_attachments_incomplete">Sommige bijlagen of afbeeldingen zijn niet gedownload en konden niet worden toegevoegd</string>
     <string name="title_ask_save">Wijzigingen opslaan?</string>
-    <string name="title_ask_delete">Verwijder bericht permanent?</string>
-    <string name="title_ask_delete_answer">Verwijder antwoordsjabloon permanent?</string>
-    <string name="title_ask_delete_rule">Verwijder regel permanent?</string>
+    <string name="title_ask_delete">Verwijder bericht definitief?</string>
+    <string name="title_ask_delete_answer">Verwijder antwoordsjabloon definitief?</string>
+    <string name="title_ask_delete_rule">Verwijder regel definitief?</string>
     <string name="title_ask_discard">Concept weggooien?</string>
     <string name="title_ask_show_html">Het originele bericht tonen kan privacy gevoelige informatie lekken</string>
     <string name="title_ask_show_html_remark">Het weergeven van het oorspronkelijke bericht met een donkere achtergrond is niet mogelijk omdat het onzichtbare donkere teksten en afbeeldingen kan veroorzaken</string>
@@ -565,6 +568,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Via:</string>
+    <string name="title_sent">Verzonden:</string>
     <string name="title_received">Ontvangen:</string>
     <string name="title_size">Grootte:</string>
     <string name="title_subject">Onderwerp:</string>

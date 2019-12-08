@@ -34,10 +34,10 @@
     <string name="shortcut_compose">Napisz</string>
     <string name="shortcut_setup">Ustawienia</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Synchronizuję %1$d konto</item>
-        <item quantity="few">Synchronizuję %1$d kont</item>
-        <item quantity="many">Synchronizuję %1$d kont</item>
-        <item quantity="other">Synchronizuję %1$d kont</item>
+        <item quantity="one">Monitorowanie %1$d konta</item>
+        <item quantity="few">Monitorowanie %1$d kont</item>
+        <item quantity="many">Monitorowanie %1$d kont</item>
+        <item quantity="other">Monitorowanie %1$d kont</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d oczekująca operacja</item>
@@ -318,6 +318,7 @@
     <string name="title_advanced_biometrics_timeout">Limit czasu uwierzytelniania biometrycznego</string>
     <string name="title_advanced_manage_certificates">Zarządzaj kluczami publicznymi</string>
     <string name="title_advanced_import_key">Importuj klucz prywatny</string>
+    <string name="title_advanced_manage_keys">Zarządzaj kluczami prywatnymi</string>
     <string name="title_advanced_english">Wymuś język angielski</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje</string>
@@ -619,6 +620,7 @@
     <string name="title_edit_formatted_text">Edytuj jako sformatowany tekst</string>
     <string name="title_select_certificate">Wybierz klucz publiczny</string>
     <string name="title_certificate_missing">Brak klucza publicznego dla %1$s</string>
+    <string name="title_certificate_invalid">Klucz publiczny %1$s jest nieprawidłowy</string>
     <string name="title_no_key">Brak klucza prywatnego</string>
     <string name="title_invalid_key">Nieprawidłowy klucz prywatny</string>
     <string name="title_send_plain_text">Tylko zwykły tekst</string>
@@ -652,6 +654,8 @@
     <string name="title_signature_email">Adres podpisu</string>
     <string name="title_signature_mismatch">Adres e-mail nadawcy i podpis nie są zgodne</string>
     <string name="title_signature_subject">Temat</string>
+    <string name="title_signature_validity">Ważność</string>
+    <string name="title_signature_outdated">Ten klucz publiczny jest obecnie nieprawidłowy</string>
     <string name="title_signature_store">Zapisz</string>
     <string name="title_search">Szukaj</string>
     <string name="title_search_server">Szukaj na serwerze</string>
