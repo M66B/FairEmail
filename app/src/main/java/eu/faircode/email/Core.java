@@ -522,7 +522,7 @@ class Core {
                     uid = muid;
             }
 
-            if (uid != null && purge)
+            if (uid != null && purge) {
                 for (Message iexisting : imessages) {
                     long muid = ifolder.getUID(iexisting);
                     if (muid != uid)
@@ -533,6 +533,8 @@ class Core {
                             Log.w(name + " existing gone uid=" + muid + " for msgid=" + msgid);
                         }
                 }
+                ifolder.expunge();
+            }
         }
 
         Log.i(name + " got uid=" + uid + " for msgid=" + msgid);
@@ -734,13 +736,15 @@ class Core {
             Message iexisting = ifolder.getMessageByUID(message.uid);
             if (iexisting == null)
                 Log.w(folder.name + " existing not found uid=" + message.uid);
-            else
+            else {
                 try {
                     Log.i(folder.name + " deleting uid=" + message.uid);
                     iexisting.setFlag(Flags.Flag.DELETED, true);
                 } catch (MessageRemovedException ignored) {
                     Log.w(folder.name + " existing gone uid=" + message.uid);
                 }
+                ifolder.expunge();
+            }
         }
 
         if (folder.id.equals(message.folder)) {
