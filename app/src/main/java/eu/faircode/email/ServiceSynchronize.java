@@ -313,16 +313,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 queue.submit(new Runnable() {
                     @Override
                     public void run() {
-                        long ago = new Date().getTime() - lastLost;
-                        if (ago < RECONNECT_BACKOFF)
-                            try {
-                                long backoff = RECONNECT_BACKOFF - ago;
-                                EntityLog.log(ServiceSynchronize.this, accountNetworkState + " backoff=" + (backoff / 1000));
-                                Thread.sleep(backoff);
-                            } catch (InterruptedException ex) {
-                                Log.w(accountNetworkState + " backoff " + ex.toString());
-                            }
-
                         Map<String, String> crumb = new HashMap<>();
                         crumb.put("account", accountNetworkState.toString());
                         crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
@@ -690,6 +680,16 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         try {
             wlAccount.acquire();
+
+            long ago = new Date().getTime() - lastLost;
+            if (ago < RECONNECT_BACKOFF)
+                try {
+                    long backoff = RECONNECT_BACKOFF - ago;
+                    EntityLog.log(ServiceSynchronize.this, account.name + " backoff=" + (backoff / 1000));
+                    state.acquire(backoff);
+                } catch (InterruptedException ex) {
+                    Log.w(account.name + " backoff " + ex.toString());
+                }
 
             final DB db = DB.getInstance(this);
 
