@@ -25,9 +25,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -101,6 +104,16 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                     setTheme(R.style.AppThemeGreyDark);
                 else
                     setTheme(R.style.AppThemeGreyLight);
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                boolean dark = Helper.isDarkTheme(this);
+                Window window = getWindow();
+                View view = window.getDecorView();
+                int flags = view.getSystemUiVisibility();
+                if (dark)
+                    flags &= ~View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+                view.setSystemUiVisibility(flags);
             }
         }
 
