@@ -47,7 +47,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 
-import com.sun.mail.iap.BadCommandException;
 import com.sun.mail.imap.IMAPFolder;
 
 import java.text.DateFormat;
@@ -882,26 +881,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 try {
                                     ifolder.open(Folder.READ_ONLY);
                                     db.folder().setFolderReadOnly(folder.id, true);
-                                } catch (MessagingException ex1) {
-                                    Log.w(folder.name, ex1);
-                                    db.folder().setFolderState(folder.id, null);
+                                } catch (Throwable ex1) {
                                     db.folder().setFolderError(folder.id, Log.formatThrowable(ex1));
-                                    continue;
+                                    throw ex1;
                                 }
                             } catch (FolderNotFoundException ex) {
                                 Log.w(folder.name, ex);
                                 db.folder().deleteFolder(folder.id);
-                                continue;
-                            } catch (MessagingException ex) {
-                                Log.e(folder.name, ex);
-                                db.folder().setFolderState(folder.id, null);
-
-                                if (ex.getCause() instanceof BadCommandException)
-                                    throw ex;
-                                if ("connection failure".equals(ex.getMessage()))
-                                    throw ex;
-
-                                db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
                                 continue;
                             } catch (Throwable ex) {
                                 db.folder().setFolderError(folder.id, Log.formatThrowable(ex));
@@ -1016,7 +1002,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         } else
                             mapFolders.put(folder, null);
 
-                        Log.i(folder.name + " observing");
+                        Log.d(folder.name + " observing");
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
