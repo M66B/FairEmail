@@ -1336,7 +1336,28 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (wvBody instanceof WebView)
                     webView = (WebViewEx) wvBody;
                 else {
-                    webView = new WebViewEx(context);
+                    try {
+                        webView = new WebViewEx(context);
+                    } catch (Throwable ex) {
+                        /*
+                            android.util.AndroidRuntimeException: java.lang.reflect.InvocationTargetException
+                                    at android.webkit.WebViewFactory.getProvider(WebViewFactory.java:270)
+                                    at android.webkit.WebView.getFactory(WebView.java:2681)
+                                    at android.webkit.WebView.ensureProviderCreated(WebView.java:2676)
+                                    at android.webkit.WebView.setOverScrollMode(WebView.java:2741)
+                                    at android.view.View.<init>(View.java:4815)
+                                    at android.view.View.<init>(View.java:4956)
+                                    at android.view.ViewGroup.<init>(ViewGroup.java:659)
+                                    at android.widget.AbsoluteLayout.<init>(AbsoluteLayout.java:55)
+                                    at android.webkit.WebView.<init>(WebView.java:659)
+                                    at android.webkit.WebView.<init>(WebView.java:604)
+                                    at android.webkit.WebView.<init>(WebView.java:587)
+                                    at android.webkit.WebView.<init>(WebView.java:574)
+                                    at android.webkit.WebView.<init>(WebView.java:564)
+                         */
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        return;
+                    }
 
                     webView.setId(wvBody.getId());
 
