@@ -1762,7 +1762,7 @@ Normally, FairEmail maintains a connection to the configured email servers whene
 If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings.
 This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
 
-You can also enable *Synchronize manually* in the advanced account settings if you want to manually synschronize specific accounts only.
+You can also enable *Synchronize manually* in the advanced account settings if you want to manually synchronize specific accounts only.
 
 You can use pull-down-to-refresh in a message list or use the folder menu *Synchronize now* to manually synchronize messages.
 
