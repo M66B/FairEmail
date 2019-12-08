@@ -64,6 +64,13 @@ public class EntityAnswer implements Serializable {
             email = ((InternetAddress) address[0]).getAddress();
         }
 
+        if (fullName != null) {
+            if (fullName.startsWith("\""))
+                fullName = fullName.substring(1);
+            if (fullName.endsWith("\""))
+                fullName = fullName.substring(0, fullName.length() - 1);
+        }
+
         String first = fullName;
         String last = null;
         if (fullName != null) {
