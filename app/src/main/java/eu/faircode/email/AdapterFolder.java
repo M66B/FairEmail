@@ -839,6 +839,19 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         diff.dispatchUpdatesTo(this);
     }
 
+    public int search(String query, int result) {
+        int pos = 0;
+        if (!TextUtils.isEmpty(query))
+            for (int i = 0; i < items.size(); i++)
+                if (items.get(i).getDisplayName(context).toLowerCase().contains(query.toLowerCase())) {
+                    pos = i;
+                    if (--result < 0)
+                        break;
+                }
+
+        return pos;
+    }
+
     private List<TupleFolderEx> getHierarchical(List<TupleFolderEx> parents, int indentation) {
         List<TupleFolderEx> result = new ArrayList<>();
 

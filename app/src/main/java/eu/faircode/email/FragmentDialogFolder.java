@@ -22,8 +22,13 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +42,8 @@ import java.util.List;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentDialogFolder extends FragmentDialogBase {
+    private int result = 0;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -46,11 +53,13 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
         final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_folder_select, null);
         final TextView tvNoFolder = dview.findViewById(R.id.tvNoFolder);
+        final EditText etSearch = dview.findViewById(R.id.etSearch);
+        final ImageButton ibNext = dview.findViewById(R.id.ibNext);
         final RecyclerView rvFolder = dview.findViewById(R.id.rvFolder);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
 
         rvFolder.setHasFixedSize(false);
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        final LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvFolder.setLayoutManager(llm);
 
         final AdapterFolder adapter = new AdapterFolder(getContext(), getViewLifecycleOwner(),
@@ -66,6 +75,38 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         });
 
         rvFolder.setAdapter(adapter);
+
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                result = 0;
+                String query = s.toString().toLowerCase();
+                int pos = adapter.search(query, result);
+                llm.scrollToPositionWithOffset(pos, 0);
+                ibNext.setEnabled(!TextUtils.isEmpty(query));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+
+        ibNext.setEnabled(false);
+        ibNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                result++;
+                String query = etSearch.getText().toString();
+                int pos = adapter.search(query, result);
+                llm.scrollToPositionWithOffset(pos, 0);
+                if (pos == adapter.search(query, result + 1))
+                    result = 0;
+            }
+        });
 
         Bundle args = new Bundle();
         args.putLong("account", account);

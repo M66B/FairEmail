@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/tvNoFolder"
@@ -16,16 +17,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:hint="@string/title_search"
+        app:layout_constraintEnd_toStartOf="@+id/ibNext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:padding="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/etSearch"
+        app:srcCompat="@drawable/baseline_fast_forward_24" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFolder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:layout_marginTop="6dp"
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etSearch" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"
