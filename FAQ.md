@@ -612,6 +612,8 @@ How to extract a public key from a S/MIME certificate:
 openssl pkcs12 -in filename.pfx -clcerts -nokeys -out cert.pem
 ```
 
+You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
+
 S/MIME sign/encrypt is a pro feature, but all other PGP and S/MIME operations are free to use.
 
 <br />
