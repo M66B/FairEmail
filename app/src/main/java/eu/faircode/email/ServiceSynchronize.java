@@ -61,6 +61,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 
@@ -204,7 +205,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         });
 
-        Log.i("### observe");
         liveAccountNetworkState.observeForever(new Observer<List<TupleAccountNetworkState>>() {
             boolean running = true;
             private List<TupleAccountNetworkState> accountStates = new ArrayList<>();
@@ -241,7 +241,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
                             if (current.canRun()) {
-                                Log.i("### new " + current);
+                                EntityLog.log(ServiceSynchronize.this, "### new " + current);
                                 start(current, current.accountState.isEnabled(current.enabled));
                             }
                         } else {
@@ -252,17 +252,21 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             if (state != null)
                                 state.setNetworkState(current.networkState);
 
-                            // TODO: reload disconnected account on new network available
-                            // !"connected".equals(current.accountState.state))
-
+                            // Some networks disallow email server connections:
+                            // - reload on network type change when disconnected
                             if (current.reload ||
                                     prev.canRun() != current.canRun() ||
-                                    !prev.accountState.equals(current.accountState)) {
-                                Log.i("### changed " + current +
-                                        " reload=" + current.reload +
-                                        " run prev=" + prev.canRun() +
-                                        " run cur=" + current.canRun() +
-                                        " changed=" + !prev.accountState.equals(current.accountState));
+                                    !prev.accountState.equals(current.accountState) ||
+                                    (!"connected".equals(current.accountState.state) &&
+                                            !Objects.equals(prev.networkState.getType(), current.networkState.getType()))) {
+                                if (prev.canRun() || current.canRun())
+                                    EntityLog.log(ServiceSynchronize.this, "### changed " + current +
+                                            " reload=" + current.reload +
+                                            " stop=" + prev.canRun() +
+                                            " start=" + current.canRun() +
+                                            " changed=" + !prev.accountState.equals(current.accountState) +
+                                            " state=" + current.accountState.state +
+                                            " type=" + prev.networkState.getType() + "/" + current.networkState.getType());
                                 if (prev.canRun())
                                     stop(prev);
                                 if (current.canRun())
@@ -330,7 +334,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         Log.i("### start=" + accountNetworkState);
                         astate.start();
-                        Log.i("### started=" + accountNetworkState);
+                        EntityLog.log(ServiceSynchronize.this, "### started=" + accountNetworkState);
                     }
                 });
             }
@@ -356,7 +360,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         Log.i("### stop=" + accountNetworkState);
                         state.stop();
                         state.join();
-                        Log.i("### stopped=" + accountNetworkState);
+                        EntityLog.log(ServiceSynchronize.this, "### stopped=" + accountNetworkState);
                     }
                 });
             }
@@ -392,7 +396,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             db.folder().setFolderSyncState(op.folder, null);
 
                         stopSelf();
-                        Log.i("### quited");
+                        EntityLog.log(ServiceSynchronize.this, "### quited");
                     }
                 });
             }
@@ -582,7 +586,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     public int onStartCommand(Intent intent, int flags, int startId) {
         String action = (intent == null ? null : intent.getAction());
         String reason = (intent == null ? null : intent.getStringExtra("reason"));
-        Log.i("### Service command intent=" + intent + " action=" + action + " reason=" + reason);
+        EntityLog.log(ServiceSynchronize.this, "### Service command " + intent +
+                " action=" + action + " reason=" + reason);
         Log.logExtras(intent);
 
         super.onStartCommand(intent, flags, startId);
@@ -1304,7 +1309,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             EntityLog.log(ServiceSynchronize.this, "Available network=" + network +
                     " capabilities " + cm.getNetworkCapabilities(network));
-            updateState(ConnectionHelper.NetworkState.actionType.AVAILABLE);
+            updateState();
         }
 
         @Override
@@ -1312,7 +1317,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             EntityLog.log(ServiceSynchronize.this, "Changed network=" + network +
                     " capabilities " + cm.getNetworkCapabilities(network));
-            updateState(ConnectionHelper.NetworkState.actionType.CHANGED);
+            updateState();
         }
 
         @Override
@@ -1322,11 +1327,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             EntityLog.log(ServiceSynchronize.this, "Lost network=" + network + " active=" + active);
             if (active == null)
                 lastLost = new Date().getTime();
-            updateState(ConnectionHelper.NetworkState.actionType.LOST);
+            updateState();
         }
 
-        private void updateState(ConnectionHelper.NetworkState.actionType action) {
-            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this, action);
+        private void updateState() {
+            ConnectionHelper.NetworkState ns = ConnectionHelper.getNetworkState(ServiceSynchronize.this);
             liveNetworkState.postValue(ns);
 
             if (lastSuitable == null || lastSuitable != ns.isSuitable()) {

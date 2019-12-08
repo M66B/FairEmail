@@ -75,9 +75,7 @@ public class ConnectionHelper {
         private Boolean suitable = null;
         private Boolean unmetered = null;
         private Boolean roaming = null;
-        private actionType action = actionType.NONE;
-
-        public enum actionType {NONE, AVAILABLE, CHANGED, LOST}
+        private Integer type = null;
 
         boolean isConnected() {
             return (connected != null && connected);
@@ -95,11 +93,16 @@ public class ConnectionHelper {
             return (roaming != null && roaming);
         }
 
+        Integer getType() {
+            return type;
+        }
+
         public void update(NetworkState newState) {
             connected = newState.connected;
             unmetered = newState.unmetered;
             suitable = newState.suitable;
             roaming = newState.roaming;
+            type = newState.type;
         }
 
         @Override
@@ -128,10 +131,13 @@ public class ConnectionHelper {
             state.unmetered = (isMetered != null && !isMetered);
             state.suitable = (isMetered != null && (metered || !isMetered));
 
+            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+            if (ani != null)
+                state.type = ani.getType();
+
             if (state.connected && !roaming) {
-                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-                    NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
                     if (ani != null)
                         state.roaming = ani.isRoaming();
                 } else {
@@ -163,12 +169,6 @@ public class ConnectionHelper {
             Log.e(ex);
         }
 
-        return state;
-    }
-
-    static NetworkState getNetworkState(Context context, NetworkState.actionType action) {
-        NetworkState state = getNetworkState(context);
-        state.action = action;
         return state;
     }
 
