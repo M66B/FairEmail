@@ -1759,15 +1759,12 @@ Scheduling is a pro feature.
 **(79) How do I use synchronize on demand (manual)?**
 
 Normally, FairEmail maintains a connection to the configured email servers whenever possible to receive messages in real-time.
-If you don't want this, for example to not be disturbed or to save on battery usage,
-just disable synchronization in the advanced option (accessible via the button at the bottom of the setup screen).
+If you don't want this, for example to be not disturbed or to save on battery usage, just disable receiving in the receive settings.
 This will stop the background service which takes care of automatic synchronization and will remove the associated status bar notification.
-You can use pull-down-to-refresh in a folder or use the folder menu *Synchronize now* to manually synchronize messages.
-This will start the synchronization service for 60 seconds for all configured accounts.
 
-The synchronization process will also be started to execute [operations](#user-content-faq3),
-for example to mark a message read, move a message or store a draft.
-This is to keep the local and remote message store synchronized.
+You can also enable *Synchronize manually* in the advanced account settings if you want to manually synschronize specific accounts only.
+
+You can use pull-down-to-refresh in a message list or use the folder menu *Synchronize now* to manually synchronize messages.
 
 If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
 

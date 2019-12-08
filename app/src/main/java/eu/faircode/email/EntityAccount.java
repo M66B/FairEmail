@@ -85,7 +85,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean synchronize;
     @NonNull
-    public Boolean ondemand = false; // obsolete
+    public Boolean ondemand = false;
     @NonNull
     public Boolean primary;
     @NonNull

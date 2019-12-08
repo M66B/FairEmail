@@ -49,7 +49,7 @@ public class TupleAccountState extends EntityAccount {
     }
 
     boolean isEnabled(boolean enabled) {
-        return (enabled && synchronize && folders > 0 && tbd == null);
+        return (enabled && synchronize && !ondemand && folders > 0 && tbd == null);
     }
 
     boolean shouldRun(boolean enabled) {
