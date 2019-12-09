@@ -689,15 +689,15 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         final PowerManager.WakeLock wlMessage = pm.newWakeLock(
                 PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":account." + account.id + ".message");
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            if (account.notify)
-                account.createNotificationChannel(ServiceSynchronize.this);
-            else
-                account.deleteNotificationChannel(ServiceSynchronize.this);
-        }
-
         try {
             wlAccount.acquire();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                if (account.notify)
+                    account.createNotificationChannel(ServiceSynchronize.this);
+                else
+                    account.deleteNotificationChannel(ServiceSynchronize.this);
+            }
 
             long ago = new Date().getTime() - lastLost;
             if (ago < RECONNECT_BACKOFF)
