@@ -1224,8 +1224,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null) {
                             db.folder().setFolderState(folder.id, "closing");
                             try {
-                                mapFolders.get(folder).close();
-                            } catch (MessagingException ex) {
+                                if (iservice.getStore().isConnected())
+                                    mapFolders.get(folder).close();
+                            } catch (Throwable ex) {
                                 Log.w(ex);
                             } finally {
                                 db.folder().setFolderState(folder.id, null);
