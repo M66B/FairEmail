@@ -354,7 +354,7 @@ public class Log {
                         for (int i = 0; i < length; i++) {
                             Object element = Array.get(v, i);
                             if (element instanceof Long)
-                                elements[i] = "0x" + Long.toHexString((Long) element);
+                                elements[i] = element.toString() + " (0x" + Long.toHexString((Long) element) + ")";
                             else
                                 elements[i] = (element == null ? null : element.toString());
                         }
@@ -362,7 +362,7 @@ public class Log {
                     } else
                         value = "[" + length + "]";
                 } else if (v instanceof Long)
-                    value = "0x" + Long.toHexString((Long) v);
+                    value = v.toString() + " (0x" + Long.toHexString((Long) v) + ")";
 
                 result.add(key + "=" + value + (value == null ? "" : " (" + v.getClass().getSimpleName() + ")"));
             }
