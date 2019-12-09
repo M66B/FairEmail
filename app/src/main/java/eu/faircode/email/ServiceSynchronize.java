@@ -332,7 +332,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         Map<String, String> crumb = new HashMap<>();
-                        crumb.put("account", accountNetworkState.toString());
+                        crumb.put("account", accountNetworkState.accountState.id.toString());
                         crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
                         crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
                         crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
@@ -357,7 +357,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     @Override
                     public void run() {
                         Map<String, String> crumb = new HashMap<>();
-                        crumb.put("account", accountNetworkState.toString());
+                        crumb.put("account", accountNetworkState.accountState.id.toString());
                         crumb.put("connected", Boolean.toString(accountNetworkState.networkState.isConnected()));
                         crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
                         crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
