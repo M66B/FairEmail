@@ -189,6 +189,14 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
         final List<NavMenuItem> menus = new ArrayList<>();
 
+        menus.add(new NavMenuItem(R.drawable.baseline_exit_to_app_24, R.string.menu_exit, new Runnable() {
+            @Override
+            public void run() {
+                drawerLayout.closeDrawer(drawerContainer, false);
+                onBackPressed();
+            }
+        }).setSeparated());
+
         menus.add(new NavMenuItem(R.drawable.baseline_archive_24, R.string.title_setup_export, new Runnable() {
             @Override
             public void run() {

@@ -90,6 +90,7 @@
 
     <string name="title_name_count">%1$s (%2$s)</string>
 
+    <string name="menu_exit">Exit</string>
     <string name="menu_answers">Templates</string>
     <string name="menu_operations">Operations</string>
     <string name="menu_contacts">Local contacts</string>
