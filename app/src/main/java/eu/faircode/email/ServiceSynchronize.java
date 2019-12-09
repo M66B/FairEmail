@@ -265,6 +265,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                             " stop=" + prev.canRun() +
                                             " start=" + current.canRun() +
                                             " changed=" + !prev.accountState.equals(current.accountState) +
+                                            " enabled=" + current.accountState.synchronize +
                                             " state=" + current.accountState.state +
                                             " type=" + prev.networkState.getType() + "/" + current.networkState.getType());
                                 if (prev.canRun())

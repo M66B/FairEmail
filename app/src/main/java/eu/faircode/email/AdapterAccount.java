@@ -159,7 +159,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 ivState.setImageResource(R.drawable.baseline_close_24);
             else
                 ivState.setImageResource(R.drawable.baseline_cloud_off_24);
-            ivState.setVisibility(account.synchronize ? View.VISIBLE : View.INVISIBLE);
+            ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);
 
             tvHost.setText(String.format("%s:%d", account.host, account.port));
             tvLast.setText(context.getString(R.string.title_last_connected,
