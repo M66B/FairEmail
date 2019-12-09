@@ -1186,6 +1186,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             account.name + " " + Log.formatThrowable(ex, false));
                     db.account().setAccountError(account.id, Log.formatThrowable(ex));
                 } finally {
+                    // Update state
+                    EntityLog.log(this, account.name + " closing");
+                    db.account().setAccountState(account.id, "closing");
+
                     // Stop watching for operations
                     handler.post(new Runnable() {
                         @Override
@@ -1196,8 +1200,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     });
 
                     // Update state
-                    EntityLog.log(this, account.name + " closing");
-                    db.account().setAccountState(account.id, "closing");
                     for (EntityFolder folder : mapFolders.keySet())
                         if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null)
                             db.folder().setFolderState(folder.id, "closing");
