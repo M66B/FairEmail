@@ -34,6 +34,7 @@ import javax.mail.NoSuchProviderException;
 import javax.mail.Service;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.mail.event.StoreListener;
 
 public class MailService implements AutoCloseable {
     private Context context;
@@ -43,6 +44,7 @@ public class MailService implements AutoCloseable {
     private Properties properties;
     private Session isession;
     private Service iservice;
+    private StoreListener listener;
 
     private ExecutorService executor = Helper.getBackgroundExecutor(0, "mail");
 
@@ -123,6 +125,7 @@ public class MailService implements AutoCloseable {
             properties.put("mail.imap.starttls.enable", "true");
             properties.put("mail.imap.starttls.required", Boolean.toString(!insecure));
 
+            properties.put("mail." + protocol + ".separatestoreconnection", "true");
             properties.put("mail." + protocol + ".connectionpool.debug", "true");
             properties.put("mail." + protocol + ".connectionpoolsize", "1");
             properties.put("mail." + protocol + ".connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
@@ -169,12 +172,12 @@ public class MailService implements AutoCloseable {
         useip = enabled;
     }
 
-    void setSeparateStoreConnection() {
-        properties.put("mail." + protocol + ".separatestoreconnection", "true");
-    }
-
     void setLeaveOnServer(boolean keep) {
         properties.put("mail." + protocol + ".rsetbeforequit", Boolean.toString(keep));
+    }
+
+    void setListener(StoreListener listener) {
+        this.listener = listener;
     }
 
     public void connect(EntityAccount account) throws MessagingException {
@@ -265,6 +268,8 @@ public class MailService implements AutoCloseable {
 
         } else if ("imap".equals(protocol) || "imaps".equals(protocol)) {
             iservice = isession.getStore(protocol);
+            if (listener != null)
+                ((IMAPStore) iservice).addStoreListener(listener);
             iservice.connect(host, port, user, password);
 
             // https://www.ietf.org/rfc/rfc2971.txt

@@ -714,6 +714,35 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 if (account.protocol != EntityAccount.TYPE_IMAP)
                     iservice.setLeaveOnServer(account.browse);
+                iservice.setListener(new StoreListener() {
+                    @Override
+                    public void notification(StoreEvent e) {
+                        if (e.getMessageType() == StoreEvent.NOTICE)
+                            EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + e.getMessage());
+                        else
+                            try {
+                                wlFolder.acquire();
+
+                                String message = e.getMessage();
+                                Log.w(account.name + " alert: " + message);
+                                EntityLog.log(
+                                        ServiceSynchronize.this, account.name + " " +
+                                                Log.formatThrowable(new Core.AlertException(message), false));
+                                db.account().setAccountError(account.id, message);
+
+                                NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                nm.notify("alert:" + account.id, 1,
+                                        Core.getNotificationError(
+                                                ServiceSynchronize.this, "warning", account.name,
+                                                new Core.AlertException(message))
+                                                .build());
+
+                                state.error(null);
+                            } finally {
+                                wlFolder.release();
+                            }
+                    }
+                });
 
                 final Map<EntityFolder, IMAPFolder> mapFolders = new HashMap<>();
                 List<Thread> idlers = new ArrayList<>();
@@ -765,37 +794,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     db.account().setAccountError(account.id, null);
                     db.account().setAccountWarning(account.id, null);
                     EntityLog.log(this, account.name + " connected");
-
-                    // Listen for store events
-                    iservice.getStore().addStoreListener(new StoreListener() {
-                        @Override
-                        public void notification(StoreEvent e) {
-                            if (e.getMessageType() == StoreEvent.NOTICE)
-                                EntityLog.log(ServiceSynchronize.this, account.name + " notice: " + e.getMessage());
-                            else
-                                try {
-                                    wlFolder.acquire();
-
-                                    String message = e.getMessage();
-                                    Log.w(account.name + " alert: " + message);
-                                    EntityLog.log(
-                                            ServiceSynchronize.this, account.name + " " +
-                                                    Log.formatThrowable(new Core.AlertException(message), false));
-                                    db.account().setAccountError(account.id, message);
-
-                                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                    nm.notify("alert:" + account.id, 1,
-                                            Core.getNotificationError(
-                                                    ServiceSynchronize.this, "warning", account.name,
-                                                    new Core.AlertException(message))
-                                                    .build());
-
-                                    state.error(null);
-                                } finally {
-                                    wlFolder.release();
-                                }
-                        }
-                    });
 
                     // Listen for folder events
                     iservice.getStore().addFolderListener(new FolderAdapter() {
