@@ -2134,7 +2134,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     db.endTransaction();
                                 }
 
-                                ServiceSynchronize.eval(context, false, "doubletap");
+                                ServiceSynchronize.eval(context, "doubletap");
 
                                 return null;
                             }
@@ -2298,7 +2298,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, false, "flag");
+                    ServiceSynchronize.eval(context, "flag");
 
                     return null;
                 }
@@ -2551,7 +2551,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, false, "attachment");
+                    ServiceSynchronize.eval(context, "attachment");
 
                     return null;
                 }
@@ -2722,7 +2722,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, false, "attachment");
+                    ServiceSynchronize.eval(context, "attachment");
 
                     return null;
                 }
@@ -2967,7 +2967,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, false, "outbox/drafts");
+                    ServiceSynchronize.eval(context, "outbox/drafts");
 
                     if (message.identity != null) {
                         // Identity can be deleted
@@ -3266,7 +3266,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, false, "seen");
+                    ServiceSynchronize.eval(context, "seen");
 
                     return null;
                 }
@@ -3404,7 +3404,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, false, "resync");
+                    ServiceSynchronize.eval(context, "resync");
 
                     return null;
                 }
@@ -3582,7 +3582,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             db.endTransaction();
                         }
 
-                        ServiceSynchronize.eval(context, false, "headers");
+                        ServiceSynchronize.eval(context, "headers");
 
                         return null;
                     }
@@ -3622,7 +3622,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         db.endTransaction();
                     }
 
-                    ServiceSynchronize.eval(context, false, "raw");
+                    ServiceSynchronize.eval(context, "raw");
 
                     return null;
                 }
@@ -4575,7 +4575,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         db.endTransaction();
                                     }
 
-                                    ServiceSynchronize.eval(context, false, "keywords");
+                                    ServiceSynchronize.eval(context, "keywords");
 
                                     return null;
                                 }
@@ -4650,7 +4650,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                             db.endTransaction();
                                         }
 
-                                        ServiceSynchronize.eval(context, false, "keyword=" + keyword);
+                                        ServiceSynchronize.eval(context, "keyword=" + keyword);
 
                                         return null;
                                     }

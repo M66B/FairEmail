@@ -544,6 +544,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 private void onActionProperty(int property, boolean enabled) {
                     Bundle args = new Bundle();
                     args.putLong("id", folder.id);
+                    args.putLong("account", folder.account);
                     args.putInt("property", property);
                     args.putBoolean("enabled", enabled);
 
@@ -551,6 +552,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
                             long id = args.getLong("id");
+                            long aid = args.getLong("account");
                             int property = args.getInt("property");
                             boolean enabled = args.getBoolean("enabled");
 
@@ -567,7 +569,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     break;
                                 case R.string.title_synchronize_enabled:
                                     db.folder().setFolderSynchronize(id, enabled);
-                                    ServiceSynchronize.eval(context, true, "folder sync=" + enabled);
+                                    ServiceSynchronize.reload(context, aid, "folder sync=" + enabled);
                                     break;
                                 default:
                                     throw new IllegalArgumentException("Unknown folder property=" + property);
@@ -595,7 +597,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             boolean subscribed = args.getBoolean("subscribed");
 
                             EntityOperation.subscribe(context, id, subscribed);
-                            ServiceSynchronize.eval(context, false, "subscribed=" + subscribed);
+                            ServiceSynchronize.eval(context, "subscribed=" + subscribed);
 
                             return null;
                         }

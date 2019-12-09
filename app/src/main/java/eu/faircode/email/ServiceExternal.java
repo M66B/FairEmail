@@ -103,7 +103,7 @@ public class ServiceExternal extends Service {
                     boolean previous = prefs.getBoolean("enabled", true);
                     if (!enabled.equals(previous)) {
                         prefs.edit().putBoolean("enabled", enabled).apply();
-                        ServiceSynchronize.eval(this, false, "external");
+                        ServiceSynchronize.eval(this, "external");
                     }
                 } else {
                     final Context context = getApplicationContext();
@@ -114,7 +114,7 @@ public class ServiceExternal extends Service {
                             EntityAccount account = db.account().getAccount(accountName);
                             if (account != null) {
                                 db.account().setAccountSynchronize(account.id, enabled);
-                                ServiceSynchronize.eval(context, false, "account enabled=" + enabled);
+                                ServiceSynchronize.eval(context, "account enabled=" + enabled);
                             }
                         }
                     });

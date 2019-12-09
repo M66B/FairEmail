@@ -97,7 +97,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                 startActivity(view);
                             }
 
-                        ServiceSynchronize.eval(ActivityMain.this, false, "main");
+                        ServiceSynchronize.eval(ActivityMain.this, "main");
                         ServiceSend.watchdog(ActivityMain.this);
                     } else
                         startActivity(new Intent(ActivityMain.this, ActivitySetup.class));

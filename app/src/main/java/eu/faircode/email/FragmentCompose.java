@@ -3060,7 +3060,7 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
-            ServiceSynchronize.eval(context, false, "compose/draft");
+            ServiceSynchronize.eval(context, "compose/draft");
 
             return data;
         }
@@ -3595,7 +3595,7 @@ public class FragmentCompose extends FragmentBase {
                 db.endTransaction();
             }
 
-            ServiceSynchronize.eval(context, false, "compose/action");
+            ServiceSynchronize.eval(context, "compose/action");
 
             if (action == R.id.action_send && draft.ui_snoozed != null) {
                 Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));

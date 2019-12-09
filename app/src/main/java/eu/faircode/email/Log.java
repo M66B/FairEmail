@@ -643,7 +643,7 @@ public class Log {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(context, false, "debuginfo");
+        ServiceSynchronize.eval(context, "debuginfo");
 
         return draft;
     }

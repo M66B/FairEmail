@@ -1192,7 +1192,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "refresh");
+                ServiceSynchronize.eval(context, "refresh");
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
@@ -2031,7 +2031,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "seen");
+                ServiceSynchronize.eval(context, "seen");
 
                 return null;
             }
@@ -2166,7 +2166,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "flag");
+                ServiceSynchronize.eval(context, "flag");
 
                 return null;
             }
@@ -3485,7 +3485,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "expand");
+                ServiceSynchronize.eval(context, "expand");
 
                 return null;
             }
@@ -3626,7 +3626,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "move");
+                ServiceSynchronize.eval(context, "move");
 
                 return null;
             }
@@ -3750,7 +3750,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                                     db.endTransaction();
                                 }
 
-                                ServiceSynchronize.eval(context, false, "move");
+                                ServiceSynchronize.eval(context, "move");
                             }
                         }, "messages:movetimeout");
                         thread.setPriority(THREAD_PRIORITY_BACKGROUND);
@@ -4728,7 +4728,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "delete");
+                ServiceSynchronize.eval(context, "delete");
 
                 return null;
             }
@@ -4765,7 +4765,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "delete");
+                ServiceSynchronize.eval(context, "delete");
 
                 return null;
             }
@@ -4802,7 +4802,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "move");
+                ServiceSynchronize.eval(context, "move");
 
                 return null;
             }
@@ -4863,7 +4863,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     }
                 });
 
-                ServiceSynchronize.eval(context, false, "flag");
+                ServiceSynchronize.eval(context, "flag");
 
                 return null;
             }
@@ -5016,7 +5016,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "copy");
+                ServiceSynchronize.eval(context, "copy");
 
                 return result;
             }
@@ -5201,7 +5201,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "delete");
+                ServiceSynchronize.eval(context, "delete");
 
                 return null;
             }

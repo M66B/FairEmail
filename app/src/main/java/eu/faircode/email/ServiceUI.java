@@ -195,7 +195,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, false, "move");
+        ServiceSynchronize.eval(ServiceUI.this, "move");
     }
 
     private void onMove(long id) {
@@ -218,7 +218,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, false, "move");
+        ServiceSynchronize.eval(ServiceUI.this, "move");
     }
 
     private void onReplyDirect(long id, Intent intent) throws IOException {
@@ -309,7 +309,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, false, "flag");
+        ServiceSynchronize.eval(ServiceUI.this, "flag");
     }
 
     private void onSeen(long id) {
@@ -328,7 +328,7 @@ public class ServiceUI extends IntentService {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(ServiceUI.this, false, "seen");
+        ServiceSynchronize.eval(ServiceUI.this, "seen");
     }
 
     private void onSnooze(long id) {
@@ -425,7 +425,7 @@ public class ServiceUI extends IntentService {
         if (EntityFolder.OUTBOX.equals(folder.type))
             ServiceSend.start(ServiceUI.this);
         else
-            ServiceSynchronize.eval(ServiceUI.this, false, "wakeup");
+            ServiceSynchronize.eval(ServiceUI.this, "wakeup");
     }
 
     private void onDaily() {

@@ -470,7 +470,7 @@ public class ServiceSend extends ServiceBase {
                 db.endTransaction();
             }
 
-            ServiceSynchronize.eval(ServiceSend.this, false, "sent");
+            ServiceSynchronize.eval(ServiceSend.this, "sent");
 
             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             nm.cancel("send:" + message.identity, 1);

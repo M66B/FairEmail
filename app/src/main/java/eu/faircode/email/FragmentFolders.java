@@ -348,7 +348,11 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, aid > 0, "refresh/folders");
+                if (aid < 0)
+                    ServiceSynchronize.eval(context, "refresh/folders");
+                else
+                    ServiceSynchronize.reload(context, aid, "refresh/folders");
+
                 if (outbox)
                     ServiceSend.start(context);
 
@@ -516,7 +520,7 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "refresh/folder");
+                ServiceSynchronize.eval(context, "refresh/folder");
 
                 if (!now)
                     throw new IllegalArgumentException(context.getString(R.string.title_no_connection));
@@ -608,7 +612,7 @@ public class FragmentFolders extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "delete");
+                ServiceSynchronize.eval(context, "delete");
 
                 return null;
             }

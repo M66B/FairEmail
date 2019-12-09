@@ -1098,7 +1098,7 @@ public class FragmentAccount extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "save account");
+                ServiceSynchronize.eval(context, "save account");
 
                 if (!synchronize) {
                     NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -1426,7 +1426,7 @@ public class FragmentAccount extends FragmentBase {
                 DB db = DB.getInstance(context);
                 db.account().setAccountTbd(id);
 
-                ServiceSynchronize.eval(context, false, "delete account");
+                ServiceSynchronize.eval(context, "delete account");
 
                 return null;
             }

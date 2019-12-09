@@ -338,7 +338,7 @@ public class FragmentAccounts extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, false, "refresh/accounts");
+                ServiceSynchronize.eval(context, "refresh/accounts");
                 if (outbox)
                     ServiceSend.start(context);
 

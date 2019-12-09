@@ -351,7 +351,7 @@ public class ActivityEML extends ActivityBase {
                                             }
 
                                             EntityOperation.sync(context, inbox.id, true);
-                                            ServiceSynchronize.eval(context, false, "EML");
+                                            ServiceSynchronize.eval(context, "EML");
                                         }
 
                                         return account.name + "/" + inbox.name;

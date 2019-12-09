@@ -272,7 +272,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
 
                         @Override
                         protected void onExecuted(Bundle args, Boolean sync) {
-                            ServiceSynchronize.eval(context, false, "account sync=" + sync);
+                            ServiceSynchronize.eval(context, "account sync=" + sync);
                         }
 
                         @Override

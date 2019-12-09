@@ -121,25 +121,25 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         private ConnectionHelper.NetworkState lastNetworkState = null;
         private List<TupleAccountState> lastAccountStates = null;
 
-        private void post(boolean reload) {
+        private void postReload(Long reload) {
             post(reload, lastNetworkState, lastAccountStates);
         }
 
         private void post(ConnectionHelper.NetworkState networkState) {
             lastNetworkState = networkState;
-            post(false, lastNetworkState, lastAccountStates);
+            post(null, lastNetworkState, lastAccountStates);
         }
 
         private void post(List<TupleAccountState> accountStates) {
             lastAccountStates = accountStates;
-            post(false, lastNetworkState, lastAccountStates);
+            post(null, lastNetworkState, lastAccountStates);
         }
 
         private void postDestroy() {
             postValue(null);
         }
 
-        private void post(boolean reload, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
+        private void post(Long reload, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
             if (Looper.myLooper() == Looper.getMainLooper())
                 _post(reload, networkState, accountStates);
             else {
@@ -154,7 +154,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             }
         }
 
-        private void _post(boolean reload, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
+        private void _post(Long reload, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
             if (networkState != null && accountStates != null) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
                 boolean enabled = prefs.getBoolean("enabled", true);
@@ -168,7 +168,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 for (TupleAccountState accountState : accountStates)
                     result.add(new TupleAccountNetworkState(
                             enabled && pollInterval == 0 && scheduled,
-                            reload,
+                            reload != null && (reload < 0 || accountState.id.equals(reload)),
                             networkState,
                             accountState));
                 postValue(result);
@@ -531,9 +531,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (PREF_EVAL.contains(key))
-            liveAccountNetworkState.post(false);
+            liveAccountNetworkState.postReload(null);
         else if (PREF_RELOAD.contains(key))
-            liveAccountNetworkState.post(true);
+            liveAccountNetworkState.postReload(-1L);
     }
 
     @Override
@@ -601,17 +601,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             try {
                 switch (action) {
                     case "eval":
-                        boolean reload = intent.getBooleanExtra("reload", false);
-                        liveAccountNetworkState.post(reload);
+                        Long reload = null;
+                        if (intent.hasExtra("reload"))
+                            reload = intent.getLongExtra("reload", -1);
+                        liveAccountNetworkState.postReload(reload);
                         break;
 
                     case "alarm":
                         schedule(this);
-                        eval(this, false, "alarm");
+                        eval(this, "alarm");
                         break;
 
                     case "reset":
-                        eval(this, true, "reset");
+                        reload(this, -1, "reset");
                         break;
 
                     default:
@@ -805,7 +807,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder created=" + name);
                                 if (db.folder().getFolderByName(account.id, name) == null)
-                                    eval(ServiceSynchronize.this, true, "folder created");
+                                    reload(ServiceSynchronize.this, account.id, "folder created");
                             } finally {
                                 wlFolder.release();
                             }
@@ -823,7 +825,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 int count = db.folder().renameFolder(account.id, old, name);
                                 Log.i("Renamed to " + name + " count=" + count);
                                 if (count == 0)
-                                    eval(ServiceSynchronize.this, true, "folder renamed");
+                                    reload(ServiceSynchronize.this, account.id, "folder renamed");
                             } finally {
                                 wlFolder.release();
                             }
@@ -837,7 +839,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 String name = e.getFolder().getFullName();
                                 Log.i("Folder deleted=" + name);
                                 if (db.folder().getFolderByName(account.id, name) != null)
-                                    eval(ServiceSynchronize.this, true, "folder deleted");
+                                    reload(ServiceSynchronize.this, account.id, "folder deleted");
                             } finally {
                                 wlFolder.release();
                             }
@@ -1381,7 +1383,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     // Conditionally init service
                     int accounts = db.account().getSynchronizingAccounts().size();
                     if (accounts > 0)
-                        eval(context, false, "boot");
+                        eval(context, "boot");
                     else {
                         for (EntityAccount account : db.account().getAccounts())
                             db.account().setAccountState(account.id, null);
@@ -1473,11 +1475,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return new long[]{start, end};
     }
 
-    static void eval(Context context, boolean reload, String reason) {
+    static void eval(Context context, String reason) {
         ContextCompat.startForegroundService(context,
                 new Intent(context, ServiceSynchronize.class)
                         .setAction("eval")
-                        .putExtra("reload", reload)
+                        .putExtra("reason", reason));
+    }
+
+    static void reload(Context context, long account, String reason) {
+        ContextCompat.startForegroundService(context,
+                new Intent(context, ServiceSynchronize.class)
+                        .setAction("eval")
+                        .putExtra("reload", account)
                         .putExtra("reason", reason));
     }
 

@@ -95,7 +95,7 @@ public class WorkerPoll extends Worker {
             db.endTransaction();
         }
 
-        ServiceSynchronize.eval(context, false, "refresh/poll");
+        ServiceSynchronize.eval(context, "refresh/poll");
     }
 
     private static String getName() {

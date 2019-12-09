@@ -505,7 +505,10 @@ public class FragmentFolder extends FragmentBase {
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, reload, "save folder");
+                if (reload)
+                    ServiceSynchronize.reload(context, aid, "save folder");
+                else
+                    ServiceSynchronize.eval(context, "save folder");
 
                 return false;
             }
@@ -546,15 +549,30 @@ public class FragmentFolder extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
 
-                DB db = DB.getInstance(context);
-                int count = db.operation().getOperationCount(id, null);
-                if (count > 0)
-                    throw new IllegalArgumentException(
-                            context.getResources().getQuantityString(
-                                    R.plurals.title_notification_operations, count, count));
-                db.folder().setFolderTbd(id);
+                EntityFolder folder;
 
-                ServiceSynchronize.eval(context, true, "delete folder");
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    folder = db.folder().getFolder(id);
+                    if (folder == null)
+                        return null;
+
+                    int count = db.operation().getOperationCount(folder.id, null);
+                    if (count > 0)
+                        throw new IllegalArgumentException(
+                                context.getResources().getQuantityString(
+                                        R.plurals.title_notification_operations, count, count));
+
+                    db.folder().setFolderTbd(folder.id);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                ServiceSynchronize.reload(context, folder.account, "delete folder");
 
                 return null;
             }
