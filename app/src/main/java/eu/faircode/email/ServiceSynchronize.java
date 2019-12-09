@@ -1230,62 +1230,66 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     idlers.clear();
                 }
 
-                if (state.isRunning())
-                    try {
-                        if (backoff <= CONNECT_BACKOFF_MAX) {
-                            // Short back-off period, keep device awake
-                            EntityLog.log(this, account.name + " backoff=" + backoff);
+                if (state.isRunning()) {
+                    if (backoff <= CONNECT_BACKOFF_MAX) {
+                        // Short back-off period, keep device awake
+                        EntityLog.log(this, account.name + " backoff=" + backoff);
+                        try {
                             state.acquire(backoff * 1000L);
-                        } else {
-                            // Long back-off period, let device sleep
-                            EntityLog.log(this, account.name + " backoff alarm=" + CONNECT_BACKOFF_AlARM);
+                        } catch (InterruptedException ex) {
+                            Log.w(account.name + " backoff " + ex.toString());
+                        }
+                    } else {
+                        // Long back-off period, let device sleep
+                        EntityLog.log(this, account.name + " backoff alarm=" + CONNECT_BACKOFF_AlARM);
 
-                            BroadcastReceiver alarm = new BroadcastReceiver() {
-                                @Override
-                                public void onReceive(Context context, Intent intent) {
-                                    state.release();
-                                }
-                            };
+                        BroadcastReceiver alarm = new BroadcastReceiver() {
+                            @Override
+                            public void onReceive(Context context, Intent intent) {
+                                state.release();
+                            }
+                        };
 
-                            String id = BuildConfig.APPLICATION_ID + ".BACKOFF." + account.id + "." + new Random().nextInt();
-                            PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(id), 0);
-                            registerReceiver(alarm, new IntentFilter(id));
+                        String id = BuildConfig.APPLICATION_ID + ".BACKOFF." + account.id;
+                        PendingIntent pi = PendingIntent.getBroadcast(this, 0, new Intent(id), 0);
+                        registerReceiver(alarm, new IntentFilter(id));
 
-                            AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                        AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                        try {
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                                am.set(
+                                        AlarmManager.RTC_WAKEUP,
+                                        System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
+                                        pi);
+                            else
+                                am.setAndAllowWhileIdle(
+                                        AlarmManager.RTC_WAKEUP,
+                                        System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
+                                        pi);
+
                             try {
-                                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                                    am.set(
-                                            AlarmManager.RTC_WAKEUP,
-                                            System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
-                                            pi);
-                                else
-                                    am.setAndAllowWhileIdle(
-                                            AlarmManager.RTC_WAKEUP,
-                                            System.currentTimeMillis() + CONNECT_BACKOFF_AlARM * 60 * 1000L,
-                                            pi);
-
-                                try {
-                                    wlAccount.release();
-                                    state.acquire(2 * CONNECT_BACKOFF_AlARM * 60 * 1000L);
-                                } finally {
-                                    wlAccount.acquire();
-                                }
+                                wlAccount.release();
+                                state.acquire(2 * CONNECT_BACKOFF_AlARM * 60 * 1000L);
+                            } catch (InterruptedException ex) {
+                                Log.w(account.name + " backoff " + ex.toString());
                             } finally {
-                                // Cleanup
-                                am.cancel(pi);
-                                try {
-                                    unregisterReceiver(alarm);
-                                } catch (IllegalArgumentException ex) {
-                                    Log.e(ex);
-                                }
+                                wlAccount.acquire();
+                            }
+                        } finally {
+                            // Cleanup
+                            am.cancel(pi);
+                            try {
+                                unregisterReceiver(alarm);
+                            } catch (IllegalArgumentException ex) {
+                                // Should not happen, but does happen
+                                Log.e(ex);
                             }
                         }
-
-                        if (backoff <= CONNECT_BACKOFF_MAX)
-                            backoff *= 2;
-                    } catch (InterruptedException ex) {
-                        Log.w(account.name + " backoff " + ex.toString());
                     }
+
+                    if (backoff <= CONNECT_BACKOFF_MAX)
+                        backoff *= 2;
+                }
             }
         } finally {
             EntityLog.log(this, account.name + " stopped");
