@@ -34,6 +34,7 @@ import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.PowerManager;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
@@ -135,7 +136,26 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             post(false, lastNetworkState, lastAccountStates);
         }
 
+        private void postDestroy() {
+            postValue(null);
+        }
+
         private void post(boolean reload, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
+            if (Looper.myLooper() == Looper.getMainLooper())
+                _post(reload, networkState, accountStates);
+            else {
+                // Some Android versions call onDestroy not on the main thread
+                Log.e("### not main thread state=" + (accountStates == null ? null : accountStates.size()));
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        _post(reload, networkState, accountStates);
+                    }
+                });
+            }
+        }
+
+        private void _post(boolean reload, ConnectionHelper.NetworkState networkState, List<TupleAccountState> accountStates) {
             if (networkState != null && accountStates != null) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
                 boolean enabled = prefs.getBoolean("enabled", true);
@@ -154,10 +174,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             accountState));
                 postValue(result);
             }
-        }
-
-        private void postDestroy() {
-            postValue(null);
         }
     }
 
