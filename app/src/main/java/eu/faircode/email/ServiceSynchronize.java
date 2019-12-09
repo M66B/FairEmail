@@ -798,14 +798,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     Log.formatThrowable(new Core.AlertException(message), false));
                                     db.account().setAccountError(account.id, message);
 
-                                    if (message != null && !message.startsWith("Too many simultaneous connections")) {
-                                        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                                        nm.notify("alert:" + account.id, 1,
-                                                Core.getNotificationError(
-                                                        ServiceSynchronize.this, "warning", account.name,
-                                                        new Core.AlertException(message))
-                                                        .build());
-                                    }
+                                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                                    nm.notify("alert:" + account.id, 1,
+                                            Core.getNotificationError(
+                                                    ServiceSynchronize.this, "warning", account.name,
+                                                    new Core.AlertException(message))
+                                                    .build());
 
                                     state.error(null);
                                 } finally {
