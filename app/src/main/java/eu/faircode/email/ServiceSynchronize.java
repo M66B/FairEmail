@@ -90,14 +90,12 @@ import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 
 public class ServiceSynchronize extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Boolean lastSuitable = null;
-    private long lastLost = 0;
     private int lastAccounts = 0;
     private int lastOperations = 0;
 
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
-    private static final long RECONNECT_BACKOFF = 90 * 1000L; // milliseconds
     private static final int ACCOUNT_ERROR_AFTER = 60; // minutes
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
 
@@ -337,7 +335,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
                         crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
                         crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
-                        crumb.put("lastLost", new Date(lastLost).toString());
                         Log.breadcrumb("start", crumb);
 
                         Log.i("### start=" + accountNetworkState);
@@ -362,7 +359,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         crumb.put("suitable", Boolean.toString(accountNetworkState.networkState.isSuitable()));
                         crumb.put("unmetered", Boolean.toString(accountNetworkState.networkState.isUnmetered()));
                         crumb.put("roaming", Boolean.toString(accountNetworkState.networkState.isRoaming()));
-                        crumb.put("lastLost", new Date(lastLost).toString());
                         Log.breadcrumb("stop", crumb);
 
                         Log.i("### stop=" + accountNetworkState);
@@ -615,7 +611,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         break;
 
                     case "reset":
-                        lastLost = 0;
                         eval(this, true, "reset");
                         break;
 
@@ -698,16 +693,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 else
                     account.deleteNotificationChannel(ServiceSynchronize.this);
             }
-
-            long ago = new Date().getTime() - lastLost;
-            if (ago < RECONNECT_BACKOFF)
-                try {
-                    long backoff = RECONNECT_BACKOFF - ago;
-                    EntityLog.log(ServiceSynchronize.this, account.name + " backoff=" + (backoff / 1000));
-                    state.acquire(backoff);
-                } catch (InterruptedException ex) {
-                    Log.w(account.name + " backoff " + ex.toString());
-                }
 
             final DB db = DB.getInstance(this);
 
@@ -1338,8 +1323,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo active = cm.getActiveNetworkInfo();
             EntityLog.log(ServiceSynchronize.this, "Lost network=" + network + " active=" + active);
-            if (active == null)
-                lastLost = new Date().getTime();
             updateState();
         }
 
@@ -1364,7 +1347,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
                 boolean on = intent.getBooleanExtra("state", false);
                 if (!on)
-                    lastLost = 0;
+                    ;
             }
 
             networkCallback.onCapabilitiesChanged(null, null);
