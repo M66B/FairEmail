@@ -1199,10 +1199,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         }
                     });
 
-                    // Update state
+                    // Close folders
                     for (EntityFolder folder : mapFolders.keySet())
-                        if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null)
+                        if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null) {
                             db.folder().setFolderState(folder.id, "closing");
+                            try {
+                                mapFolders.get(folder).close();
+                            } catch (MessagingException ex) {
+                                Log.w(ex);
+                            } finally {
+                                db.folder().setFolderState(folder.id, null);
+                            }
+                        }
 
                     // Close store
                     try {
@@ -1220,11 +1228,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     for (Thread idler : idlers)
                         state.join(idler);
                     idlers.clear();
-
-                    // Update state
-                    for (EntityFolder folder : mapFolders.keySet())
-                        if (folder.synchronize && !folder.poll && mapFolders.get(folder) != null)
-                            db.folder().setFolderState(folder.id, null);
                 }
 
                 if (state.isRunning())
