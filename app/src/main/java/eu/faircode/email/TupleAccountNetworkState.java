@@ -19,18 +19,20 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class TupleAccountNetworkState {
     public boolean enabled;
-    public boolean reload;
+    public Bundle command;
     public ConnectionHelper.NetworkState networkState;
     public TupleAccountState accountState;
 
-    public TupleAccountNetworkState(boolean enabled, boolean reload, ConnectionHelper.NetworkState networkState, TupleAccountState accountState) {
+    public TupleAccountNetworkState(boolean enabled, Bundle command, ConnectionHelper.NetworkState networkState, TupleAccountState accountState) {
         this.enabled = enabled;
-        this.reload = reload;
+        this.command = command;
         this.networkState = networkState;
         this.accountState = accountState;
     }

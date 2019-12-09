@@ -3031,7 +3031,7 @@ public class FragmentMessages extends FragmentBase implements SharedPreferences.
     }
 
     private void onMenuForceSync() {
-        ServiceSynchronize.reset(getContext());
+        ServiceSynchronize.reload(getContext(), null, "force sync");
         ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
     }
 
