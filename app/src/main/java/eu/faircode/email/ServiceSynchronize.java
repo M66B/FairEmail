@@ -1179,8 +1179,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     }
 
                     Log.i(account.name + " done state=" + state);
-                } catch (StoreClosedException ex) {
-                    Log.w(account.name, ex);
                 } catch (Throwable ex) {
                     Log.e(account.name, ex);
                     EntityLog.log(

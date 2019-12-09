@@ -97,6 +97,7 @@ import javax.mail.FolderClosedException;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Part;
+import javax.mail.StoreClosedException;
 import javax.mail.internet.InternetAddress;
 
 public class Log {
@@ -543,7 +544,8 @@ public class Log {
             if (ex instanceof ConnectionException)
                 return null;
 
-            if (ex instanceof FolderClosedException || ex instanceof FolderClosedIOException)
+            if (ex instanceof StoreClosedException ||
+                    ex instanceof FolderClosedException || ex instanceof FolderClosedIOException)
                 return null;
 
             if (ex instanceof IllegalStateException &&
