@@ -50,6 +50,7 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.imap.IMAPFolder;
 
+import java.net.SocketException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -740,7 +741,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     try {
                         iservice.connect(account);
                     } catch (Throwable ex) {
-                        if (ex instanceof AuthenticationFailedException) {
+                        // Immediately report auth errors
+                        if (ex instanceof AuthenticationFailedException &&
+                                !(ex.getCause() instanceof SocketException)) {
                             NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                             nm.notify("receive:" + account.id, 1,
                                     Core.getNotificationError(this, "error", account.name, ex)
