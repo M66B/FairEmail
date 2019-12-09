@@ -235,7 +235,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             runService = true;
                         if ("connected".equals(current.accountState.state))
                             accounts++;
-                        operations += current.accountState.operations;
+                        if (current.accountState.synchronize)
+                            operations += current.accountState.operations;
 
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
