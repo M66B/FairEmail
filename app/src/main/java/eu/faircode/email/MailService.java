@@ -124,7 +124,7 @@ public class MailService implements AutoCloseable {
             properties.put("mail.imap.starttls.required", Boolean.toString(!insecure));
 
             properties.put("mail." + protocol + ".connectionpool.debug", "true");
-            properties.put("mail." + protocol + ".connectionpoolsize", "2");
+            properties.put("mail." + protocol + ".connectionpoolsize", "1");
             properties.put("mail." + protocol + ".connectionpooltimeout", Integer.toString(POOL_TIMEOUT));
 
             properties.put("mail." + protocol + ".finalizecleanclose", "false");
