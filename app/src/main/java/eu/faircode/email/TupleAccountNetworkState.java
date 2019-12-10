@@ -26,11 +26,18 @@ import androidx.annotation.Nullable;
 
 public class TupleAccountNetworkState {
     public boolean enabled;
+    @NonNull
     public Bundle command;
+    @NonNull
     public ConnectionHelper.NetworkState networkState;
+    @NonNull
     public TupleAccountState accountState;
 
-    public TupleAccountNetworkState(boolean enabled, Bundle command, ConnectionHelper.NetworkState networkState, TupleAccountState accountState) {
+    public TupleAccountNetworkState(
+            boolean enabled,
+            @NonNull Bundle command,
+            @NonNull ConnectionHelper.NetworkState networkState,
+            @NonNull TupleAccountState accountState) {
         this.enabled = enabled;
         this.command = command;
         this.networkState = networkState;

@@ -100,7 +100,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private static final int BACKOFF_ERROR_AFTER = 16; // seconds
 
     private static final List<String> PREF_EVAL = Collections.unmodifiableList(Arrays.asList(
-            "enabled", "poll_interval"
+            "enabled", "poll_interval" // restart account(s)
     ));
 
     private static final List<String> PREF_RELOAD = Collections.unmodifiableList(Arrays.asList(
@@ -179,21 +179,18 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             long now = new Date().getTime();
             boolean scheduled = (schedule == null || now >= schedule[0] && now < schedule[1]);
 
-            Long account = null;
-            if (command != null) {
-                account = command.getLong("account", -1);
-                if (account < 0)
-                    account = null;
+            if (command == null) {
+                command = new Bundle();
+                command.putString("name", "eval");
             }
 
             List<TupleAccountNetworkState> result = new ArrayList<>();
             for (TupleAccountState accountState : accountStates)
-                if (account == null || account.equals(accountState.id))
-                    result.add(new TupleAccountNetworkState(
-                            enabled && pollInterval == 0 && scheduled,
-                            command,
-                            networkState,
-                            accountState));
+                result.add(new TupleAccountNetworkState(
+                        enabled && pollInterval == 0 && scheduled,
+                        command,
+                        networkState,
+                        accountState));
 
             postValue(result);
         }
@@ -271,6 +268,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                         if (current.accountState.synchronize)
                             operations += current.accountState.operations;
 
+                        long account = current.command.getLong("account", -1);
+                        if (account > 0 && !current.accountState.id.equals(account))
+                            continue;
+
                         int index = accountStates.indexOf(current);
                         if (index < 0) {
                             if (current.canRun()) {
@@ -284,20 +285,19 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                 state.setNetworkState(current.networkState);
 
                             boolean reload = false;
-                            if (current.command != null)
-                                switch (current.command.getString("name")) {
-                                    case "reload":
-                                        reload = true;
-                                        break;
-                                    case "wakeup":
-                                        if (state == null)
-                                            Log.e("### wakeup without state");
-                                        else {
-                                            Log.i("### waking up " + current);
-                                            state.release();
-                                        }
-                                        continue;
-                                }
+                            switch (current.command.getString("name")) {
+                                case "reload":
+                                    reload = true;
+                                    break;
+                                case "wakeup":
+                                    if (state == null)
+                                        Log.e("### wakeup without state");
+                                    else {
+                                        Log.i("### waking up " + current);
+                                        state.release();
+                                    }
+                                    break;
+                            }
 
                             accountStates.remove(index);
 
