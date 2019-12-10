@@ -291,7 +291,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     break;
                                 case "wakeup":
                                     if (state == null)
-                                        Log.e("### wakeup without state");
+                                        Log.w("### wakeup without state");
                                     else {
                                         Log.i("### waking up " + current);
                                         state.release();
