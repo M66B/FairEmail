@@ -32,7 +32,7 @@
             android:minHeight="48dp"
             android:singleLine="true"
             android:text="Nav item"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tvItemExtra"
             app:layout_constraintStart_toEndOf="@id/ivItem"
@@ -48,7 +48,7 @@
             android:minHeight="48dp"
             android:singleLine="true"
             android:text="Extra"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ivExternal"
             app:layout_constraintTop_toTopOf="parent" />
