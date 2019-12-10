@@ -279,8 +279,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             }
                         } else {
                             TupleAccountNetworkState prev = accountStates.get(index);
-                            accountStates.remove(index);
-
                             Core.State state = serviceStates.get(current);
                             if (state != null)
                                 state.setNetworkState(current.networkState);
@@ -294,10 +292,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     case "wakeup":
                                         if (state == null)
                                             Log.e("### wakeup without state");
-                                        else
+                                        else {
+                                            Log.i("### waking up " + current);
                                             state.release();
+                                        }
                                         continue;
                                 }
+
+                            accountStates.remove(index);
 
                             // Some networks disallow email server connections:
                             // - reload on network type change when disconnected
@@ -733,11 +735,13 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         try {
             wlAccount.acquire();
 
-            PendingIntent piWakeup = PendingIntent.getService(
-                    this,
-                    PI_WAKEUP,
-                    new Intent("wakeup:" + account.id),
-                    PendingIntent.FLAG_UPDATE_CURRENT);
+            Intent wakeup = new Intent(ServiceSynchronize.this, ServiceSynchronize.class);
+            wakeup.setAction("wakeup:" + account.id);
+            PendingIntent piWakeup;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+                piWakeup = PendingIntent.getService(this, PI_WAKEUP, wakeup, PendingIntent.FLAG_UPDATE_CURRENT);
+            else
+                piWakeup = PendingIntent.getForegroundService(this, PI_WAKEUP, wakeup, PendingIntent.FLAG_UPDATE_CURRENT);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 if (account.notify)
@@ -1201,6 +1205,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 wlAccount.release();
                                 state.acquire(2 * duration);
+                                Log.i("### " + account.name + " keeping alive");
                             } catch (InterruptedException ex) {
                                 EntityLog.log(this, account.name + " waited state=" + state);
                             } finally {
@@ -1286,6 +1291,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 wlAccount.release();
                                 state.acquire(2 * duration);
+                                Log.i("### " + account.name + " backoff done");
                             } catch (InterruptedException ex) {
                                 Log.w(account.name + " backoff " + ex.toString());
                             } finally {
