@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.Uri;
@@ -77,8 +78,8 @@ public class FragmentSetup extends FragmentBase {
 
     private TextView tvDozeDone;
     private Button btnDoze;
-    private Button btnBattery;
-    private Button btnStopped;
+    private TextView tvBatteryUsage;
+    private TextView tvSyncStopped;
 
     private Button btnDataSaver;
 
@@ -123,8 +124,8 @@ public class FragmentSetup extends FragmentBase {
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
-        btnBattery = view.findViewById(R.id.btnBattery);
-        btnStopped = view.findViewById(R.id.btnStopped);
+        tvBatteryUsage = view.findViewById(R.id.tvBatteryUsage);
+        tvSyncStopped = view.findViewById(R.id.tvSyncStopped);
 
         btnDataSaver = view.findViewById(R.id.btnDataSaver);
 
@@ -232,14 +233,16 @@ public class FragmentSetup extends FragmentBase {
             }
         });
 
-        btnBattery.setOnClickListener(new View.OnClickListener() {
+        tvBatteryUsage.setPaintFlags(tvBatteryUsage.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvBatteryUsage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Helper.viewFAQ(getContext(), 39);
             }
         });
 
-        btnStopped.setOnClickListener(new View.OnClickListener() {
+        tvSyncStopped.setPaintFlags(tvSyncStopped.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvSyncStopped.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Helper.viewFAQ(getContext(), 16);

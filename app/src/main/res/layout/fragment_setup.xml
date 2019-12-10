@@ -110,7 +110,7 @@
             android:id="@+id/tvQuickRemark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_setup_wizard_remark"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -459,29 +459,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvDozeDone" />
 
-        <Button
-            android:id="@+id/btnBattery"
-            style="?android:attr/buttonStyleSmall"
+        <TextView
+            android:id="@+id/tvBatteryUsage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
             android:text="@string/title_setup_doze_battery"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnDoze" />
-
-        <Button
-            android:id="@+id/btnStopped"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="@string/title_setup_doze_stopped"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDoze" />
+
+        <TextView
+            android:id="@+id/tvSyncStopped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_doze_stopped"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBatteryUsage" />
 
         <TextView
             android:id="@+id/tvDataSaver"
@@ -491,9 +489,8 @@
             android:text="@string/title_setup_data"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
-            android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnBattery" />
+            app:layout_constraintTop_toBottomOf="@id/tvSyncStopped" />
 
         <Button
             android:id="@+id/btnDataSaver"
@@ -503,7 +500,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:text="@string/title_setup_manage"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDataSaver" />
 
         <!-- inbox -->
