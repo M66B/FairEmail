@@ -13,6 +13,7 @@
     <string name="channel_update">Actualizaciones</string>
     <string name="channel_warning">Alertas</string>
     <string name="channel_error">Errores</string>
+    <string name="channel_alert">Alertas del servidor</string>
     <string name="channel_group_contacts">Contactos</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversación</item>
@@ -69,6 +70,7 @@
     <string name="title_notification_waiting">Esperando conexión</string>
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
+    <string name="title_notification_alert">Alerta del servidor \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Salir</string>
     <string name="menu_answers">Plantillas</string>
@@ -479,7 +481,7 @@
     <string name="title_no_folders">No hay carpetas</string>
     <string name="title_no_messages">Sin mensajes</string>
     <string name="title_filters_active">Uno o más filtros activos</string>
-    <string name="title_duplicate_in">Duplicar en %1$s</string>
+    <string name="title_duplicate_in">Mensaje duplicado en %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Marcar como leído</string>

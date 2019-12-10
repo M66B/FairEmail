@@ -13,6 +13,7 @@
     <string name="channel_update">Обновяване</string>
     <string name="channel_warning">Внимание</string>
     <string name="channel_error">Грашки</string>
+    <string name="channel_alert">Сигнал от сървър</string>
     <string name="channel_group_contacts">Контакти</string>
     <plurals name="page_conversation">
         <item quantity="one">Разговор</item>
@@ -69,6 +70,7 @@
     <string name="title_notification_waiting">Изчаква се подходяща връзка</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_failed">%1$s се провали</string>
+    <string name="title_notification_alert">Сигнал от сървър \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Изход</string>
     <string name="menu_answers">Шаблони</string>
@@ -479,7 +481,7 @@
     <string name="title_no_folders">Няма папка</string>
     <string name="title_no_messages">Няма съобщения</string>
     <string name="title_filters_active">Един или повече филтри са активирани</string>
-    <string name="title_duplicate_in">Дублиране на съобщения в %1$s</string>
+    <string name="title_duplicate_in">Дублиращо съобщение в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Маркирай прочетено</string>

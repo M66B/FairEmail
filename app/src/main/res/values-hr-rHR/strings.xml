@@ -472,7 +472,6 @@ Ako je potrebno, računi i identiteti (aliasi) mogu se postaviti i ručno.    </
     <string name="title_no_folders">Nema mapa</string>
     <string name="title_no_messages">Nema poruka</string>
     <string name="title_filters_active">Jedan ili više filtera su aktivni</string>
-    <string name="title_duplicate_in">Duplikat u%1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Npr: %1$s</string>
     <string name="title_seen">Označi pročitano</string>

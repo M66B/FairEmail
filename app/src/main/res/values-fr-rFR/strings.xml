@@ -481,7 +481,7 @@
     <string name="title_no_folders">Aucun dossier</string>
     <string name="title_no_messages">Aucun message</string>
     <string name="title_filters_active">Un ou plusieurs filtres actifs</string>
-    <string name="title_duplicate_in">Doublon dans %1$s</string>
+    <string name="title_duplicate_in">Message en double dans %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Tr : %1$s</string>
     <string name="title_seen">Marquer comme lu</string>

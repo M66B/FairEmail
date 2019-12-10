@@ -461,7 +461,6 @@
     <string name="title_no_folders">No carpetes</string>
     <string name="title_no_messages">No hi ha missatges</string>
     <string name="title_filters_active">S\'han activat un o més filtres</string>
-    <string name="title_duplicate_in">Duplicar a %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Rv: %1$s</string>
     <string name="title_seen">Marca com a llegit</string>

@@ -13,6 +13,7 @@
     <string name="channel_update">Güncellemeler</string>
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
+    <string name="channel_alert">Sunucu uyarıları</string>
     <string name="channel_group_contacts">Rehber</string>
     <plurals name="page_conversation">
         <item quantity="one">Sohbet</item>
@@ -69,6 +70,7 @@
     <string name="title_notification_waiting">Uygun bağlantı bekleniyor</string>
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
+    <string name="title_notification_alert">\'%1$s\' sunucu uyarısı</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Çıkış</string>
     <string name="menu_answers">Kalıplar</string>
@@ -479,7 +481,7 @@
     <string name="title_no_folders">Klasör yok</string>
     <string name="title_no_messages">İleti yok</string>
     <string name="title_filters_active">Bir ya da daha fazla filtre aktif</string>
-    <string name="title_duplicate_in">%1$s içinde kopyala</string>
+    <string name="title_duplicate_in">Mesajı %1$s klasörüne kopyala</string>
     <string name="title_subject_reply">Ynt: %1$s</string>
     <string name="title_subject_forward">İlet: %1$s</string>
     <string name="title_seen">Okundu olarak işaretle</string>

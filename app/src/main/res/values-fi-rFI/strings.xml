@@ -481,7 +481,7 @@
     <string name="title_no_folders">Ei kansioita</string>
     <string name="title_no_messages">Ei viestejä</string>
     <string name="title_filters_active">Yksi tai useampi suodatin aktiivinen</string>
-    <string name="title_duplicate_in">Kopioi kansioon %1$s</string>
+    <string name="title_duplicate_in">Tee viestistä kopio kansioon %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Merkitse luetuksi</string>

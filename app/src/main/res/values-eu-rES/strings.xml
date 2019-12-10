@@ -479,7 +479,6 @@
     <string name="title_no_folders">Karpetarik ez</string>
     <string name="title_no_messages">Mezurik ez</string>
     <string name="title_filters_active">Iragazki bat edo gehiago aktibo</string>
-    <string name="title_duplicate_in">Bikoiztutakoa %1$s karpetan</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Markatu irakurria</string>

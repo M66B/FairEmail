@@ -415,7 +415,6 @@
     <string name="title_no_folders">Inga mappar</string>
     <string name="title_no_messages">Inga meddelanden</string>
     <string name="title_filters_active">Ett eller flera filter är aktiva</string>
-    <string name="title_duplicate_in">Dubblett i %1$s</string>
     <string name="title_subject_reply">Sv: %1$s</string>
     <string name="title_subject_forward">Vb: %1$s</string>
     <string name="title_seen">Märk som läst</string>

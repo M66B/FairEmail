@@ -13,6 +13,7 @@
     <string name="channel_update">Обновления</string>
     <string name="channel_warning">Предупреждения</string>
     <string name="channel_error">Ошибки</string>
+    <string name="channel_alert">Предупреждения сервера</string>
     <string name="channel_group_contacts">Контакты</string>
     <plurals name="page_conversation">
         <item quantity="one">Диалог</item>
@@ -91,6 +92,7 @@
     <string name="title_notification_waiting">Ожидание подходящего соединения</string>
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
+    <string name="title_notification_alert">\'%1$s\' предупреждение сервера</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Выход</string>
     <string name="menu_answers">Шаблоны</string>
@@ -501,7 +503,7 @@
     <string name="title_no_folders">Нет папок</string>
     <string name="title_no_messages">Нет сообщений</string>
     <string name="title_filters_active">Один или несколько фильтров активны</string>
-    <string name="title_duplicate_in">Дубликат в папке \"%1$s\"</string>
+    <string name="title_duplicate_in">Дублировать сообщение в %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Отметить как прочитанное</string>

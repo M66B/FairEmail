@@ -458,7 +458,6 @@
     <string name="title_no_folders">Нема фасцикле</string>
     <string name="title_no_messages">Нема порука</string>
     <string name="title_filters_active">Један или више филтера активни</string>
-    <string name="title_duplicate_in">Дупликат у %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Означи као прочитано</string>

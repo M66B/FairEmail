@@ -480,7 +480,7 @@
     <string name="title_no_folders">Nessuna cartella</string>
     <string name="title_no_messages">Nessun messaggio</string>
     <string name="title_filters_active">Uno o più filtri attivi</string>
-    <string name="title_duplicate_in">Duplica in %1$s</string>
+    <string name="title_duplicate_in">Duplica messaggio in %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_seen">Segna come letto</string>

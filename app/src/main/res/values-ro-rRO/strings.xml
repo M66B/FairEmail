@@ -479,7 +479,6 @@
     <string name="title_no_folders">Nici un dosar</string>
     <string name="title_no_messages">Nici un mesaj</string>
     <string name="title_filters_active">Unul sau mai multe filtre active</string>
-    <string name="title_duplicate_in">Duplicat în %1$s</string>
     <string name="title_subject_reply">Răsp: %1$s</string>
     <string name="title_subject_forward">Redir: %1$s</string>
     <string name="title_seen">Marcare ca citit</string>
