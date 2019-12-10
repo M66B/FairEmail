@@ -2383,7 +2383,7 @@ public class FragmentCompose extends FragmentBase {
                 ftype = null;
             }
 
-        if (TextUtils.isEmpty(ftype))
+        if (TextUtils.isEmpty(ftype) || "*/*".equals(ftype))
             ftype = Helper.guessMimeType(fname);
 
         if (fsize != null && fsize <= 0)

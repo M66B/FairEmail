@@ -155,6 +155,9 @@ public class EntityAttachment {
     String getMimeType() {
         // Try to guess a better content type
         // For example, sometimes PDF files are sent as application/octet-stream
+        // https://android.googlesource.com/platform/libcore/+/refs/tags/android-9.0.0_r49/luni/src/main/java/libcore/net/MimeUtils.java
+        // https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/
+
         if (encryption != null)
             return type;
 
@@ -165,11 +168,17 @@ public class EntityAttachment {
         String gtype = MimeTypeMap.getSingleton()
                 .getMimeTypeFromExtension(extension.toLowerCase(Locale.ROOT));
 
-        // Some servers erroneously remove dots from mime types
-        // https://blogs.msdn.microsoft.com/vsofficedeveloper/2008/05/08/office-2007-file-format-mime-types-for-http-content-streaming-2/
-        if (gtype != null &&
-                gtype.replace(".", "").equals(type))
-            type = gtype;
+        if (gtype != null) {
+            if (TextUtils.isEmpty(type) || "*/*".equals(type))
+                type = gtype;
+
+            // Some servers erroneously remove dots from mime types
+            if (gtype.replace(".", "").equals(type))
+                type = gtype;
+        }
+
+        if ("eml".equals(extension))
+            return "message/rfc822";
 
         if ("text/plain".equals(type) &&
                 "ovpn".equals(extension))
