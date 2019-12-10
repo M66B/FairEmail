@@ -106,11 +106,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final int REQUEST_UNIFIED = 1;
     static final int REQUEST_FOLDER = 2;
     static final int REQUEST_WHY = 3;
-    static final int REQUEST_THREAD = 4;
-    static final int REQUEST_OUTBOX = 5;
-    static final int REQUEST_ERROR = 6;
-    static final int REQUEST_UPDATE = 7;
-    static final int REQUEST_WIDGET = 8;
+    static final int REQUEST_ALERT = 4;
+    static final int REQUEST_THREAD = 5;
+    static final int REQUEST_OUTBOX = 6;
+    static final int REQUEST_ERROR = 7;
+    static final int REQUEST_UPDATE = 8;
+    static final int REQUEST_WIDGET = 9;
 
     static final String ACTION_VIEW_FOLDERS = BuildConfig.APPLICATION_ID + ".VIEW_FOLDERS";
     static final String ACTION_VIEW_MESSAGES = BuildConfig.APPLICATION_ID + ".VIEW_MESSAGES";
@@ -825,6 +826,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     prefs.edit().putBoolean("why", true).apply();
                     Helper.viewFAQ(this, 2);
                 }
+
+            } else if ("alert".equals(action)) {
+                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    getSupportFragmentManager().popBackStack("unified", 0);
+
+                Helper.viewFAQ(this, 23);
 
             } else if ("outbox".equals(action))
                 onMenuOutbox();

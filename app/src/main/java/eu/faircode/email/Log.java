@@ -552,9 +552,6 @@ public class Log {
                     ("Not connected".equals(ex.getMessage()) ||
                             "This operation is not allowed on a closed folder".equals(ex.getMessage())))
                 return null;
-
-            if (ex instanceof Core.AlertException)
-                return ex.getMessage();
         }
 
         StringBuilder sb = new StringBuilder();

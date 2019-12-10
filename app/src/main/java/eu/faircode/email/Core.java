@@ -3191,25 +3191,11 @@ class Core {
                         .setPriority(NotificationCompat.PRIORITY_MAX)
                         .setOnlyAlertOnce(true)
                         .setCategory(NotificationCompat.CATEGORY_ERROR)
-                        .setVisibility(NotificationCompat.VISIBILITY_SECRET);
-
-        builder.setStyle(new NotificationCompat.BigTextStyle()
-                .bigText(Log.formatThrowable(ex, "\n", false)));
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                        .setStyle(new NotificationCompat.BigTextStyle()
+                                .bigText(Log.formatThrowable(ex, "\n", false)));
 
         return builder;
-    }
-
-    static class AlertException extends Throwable {
-        private String alert;
-
-        AlertException(String alert) {
-            this.alert = alert;
-        }
-
-        @Override
-        public String getMessage() {
-            return alert;
-        }
     }
 
     static class State {

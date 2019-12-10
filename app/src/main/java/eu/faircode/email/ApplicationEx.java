@@ -244,20 +244,28 @@ public class ApplicationEx extends Application {
                 nm.createNotificationChannel(update);
             }
 
-            // Warn
+            // Warnings
             NotificationChannel warning = new NotificationChannel(
                     "warning", getString(R.string.channel_warning),
                     NotificationManager.IMPORTANCE_HIGH);
             warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(warning);
 
-            // Error
+            // Errors
             NotificationChannel error = new NotificationChannel(
                     "error",
                     getString(R.string.channel_error),
                     NotificationManager.IMPORTANCE_HIGH);
             error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
             nm.createNotificationChannel(error);
+
+            // Server alerts
+            NotificationChannel alerts = new NotificationChannel(
+                    "alerts",
+                    getString(R.string.channel_alert),
+                    NotificationManager.IMPORTANCE_HIGH);
+            alerts.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            nm.createNotificationChannel(alerts);
 
             // Contacts grouping
             NotificationChannelGroup group = new NotificationChannelGroup(

@@ -273,7 +273,7 @@ public class Helper {
         if (question == 0)
             view(context, Uri.parse(FAQ_URI), false);
         else
-            view(context, Uri.parse(Helper.FAQ_URI + "#user-content-faq" + question), false);
+            view(context, Uri.parse(FAQ_URI + "#user-content-faq" + question), false);
     }
 
     static Intent getIntentOpenKeychain() {

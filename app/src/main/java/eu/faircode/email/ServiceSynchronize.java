@@ -707,6 +707,31 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         return builder;
     }
 
+    private NotificationCompat.Builder getNotificationAlert(String account, String message) {
+        // Build pending intent
+        Intent alert = new Intent(this, ActivityView.class);
+        alert.setAction("alert");
+        PendingIntent piAlert = PendingIntent.getActivity(this, ActivityView.REQUEST_ALERT, alert, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Build notification
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this, "alerts")
+                        .setSmallIcon(R.drawable.baseline_warning_white_24)
+                        .setContentTitle(getString(R.string.title_notification_alert, account))
+                        .setContentText(message)
+                        .setContentIntent(piAlert)
+                        .setAutoCancel(false)
+                        .setShowWhen(true)
+                        .setPriority(NotificationCompat.PRIORITY_MAX)
+                        .setOnlyAlertOnce(true)
+                        .setCategory(NotificationCompat.CATEGORY_ERROR)
+                        .setVisibility(NotificationCompat.VISIBILITY_SECRET)
+                        .setStyle(new NotificationCompat.BigTextStyle()
+                                .bigText(message));
+
+        return builder;
+    }
+
     private void setUnseen(Integer unseen) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean badge = prefs.getBoolean("badge", true);
@@ -779,21 +804,11 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 wlFolder.acquire();
 
-                                String message = e.getMessage();
-                                Log.w(account.name + " alert: " + message);
-                                EntityLog.log(
-                                        ServiceSynchronize.this, account.name + " " +
-                                                Log.formatThrowable(new Core.AlertException(message), false));
-                                db.account().setAccountError(account.id, message);
+                                EntityLog.log(ServiceSynchronize.this, account.name + " " + e.getMessage());
 
                                 NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                                 nm.notify("alert:" + account.id, 1,
-                                        Core.getNotificationError(
-                                                ServiceSynchronize.this, "warning", account.name,
-                                                new Core.AlertException(message))
-                                                .build());
-
-                                state.error(null);
+                                        getNotificationAlert(account.name, e.getMessage()).build());
                             } finally {
                                 wlFolder.release();
                             }
