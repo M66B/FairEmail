@@ -37,9 +37,6 @@ public interface DaoAccount {
             " ORDER BY `order`, `primary` DESC, name COLLATE NOCASE")
     List<EntityAccount> getSynchronizingAccounts();
 
-    @Query("SELECT * FROM account WHERE tbd = 1")
-    List<EntityAccount> getAccountsTbd();
-
     @Query("SELECT * FROM account WHERE synchronize")
     LiveData<List<EntityAccount>> liveSynchronizingAccounts();
 
@@ -138,9 +135,6 @@ public interface DaoAccount {
 
     @Query("UPDATE account SET tbd = 1 WHERE id = :id")
     int setAccountTbd(long id);
-
-    @Query("UPDATE account SET last_connected = NULL")
-    int clearAccountConnected();
 
     @Query("DELETE FROM account WHERE id = :id")
     int deleteAccount(long id);
