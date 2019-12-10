@@ -1207,6 +1207,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
                         nm.cancel("receive:" + account.id, 1);
+                        nm.cancel("alert:" + account.id, 1);
 
                         // Schedule keep alive alarm
                         AlarmManager am = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
