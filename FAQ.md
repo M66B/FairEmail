@@ -311,7 +311,8 @@ only suggesting contacts won't work without contacts permissions.
 
 A low priority permanent status bar notification with the number of accounts being synchronized and the number of operations pending (see the next question) is shown
 to prevent Android from killing the service that takes care of continuous receiving email.
-This is necessary because of the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow.
+This was [already necessary](https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)),
+but with the introduction of [doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby) in Android 6 Marshmallow this is more than ever necessary.
 Doze mode will stop all apps when the screen is off for some time, unless the app did start a foreground service, which requires showing a status bar notification.
 
 Most, if not all, other email apps don't show a notification
