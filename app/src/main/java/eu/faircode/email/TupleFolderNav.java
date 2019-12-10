@@ -25,10 +25,12 @@ import java.io.Serializable;
 import java.text.Collator;
 import java.util.Comparator;
 import java.util.Locale;
+import java.util.Objects;
 
 public class TupleFolderNav extends EntityFolder implements Serializable {
     public Integer accountOrder;
     public String accountName;
+    public Integer accountColor;
     public int messages;
     public int unseen;
     public int snoozed;
@@ -75,5 +77,22 @@ public class TupleFolderNav extends EntityFolder implements Serializable {
                 return base.compare(o1, o2);
             }
         };
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof TupleFolderNav) {
+            TupleFolderNav other = (TupleFolderNav) obj;
+            return (super.equals(other) &&
+                    Objects.equals(this.accountOrder, other.accountOrder) &&
+                    Objects.equals(this.accountName, other.accountName) &&
+                    Objects.equals(this.accountColor, other.accountColor) &&
+                    this.messages == other.messages &&
+                    this.unseen == other.unseen &&
+                    this.snoozed == other.snoozed &&
+                    this.operations == other.operations &&
+                    this.executing == other.executing);
+        } else
+            return false;
     }
 }

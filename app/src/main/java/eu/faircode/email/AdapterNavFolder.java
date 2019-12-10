@@ -43,7 +43,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.ViewHolder> {
     private Context context;
@@ -106,10 +105,10 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
                             ? R.drawable.baseline_folder_24
                             : R.drawable.baseline_folder_open_24);
 
-                if (folder.color == null || !ActivityBilling.isPro(context))
+                if (folder.accountColor == null || !ActivityBilling.isPro(context))
                     ivItem.clearColorFilter();
                 else
-                    ivItem.setColorFilter(folder.color);
+                    ivItem.setColorFilter(folder.accountColor);
             }
 
             int count;
@@ -235,17 +234,7 @@ public class AdapterNavFolder extends RecyclerView.Adapter<AdapterNavFolder.View
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             TupleFolderNav f1 = prev.get(oldItemPosition);
             TupleFolderNav f2 = next.get(newItemPosition);
-            return (f1.name.equals(f2.name) &&
-                    f1.type.equals(f2.type) &&
-                    Objects.equals(f1.display, f2.display) &&
-                    Objects.equals(f1.state, f2.state) &&
-                    Objects.equals(f1.sync_state, f2.sync_state) &&
-                    Objects.equals(f1.last_sync, f2.last_sync) &&
-                    f1.messages == f2.messages &&
-                    f1.unseen == f2.unseen &&
-                    f1.snoozed == f2.snoozed &&
-                    f1.operations == f2.operations &&
-                    f1.executing == f2.executing);
+            return f1.equals(f2);
         }
     }
 

@@ -66,6 +66,7 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
             TupleFolderEx other = (TupleFolderEx) obj;
             return (super.equals(obj) &&
                     Objects.equals(this.accountId, other.accountId) &&
+                    Objects.equals(this.accountOrder, other.accountOrder) &&
                     Objects.equals(this.accountProtocol, other.accountProtocol) &&
                     Objects.equals(this.accountName, other.accountName) &&
                     Objects.equals(this.accountState, other.accountState) &&
