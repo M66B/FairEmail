@@ -69,6 +69,7 @@ public class FragmentPop extends FragmentBase {
     private TextView tvColorPro;
 
     private CheckBox cbSynchronize;
+    private CheckBox cbOnDemand;
     private CheckBox cbPrimary;
     private CheckBox cbLeave;
     private EditText etInterval;
@@ -117,6 +118,7 @@ public class FragmentPop extends FragmentBase {
         tvColorPro = view.findViewById(R.id.tvColorPro);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
+        cbOnDemand = view.findViewById(R.id.cbOnDemand);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbLeave = view.findViewById(R.id.cbLeave);
         etInterval = view.findViewById(R.id.etInterval);
@@ -149,6 +151,7 @@ public class FragmentPop extends FragmentBase {
         cbSynchronize.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                cbOnDemand.setEnabled(checked);
                 cbPrimary.setEnabled(checked);
             }
         });
@@ -184,6 +187,7 @@ public class FragmentPop extends FragmentBase {
         args.putInt("color", btnColor.getColor());
 
         args.putBoolean("synchronize", cbSynchronize.isChecked());
+        args.putBoolean("ondemand", cbOnDemand.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
         args.putBoolean("leave", cbLeave.isChecked());
         args.putString("interval", etInterval.getText().toString());
@@ -220,6 +224,7 @@ public class FragmentPop extends FragmentBase {
                 Integer color = args.getInt("color");
 
                 boolean synchronize = args.getBoolean("synchronize");
+                boolean ondemand = args.getBoolean("ondemand");
                 boolean primary = args.getBoolean("primary");
                 boolean leave = args.getBoolean("leave");
                 String interval = args.getString("interval");
@@ -303,6 +308,7 @@ public class FragmentPop extends FragmentBase {
                     account.color = color;
 
                     account.synchronize = synchronize;
+                    account.ondemand = ondemand;
                     account.primary = (account.synchronize && primary);
                     account.browse = leave;
                     account.poll_interval = Integer.parseInt(interval);
@@ -447,6 +453,7 @@ public class FragmentPop extends FragmentBase {
                     btnColor.setColor(account == null ? null : account.color);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
+                    cbOnDemand.setChecked(account == null ? false : account.ondemand);
                     cbPrimary.setChecked(account == null ? false : account.primary);
                     cbLeave.setChecked(account == null ? true : account.browse);
                     etInterval.setText(account == null ? "" : Long.toString(account.poll_interval));
@@ -472,9 +479,10 @@ public class FragmentPop extends FragmentBase {
                     tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
                 }
 
-                cbPrimary.setEnabled(cbSynchronize.isChecked());
-
                 Helper.setViewsEnabled(view, true);
+
+                cbOnDemand.setEnabled(cbSynchronize.isChecked());
+                cbPrimary.setEnabled(cbSynchronize.isChecked());
 
                 pbWait.setVisibility(View.GONE);
             }
