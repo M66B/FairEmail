@@ -248,7 +248,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             public void onChanged(List<TupleAccountNetworkState> accountNetworkStates) {
                 if (accountNetworkStates == null) {
                     // Destroy
-                    for (TupleAccountNetworkState prev : serviceStates.keySet())
+                    for (TupleAccountNetworkState prev : new ArrayList<>(serviceStates.keySet()))
                         stop(prev);
 
                     quit();
