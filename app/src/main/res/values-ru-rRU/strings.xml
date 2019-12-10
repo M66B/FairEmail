@@ -92,6 +92,7 @@
     <string name="title_notification_sending">Отправка сообщений</string>
     <string name="title_notification_failed">\"%1$s\" не удалось</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Выход</string>
     <string name="menu_answers">Шаблоны</string>
     <string name="menu_operations">Операции</string>
     <string name="menu_contacts">Локальные контакты</string>
@@ -133,7 +134,7 @@
     <string name="title_setup_other">Другой провайдер</string>
     <string name="title_setup_gmail_support">Авторизация учётных записей Google будет работать только в официальных версиях, так как Android проверяет подпись приложения</string>
     <string name="title_setup_gmail_rationale">Пожалуйста, предоставьте разрешения для выбора учётной записи и чтения вашего имени</string>
-    <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и удаление всей вашей электронной почты. FairEmail никогда не будет удалять ваши сообщения без вашего согласия.</string>
+    <string name="title_setup_gmail_permissions">Google запросит разрешения на чтение, создание, отправку и безвозвратное удаление всех ваших сообщений. FairEmail никогда не будет удалять ваши сообщения без вашего явного согласия.</string>
     <string name="title_setup_gmail_drafts">Если папка черновиков недоступна по IMAP, это может быть исправлено в настройках ярлыка Gmail</string>
     <string name="title_setup_select_account">Выбрать учётную запись</string>
     <string name="title_setup_instructions">Инструкция по установке</string>
@@ -330,7 +331,7 @@
     <string name="title_advanced_cleanup">Очистка</string>
     <string name="title_advanced_hint">Все настройки имеют разумные значения по умолчанию и должны изменяться только при необходимости</string>
     <string name="title_advanced_enabled_hint">Глобальное включение/отключение получения сообщений</string>
-    <string name="title_advanced_manual_hint">Если синхронизация отключена, можно синхронизировать вручную, потянув вниз список сообщений. Это вызовет синхронизацию сообщений и выполнение операций в течение ограниченного времени.</string>
+    <string name="title_advanced_manual_hint">Если синхронизация отключена, она может быть произведена вручную, потянув вниз список сообщений.</string>
     <string name="title_advanced_poll_hint">Периодическая синхронизация будет каждый раз сравнивать сообщения на сервере с локальными. Это \"дорогая\" операция, которая может привести к высокому потреблению заряда батареи, особенно когда сообщений для синхронизации много. Непрерывная синхронизация избегает этого, постоянно отслеживая только изменения.</string>
     <string name="title_advanced_schedule_hint">Нажмите на время, чтобы установить его</string>
     <string name="title_advanced_check_mx">Проверять адреса электронной почты отправителя при синхронизации сообщений</string>
@@ -408,7 +409,7 @@
     <string name="title_port">Номер порта</string>
     <string name="title_user">Имя пользователя</string>
     <string name="title_password">Пароль</string>
-    <string name="title_realm">Регламент</string>
+    <string name="title_realm">Реалм</string>
     <string name="title_use_ip">Использовать локальный IP-адрес вместо имени хоста</string>
     <string name="title_primary_account">Основная (учётная запись по умолчанию)</string>
     <string name="title_primary_identity">Основной (идентификатор по умолчанию)</string>
@@ -626,7 +627,7 @@
     <string name="title_certificate_missing">Нет публичного ключа для %1$s</string>
     <string name="title_certificate_invalid">Публичный ключ %1$s недействителен</string>
     <string name="title_no_key">Нет приватного ключа</string>
-    <string name="title_invalid_key">Неправильный приватный ключ</string>
+    <string name="title_invalid_key">Приватный ключ недействителен</string>
     <string name="title_send_plain_text">Только простой текст</string>
     <string name="title_send_receipt">Запросить уведомление о доставке/прочтении</string>
     <string name="title_send_receipt_remark">Большинство провайдеров и клиентов электронной почты игнорируют запросы о доставке</string>

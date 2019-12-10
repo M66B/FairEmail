@@ -70,6 +70,7 @@
     <string name="title_notification_sending">İletileri gönderiliyor</string>
     <string name="title_notification_failed">\'%1$s\' başarısız oldu</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Çıkış</string>
     <string name="menu_answers">Kalıplar</string>
     <string name="menu_operations">İşlemler</string>
     <string name="menu_contacts">Yerel rehber</string>
@@ -111,7 +112,7 @@
     <string name="title_setup_other">Diğer sağlayıcı</string>
     <string name="title_setup_gmail_support">Google hesaplarını yetkilendirmek sadece resmi versiyonlarda çalışacaktır çünkü Android uygulama imzasını kontrol etmektedir</string>
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
-    <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
+    <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_drafts">Taslaklar klasörüne IMAP tarafından erişilemiyorsa, bu Gmail etiket ayarlarında düzeltilebilir</string>
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
@@ -308,7 +309,7 @@
     <string name="title_advanced_cleanup">Temizle</string>
     <string name="title_advanced_hint">Tüm seçenekler mantıklı varsayılan değerlere sahiptir ve yalnızca gerektiğinde değiştirilmelidir</string>
     <string name="title_advanced_enabled_hint">İleti alımını tamamen aç ya da kapat</string>
-    <string name="title_advanced_manual_hint">Eşitleme kapalıysa, mesaj listesini aşağı çekerek elle eşitleme hala yapılabilir. Bu eylem iletileri eşitleyecek ve işlemleri kısıtlı bir süre için uygulayacaktır.</string>
+    <string name="title_advanced_manual_hint">Senkronizasyon devre dışı bırakılmışsa, mesaj listesini aşağı çekerek manuel olarak senkronizasyon yapılabilir.</string>
     <string name="title_advanced_poll_hint">Belli aralıklarala eşitleme yerel ve uzak sunucudaki iletileri her defasında karşılaştıracak, bu da özellikle eşitlenecek ileti sayısı fazla olduğunda, fazladan pil kullanımına neden olan maliyetli bir işlem olacaktır. Sürekli eşitleme sadece değişiklikleri izleyerek bu durumu önleyecektir.</string>
     <string name="title_advanced_schedule_hint">Bir zaman ayarlamak için bir saate dokunun</string>
     <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>

@@ -289,7 +289,6 @@
     <string name="title_advanced_cleanup">Limpeza</string>
     <string name="title_advanced_hint">Todas as configurações têm valores padrão sensíveis, que devem ser alterados somente se necessário</string>
     <string name="title_advanced_enabled_hint">Globalmente desabilitar ou habilitar o recebimento de mensagens</string>
-    <string name="title_advanced_manual_hint">Se a sincronização estiver desativada, ainda é possível sincronizar manualmente, puxando a lista de mensagens. Isso irá sincronizar mensagens e executar operações por um tempo limitado.</string>
     <string name="title_advanced_poll_hint">Sincronizar periodicamente irá cada vez comparar mensagens locais e remotas, o que é uma operação pesada, possivelmente resultando em uso extra de bateria, especialmente quando há muitas mensagens para sincronizar. Sincronizar sempre evitará isso através de um acompanhamento contínuo para somente alterações.</string>
     <string name="title_advanced_schedule_hint">Toque uma vez para definir um tempo</string>
     <string name="title_advanced_check_mx">Verificar endereços de e-mail do remetente na sincronização de mensagens</string>

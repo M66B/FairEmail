@@ -13,6 +13,7 @@
     <string name="channel_update">Updates</string>
     <string name="channel_warning">Waarschuwingen</string>
     <string name="channel_error">Foutmeldingen</string>
+    <string name="channel_alert">Servermeldingen</string>
     <string name="channel_group_contacts">Contacten</string>
     <plurals name="page_conversation">
         <item quantity="one">Gesprek</item>
@@ -69,7 +70,9 @@
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_sending">Berichten verzenden</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
+    <string name="title_notification_alert">\'%1$s\' servermelding</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Afsluiten</string>
     <string name="menu_answers">Sjablonen</string>
     <string name="menu_operations">Bewerkingen</string>
     <string name="menu_contacts">Lokale contacten</string>
@@ -111,7 +114,7 @@
     <string name="title_setup_other">Andere provider</string>
     <string name="title_setup_gmail_support">Het autoriseren van Google accounts werkt alleen in officiële versies omdat Android de app handtekening controleert</string>
     <string name="title_setup_gmail_rationale">Geef a.u.b. toestemming om een account te selecteren en uw naam te lezen</string>
-    <string name="title_setup_gmail_permissions">Google zal machtigingen vragen om uw e-mail te lezen, op te stellen, te verzenden en definitief te verwijderen. FairEmail zal uw berichten nooit verwijderen zonder uw goedkeuring.</string>
+    <string name="title_setup_gmail_permissions">Google zal machtigingen vragen om al uw e-mail te lezen, op te stellen, te verzenden en definitief te verwijderen. FairEmail zal uw berichten nooit verwijderen zonder uw expliciete toestemming.</string>
     <string name="title_setup_gmail_drafts">Als de conceptmap niet toegankelijk is voor IMAP, dan kan dit worden opgelost in de Gmail label instellingen</string>
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
@@ -308,7 +311,7 @@
     <string name="title_advanced_cleanup">Opruimen</string>
     <string name="title_advanced_hint">Alle opties hebben zinnige verstekwaarden en dienen alleen gewijzigd te worden wanneer dat nodig is</string>
     <string name="title_advanced_enabled_hint">Globaal in- of uitschakelen van het ontvangen van berichten</string>
-    <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door de berichtenlijst naar beneden te trekken. Dit zal berichten synchroniseren en bewerkingen uitvoeren gedurende een beperkte tijd.</string>
+    <string name="title_advanced_manual_hint">Als synchronisatie uitgeschakeld is, is het nog steeds mogelijk om handmatig te synchroniseren door het omlaag trekken van de berichtenlijst.</string>
     <string name="title_advanced_poll_hint">Periodiek synchroniseren zal elke keer lokale en externe berichten vergelijken, wat een dure operatie is en kan resulteren in extra batterijgebruik, vooral wanneer er veel berichten zijn om te synchroniseren. Altijd synchroniseren vermijdt dit door voortdurend veranderingen te monitoren.</string>
     <string name="title_advanced_schedule_hint">Tik op een tijd om een tijd in te stellen</string>
     <string name="title_advanced_check_mx">Controleer e-mailadressen van de afzenders bij het synchroniseren van berichten</string>

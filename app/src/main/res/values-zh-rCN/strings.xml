@@ -13,6 +13,7 @@
     <string name="channel_update">更新</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
+    <string name="channel_alert">服务器警告</string>
     <string name="channel_group_contacts">联系人</string>
     <plurals name="page_conversation">
         <item quantity="other">会话</item>
@@ -58,7 +59,9 @@
     <string name="title_notification_waiting">等待网络连接</string>
     <string name="title_notification_sending">正在发送消息</string>
     <string name="title_notification_failed">\'%1$s\' 失败</string>
+    <string name="title_notification_alert">\'%1$s\' 服务器警告</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">退出</string>
     <string name="menu_answers">模板</string>
     <string name="menu_operations">操作</string>
     <string name="menu_contacts">本地联系人</string>
@@ -99,7 +102,7 @@
     <string name="title_setup_other">其他提供商</string>
     <string name="title_setup_gmail_support">授权谷歌帐户只能用于官方版本，因为Android检查应用签名</string>
     <string name="title_setup_gmail_rationale">请授予权限来选择一个帐户并读取您的姓名</string>
-    <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。未经您的批准，FairEmail永远不会删除您的邮件。</string>
+    <string name="title_setup_gmail_permissions">谷歌会请求权限来读取、撰写、发送和永久删除您所有的电子邮件。相比之下，未经您的明确同意，FairEmail永远不会删除您的邮件。</string>
     <string name="title_setup_gmail_drafts">可以借助更改 Gmail 的标签设置来修复无法通过IMAP访问草稿文件夹的问题</string>
     <string name="title_setup_select_account">选择账户</string>
     <string name="title_setup_instructions">设置指南</string>
@@ -296,7 +299,7 @@
     <string name="title_advanced_cleanup">清理</string>
     <string name="title_advanced_hint">所有选项都有合理的默认值，只有必要时才应改变</string>
     <string name="title_advanced_enabled_hint">全局禁用或启用邮件接收</string>
-    <string name="title_advanced_manual_hint">如果同步功能已禁用，仍然可以通过下拉邮件列表手动同步。这将在限定的时间内同步消息和执行操作。</string>
+    <string name="title_advanced_manual_hint">即便禁用同步，仍然可以通过下拉消息列表手动同步。</string>
     <string name="title_advanced_poll_hint">定期同步将每次都比较本地和远程消息，这是有代价的操作(更耗电)，特别是在要同步的消息很多时。而始终同步可通过持续监视变化以避免发生上述情形。</string>
     <string name="title_advanced_schedule_hint">点击“时间”选项来设置时间</string>
     <string name="title_advanced_check_mx">同步消息时检查发送者电子邮件地址</string>
@@ -358,6 +361,7 @@
     <string name="title_account_partial_fetch_hint">仅在空消息或损坏的附件时禁用此功能</string>
     <string name="title_account_signature">签名文本</string>
     <string name="title_color">颜色</string>
+    <string name="title_account_ondemand">手动同步</string>
     <string name="title_account_notify">单独的通知</string>
     <string name="title_account_left">左滑</string>
     <string name="title_account_right">右滑</string>

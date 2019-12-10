@@ -70,6 +70,7 @@
     <string name="title_notification_sending">Sender melding</string>
     <string name="title_notification_failed">\'%1$s\' mislyktes</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Avslutt</string>
     <string name="menu_answers">Maler</string>
     <string name="menu_operations">Aktiviteter</string>
     <string name="menu_contacts">Lokale kontakter</string>
@@ -111,6 +112,8 @@
     <string name="title_setup_other">Annen leverandør</string>
     <string name="title_setup_gmail_support">Å autorisere Google kontoer fungerer bare i offisielle versjoner fordi Android sjekker appens signatur</string>
     <string name="title_setup_gmail_rationale">Gi tillatelser til å velge en konto og lese navnet ditt</string>
+    <string name="title_setup_gmail_permissions">Google vil be om tillatelser til å lese, komponere, sende og slette all e-postmeldingen din permanent. FairEmail vil aldri slette meldingene dine uten ditt eksplisitte samtykke.</string>
+    <string name="title_setup_gmail_drafts">Hvis utkast mappen ikke er tilgjengelig med IMAP, kan du fikse dette i Gmail-etikettinnstillingene</string>
     <string name="title_setup_select_account">Velg konto</string>
     <string name="title_setup_instructions">Oppsett instruksjoner</string>
     <string name="title_setup_no_settings">Ingen innstillinger funnet for domene \'%1$s\'</string>
@@ -306,7 +309,7 @@
     <string name="title_advanced_cleanup">Rydd opp</string>
     <string name="title_advanced_hint">Alle alternativene har fornuftige standardverdier og bør endres når det bare er nødvendig</string>
     <string name="title_advanced_enabled_hint">Globalt deaktivere eller aktivere mottak av meldinger</string>
-    <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten. Dette vil synkronisere meldinger og utføre operasjoner i en begrenset periode.</string>
+    <string name="title_advanced_manual_hint">Hvis synkronisering er deaktivert, er det fortsatt mulig å synkronisere manuelt ved å trekke ned meldingslisten.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jevne mellomrom vil sammenligne lokale og eksterne meldinger hver gang, noe som er en kostbar operasjon som muligens resulterer i ekstra batteribruk, spesielt når det er mange meldinger å synkronisere. Alltid synkronisering vil unngå dette ved kontinuerlig overvåking for endringer.</string>
     <string name="title_advanced_schedule_hint">Trykk på en tid for å angi en tid</string>
     <string name="title_advanced_check_mx">Sjekk avsenderens e-postadresser når meldinger synkroniseres</string>
@@ -368,6 +371,7 @@
     <string name="title_account_partial_fetch_hint">Deaktiver kun dette ved tomme meldinger eller korrupte vedlegg</string>
     <string name="title_account_signature">Signaturtekst</string>
     <string name="title_color">Farge</string>
+    <string name="title_account_ondemand">Synkroniser manuelt</string>
     <string name="title_account_notify">Separate meldinger</string>
     <string name="title_account_left">Sveip mot venstre</string>
     <string name="title_account_right">Sveip mot høyre</string>
@@ -565,6 +569,7 @@
     <string name="title_cc">Kopi:</string>
     <string name="title_bcc">Blindkopi:</string>
     <string name="title_via_identity">Via:</string>
+    <string name="title_sent">Sent:</string>
     <string name="title_received">Mottatt:</string>
     <string name="title_size">Størrelse:</string>
     <string name="title_subject">Emne:</string>

@@ -296,7 +296,6 @@
     <string name="title_advanced_cleanup">Neteja</string>
     <string name="title_advanced_hint">Tots els paràmetres tenen valors per defecte raonables, que només s\'ha de modificar si es necessari</string>
     <string name="title_advanced_enabled_hint">Desactivar o habilitar la recepció de missatges globalment</string>
-    <string name="title_advanced_manual_hint">Si la sincronització està desactivada, encara es pot sincronitzar manualment desplegant la llista de missatges. Sincronitzarà els missatges i executarà operacions durant un temps limitat.</string>
     <string name="title_advanced_poll_hint">Sincronitzar periòdicament es compararà cada vegada més missatges locals i remots, la qual cosa és una operació costosa que possiblement produeixi un ús addicional de la bateria, especialment quan hi ha molts missatges per sincronitzar. Sempre la sincronització evitarà això mitjançant un control continuat només per a canvis.</string>
     <string name="title_advanced_schedule_hint">Toqueu una hora per definir-la</string>
     <string name="title_advanced_check_mx">Comproveu les adreces de correu electrònic del remitent sobre la sincronització de missatges</string>

@@ -86,6 +86,7 @@
     <string name="title_notification_sending">Odesílání zpráv</string>
     <string name="title_notification_failed">\"%1$s\" selhalo</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Ukončit</string>
     <string name="menu_answers">Šablony</string>
     <string name="menu_operations">Operace</string>
     <string name="menu_contacts">Místní kontakty</string>
@@ -127,7 +128,8 @@
     <string name="title_setup_other">Jiný poskytovatel</string>
     <string name="title_setup_gmail_support">Autorizace Google účtů funguje pouze v oficiálních verzích aplikace, neboť Android kontroluje podpis aplikace</string>
     <string name="title_setup_gmail_rationale">Pro zvolení účtu a přečtení vašeho jména prosím udělte oprávnění</string>
-    <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho souhlasu.</string>
+    <string name="title_setup_gmail_permissions">Google bude požadovat udělení oprávnění ke čtení, psaní, odesílání a trvalému odstranění všech vašich e-mailů. FairEmail nikdy neodstraní vaše zprávy bez vašeho výslovného souhlasu.</string>
+    <string name="title_setup_gmail_drafts">Není-li složka s koncepty přístupná skrze IMAP, lze to v Gmailu napravit v nastavení štítků</string>
     <string name="title_setup_select_account">Vybrat účet</string>
     <string name="title_setup_instructions">Pokyny pro nastavení</string>
     <string name="title_setup_no_settings">Pro doménu \'%1$s\' nebylo nalezeno žádné nastavení</string>
@@ -323,7 +325,7 @@
     <string name="title_advanced_cleanup">Úklid</string>
     <string name="title_advanced_hint">Všechna nastavení mají rozumné výchozí hodnoty, které by měly být měněny pouze v případě potřeby</string>
     <string name="title_advanced_enabled_hint">Globálně zakáže nebo povolí příjem zpráv</string>
-    <string name="title_advanced_manual_hint">Je-li synchronizace vypnuta, stále je možné synchronizovat ručně tažením dolů v seznamu zpráv. Po omezený čas se tak budou synchronizovat zprávy a provádět operace.</string>
+    <string name="title_advanced_manual_hint">Je-li synchronizace vypnuta, stále je možné synchronizovat ručně tažením dolů v seznamu zpráv.</string>
     <string name="title_advanced_poll_hint">Synchronizování periodicky bude pokaždé porovnávat místní a vzdálené zprávy, což je náročná operace, potencionálně vedoucí ke zvýšené spotřebě baterie, zvláště při velkém množství zpráv k synchronizaci. Synchronizování nepřetržitě tomuto předchází průběžným nasloucháním pouze změnám.</string>
     <string name="title_advanced_schedule_hint">Dotkněte se času pro jeho změnu</string>
     <string name="title_advanced_check_mx">Zkontrolovat e-mailové adresy odesílatelů při synchronizaci zpráv</string>

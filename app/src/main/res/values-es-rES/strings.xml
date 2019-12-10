@@ -70,6 +70,7 @@
     <string name="title_notification_sending">Enviando mensajes</string>
     <string name="title_notification_failed">\'%1$s\' falló</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Salir</string>
     <string name="menu_answers">Plantillas</string>
     <string name="menu_operations">Operaciones</string>
     <string name="menu_contacts">Contactos locales</string>
@@ -111,7 +112,7 @@
     <string name="title_setup_other">Otro proveedor</string>
     <string name="title_setup_gmail_support">La autorización de cuentas de Google sólo funcionará en versiones oficiales ya que Android comprueba la firma de la aplicación</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permisos para seleccionar una cuenta y leer su nombre</string>
-    <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su aprobación.</string>
+    <string name="title_setup_gmail_permissions">Google solicitará permisos para leer, redactar, enviar y eliminar permanentemente todo su correo electrónico. FairEmail nunca eliminará sus mensajes sin su consentimiento explícito.</string>
     <string name="title_setup_gmail_drafts">Si la carpeta de borradores no es accesible por IMAP, esto se puede arreglar en la configuración de etiquetas de Gmail</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
@@ -308,7 +309,7 @@
     <string name="title_advanced_cleanup">Limpieza</string>
     <string name="title_advanced_hint">Todos los ajustes tienen valores por defecto razonables, que sólo deberían cambiarse si es necesario</string>
     <string name="title_advanced_enabled_hint">Desactivar o activar globalmente la recepción de mensajes</string>
-    <string name="title_advanced_manual_hint">Si la sincronización está desactivada, todavía es posible sincronizar manualmente tirando hacia abajo de la lista de mensajes. Esto sincronizará mensajes y ejecutará operaciones por un tiempo limitado.</string>
+    <string name="title_advanced_manual_hint">Si la sincronización está desactivasa, todavía es posible sincronizar manualmente tirando hacía bajando la lista de mensajes.</string>
     <string name="title_advanced_poll_hint">Sincronizar periódicamente comparará mensajes locales y remotos cada vez, lo que es una operación costosa posiblemente resultante en un uso extra de la batería, especialmente cuando hay muchos mensajes para sincronizar. Siempre sincronizar evitará esto mediante un seguimiento continuo de los cambios solamente.</string>
     <string name="title_advanced_schedule_hint">Toque en una hora para establecer una hora</string>
     <string name="title_advanced_check_mx">Compruebe las direcciones de correo electrónico de remitentes al sincronizar mensajes</string>
@@ -370,6 +371,7 @@
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
     <string name="title_account_signature">Texto de la firma</string>
     <string name="title_color">Color</string>
+    <string name="title_account_ondemand">Sincronizar manualmente</string>
     <string name="title_account_notify">Notificaciones separadas</string>
     <string name="title_account_left">Deslizar a la izquierda</string>
     <string name="title_account_right">Deslizar hacia la derecha</string>
@@ -567,6 +569,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">CCO:</string>
     <string name="title_via_identity">Vía:</string>
+    <string name="title_sent">Enviado:</string>
     <string name="title_received">Recibido:</string>
     <string name="title_size">Tamaño:</string>
     <string name="title_subject">Asunto:</string>

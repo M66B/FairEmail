@@ -13,6 +13,7 @@
     <string name="channel_update">Mises à jour</string>
     <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
+    <string name="channel_alert">Alertes de serveur</string>
     <string name="channel_group_contacts">Contacts</string>
     <plurals name="page_conversation">
         <item quantity="one">Conversation</item>
@@ -69,7 +70,9 @@
     <string name="title_notification_waiting">En attente d\'une connexion appropriée</string>
     <string name="title_notification_sending">Envoi des messages en cours</string>
     <string name="title_notification_failed">\'%1$s\' a échoué</string>
+    <string name="title_notification_alert">Alerte serveur \'%1$s\'</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Quitter</string>
     <string name="menu_answers">Modèles</string>
     <string name="menu_operations">Opérations</string>
     <string name="menu_contacts">Contacts locaux</string>
@@ -308,7 +311,7 @@
     <string name="title_advanced_cleanup">Nettoyage</string>
     <string name="title_advanced_hint">Toutes les options ont des valeurs par défaut raisonnables et ne doivent être modifiées que lorsque cela est nécessaire</string>
     <string name="title_advanced_enabled_hint">Désactiver ou activer globalement la réception de messages</string>
-    <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant vers le bas la liste des messages. Ceci synchronisera les messages et exécutera les opérations pendant une durée limitée.</string>
+    <string name="title_advanced_manual_hint">Si la synchronisation est désactivée, il est toujours possible de synchroniser manuellement en tirant la liste des messages vers le bas.</string>
     <string name="title_advanced_poll_hint">La synchronisation périodique comparera les messages locaux et distants à chaque fois, ce qui est une opération coûteuse qui peut entraîner une utilisation supplémentaire de la batterie, surtout lorsqu\'il y a beaucoup de messages à synchroniser. La synchronisation en continu évitera cela en surveillant uniquement les changements.</string>
     <string name="title_advanced_schedule_hint">Appuyez sur une heure pour définir une période</string>
     <string name="title_advanced_check_mx">Vérifier l\'adresse mail de l\'expéditeur lors de la synchronisation des messages</string>
@@ -884,8 +887,8 @@
     <string name="title_search_special_prefix">spécial</string>
     <string name="title_search_special_unseen">non_lus</string>
     <string name="title_search_special_flagged">suivis</string>
-    <string name="title_search_special_snoozed">masqué</string>
-    <string name="title_search_special_encrypted">chiffré</string>
+    <string name="title_search_special_snoozed">masqués</string>
+    <string name="title_search_special_encrypted">chiffrés</string>
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
     <string name="title_widget_title_list">Liste des messages</string>
     <string name="title_widget_account">Compte</string>

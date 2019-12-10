@@ -277,7 +277,6 @@
     <string name="title_advanced_debug">Felsökningsläge</string>
     <string name="title_advanced_cleanup">Rensa</string>
     <string name="title_advanced_enabled_hint">Globalt inaktivera eller aktivera mottagning av meddelanden</string>
-    <string name="title_advanced_manual_hint">Om synkroniseringen är inaktiverad är det fortfarande möjligt att synkronisera manuellt genom att dra ner meddelandelistan. Detta synkroniserar meddelanden och utför operationer under en begränsad tid.</string>
     <string name="title_advanced_poll_hint">Synkronisering med jämna mellanrum kommer att jämföra lokala och fjärrmeddelanden varje gång, vilket är en dyr operation som eventuellt resulterar i extra batterianvändning, speciellt när det finns många meddelanden att synkronisera. Kontinuerlig synkronisering kommer att undvika detta genom kontinuerlig övervakning endast för ändringar.</string>
     <string name="title_advanced_schedule_hint">Tryck på en tid för att ställa in en tid</string>
     <string name="title_advanced_check_mx">Kontrollera avsändarens e-postadresser vid synkronisering av meddelanden</string>

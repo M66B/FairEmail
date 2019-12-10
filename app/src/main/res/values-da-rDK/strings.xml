@@ -70,6 +70,7 @@
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Afslut</string>
     <string name="menu_answers">Skabeloner</string>
     <string name="menu_operations">Operationer</string>
     <string name="menu_contacts">Lokale kontakter</string>
@@ -110,6 +111,8 @@
     <string name="title_setup_other">Anden udbyder</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i officielle versioner, da Android tjekker app-signaturen</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
+    <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
+    <string name="title_setup_gmail_drafts">Er kladdermappen ikke er tilgængelig med IMAP, kan dette rettes i Gmail-etiketindstillingerne</string>
     <string name="title_setup_select_account">Vælg konto</string>
     <string name="title_setup_instructions">Opsætningsinstruktioner</string>
     <string name="title_setup_no_settings">Ingen indstillinger fundet for domænet \'%1$s\'</string>
@@ -305,7 +308,7 @@
     <string name="title_advanced_cleanup">Oprydning</string>
     <string name="title_advanced_hint">Alle indstillinger har formålstjenelige standarder og bør kun ændres, hvis nødvendigt</string>
     <string name="title_advanced_enabled_hint">Deaktivér/aktivér global modtagelse af beskeder</string>
-    <string name="title_advanced_manual_hint">Er synkronisering deaktiveret, kan der stadig synkroniseres manuelt ved at trække ned i beskedlisten. Dette vil i en begrænset tidsperiode synkronisere beskeder samt eksekvere operationer.</string>
+    <string name="title_advanced_manual_hint">Er synkronisering deaktiveret, er det stadig muligt at synkronisere manuelt ved at trække beskedlisten ned.</string>
     <string name="title_advanced_poll_hint">Periodisk synkronisering vil hver gang sammenligne lokale og fjernplacerede beskeder, hvilket koster en del resssourcer, herunder et muligt ekstra strømforbrug, især hvis der er mange beskeder at synkronisere. Kontinuerlig synkronisering undgår dette ved løbende kun at tjekke for ændringer.</string>
     <string name="title_advanced_schedule_hint">Tryk på et tidspunkt for at angive et tidspunkt</string>
     <string name="title_advanced_check_mx">Tjek afsenderadresser ved beskedsynkroniseringer</string>
@@ -367,6 +370,7 @@
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
     <string name="title_account_signature">Signaturtekst</string>
     <string name="title_color">Farve</string>
+    <string name="title_account_ondemand">Synkronisér manuelt</string>
     <string name="title_account_notify">Separate notifikationer</string>
     <string name="title_account_left">Stryg til venstre</string>
     <string name="title_account_right">Stryg til højre</string>
@@ -564,6 +568,7 @@
     <string name="title_cc">Cc:</string>
     <string name="title_bcc">Bcc:</string>
     <string name="title_via_identity">Via:</string>
+    <string name="title_sent">Sendt:</string>
     <string name="title_received">Modtaget:</string>
     <string name="title_size">Størrelse:</string>
     <string name="title_subject">Emne:</string>

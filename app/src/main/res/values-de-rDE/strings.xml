@@ -13,6 +13,7 @@
     <string name="channel_update">Aktualisierungen</string>
     <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
+    <string name="channel_alert">Serverbenachrichtigungen</string>
     <string name="channel_group_contacts">Kontakte</string>
     <plurals name="page_conversation">
         <item quantity="one">Unterhaltung</item>
@@ -69,6 +70,7 @@
     <string name="title_notification_waiting">Warte auf eine geeignete Verbindung</string>
     <string name="title_notification_sending">Nachrichten werden gesendet</string>
     <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
+    <string name="title_notification_alert">\'%1$s\' Server-Warnung</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
@@ -110,7 +112,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_setup_other">Anderer Anbieter</string>
     <string name="title_setup_gmail_support">Die Autorisierung von Google-Konten funktioniert nur in offiziellen Versionen, weil Android die App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
-    <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre Zustimmung.</string>
+    <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre explizite Zustimmung.</string>
     <string name="title_setup_gmail_drafts">Wenn der Entwürfe-Ordner für IMAP nicht zugänglich ist, kann dies in den Google Mail-Label-Einstellungen korrigiert werden</string>
     <string name="title_setup_select_account">Konto wählen</string>
     <string name="title_setup_instructions">Einrichtungsanleitung</string>
@@ -307,7 +309,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_advanced_cleanup">Bereinigen</string>
     <string name="title_advanced_hint">Alle Einstellungen haben vernünftige Standardwerte, die nur dann geändert werden sollten, wenn es tatsächlich auch notwendig ist</string>
     <string name="title_advanced_enabled_hint">Empfang von Nachrichten für alle Konten deaktivieren oder aktivieren</string>
-    <string name="title_advanced_manual_hint">Wenn die Synchronisation deaktiviert ist, ist es weiterhin möglich, die Synchronisation manuell durchzuführen, indem Sie die Nachrichtenliste herunterziehen. Dadurch werden Nachrichten synchronisiert und Operationen für eine begrenzte Zeit ausgeführt.</string>
+    <string name="title_advanced_manual_hint">Wenn die Synchronisation deaktiviert ist, ist es immer noch möglich, manuell zu synchronisieren, indem Sie die Nachrichtenliste herunterziehen.</string>
     <string name="title_advanced_poll_hint">Die regelmäßige Synchronisation vergleicht jedes Mal lokale und entfernte Nachrichten, was ein aufwendiger Vorgang ist, der möglicherweise zu einem zusätzlichen Batterieverbrauch führt, besonders wenn es viele zu synchronisierende Nachrichten gibt. Durch die ständige Synchronisation wird dies vermieden, indem man ständig nur auf Änderungen achtet.</string>
     <string name="title_advanced_schedule_hint">Tippe auf eine Zeit, um eine Zeit zu setzen</string>
     <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen bei Synchronisierung von Nachrichten</string>
@@ -369,6 +371,7 @@ Konten und Identitäten (Aliase) können bei Bedarf auch manuell eingerichtet we
     <string name="title_account_partial_fetch_hint">Deaktivieren Sie dies nur bei Nachrichten ohne Inhalt oder beschädigten Anhängen</string>
     <string name="title_account_signature">Signaturtext</string>
     <string name="title_color">Farbe</string>
+    <string name="title_account_ondemand">Manuell synchronisieren</string>
     <string name="title_account_notify">Separate Benachrichtigungen</string>
     <string name="title_account_left">Nach links wischen</string>
     <string name="title_account_right">Nach rechts wischen</string>

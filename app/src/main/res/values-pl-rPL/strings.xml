@@ -133,6 +133,8 @@
     <string name="title_setup_other">Inny dostawca</string>
     <string name="title_setup_gmail_support">Autoryzacja kont Google będzie działać tylko w oficjalnych wersjach, ponieważ system Android sprawdza podpis aplikacji</string>
     <string name="title_setup_gmail_rationale">Przyznaj uprawnienia, aby wybrać konto i odczytać swoje imię</string>
+    <string name="title_setup_gmail_permissions">Google poprosi o uprawnienia do odczytu, tworzenia, wysyłania i trwałego usuwania wszystkich wiadomości e-mail. FairEmail nigdy nie usunie twoich wiadomości bez Twojej wyraźnej zgody.</string>
+    <string name="title_setup_gmail_drafts">Jeśli folder wersji roboczych nie jest dostępny przez IMAP, można to naprawić w ustawieniach etykiety Gmail</string>
     <string name="title_setup_select_account">Wybierz konto</string>
     <string name="title_setup_instructions">Instrukcja konfiguracji</string>
     <string name="title_setup_no_settings">Nie ma ustawień dla domeny \'%1$s\'</string>
@@ -328,7 +330,6 @@
     <string name="title_advanced_cleanup">Oczyszczanie</string>
     <string name="title_advanced_hint">Wszystkie ustawienia mają wrażliwe wartości domyślne, które należy zmieniać tylko w razie potrzeby</string>
     <string name="title_advanced_enabled_hint">Globalnie wyłącz lub włącz odbieranie wiadomości</string>
-    <string name="title_advanced_manual_hint">Jeśli synchronizacja jest wyłączona, nadal istnieje możliwość ręcznej synchronizacji poprzez pociągnięcie w dół listy wiadomości. Spowoduje to synchronizację wiadomości i wykonywanie operacji przez ograniczony czas.</string>
     <string name="title_advanced_poll_hint">Synchronizacja okresowa za każdym razem porównuje wiadomości lokalne i zdalne, co jest kosztowną operacją, która może prowadzić do dodatkowego zużycia baterii, zwłaszcza gdy jest wiele wiadomości do synchronizacji. Synchronizacja ciągła pozwoli uniknąć tego poprzez stałe monitorowanie tylko zmian.</string>
     <string name="title_advanced_schedule_hint">Dotknij zegara, aby ustawić czas</string>
     <string name="title_advanced_check_mx">Sprawdź adresy e-mail nadawcy przy synchronizowaniu wiadomości</string>
@@ -390,6 +391,7 @@
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
     <string name="title_account_signature">Tekst podpisu</string>
     <string name="title_color">Kolor</string>
+    <string name="title_account_ondemand">Synchronizuj ręcznie</string>
     <string name="title_account_notify">Oddzielne powiadomienia</string>
     <string name="title_account_left">Przesuń w lewo</string>
     <string name="title_account_right">Przesuń w prawo</string>
@@ -587,6 +589,7 @@
     <string name="title_cc">DW:</string>
     <string name="title_bcc">UDW:</string>
     <string name="title_via_identity">Przez:</string>
+    <string name="title_sent">Wysłano:</string>
     <string name="title_received">Odebrano:</string>
     <string name="title_size">Rozmiar:</string>
     <string name="title_subject">Temat:</string>

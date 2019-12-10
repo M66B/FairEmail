@@ -288,7 +288,6 @@
     <string name="title_advanced_cleanup">クリーンアップ</string>
     <string name="title_advanced_hint">全ての設定には適切なデフォルト値があり、必要な場合にのみ変更する必要があります</string>
     <string name="title_advanced_enabled_hint">メッセージのグローバルな無効または有効にします</string>
-    <string name="title_advanced_manual_hint">同期が無効になっている場合でも、メッセージリストをプルダウンして手動で同期することは可能です。 メッセージが同期され、限られた時間だけ操作が実行されます。</string>
     <string name="title_advanced_poll_hint">定期的に同期は、ローカルメッセージとリモートメッセージが毎回比較されます。特に、同期するメッセージが多くある場合、電池消費が増える可能性がある負荷のかかる操作です。 常に同期は、変更のみを継続的に監視するのでこれを回避できます。</string>
     <string name="title_advanced_schedule_hint">時間をタップして時間を設定</string>
     <string name="title_advanced_check_mx">メッセージの同期時に送信者のメールアドレスを確認</string>

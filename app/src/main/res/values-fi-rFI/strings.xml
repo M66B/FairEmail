@@ -13,6 +13,7 @@
     <string name="channel_update">Päivitykset</string>
     <string name="channel_warning">Varoitukset</string>
     <string name="channel_error">Virheet</string>
+    <string name="channel_alert">Palvelimen hälytykset</string>
     <string name="channel_group_contacts">Yhteystiedot</string>
     <plurals name="page_conversation">
         <item quantity="one">Keskustelu</item>
@@ -69,7 +70,9 @@
     <string name="title_notification_waiting">Odotetaan sopivaa yhteyttä</string>
     <string name="title_notification_sending">Lähetetään viestejä</string>
     <string name="title_notification_failed">\'%1$s\' epäonnistui</string>
+    <string name="title_notification_alert">Palvelimen \'%1$s\' hälytys</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Poistu</string>
     <string name="menu_answers">Viestipohjat</string>
     <string name="menu_operations">Toimenpiteet</string>
     <string name="menu_contacts">Paikalliset yhteystiedot</string>
@@ -111,6 +114,7 @@
     <string name="title_setup_other">Muu palveluntarjoaja</string>
     <string name="title_setup_gmail_support">Google-tilien vahvistaminen toimii vain virallisissa versioissa, koska Android tarkistaa sovelluksen allekirjoituksen</string>
     <string name="title_setup_gmail_rationale">Ole hyvä ja myönnä oikeudet, että tili voidaan valita ja nimesi voidaan lukea</string>
+    <string name="title_setup_gmail_permissions">Google kysyy oikeuksia lukea, kirjoittaa, lähettää ja poistaa viestejäsi pysyvästi. FairEmail ei koskaan poista viestejäsi ilman yksiselitteistä hyväksyntääsi.</string>
     <string name="title_setup_gmail_drafts">Jos luonnokset-kansio ei ole IMAP:lla saatavilla, asia voidaan korjata Gmailin tunnisteiden asetuksissa</string>
     <string name="title_setup_select_account">Valitse tili</string>
     <string name="title_setup_instructions">Asetusohjeet</string>
@@ -307,7 +311,7 @@
     <string name="title_advanced_cleanup">Siistiminen</string>
     <string name="title_advanced_hint">Kaikilla asetuksilla on järkevät oletusarvot ja niitä tulisi muuttaa vain tarvittaessa</string>
     <string name="title_advanced_enabled_hint">Estä tai salli viestien vastaanotto globaalisti</string>
-    <string name="title_advanced_manual_hint">Vaikka synkronointi on pois käytöstä, on mahdollista synkronoida manuaalisesti vetämällä alaspäin viestilistassa. Tämä synkronoi viestit ja suorittaa toimenpiteet.</string>
+    <string name="title_advanced_manual_hint">Jos automaattinen synkronointi on pois käytöstä, synkronoinnin voi tehdä manuaalisesti vetämällä alaspäin viestilistassa.</string>
     <string name="title_advanced_poll_hint">Ajoittainen synkronointi vertaa paikallisia ja palvelimen viestejä joka kerta ja voi aiheuttaa ylimääräistä akun käyttöä varsinkin, kun synkronoitavia viestejä on paljon. Koko ajan synkronointi välttää tämän synkronoimalla jatkuvasti vain muutokset.</string>
     <string name="title_advanced_schedule_hint">Napauta aikaa asettaaksesi sen</string>
     <string name="title_advanced_check_mx">Tarkista lähettäjien sähköpostiosoitteet viestejä synkronoitaessa</string>
@@ -369,6 +373,7 @@
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
     <string name="title_account_signature">Allekirjoituksen teksti</string>
     <string name="title_color">Väri</string>
+    <string name="title_account_ondemand">Synkronoi manuaalisesti</string>
     <string name="title_account_notify">Erilliset ilmoitukset</string>
     <string name="title_account_left">Pyyhkäisy vasemmalle</string>
     <string name="title_account_right">Pyyhkäisy oikealle</string>

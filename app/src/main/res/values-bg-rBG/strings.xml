@@ -70,6 +70,7 @@
     <string name="title_notification_sending">Изпращане на съобщения</string>
     <string name="title_notification_failed">%1$s се провали</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Изход</string>
     <string name="menu_answers">Шаблони</string>
     <string name="menu_operations">Процеси</string>
     <string name="menu_contacts">Локални контакти</string>
@@ -111,6 +112,8 @@
     <string name="title_setup_other">Друг доставчик</string>
     <string name="title_setup_gmail_support">Ауторизацията на профила в Google работи само в официални версии, защото Android проверява подписа на приложението</string>
     <string name="title_setup_gmail_rationale">Моля, дайте разрешения за избор на профил</string>
+    <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
+    <string name="title_setup_gmail_drafts">Ако папката за чернови не е достъпна от IMAP, това може да бъде коригирано в настройките на етикета на Gmail</string>
     <string name="title_setup_select_account">Изберане на профил</string>
     <string name="title_setup_instructions">Инструкции за настройка</string>
     <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
@@ -306,7 +309,7 @@
     <string name="title_advanced_cleanup">Почистване</string>
     <string name="title_advanced_hint">Всички настройки имат нормални стойности по подразбиране, които трябва да се променят само ако е необходимо</string>
     <string name="title_advanced_enabled_hint">Глобално активира или деактивира получаването на съобщения</string>
-    <string name="title_advanced_manual_hint">Ако синхронизирането е деактивирано, все още е възможно да се синхронизира ръчно чрез издърпване надолу на списъка със съобщения. Това ще синхронизира съобщенията и ще изпълнява операциите за известно време.</string>
+    <string name="title_advanced_manual_hint">Ако синхронизирането е деактивирано, все още е възможно да се синхронизира ръчно чрез изтегляне на списъка със съобщения.</string>
     <string name="title_advanced_poll_hint">Периодичното синхронизиране ще сравнява всеки път локални и отдалечени съобщения, което е скъпа операция, която евентуално води до допълнително използване на батерията, особено когато има много съобщения за синхронизиране. Постоянната синхронизация ще избегне това като наблюдава само за промени.</string>
     <string name="title_advanced_schedule_hint">Докосни за настройка</string>
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
@@ -368,6 +371,7 @@
     <string name="title_account_partial_fetch_hint">Деактивирайте това само в случай на празни съобщения или повредени прикачени файлове</string>
     <string name="title_account_signature">Текст на подписа</string>
     <string name="title_color">Цвят</string>
+    <string name="title_account_ondemand">Синхронизирай ръчно</string>
     <string name="title_account_notify">Отделни известявания</string>
     <string name="title_account_left">Плъзгане на ляво</string>
     <string name="title_account_right">Плъзгане на дясно</string>
@@ -565,6 +569,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">През:</string>
+    <string name="title_sent">Изпратени:</string>
     <string name="title_received">Получаване:</string>
     <string name="title_size">Размер:</string>
     <string name="title_subject">Тема:</string>

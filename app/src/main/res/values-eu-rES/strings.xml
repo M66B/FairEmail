@@ -70,6 +70,7 @@
     <string name="title_notification_sending">Mezuak bidaltzen</string>
     <string name="title_notification_failed">%1$s(e)k huts egin du</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Irten</string>
     <string name="menu_answers">Txantiloiak</string>
     <string name="menu_operations">Eragiketak</string>
     <string name="menu_contacts">Kontaktu lokalak</string>
@@ -111,6 +112,8 @@
     <string name="title_setup_other">Beste hornitzaile bat</string>
     <string name="title_setup_gmail_support">Google kontuak autorizatzea bertsio ofizialetan besterik ez dabil Androidek aplikazioaren sinadura egiaztatzen duelako</string>
     <string name="title_setup_gmail_rationale">Eman baimena kontu bat aukeratu eta zure izena irakurtzeko</string>
+    <string name="title_setup_gmail_permissions">Google-k zure posta elektronikoa irakurri, konposatu, bidali eta ezabatzeko baimenak eskatuko ditu. FairEmail-ek ez ditu zure mezuak ezabatuko baimen espliziturik gabe.</string>
+    <string name="title_setup_gmail_drafts">Zirriborroen karpeta IMAP bidez eskuragarri ez badago, Gmailen etiketen ezarpenetan konpondu daiteke</string>
     <string name="title_setup_select_account">Hautatu kontua</string>
     <string name="title_setup_instructions">Ezartzeko argibideak</string>
     <string name="title_setup_no_settings">Ez da \'%1$s\' domeinuarentzat ezarpenik aurkitu</string>
@@ -306,7 +309,7 @@
     <string name="title_advanced_cleanup">Garbiketa</string>
     <string name="title_advanced_hint">Ezarpen guztiek balio lehenetsiak dituzte, beharrezkoa izanez gero soilik aldatu beharko lirateke</string>
     <string name="title_advanced_enabled_hint">Ezgaitu edo gaitu mezuak jasotzea orokorrean</string>
-    <string name="title_advanced_manual_hint">Sinkronizazioa desgaituta badago, mezuen zerrendatik behera tiraka eskuz sinkroniza daiteke. Honek mezuak sinkronizatu eta eragiketak exekutatuko ditu denbora mugatu batez.</string>
+    <string name="title_advanced_manual_hint">Sinkronizazioa desgaituta badago, mezuen zerrendatik behera tiraka eskuz sinkroniza daiteke.</string>
     <string name="title_advanced_poll_hint">Aldizka sinkronizatzeak tokiko eta urruneko mezuak konparatuko ditu behin eta berriz, hau da, eragiketa neketsua izanik bateriaren gehiegizko erabilera eragin dezake, batez ere sinkronizatzeko mezu asko daudenean. Sinkronizazioak hau saihestuko du aldaketak bakarrik monitorizatuz.</string>
     <string name="title_advanced_schedule_hint">Sakatu orduren batean ordua ezartzeko</string>
     <string name="title_advanced_check_mx">Egiaztatu bidaltzailearen helbide elektronikoak mezuak sinkronizatzean</string>
@@ -368,6 +371,7 @@
     <string name="title_account_partial_fetch_hint">Ezgaitu hau mezu hutsak edo eranskinak hondatuta badaude</string>
     <string name="title_account_signature">Sinaduraren testua</string>
     <string name="title_color">Kolorea</string>
+    <string name="title_account_ondemand">Sinkronizatu eskuz</string>
     <string name="title_account_notify">Banatutako jakinarazpenak</string>
     <string name="title_account_left">Pasatu hatza ezkerrera</string>
     <string name="title_account_right">Pasatu hatza eskumara</string>
@@ -565,6 +569,7 @@
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
     <string name="title_via_identity">Honen bidez:</string>
+    <string name="title_sent">Bidalita:</string>
     <string name="title_received">Jasota:</string>
     <string name="title_size">Tamaina:</string>
     <string name="title_subject">Mintzagaia:</string>
