@@ -586,7 +586,7 @@ You'll need to install and configure [OpenKeychain](https://f-droid.org/en/packa
 
 FairEmail will send the [Autocrypt](https://autocrypt.org/) headers for use by other email clients.
 
-Inline encrypted PGP in received messages is supported, but inline PGP in outgoing messages is not supported,
+Inline encrypted PGP in received messages is supported, but inline PGP signatures and inline PGP in outgoing messages is not supported,
 see [here](https://josefsson.org/inline-openpgp-considered-harmful.html) about why not.
 
 Signed-only or encrypted-only messages are not a good idea, please see here about why not:
