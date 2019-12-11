@@ -13,6 +13,7 @@
     <string name="channel_update">Opdateringer</string>
     <string name="channel_warning">Advarsler</string>
     <string name="channel_error">Fejl</string>
+    <string name="channel_alert">Serveradvarsler</string>
     <string name="channel_group_contacts">Kontakter</string>
     <plurals name="page_conversation">
         <item quantity="one">Samtale</item>
@@ -69,6 +70,7 @@
     <string name="title_notification_waiting">Afventer en passende forbindelse</string>
     <string name="title_notification_sending">Sender beskeder</string>
     <string name="title_notification_failed">\'%1$s\' mislykkedes</string>
+    <string name="title_notification_alert">\'%1$s\'-serveradvarsel</string>
     <string name="title_name_count">%1$s (%2$s)</string>
     <string name="menu_exit">Afslut</string>
     <string name="menu_answers">Skabeloner</string>

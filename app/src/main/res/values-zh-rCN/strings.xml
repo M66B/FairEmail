@@ -469,6 +469,7 @@
     <string name="title_no_folders">无文件夹</string>
     <string name="title_no_messages">没有邮件</string>
     <string name="title_filters_active">一个或多个过滤器已启用</string>
+    <string name="title_duplicate_in">%1$s 中的重复消息</string>
     <string name="title_subject_reply">回复：%1$s</string>
     <string name="title_subject_forward">转发：%1$s</string>
     <string name="title_seen">标记为已读</string>
