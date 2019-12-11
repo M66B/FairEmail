@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2019 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -118,8 +119,32 @@ public class FragmentLogs extends FragmentBase {
                 item.setChecked(autoScroll);
                 return true;
 
+            case R.id.menu_clear:
+                onMenuClear();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onMenuClear() {
+        Bundle args = new Bundle();
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+
+                db.log().deleteLogs(new Date().getTime());
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "log:clear");
     }
 }

@@ -991,6 +991,7 @@
     <string name="title_unexpected_error">Unexpected error</string>
     <string name="title_log">Log</string>
     <string name="title_auto_scroll">Auto scroll</string>
+    <string name="title_log_clear">Clear</string>
     <string name="title_debug_info">Debug info</string>
     <string name="title_debug_info_remark">Please describe the problem and indicate the time of the problem:</string>
     <string name="title_crash_info_remark">Please describe what you were doing when the app crashed:</string>
