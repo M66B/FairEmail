@@ -89,7 +89,7 @@ public class MailService implements AutoCloseable {
             Log.i("Using SOCKS proxy=" + host + ":" + port);
         }
 
-        properties.put("mail.event.scope", "session");
+        properties.put("mail.event.scope", "folder");
         properties.put("mail.event.executor", executor);
 
         properties.put("mail." + protocol + ".sasl.realm", realm == null ? "" : realm);
