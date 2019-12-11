@@ -95,6 +95,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private int lastAccounts = 0;
     private int lastOperations = 0;
 
+    private static final long SERVICE_YIELD = 5000; // milliseconds
     private static final int CONNECT_BACKOFF_START = 8; // seconds
     private static final int CONNECT_BACKOFF_MAX = 64; // seconds (totally 2 minutes)
     private static final int CONNECT_BACKOFF_AlARM = 15; // minutes
@@ -116,6 +117,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     static final int PI_ALARM = 1;
     static final int PI_WAKEUP = 2;
 
+    private PowerManager.WakeLock wlService;
     private MutableLiveData<ConnectionHelper.NetworkState> liveNetworkState = new MutableLiveData<>();
     private MutableLiveData<List<TupleAccountState>> liveAccountState = new MutableLiveData<>();
     private MediatorState liveAccountNetworkState = new MediatorState();
@@ -218,6 +220,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         registerReceiver(connectionChangedReceiver, iif);
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
 
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wlService = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, BuildConfig.APPLICATION_ID + ":service");
+
         DB db = DB.getInstance(this);
 
         db.account().liveAccountState().observe(this, new Observer<List<TupleAccountState>>() {
@@ -293,9 +298,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                     break;
                                 case "wakeup":
                                     if (state == null)
-                                        Log.w("### wakeup without state");
+                                        EntityLog.log(ServiceSynchronize.this, "### wakeup without state");
                                     else {
-                                        Log.i("### waking up " + current);
+                                        EntityLog.log(ServiceSynchronize.this, "### waking up " + current);
                                         state.release();
                                     }
                                     break;
@@ -626,6 +631,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        // Allow updating account state
+        wlService.acquire(SERVICE_YIELD);
+
         String action = (intent == null ? null : intent.getAction());
         String reason = (intent == null ? null : intent.getStringExtra("reason"));
         EntityLog.log(ServiceSynchronize.this, "### Service command " + intent +
@@ -1230,7 +1238,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                             try {
                                 wlAccount.release();
                                 state.acquire(2 * duration);
-                                Log.i("### " + account.name + " keeping alive");
+                                EntityLog.log(this, "### " + account.name + " keeping alive");
                             } catch (InterruptedException ex) {
                                 EntityLog.log(this, account.name + " waited state=" + state);
                             } finally {
