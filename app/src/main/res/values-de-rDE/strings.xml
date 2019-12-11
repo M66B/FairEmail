@@ -72,6 +72,7 @@
     <string name="title_notification_failed">„%1$s” fehlgeschlagen</string>
     <string name="title_notification_alert">\'%1$s\' Server-Warnung</string>
     <string name="title_name_count">%1$s (%2$s)</string>
+    <string name="menu_exit">Beenden</string>
     <string name="menu_answers">Vorlagen</string>
     <string name="menu_operations">Vorgänge</string>
     <string name="menu_contacts">Lokale Kontakte</string>

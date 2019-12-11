@@ -878,6 +878,7 @@
     <string name="title_unexpected_error">Onverwachte fout</string>
     <string name="title_log">Logboek</string>
     <string name="title_auto_scroll">Automatisch scrollen</string>
+    <string name="title_log_clear">Wissen</string>
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
