@@ -3597,10 +3597,13 @@ public class FragmentCompose extends FragmentBase {
 
             ServiceSynchronize.eval(context, "compose/action");
 
-            if (action == R.id.action_send && draft.ui_snoozed != null) {
-                Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
-                EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
-            }
+            if (action == R.id.action_send)
+                if (draft.ui_snoozed == null)
+                    ServiceSend.start(context);
+                else {
+                    Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
+                    EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
+                }
 
             return draft;
         }
