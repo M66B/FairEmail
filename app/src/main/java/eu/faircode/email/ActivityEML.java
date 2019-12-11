@@ -54,6 +54,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
 import java.util.List;
 import java.util.Properties;
 
@@ -75,8 +76,12 @@ public class ActivityEML extends ActivityBase {
         getSupportActionBar().setSubtitle("EML");
         setContentView(R.layout.activity_eml);
 
-        final TextView tvTo = findViewById(R.id.tvTo);
         final TextView tvFrom = findViewById(R.id.tvFrom);
+        final TextView tvTo = findViewById(R.id.tvTo);
+        final TextView tvReplyTo = findViewById(R.id.tvReplyTo);
+        final TextView tvCc = findViewById(R.id.tvCc);
+        final TextView tvSent = findViewById(R.id.tvSent);
+        final TextView tvReceived = findViewById(R.id.tvReceived);
         final TextView tvSubject = findViewById(R.id.tvSubject);
         final View vSeparatorAttachments = findViewById(R.id.vSeparatorAttachments);
         final RecyclerView rvAttachment = findViewById(R.id.rvAttachment);
@@ -133,6 +138,10 @@ public class ActivityEML extends ActivityBase {
 
                     result.from = MessageHelper.formatAddresses(helper.getFrom());
                     result.to = MessageHelper.formatAddresses(helper.getTo());
+                    result.replyTo = MessageHelper.formatAddresses(helper.getReply());
+                    result.cc = MessageHelper.formatAddresses(helper.getCc());
+                    result.sent = helper.getSent();
+                    result.received = helper.getReceived();
                     result.subject = helper.getSubject();
                     result.parts = helper.getMessageParts(context);
 
@@ -148,8 +157,14 @@ public class ActivityEML extends ActivityBase {
 
             @Override
             protected void onExecuted(Bundle args, Result result) {
+                DateFormat DTF = Helper.getDateTimeInstance(ActivityEML.this);
+
                 tvFrom.setText(result.from);
                 tvTo.setText(result.to);
+                tvReplyTo.setText(result.replyTo);
+                tvCc.setText(result.cc);
+                tvSent.setText(result.sent == null ? null : DTF.format(result.sent));
+                tvReceived.setText(result.received == null ? null : DTF.format(result.received));
                 tvSubject.setText(result.subject);
 
                 vSeparatorAttachments.setVisibility(result.parts.getAttachmentParts().size() > 0 ? View.VISIBLE : View.GONE);
@@ -386,6 +401,10 @@ public class ActivityEML extends ActivityBase {
     private class Result {
         String from;
         String to;
+        String replyTo;
+        String cc;
+        Long sent;
+        Long received;
         String subject;
         MessageHelper.MessageParts parts;
         Spanned body;

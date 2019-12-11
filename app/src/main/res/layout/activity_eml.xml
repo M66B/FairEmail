@@ -82,6 +82,94 @@
                 app:layout_constraintTop_toBottomOf="@id/tvFrom" />
 
             <TextView
+                android:id="@+id/tvReplyToTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_reply_to"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+            <TextView
+                android:id="@+id/tvReplyTo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Reply to"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvReplyToTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvTo" />
+
+            <TextView
+                android:id="@+id/tvCcTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_cc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+            <TextView
+                android:id="@+id/tvCc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Cc"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvCcTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvReplyTo" />
+
+            <TextView
+                android:id="@+id/tvSentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_sent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+            <TextView
+                android:id="@+id/tvSent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Sent"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvSentTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvCc" />
+
+            <TextView
+                android:id="@+id/tvReceivedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_received"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSent" />
+
+            <TextView
+                android:id="@+id/tvReceived"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Received"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvReceivedTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvSent" />
+
+            <TextView
                 android:id="@+id/tvSubject"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -91,7 +179,7 @@
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTo" />
+                app:layout_constraintTop_toBottomOf="@id/tvReceived" />
 
             <View
                 android:id="@+id/vSeparatorAttachments"
@@ -139,8 +227,13 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="
-                    vSeparatorHeader,tvFromTitle,tvFrom,
+                    vSeparatorHeader,
+                    tvFromTitle,tvFrom,
                     tvToTitle,tvTo,
+                    tvReplyToTitle,tvReplyTo,
+                    tvCcTitle,tvCc,
+                    tvSentTitle,tvSent,
+                    tvReceivedTitle,tvReceived,
                     tvSubject,
                     rvAttachment,
                     vSeparatorBody,tvBody" />
